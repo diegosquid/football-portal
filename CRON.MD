@@ -501,28 +501,73 @@ TODO artigo DEVE ter uma imagem no frontmatter. Nunca deixar o campo `image` vaz
 
 ### 8.6.2 Fontes de Imagens (ordem de preferencia)
 
-1. **Unsplash** (gratuito, alta qualidade) - URL direta com parametros
-2. **Pexels** (gratuito, alternativa ao Unsplash)
-3. **Pixabay** (gratuito, boa para esportes)
-4. **Site oficial do clube/jogador** (quando disponivel e permitido)
+**FONTES CONFIÁVEIS COM URLs ESTÁVEIS:**
+
+1. **Wikimedia Commons** (GRATUITO, DOMÍNIO PÚBLICO/CC)
+   - Melhor para: fotos oficiais de jogadores famosos, imagens históricas
+   - URL: `https://upload.wikimedia.org/wikipedia/commons/...`
+   - Vantagem: URLs permanentes, licença clara, fotos reais dos jogadores
+   - Exemplo: Antoine Griezmann, Messi, Neymar, etc.
+
+2. **Flickr Creative Commons** (GRATUITO, CC LICENSES)
+   - Melhor para: fotos de estádios, torcidas, momentos únicos
+   - URL: `https://live.staticflickr.com/...`
+   - Vantagem: variedade de ângulos, fotos de jogo reais
+   - Atenção: verificar licença (CC-BY ou CC0)
+
+3. **Wikipedia** (via Wikimedia Commons)
+   - Melhor para: fotos oficiais de jogadores e times
+   - URL: `https://upload.wikimedia.org/wikipedia/commons/...`
+   - Vantagem: curadoria editorial, fotos verificadas
+
+**FONTES ALTERNATIVAS (quando as acima não têm):**
+
+4. **Unsplash** (gratuito, alta qualidade) - URL direta com parametros
+5. **Pexels** (gratuito, alternativa ao Unsplash)
+6. **Pixabay** (gratuito, boa para esportes)
+
+**PROIBIDO:**
+- Google Imagens (URLs expiram, hotlink bloqueado)
+- Instagram/Twitter (sem permissão, URLs instáveis)
+- Sites de notícias (copyright, URLs não reutilizáveis)
 
 ### 8.6.3 Busca de Imagens Relacionadas
 
-**Sempre buscar imagem especifica ao tema:**
+**Sempre buscar imagem específica ao tema:**
 
+**Para jogadores famosos (Wikimedia Commons - PRIORIDADE MÁXIMA):**
 ```
-# Para artigo sobre jogador especifico:
-"[nome do jogador] [clube] foto"
-"[nome do jogador] acao jogo"
+1. Pesquisar: "[nome do jogador] site:commons.wikimedia.org"
+   Exemplo: "Antoine Griezmann site:commons.wikimedia.org"
+   
+2. Ou acessar diretamente:
+   https://commons.wikimedia.org/wiki/[Nome_Jogador]
+   https://commons.wikimedia.org/wiki/Category:[Nome_Jogador]
+   
+3. Selecionar imagem em alta resolução
+4. Copiar URL direta do thumbnail (clicar com botão direito → copiar endereço da imagem)
+```
 
-# Para artigo sobre time:
-"[nome do time] jogadores comemoracao"
-"[nome do time] estadio torcida"
+**URL padrão Wikimedia Commons:**
+```
+https://upload.wikimedia.org/wikipedia/commons/thumb/[caminho]/[largura]px-[nome_arquivo]
 
-# Para artigo generico:
-"futebol campo jogador chute"
-"futebol estadio iluminado noite"
-"bola futebol gramado close"
+Exemplo real:
+https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Antoine_Griezmann_2018.jpg/800px-Antoine_Griezmann_2018.jpg
+```
+
+**Para fotos de times/estádios/torcidas (Flickr CC):**
+```
+1. Acessar: https://www.flickr.com/search/?license=4,5,6,9,10
+2. Pesquisar: "[nome do time]" ou "[nome do estádio]"
+3. Filtrar por Creative Commons
+4. Copiar URL da imagem (clicar com botão direito → copiar endereço)
+```
+
+**Para artigo genérico (Unsplash/Pexels - último recurso):**
+```
+"futebol campo jogador chute site:unsplash.com"
+"estádio futebol torcida site:pexels.com"
 ```
 
 **Regras de selecao:**
