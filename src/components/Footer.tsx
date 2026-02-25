@@ -2,6 +2,7 @@ import Link from "next/link";
 import { categories } from "@/lib/categories";
 import { siteConfig } from "@/lib/site";
 import { NewsletterForm } from "@/components/NewsletterForm";
+import { Logo } from "@/components/Logo";
 
 export function Footer() {
   return (
@@ -10,9 +11,8 @@ export function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <Link href="/" className="text-xl font-black tracking-tight">
-              <span className="text-primary">BEIRA</span>
-              <span>DO CAMPO</span>
+            <Link href="/">
+              <Logo />
             </Link>
             <p className="mt-3 text-sm text-gray-400">
               {siteConfig.description}

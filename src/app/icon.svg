@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e94560" />
+      <stop offset="1" stop-color="#ff6b8b" />
+    </linearGradient>
+    <clipPath id="clip-bounds">
+      <rect width="36" height="36" rx="8" />
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="36" height="36" rx="8" fill="url(#bg)" />
+
+  <!-- Stripes -->
+  <g clip-path="url(#clip-bounds)" opacity="0.3">
+    <path d="M4 -5 L14 -5 L2 45 L-8 45 Z" fill="white" />
+    <path d="M24 -5 L34 -5 L22 45 L12 45 Z" fill="white" />
+  </g>
+
+  <!-- Inner Football Pitch icon -->
+  <g transform="translate(6, 6)" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="4" width="20" height="16" rx="2" ry="2" />
+    <line x1="12" y1="4" x2="12" y2="20" />
+    <circle cx="12" cy="12" r="3" />
+    <path d="M2 9h3v6H2" />
+    <path d="M22 9h-3v6h3" />
+    <circle cx="12" cy="12" r="0.5" fill="white" stroke="none" />
+  </g>
+</svg>

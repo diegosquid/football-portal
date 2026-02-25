@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { categories } from "@/lib/categories";
+import { Logo } from "@/components/Logo";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,11 +27,8 @@ export function Header() {
 
       {/* Main header */}
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-2xl font-black tracking-tight">
-            <span className="text-primary">BEIRA</span>
-            <span className="text-white">DO CAMPO</span>
-          </span>
+        <Link href="/">
+          <Logo />
         </Link>
 
         {/* Desktop nav */}
