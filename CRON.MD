@@ -454,7 +454,10 @@ ESPECIAL: Selecao Brasileira (SEMPRE em convocacao/jogos)
 title: "Titulo do artigo (50-65 chars ideal)"
 slug: "slug-sem-acentos-com-hifens"
 excerpt: "Resumo de ate 300 chars para o card"
-date: "YYYY-MM-DD"  # ⚠️ SEMPRE usar data de Brasilia: TZ="America/Sao_Paulo" date +%Y-%m-%d
+# ⚠️ DATA E HORA: Sempre usar timezone de Brasilia (BRT = UTC-3)
+# Data: TZ="America/Sao_Paulo" date +%Y-%m-%d
+# Hora:  TZ="America/Sao_Paulo" date +%H:%M
+date: "YYYY-MM-DDTHH:MM:00-03:00"  # Ex: "2026-02-25T18:30:00-03:00"
 author: "slug-do-autor"
 category: "slug-da-categoria"
 tags: ["tag1", "tag2", "tag3"]
@@ -466,6 +469,13 @@ source:
   url: "URL da fonte"
 featured: false
 ---
+```
+
+**Comando para gerar data/hora correta:**
+```bash
+# Gera data/hora completa em BRT para o frontmatter
+TZ="America/Sao_Paulo" date +%Y-%m-%dT%H:%M:00-03:00
+# Resultado: 2026-02-25T18:30:00-03:00
 ```
 
 **Autores disponiveis:** `renato-caldeira`, `patricia-mendes`, `marcos-vinicius`, `dona-cleia`, `thiago-borges`
