@@ -13,7 +13,7 @@ export default function PoliticaPrivacidadePage() {
         Política de Privacidade
       </h1>
       <p className="mt-2 text-sm text-gray-500">
-        Última atualização: {new Date().toLocaleDateString('pt-BR')}
+        Última atualização: {new Date().toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' })}
       </p>
 
       <div className="prose-article mt-8 space-y-6">
