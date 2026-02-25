@@ -29,12 +29,10 @@ function timeAgo(dateString: string): string {
   const now = new Date();
   const nowBRT = new Date(now.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
   
-  const diffMs = nowBRT.getTime() - articleDate.getTime();
-  const diffMins = Math.floor(diffMs / 60000);
-  const diffHours = Math.floor(diffMs / 3600000);
+  const diffMs = Math.max(0, nowBRT.getTime() - articleDate.getTime());
+  const diffHours = Math.max(1, Math.round(diffMs / 3600000));
   const diffDays = Math.floor(diffMs / 86400000);
 
-  if (diffMins < 60) return `${diffMins}min atrás`;
   if (diffHours < 24) return `${diffHours}h atrás`;
   if (diffDays < 7) return `${diffDays}d atrás`;
 
