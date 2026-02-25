@@ -1,6 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import { CategoryBadge } from "./CategoryBadge";
+import { ArticleImage } from "./ArticleImage";
+import { getFallbackImage } from "@/lib/images";
 import { getAuthor } from "@/lib/authors";
 
 interface ArticleCardProps {
@@ -48,15 +49,14 @@ export function ArticleCard({
         href={`/${slug}`}
         className="group relative block overflow-hidden rounded-xl bg-dark"
       >
-        {image && (
-          <Image
-            src={image}
-            alt={title}
-            width={800}
-            height={450}
-            className="h-[400px] w-full object-cover transition-transform duration-300 group-hover:scale-105 lg:h-[500px]"
-          />
-        )}
+        <ArticleImage
+          src={image}
+          alt={title}
+          width={800}
+          height={450}
+          className="h-[400px] w-full object-cover transition-transform duration-300 group-hover:scale-105 lg:h-[500px]"
+          fallbackSrc={getFallbackImage(category)}
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
           <CategoryBadge category={category} />
@@ -80,20 +80,19 @@ export function ArticleCard({
 
   return (
     <Link href={`/${slug}`} className="group flex flex-col">
-      {image && (
-        <div className="relative overflow-hidden rounded-lg">
-          <Image
-            src={image}
-            alt={title}
-            width={400}
-            height={225}
-            className="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-          <div className="absolute left-3 top-3">
-            <CategoryBadge category={category} size="sm" />
-          </div>
+      <div className="relative overflow-hidden rounded-lg">
+        <ArticleImage
+          src={image}
+          alt={title}
+          width={400}
+          height={225}
+          className="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          fallbackSrc={getFallbackImage(category)}
+        />
+        <div className="absolute left-3 top-3">
+          <CategoryBadge category={category} size="sm" />
         </div>
-      )}
+      </div>
       <div className="mt-3 flex flex-1 flex-col">
         <h3 className="font-bold leading-snug text-secondary transition-colors group-hover:text-primary lg:text-lg">
           {title}

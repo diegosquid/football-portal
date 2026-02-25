@@ -1,14 +1,15 @@
 import { articles } from "#content";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { MDXContent } from "@/components/mdx/MDXContent";
 import { CategoryBadge } from "@/components/CategoryBadge";
 import { ArticleCard } from "@/components/ArticleCard";
+import { ArticleImage } from "@/components/ArticleImage";
 import { NewsArticleJsonLd } from "@/components/JsonLd";
 import { SourceAttribution } from "@/components/mdx/SourceAttribution";
 import { getAuthor } from "@/lib/authors";
+import { getFallbackImage } from "@/lib/images";
 import { siteConfig } from "@/lib/site";
 
 interface Props {
@@ -140,23 +141,22 @@ export default async function ArticlePage({ params }: Props) {
         </header>
 
         {/* Featured image */}
-        {article.image && (
-          <figure className="mt-8">
-            <Image
-              src={article.image}
-              alt={article.title}
-              width={900}
-              height={506}
-              className="w-full rounded-xl object-cover"
-              priority
-            />
-            {article.imageCaption && (
-              <figcaption className="mt-2 text-center text-sm text-gray-500">
-                {article.imageCaption}
-              </figcaption>
-            )}
-          </figure>
-        )}
+        <figure className="mt-8">
+          <ArticleImage
+            src={article.image}
+            alt={article.title}
+            width={900}
+            height={506}
+            className="w-full rounded-xl object-cover"
+            priority
+            fallbackSrc={getFallbackImage(article.category)}
+          />
+          {article.imageCaption && (
+            <figcaption className="mt-2 text-center text-sm text-gray-500">
+              {article.imageCaption}
+            </figcaption>
+          )}
+        </figure>
 
         {/* Article body */}
         <div className="prose-article mt-8">

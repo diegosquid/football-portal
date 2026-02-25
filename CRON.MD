@@ -495,120 +495,100 @@ REGRAS:
 
 ## 8.6 Imagens - Busca e Selecao
 
-### 8.6.1 Obrigatoriedade
+### 8.6.1 REGRA CRITICA: NUNCA Inventar URLs
 
-TODO artigo DEVE ter uma imagem no frontmatter. Nunca deixar o campo `image` vazio ou com placeholder generico.
+**O principal erro ao gerar imagens e INVENTAR URLs que parecem reais mas retornam 404.**
+Exemplos de URLs INVENTADAS que NAO funcionam:
+- `https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Antoine_Griezmann_2018.jpg/...` ← 404!
+- `https://images.unsplash.com/photo-INVENTADO?w=800` ← 404!
 
-### 8.6.2 Fontes de Imagens (ordem de preferencia)
+**SEMPRE use URLs do banco de fallbacks verificados abaixo, ou busque via API.**
 
-**FONTES CONFIÁVEIS COM URLs ESTÁVEIS:**
+### 8.6.2 Banco de Imagens Verificadas (USAR ESTAS)
 
-1. **Wikimedia Commons** (GRATUITO, DOMÍNIO PÚBLICO/CC)
-   - Melhor para: fotos oficiais de jogadores famosos, imagens históricas
-   - URL: `https://upload.wikimedia.org/wikipedia/commons/...`
-   - Vantagem: URLs permanentes, licença clara, fotos reais dos jogadores
-   - Exemplo: Antoine Griezmann, Messi, Neymar, etc.
+Todas as URLs abaixo retornam HTTP 200 e sao estaveis. Use diretamente no frontmatter:
 
-2. **Flickr Creative Commons** (GRATUITO, CC LICENSES)
-   - Melhor para: fotos de estádios, torcidas, momentos únicos
-   - URL: `https://live.staticflickr.com/...`
-   - Vantagem: variedade de ângulos, fotos de jogo reais
-   - Atenção: verificar licença (CC-BY ou CC0)
-
-3. **Wikipedia** (via Wikimedia Commons)
-   - Melhor para: fotos oficiais de jogadores e times
-   - URL: `https://upload.wikimedia.org/wikipedia/commons/...`
-   - Vantagem: curadoria editorial, fotos verificadas
-
-**FONTES ALTERNATIVAS (quando as acima não têm):**
-
-4. **Unsplash** (gratuito, alta qualidade) - URL direta com parametros
-5. **Pexels** (gratuito, alternativa ao Unsplash)
-6. **Pixabay** (gratuito, boa para esportes)
-
-**PROIBIDO:**
-- Google Imagens (URLs expiram, hotlink bloqueado)
-- Instagram/Twitter (sem permissão, URLs instáveis)
-- Sites de notícias (copyright, URLs não reutilizáveis)
-
-### 8.6.3 Busca de Imagens Relacionadas
-
-**Sempre buscar imagem específica ao tema:**
-
-**Para jogadores famosos (Wikimedia Commons - PRIORIDADE MÁXIMA):**
+**Brasileirao / Futebol generico:**
 ```
-1. Pesquisar: "[nome do jogador] site:commons.wikimedia.org"
-   Exemplo: "Antoine Griezmann site:commons.wikimedia.org"
-   
-2. Ou acessar diretamente:
-   https://commons.wikimedia.org/wiki/[Nome_Jogador]
-   https://commons.wikimedia.org/wiki/Category:[Nome_Jogador]
-   
-3. Selecionar imagem em alta resolução
-4. Copiar URL direta do thumbnail (clicar com botão direito → copiar endereço da imagem)
+https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800&h=450&fit=crop
+https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=800&h=450&fit=crop
+https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800&h=450&fit=crop
+https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=800&h=450&fit=crop
 ```
 
-**URL padrão Wikimedia Commons:**
+**Transferencias / Mercado:**
 ```
-https://upload.wikimedia.org/wikipedia/commons/thumb/[caminho]/[largura]px-[nome_arquivo]
-
-Exemplo real:
-https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Antoine_Griezmann_2018.jpg/800px-Antoine_Griezmann_2018.jpg
-```
-
-**Para fotos de times/estádios/torcidas (Flickr CC):**
-```
-1. Acessar: https://www.flickr.com/search/?license=4,5,6,9,10
-2. Pesquisar: "[nome do time]" ou "[nome do estádio]"
-3. Filtrar por Creative Commons
-4. Copiar URL da imagem (clicar com botão direito → copiar endereço)
+https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&h=450&fit=crop
+https://images.unsplash.com/photo-1459865264687-595d652de67e?w=800&h=450&fit=crop
+https://images.unsplash.com/photo-1486286701208-1d58e9338013?w=800&h=450&fit=crop
 ```
 
-**Para artigo genérico (Unsplash/Pexels - último recurso):**
+**Champions / Futebol europeu / Estadios noturnos:**
 ```
-"futebol campo jogador chute site:unsplash.com"
-"estádio futebol torcida site:pexels.com"
-```
-
-**Regras de selecao:**
-- Imagem deve ser relacionada ao tema (nao generica demais)
-- Preferir imagens de acao/jogo a posadas
-- Evitar imagens com logos de marcas concorrentes
-- Evitar imagens de torcedores sem contexto claro
-
-### 8.6.4 Formato da URL
-
-```yaml
-image: "https://images.unsplash.com/photo-[ID]?w=800&h=450&fit=crop"
-imageCaption: "Descricao contextual da imagem - relacionada ao tema do artigo"
+https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800&h=450&fit=crop
+https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=800&h=450&fit=crop
+https://images.unsplash.com/photo-1556056504-5c7696c4c28d?w=800&h=450&fit=crop
+https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=800&h=450&fit=crop
 ```
 
-**Parametros obrigatorios:**
-- `w=800` (largura)
-- `h=450` (altura - proporcao 16:9)
-- `fit=crop` (corte proporcional)
+**Libertadores / Grandes estadios / Torcida:**
+```
+https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=450&fit=crop
+https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?w=800&h=450&fit=crop
+https://images.unsplash.com/photo-1518604666860-9ed391f76460?w=800&h=450&fit=crop
+```
 
-### 8.6.5 Exemplos por Categoria
+**Analises / Campo / Tatica:**
+```
+https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&h=450&fit=crop
+https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=800&h=450&fit=crop
+```
 
-| Tema | Exemplo de Busca | Tipo de Imagem |
-|------|------------------|----------------|
-| Transferencia de jogador | "[jogador] [clube origem] foto" | Jogador em acao pelo clube atual |
-| Pre-jogo | "[estadio do time] noite torcida" | Estadio lotado, atmosfera |
-| Pos-jogo | "[time vencedor] comemoracao gol" | Comemoracao de gol |
-| Analise tatica | "taticas futebol campo diagrama" | Vista aerea do campo |
-| Opiniao/VAR | "arbitro campo futebol" | Arbitro em acao |
-| Estatisticas | "dados numeros futebol grafico" | Representacao visual de dados |
+**Opiniao / Atmosfera:**
+```
+https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800&h=450&fit=crop
+https://images.unsplash.com/photo-1471295253337-3ceaaedca402?w=800&h=450&fit=crop
+```
 
-### 8.6.6 Legenda (imageCaption)
+### 8.6.3 Como Escolher a Imagem
 
-A legenda deve:
-- Contextualizar a imagem
-- Mencionar o jogador/time quando aplicavel
+```
+PASSO 1: Identificar a categoria do artigo
+PASSO 2: Escolher uma URL do banco acima que combine com o tema
+PASSO 3: NAO repetir a mesma imagem em artigos publicados no mesmo dia
+PASSO 4: Escrever legenda contextualizada (ver 8.6.5)
+```
+
+**Regra de variacao:** Nao usar a mesma URL para 2 artigos no mesmo dia. Alternar entre as opcoes do banco.
+
+### 8.6.4 API de Busca (Opcional - Quando Configurada)
+
+Se a variavel `UNSPLASH_ACCESS_KEY` estiver configurada, voce pode buscar imagens mais especificas:
+
+```
+GET /api/images/search?q=futebol+estadio&category=brasileirao
+
+Resposta:
+{
+  "url": "https://images.unsplash.com/photo-XXXXX?w=800&h=450&fit=crop&q=80",
+  "caption": "Descricao da imagem",
+  "photographer": "Nome do Fotografo",
+  "source": "unsplash"
+}
+```
+
+Se a API nao estiver configurada, a rota retorna automaticamente uma imagem do banco de fallbacks.
+
+### 8.6.5 Legenda (imageCaption)
+
+A legenda DEVE:
+- Contextualizar a imagem com o tema do artigo
+- Mencionar o jogador/time/evento quando aplicavel
 - Ter entre 80-150 caracteres
 - Ser informativa, nao apenas descritiva
 
 **Exemplo bom:**
-> "Antoine Griezmann em acao pelo Atletico de Madrid — frances pode deixar o clube apos 210 gols marcados"
+> "Estadio europeu sob as luzes — Griezmann pode deixar o Atletico apos 210 gols rumo a MLS"
 
 **Exemplo ruim:**
 > "Jogador de futebol"
