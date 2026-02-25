@@ -17,11 +17,17 @@ interface ArticleCardProps {
 }
 
 function timeAgo(dateString: string): string {
-  // Usar timezone de São Paulo (BRT = UTC-3)
-  const now = new Date();
-  const date = new Date(dateString + "T12:00:00-03:00"); // Assume meio-dia BRT se só tiver data
+  // Garantir que a data tenha timezone BRT se for só data (YYYY-MM-DD)
+  const dateInput = dateString.includes('T') ? dateString : dateString + "T12:00:00-03:00";
+  const date = new Date(dateInput);
   
-  // Ajustar 'now' para BRT (UTC-3)
+  // Verificar se a data é válida
+  if (isNaN(date.getTime())) {
+    return dateString; // Fallback: retorna a string original
+  }
+  
+  // Data atual no timezone BRT
+  const now = new Date();
   const nowBRT = new Date(now.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
   const dateBRT = new Date(date.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
   
