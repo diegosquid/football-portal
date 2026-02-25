@@ -550,36 +550,153 @@ https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800&h=450&fit=crop
 https://images.unsplash.com/photo-1471295253337-3ceaaedca402?w=800&h=450&fit=crop
 ```
 
-### 8.6.3 Como Escolher a Imagem
+### 8.6.3 Como Escolher a Imagem (PROCESSO COMPLETO)
+
+O agente DEVE buscar e VISUALIZAR multiplas opcoes antes de escolher. NUNCA usar a primeira imagem cegamente.
 
 ```
-PASSO 1: Identificar a categoria do artigo
-PASSO 2: Escolher uma URL do banco acima que combine com o tema
-PASSO 3: NAO repetir a mesma imagem em artigos publicados no mesmo dia
-PASSO 4: Escrever legenda contextualizada (ver 8.6.5)
+PASSO 1: Definir keywords de busca (ver 8.6.4)
+PASSO 2: Buscar 5 imagens via Unsplash API (ver 8.6.5)
+PASSO 3: VISUALIZAR cada resultado — abrir/verificar a URL de cada imagem
+PASSO 4: Avaliar cada imagem pelos criterios abaixo
+PASSO 5: Escolher a que melhor combina com o artigo
+PASSO 6: Verificar que a URL retorna HTTP 200 (curl -sI [url] | head -1)
+PASSO 7: Escrever legenda contextualizada (ver 8.6.7)
 ```
 
-**Regra de variacao:** Nao usar a mesma URL para 2 artigos no mesmo dia. Alternar entre as opcoes do banco.
+**Criterios de avaliacao de imagem (em ordem de prioridade):**
 
-### 8.6.4 API de Busca (Opcional - Quando Configurada)
+| Criterio | Peso | Exemplo |
+|----------|------|---------|
+| Relevancia ao tema | 40% | Artigo sobre Palmeiras → imagem de estadio verde/torcida > bola generica |
+| Qualidade visual | 25% | Paisagem, boa iluminacao, enquadramento esportivo |
+| Contexto emocional | 20% | Pre-jogo → estadio lotado. Pos-jogo → comemoracao. Transferencia → jogador |
+| Singularidade | 15% | Nao repetir mesma vibe do artigo anterior do dia |
 
-Se a variavel `UNSPLASH_ACCESS_KEY` estiver configurada, voce pode buscar imagens mais especificas:
+**Regra de variacao:** Nao usar a mesma URL para 2 artigos no mesmo dia. Alternar entre as opcoes.
+
+### 8.6.4 Keywords de Busca por Tipo de Artigo
+
+Montar keywords especificas para cada tipo. Quanto MAIS especifica a busca, MELHOR a imagem.
 
 ```
-GET /api/images/search?q=futebol+estadio&category=brasileirao
+PRE-JOGO / POS-JOGO:
+  "[time] football stadium"
+  "[time] fans crowd"
+  "[estadio] stadium night"
+  "football match stadium fans"
+  "football match night stadium"
+
+TRANSFERENCIAS:
+  "[jogador] football"
+  "football player signing"
+  "football contract handshake"
+  "football training"
+
+BRASILEIRAO:
+  "brazil football stadium"
+  "brazil soccer fans"
+  "football green field"
+
+CHAMPIONS / EUROPA:
+  "champions league football"
+  "european football stadium night"
+  "[liga] football"
+
+ANALISE / TATICA:
+  "football tactics whiteboard"
+  "football field aerial"
+  "football training"
+
+OPINIAO:
+  "football referee var"
+  "football stadium atmosphere"
+  "football fans protest"
+```
+
+**DICA:** Buscar em ingles retorna MUITO mais resultados do que em portugues.
+
+### 8.6.5 Busca via Unsplash API (METODO PREFERIDO)
+
+A variavel `UNSPLASH_ACCESS_KEY` esta configurada. O agente DEVE usar a API diretamente para buscar e escolher imagens.
+
+**Opcao A — Via curl direto (RECOMENDADO para ver todas as opcoes):**
+
+```bash
+# Buscar 5 imagens landscape sobre o tema
+curl -s "https://api.unsplash.com/search/photos?query=KEYWORDS&per_page=5&orientation=landscape" \
+  -H "Authorization: Client-ID $UNSPLASH_ACCESS_KEY"
+```
+
+A resposta contem `results[]` com:
+- `results[].urls.raw` → URL base (adicionar `&w=800&h=450&fit=crop&q=80`)
+- `results[].alt_description` → descricao da imagem (USAR para avaliar relevancia)
+- `results[].user.name` → fotografo (USAR na legenda)
+- `results[].links.download_location` → trigger download (compliance Unsplash)
+
+**Processo de selecao:**
+
+```
+1. Executar busca com keywords do artigo (Secao 8.6.4)
+2. Ler a alt_description de CADA resultado
+3. ABRIR/VISUALIZAR as URLs para confirmar que a imagem combina
+4. Escolher a mais relevante (nao necessariamente a primeira!)
+5. Montar URL final: {urls.raw}&w=800&h=450&fit=crop&q=80
+6. Verificar HTTP 200: curl -sI "[url]" | head -1
+7. Se nenhuma imagem for boa → tentar nova busca com keywords diferentes
+8. Se ainda nao achar → usar banco de fallbacks (Secao 8.6.2)
+```
+
+**Exemplo pratico — artigo "Palmeiras x Fluminense":**
+
+```bash
+# Busca 1: especifica
+curl -s "https://api.unsplash.com/search/photos?query=football+match+night+stadium+fans&per_page=5&orientation=landscape" \
+  -H "Authorization: Client-ID $UNSPLASH_ACCESS_KEY"
+
+# Resultado: 5 fotos. Ler alt_description de cada:
+# 1. "Soccer game in a stadium with spectators watching"
+# 2. "Soccer game played in a packed stadium at night"    ← MELHOR! Estadio lotado a noite
+# 3. "A packed stadium with red and white supporters"
+# 4. "Crowded soccer stadium with fans watching a game"
+# 5. "Soccer game in progress at a stadium at dusk"
+
+# Escolher #2 → montar URL → verificar → usar
+```
+
+**Opcao B — Via API route do portal:**
+
+```
+GET /api/images/search?q=football+stadium+night&category=brasileirao
 
 Resposta:
 {
   "url": "https://images.unsplash.com/photo-XXXXX?w=800&h=450&fit=crop&q=80",
   "caption": "Descricao da imagem",
   "photographer": "Nome do Fotografo",
-  "source": "unsplash"
+  "source": "unsplash",
+  "rateLimitRemaining": 45
 }
 ```
 
-Se a API nao estiver configurada, a rota retorna automaticamente uma imagem do banco de fallbacks.
+A API route retorna UMA imagem (random entre top 5). Usar quando quiser algo rapido sem avaliar manualmente.
 
-### 8.6.5 Legenda (imageCaption)
+### 8.6.6 Rate Limit e Economia de Cota
+
+```
+LIMITE: 50 requisicoes por hora (Unsplash Demo)
+CACHE: API route cacheia resultados por 4 horas
+
+REGRAS:
+- Maximo 3 buscas por artigo (busca inicial + 2 refinamentos)
+- Se a primeira busca trouxer algo bom, USAR e nao desperdicar cota
+- Preferir keywords em ingles (mais resultados, menos buscas)
+- Se rateLimitRemaining < 5, usar banco de fallbacks (Secao 8.6.2)
+- Em dia de rodada (10+ artigos), economizar: 2 buscas para artigos importantes,
+  fallbacks para os demais
+```
+
+### 8.6.7 Legenda (imageCaption)
 
 A legenda DEVE:
 - Contextualizar a imagem com o tema do artigo
