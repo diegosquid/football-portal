@@ -91,11 +91,12 @@ EXECUCAO DO CRON (a cada ~2 horas)
 │   ├── Escrever na voz do autor (AUTHOR_PERSONAS.md + CONTENT_GUIDELINE.md Secao 5)
 │   ├── Aplicar regras de SEO (SEO_STRATEGY.md + CONTENT_GUIDELINE.md Secao 7)
 │   ├── Incluir links internos (minimo 2 - buscar slugs existentes no repo)
-│   ├── BUSCAR IMAGEM RELACIONADA (Secao 8.6)
-│   │   ├── Pesquisar imagem especifica ao tema (jogador, time, estadio)
-│   │   ├── Usar Unsplash/Pexels com parametros w=800&h=450&fit=crop
+│   ├── GERAR IMAGEM COM IA (Secao 8.6)
+│   │   ├── Escrever prompt descritivo em ingles (especifico ao artigo)
+│   │   ├── POST /api/images/generate com { prompt, slug }
+│   │   ├── Usar a URL retornada no frontmatter (campo image)
 │   │   ├── Escrever legenda contextual (80-150 chars)
-│   │   └── NUNCA usar placeholder generico
+│   │   └── Se falhar → usar fallback do banco verificado (Secao 8.6.4)
 │   ├── Preencher frontmatter completo
 │   └── Rodar checklist pre-publicacao (CONTENT_GUIDELINE.md Secao 10)
 │
@@ -493,222 +494,196 @@ REGRAS:
 
 ---
 
-## 8.6 Imagens - Busca e Selecao
+## 8.6 Imagens - Geracao com IA (Gemini + Cloudflare R2)
 
-### 8.6.1 REGRA CRITICA: NUNCA Inventar URLs
+### 8.6.1 METODO PRINCIPAL: Gerar Imagem com IA
 
-**O principal erro ao gerar imagens e INVENTAR URLs que parecem reais mas retornam 404.**
-Exemplos de URLs INVENTADAS que NAO funcionam:
-- `https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Antoine_Griezmann_2018.jpg/...` ← 404!
-- `https://images.unsplash.com/photo-INVENTADO?w=800` ← 404!
+O portal usa **Google Gemini (Imagen)** para gerar imagens unicas por artigo, hospedadas no **Cloudflare R2**.
 
-**SEMPRE use URLs do banco de fallbacks verificados abaixo, ou busque via API.**
+Isso garante imagens ESPECIFICAS ao tema (nao genéricas de banco de fotos).
 
-### 8.6.2 Banco de Imagens Verificadas (USAR ESTAS)
+**Pipeline:**
+```
+Artigo → Prompt descritivo → Gemini API → Imagem gerada → Upload R2 → URL publica no frontmatter
+```
 
-Todas as URLs abaixo retornam HTTP 200 e sao estaveis. Use diretamente no frontmatter:
+### 8.6.2 Como Gerar Imagem (PROCESSO OBRIGATORIO)
+
+Para CADA artigo, o agente DEVE gerar uma imagem unica:
+
+```
+PASSO 1: Escrever prompt descritivo em INGLES (ver 8.6.3)
+PASSO 2: Chamar o script de geracao de imagem
+PASSO 3: Usar a URL retornada no frontmatter (campo image)
+PASSO 4: Escrever legenda contextualizada (campo imageCaption)
+```
+
+**METODO PRINCIPAL: Script Bash (recomendado — nao precisa de server rodando)**
+
+```bash
+./scripts/generate-image.sh "SLUG-DO-ARTIGO" "PROMPT EM INGLES"
+```
+
+O script carrega as credenciais do `.env.local` automaticamente, chama a Gemini API, gera a imagem e faz upload direto no Cloudflare R2 via curl. A ultima linha do stdout e a URL publica.
+
+**Exemplo:**
+```bash
+./scripts/generate-image.sh "flamengo-x-palmeiras-brasileirao-2026" \
+  "Maracana stadium packed with Flamengo fans in red and black, night match under bright floodlights, dramatic atmosphere, photorealistic sports photography"
+```
+
+**Saida:**
+```
+🎨 Gerando imagem para: flamengo-x-palmeiras-brasileirao-2026
+📝 Prompt: Maracana stadium packed with Flamengo fans in red and black, night match...
+⏳ Chamando Gemini API...
+✅ Imagem gerada: 1440KB
+⏳ Fazendo upload para R2...
+✅ Upload OK (HTTP 200)
+🔗 URL: https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/flamengo-x-palmeiras-brasileirao-2026.png
+
+https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/flamengo-x-palmeiras-brasileirao-2026.png
+```
+
+A URL da ultima linha vai direto no campo `image` do frontmatter.
+
+**METODO ALTERNATIVO: API Route (se o dev server estiver rodando)**
+
+```bash
+curl -s -X POST "http://localhost:3000/api/images/generate" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "DESCRICAO DETALHADA DA IMAGEM EM INGLES",
+    "slug": "SLUG-DO-ARTIGO"
+  }'
+```
+
+**Resposta:**
+```json
+{
+  "url": "https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/SLUG.png",
+  "key": "articles/SLUG.png",
+  "source": "gemini",
+  "size": 2033220
+}
+```
+
+Usar o campo `url` diretamente no frontmatter do artigo.
+
+### 8.6.3 Como Escrever o Prompt (CRITICO)
+
+O prompt define a qualidade da imagem. Seguir estas regras:
+
+**Formato do prompt:**
+```
+[CENA PRINCIPAL], [DETALHES VISUAIS], [ILUMINACAO], [ESTILO]
+```
+
+**Regras:**
+- Escrever SEMPRE em ingles (modelo funciona melhor)
+- Ser ESPECIFICO: mencionar estadio, cores do time, contexto
+- NUNCA pedir texto, logos, ou nomes na imagem
+- Pedir estilo "photorealistic sports photography"
+- Mencionar "dramatic lighting" para jogos noturnos
+- Incluir "aerial view" ou "wide angle" para estadios
+
+**Exemplos por tipo de artigo:**
+
+```
+PRE-JOGO / POS-JOGO:
+  "Packed [ESTADIO] stadium at night with dramatic floodlights,
+   fans wearing [COR DO TIME] in the stands, green pitch with
+   players warming up, photorealistic sports photography, wide angle"
+
+  "Maracana stadium packed with Flamengo fans in red and black,
+   night match under bright floodlights, aerial panoramic view,
+   dramatic atmosphere, photorealistic"
+
+TRANSFERENCIAS:
+  "Football player in training gear walking through a modern stadium
+   tunnel, dramatic backlight, photorealistic sports photography"
+
+  "Close-up of a football player's boots on green grass during
+   training, morning light, shallow depth of field, sports photography"
+
+BRASILEIRAO GENERICO:
+  "Brazilian football stadium during a match, packed crowd with
+   colorful flags, green pitch under sunset light, wide angle
+   photography, vibrant atmosphere"
+
+CHAMPIONS / EUROPA:
+  "European football stadium at night, Champions League atmosphere,
+   blue and white floodlights, packed stands, dramatic sky,
+   photorealistic sports photography"
+
+ANALISE / TATICA:
+  "Aerial view of a football pitch with players in formation during
+   a match, green grass patterns visible, tactical camera angle,
+   professional sports photography"
+
+OPINIAO:
+  "Empty football stadium seats at dusk with dramatic golden light,
+   atmospheric moody sports photography, contemplative mood"
+
+SELECAO BRASILEIRA:
+  "Football stadium with Brazilian fans in yellow jerseys, green
+   and yellow flags, tropical atmosphere, packed stands,
+   photorealistic night match photography"
+```
+
+**DICA:** Adaptar o prompt para cada artigo especifico. Quanto mais detalhes sobre o contexto real (estadio, cores do time, tipo de jogo), melhor a imagem.
+
+### 8.6.4 Fallback: Banco de Imagens Verificadas
+
+Se a geracao via IA falhar (API indisponivel, rate limit, etc), usar estas URLs verificadas:
 
 **Brasileirao / Futebol generico:**
 ```
 https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800&h=450&fit=crop
 https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=800&h=450&fit=crop
 https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800&h=450&fit=crop
-https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=800&h=450&fit=crop
 ```
 
-**Transferencias / Mercado:**
-```
-https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&h=450&fit=crop
-https://images.unsplash.com/photo-1459865264687-595d652de67e?w=800&h=450&fit=crop
-https://images.unsplash.com/photo-1486286701208-1d58e9338013?w=800&h=450&fit=crop
-```
-
-**Champions / Futebol europeu / Estadios noturnos:**
+**Transferencias / Champions / Estadios noturnos:**
 ```
 https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800&h=450&fit=crop
-https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=800&h=450&fit=crop
-https://images.unsplash.com/photo-1556056504-5c7696c4c28d?w=800&h=450&fit=crop
-https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=800&h=450&fit=crop
-```
-
-**Libertadores / Grandes estadios / Torcida:**
-```
+https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&h=450&fit=crop
 https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=450&fit=crop
-https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?w=800&h=450&fit=crop
-https://images.unsplash.com/photo-1518604666860-9ed391f76460?w=800&h=450&fit=crop
 ```
 
-**Analises / Campo / Tatica:**
+**Analises / Opiniao:**
 ```
 https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&h=450&fit=crop
-https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=800&h=450&fit=crop
-```
-
-**Opiniao / Atmosfera:**
-```
 https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800&h=450&fit=crop
-https://images.unsplash.com/photo-1471295253337-3ceaaedca402?w=800&h=450&fit=crop
 ```
 
-### 8.6.3 Como Escolher a Imagem (PROCESSO COMPLETO)
-
-O agente DEVE buscar e VISUALIZAR multiplas opcoes antes de escolher. NUNCA usar a primeira imagem cegamente.
-
-```
-PASSO 1: Definir keywords de busca (ver 8.6.4)
-PASSO 2: Buscar 5 imagens via Unsplash API (ver 8.6.5)
-PASSO 3: VISUALIZAR cada resultado — abrir/verificar a URL de cada imagem
-PASSO 4: Avaliar cada imagem pelos criterios abaixo
-PASSO 5: Escolher a que melhor combina com o artigo
-PASSO 6: Verificar que a URL retorna HTTP 200 (curl -sI [url] | head -1)
-PASSO 7: Escrever legenda contextualizada (ver 8.6.7)
-```
-
-**Criterios de avaliacao de imagem (em ordem de prioridade):**
-
-| Criterio | Peso | Exemplo |
-|----------|------|---------|
-| Relevancia ao tema | 40% | Artigo sobre Palmeiras → imagem de estadio verde/torcida > bola generica |
-| Qualidade visual | 25% | Paisagem, boa iluminacao, enquadramento esportivo |
-| Contexto emocional | 20% | Pre-jogo → estadio lotado. Pos-jogo → comemoracao. Transferencia → jogador |
-| Singularidade | 15% | Nao repetir mesma vibe do artigo anterior do dia |
-
-**Regra de variacao:** Nao usar a mesma URL para 2 artigos no mesmo dia. Alternar entre as opcoes.
-
-### 8.6.4 Keywords de Busca por Tipo de Artigo
-
-Montar keywords especificas para cada tipo. Quanto MAIS especifica a busca, MELHOR a imagem.
-
-```
-PRE-JOGO / POS-JOGO:
-  "[time] football stadium"
-  "[time] fans crowd"
-  "[estadio] stadium night"
-  "football match stadium fans"
-  "football match night stadium"
-
-TRANSFERENCIAS:
-  "[jogador] football"
-  "football player signing"
-  "football contract handshake"
-  "football training"
-
-BRASILEIRAO:
-  "brazil football stadium"
-  "brazil soccer fans"
-  "football green field"
-
-CHAMPIONS / EUROPA:
-  "champions league football"
-  "european football stadium night"
-  "[liga] football"
-
-ANALISE / TATICA:
-  "football tactics whiteboard"
-  "football field aerial"
-  "football training"
-
-OPINIAO:
-  "football referee var"
-  "football stadium atmosphere"
-  "football fans protest"
-```
-
-**DICA:** Buscar em ingles retorna MUITO mais resultados do que em portugues.
-
-### 8.6.5 Busca via Unsplash API (METODO PREFERIDO)
-
-A variavel `UNSPLASH_ACCESS_KEY` esta configurada. O agente DEVE usar a API diretamente para buscar e escolher imagens.
-
-**Opcao A — Via curl direto (RECOMENDADO para ver todas as opcoes):**
-
-```bash
-# Buscar 5 imagens landscape sobre o tema
-curl -s "https://api.unsplash.com/search/photos?query=KEYWORDS&per_page=5&orientation=landscape" \
-  -H "Authorization: Client-ID $UNSPLASH_ACCESS_KEY"
-```
-
-A resposta contem `results[]` com:
-- `results[].urls.raw` → URL base (adicionar `&w=800&h=450&fit=crop&q=80`)
-- `results[].alt_description` → descricao da imagem (USAR para avaliar relevancia)
-- `results[].user.name` → fotografo (USAR na legenda)
-- `results[].links.download_location` → trigger download (compliance Unsplash)
-
-**Processo de selecao:**
-
-```
-1. Executar busca com keywords do artigo (Secao 8.6.4)
-2. Ler a alt_description de CADA resultado
-3. ABRIR/VISUALIZAR as URLs para confirmar que a imagem combina
-4. Escolher a mais relevante (nao necessariamente a primeira!)
-5. Montar URL final: {urls.raw}&w=800&h=450&fit=crop&q=80
-6. Verificar HTTP 200: curl -sI "[url]" | head -1
-7. Se nenhuma imagem for boa → tentar nova busca com keywords diferentes
-8. Se ainda nao achar → usar banco de fallbacks (Secao 8.6.2)
-```
-
-**Exemplo pratico — artigo "Palmeiras x Fluminense":**
-
-```bash
-# Busca 1: especifica
-curl -s "https://api.unsplash.com/search/photos?query=football+match+night+stadium+fans&per_page=5&orientation=landscape" \
-  -H "Authorization: Client-ID $UNSPLASH_ACCESS_KEY"
-
-# Resultado: 5 fotos. Ler alt_description de cada:
-# 1. "Soccer game in a stadium with spectators watching"
-# 2. "Soccer game played in a packed stadium at night"    ← MELHOR! Estadio lotado a noite
-# 3. "A packed stadium with red and white supporters"
-# 4. "Crowded soccer stadium with fans watching a game"
-# 5. "Soccer game in progress at a stadium at dusk"
-
-# Escolher #2 → montar URL → verificar → usar
-```
-
-**Opcao B — Via API route do portal:**
-
-```
-GET /api/images/search?q=football+stadium+night&category=brasileirao
-
-Resposta:
-{
-  "url": "https://images.unsplash.com/photo-XXXXX?w=800&h=450&fit=crop&q=80",
-  "caption": "Descricao da imagem",
-  "photographer": "Nome do Fotografo",
-  "source": "unsplash",
-  "rateLimitRemaining": 45
-}
-```
-
-A API route retorna UMA imagem (random entre top 5). Usar quando quiser algo rapido sem avaliar manualmente.
-
-### 8.6.6 Rate Limit e Economia de Cota
-
-```
-LIMITE: 50 requisicoes por hora (Unsplash Demo)
-CACHE: API route cacheia resultados por 4 horas
-
-REGRAS:
-- Maximo 3 buscas por artigo (busca inicial + 2 refinamentos)
-- Se a primeira busca trouxer algo bom, USAR e nao desperdicar cota
-- Preferir keywords em ingles (mais resultados, menos buscas)
-- Se rateLimitRemaining < 5, usar banco de fallbacks (Secao 8.6.2)
-- Em dia de rodada (10+ artigos), economizar: 2 buscas para artigos importantes,
-  fallbacks para os demais
-```
-
-### 8.6.7 Legenda (imageCaption)
+### 8.6.5 Legenda (imageCaption)
 
 A legenda DEVE:
 - Contextualizar a imagem com o tema do artigo
 - Mencionar o jogador/time/evento quando aplicavel
 - Ter entre 80-150 caracteres
 - Ser informativa, nao apenas descritiva
+- Para imagens geradas: "Ilustracao — [contexto do artigo]"
 
 **Exemplo bom:**
-> "Estadio europeu sob as luzes — Griezmann pode deixar o Atletico apos 210 gols rumo a MLS"
+> "Ilustracao — Maracana lotado para a final: Flamengo busca o titulo do Brasileirao 2026"
 
 **Exemplo ruim:**
-> "Jogador de futebol"
+> "Imagem de futebol"
+
+### 8.6.6 Regras de Economia
+
+```
+GERACAO IA (Gemini):
+- Gerar 1 imagem por artigo (nao gerar multiplas e escolher)
+- Se a geracao falhar, usar fallback (8.6.4) — nao tentar mais de 2x
+- Prompts em ingles (melhor resultado, menos retentativas)
+
+UNSPLASH (backup):
+- LIMITE: 50 req/hora. Cache de 4h na API route
+- Preferir geracao IA. Unsplash so como fallback
+```
 
 ---
 
@@ -930,11 +905,18 @@ TIMEZONE=America/Sao_Paulo              # Fuso horario para logica de slots
 MAX_ARTICLES_PER_DAY=10                 # Limite de artigos por dia (ajustar: 8-12)
 MIN_SOURCES_PER_ARTICLE=3               # Minimo de fontes por artigo
 
+# Imagens - Geracao IA + Hospedagem
+GEMINI_API_KEY=                         # Google Gemini API key (geracao de imagens)
+CLOUDFLARE_ACCOUNT_ID=                  # Cloudflare account ID
+R2_ACCESS_KEY_ID=                       # Cloudflare R2 S3 access key
+R2_SECRET_ACCESS_KEY=                   # Cloudflare R2 S3 secret key
+R2_BUCKET_NAME=beiradocampo             # Nome do bucket R2
+R2_PUBLIC_URL=                          # URL publica do R2 (pub-xxx.r2.dev)
+UNSPLASH_ACCESS_KEY=                    # Unsplash API key (fallback de imagens)
+
 # Opcionais
-IMAGE_API_KEY=                          # API key para geracao de imagem (Flux/Replicate)
 SEARCH_API_KEY=                         # API key para web search (se usar API dedicada)
 LOG_FILE=./logs/cron.log                # Arquivo de log
-ENABLE_IMAGE_GEN=false                  # Habilitar geracao de imagem por IA
 DRY_RUN=false                           # Se true, gera mas nao commita
 ```
 
