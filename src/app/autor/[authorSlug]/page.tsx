@@ -1,5 +1,6 @@
 import { articles } from "#content";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { ArticleCard } from "@/components/ArticleCard";
 import { getAllAuthors, getAuthor } from "@/lib/authors";
@@ -43,8 +44,15 @@ export default async function AuthorPage({ params }: Props) {
     <div className="mx-auto max-w-7xl px-4 py-8">
       {/* Author profile */}
       <header className="mb-10 flex items-start gap-6">
-        <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-2xl font-bold text-white">
-          {author.name.charAt(0)}
+        <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full ring-4 ring-primary/20">
+          <Image
+            src={author.avatar}
+            alt={author.name}
+            fill
+            className="object-cover"
+            sizes="80px"
+            priority
+          />
         </div>
         <div>
           <h1 className="text-3xl font-black text-secondary">{author.name}</h1>

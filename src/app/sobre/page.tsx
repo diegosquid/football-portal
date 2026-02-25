@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { getAllAuthors } from "@/lib/authors";
 
 export const metadata: Metadata = {
@@ -49,8 +50,14 @@ export default function SobrePage() {
             className="group rounded-xl border border-gray-200 p-6 transition-all hover:border-primary hover:shadow-lg"
           >
             <div className="flex items-start gap-4">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
-                {author.name.charAt(0)}
+              <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-2 ring-primary/20 transition-all group-hover:ring-primary/40 group-hover:ring-4">
+                <Image
+                  src={author.avatar}
+                  alt={author.name}
+                  fill
+                  className="object-cover"
+                  sizes="56px"
+                />
               </div>
               <div>
                 <h3 className="font-bold text-secondary group-hover:text-primary">
