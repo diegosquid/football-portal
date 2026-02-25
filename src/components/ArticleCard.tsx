@@ -17,21 +17,31 @@ interface ArticleCardProps {
 }
 
 function timeAgo(dateString: string): string {
-  // Garantir que a data tenha timezone BRT se for só data (YYYY-MM-DD)
-  const dateInput = dateString.includes('T') ? dateString : dateString + "T12:00:00-03:00";
-  const date = new Date(dateInput);
+  // BRT = UTC-3 (3 horas = 180 minutos = 10800000 ms)
+  const BRT_OFFSET_MS = 3 * 60 * 60 * 1000;
+  
+  // Data do artigo: assumir meio-dia BRT (15h UTC) se só tiver a data
+  const dateInput = dateString.includes('T') ? dateString : dateString + "T12:00:00";
+  const articleDate = new Date(dateInput);
   
   // Verificar se a data é válida
-  if (isNaN(date.getTime())) {
-    return dateString; // Fallback: retorna a string original
+  if (isNaN(articleDate.getTime())) {
+    return dateString;
   }
   
-  // Data atual no timezone BRT
-  const now = new Date();
-  const nowBRT = new Date(now.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
-  const dateBRT = new Date(date.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
+  // Converter data do artigo pra UTC (se não tiver timezone, assume local)
+  const articleUTC = articleDate.getTime();
   
-  const diffMs = nowBRT.getTime() - dateBRT.getTime();
+  // Agora em UTC (o servidor pode estar em qualquer timezone, mas Date.now() é UTC)
+  const nowUTC = Date.now();
+  
+  // Ajustar: o artigo foi publicado às 12h BRT = 15h UTC
+  // Se a data veio sem timezone, precisamos ajustar
+  const articleTime = dateString.includes('T') 
+    ? articleUTC  // Já tem hora, usar como está
+    : articleUTC - BRT_OFFSET_MS; // Só data, assumir 12h BRT
+  
+  const diffMs = nowUTC - articleTime;
   const diffMins = Math.floor(diffMs / 60000);
   const diffHours = Math.floor(diffMs / 3600000);
   const diffDays = Math.floor(diffMs / 86400000);
@@ -39,7 +49,10 @@ function timeAgo(dateString: string): string {
   if (diffMins < 60) return `${diffMins}min atrás`;
   if (diffHours < 24) return `${diffHours}h atrás`;
   if (diffDays < 7) return `${diffDays}d atrás`;
-  return dateBRT.toLocaleDateString("pt-BR", { day: "numeric", month: "short", timeZone: "America/Sao_Paulo" });
+  
+  // Formatar data no timezone BRT
+  const dateBRT = new Date(articleTime);
+  return dateBRT.toLocaleDateString("pt-BR", { day: "numeric", month: "short" });
 }
 
 export function ArticleCard({
