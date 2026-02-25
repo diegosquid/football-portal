@@ -17,31 +17,15 @@ interface ArticleCardProps {
 }
 
 function timeAgo(dateString: string): string {
-  // BRT = UTC-3 (3 horas = 180 minutos = 10800000 ms)
-  const BRT_OFFSET_MS = 3 * 60 * 60 * 1000;
-  
-  // Data do artigo: assumir meio-dia BRT (15h UTC) se só tiver a data
-  const dateInput = dateString.includes('T') ? dateString : dateString + "T12:00:00";
+  // Sempre interpretar datas como BRT (UTC-3), independente do timezone do servidor
+  const dateInput = dateString.includes('T') ? dateString : dateString + "T12:00:00-03:00";
   const articleDate = new Date(dateInput);
-  
-  // Verificar se a data é válida
+
   if (isNaN(articleDate.getTime())) {
     return dateString;
   }
-  
-  // Converter data do artigo pra UTC (se não tiver timezone, assume local)
-  const articleUTC = articleDate.getTime();
-  
-  // Agora em UTC (o servidor pode estar em qualquer timezone, mas Date.now() é UTC)
-  const nowUTC = Date.now();
-  
-  // Ajustar: o artigo foi publicado às 12h BRT = 15h UTC
-  // Se a data veio sem timezone, precisamos ajustar
-  const articleTime = dateString.includes('T') 
-    ? articleUTC  // Já tem hora, usar como está
-    : articleUTC - BRT_OFFSET_MS; // Só data, assumir 12h BRT
-  
-  const diffMs = nowUTC - articleTime;
+
+  const diffMs = Date.now() - articleDate.getTime();
   const diffMins = Math.floor(diffMs / 60000);
   const diffHours = Math.floor(diffMs / 3600000);
   const diffDays = Math.floor(diffMs / 86400000);
@@ -49,10 +33,12 @@ function timeAgo(dateString: string): string {
   if (diffMins < 60) return `${diffMins}min atrás`;
   if (diffHours < 24) return `${diffHours}h atrás`;
   if (diffDays < 7) return `${diffDays}d atrás`;
-  
-  // Formatar data no timezone BRT
-  const dateBRT = new Date(articleTime);
-  return dateBRT.toLocaleDateString("pt-BR", { day: "numeric", month: "short" });
+
+  return articleDate.toLocaleDateString("pt-BR", {
+    day: "numeric",
+    month: "short",
+    timeZone: "America/Sao_Paulo",
+  });
 }
 
 export function ArticleCard({

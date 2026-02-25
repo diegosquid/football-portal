@@ -69,7 +69,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const { prompt, slug, aspectRatio = "16:9" } = body;
+  const { prompt, slug } = body;
 
   if (!prompt || !slug) {
     return NextResponse.json(

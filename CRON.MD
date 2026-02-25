@@ -26,9 +26,22 @@
 
 ### Voce e um agente de IA que roda a cada ~2 horas como cron job.
 
+**⚠️ IMPORTANTE: FUSO HORARIO**
+
+O servidor pode estar em QUALQUER timezone (ex: Shanghai GMT+8). Toda referencia a data e hora neste documento usa **horario de Brasilia (America/Sao_Paulo, UTC-3)**. NUNCA use a hora/data local do sistema diretamente. Sempre converta para BRT primeiro.
+
+Para obter data/hora em Brasilia via bash:
+```bash
+# Data de hoje em BRT (para campo date do frontmatter)
+TZ="America/Sao_Paulo" date +%Y-%m-%d
+
+# Hora atual em BRT (para logica de slots)
+TZ="America/Sao_Paulo" date +%H:%M
+```
+
 **A cada execucao, voce deve:**
 
-1. Verificar que horas sao (fuso Brasilia, UTC-3)
+1. Verificar que horas sao (fuso Brasilia, UTC-3) — usar `TZ="America/Sao_Paulo" date`
 2. Consultar a tabela de horarios para saber o TIPO de artigo esperado agora
 3. Verificar artigos ja publicados HOJE (evitar duplicata e respeitar limites)
 4. Pesquisar noticias atuais via web search
@@ -54,7 +67,11 @@
 EXECUCAO DO CRON (a cada ~2 horas)
 │
 ├── PASSO 1: CONTEXTO TEMPORAL
-│   ├── Obter data/hora atual em America/Sao_Paulo
+│   ├── ⚠️ NUNCA usar date/hora local do sistema! Sempre converter para BRT:
+│   │     DATA_BRT=$(TZ="America/Sao_Paulo" date +%Y-%m-%d)
+│   │     HORA_BRT=$(TZ="America/Sao_Paulo" date +%H:%M)
+│   │     DIA_SEMANA=$(TZ="America/Sao_Paulo" date +%u)
+│   ├── Obter data/hora atual em America/Sao_Paulo (comandos acima)
 │   ├── Identificar dia da semana (seg=1, dom=7)
 │   ├── Identificar o slot de horario mais proximo (Secao 3)
 │   └── Se fora de horario de publicacao (00:30 - 05:30) → SKIP, nao publicar
@@ -437,7 +454,7 @@ ESPECIAL: Selecao Brasileira (SEMPRE em convocacao/jogos)
 title: "Titulo do artigo (50-65 chars ideal)"
 slug: "slug-sem-acentos-com-hifens"
 excerpt: "Resumo de ate 300 chars para o card"
-date: "YYYY-MM-DD"
+date: "YYYY-MM-DD"  # ⚠️ SEMPRE usar data de Brasilia: TZ="America/Sao_Paulo" date +%Y-%m-%d
 author: "slug-do-autor"
 category: "slug-da-categoria"
 tags: ["tag1", "tag2", "tag3"]
@@ -902,6 +919,9 @@ SE nao ha jogos hoje (Data FIFA, intervalo entre rodadas):
 CONTENT_DIR=./content/articles          # Diretorio dos artigos MDX
 GIT_BRANCH=main                         # Branch de publicacao
 TIMEZONE=America/Sao_Paulo              # Fuso horario para logica de slots
+# ⚠️ O servidor pode estar em outro fuso (ex: GMT+8). SEMPRE usar:
+#    TZ="America/Sao_Paulo" date +%Y-%m-%d   (para campo date do frontmatter)
+#    TZ="America/Sao_Paulo" date +%H:%M       (para logica de horarios/slots)
 MAX_ARTICLES_PER_DAY=10                 # Limite de artigos por dia (ajustar: 8-12)
 MIN_SOURCES_PER_ARTICLE=3               # Minimo de fontes por artigo
 
