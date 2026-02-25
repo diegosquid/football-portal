@@ -91,7 +91,11 @@ EXECUCAO DO CRON (a cada ~2 horas)
 │   ├── Escrever na voz do autor (AUTHOR_PERSONAS.md + CONTENT_GUIDELINE.md Secao 5)
 │   ├── Aplicar regras de SEO (SEO_STRATEGY.md + CONTENT_GUIDELINE.md Secao 7)
 │   ├── Incluir links internos (minimo 2 - buscar slugs existentes no repo)
-│   ├── Gerar imagem se aplicavel (IMAGE_STRATEGY.md)
+│   ├── BUSCAR IMAGEM RELACIONADA (Secao 8.6)
+│   │   ├── Pesquisar imagem especifica ao tema (jogador, time, estadio)
+│   │   ├── Usar Unsplash/Pexels com parametros w=800&h=450&fit=crop
+│   │   ├── Escrever legenda contextual (80-150 chars)
+│   │   └── NUNCA usar placeholder generico
 │   ├── Preencher frontmatter completo
 │   └── Rodar checklist pre-publicacao (CONTENT_GUIDELINE.md Secao 10)
 │
@@ -489,6 +493,83 @@ REGRAS:
 
 ---
 
+## 8.6 Imagens - Busca e Selecao
+
+### 8.6.1 Obrigatoriedade
+
+TODO artigo DEVE ter uma imagem no frontmatter. Nunca deixar o campo `image` vazio ou com placeholder generico.
+
+### 8.6.2 Fontes de Imagens (ordem de preferencia)
+
+1. **Unsplash** (gratuito, alta qualidade) - URL direta com parametros
+2. **Pexels** (gratuito, alternativa ao Unsplash)
+3. **Pixabay** (gratuito, boa para esportes)
+4. **Site oficial do clube/jogador** (quando disponivel e permitido)
+
+### 8.6.3 Busca de Imagens Relacionadas
+
+**Sempre buscar imagem especifica ao tema:**
+
+```
+# Para artigo sobre jogador especifico:
+"[nome do jogador] [clube] foto"
+"[nome do jogador] acao jogo"
+
+# Para artigo sobre time:
+"[nome do time] jogadores comemoracao"
+"[nome do time] estadio torcida"
+
+# Para artigo generico:
+"futebol campo jogador chute"
+"futebol estadio iluminado noite"
+"bola futebol gramado close"
+```
+
+**Regras de selecao:**
+- Imagem deve ser relacionada ao tema (nao generica demais)
+- Preferir imagens de acao/jogo a posadas
+- Evitar imagens com logos de marcas concorrentes
+- Evitar imagens de torcedores sem contexto claro
+
+### 8.6.4 Formato da URL
+
+```yaml
+image: "https://images.unsplash.com/photo-[ID]?w=800&h=450&fit=crop"
+imageCaption: "Descricao contextual da imagem - relacionada ao tema do artigo"
+```
+
+**Parametros obrigatorios:**
+- `w=800` (largura)
+- `h=450` (altura - proporcao 16:9)
+- `fit=crop` (corte proporcional)
+
+### 8.6.5 Exemplos por Categoria
+
+| Tema | Exemplo de Busca | Tipo de Imagem |
+|------|------------------|----------------|
+| Transferencia de jogador | "[jogador] [clube origem] foto" | Jogador em acao pelo clube atual |
+| Pre-jogo | "[estadio do time] noite torcida" | Estadio lotado, atmosfera |
+| Pos-jogo | "[time vencedor] comemoracao gol" | Comemoracao de gol |
+| Analise tatica | "taticas futebol campo diagrama" | Vista aerea do campo |
+| Opiniao/VAR | "arbitro campo futebol" | Arbitro em acao |
+| Estatisticas | "dados numeros futebol grafico" | Representacao visual de dados |
+
+### 8.6.6 Legenda (imageCaption)
+
+A legenda deve:
+- Contextualizar a imagem
+- Mencionar o jogador/time quando aplicavel
+- Ter entre 80-150 caracteres
+- Ser informativa, nao apenas descritiva
+
+**Exemplo bom:**
+> "Antoine Griezmann em acao pelo Atletico de Madrid — frances pode deixar o clube apos 210 gols marcados"
+
+**Exemplo ruim:**
+> "Jogador de futebol"
+
+---
+
 ## 9. Publicacao e Commit
 
 ### 9.1 Estrutura de Diretorios
@@ -631,6 +712,7 @@ Use esta tabela como "cheat sheet" para decidir rapidamente o que fazer:
 ║  □ Tema nao e duplicata?                                         ║
 ║  □ Tem minimo 3 fontes?                                          ║
 ║  □ Tem angulo original?                                          ║
+║  □ Tem imagem relacionada ao tema?                               ║
 ║                                                                  ║
 ╚══════════════════════════════════════════════════════════════════╝
 ```
@@ -738,6 +820,8 @@ FRONTMATTER:
 □ Tags relevantes (3-5)
 □ Slug segue convencao
 □ Date no formato correto (YYYY-MM-DD)
+□ IMAGEM relacionada ao tema (URL valida, nao placeholder)
+□ Legenda da imagem contextual (80-150 chars)
 
 SEO:
 □ Meta title <= 60 chars
