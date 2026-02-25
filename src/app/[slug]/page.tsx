@@ -137,10 +137,11 @@ export default async function ArticlePage({ params }: Props) {
               </Link>
             )}
             <time dateTime={article.date}>
-              {new Date(article.date).toLocaleDateString("pt-BR", {
+              {new Date(article.date + "T12:00:00-03:00").toLocaleDateString("pt-BR", {
                 day: "numeric",
                 month: "long",
                 year: "numeric",
+                timeZone: "America/Sao_Paulo",
               })}
             </time>
             <span>{article.readingTime} min de leitura</span>

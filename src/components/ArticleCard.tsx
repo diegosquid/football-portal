@@ -17,9 +17,15 @@ interface ArticleCardProps {
 }
 
 function timeAgo(dateString: string): string {
+  // Usar timezone de São Paulo (BRT = UTC-3)
   const now = new Date();
-  const date = new Date(dateString);
-  const diffMs = now.getTime() - date.getTime();
+  const date = new Date(dateString + "T12:00:00-03:00"); // Assume meio-dia BRT se só tiver data
+  
+  // Ajustar 'now' para BRT (UTC-3)
+  const nowBRT = new Date(now.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
+  const dateBRT = new Date(date.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
+  
+  const diffMs = nowBRT.getTime() - dateBRT.getTime();
   const diffMins = Math.floor(diffMs / 60000);
   const diffHours = Math.floor(diffMs / 3600000);
   const diffDays = Math.floor(diffMs / 86400000);
@@ -27,7 +33,7 @@ function timeAgo(dateString: string): string {
   if (diffMins < 60) return `${diffMins}min atrás`;
   if (diffHours < 24) return `${diffHours}h atrás`;
   if (diffDays < 7) return `${diffDays}d atrás`;
-  return date.toLocaleDateString("pt-BR", { day: "numeric", month: "short" });
+  return dateBRT.toLocaleDateString("pt-BR", { day: "numeric", month: "short", timeZone: "America/Sao_Paulo" });
 }
 
 export function ArticleCard({
