@@ -3,8 +3,10 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { ArticleCard } from "@/components/ArticleCard";
+import { Pagination } from "@/components/Pagination";
 import { getAllAuthors, getAuthor } from "@/lib/authors";
 import { siteConfig } from "@/lib/site";
+import { paginate, buildPaginationUrls } from "@/lib/pagination";
 
 interface Props {
   params: Promise<{ authorSlug: string }>;
@@ -39,6 +41,10 @@ export default async function AuthorPage({ params }: Props) {
   const authorArticles = articles
     .filter((a) => a.author === authorSlug && !a.draft)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+  const result = paginate(authorArticles, 1);
+  const basePath = `/autor/${authorSlug}`;
+  const { pageUrl } = buildPaginationUrls(basePath, 1, result?.totalPages ?? 1);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
@@ -79,22 +85,29 @@ export default async function AuthorPage({ params }: Props) {
         Matérias de {author.name.split(" ")[0]}
       </h2>
 
-      {authorArticles.length > 0 ? (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {authorArticles.map((article) => (
-            <ArticleCard
-              key={article.slug}
-              title={article.title}
-              slug={article.slug}
-              excerpt={article.excerpt}
-              date={article.date}
-              author={article.author}
-              category={article.category}
-              image={article.image}
-              readingTime={article.readingTime}
-            />
-          ))}
-        </div>
+      {result && result.items.length > 0 ? (
+        <>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {result.items.map((article) => (
+              <ArticleCard
+                key={article.slug}
+                title={article.title}
+                slug={article.slug}
+                excerpt={article.excerpt}
+                date={article.date}
+                author={article.author}
+                category={article.category}
+                image={article.image}
+                readingTime={article.readingTime}
+              />
+            ))}
+          </div>
+          <Pagination
+            currentPage={1}
+            totalPages={result.totalPages}
+            pageUrl={pageUrl}
+          />
+        </>
       ) : (
         <p className="text-gray-500">
           Nenhuma matéria publicada por este autor ainda.

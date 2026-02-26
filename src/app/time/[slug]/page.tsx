@@ -2,8 +2,10 @@ import { articles } from "#content";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { ArticleCard } from "@/components/ArticleCard";
+import { Pagination } from "@/components/Pagination";
 import { getAllTeams, getTeam } from "@/lib/teams";
 import { siteConfig } from "@/lib/site";
+import { paginate, buildPaginationUrls } from "@/lib/pagination";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -39,6 +41,10 @@ export default async function TeamPage({ params }: Props) {
     .filter((a) => a.teams.includes(slug) && !a.draft)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
+  const result = paginate(teamArticles, 1);
+  const basePath = `/time/${slug}`;
+  const { pageUrl } = buildPaginationUrls(basePath, 1, result?.totalPages ?? 1);
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
       {/* Team header */}
@@ -61,22 +67,29 @@ export default async function TeamPage({ params }: Props) {
         {team.name}
       </h2>
 
-      {teamArticles.length > 0 ? (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {teamArticles.map((article) => (
-            <ArticleCard
-              key={article.slug}
-              title={article.title}
-              slug={article.slug}
-              excerpt={article.excerpt}
-              date={article.date}
-              author={article.author}
-              category={article.category}
-              image={article.image}
-              readingTime={article.readingTime}
-            />
-          ))}
-        </div>
+      {result && result.items.length > 0 ? (
+        <>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {result.items.map((article) => (
+              <ArticleCard
+                key={article.slug}
+                title={article.title}
+                slug={article.slug}
+                excerpt={article.excerpt}
+                date={article.date}
+                author={article.author}
+                category={article.category}
+                image={article.image}
+                readingTime={article.readingTime}
+              />
+            ))}
+          </div>
+          <Pagination
+            currentPage={1}
+            totalPages={result.totalPages}
+            pageUrl={pageUrl}
+          />
+        </>
       ) : (
         <p className="text-gray-500">
           Nenhuma matéria sobre o {team.name} por enquanto. Em breve teremos
