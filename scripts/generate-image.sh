@@ -51,7 +51,7 @@ PROMPT="$2"
 : "${R2_PUBLIC_URL:=https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev}"
 
 # ── Config ────────────────────────────────────────────────────────────────────
-GEMINI_MODEL="gemini-2.5-flash-image"
+GEMINI_MODEL="gemini-3.1-flash-image-preview"
 GEMINI_ENDPOINT="https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent"
 R2_ENDPOINT="https://${CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com"
 R2_KEY="articles/${SLUG}.png"
@@ -64,7 +64,7 @@ echo "🎨 Gerando imagem para: $SLUG"
 echo "📝 Prompt: ${PROMPT:0:80}..."
 
 # ── PASSO 1: Gerar imagem com Gemini ─────────────────────────────────────────
-SYSTEM_PROMPT="You are an image generator for a Brazilian football news portal. Generate a high-quality, photorealistic editorial image for a news article. Style: sports photojournalism, dramatic lighting, vibrant colors. Do NOT include any text, watermarks, logos, or overlays."
+SYSTEM_PROMPT="You are a creative image generator for a Brazilian football news portal. Generate a unique, visually striking editorial illustration. STYLE: Vary the visual approach — use cinematic compositions, creative angles, dramatic close-ups, artistic lighting, aerial views, silhouettes, or abstract sports concepts. DO NOT default to a generic football field or stadium. For transfers: show the player, city, or symbolic imagery. For tactics: bird's-eye formations or dynamic movements. For opinions: expressive editorial style with mood. For matches: rivalry, fans, key moments, or dramatic action. Use rich vibrant colors. IMPORTANT: Do NOT include any text, watermarks, logos, or written words."
 
 GEMINI_BODY=$(cat <<EOF
 {

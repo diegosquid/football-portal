@@ -28,7 +28,7 @@ interface GeminiResponse {
 /* ── Config ─────────────────────────────────────────── */
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const MODEL = "gemini-2.5-flash-image";
+const MODEL = "gemini-3.1-flash-image-preview";
 const ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
 
 /* ── POST /api/images/generate ─────────────────────── */
@@ -81,11 +81,18 @@ export async function POST(request: Request) {
   /* ── Gerar imagem com Gemini ───────────────────────── */
 
   const systemPrompt = [
-    "You are an image generator for a Brazilian football news portal called 'Beira do Campo'.",
-    "Generate a high-quality, photorealistic editorial image for a news article.",
-    "Style: sports photojournalism, dramatic lighting, vibrant colors.",
-    "IMPORTANT: Do NOT include any text, watermarks, logos, or overlays in the image.",
-    "The image should look like a professional sports photograph.",
+    "You are a creative image generator for a Brazilian football news portal.",
+    "Generate a unique, visually striking editorial illustration for a news article.",
+    "STYLE GUIDELINES:",
+    "- Vary the visual approach: use cinematic compositions, creative angles, dramatic close-ups, artistic lighting, aerial views, silhouettes, or abstract sports concepts.",
+    "- DO NOT default to a generic football field or stadium — be creative and specific to the article topic.",
+    "- For transfer news: show the player, city skyline, airport, or symbolic imagery.",
+    "- For tactical analysis: use bird's-eye formations, chalkboard style, or dynamic player movements.",
+    "- For opinion pieces: use expressive, editorial-style illustrations with mood and emotion.",
+    "- For match previews: show the rivalry, fans, iconic stadium details, or face-off compositions.",
+    "- For match results: show celebration, dejection, key moments, or dramatic action shots.",
+    "- Use rich, vibrant colors and professional sports photography or editorial illustration style.",
+    "IMPORTANT: Do NOT include any text, watermarks, logos, or written words in the image.",
   ].join(" ");
 
   const geminiPayload = {
