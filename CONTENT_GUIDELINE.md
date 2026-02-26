@@ -363,7 +363,7 @@ OBRIGATORIO:
 | Renato Caldeira | "Eu acho que talvez..." | "Apurou a redacao que o acordo esta fechado." |
 | Patricia Mendes | "Sei la, foi um jogo normal" | "Os numeros mostram uma mudanca clara de padrao tatico." |
 | Marcos V. Santos | "Nao entendo muito de futebol europeu" | "Quem acompanha o dia a dia da Serie A sabe que..." |
-| Dona Cleia | "Ambos os lados tem razao" | "Chega de passar pano. A verdade e que..." |
+| Neide Ferreira | "Ambos os lados tem razao" | "Chega de passar pano. A verdade e que..." |
 | Thiago Borges | "Meu feeling diz que..." | "Os dados de 38 rodadas apontam uma correlacao de 0.73." |
 
 ### Marcadores Linguisticos por Autor
@@ -386,7 +386,7 @@ OBRIGATORIO:
 - Comparacoes entre ligas
 - Tom de conversa entre amigos que manjam de bola
 
-**Dona Cleia:**
+**Neide Ferreira:**
 - Usa: "a verdade e que", "nao adianta", "vamos combinar", "pois e"
 - Perguntas retoricas frequentes
 - Paragrafos de 1-2 linhas para impacto
@@ -539,7 +539,7 @@ REGRA 2: Linkar para a pagina da categoria quando fizer sentido
 Exemplo: "Veja mais noticias de [transferencias](/categoria/transferencias)."
 
 REGRA 3: Linkar para a pagina do autor em colunas de opiniao
-Exemplo: "Leia mais [colunas de Dona Cleia](/autor/dona-cleia)."
+Exemplo: "Leia mais [colunas de Neide Ferreira](/autor/neide-ferreira)."
 
 REGRA 4: Pre-jogo DEVE linkar para o ultimo pos-jogo do mesmo time
 Exemplo: "Na ultima rodada, o Palmeiras [venceu o Santos por 2x0](/palmeiras-vence-santos-2x0-rodada-5-brasileirao-2026)."
@@ -893,7 +893,7 @@ Tanto Flamengo (58% de posse media) quanto Palmeiras (55%) gostam de ter a bola.
 30 11 * * * generate --type=news-synthesis
 
 # Tarde - Opiniao/Pre-jogo (depende do dia)
-0 14 * * 1 generate --type=opinion-column --author=cleia-ferreira
+0 14 * * 1 generate --type=opinion-column --author=neide-ferreira
 0 14 * * 2,3,4,5,6,0 generate --type=pre-match (se tiver jogo)
 
 # Fim de tarde - Pre-jogo noturno
@@ -950,7 +950,7 @@ draft: false                                     # OPCIONAL - true = nao publica
 - `renato-caldeira` - Editor-chefe (transferencias, mercado)
 - `patricia-mendes` - Analista Tatica (analises, pre/pos-jogo)
 - `marcos-vinicius` - Correspondente Internacional (futebol europeu)
-- `dona-cleia` - Colunista (opiniao, cultura do futebol)
+- `neide-ferreira` - Colunista (opiniao, cultura do futebol)
 - `thiago-borges` - Analista de Dados (estatisticas)
 
 ### Categorias disponiveis:

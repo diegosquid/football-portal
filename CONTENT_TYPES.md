@@ -191,7 +191,7 @@ relatedArticles: []
 
 **Quando publicar:** 1-3 horas apos o fim do jogo
 
-**Autor padrao:** Patricia Mendes (tatica), Dona Cleia (opiniao forte)
+**Autor padrao:** Patricia Mendes (tatica), Neide Ferreira (opiniao forte)
 
 **Extensao:** 800-1200 palavras
 
@@ -333,7 +333,7 @@ relatedArticles: []
 
 **Quando publicar:** Dias fixos por autor (ver Calendario Editorial)
 
-**Autor padrao:** Dona Cleia (principal), outros em rodizio
+**Autor padrao:** Neide Ferreira (principal), outros em rodizio
 
 **Extensao:** 700-1000 palavras
 
@@ -346,10 +346,10 @@ slug: "[slug-descritivo]"
 type: "opinion-column"
 publishedAt: "2026-02-24T11:00:00-03:00"
 author:
-  name: "Cleia Ferreira"
-  slug: "cleia-ferreira"
+  name: "Neide Ferreira"
+  slug: "neide-ferreira"
   role: "Colunista"
-  avatar: "/authors/cleia-ferreira.webp"
+  avatar: "/authors/neide-ferreira.webp"
 category: "opiniao"
 tags: ["coluna", "opiniao", "tema"]
 isOpinion: true

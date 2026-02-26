@@ -154,10 +154,10 @@ O cron roda a cada ~2 horas. Use a tabela abaixo para determinar o tipo de artig
 
 | Dia | Ajustes Especiais |
 |-----|-------------------|
-| **Segunda** | Coluna Dona Cleia as 09:00. Cobertura de rodada de manha. Sem pre-jogos (geralmente). |
+| **Segunda** | Coluna Neide Ferreira as 09:00. Cobertura de rodada de manha. Sem pre-jogos (geralmente). |
 | **Terca** | Guia evergreen ou stat-analysis as 09:00. Champions se tiver. |
 | **Quarta** | Copa do Brasil / Libertadores / Champions. Dia de muitos pre/pos-jogos. |
-| **Quinta** | Coluna Dona Cleia as 11:30 ("Quinta Polemica"). Pos-jogo Champions de manha. |
+| **Quinta** | Coluna Neide Ferreira as 11:30 ("Quinta Polemica"). Pos-jogo Champions de manha. |
 | **Sexta** | Pre-jogos do fim de semana. Coluna Marcos ("Sexta Europeia") as 14:00. |
 | **Sabado** | DIA DE JOGO. Ate 10 artigos. Muitos pre/pos-jogos. |
 | **Domingo** | DIA DE JOGO. Ate 10 artigos. Rodada principal do Brasileirao. |
@@ -168,8 +168,8 @@ As colunas de opiniao tem dias FIXOS:
 
 | Coluna | Dia | Horario | Autor |
 |--------|-----|---------|-------|
-| "Segunda da Cleia" | Segunda | 09:00 | Dona Cleia |
-| "Quinta Polemica" | Quinta | 11:30 | Dona Cleia |
+| "Segunda da Neide" | Segunda | 09:00 | Neide Ferreira |
+| "Quinta Polemica" | Quinta | 11:30 | Neide Ferreira |
 | "Sexta Europeia" | Sexta | 14:00 | Marcos V. Santos |
 
 Se for o dia/horario de uma coluna fixa, o tipo de artigo E `opinion-column` com o autor correspondente. Isso tem prioridade sobre outros tipos.
@@ -276,9 +276,9 @@ ALGORITMO DE DEDUPLICACAO:
 | `news-synthesis` (Europa) | Marcos V. Santos | Renato Caldeira |
 | `pre-match` (Brasil) | Patricia Mendes | Thiago Borges |
 | `pre-match` (Europa) | Marcos V. Santos | Patricia Mendes |
-| `post-match` (Brasil) | Patricia Mendes | Dona Cleia |
+| `post-match` (Brasil) | Patricia Mendes | Neide Ferreira |
 | `post-match` (Europa) | Marcos V. Santos | Patricia Mendes |
-| `opinion-column` | Dona Cleia | - (exclusivo) |
+| `opinion-column` | Neide Ferreira | - (exclusivo) |
 | `stat-analysis` | Thiago Borges | Patricia Mendes |
 | `evergreen-guide` | Variavel (quem tem expertise no tema) | - |
 | `round-coverage` | Patricia Mendes | Thiago Borges |
@@ -292,7 +292,7 @@ ALGORITMO DE DEDUPLICACAO:
 4. SE autor ideal >= 2 artigos hoje → USAR autor alternativo
 5. SE autor alternativo tambem >= 2 → USAR qualquer autor com < 2 que faca sentido
 6. NUNCA atribuir artigo a um autor fora de sua especialidade
-   (ex: Thiago Borges NAO escreve opiniao, Dona Cleia NAO faz analise tatica)
+   (ex: Thiago Borges NAO escreve opiniao, Neide Ferreira NAO faz analise tatica)
 ```
 
 ### 5.4 Frequencia Semanal Esperada por Autor
@@ -302,7 +302,7 @@ ALGORITMO DE DEDUPLICACAO:
 | Renato Caldeira | 7-10 | Janela de transferencias |
 | Patricia Mendes | 8-12 | Dias de rodada |
 | Marcos V. Santos | 5-7 | Semana de Champions |
-| Dona Cleia | 3-4 | Semana de polemica |
+| Neide Ferreira | 3-4 | Semana de polemica |
 | Thiago Borges | 4-6 | Meio de semana |
 
 ---
@@ -478,7 +478,7 @@ TZ="America/Sao_Paulo" date +%Y-%m-%dT%H:%M:00-03:00
 # Resultado: 2026-02-25T18:30:00-03:00
 ```
 
-**Autores disponiveis:** `renato-caldeira`, `patricia-mendes`, `marcos-vinicius`, `dona-cleia`, `thiago-borges`
+**Autores disponiveis:** `renato-caldeira`, `patricia-mendes`, `marcos-vinicius`, `neide-ferreira`, `thiago-borges`
 
 **Categorias disponiveis:** `brasileirao`, `libertadores`, `champions`, `transferencias`, `analises`, `selecao`, `futebol-internacional`, `opiniao`
 
@@ -738,7 +738,7 @@ git commit -m "content([tipo]): [titulo resumido curto]"
 # git commit -m "content(news): Flamengo anuncia reforco para o meio-campo"
 # git commit -m "content(pre-match): Flamengo x Palmeiras - Brasileirao rodada 5"
 # git commit -m "content(transfer-radar): Radar de transferencias 25/02/2026"
-# git commit -m "content(opinion): Dona Cleia sobre o VAR no Brasil"
+# git commit -m "content(opinion): Neide Ferreira sobre o VAR no Brasil"
 
 # 4. Push (se configurado)
 git push origin main
@@ -839,10 +839,10 @@ Use esta tabela como "cheat sheet" para decidir rapidamente o que fazer:
 ║  ├── 05:30 - 06:30 → Radar de Transferencias                    ║
 ║  ├── 06:30 - 08:00 → Noticia Sintese #1                        ║
 ║  ├── 08:00 - 10:00 → E dia de coluna? (seg/qui/sex)            ║
-║  │   ├── Seg 09:00 → Coluna Dona Cleia                          ║
+║  │   ├── Seg 09:00 → Coluna Neide Ferreira                          ║
 ║  │   ├── Senao → Stat Analysis / Evergreen / Pre-jogo           ║
 ║  ├── 10:00 - 12:00 → Noticia Sintese #2 ou Pre-jogo            ║
-║  │   ├── Qui 11:30 → Coluna Dona Cleia ("Quinta Polemica")     ║
+║  │   ├── Qui 11:30 → Coluna Neide Ferreira ("Quinta Polemica")     ║
 ║  ├── 12:00 - 14:30 → Pre-jogo ou Noticia                        ║
 ║  │   ├── Sex 14:00 → Coluna Marcos ("Sexta Europeia")           ║
 ║  ├── 14:30 - 17:30 → Pre-jogo noturno ou Noticia               ║

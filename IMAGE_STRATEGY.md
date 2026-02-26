@@ -247,7 +247,7 @@ const ogImage = generateOG({
 │   ├── renato-caldeira.webp
 │   ├── patricia-mendes.webp
 │   ├── marcos-vinicius-santos.webp
-│   ├── cleia-ferreira.webp
+│   ├── neide-ferreira.webp
 │   └── thiago-borges.webp
 └── /og/
     └── [gerados programaticamente]
@@ -298,7 +298,7 @@ Professional headshot of a young Brazilian man in his early 30s,
 short beard, European stadium blurred in background. Casual smart look.
 --style photographic portrait
 
-# Dona Cleia (Cleia Ferreira)
+# Neide Ferreira
 Professional headshot of a mature Brazilian woman in her mid-50s,
 short gray hair, confident warm smile, neutral background.
 --style photographic portrait

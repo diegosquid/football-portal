@@ -53,7 +53,7 @@ O Google indexa mais rapido conteudo publicado em horarios consistentes. Os hora
 |---|---------|------|-------|------|
 | 1 | 06:00 | Radar Transferencias | Renato | Movimentacoes do fim de semana |
 | 2 | 07:30 | Cobertura Rodada | Patricia/Thiago | Resumo da rodada completa |
-| 3 | 09:00 | Coluna Opiniao | Dona Cleia | **"Segunda da Cleia"** - opiniao sobre o fim de semana |
+| 3 | 09:00 | Coluna Opiniao | Neide Ferreira | **"Segunda da Neide"** - opiniao sobre o fim de semana |
 | 4 | 11:30 | Noticia Sintese | Renato | Principal noticia do dia |
 | 5 | 14:00 | Stat Analysis | Thiago | Numeros da rodada |
 | 6 | 17:00 | Noticia Sintese | Marcos | Futebol europeu (jogos de segunda) |
@@ -104,7 +104,7 @@ O Google indexa mais rapido conteudo publicado em horarios consistentes. Os hora
 | 1 | 06:00 | Radar Transferencias | Renato | Mercado da bola |
 | 2 | 07:30 | Pos-Jogo Europa | Marcos | Champions/Europa League |
 | 3 | 09:00 | Stat Analysis | Thiago | Dados da semana |
-| 4 | 11:30 | Coluna Opiniao | Dona Cleia | **"Quinta Polemica"** - tema quente |
+| 4 | 11:30 | Coluna Opiniao | Neide Ferreira | **"Quinta Polemica"** - tema quente |
 | 5 | 14:00 | Noticia Sintese | Variavel | Principal do dia |
 | 6 | 17:00 | Guia Evergreen | Variavel | Conteudo SEO long-tail |
 
@@ -142,7 +142,7 @@ O Google indexa mais rapido conteudo publicado em horarios consistentes. Os hora
 | 6 | 18:30 | Pos-Jogo #1 | Patricia | Jogo das 16h |
 | 7 | 20:00 | Pos-Jogo Europa | Marcos | Resultados europeus |
 | 8 | 21:00 | Pos-Jogo #2 | Patricia | Jogo das 18h30 |
-| 9 | 23:30 | Pos-Jogo #3 | Patricia/Dona Cleia | Jogo das 21h |
+| 9 | 23:30 | Pos-Jogo #3 | Patricia/Neide Ferreira | Jogo das 21h |
 
 **Total sabado:** 8-10 artigos
 
@@ -160,7 +160,7 @@ O Google indexa mais rapido conteudo publicado em horarios consistentes. Os hora
 | 5 | 16:00 | Pre-Jogo #4 | Patricia | Jogo das 20h |
 | 6 | 18:30 | Pos-Jogo #1 | Patricia | Jogo das 16h |
 | 7 | 20:30 | Pos-Jogo #2 | Patricia | Jogo das 18h30 |
-| 8 | 22:30 | Pos-Jogo #3 | Dona Cleia | Jogo das 20h (com opiniao) |
+| 8 | 22:30 | Pos-Jogo #3 | Neide Ferreira | Jogo das 20h (com opiniao) |
 | 9 | 23:30 | Cobertura Parcial | Thiago | Se a rodada terminar |
 
 **Total domingo:** 8-10 artigos

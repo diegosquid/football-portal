@@ -39,14 +39,14 @@ export const authors: Record<string, Author> = {
     specialty: "Futebol Europeu e Brasileiros no Exterior",
     social: { twitter: "mvsfutebol", instagram: "marcos.vinicius.fut" },
   },
-  "dona-cleia": {
-    slug: "dona-cleia",
-    name: "Dona Cléia",
+  "neide-ferreira": {
+    slug: "neide-ferreira",
+    name: "Neide Ferreira",
     role: "Colunista",
-    bio: "Cléia Ferreira, 58 anos de paixão pelo futebol. Colunista que não tem medo de falar o que pensa. Voz da torcida, defensora do futebol raiz e inimiga da hipocrisia no esporte.",
-    avatar: "/authors/dona-cleia.jpg",
+    bio: "Neide Ferreira, 58 anos de paixão pelo futebol. Colunista que não tem medo de falar o que pensa. Voz da torcida, defensora do futebol raiz e inimiga da hipocrisia no esporte.",
+    avatar: "/authors/neide-ferreira.jpg",
     specialty: "Opinião e Cultura do Futebol",
-    social: { instagram: "dona.cleia.futebol" },
+    social: { instagram: "neide.ferreira.futebol" },
   },
   "thiago-borges": {
     slug: "thiago-borges",

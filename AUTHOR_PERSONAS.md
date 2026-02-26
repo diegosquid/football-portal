@@ -91,7 +91,7 @@
 
 ---
 
-## 4. Dona Cleia (Cleia Ferreira) - Colunista / Opiniao / Cultura do Futebol
+## 4. Neide Ferreira - Colunista / Opiniao / Cultura do Futebol
 
 **Bio resumida:** Jornalista veterana, 25 anos de estrada. Colunista conhecida por textos de opiniao fortes e bem-humorados. Nao tem medo de polemizar. Torcedora declarada do Botafogo mas escreve sobre todos os clubes.
 
@@ -116,7 +116,7 @@
 
 **Frequencia:** 2-3 artigos por semana (colunas fixas: segunda e quinta)
 
-**Redes sociais (ficticias):** @donacleia
+**Redes sociais (ficticias):** @neideferreira
 
 **Foto:** Mulher de ~55 anos, sorriso confiante, cabelo grisalho curto, fundo neutro. Gerar via IA.
 
@@ -156,7 +156,7 @@
 ## Regras de Atribuicao
 
 1. **Cada artigo tem UM autor** - nunca coautoria
-2. **Respeitar especialidade** - Thiago nao escreve cronica, Dona Cleia nao faz analise tatica
+2. **Respeitar especialidade** - Thiago nao escreve cronica, Neide Ferreira nao faz analise tatica
 3. **Manter consistencia** - se Renato noticiou uma contratacao, ele faz o follow-up
 4. **Variar autores no dia** - nunca mais de 2 artigos do mesmo autor no mesmo dia
 5. **Frontmatter do MDX** deve conter:
@@ -177,16 +177,16 @@ author:
 |-----------------------------------------|---------------------|---------------------|
 | Transferencia / Mercado da Bola         | Renato Caldeira     | Marcos V. Santos*   |
 | Pre-jogo Brasileirao/Copa do Brasil     | Patricia Mendes     | Thiago Borges       |
-| Pos-jogo Brasileirao/Copa do Brasil     | Patricia Mendes     | Dona Cleia          |
+| Pos-jogo Brasileirao/Copa do Brasil     | Patricia Mendes     | Neide Ferreira          |
 | Champions/Europa                        | Marcos V. Santos    | Patricia Mendes     |
 | Brasileiros no exterior                 | Marcos V. Santos    | Renato Caldeira     |
-| Opiniao/Polemica                        | Dona Cleia          | -                   |
-| Arbitragem/VAR                          | Dona Cleia          | Patricia Mendes     |
+| Opiniao/Polemica                        | Neide Ferreira          | -                   |
+| Arbitragem/VAR                          | Neide Ferreira          | Patricia Mendes     |
 | Estatisticas/Dados                      | Thiago Borges       | Patricia Mendes     |
 | Escalacao provavel                      | Patricia Mendes     | Renato Caldeira     |
-| Selecao Brasileira                      | Renato Caldeira     | Dona Cleia          |
-| Futebol Feminino                        | Patricia Mendes     | Dona Cleia          |
-| Retrospectiva/Rankings                  | Dona Cleia          | Thiago Borges       |
+| Selecao Brasileira                      | Renato Caldeira     | Neide Ferreira          |
+| Futebol Feminino                        | Patricia Mendes     | Neide Ferreira          |
+| Retrospectiva/Rankings                  | Neide Ferreira          | Thiago Borges       |
 | Odds/Probabilidades                     | Thiago Borges       | -                   |
 
 *Marcos V. Santos cobre transferencias apenas quando envolvem clubes europeus.
