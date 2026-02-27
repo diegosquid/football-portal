@@ -99,16 +99,16 @@ async function postTweet() {
     log(`✅ Conectado como: @${user.data.username}`);
     log('');
 
-    // Postar tweet
+    // Postar tweet (usar v2 — Free Tier bloqueia v1.1 para tweets)
     log('⏳ Postando tweet...');
-    const tweet = await client.v1.tweet(tweetText);
-    
+    const { data: tweet } = await client.v2.tweet(tweetText);
+
     log('✅ Tweet postado com sucesso!');
-    log(`🔗 URL: https://twitter.com/${user.data.username}/status/${tweet.id_str}`);
-    log(`🆔 ID: ${tweet.id_str}`);
-    
+    log(`🔗 URL: https://x.com/${user.data.username}/status/${tweet.id}`);
+    log(`🆔 ID: ${tweet.id}`);
+
     // Sempre loga sucesso, mesmo em silent mode (para o cron saber)
-    console.log(`TWITTER_SUCCESS: https://twitter.com/${user.data.username}/status/${tweet.id_str}`);
+    console.log(`TWITTER_SUCCESS: https://x.com/${user.data.username}/status/${tweet.id}`);
     
   } catch (err) {
     const errorCode = err.code || 'UNKNOWN';
