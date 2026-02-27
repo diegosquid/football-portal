@@ -1,13 +1,17 @@
 #!/usr/bin/env node
 /**
  * post-to-twitter.js — Posta um artigo no Twitter/X
- * 
+ *
  * Uso:
  *   node scripts/post-to-twitter.js <slug-do-artigo> [--yes] [--silent]
- * 
+ *
  * Exemplos:
  *   node scripts/post-to-twitter.js numeros-brasileirao-2026-4-rodadas-dados --yes
  *   node scripts/post-to-twitter.js numeros-brasileirao-2026-4-rodadas-dados --yes --silent
+ *
+ * O script verifica se a URL do artigo esta acessivel no Vercel antes de tweetar,
+ * aguardando ate 5 minutos pelo deploy. Isso garante que o Twitter Card (preview
+ * com imagem) apareca corretamente no tweet.
  */
 
 const { TwitterApi } = require('twitter-api-v2');
@@ -82,11 +86,45 @@ log(tweetText);
 log('---');
 log('');
 
+/**
+ * Aguarda a URL do artigo ficar acessível (deploy do Vercel concluído).
+ * Tenta a cada 20s, por até maxAttempts vezes.
+ * Retorna true se a URL está OK, false se esgotou as tentativas.
+ */
+async function waitForDeploy(articleUrl, maxAttempts = 15) {
+  for (let i = 1; i <= maxAttempts; i++) {
+    try {
+      const res = await fetch(articleUrl, { method: 'HEAD', redirect: 'follow' });
+      if (res.ok) {
+        log(`✅ URL acessível (status ${res.status})`);
+        return true;
+      }
+      log(`⏳ Tentativa ${i}/${maxAttempts} — status ${res.status}, aguardando deploy...`);
+    } catch (err) {
+      log(`⏳ Tentativa ${i}/${maxAttempts} — erro de rede, aguardando deploy...`);
+    }
+    if (i < maxAttempts) {
+      await new Promise(r => setTimeout(r, 20_000)); // 20s entre tentativas
+    }
+  }
+  return false;
+}
+
 // Função para postar
 async function postTweet() {
   try {
+    // Verificar se o artigo está live no Vercel antes de tweetar
+    // Isso garante que o Twitter Card (preview com imagem) apareca no tweet
+    log('🔍 Verificando se o artigo está acessível no Vercel...');
+    const isLive = await waitForDeploy(url);
+
+    if (!isLive) {
+      error('⚠️  Artigo ainda não está acessível após 5 minutos. Postando mesmo assim...');
+      // Posta mesmo assim — melhor tweetar sem card do que não tweetar
+    }
+
     log('⏳ Conectando à API do Twitter...');
-    
+
     const client = new TwitterApi({
       appKey: CONSUMER_KEY,
       appSecret: CONSUMER_SECRET,
@@ -109,20 +147,20 @@ async function postTweet() {
 
     // Sempre loga sucesso, mesmo em silent mode (para o cron saber)
     console.log(`TWITTER_SUCCESS: https://x.com/${user.data.username}/status/${tweet.id}`);
-    
+
   } catch (err) {
     const errorCode = err.code || 'UNKNOWN';
     const errorMessage = err.message || 'Erro desconhecido';
-    
+
     // Em modo silencioso, apenas loga o erro e sai com sucesso
     if (silent) {
       console.log(`TWITTER_SKIPPED: ${errorCode} - ${errorMessage.substring(0, 100)}`);
       process.exit(0);
     }
-    
+
     error('❌ Erro ao postar tweet:');
     error(errorMessage);
-    
+
     if (errorCode === 401) {
       error('\n⚠️  Erro de autenticação. Verifique as credenciais.');
     } else if (errorCode === 403 || errorCode === 402) {
@@ -130,7 +168,7 @@ async function postTweet() {
     } else if (errorCode === 429) {
       error('\n⚠️  Rate limit atingido.');
     }
-    
+
     // Não falha o job, apenas loga
     console.log(`TWITTER_FAILED: ${errorCode}`);
     process.exit(0);
