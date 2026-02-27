@@ -597,68 +597,89 @@ curl -s -X POST "http://localhost:3000/api/images/generate" \
 
 Usar o campo `url` diretamente no frontmatter do artigo.
 
-### 8.6.3 Como Escrever o Prompt (CRITICO)
+### 8.6.3 Como Escrever o Prompt (CRITICO) — ESTILO FOTOJORNALISTICO
 
-O prompt define a qualidade da imagem. Seguir estas regras:
+O prompt define a qualidade da imagem. **ESTRATEGIA ATUAL: Estilo fotojornalistico** — imagens devem parecer foto de jornal, nunca cartoon ou ilustracao.
 
 **Formato do prompt:**
 ```
-[CENA PRINCIPAL], [DETALHES VISUAIS], [ILUMINACAO], [ESTILO]
+[CENA PRINCIPAL], [DETALHES VISUAIS], [ILUMINACAO], [ESTILO FOTOJORNALISTICO]
 ```
 
 **Regras:**
 - Escrever SEMPRE em ingles (modelo funciona melhor)
 - Ser ESPECIFICO: mencionar estadio, cores do time, contexto
 - NUNCA pedir texto, logos, ou nomes na imagem
-- Pedir estilo "photorealistic sports photography"
-- Mencionar "dramatic lighting" para jogos noturnos
-- Incluir "aerial view" ou "wide angle" para estadios
+- **SEMPRE pedir estilo fotojornalistico** — nunca cartoon ou ilustracao
+- Usar termos como: "photojournalistic sports photography", "natural lighting", "film grain", "shallow depth of field"
+- Mencionar angulos dinamicos de fotografo de campo
+- Incluir "300mm lens look" ou "field-level photographer angle"
+
+**ESTILO OBRIGATORIO — Fotojornalismo:**
+- Iluminacao natural (luz do dia ou floodlights realistas)
+- Granularidade sutil de filme fotografico
+- Angulos dinamicos de nivel de campo
+- Profundidade de campo rasa (background desfocado)
+- Cores realistas, nunca saturadas ou cartoon
+- Atmosfera autentica de estadio
 
 **Exemplos por tipo de artigo:**
 
 ```
 PRE-JOGO / POS-JOGO:
-  "Packed [ESTADIO] stadium at night with dramatic floodlights,
-   fans wearing [COR DO TIME] in the stands, green pitch with
-   players warming up, photorealistic sports photography, wide angle"
+  "Photojournalistic sports photography of packed [ESTADIO] stadium
+   at night, dramatic floodlights illuminating the pitch, fans in
+   [COR DO TIME] visible in stands, field-level photographer angle,
+   300mm lens look, natural film grain, shallow depth of field,
+   authentic match atmosphere, photorealistic"
 
-  "Maracana stadium packed with Flamengo fans in red and black,
-   night match under bright floodlights, aerial panoramic view,
-   dramatic atmosphere, photorealistic"
+  "Maracana stadium during night match, photojournalistic style,
+   red and black Flamengo fans in packed stands, bright stadium
+   floodlights, green pitch with players, field-level angle,
+   natural lighting, subtle film grain texture, professional
+   sports photography, 16:9 ratio"
 
 TRANSFERENCIAS:
-  "Football player in training gear walking through a modern stadium
-   tunnel, dramatic backlight, photorealistic sports photography"
+  "Photojournalistic concept photo, silhouette of football player
+   walking through modern stadium tunnel, dramatic backlight from
+   stadium entrance, [COR DO TIME] hues, shallow depth of field,
+   natural film grain, professional sports photography style"
 
-  "Close-up of a football player's boots on green grass during
-   training, morning light, shallow depth of field, sports photography"
+  "Close-up photojournalistic shot of football boots on green
+   training pitch, morning natural light, shallow depth of field,
+   85mm lens look, subtle film grain, authentic sports photography"
 
 BRASILEIRAO GENERICO:
-  "Brazilian football stadium during a match, packed crowd with
-   colorful flags, green pitch under sunset light, wide angle
-   photography, vibrant atmosphere"
+  "Photojournalistic wide angle of Brazilian football stadium during
+   match, packed crowd with colorful flags, green pitch under natural
+   sunset light, field-level photographer position, 300mm lens
+   compression, subtle film grain, authentic atmosphere"
 
 CHAMPIONS / EUROPA:
-  "European football stadium at night, Champions League atmosphere,
-   blue and white floodlights, packed stands, dramatic sky,
-   photorealistic sports photography"
+  "European football stadium at night, photojournalistic sports
+   photography, blue and white floodlights, packed stands visible,
+   dramatic sky, field-level angle, natural lighting, film grain
+   texture, professional 300mm lens look"
 
 ANALISE / TATICA:
-  "Aerial view of a football pitch with players in formation during
-   a match, green grass patterns visible, tactical camera angle,
-   professional sports photography"
+  "Aerial photojournalistic view of football pitch during match,
+   players in formation visible, green grass patterns, tactical
+   camera angle from upper stands, natural stadium lighting,
+   professional sports photography, subtle grain"
 
 OPINIAO:
-  "Empty football stadium seats at dusk with dramatic golden light,
-   atmospheric moody sports photography, contemplative mood"
+  "Photojournalistic documentary style, empty football stadium seats
+   at dusk with golden natural light, atmospheric mood, 35mm lens
+   look, film grain texture, contemplative sports photography"
 
 SELECAO BRASILEIRA:
-  "Football stadium with Brazilian fans in yellow jerseys, green
-   and yellow flags, tropical atmosphere, packed stands,
-   photorealistic night match photography"
+  "Photojournalistic sports photography of stadium with Brazilian
+   fans in yellow jerseys, green and yellow flags, packed stands,
+   night match under floodlights, field-level angle, natural
+   lighting, film grain, 300mm lens look, authentic atmosphere"
 ```
 
-**DICA:** Adaptar o prompt para cada artigo especifico. Quanto mais detalhes sobre o contexto real (estadio, cores do time, tipo de jogo), melhor a imagem.
+**DICA:** Adaptar o prompt para cada artigo especifico. Quanto mais detalhes sobre o contexto real (estadio, cores do time, tipo de jogo), melhor a imagem. **Se a imagem gerada parecer cartoon ou ilustracao, descartar e gerar novamente com prompt mais enfatico sobre fotojornalismo.**
 
 ### 8.6.4 Fallback: Banco de Imagens Verificadas
 

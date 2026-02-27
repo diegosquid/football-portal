@@ -86,73 +86,89 @@ Foto: [Fotografo] / Unsplash
 - **Unicidade:** Cada imagem e exclusiva do portal
 - **Consistencia:** Podemos manter um estilo visual unico
 
-### 3.2 Tipos de Imagens IA por Tipo de Conteudo
+### 3.2 NOVA ESTRATEGIA: Estilo Fotojornalistico
+
+**Diretriz principal:** Todas as imagens geradas por IA devem ter **cara de foto de jornal**, nunca cartoon ou ilustracao. O objetivo é passar credibilidade de portal de noticias serio.
+
+**Caracteristicas do estilo fotojornalistico:**
+- Iluminacao natural (luz do dia, sombras realistas)
+- Granularidade sutil (textura de foto de camera profissional)
+- Angulos de fotografo de campo (baixo, dinamico, proximo da acao)
+- Cores realistas, nunca saturadas demais
+- Profundidade de campo (foco seletivo, background desfocado)
+- Atmosfera de estadio autentica
+
+---
 
 #### Pre-Jogo e Pos-Jogo
-**Estilo:** Ilustracao editorial dramatica, estilo "match poster"
+**Estilo:** Fotojornalismo esportivo, estilo Reuters/Getty Images
 
 **Prompt base:**
 ```
-Editorial illustration for a football match between [Team A colors] and
-[Team B colors] teams. Dynamic composition showing football action,
-[stadium name] atmosphere. Editorial style, dramatic lighting, vibrant
-colors. No faces, no logos, no specific player likenesses. 16:9 ratio.
---style editorial illustration --no text --no logos --no faces
+Photojournalistic sports photography of a football match atmosphere.
+[Team A colors] vs [Team B colors]. Shot from photographer's position
+at field level. Natural stadium lighting, slight film grain texture.
+Dynamic angle, shallow depth of field. Professional sports photography
+style, 300mm lens look. No faces of specific players, no logos visible.
+16:9 ratio, high detail.
 ```
 
 **Variantes por tipo de jogo:**
-- Classico: iluminacao mais dramatica, cores fortes
-- Decisao: elementos visuais de tensao (close em bola, trave, maos)
-- Goleada: celebracao, confete, torcida
+- Classico: Luz noturna de floodlights, sombras dramaticas, torcida em close
+- Decisao: Momento de tensao (bola na area, mao do goleiro, travessao)
+- Goleada: Celebracao com torcida ao fundo, confete no ar, luz natural
 
 #### Transferencias
-**Estilo:** Composicao editorial estilo "announcement card"
+**Estilo:** Foto conceitual estilo jornal, nao ilustracao
 
 **Prompt base:**
 ```
-Clean editorial illustration of a football transfer concept. Abstract
-representation of a player silhouette between two club color schemes
-[Color A] and [Color B]. Modern design, geometric elements, transfer
-arrow. No faces, no logos. 16:9 ratio.
---style modern graphic design
+Photojournalistic concept photo for football transfer news. Silhouette
+of player figure against stadium backdrop with [Color A] and [Color B]
+hues. Shot with 85mm lens, natural lighting, shallow depth of field.
+Professional sports photography style, editorial newspaper aesthetic.
+No logos, no identifiable faces. 16:9 ratio, subtle film grain.
 ```
 
 #### Colunas de Opiniao
-**Estilo:** Ilustracao conceitual/artistica
+**Estilo:** Foto documental/ambiental estilo jornalismo
 
 **Prompt base:**
 ```
-Conceptual editorial illustration about [theme]. [Metafora visual].
-Think piece art style, thought-provoking, clean composition. 16:9 ratio.
---style editorial art
+Documentary photojournalism style image about [theme]. [Contexto visual
+do tema]. Natural lighting, candid moment, real atmosphere. Shot with
+35mm lens, street photography aesthetic. Editorial newspaper photography,
+authentic feel, no staging. 16:9 ratio, realistic colors.
 ```
 
 #### Estatisticas
-**Estilo:** Infografico minimalista com dados visuais
+**Estilo:** Foto de ambiente de dados/computadores estilo reportagem
 
 **Prompt base:**
 ```
-Clean data visualization infographic about football statistics.
-Minimalist design, [color scheme], bar charts and numbers. Modern
-editorial style. 16:9 ratio.
---style infographic
+Photojournalistic image of sports analytics environment. Screens showing
+football data, charts visible in background. Natural office lighting,
+depth of field. Documentary photography style, realistic atmosphere.
+No text readable, no logos. 16:9 ratio, authentic feel.
 ```
 
 **MELHOR OPCAO:** Gerar infograficos programaticamente (HTML/CSS para PNG) com dados reais. Mais preciso que IA para dados numericos.
 
 #### Guias Evergreen
-**Estilo:** Thumbnail chamativo, tipo "guia completo"
+**Estilo:** Foto real de arquivo (Unsplash/Pexels) + overlay minimalista
 
-**Usar imagens de bancos gratuitos (Unsplash/Pexels) + overlay de texto gerado programaticamente.**
+**Usar imagens de bancos gratuitos com estilo fotojornalistico + overlay de texto gerado programaticamente.**
 
 ### 3.3 Ferramentas de Geracao IA Recomendadas
 
-| Ferramenta | Custo | Qualidade | API | Recomendacao |
-|-----------|-------|-----------|-----|--------------|
-| **Flux (via Replicate)** | ~$0.003/imagem | Excelente | Sim | **Primaria** - melhor custo-beneficio com API |
-| **DALL-E 3 (OpenAI)** | ~$0.04/imagem | Muito boa | Sim | Alternativa |
-| **Stable Diffusion (local)** | Custo de GPU | Boa | Self-hosted | Para volume muito alto |
-| **Midjourney** | $10-60/mes | Excelente | Limitada | Para imagens premium |
+| Ferramenta | Custo | Qualidade | Estilo | API | Recomendacao |
+|-----------|-------|-----------|--------|-----|--------------|
+| **Gemini (Google)** | Gratuito/Barato | Muito boa | Fotojornalistico realista | Sim | **Primaria** - melhor para estilo foto real |
+| **Flux (via Replicate)** | ~$0.003/imagem | Excelente | Variado | Sim | Alternativa |
+| **DALL-E 3 (OpenAI)** | ~$0.04/imagem | Muito boa | Variado | Sim | Alternativa |
+| **Stable Diffusion (local)** | Custo de GPU | Boa | Variado | Self-hosted | Para volume muito alto |
+
+**Nota:** Gemini tende a produzir resultados mais foto-realistas quando bem instruido, ideal para o estilo fotojornalistico deste projeto.
 
 ### 3.4 Pipeline de Geracao de Imagem
 
@@ -177,14 +193,16 @@ editorial style. 16:9 ratio.
 2. **Escudos/logos de clubes** - marca registrada, gerar formas abstratas com as CORES do time
 3. **Uniformes com marcas** - nao reproduzir patrocinios (Adidas, Nike, Crefisa, etc.)
 4. **Texto na imagem** - IA gera texto mal, adicionar texto via overlay programatico
-5. **Fotos realistas de jogadores** - sempre estilo ilustracao/editorial/conceitual
+5. **Estilos cartoon, ilustracao ou artisticos** - manter sempre estilo fotojornalistico
+6. **Cores saturadas ou irreais** - manter paleta realista de fotografia profissional
 
 ### SEMPRE:
-1. Usar estilos **nao-fotograficos** (ilustracao, editorial art, infografico)
+1. Usar estilo **fotojornalistico** (iluminacao natural, granularidade, angulos dinamicos)
 2. Representar times por **cores** nao por logos
 3. Usar **silhuetas genericas** se precisar de figuras humanas
 4. Incluir **alt text** descritivo e com keyword
 5. Comprimir para **< 100KB** em WebP
+6. **Revisar cada imagem** - se parecer cartoon ou ilustracao, gerar novamente
 
 ---
 
