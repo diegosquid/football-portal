@@ -10,7 +10,7 @@ export const siteConfig = {
   publisher: "Beira do Campo",
   ogImage: "/og-default.jpg",
   links: {
-    twitter: "https://twitter.com/beiradocampo",
+    twitter: "https://x.com/beira_do_campo",
     instagram: "https://instagram.com/beiradocampo",
   },
 };
