@@ -11,6 +11,5 @@ export const siteConfig = {
   ogImage: "/og-default.jpg",
   links: {
     twitter: "https://x.com/beira_do_campo",
-    instagram: "https://instagram.com/beiradocampo",
   },
 };
