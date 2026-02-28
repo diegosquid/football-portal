@@ -521,6 +521,60 @@ REGRAS:
 
 ---
 
+### 8.7 Widgets MDX — Componentes Visuais nos Artigos
+
+O portal possui widgets interativos que podem ser usados DENTRO do corpo do artigo MDX. Use-os quando agregarem valor visual.
+
+#### Widget: TacticalFormation (Formacao Tatica)
+
+Renderiza um campo de futebol horizontal com a formacao tatica de um time. **Ideal para:** pre-jogo, analise tatica, pos-jogo, comparacoes de esquema.
+
+**Quando usar:**
+- Artigos de `pre-match` que detalham escalacao provavel
+- Artigos de `analises` (analise tatica)
+- Artigos de `post-match` que discutem mudancas taticas durante o jogo
+- Qualquer artigo que mencione formacao/esquema tatico de um time
+
+**Sintaxe no MDX:**
+```jsx
+<TacticalFormation
+  formation="4-3-3"
+  team="Flamengo"
+  color="#FF0000"
+  title="Escalacao provavel"
+  players={[
+    { number: 1, name: "Rossi" },
+    { number: 2, name: "Wesley" },
+    { number: 3, name: "Leo Pereira" },
+    { number: 4, name: "Fabricio Bruno" },
+    { number: 6, name: "Ayrton Lucas" },
+    { number: 5, name: "Pulgar" },
+    { number: 8, name: "Gerson" },
+    { number: 17, name: "De la Cruz" },
+    { number: 11, name: "Everton C." },
+    { number: 9, name: "Pedro" },
+    { number: 7, name: "Luiz Araujo" },
+  ]}
+/>
+```
+
+**Props:**
+- `formation` (obrigatorio): `"4-3-3"`, `"4-4-2"`, `"4-2-3-1"`, `"4-1-4-1"`, `"3-5-2"`, `"3-4-3"`, `"5-3-2"`, `"5-4-1"`, `"4-4-2-diamond"`, `"4-3-2-1"`
+- `players` (opcional): Array de 11 jogadores na ordem: GK → defensores L→R → meias L→R → atacantes L→R
+- `team` (opcional): Nome do time exibido acima
+- `color` (opcional): Cor hex do time (default: `#e94560`). Ex: Flamengo `#FF0000`, Palmeiras `#006633`, Corinthians `#000000`
+- `title` (opcional): Titulo/descricao acima do campo
+- `showPositions` (opcional): Exibe labels de posicao (GK, ZAG, VOL, etc). Default: true
+
+**Regras:**
+- Ordem dos jogadores SEMPRE: goleiro primeiro, depois defensores da esquerda pra direita, meias, atacantes
+- Nomes abreviados quando necessario (max ~14 chars). Ex: "Fabricio Bruno" em vez de "Fabricio Bruno de Souza"
+- Use acentos nos nomes normalmente (ex: "Aníbal Moreno", "Léo Pereira")
+- NAO usar se nao souber a escalacao — melhor nao ter widget do que ter errado
+- Pode usar 2 widgets no mesmo artigo (ex: comparar formacao de ambos os times em pre-jogo)
+
+---
+
 ## 8.6 Imagens - Geracao com IA (Gemini + Cloudflare R2)
 
 ### 8.6.1 METODO PRINCIPAL: Gerar Imagem com IA
