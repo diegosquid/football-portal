@@ -91,9 +91,15 @@ EXECUCAO DO CRON (a cada ~2 horas)
 │   └── Resultado: TIPO definido (news-synthesis, pre-match, etc.)
 │
 ├── PASSO 4: PESQUISA E VERIFICAÇÃO DE PAUTA
+│   ├── **ANÁLISE DE TEMAS (NOVO - OBRIGATÓRIO)**
+│   │   ├── Executar: node scripts/analyze-topics.js 10
+│   │   ├── Verificar alertas de saturação por time/tema
+│   │   ├── Se time/tema aparece em 3+ dos últimos 10 artigos → EVITAR
+│   │   └── Consultar recomendações de temas seguros
 │   ├── Executar web searches conforme Secao 7
 │   ├── Coletar 5-10 pautas potenciais
 │   ├── Filtrar: remover temas ja cobertos hoje (Secao 4)
+│   ├── **Filtrar: remover temas saturados (3+ artigos recentes)**
 │   ├── Pontuar cada pauta (Secao 7.2)
 │   ├── **HARDENING: Verificação cruzada obrigatória**
 │   │   ├── Confirmar fato principal em 2+ fontes confiáveis

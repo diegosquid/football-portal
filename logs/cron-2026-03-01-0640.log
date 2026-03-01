@@ -1,0 +1,44 @@
+[2026-03-01T06:40:00-03:00] CRON START - football-portal-content
+[2026-03-01T06:40:00-03:00] Horario: 06:40 BRT (Domingo)
+[2026-03-01T06:40:00-03:00] Slot: 05:30-06:30 → transfer-radar (fallback: news-synthesis)
+[2026-03-01T06:40:01-03:00] Inventario: 2 artigos hoje
+  - radar-transferencias-2026-03-01.mdx
+  - crise-flamengo-torcida-protesto-filipe-luis-recopa-2026.mdx
+[2026-03-01T06:40:01-03:00] Verificacao: radar-transferencias ja publicado hoje
+[2026-03-01T06:40:01-03:00] Tipo selecionado: news-synthesis
+[2026-03-01T06:40:05-03:00] Search: "futebol brasileiro noticias hoje 1 de marco 2026"
+[2026-03-01T06:40:08-03:00] Search: "Corinthians eliminado Novorizontino Paulistao 2026"
+[2026-03-01T06:40:10-03:00] Pautas encontradas: 5
+[2026-03-01T06:40:10-03:00] Dedup check: Aprovado
+[2026-03-01T06:40:10-03:00] Pauta selecionada: "Corinthians eliminado pelo Novorizontino no Paulistao 2026"
+[2026-03-01T06:40:10-03:00] Autor: renato-caldeira (1/2 hoje)
+[2026-03-01T06:40:45-03:00] Gerando imagem com IA (Gemini)...
+[2026-03-01T06:41:30-03:00] Imagem gerada: 1797KB
+[2026-03-01T06:41:35-03:00] Upload R2 OK: https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/corinthians-eliminado-novorizontino-paulistao-2026.png
+[2026-03-01T06:41:40-03:00] Artigo gerado: 850 palavras, 3 fontes
+[2026-03-01T06:41:41-03:00] Checklist: PASS (0 errors)
+[2026-03-01T06:41:42-03:00] Salvo: content/articles/corinthians-eliminado-novorizontino-paulistao-2026.mdx
+[2026-03-01T06:41:45-03:00] Commit: content(news): Corinthians eliminado pelo Novorizontino no Paulistão 2026
+[2026-03-01T06:41:45-03:00] Push: OK (main)
+[2026-03-01T06:46:45-03:00] Aguardando 5 minutos para deploy...
+[2026-03-01T06:51:45-03:00] Postando no Twitter...
+[2026-03-01T06:52:00-03:00] Twitter: SUCCESS
+[2026-03-01T06:52:00-03:00] Tweet URL: https://x.com/beira_do_campo/status/2028044739979989125
+[2026-03-01T06:52:00-03:00] CRON END (720s)
+
+METRICAS:
+{
+  "slug": "corinthians-eliminado-novorizontino-paulistao-2026",
+  "type": "news-synthesis",
+  "author": "renato-caldeira",
+  "category": "brasileirao",
+  "publishedAt": "2026-03-01T06:40:00-03:00",
+  "wordCount": 850,
+  "sourcesUsed": 3,
+  "keywords": ["corinthians", "novorizontino", "paulistao", "eliminacao"],
+  "generationTimeMs": 720000,
+  "teams": ["corinthians", "novorizontino"],
+  "twitterUrl": "https://x.com/beira_do_campo/status/2028044739979989125",
+  "imageGenerated": true,
+  "imageUrl": "https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/corinthians-eliminado-novorizontino-paulistao-2026.png"
+}
