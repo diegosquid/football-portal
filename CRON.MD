@@ -91,11 +91,12 @@ EXECUCAO DO CRON (a cada ~2 horas)
 │   └── Resultado: TIPO definido (news-synthesis, pre-match, etc.)
 │
 ├── PASSO 4: PESQUISA E VERIFICAÇÃO DE PAUTA
-│   ├── **ANÁLISE DE TEMAS (NOVO - OBRIGATÓRIO)**
+│   ├── **ANÁLISE DE TEMAS (OBRIGATÓRIO - BLOQUEANTE)**
 │   │   ├── Executar: node scripts/analyze-topics.js 10
 │   │   ├── Verificar alertas de saturação por time/tema
-│   │   ├── Se time/tema aparece em 3+ dos últimos 10 artigos → EVITAR
-│   │   └── Consultar recomendações de temas seguros
+│   │   ├── **SE time/tema aparece em 3+ dos últimos 10 artigos → REJEITAR PAUTA**
+│   │   ├── **SE tema saturado → buscar alternativa imediatamente**
+│   │   └── Logar no output: "[ANALISE] Temas saturados: [lista]"
 │   ├── Executar web searches conforme Secao 7
 │   ├── Coletar 5-10 pautas potenciais
 │   ├── Filtrar: remover temas ja cobertos hoje (Secao 4)
@@ -136,8 +137,11 @@ EXECUCAO DO CRON (a cada ~2 horas)
 │   └── git push (se configurado)
 │
 ├── PASSO 8: POSTAR THREAD NO TWITTER
+│   ├── ⚠️ IMPORTANTE: Usar SEMPRE o script de thread, NUNCA tweet solto
 │   ├── Aguardar 5 minutos para deploy no Vercel
-│   ├── Executar: node scripts/post-thread-to-twitter.js [slug] --yes
+│   ├── Executar obrigatoriamente: node scripts/post-thread-to-twitter.js [slug] --yes
+│   ├── NUNCA executar: post-to-twitter.js (script antigo, deprecated)
+│   ├── Verificar se thread foi criada (múltiplos tweets conectados)
 │   └── Se falhar → logar erro, não bloquear publicação
 │
 └── PASSO 9: LOG
