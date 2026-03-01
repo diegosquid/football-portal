@@ -226,41 +226,62 @@ ${url}
  * Template: PRÉ-JOGO (pre-match)
  * Autor: Patricia Mendes
  */
-function createPreMatchThread(title, teams, url, author) {
+function createPreMatchThread(title, teams, url, author, content) {
   const thread = [];
   const matchup = teams.length >= 2 ? `${teams[0]} x ${teams[1]}` : title;
+  const team1 = teams[0] || 'Time A';
+  const team2 = teams[1] || 'Time B';
   
-  // Tweet 1: Hook
-  thread.push(`⚽ ${matchup}
+  // Tentar extrair informações do conteúdo
+  const isFinal = title.toLowerCase().includes('final');
+  const competition = title.match(/(Paulistão|Carioca|Gauchão|Mineiro|Cearense|Copa do Brasil|Libertadores|Brasileirão)/i)?.[1] || 'Competição';
+  
+  // Tweet 1: Hook específico
+  if (isFinal) {
+    thread.push(`🏆 ${matchup} — Final do ${competition} 2026
+
+O jogo que decide o campeão. Escalações, análise e onde assistir 👇`);
+  } else {
+    thread.push(`⚽ ${matchup} — ${competition} 2026
 
 Tudo que você precisa saber antes do apito inicial.`);
+  }
   
-  // Tweet 2: O contexto
+  // Tweet 2: O que está em jogo (específico)
   thread.push(`📋 O que está em jogo:
 
-Posição na tabela, momento das equipes, e o que esse resultado muda para cada lado.`);
-  
-  // Tweet 3: Escalação e desfalques
-  thread.push(`👥 Escalação provável + desfalques:
+• ${team1}: busca recuperação ou confirmação?
+• ${team2}: tenta surpreender ou manter invencibilidade?
 
-Quem entra, quem sai, e quem não pode jogar. A escalação muda tudo.`);
+Esse resultado muda a tabela de que forma?`);
   
-  // Tweet 4: Chave tática
-  thread.push(`🎯 O duelo decisivo:
+  // Tweet 3: Escalação
+  thread.push(`👥 Escalações prováveis:
 
-O confronto individual que pode definir o jogo — e quem leva vantagem.`);
+Formações, desfalques de última hora, e as dúvidas do treinador.
+
+Quem entra pode mudar o jogo.`);
+  
+  // Tweet 4: Chave do jogo
+  thread.push(`🎯 A chave do jogo:
+
+Onde ${team1} é forte? Onde ${team2} pode explorar?
+
+O duelo tático que vai definir o resultado.`);
   
   // Tweet 5: Palpite
   thread.push(`🔮 Projeção:
 
-Como o jogo deve se desenhar? E o placar mais provável?`);
+Como o jogo se desenha? Quem leva vantagem no confronto direto?
+
+Palpite da redação no artigo.`);
   
   // Tweet 6: CTA
-  thread.push(`Análise completa + onde assistir 👇
+  thread.push(`Análise completa com escalações e onde assistir 👇
 
 ${url}
 
-#prejogo #futebol`);
+#${team1.toLowerCase().replace(/\s/g, '')} #${team2.toLowerCase().replace(/\s/g, '')} #${competition.toLowerCase().replace(/[ãáâàä]/g, 'a').replace(/[õôóòö]/g, 'o')}`);
   
   return thread;
 }
@@ -387,7 +408,7 @@ ${url}
 
 // ===== SELETOR DE TEMPLATE =====
 
-function createThread(title, excerpt, type, author, teams, tags, url) {
+function createThread(title, excerpt, type, author, teams, tags, url, content) {
   log(`📋 Tipo detectado: ${type}`);
   log(`✍️  Autor: ${author}`);
   log(`🏷️  Tags: ${tags.join(', ')}`);
@@ -395,26 +416,26 @@ function createThread(title, excerpt, type, author, teams, tags, url) {
   
   switch (type) {
     case 'post-match':
-      return createPostMatchThread(title, teams, url, author);
+      return createPostMatchThread(title, teams, url, author, content);
     case 'opinion-column':
-      return createOpinionThread(title, excerpt, url, author);
+      return createOpinionThread(title, excerpt, url, author, content);
     case 'stat-analysis':
-      return createStatAnalysisThread(title, teams, url, author);
+      return createStatAnalysisThread(title, teams, url, author, content);
     case 'pre-match':
-      return createPreMatchThread(title, teams, url, author);
+      return createPreMatchThread(title, teams, url, author, content);
     case 'transfer-radar':
-      return createTransferRadarThread(title, url, author);
+      return createTransferRadarThread(title, url, author, content);
     case 'round-coverage':
-      return createRoundCoverageThread(title, url, author);
+      return createRoundCoverageThread(title, url, author, content);
     case 'news-synthesis':
     default:
-      return createNewsThread(title, excerpt, url, author);
+      return createNewsThread(title, excerpt, url, author, content);
   }
 }
 
 // ===== EXECUÇÃO =====
 
-const thread = createThread(title, excerpt, type, author, teams, tags, url);
+const thread = createThread(title, excerpt, type, author, teams, tags, url, content);
 
 log('📝 Artigo:', slug);
 log('📰 Título:', title);
