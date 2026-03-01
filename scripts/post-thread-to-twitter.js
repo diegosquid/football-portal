@@ -96,33 +96,36 @@ function getHashtags(tags, max = 3) {
 function createPostMatchThread(title, teams, url, author) {
   const thread = [];
   const hashtags = getHashtags(teams.length >= 2 ? teams : ['paulistao', 'futebol']);
+  const matchup = teams.length >= 2 ? `${teams[0]} x ${teams[1]}` : title;
   
   // Tweet 1: Hook com resultado
   thread.push(`🧵 ${title}`);
   
   // Tweet 2: Contexto do jogo
-  thread.push(`Análise completa do que aconteceu, o que deu certo — e o que preocupa para a sequência.
+  thread.push(`O que aconteceu em campo:
 
-Segue o fio 👇`);
+O ${matchup} que definiu a rodada — e o que ninguém está comentando.
+
+Segue a análise 👇`);
   
   // Tweet 3: Dados/estatísticas
-  thread.push(`📊 Os números do jogo:
+  thread.push(`📊 Os números que importam:
 
-• Posse de bola, finalizações, chances claras
-• Destaques individuais
-• Padrões táticos observados
+• Quem dominou a posse? Quem foi mais eficiente?
+• Onde o jogo foi ganho (ou perdido)?
+• Quem se destacou individualmente?
 
-Dados que contam uma história.`);
+A história por trás dos dados.`);
   
   // Tweet 4: Ponto alto
   thread.push(`🏆 O momento decisivo:
 
-Quando e como o jogo foi definido. O lance que mudou tudo — e por que aconteceu.`);
+O lance, a jogada, ou a decisão tática que mudou o resultado — e por que funcionou (ou não).`);
   
-  // Tweet 5: Problema/alerta (se aplicável)
-  thread.push(`⚠️ O ponto de atenção:
+  // Tweet 5: Problema/alerta
+  thread.push(`⚠️ O que preocupa:
 
-O que não funcionou, o que precisa melhorar, e o que isso significa para o próximo jogo.`);
+O erro, a falha, ou o padrão negativo que apareceu — e o que isso significa para a sequência.`);
   
   // Tweet 6: CTA
   thread.push(`Análise completa com estatísticas detalhadas 👇
@@ -184,30 +187,30 @@ function createStatAnalysisThread(title, teams, url, author) {
   const thread = [];
   const teamName = teams[0] || 'Time';
   
-  // Tweet 1: Hook com dado
+  // Tweet 1: Hook com dado surpreendente
   thread.push(`📊 ${title}
 
-Os números contam uma história que os holofotes não contam.`);
+Um número que desafia o senso comum — e explica muito mais do que parece.`);
   
   // Tweet 2: O dado principal
-  thread.push(`🔍 O número que importa:
+  thread.push(`🔍 O dado que importa:
 
-Um dado estatístico surpreendente — e o que ele revela sobre o desempenho real do time.`);
+A estatística que não aparece nos highlights, mas explica por que o ${teamName} está onde está.`);
   
-  // Tweet 3: Contexto
-  thread.push(`📈 Comparativo histórico:
+  // Tweet 3: Contexto histórico
+  thread.push(`📈 Comparativo:
 
-Como esse número se compara às últimas temporadas? Estamos vendo algo raro — ou padrão?`);
+Como esse número se compara às últimas temporadas? Estamos vendo algo histórico — ou um padrão preocupante?`);
   
   // Tweet 4: Implicação tática
-  thread.push(`⚽ O que isso muda em campo:
+  thread.push(`⚽ O que isso muda:
 
-Como esse dado afeta o jogo? Onde o time ganha ou perde por causa disso?`);
+Como esse dado afeta o jogo em campo? Onde o ${teamName} ganha ou perde por causa disso?`);
   
   // Tweet 5: Projeção
-  thread.push(`🔮 Projeção:
+  thread.push(`🔮 O que esperar:
 
-Se esse padrão continuar, o que esperar nas próximas rodadas? A matemática é implacável.`);
+Se esse padrão continuar, o que acontece nas próximas rodadas? A matemática não mente.`);
   
   // Tweet 6: CTA
   thread.push(`Análise estatística completa com gráficos 👇
@@ -269,30 +272,36 @@ ${url}
 function createNewsThread(title, excerpt, url, author) {
   const thread = [];
   
-  // Tweet 1: Hook com fato
+  // Extrair time principal do título
+  const teamMatch = title.match(/(Flamengo|Corinthians|Palmeiras|São Paulo|Vasco|Grêmio|Internacional|Atlético-MG|Cruzeiro|Fluminense|Botafogo|Santos)/i);
+  const team = teamMatch ? teamMatch[1] : 'Futebol brasileiro';
+  
+  // Tweet 1: Hook com fato concreto
   thread.push(`🚨 ${title}`);
   
-  // Tweet 2: O que aconteceu
-  thread.push(`📰 O fato:
+  // Tweet 2: O que aconteceu (específico)
+  thread.push(`📰 Os detalhes:
 
-O que foi confirmado, por quem, e quando. Sem especulação — só o que tem fonte.`);
-  
-  // Tweet 3: O contexto
-  thread.push(`💡 Por que isso importa:
+O que foi confirmado, quem está envolvido, e por que isso muda o cenário do ${team}.
 
-Como essa notícia muda o cenário? O impacto imediato e o que vem por aí.`);
+Sem rumor, só fato.`);
   
-  // Tweet 4: Reações/Próximos passos
-  thread.push(`⏭️ O que vem agora:
+  // Tweet 3: O impacto imediato
+  thread.push(`💡 O impacto:
 
-Próximos passos, prazos, e o que ainda está em aberto.`);
+Como essa notícia afeta o dia a dia do clube? O que muda já na próxima semana?`);
   
-  // Tweet 5: CTA
-  thread.push(`Notícia completa com detalhes 👇
+  // Tweet 4: Contexto/background
+  thread.push(`🔍 O contexto:
+
+Por que isso está acontecendo agora? A história recente que levou a esse momento.`);
+  
+  // Tweet 5: CTA com gancho
+  thread.push(`Análise completa com todos os detalhes 👇
 
 ${url}
 
-#futebol #noticias`);
+#${team.toLowerCase().replace(/\s/g, '')} #futebol`);
   
   return thread;
 }
