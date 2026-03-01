@@ -1,0 +1,20 @@
+[2026-02-26T14:40:00-03:00] CRON START - football-portal-content
+[2026-02-26T14:40:00-03:00] Horario: 14:40 BRT (Quinta-feira)
+[2026-02-26T14:40:00-03:00] Slot: 14:30-17:30 → pre-match
+[2026-02-26T14:40:01-03:00] Inventario: 4 artigos hoje (limite: 6-10, max 12)
+[2026-02-26T14:40:01-03:00] Autores hoje: renato-caldeira(2), patricia-mendes(1), neide-ferreira(1)
+[2026-02-26T14:40:02-03:00] Search: "jogos futebol hoje 26 fevereiro 2026"
+[2026-02-26T14:40:05-03:00] Search: "Santos x Vasco escalação 26 fevereiro 2026"
+[2026-02-26T14:40:08-03:00] Jogo identificado: Santos x Vasco - 21h30 - Vila Belmiro
+[2026-02-26T14:40:08-03:00] Dedup check: OK - nenhum pre-jogo Santos x Vasco encontrado
+[2026-02-26T14:40:09-03:00] Pauta selecionada: "Santos x Vasco - Brasileirão rodada 4"
+[2026-02-26T14:40:09-03:00] Tipo: pre-match
+[2026-02-26T14:40:09-03:00] Autor: patricia-mendes (1/2 hoje)
+[2026-02-40:10-03:00] Gerando imagem via Gemini API...
+[2026-02-26T14:45:00-03:00] Imagem gerada: https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/santos-x-vasco-brasileirao-2026-rodada-4.png
+[2026-02-26T14:45:30-03:00] Artigo gerado: ~1050 palavras, 3 fontes
+[2026-02-26T14:45:31-03:00] Checklist: PASS
+[2026-02-26T14:45:32-03:00] Salvo: content/articles/santos-x-vasco-brasileirao-2026-rodada-4.mdx
+[2026-02-26T14:45:33-03:00] Commit: content(pre-match): Santos x Vasco - escalação e análise tática Brasileirão 2026
+[2026-02-26T14:45:34-03:00] Push: OK
+[2026-02-26T14:45:34-03:00] CRON END (5m 34s)

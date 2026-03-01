@@ -124,8 +124,13 @@ EXECUCAO DO CRON (a cada ~2 horas)
 │   ├── git commit -m "content: [tipo] - [titulo resumido]"
 │   └── git push (se configurado)
 │
-└── PASSO 8: LOG
-    └── Registrar metricas (slug, tipo, autor, hora, wordCount, fontes, tempo)
+├── PASSO 8: POSTAR THREAD NO TWITTER
+│   ├── Aguardar 5 minutos para deploy no Vercel
+│   ├── Executar: node scripts/post-thread-to-twitter.js [slug] --yes
+│   └── Se falhar → logar erro, não bloquear publicação
+│
+└── PASSO 9: LOG
+    └── Registrar metricas (slug, tipo, autor, hora, wordCount, fontes, tempo, tweetUrl)
 ```
 
 ---
@@ -819,7 +824,33 @@ git commit -m "content([tipo]): [titulo resumido curto]"
 git push origin main
 ```
 
-### 9.3 Metricas de Log
+### 9.3 Postagem no Twitter (Thread)
+
+Apos o push, o agente DEVE postar uma thread no Twitter/X com o formato nativo:
+
+```bash
+# 1. Aguardar deploy no Vercel (5 minutos)
+sleep 300
+
+# 2. Postar thread
+node scripts/post-thread-to-twitter.js [slug] --yes
+```
+
+**Formato da Thread:**
+- Tweet 1: Hook com emoji 🧵 + contexto do jogo/tema
+- Tweet 2: Contexto/introdução do problema
+- Tweet 3: Dados/estatísticas (bullet points)
+- Tweet 4: Análise/opinião sobre o tema
+- Tweet 5: Destaque individual (se aplicável)
+- Tweet 6: CTA + link pro artigo completo
+
+**Regras:**
+- Máximo 280 caracteres por tweet
+- Link do portal SÓ no último tweet
+- Threads têm 3-5x mais alcance que links soltos
+- Se falhar, logar erro mas NÃO bloquear a publicação
+
+### 9.4 Metricas de Log
 
 Apos cada publicacao, registrar:
 
@@ -834,7 +865,8 @@ Apos cada publicacao, registrar:
   "sourcesUsed": 4,
   "keywords": ["flamengo", "reforco", "transferencias"],
   "generationTimeMs": 45000,
-  "teams": ["flamengo"]
+  "teams": ["flamengo"],
+  "twitterThreadUrl": "https://x.com/beira_do_campo/status/1234567890"
 }
 ```
 

@@ -1,0 +1,50 @@
+[2026-02-27T18:40:00-03:00] CRON START
+[2026-02-27T18:40:00-03:00] Horario: 18:40 BRT (Sexta-feira)
+[2026-02-27T18:40:00-03:00] Slot: 17:30-19:30 → news-synthesis
+[2026-02-27T18:40:01-03:00] Inventario: 7 artigos hoje
+[2026-02-27T18:40:01-03:00] Contagem por autor:
+  - renato-caldeira: 2 (limite atingido)
+  - patricia-mendes: 2 (limite atingido)
+  - marcos-vinicius: 2 (limite atingido)
+  - thiago-borges: 1
+  - neide-ferreira: 0
+[2026-02-27T18:40:05-03:00] Search: "futebol brasileiro noticias hoje"
+[2026-02-27T18:40:08-03:00] Search: "jogos futebol hoje sexta-feira"
+[2026-02-27T18:40:10-03:00] Pautas encontradas: 10+
+[2026-02-27T18:40:10-03:00] Dedup check:
+  - Crise Flamengo: JA COBERTO (crise-flamengo-filipe-luis-vice-recopa-2026.mdx)
+  - Neymar Santos: JA COBERTO (neymar-noite-gala-santos-vasco-brasileirao-2026.mdx)
+  - Novorizontino x Corinthians: JA COBERTO (novorizontino-x-corinthians-paulistao-2026-semifinal.mdx)
+  - Palmeiras x Sao Paulo: JA COBERTO (palmeiras-x-sao-paulo-paulistao-2026-semifinal.mdx)
+  - Sorteio Champions: JA COBERTO (sorteio-champions-oitavas-2026-real-madrid-manchester-city.mdx)
+  - Radar Transferencias: JA COBERTO (radar-transferencias-2026-02-27.mdx)
+[2026-02-27T18:40:15-03:00] Pauta selecionada: "Botafogo x Barcelona de Guayaquil - datas definidas para Pré-Libertadores"
+[2026-02-27T18:40:15-03:00] Verificacao de duplicata: slug "botafogo-barcelona-guayaquil-datas-pre-libertadores-2026" - NOVO
+[2026-02-27T18:40:15-03:00] Autor: thiago-borges (1/2 artigos hoje)
+[2026-02-27T18:40:45-03:00] Artigo gerado: 750 palavras, 3 fontes
+[2026-02-27T18:40:46-03:00] Checklist: PASS (0 errors, 0 warnings)
+[2026-02-27T18:40:47-03:00] Imagem gerada: https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/botafogo-barcelona-guayaquil-datas-pre-libertadores-2026.png
+[2026-02-27T18:40:48-03:00] Salvo: content/articles/botafogo-barcelona-guayaquil-datas-pre-libertadores-2026.mdx
+[2026-02-27T18:40:49-03:00] Commit: content(news): Botafogo x Barcelona de Guayaquil - datas definidas para Pré-Libertadores
+[2026-02-27T18:40:50-03:00] Push: OK (main -> main)
+[2026-02-27T18:45:50-03:00] Aguardando 5 minutos para postagem no Twitter...
+[2026-02-27T18:52:00-03:00] Twitter: Postado com sucesso
+[2026-02-27T18:52:00-03:00] Tweet URL: https://x.com/CampoBeira20270/status/2027500061190721832
+[2026-02-27T18:52:00-03:00] CRON END (12min)
+
+=== METRICAS ===
+{
+  "slug": "botafogo-barcelona-guayaquil-datas-pre-libertadores-2026",
+  "type": "news-synthesis",
+  "author": "thiago-borges",
+  "category": "libertadores",
+  "publishedAt": "2026-02-27T18:40:00-03:00",
+  "wordCount": 750,
+  "sourcesUsed": 3,
+  "keywords": ["botafogo", "barcelona-de-guayaquil", "libertadores", "pre-libertadores"],
+  "teams": ["botafogo", "barcelona-de-guayaquil"],
+  "imageGenerated": true,
+  "imageUrl": "https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/botafogo-barcelona-guayaquil-datas-pre-libertadores-2026.png",
+  "twitterPosted": true,
+  "tweetUrl": "https://x.com/CampoBeira20270/status/2027500061190721832"
+}

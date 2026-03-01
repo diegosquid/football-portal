@@ -1,0 +1,35 @@
+[2026-02-26T23:10:00-03:00] CRON START - football-portal-content
+[2026-02-26T23:10:00-03:00] Horario: 23:10 BRT (Quinta-feira)
+[2026-02-26T23:10:00-03:00] Slot: 21:00-23:00 → post-match
+[2026-02-26T23:10:01-03:00] Inventario: 7 artigos hoje (limite: 10)
+[2026-02-26T23:10:02-03:00] Autores hoje: Renato Caldeira (3/2 - LIMITE), Patricia Mendes (2/2 - LIMITE), Neide Ferreira (1/2), Marcos Vinicius (1/2), Thiago Borges (0/2)
+[2026-02-26T23:10:05-03:00] Search: "Flamengo x Lanús resultado 26 fevereiro 2026"
+[2026-02-26T23:10:08-03:00] Search: "Santos x Vasco resultado 26 fevereiro 2026"
+[2026-02-26T23:10:10-03:00] Pautas encontradas: 2 jogos relevantes
+[2026-02-26T23:10:10-03:00] Dedup check: Santos x Vasco já coberto (santos-x-vasco-brasileirao-2026-rodada-4.mdx existe)
+[2026-02-26T23:10:10-03:00] Dedup check: Flamengo x Lanús pré-jogo existe, mas pós-jogo ainda não
+[2026-02-26T23:10:10-03:00] Pauta selecionada: "Flamengo 1x1 Lanús - vice-campeonato Recopa 2026"
+[2026-02-26T23:10:10-03:00] Autor: marcos-vinicius (especialista internacional, 1/2 hoje)
+[2026-02-26T23:10:15-03:00] Gerando imagem via Gemini...
+[2026-02-26T23:12:30-03:00] Imagem gerada: https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/flamengo-lanus-recopa-2026-final.png
+[2026-02-26T23:12:45-03:00] Artigo gerado: 890 palavras, 4 fontes
+[2026-02-26T23:12:46-03:00] Checklist: PASS (0 errors)
+[2026-02-26T23:12:47-03:00] Salvo: content/articles/flamengo-1x1-lanus-vice-recopa-2026.mdx
+[2026-02-26T23:12:48-03:00] Commit: content(post-match): Flamengo 1x1 Lanús - vice-campeonato na Recopa 2026
+[2026-02-26T23:12:49-03:00] Push: OK
+[2026-02-26T23:12:50-03:00] CRON END (2min 50s)
+
+METRICAS:
+{
+  "slug": "flamengo-1x1-lanus-vice-recopa-2026",
+  "type": "post-match",
+  "author": "marcos-vinicius",
+  "category": "libertadores",
+  "publishedAt": "2026-02-26T23:10:00-03:00",
+  "wordCount": 890,
+  "sourcesUsed": 4,
+  "keywords": ["flamengo", "lanus", "recopa", "vice-campeonato"],
+  "generationTimeMs": 170000,
+  "teams": ["flamengo", "lanus"],
+  "imageUrl": "https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/flamengo-lanus-recopa-2026-final.png"
+}

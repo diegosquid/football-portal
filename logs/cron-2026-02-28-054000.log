@@ -1,0 +1,42 @@
+[2026-02-28T02:40:00-03:00] CRON START - football-portal-content
+[2026-02-28T02:40:00-03:00] Horario: 02:40 BRT (Sábado)
+[2026-02-28T02:40:00-03:00] Slot: 00:30-05:30 → SKIP (madrugada), mas job foi executado
+[2026-02-28T02:40:01-03:00] Inventario: 0 artigos publicados hoje (28/02)
+[2026-02-28T02:40:02-03:00] Decisao: Publicar radar de transferencias no slot 05:30
+[2026-02-28T02:40:05-03:00] Search: "futebol brasileiro notícias hoje 28 fevereiro 2026"
+[2026-02-28T02:40:08-03:00] Search: "jogos futebol hoje sábado 28 fevereiro 2026"
+[2026-02-28T02:40:10-03:00] Search: "transferências futebol brasileiro fevereiro 2026"
+[2026-02-28T02:40:12-03:00] Pautas encontradas: 3 principais
+[2026-02-28T02:40:12-03:00] - Duplexe Tchamba (zagueiro camaronês) no Remo
+[2026-02-28T02:40:12-03:00] - Botafogo desiste de Nathan Silva
+[2026-02-28T02:40:12-03:00] - Jesse Lingard: atualização sobre documentação
+[2026-02-28T02:40:13-03:00] Dedup check: OK (radar de 27/02 já existe, mas temas diferentes)
+[2026-02-28T02:40:13-03:00] Pauta selecionada: "Radar de Transferências 28/02"
+[2026-02-28T02:40:13-03:00] Autor: renato-caldeira
+[2026-02-28T02:40:15-03:00] Gerando imagem via Gemini API...
+[2026-02-28T02:42:30-03:00] Imagem gerada: 1706KB
+[2026-02-28T02:42:35-03:00] Upload R2 OK: https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/radar-transferencias-2026-02-28.png
+[2026-02-28T02:42:40-03:00] Artigo gerado: 75 linhas, ~750 palavras, 3 fontes
+[2026-02-28T02:42:41-03:00] Checklist: PASS (0 errors)
+[2026-02-28T02:42:42-03:00] Salvo: content/articles/radar-transferencias-2026-02-28.mdx
+[2026-02-28T02:42:45-03:00] Commit: content(radar): Radar de Transferências 28/02 - Remo, Botafogo e Corinthians
+[2026-02-28T02:42:46-03:00] Push: main → github.com:diegosquid/football-portal.git
+[2026-02-28T02:47:50-03:00] Twitter: Postado com sucesso
+[2026-02-28T02:47:50-03:00] Tweet URL: https://x.com/CampoBeira20270/status/2027620696516628587
+[2026-02-28T02:47:50-03:00] CRON END (7min 50s)
+
+METRICAS:
+{
+  "slug": "radar-transferencias-2026-02-28",
+  "type": "transfer-radar",
+  "author": "renato-caldeira",
+  "category": "transferencias",
+  "publishedAt": "2026-02-28T05:30:00-03:00",
+  "wordCount": 750,
+  "sourcesUsed": 3,
+  "keywords": ["transferencias", "remo", "botafogo", "corinthians"],
+  "generationTimeMs": 470000,
+  "teams": ["remo", "botafogo", "corinthians"],
+  "twitterPosted": true,
+  "twitterUrl": "https://x.com/CampoBeira20270/status/2027620696516628587"
+}
