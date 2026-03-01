@@ -90,12 +90,17 @@ EXECUCAO DO CRON (a cada ~2 horas)
 │   ├── Se tiver jogos hoje → verificar se precisa de pre-jogo ou pos-jogo
 │   └── Resultado: TIPO definido (news-synthesis, pre-match, etc.)
 │
-├── PASSO 4: PESQUISA DE PAUTA
+├── PASSO 4: PESQUISA E VERIFICAÇÃO DE PAUTA
 │   ├── Executar web searches conforme Secao 7
 │   ├── Coletar 5-10 pautas potenciais
 │   ├── Filtrar: remover temas ja cobertos hoje (Secao 4)
 │   ├── Pontuar cada pauta (Secao 7.2)
-│   └── Resultado: PAUTA selecionada + FONTES coletadas
+│   ├── **HARDENING: Verificação cruzada obrigatória**
+│   │   ├── Confirmar fato principal em 2+ fontes confiáveis
+│   │   ├── Para pós-jogo: validar resultado, placar, autores de gols
+│   │   ├── Para pré-jogo: validar data, hora, estádio
+│   │   └── Se divergência → ABORTAR ou investigar mais
+│   └── Resultado: PAUTA selecionada + FONTES verificadas + Log de hardening
 │
 ├── PASSO 5: SELECIONAR AUTOR
 │   ├── Consultar tabela de decisao (AUTHOR_PERSONAS.md)
