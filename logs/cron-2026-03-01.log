@@ -1,0 +1,54 @@
+[2026-03-01T10:44:16-03:00] CRON EXECUTION SUMMARY
+================================================================================
+Date/Time (BRT): 2026-03-01T10:40:00-03:00
+Slot: 10:00-12:00 (Domingo - Dia de Jogo)
+Type: pre-match
+
+ARTICLES PUBLISHED TODAY BEFORE THIS RUN:
+- radar-transferencias-2026-03-01 (06:00) - renato-caldeira
+- corinthians-eliminado-novorizontino-paulistao-2026 (06:40) - renato-caldeira  
+- crise-flamengo-torcida-protesto-filipe-luis-recopa-2026 (00:40) - renato-caldeira
+- pressao-boto-diretoria-flamengo-crise-2026 (08:40) - patricia-mendes
+
+AUTHOR COUNT TODAY:
+- renato-caldeira: 3 articles (limit reached)
+- patricia-mendes: 1 article (can publish 1 more)
+
+ARTICLE GENERATED:
+- slug: gremio-x-internacional-grenal-450-final-gauchao-2026
+- title: Grêmio x Internacional: escalação, onde assistir e análise tática | Gre-Nal 450 - Final Gauchão 2026
+- type: pre-match
+- author: patricia-mendes
+- category: analises
+- wordCount: ~1100
+- sourcesUsed: 3
+- teams: ["gremio", "internacional"]
+- image: https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/gremio-x-internacional-grenal-450-final-gauchao-2026.png
+- imageGenerated: true (Gemini API)
+- imageUploaded: true (R2)
+
+TWITTER:
+- threadPosted: true
+- threadUrl: https://x.com/beira_do_campo/status/2028103911530533326
+- tweetsInThread: 5
+
+GIT:
+- committed: true
+- pushed: true
+- commitHash: 0d81f36
+
+STATUS: SUCCESS
+================================================================================
+[2026-03-01T12:48:56-03:00] CRON EXECUTION SUMMARY
+- Slug: america-mg-x-atletico-mg-mineiro-2026-semifinal
+- Type: pre-match
+- Author: thiago-borges
+- Category: analises
+- PublishedAt: 2026-03-01T12:40:00-03:00
+- WordCount: ~900
+- SourcesUsed: 4 (ge.globo, ESPN Brasil, O Tempo, sites oficiais)
+- Teams: america-mg, atletico-mg
+- ImageGenerated: true (Gemini API)
+- ImageURL: https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/america-mg-x-atletico-mg-mineiro-2026-semifinal.png
+- TwitterThread: https://x.com/beira_do_campo/status/2028135325965709664
+- Status: SUCCESS

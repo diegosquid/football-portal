@@ -1,0 +1,44 @@
+[2026-03-01T14:40:00-03:00] CRON START - football-portal-content
+[2026-03-01T14:40:00-03:00] Horario: 14:40 BRT (Domingo)
+[2026-03-01T14:40:00-03:00] Slot: 14:30-17:30 → pre-match
+[2026-03-01T14:40:01-03:00] Inventario: 7 artigos hoje (dentro do limite)
+[2026-03-01T14:40:02-03:00] Autor disponivel: patricia-mendes (0/2 hoje)
+[2026-03-01T14:40:05-03:00] Search: "futebol brasileiro noticias hoje"
+[2026-03-01T14:40:08-03:00] Search: "Palmeiras São Paulo noticias hoje"
+[2026-03-01T14:40:10-03:00] Search: "jogos futebol hoje domingo"
+[2026-03-01T14:40:15-03:00] Pautas encontradas: 3 candidatas
+[2026-03-01T14:40:15-03:00] Dedup check: 0 rejeitadas
+[2026-03-01T14:40:15-03:00] Pauta selecionada: "Palmeiras x São Paulo - semifinal Paulistão 2026"
+[2026-03-01T14:40:15-03:00] Tipo: pre-match
+[2026-03-01T14:40:15-03:00] Autor: patricia-mendes
+[2026-03-01T14:40:20-03:00] Fontes consultadas: ge.globo.com, Gazeta Esportiva, Lance!, site oficial Palmeiras, Ogol
+[2026-03-01T14:42:30-03:00] Imagem gerada: 2027KB via Gemini
+[2026-03-01T14:42:35-03:00] Upload R2 OK: https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/palmeiras-x-sao-paulo-paulistao-2026-semifinal.png
+[2026-03-01T14:43:00-03:00] Artigo gerado: ~1400 palavras, 5 fontes
+[2026-03-01T14:43:05-03:00] Checklist: PASS
+[2026-03-01T14:43:10-03:00] Salvo: content/articles/palmeiras-x-sao-paulo-paulistao-2026-semifinal.mdx
+[2026-03-01T14:43:15-03:00] Commit: content(pre-match): Palmeiras x São Paulo - semifinal Paulistão 2026
+[2026-03-01T14:43:20-03:00] Push: OK (main → origin)
+[2026-03-01T14:43:25-03:00] Aguardando 5 minutos para deploy Vercel...
+[2026-03-01T14:48:30-03:00] Deploy confirmado (HTTP 200)
+[2026-03-01T14:48:35-03:00] Twitter: Tweet postado com sucesso
+[2026-03-01T14:48:35-03:00] Tweet URL: https://x.com/beira_do_campo/status/2028165346226835547
+[2026-03-01T14:48:36-03:00] CRON END (8min 36s)
+
+---
+METRICAS:
+{
+  "slug": "palmeiras-x-sao-paulo-paulistao-2026-semifinal",
+  "type": "pre-match",
+  "author": "patricia-mendes",
+  "category": "analises",
+  "publishedAt": "2026-03-01T14:40:00-03:00",
+  "wordCount": 1400,
+  "sourcesUsed": 5,
+  "keywords": ["palmeiras", "sao-paulo", "paulistao", "semifinal", "choque-rei"],
+  "teams": ["palmeiras", "sao-paulo"],
+  "imageGenerated": true,
+  "imageSizeKB": 2027,
+  "twitterPosted": true,
+  "twitterUrl": "https://x.com/beira_do_campo/status/2028165346226835547"
+}

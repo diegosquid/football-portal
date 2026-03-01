@@ -120,6 +120,11 @@ EXECUCAO DO CRON (a cada ~2 horas)
 │   ├── Escrever na voz do autor (AUTHOR_PERSONAS.md + CONTENT_GUIDELINE.md Secao 5)
 │   ├── Aplicar regras de SEO (SEO_STRATEGY.md + CONTENT_GUIDELINE.md Secao 7)
 │   ├── Incluir links internos (minimo 2 - buscar slugs existentes no repo)
+│   ├── **WIDGET DE ESCALAÇÃO TÁTICA (OBRIGATÓRIO para pre-match)**
+│   │   ├── Adicionar componente TacticalFormation para ambos os times
+│   │   ├── Formação: 4-2-3-1, 4-3-3, 4-1-4-1, etc (conforme esperado)
+│   │   ├── Posicionar jogadores em suas posições no campo
+│   │   └── Incluir legenda com nome e número de cada jogador
 │   ├── GERAR IMAGEM COM IA (Secao 8.6)
 │   │   ├── Escrever prompt descritivo em ingles (especifico ao artigo)
 │   │   ├── POST /api/images/generate com { prompt, slug }
