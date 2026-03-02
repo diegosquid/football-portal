@@ -137,9 +137,12 @@ EXECUCAO DO CRON (a cada ~2 horas)
 ├── PASSO 7: SALVAR E COMMITAR
 │   ├── Nome do arquivo = slug + .mdx
 │   ├── Salvar em content/articles/[slug].mdx
+│   ├── **VERIFICAÇÃO OBRIGATÓRIA: Confirmar que arquivo foi criado**
+│   ├── **Se arquivo não existir → ABORTAR e reportar erro**
 │   ├── git add content/articles/[slug].mdx
 │   ├── git commit -m "content: [tipo] - [titulo resumido]"
-│   └── git push (se configurado)
+│   ├── git push (se configurado)
+│   └── **VERIFICAÇÃO: Confirmar push no GitHub (git log)**
 │
 ├── PASSO 8: POSTAR THREAD NO TWITTER
 │   ├── ⚠️ IMPORTANTE: Usar SEMPRE o script de thread, NUNCA tweet solto
