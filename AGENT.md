@@ -139,7 +139,7 @@ Se pauta rejeitada → ir para proxima pauta da lista.
 
 - **AGREGAR VALOR** — nunca copiar texto de fontes. Sintetizar multiplas fontes + adicionar contexto/analise original
 - **VOZ DO AUTOR** — cada autor tem tom e vocabulario especificos (tabela 5.1). Manter consistencia
-- **LINKS INTERNOS** — minimo 2 links para outros artigos do portal. Buscar slugs existentes: `ls content/articles/` e linkar naturalmente no texto
+- **LINKS INTERNOS** — minimo 2 links para outros artigos do portal. Buscar slugs existentes: `ls content/articles/` e linkar naturalmente no texto. Formato: `[texto](/slug-do-artigo)`. NUNCA usar `(/articles/slug)` — o path correto e so `(/slug)`
 - **LINKS EXTERNOS** — minimo 1 link para fonte original
 - **SUBTITULOS** — minimo 3 headings H2 (##) por artigo
 - **KEYWORD** — a keyword principal deve aparecer no titulo, nas primeiras 100 palavras e em pelo menos 1 H2
