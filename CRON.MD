@@ -144,7 +144,14 @@ EXECUCAO DO CRON (a cada ~2 horas)
 ├── PASSO 8: POSTAR THREAD NO TWITTER
 │   ├── ⚠️ IMPORTANTE: Usar SEMPRE o script de thread, NUNCA tweet solto
 │   ├── Aguardar 5 minutos para deploy no Vercel
-│   ├── Executar obrigatoriamente: node scripts/post-thread-to-twitter.js [slug] --yes
+│   ├── **GERAR TWEETS COM LLM (NOVO - OBRIGATÓRIO)**
+│   │   ├── Ler o artigo MDX completo
+│   │   ├── Enviar conteúdo para LLM com prompt específico
+│   │   ├── Instruir LLM a criar 4-5 tweets criativos e específicos
+│   │   ├── Proibir frases genéricas tipo "O que foi confirmado"
+│   │   ├── Exigir HOOK forte no primeiro tweet
+│   │   └── Usar linguagem de torcedor, não de robô
+│   ├── Executar: node scripts/post-thread-to-twitter.js [slug] --yes
 │   ├── NUNCA executar: post-to-twitter.js (script antigo, deprecated)
 │   ├── Verificar se thread foi criada (múltiplos tweets conectados)
 │   └── Se falhar → logar erro, não bloquear publicação

@@ -1,0 +1,17 @@
+[2026-03-01T18:40:00-03:00] CRON START - football-portal-content
+[2026-03-01T18:40:00-03:00] Horario: 18:40 BRT (Domingo)
+[2026-03-01T18:40:00-03:00] Slot: 17:30-19:30 → news-synthesis OU post-match
+[2026-03-01T18:40:00-03:00] Inventario: 8 artigos publicados hoje
+[2026-03-01T18:40:00-03:00] Analise de temas: Corinthians (4/10), Novorizontino (3/10), Flamengo (2/10) - temas saturados
+[2026-03-01T18:40:00-03:00] Autores hoje:
+  - Renato Caldeira: 3 artigos (LIMITE ATINGIDO - max 2/dia)
+  - Patricia Mendes: 3 artigos (LIMITE ATINGIDO - max 2/dia)
+  - Thiago Borges: 2 artigos (LIMITE ATINGIDO - max 2/dia)
+[2026-03-01T18:40:00-03:00] Pautas identificadas:
+  - Santos anuncia Elano como gerente de base (NOTICIA VALIDA - nao saturada)
+  - Fortaleza x Ceara: em andamento (pre-jogo ja existe)
+  - Palmeiras x Sao Paulo: 20h30 (pre-jogo ja existe)
+  - Fluminense x Vasco: em andamento (pre-jogo ja existe)
+[2026-03-01T18:40:00-03:00] DECISAO: SKIP - Todos os autores atingiram limite diario
+[2026-03-01T18:40:00-03:00] Motivo: Conforme CRON.MD Secao 12.3, nao se deve atribuir artigo a autor fora de sua especialidade apenas para cumprir cota
+[2026-03-01T18:40:00-03:00] CRON END - SKIP (todos autores no limite)

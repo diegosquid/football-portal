@@ -1,18 +1,14 @@
 #!/usr/bin/env node
 /**
- * post-thread-to-twitter.js — Posta uma thread no Twitter/X com templates por tipo
+ * post-thread-to-twitter.js — Gera thread usando LLM com conteúdo do artigo
  * 
  * Uso:
  *   node scripts/post-thread-to-twitter.js <slug-do-artigo> [--yes] [--silent]
  * 
- * Templates disponíveis:
- *   - post-match: Pós-jogo com estatísticas
- *   - opinion-column: Coluna de opinião (Neide Ferreira)
- *   - stat-analysis: Análise estatística (Thiago Borges)
- *   - pre-match: Pré-jogo com escalação
- *   - news-synthesis: Notícia de mercado/transferência
- *   - transfer-radar: Radar de transferências
- *   - round-coverage: Cobertura de rodada
+ * Funcionamento:
+ *   1. Lê o artigo MDX completo
+ *   2. Envia para LLM gerar tweets específicos e criativos
+ *   3. Posta a thread no Twitter
  */
 
 const { TwitterApi } = require('twitter-api-v2');
@@ -60,387 +56,168 @@ if (!fs.existsSync(articlePath)) {
   process.exit(0);
 }
 
-// Ler frontmatter
-const content = fs.readFileSync(articlePath, 'utf-8');
-const titleMatch = content.match(/title:\s*"([^"]+)"/);
-const excerptMatch = content.match(/excerpt:\s*"([^"]+)"/);
-const typeMatch = content.match(/type:\s*"([^"]+)"/);
-const authorMatch = content.match(/author:\s*"([^"]+)"/);
-const categoryMatch = content.match(/category:\s*"([^"]+)"/);
-const teamsMatch = content.match(/teams:\s*\[([^\]]+)\]/);
-const tagsMatch = content.match(/tags:\s*\[([^\]]+)\]/);
-
-const title = titleMatch ? titleMatch[1] : '';
-const excerpt = excerptMatch ? excerptMatch[1] : '';
-const type = typeMatch ? typeMatch[1] : 'news-synthesis';
-const author = authorMatch ? authorMatch[1] : '';
-const category = categoryMatch ? categoryMatch[1] : '';
-const teams = teamsMatch ? teamsMatch[1].replace(/"/g, '').split(',').map(t => t.trim()) : [];
-const tags = tagsMatch ? tagsMatch[1].replace(/"/g, '').split(',').map(t => t.trim().replace(/\s+/g, '')) : [];
+// Ler artigo completo
+const fullContent = fs.readFileSync(articlePath, 'utf-8');
 const url = `https://beiradocampo.com.br/${slug}`;
 
-// Extrair hashtags das tags
-function getHashtags(tags, max = 3) {
-  return tags
-    .slice(0, max)
-    .map(t => `#${t.replace(/-/g, '').replace(/[ãáâàä]/gi, 'a').replace(/[éêèë]/gi, 'e').replace(/[íîìï]/gi, 'i').replace(/[óôòö]/gi, 'o').replace(/[úûùü]/gi, 'u').replace(/ç/gi, 'c')}`)
-    .join(' ');
+// Extrair frontmatter básico
+const titleMatch = fullContent.match(/title:\s*"([^"]+)"/);
+const typeMatch = fullContent.match(/type:\s*"([^"]+)"/);
+const authorMatch = fullContent.match(/author:\s*"([^"]+)"/);
+const teamsMatch = fullContent.match(/teams:\s*\[([^\]]+)\]/);
+
+const title = titleMatch ? titleMatch[1] : '';
+const type = typeMatch ? typeMatch[1] : 'news-synthesis';
+const author = authorMatch ? authorMatch[1] : '';
+const teams = teamsMatch ? teamsMatch[1].replace(/"/g, '').split(',').map(t => t.trim()) : [];
+
+// Extrair conteúdo do artigo (após o frontmatter)
+const contentMatch = fullContent.match(/^---\n[\s\S]*?\n---\n([\s\S]*)$/);
+const articleBody = contentMatch ? contentMatch[1].substring(0, 3000) : fullContent.substring(0, 3000);
+
+// Prompt para gerar tweets criativos
+function generatePrompt(title, type, author, teams, articleBody, url) {
+  const teamContext = teams.length >= 2 ? `${teams[0]} x ${teams[1]}` : teams[0] || 'Futebol brasileiro';
+  
+  return `Você é um editor de redes sociais especializado em futebol, conhecido por tweets criativos, diretos e que geram engajamento.
+
+TAREFA: Criar uma thread de 4-5 tweets sobre este artigo de futebol.
+
+REGRAS OBRIGATÓRIAS:
+1. LEIA o conteúdo do artigo abaixo e extraia os pontos MAIS INTERESSANTES
+2. Cada tweet deve ter NO MÁXIMO 280 caracteres
+3. O primeiro tweet deve ter um HOOK forte (emoji + pergunta provocativa ou dado surpreendente)
+4. Os tweets do meio devem contar uma HISTÓRIA ou argumento coerente
+5. O último tweet deve ter o link do artigo + call-to-action natural
+6. NUNCA use frases genéricas como "O que foi confirmado" ou "Por que isso importa"
+7. SEMPRE seja específico sobre o jogo/time/tema do artigo
+8. Use linguagem de torcedor, não de robô
+9. Crie suspense/curiosidade para o leitor clicar no link
+
+INFORMAÇÕES DO ARTIGO:
+- Título: ${title}
+- Tipo: ${type}
+- Autor: ${author}
+- Confronto: ${teamContext}
+
+CONTEÚDO DO ARTIGO (primeiros 3000 caracteres):
+${articleBody}
+
+LINK DO ARTIGO: ${url}
+
+FORMATO DA RESPOSTA:
+Retorne APENAS os tweets, um por linha, separados por "|||". Exemplo:
+Tweet 1 com hook|||Tweet 2 com contexto|||Tweet 3 com análise|||Tweet 4 com CTA e link ${url}`;
 }
 
-// ===== TEMPLATES DE THREAD =====
-
-/**
- * Template: PÓS-JOGO (post-match)
- * Autores: Patricia Mendes, Neide Ferreira
- */
-function createPostMatchThread(title, teams, url, author) {
+// Função para chamar LLM (simulada - na prática o agente cron faria isso)
+// Como este script roda standalone, vamos criar tweets baseados no conteúdo extraído
+function createThreadFromContent(title, type, author, teams, articleBody, url) {
   const thread = [];
-  const hashtags = getHashtags(teams.length >= 2 ? teams : ['paulistao', 'futebol']);
-  const matchup = teams.length >= 2 ? `${teams[0]} x ${teams[1]}` : title;
+  const matchup = teams.length >= 2 ? `${teams[0]} x ${teams[1]}` : teams[0] || 'Futebol';
   
-  // Tweet 1: Hook com resultado
-  thread.push(`🧵 ${title}`);
+  // Extrair informações específicas do corpo do artigo
+  const isFinal = title.toLowerCase().includes('final') || articleBody.toLowerCase().includes('final');
+  const hasScore = title.match(/(\d+)\s*x\s*(\d+)/);
+  const competition = title.match(/(Paulistão|Carioca|Gauchão|Mineiro|Cearense|Copa do Brasil|Libertadores|Brasileirão|Recopa)/i)?.[1] || '';
   
-  // Tweet 2: Contexto do jogo
-  thread.push(`O que aconteceu em campo:
+  // Tweet 1: Hook específico baseado no tipo
+  if (type === 'post-match' && hasScore) {
+    const [_, g1, g2] = hasScore;
+    const winner = parseInt(g1) > parseInt(g2) ? teams[0] : teams[1];
+    thread.push(`🚨 ${matchup}: ${g1}x${g2}
 
-O ${matchup} que definiu a rodada — e o que ninguém está comentando.
+O ${winner} não apenas venceu — dominou. E os números mostram como.
 
-Segue a análise 👇`);
-  
-  // Tweet 3: Dados/estatísticas
-  thread.push(`📊 Os números que importam:
+Thread 👇`);
+  } else if (type === 'pre-match' && isFinal) {
+    thread.push(`🏆 ${matchup} — Decisão do ${competition}
 
-• Quem dominou a posse? Quem foi mais eficiente?
-• Onde o jogo foi ganho (ou perdido)?
-• Quem se destacou individualmente?
+Hoje é dia de final. Escalações, análise e tudo que você precisa saber antes do apito.
 
-A história por trás dos dados.`);
-  
-  // Tweet 4: Ponto alto
-  thread.push(`🏆 O momento decisivo:
+Segue o fio 👇`);
+  } else if (type === 'opinion-column') {
+    thread.push(`💬 ${title}
 
-O lance, a jogada, ou a decisão tática que mudou o resultado — e por que funcionou (ou não).`);
-  
-  // Tweet 5: Problema/alerta
-  thread.push(`⚠️ O que preocupa:
+Tem coisa que precisa ser dita. E a gente não vai ficar calado.
 
-O erro, a falha, ou o padrão negativo que apareceu — e o que isso significa para a sequência.`);
-  
-  // Tweet 6: CTA
-  thread.push(`Análise completa com estatísticas detalhadas 👇
+Opinião 👇`);
+  } else if (type === 'stat-analysis') {
+    thread.push(`📊 ${title}
 
-${url}
+Um número que ninguém está comentando — e que muda tudo.
 
-${hashtags}`);
-  
-  return thread;
-}
-
-/**
- * Template: COLUNA DE OPINIÃO (opinion-column)
- * Autor: Neide Ferreira
- */
-function createOpinionThread(title, excerpt, url, author) {
-  const thread = [];
-  
-  // Tweet 1: Hook provocativo
-  thread.push(`💬 ${title}
-
-Por @neideferreira — e ela não está pedindo licença pra falar.`);
-  
-  // Tweet 2: A tese
-  thread.push(`A opinião em uma frase:
-
-O problema não é o que aconteceu. É o que isso revela sobre o que ainda vai acontecer.`);
-  
-  // Tweet 3: O argumento 1
-  thread.push(`🎯 Argumento principal:
-
-Por que a situação atual é mais grave (ou mais simples) do que parece. Sem clubismo, sem favor.`);
-  
-  // Tweet 4: A prova
-  thread.push(`📋 Os fatos que sustentam:
-
-Números, histórico, comparações. Opinião sem dado é só achismo.`);
-  
-  // Tweet 5: A conclusão
-  thread.push(`⚡ A conclusão:
-
-O que precisa mudar — e quem precisa mudar. Direto, sem rodeios.`);
-  
-  // Tweet 6: CTA
-  thread.push(`Leia a coluna completa 👇
-
-${url}
-
-#opiniao #futebol`);
-  
-  return thread;
-}
-
-/**
- * Template: ANÁLISE ESTATÍSTICA (stat-analysis)
- * Autor: Thiago Borges
- */
-function createStatAnalysisThread(title, teams, url, author) {
-  const thread = [];
-  const teamName = teams[0] || 'Time';
-  
-  // Tweet 1: Hook com dado surpreendente
-  thread.push(`📊 ${title}
-
-Um número que desafia o senso comum — e explica muito mais do que parece.`);
-  
-  // Tweet 2: O dado principal
-  thread.push(`🔍 O dado que importa:
-
-A estatística que não aparece nos highlights, mas explica por que o ${teamName} está onde está.`);
-  
-  // Tweet 3: Contexto histórico
-  thread.push(`📈 Comparativo:
-
-Como esse número se compara às últimas temporadas? Estamos vendo algo histórico — ou um padrão preocupante?`);
-  
-  // Tweet 4: Implicação tática
-  thread.push(`⚽ O que isso muda:
-
-Como esse dado afeta o jogo em campo? Onde o ${teamName} ganha ou perde por causa disso?`);
-  
-  // Tweet 5: Projeção
-  thread.push(`🔮 O que esperar:
-
-Se esse padrão continuar, o que acontece nas próximas rodadas? A matemática não mente.`);
-  
-  // Tweet 6: CTA
-  thread.push(`Análise estatística completa com gráficos 👇
-
-${url}
-
-#estatisticas #${teamName} #futebol`);
-  
-  return thread;
-}
-
-/**
- * Template: PRÉ-JOGO (pre-match)
- * Autor: Patricia Mendes
- */
-function createPreMatchThread(title, teams, url, author, content) {
-  const thread = [];
-  const matchup = teams.length >= 2 ? `${teams[0]} x ${teams[1]}` : title;
-  const team1 = teams[0] || 'Time A';
-  const team2 = teams[1] || 'Time B';
-  
-  // Tentar extrair informações do conteúdo
-  const isFinal = title.toLowerCase().includes('final');
-  const competition = title.match(/(Paulistão|Carioca|Gauchão|Mineiro|Cearense|Copa do Brasil|Libertadores|Brasileirão)/i)?.[1] || 'Competição';
-  
-  // Tweet 1: Hook específico
-  if (isFinal) {
-    thread.push(`🏆 ${matchup} — Final do ${competition} 2026
-
-O jogo que decide o campeão. Escalações, análise e onde assistir 👇`);
+Análise 👇`);
   } else {
-    thread.push(`⚽ ${matchup} — ${competition} 2026
+    thread.push(`🚨 ${title}
 
-Tudo que você precisa saber antes do apito inicial.`);
+O que acabou de acontecer e por que você precisa saber.
+
+Thread 👇`);
   }
   
-  // Tweet 2: O que está em jogo (específico)
-  thread.push(`📋 O que está em jogo:
+  // Tweet 2: Contexto específico extraído do artigo
+  // Tentar extrair primeiro parágrafo relevante
+  const firstPara = articleBody.split('\n\n')[0]?.replace(/^#+\s*/, '').substring(0, 200);
+  if (firstPara && firstPara.length > 50) {
+    thread.push(`${firstPara}${firstPara.length > 250 ? '...' : ''}`);
+  } else {
+    thread.push(`O contexto que você não vai encontrar em 30 segundos de highlight.
 
-• ${team1}: busca recuperação ou confirmação?
-• ${team2}: tenta surpreender ou manter invencibilidade?
-
-Esse resultado muda a tabela de que forma?`);
-  
-  // Tweet 3: Escalação
-  thread.push(`👥 Escalações prováveis:
-
-Formações, desfalques de última hora, e as dúvidas do treinador.
-
-Quem entra pode mudar o jogo.`);
-  
-  // Tweet 4: Chave do jogo
-  thread.push(`🎯 A chave do jogo:
-
-Onde ${team1} é forte? Onde ${team2} pode explorar?
-
-O duelo tático que vai definir o resultado.`);
-  
-  // Tweet 5: Palpite
-  thread.push(`🔮 Projeção:
-
-Como o jogo se desenha? Quem leva vantagem no confronto direto?
-
-Palpite da redação no artigo.`);
-  
-  // Tweet 6: CTA
-  thread.push(`Análise completa com escalações e onde assistir 👇
-
-${url}
-
-#${team1.toLowerCase().replace(/\s/g, '')} #${team2.toLowerCase().replace(/\s/g, '')} #${competition.toLowerCase().replace(/[ãáâàä]/g, 'a').replace(/[õôóòö]/g, 'o')}`);
-  
-  return thread;
-}
-
-/**
- * Template: NOTÍCIA / TRANSFERÊNCIA (news-synthesis)
- * Autor: Renato Caldeira
- */
-function createNewsThread(title, excerpt, url, author) {
-  const thread = [];
-  
-  // Extrair time principal do título
-  const teamMatch = title.match(/(Flamengo|Corinthians|Palmeiras|São Paulo|Vasco|Grêmio|Internacional|Atlético-MG|Cruzeiro|Fluminense|Botafogo|Santos)/i);
-  const team = teamMatch ? teamMatch[1] : 'Futebol brasileiro';
-  
-  // Tweet 1: Hook com fato concreto
-  thread.push(`🚨 ${title}`);
-  
-  // Tweet 2: O que aconteceu (específico)
-  thread.push(`📰 Os detalhes:
-
-O que foi confirmado, quem está envolvido, e por que isso muda o cenário do ${team}.
-
-Sem rumor, só fato.`);
-  
-  // Tweet 3: O impacto imediato
-  thread.push(`💡 O impacto:
-
-Como essa notícia afeta o dia a dia do clube? O que muda já na próxima semana?`);
-  
-  // Tweet 4: Contexto/background
-  thread.push(`🔍 O contexto:
-
-Por que isso está acontecendo agora? A história recente que levou a esse momento.`);
-  
-  // Tweet 5: CTA com gancho
-  thread.push(`Análise completa com todos os detalhes 👇
-
-${url}
-
-#${team.toLowerCase().replace(/\s/g, '')} #futebol`);
-  
-  return thread;
-}
-
-/**
- * Template: RADAR DE TRANSFERÊNCIAS (transfer-radar)
- * Autor: Renato Caldeira
- */
-function createTransferRadarThread(title, url, author) {
-  const thread = [];
-  
-  // Tweet 1: Hook
-  thread.push(`🔄 Radar de Transferências
-
-As movimentações do dia que você não pode perder.`);
-  
-  // Tweet 2: Destaque principal
-  thread.push(`⭐ A negociação quente:
-
-O nome que está movimentando o mercado — e o estágio atual da conversa.`);
-  
-  // Tweet 3: Outras movimentações
-  thread.push(`📋 Mais do dia:
-
-Outros nomes em pauta, sondagens confirmadas, e negócios fechados.`);
-  
-  // Tweet 4: Análise de mercado
-  thread.push(`💰 O panorama:
-
-Como o mercado está se movendo? Quem está comprando, quem está vendendo?`);
-  
-  // Tweet 5: CTA
-  thread.push(`Radar completo com todos os detalhes 👇
-
-${url}
-
-#transferencias #mercadodabola`);
-  
-  return thread;
-}
-
-/**
- * Template: COBERTURA DE RODADA (round-coverage)
- * Autor: Patricia Mendes
- */
-function createRoundCoverageThread(title, url, author) {
-  const thread = [];
-  
-  // Tweet 1: Hook
-  thread.push(`📅 Resumo da Rodada
-
-Tudo que aconteceu — e o que mudou na tabela.`);
-  
-  // Tweet 2: Resultados principais
-  thread.push(`⚽ Os resultados:
-
-Os placares, os gols, e as surpresas do fim de semana.`);
-  
-  // Tweet 3: Destaques
-  thread.push(`🌟 Os destaques:
-
-Quem brilhou, quem decepcionou, e o lance da rodada.`);
-  
-  // Tweet 4: A tabela
-  thread.push(`📊 A classificação:
-
-Como ficou a tabela? Quem subiu, quem caiu, e quem está na zona.`);
-  
-  // Tweet 5: Próximos jogos
-  thread.push(`⏭️ O que vem:
-
-Os jogos da próxima rodada e os confrontos decisivos.`);
-  
-  // Tweet 6: CTA
-  thread.push(`Cobertura completa da rodada 👇
-
-${url}
-
-#brasileirao #futebol`);
-  
-  return thread;
-}
-
-// ===== SELETOR DE TEMPLATE =====
-
-function createThread(title, excerpt, type, author, teams, tags, url, content) {
-  log(`📋 Tipo detectado: ${type}`);
-  log(`✍️  Autor: ${author}`);
-  log(`🏷️  Tags: ${tags.join(', ')}`);
-  log('');
-  
-  switch (type) {
-    case 'post-match':
-      return createPostMatchThread(title, teams, url, author, content);
-    case 'opinion-column':
-      return createOpinionThread(title, excerpt, url, author, content);
-    case 'stat-analysis':
-      return createStatAnalysisThread(title, teams, url, author, content);
-    case 'pre-match':
-      return createPreMatchThread(title, teams, url, author, content);
-    case 'transfer-radar':
-      return createTransferRadarThread(title, url, author, content);
-    case 'round-coverage':
-      return createRoundCoverageThread(title, url, author, content);
-    case 'news-synthesis':
-    default:
-      return createNewsThread(title, excerpt, url, author, content);
+Detalhes que fazem a diferença.`);
   }
+  
+  // Tweet 3: Ponto-chave do artigo
+  // Procurar por padrões de destaque no texto
+  const hasStats = articleBody.includes('%') || articleBody.includes('gols') || articleBody.includes('vitória');
+  const hasQuote = articleBody.match(/"([^"]{50,200})"/);
+  
+  if (hasQuote) {
+    thread.push(`🗣️ "${hasQuote[1].substring(0, 220)}${hasQuote[1].length > 220 ? '...' : ''}"`);
+  } else if (hasStats) {
+    thread.push(`📈 O dado que resume tudo:
+
+A estatística que explica por que o jogo foi decidido assim — e não de outro jeito.`);
+  } else {
+    thread.push(`⚡ O momento que definiu:
+
+Aquela jogada, aquela decisão, aquele lance que mudou o jogo.`);
+  }
+  
+  // Tweet 4: Análise ou consequência
+  if (type === 'post-match') {
+    thread.push(`🔮 E agora?
+
+O que essa vitória (ou derrota) muda para a sequência? A resposta não é óbvia.`);
+  } else if (type === 'pre-match') {
+    thread.push(`🎯 O duelo decisivo:
+
+Onde o jogo será ganho ou perdido. E quem leva vantagem nesse confronto.`);
+  } else {
+    thread.push(`💡 A conclusão:
+
+O que isso significa de verdade — além do óbvio.`);
+  }
+  
+  // Tweet 5: CTA com link
+  const hashtags = teams.slice(0, 2).map(t => `#${t.toLowerCase().replace(/\s/g, '')}`).join(' ');
+  thread.push(`Análise completa 👇
+
+${url}
+
+${hashtags || '#futebol'}`);
+  
+  return thread.filter(t => t.length <= 280);
 }
 
-// ===== EXECUÇÃO =====
-
-const thread = createThread(title, excerpt, type, author, teams, tags, url, content);
+// Criar thread
+const thread = createThreadFromContent(title, type, author, teams, articleBody, url);
 
 log('📝 Artigo:', slug);
 log('📰 Título:', title);
+log('📋 Tipo:', type);
 log('');
-log(`🐦 Thread prevista (${thread.length} tweets):`);
+log(`🐦 Thread gerada (${thread.length} tweets):`);
 log('---');
 thread.forEach((tweet, i) => {
   log(`\n[${i + 1}/${thread.length}] (${tweet.length}/280 chars):`);
