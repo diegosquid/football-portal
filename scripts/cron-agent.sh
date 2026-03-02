@@ -3,7 +3,12 @@
 # Uso: ./scripts/cron-agent.sh
 # Cron: 0 */2 * * * /path/to/football-portal/scripts/cron-agent.sh
 
-set -euo pipefail
+set -uo pipefail
+
+# Limpa variáveis que impedem execução dentro de outra sessão Claude
+unset CLAUDECODE 2>/dev/null || true
+unset CLAUDE_CODE 2>/dev/null || true
+export CLAUDECODE=""
 
 PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 LOG_DIR="$PROJECT_DIR/logs"
@@ -12,17 +17,47 @@ LOG_FILE="$LOG_DIR/cron-$TIMESTAMP.log"
 
 mkdir -p "$LOG_DIR"
 
-echo "[$(TZ='America/Sao_Paulo' date)] CRON START" >> "$LOG_FILE"
+log() { echo "[$(TZ='America/Sao_Paulo' date '+%Y-%m-%d %H:%M:%S')] $1" >> "$LOG_FILE"; }
+
+# Checagem de horário — SKIP entre 00:30 e 05:30 BRT
+HORA_BRT=$(TZ="America/Sao_Paulo" date +%H%M)
+if [ "$HORA_BRT" -ge 30 ] && [ "$HORA_BRT" -le 530 ]; then
+  log "SKIP: madrugada (${HORA_BRT} BRT, faixa 00:30–05:30)"
+  exit 0
+fi
+
+log "=== CRON START ==="
+log "User: $(whoami) | Shell: $SHELL | PATH: $PATH"
+log "Node: $(node -v 2>&1 || echo 'NAO ENCONTRADO')"
+log "Claude CLI: $(which claude 2>&1 || echo 'NAO ENCONTRADO')"
 
 cd "$PROJECT_DIR"
+log "Diretorio: $(pwd)"
+log "Branch: $(git branch --show-current 2>&1)"
 
 # Garante que estamos no branch main atualizado
-git pull origin main --rebase 2>> "$LOG_FILE" || true
+log "--- git pull ---"
+if ! git diff --quiet 2>/dev/null; then
+  log "Unstaged changes detectadas, fazendo git stash"
+  git stash >> "$LOG_FILE" 2>&1 || true
+fi
+if git pull origin main --rebase >> "$LOG_FILE" 2>&1; then
+  log "git pull OK"
+else
+  log "WARN: git pull falhou (continuando mesmo assim)"
+fi
 
-# Executa o agente Claude (--dangerously-skip-permissions para rodar sem confirmacao)
+# Executa o agente Claude
+log "--- claude agent START ---"
 claude -p "Leia o arquivo AGENT.md na raiz do repositorio e execute o fluxo completo da Secao 2. Este e o UNICO arquivo de instrucao. NAO leia CRON.MD nem outros .md de documentacao." \
   --dangerously-skip-permissions \
   --max-turns 30 \
   >> "$LOG_FILE" 2>&1
+CLAUDE_EXIT=$?
+log "--- claude agent END (exit code: $CLAUDE_EXIT) ---"
 
-echo "[$(TZ='America/Sao_Paulo' date)] CRON END" >> "$LOG_FILE"
+if [ $CLAUDE_EXIT -ne 0 ]; then
+  log "ERRO: Claude saiu com código $CLAUDE_EXIT"
+fi
+
+log "=== CRON END ==="
