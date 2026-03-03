@@ -5,6 +5,14 @@
 
 set -uo pipefail
 
+# PATH completo — cron roda com PATH mínimo (/usr/bin:/bin)
+export PATH="/Users/diegodmacedo/.local/bin:/Users/diegodmacedo/.nvm/versions/node/v22.12.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export HOME="/Users/diegodmacedo"
+
+# SSH agent para git push/pull funcionar
+eval "$(ssh-agent -s)" >/dev/null 2>&1
+ssh-add --apple-use-keychain 2>/dev/null || true
+
 # Limpa variáveis que impedem execução dentro de outra sessão Claude
 unset CLAUDECODE 2>/dev/null || true
 unset CLAUDE_CODE 2>/dev/null || true
