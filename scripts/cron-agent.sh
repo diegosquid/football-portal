@@ -63,7 +63,7 @@ fi
 log "--- claude agent START ---"
 claude -p "Leia o arquivo AGENT.md na raiz do repositorio e execute o fluxo completo da Secao 2. Este e o UNICO arquivo de instrucao. NAO leia CRON.MD nem outros .md de documentacao." \
   --dangerously-skip-permissions \
-  --max-turns 30 \
+  --max-turns 50 \
   >> "$LOG_FILE" 2>&1
 CLAUDE_EXIT=$?
 log "--- claude agent END (exit code: $CLAUDE_EXIT) ---"
