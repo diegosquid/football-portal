@@ -125,12 +125,13 @@ EXECUCAO DO CRON (a cada ~2 horas)
 │   │   ├── Formação: 4-2-3-1, 4-3-3, 4-1-4-1, etc (conforme esperado)
 │   │   ├── Posicionar jogadores em suas posições no campo
 │   │   └── Incluir legenda com nome e número de cada jogador
-│   ├── GERAR IMAGEM COM IA (Secao 8.6)
-│   │   ├── Escrever prompt descritivo em ingles (especifico ao artigo)
-│   │   ├── POST /api/images/generate com { prompt, slug }
+│   ├── BUSCAR IMAGEM (Secao 8.6 — seguir pipeline completo)
+│   │   ├── Sobre PESSOA? → Buscar foto real: noticia (8.6.1) → Wikipedia (8.6.2)
+│   │   ├── Sobre TIME/EVENTO? → Extrair og:image das fontes pesquisadas (8.6.1.1)
+│   │   ├── Se nenhuma foto real → Gerar com Gemini (8.6.3)
 │   │   ├── Usar a URL retornada no frontmatter (campo image)
-│   │   ├── Escrever legenda contextual (80-150 chars)
-│   │   └── Se falhar → usar fallback do banco verificado (Secao 8.6.6)
+│   │   ├── Escrever legenda contextual com credito (80-150 chars)
+│   │   └── Se tudo falhar → usar fallback do banco verificado (Secao 8.6.6)
 │   ├── Preencher frontmatter completo
 │   └── Rodar checklist pre-publicacao (CONTENT_GUIDELINE.md Secao 10)
 │
@@ -608,9 +609,9 @@ O portal prioriza **fotos reais de pessoas** quando o artigo e sobre alguem espe
 ```
 O artigo e sobre uma PESSOA especifica (tecnico, jogador, dirigente)?
 │
-├── SIM → PASSO A: Buscar foto real
+├── SIM → PASSO A: Buscar foto real da PESSOA
 │         ├── 1. Buscar em sites de noticia (secao 8.6.1) — fotos de maior qualidade
-│         │   ├── Achou artigo com og:image? → Usar foto (Reproducao) ✅
+│         │   ├── Achou artigo com og:image da pessoa? → Usar foto (Reproducao) ✅
 │         │   └── Nao achou? ↓
 │         ├── 2. Buscar na Wikipedia (secao 8.6.2) — fallback com licenca aberta
 │         │   ├── Wikipedia encontrou? → Usar foto (CC-BY-SA) ✅
@@ -618,10 +619,13 @@ O artigo e sobre uma PESSOA especifica (tecnico, jogador, dirigente)?
 │         ├── 3. Gerar com Gemini (secao 8.6.3) — ultimo recurso
 │         └── Definir imageCaption com credito da fonte
 │
-└── NAO → PASSO B: Gerar imagem com IA (secao 8.6.3) ✅
+└── NAO → PASSO B: Tentar foto real das FONTES do artigo (secao 8.6.1.1)
+          ├── Alguma fonte pesquisada tem og:image relevante ao tema? → Usar foto ✅
+          │   (ex: foto do jogo, do estadio, da coletiva, do treino)
+          └── Nao achou foto relevante? → Gerar com Gemini (secao 8.6.3) ✅
 ```
 
-### 8.6.1 FOTO REAL: Buscar em sites de noticia (PRIORIDADE para artigos sobre PESSOAS)
+### 8.6.1 FOTO REAL: Buscar em sites de noticia (para artigos sobre PESSOAS)
 
 Para artigos que mencionam uma pessoa especifica no titulo (tecnico demitido, jogador contratado, dirigente eleito, etc), o agente DEVE tentar buscar foto real ANTES de gerar com IA.
 
@@ -708,9 +712,50 @@ imageCaption: "Filipe Luís — Foto: Wikimedia Commons / CC-BY-SA"
 
 **Se NAO encontrou (exit code 1):** Ir para secao 8.6.3 (gerar com Gemini).
 
+### 8.6.1.1 FOTO REAL: Extrair og:image das fontes pesquisadas (para artigos sobre TIMES/EVENTOS)
+
+Para artigos que NAO sao sobre uma pessoa especifica (pre-jogo, pos-jogo, noticias de time, transferencias genericas, etc), o agente DEVE tentar usar uma foto real das proprias fontes pesquisadas ANTES de gerar com IA.
+
+**Quando usar:** Artigo sobre time, jogo, competicao ou evento — qualquer tema que nao seja centrado em uma pessoa especifica.
+
+**Passo a passo:**
+1. O agente ja pesquisou 3+ fontes para escrever o artigo (secao 7)
+2. Escolher a fonte que tem a og:image mais relevante ao tema especifico
+3. Usar o script download-news-image.sh com a URL dessa fonte
+
+**Como escolher a melhor fonte para imagem:**
+- Preferir fontes com foto ESPECIFICA ao evento (foto do jogo, treino, coletiva)
+- Evitar fontes com og:image generica (logo do site, banner padrao)
+- ge.globo.com, ESPN e UOL costumam ter boas og:image
+
+**Exemplo:**
+```bash
+# Para artigo de pre-jogo Santos x Vasco, usar uma das fontes pesquisadas:
+./scripts/download-news-image.sh "santos-x-vasco-brasileirao-2026" \
+  "https://ge.globo.com/futebol/times/santos/noticia/santos-x-vasco-..." \
+  "ge.globo"
+```
+
+**Se encontrou:** Usar a URL no frontmatter. Legenda:
+```yaml
+imageCaption: "Vila Belmiro recebe Santos x Vasco pelo Brasileirao 2026 — Foto: Reproducao / ge.globo"
+```
+
+**Se NAO encontrou (og:image era generica ou falhou):** Gerar com Gemini (secao 8.6.3).
+
+**⚠️ REGRA ANTI-REPETICAO (CRITICO):**
+- NUNCA reusar a mesma og:image que ja foi usada em outro artigo
+- Antes de usar, verificar se a URL da og:image ja aparece em algum artigo recente:
+  ```bash
+  grep -r "TRECHO_DA_URL_ORIGINAL" content/articles/ --include="*.mdx"
+  ```
+- Se a URL original ja foi usada → tentar outra fonte OU gerar com Gemini
+- Fontes diferentes sobre o mesmo time geralmente tem fotos diferentes
+- Para times que aparecem muito (Flamengo, Corinthians), variar entre fontes
+
 ### 8.6.3 METODO IA: Gerar Imagem com Gemini
 
-Para artigos SEM pessoa especifica (ou quando as secoes 8.6.1 e 8.6.2 falharam).
+Para artigos SEM pessoa especifica (ou quando as secoes 8.6.1, 8.6.1.1 e 8.6.2 falharam).
 
 O portal usa **Google Gemini (Imagen)** para gerar imagens unicas por artigo.
 
