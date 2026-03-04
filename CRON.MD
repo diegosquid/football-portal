@@ -608,58 +608,28 @@ O portal prioriza **fotos reais de pessoas** quando o artigo e sobre alguem espe
 ```
 O artigo e sobre uma PESSOA especifica (tecnico, jogador, dirigente)?
 │
-├── SIM → PASSO A: Buscar foto real (secao 8.6.1)
-│         ├── Wikipedia encontrou? → Usar foto (CC-BY-SA) ✅
-│         ├── Nao encontrou? → Agente faz busca web pelo nome
-│         │   ├── Achou artigo de noticia? → Extrair og:image (secao 8.6.2) ✅
-│         │   └── Nao achou? → Gerar com Gemini (secao 8.6.3) ✅
+├── SIM → PASSO A: Buscar foto real
+│         ├── 1. Buscar em sites de noticia (secao 8.6.1) — fotos de maior qualidade
+│         │   ├── Achou artigo com og:image? → Usar foto (Reproducao) ✅
+│         │   └── Nao achou? ↓
+│         ├── 2. Buscar na Wikipedia (secao 8.6.2) — fallback com licenca aberta
+│         │   ├── Wikipedia encontrou? → Usar foto (CC-BY-SA) ✅
+│         │   └── Nao encontrou? ↓
+│         ├── 3. Gerar com Gemini (secao 8.6.3) — ultimo recurso
 │         └── Definir imageCaption com credito da fonte
 │
 └── NAO → PASSO B: Gerar imagem com IA (secao 8.6.3) ✅
 ```
 
-### 8.6.1 FOTO REAL: Buscar na Wikipedia (PRIORIDADE para artigos sobre PESSOAS)
+### 8.6.1 FOTO REAL: Buscar em sites de noticia (PRIORIDADE para artigos sobre PESSOAS)
 
 Para artigos que mencionam uma pessoa especifica no titulo (tecnico demitido, jogador contratado, dirigente eleito, etc), o agente DEVE tentar buscar foto real ANTES de gerar com IA.
 
-**Script:**
-```bash
-./scripts/search-person-image.sh "SLUG-DO-ARTIGO" "NOME DA PESSOA"
-```
+**Quando usar:** Artigo menciona pessoa especifica no titulo ou no tema central (ex: "Filipe Luis demitido", "Lucas Verissimo contratado", "Reinaldo investigado").
 
-O script busca automaticamente na Wikipedia PT e EN. Se encontrar foto, faz download e upload no R2.
-
-**Exemplo:**
-```bash
-./scripts/search-person-image.sh "flamengo-demite-filipe-luis-2026" "Filipe Luís"
-```
-
-**Saida (sucesso):**
-```
-🔍 Buscando foto de: Filipe Luís
-  📖 Tentando Wikipedia pt...
-    ✅ Imagem encontrada: https://upload.wikimedia.org/...
-⬇️  Baixando imagem...
-✅ Download OK: 164KB
-⬆️  Enviando para R2...
-✅ Upload OK (HTTP 200)
-
-{"url":"https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/...","source":"Wikipedia","license":"CC-BY-SA"}
-```
-
-**Se encontrou:** Usar a URL do JSON na `image` do frontmatter. Legenda:
-```yaml
-imageCaption: "Filipe Luís — Foto: Wikimedia Commons / CC-BY-SA"
-```
-
-**Se NAO encontrou (exit code 1):** Ir para secao 8.6.2.
-
-### 8.6.2 FOTO REAL: Buscar em sites de noticia (FALLBACK para Wikipedia)
-
-Se o script search-person-image.sh retornou exit code 1 (pessoa nao encontrada na Wikipedia), o agente deve:
-
-1. Fazer uma busca web por: `"NOME DA PESSOA" + contexto (ex: "presidente CBF")`
-2. Identificar um artigo de noticia relevante com foto da pessoa
+**Passo a passo:**
+1. Fazer uma busca web por: `"NOME DA PESSOA" + contexto (ex: "tecnico Flamengo", "presidente FPF")`
+2. Identificar um artigo de noticia relevante com foto da pessoa (sites confiaveis)
 3. Usar o script download-news-image.sh com a URL do artigo
 
 **Script:**
@@ -693,13 +663,50 @@ O script aceita tanto URL de pagina web (extrai og:image automaticamente) quanto
 imageCaption: "Reinaldo Carneiro Bastos, presidente da FPF — Foto: Reproducao / CNN Brasil"
 ```
 
-**Se falhou:** Ir para secao 8.6.3 (gerar com Gemini).
+**Se NAO encontrou:** Ir para secao 8.6.2 (Wikipedia).
 
 **REGRAS para busca web de imagem:**
 - Preferir sites grandes e confiaveis (ge.globo, ESPN, CNN Brasil, UOL, Lance, Terra)
 - NUNCA usar imagens de redes sociais pessoais
 - SEMPRE citar a fonte no imageCaption com formato: "Foto: Reproducao / NOME_DA_FONTE"
-- Se nao encontrar artigo relevante com foto, ir direto pro Gemini
+- Verificar que a og:image e realmente da pessoa (e nao banner generico do site)
+- Se nao encontrar artigo relevante com foto, ir direto pra Wikipedia (8.6.2)
+
+### 8.6.2 FOTO REAL: Buscar na Wikipedia (FALLBACK para sites de noticia)
+
+Se a secao 8.6.1 nao encontrou foto em sites de noticia, tentar a Wikipedia como segunda opcao. As fotos da Wikipedia costumam ser mais antigas ou de menor qualidade, mas tem licenca aberta (CC-BY-SA).
+
+**Script:**
+```bash
+./scripts/search-person-image.sh "SLUG-DO-ARTIGO" "NOME DA PESSOA"
+```
+
+O script busca automaticamente na Wikipedia PT e EN. Se encontrar foto, faz download e upload no R2.
+
+**Exemplo:**
+```bash
+./scripts/search-person-image.sh "flamengo-demite-filipe-luis-2026" "Filipe Luís"
+```
+
+**Saida (sucesso):**
+```
+🔍 Buscando foto de: Filipe Luís
+  📖 Tentando Wikipedia pt...
+    ✅ Imagem encontrada: https://upload.wikimedia.org/...
+⬇️  Baixando imagem...
+✅ Download OK: 164KB
+⬆️  Enviando para R2...
+✅ Upload OK (HTTP 200)
+
+{"url":"https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/...","source":"Wikipedia","license":"CC-BY-SA"}
+```
+
+**Se encontrou:** Usar a URL do JSON na `image` do frontmatter. Legenda:
+```yaml
+imageCaption: "Filipe Luís — Foto: Wikimedia Commons / CC-BY-SA"
+```
+
+**Se NAO encontrou (exit code 1):** Ir para secao 8.6.3 (gerar com Gemini).
 
 ### 8.6.3 METODO IA: Gerar Imagem com Gemini
 
