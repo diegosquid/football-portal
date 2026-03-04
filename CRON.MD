@@ -130,7 +130,7 @@ EXECUCAO DO CRON (a cada ~2 horas)
 │   │   ├── POST /api/images/generate com { prompt, slug }
 │   │   ├── Usar a URL retornada no frontmatter (campo image)
 │   │   ├── Escrever legenda contextual (80-150 chars)
-│   │   └── Se falhar → usar fallback do banco verificado (Secao 8.6.4)
+│   │   └── Se falhar → usar fallback do banco verificado (Secao 8.6.6)
 │   ├── Preencher frontmatter completo
 │   └── Rodar checklist pre-publicacao (CONTENT_GUIDELINE.md Secao 10)
 │
@@ -599,25 +599,125 @@ Renderiza um campo de futebol horizontal com a formacao tatica de um time. **Ide
 
 ---
 
-## 8.6 Imagens - Geracao com IA (Gemini + Cloudflare R2)
+## 8.6 Imagens - Pipeline Completo (Foto Real → IA → Fallback)
 
-### 8.6.1 METODO PRINCIPAL: Gerar Imagem com IA
+O portal prioriza **fotos reais de pessoas** quando o artigo e sobre alguem especifico, e usa **IA (Gemini)** como fallback para artigos genericos. Todas as imagens sao hospedadas no **Cloudflare R2**.
 
-O portal usa **Google Gemini (Imagen)** para gerar imagens unicas por artigo, hospedadas no **Cloudflare R2**.
+**Pipeline de decisao (seguir NESTA ordem):**
 
-Isso garante imagens ESPECIFICAS ao tema (nao genéricas de banco de fotos).
+```
+O artigo e sobre uma PESSOA especifica (tecnico, jogador, dirigente)?
+│
+├── SIM → PASSO A: Buscar foto real (secao 8.6.1)
+│         ├── Wikipedia encontrou? → Usar foto (CC-BY-SA) ✅
+│         ├── Nao encontrou? → Agente faz busca web pelo nome
+│         │   ├── Achou artigo de noticia? → Extrair og:image (secao 8.6.2) ✅
+│         │   └── Nao achou? → Gerar com Gemini (secao 8.6.3) ✅
+│         └── Definir imageCaption com credito da fonte
+│
+└── NAO → PASSO B: Gerar imagem com IA (secao 8.6.3) ✅
+```
+
+### 8.6.1 FOTO REAL: Buscar na Wikipedia (PRIORIDADE para artigos sobre PESSOAS)
+
+Para artigos que mencionam uma pessoa especifica no titulo (tecnico demitido, jogador contratado, dirigente eleito, etc), o agente DEVE tentar buscar foto real ANTES de gerar com IA.
+
+**Script:**
+```bash
+./scripts/search-person-image.sh "SLUG-DO-ARTIGO" "NOME DA PESSOA"
+```
+
+O script busca automaticamente na Wikipedia PT e EN. Se encontrar foto, faz download e upload no R2.
+
+**Exemplo:**
+```bash
+./scripts/search-person-image.sh "flamengo-demite-filipe-luis-2026" "Filipe Luís"
+```
+
+**Saida (sucesso):**
+```
+🔍 Buscando foto de: Filipe Luís
+  📖 Tentando Wikipedia pt...
+    ✅ Imagem encontrada: https://upload.wikimedia.org/...
+⬇️  Baixando imagem...
+✅ Download OK: 164KB
+⬆️  Enviando para R2...
+✅ Upload OK (HTTP 200)
+
+{"url":"https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/...","source":"Wikipedia","license":"CC-BY-SA"}
+```
+
+**Se encontrou:** Usar a URL do JSON na `image` do frontmatter. Legenda:
+```yaml
+imageCaption: "Filipe Luís — Foto: Wikimedia Commons / CC-BY-SA"
+```
+
+**Se NAO encontrou (exit code 1):** Ir para secao 8.6.2.
+
+### 8.6.2 FOTO REAL: Buscar em sites de noticia (FALLBACK para Wikipedia)
+
+Se o script search-person-image.sh retornou exit code 1 (pessoa nao encontrada na Wikipedia), o agente deve:
+
+1. Fazer uma busca web por: `"NOME DA PESSOA" + contexto (ex: "presidente CBF")`
+2. Identificar um artigo de noticia relevante com foto da pessoa
+3. Usar o script download-news-image.sh com a URL do artigo
+
+**Script:**
+```bash
+./scripts/download-news-image.sh "SLUG-DO-ARTIGO" "URL-DO-ARTIGO-OU-IMAGEM" "NOME DA FONTE"
+```
+
+O script aceita tanto URL de pagina web (extrai og:image automaticamente) quanto URL direta de imagem.
+
+**Exemplo com URL de pagina:**
+```bash
+./scripts/download-news-image.sh "cbf-presidente-2026" \
+  "https://www.cnnbrasil.com.br/esportes/conheca-reinaldo-carneiro-bastos/" \
+  "CNN Brasil"
+```
+
+**Saida (sucesso):**
+```
+🌐 Pagina web detectada, extraindo og:image...
+✅ og:image encontrada: https://admin.cnnbrasil.com.br/...
+⬇️  Baixando imagem...
+✅ Download OK: 1412KB
+⬆️  Enviando para R2...
+✅ Upload OK (HTTP 200)
+
+{"url":"https://pub-b064ffca19cd4d36a0ab9ad642dfe6fd.r2.dev/articles/...","source":"CNN Brasil","license":"Reproducao"}
+```
+
+**Se encontrou:** Usar a URL do JSON na `image` do frontmatter. Legenda:
+```yaml
+imageCaption: "Reinaldo Carneiro Bastos, presidente da FPF — Foto: Reproducao / CNN Brasil"
+```
+
+**Se falhou:** Ir para secao 8.6.3 (gerar com Gemini).
+
+**REGRAS para busca web de imagem:**
+- Preferir sites grandes e confiaveis (ge.globo, ESPN, CNN Brasil, UOL, Lance, Terra)
+- NUNCA usar imagens de redes sociais pessoais
+- SEMPRE citar a fonte no imageCaption com formato: "Foto: Reproducao / NOME_DA_FONTE"
+- Se nao encontrar artigo relevante com foto, ir direto pro Gemini
+
+### 8.6.3 METODO IA: Gerar Imagem com Gemini
+
+Para artigos SEM pessoa especifica (ou quando as secoes 8.6.1 e 8.6.2 falharam).
+
+O portal usa **Google Gemini (Imagen)** para gerar imagens unicas por artigo.
 
 **Pipeline:**
 ```
 Artigo → Prompt descritivo → Gemini API → Imagem gerada → Upload R2 → URL publica no frontmatter
 ```
 
-### 8.6.2 Como Gerar Imagem (PROCESSO OBRIGATORIO)
+### 8.6.4 Como Gerar Imagem com Gemini (PROCESSO OBRIGATORIO quando nao ha foto real)
 
 Para CADA artigo, o agente DEVE gerar uma imagem unica:
 
 ```
-PASSO 1: Escrever prompt descritivo em INGLES (ver 8.6.3)
+PASSO 1: Escrever prompt descritivo em INGLES (ver 8.6.5)
 PASSO 2: Chamar o script de geracao de imagem
 PASSO 3: Usar a URL retornada no frontmatter (campo image)
 PASSO 4: Escrever legenda contextualizada (campo imageCaption)
@@ -675,7 +775,7 @@ curl -s -X POST "http://localhost:3000/api/images/generate" \
 
 Usar o campo `url` diretamente no frontmatter do artigo.
 
-### 8.6.3 Como Escrever o Prompt (CRITICO) — ESTILO FOTOJORNALISTICO
+### 8.6.5 Como Escrever o Prompt (CRITICO) — ESTILO FOTOJORNALISTICO
 
 O prompt define a qualidade da imagem. **ESTRATEGIA ATUAL: Estilo fotojornalistico** — imagens devem parecer foto de jornal, nunca cartoon ou ilustracao.
 
@@ -759,7 +859,7 @@ SELECAO BRASILEIRA:
 
 **DICA:** Adaptar o prompt para cada artigo especifico. Quanto mais detalhes sobre o contexto real (estadio, cores do time, tipo de jogo), melhor a imagem. **Se a imagem gerada parecer cartoon ou ilustracao, descartar e gerar novamente com prompt mais enfatico sobre fotojornalismo.**
 
-### 8.6.4 Fallback: Banco de Imagens Verificadas
+### 8.6.6 Fallback Final: Banco de Imagens Verificadas
 
 Se a geracao via IA falhar (API indisponivel, rate limit, etc), usar estas URLs verificadas:
 
@@ -783,27 +883,31 @@ https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&h=450&fit=cro
 https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800&h=450&fit=crop
 ```
 
-### 8.6.5 Legenda (imageCaption)
+### 8.6.7 Legenda (imageCaption)
 
 A legenda DEVE:
 - Contextualizar a imagem com o tema do artigo
 - Mencionar o jogador/time/evento quando aplicavel
 - Ter entre 80-150 caracteres
 - Ser informativa, nao apenas descritiva
-- Para imagens geradas: "Ilustracao — [contexto do artigo]"
+- **Para fotos Wikipedia:** "Nome da Pessoa — Foto: Wikimedia Commons / CC-BY-SA"
+- **Para fotos de noticias:** "Contexto — Foto: Reproducao / NOME_FONTE"
+- **Para imagens geradas:** "Ilustracao — [contexto do artigo]"
 
-**Exemplo bom:**
+**Exemplos bons:**
+> "Filipe Luís a beira do campo — Foto: Wikimedia Commons / CC-BY-SA"
+> "Reinaldo Carneiro Bastos, presidente da FPF — Foto: Reproducao / CNN Brasil"
 > "Ilustracao — Maracana lotado para a final: Flamengo busca o titulo do Brasileirao 2026"
 
 **Exemplo ruim:**
 > "Imagem de futebol"
 
-### 8.6.6 Regras de Economia
+### 8.6.8 Regras de Economia
 
 ```
 GERACAO IA (Gemini):
 - Gerar 1 imagem por artigo (nao gerar multiplas e escolher)
-- Se a geracao falhar, usar fallback (8.6.4) — nao tentar mais de 2x
+- Se a geracao falhar, usar fallback (8.6.6) — nao tentar mais de 2x
 - Prompts em ingles (melhor resultado, menos retentativas)
 
 UNSPLASH (backup):
