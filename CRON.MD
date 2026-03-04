@@ -125,10 +125,19 @@ EXECUCAO DO CRON (a cada ~2 horas)
 │   │   ├── Formação: 4-2-3-1, 4-3-3, 4-1-4-1, etc (conforme esperado)
 │   │   ├── Posicionar jogadores em suas posições no campo
 │   │   └── Incluir legenda com nome e número de cada jogador
-│   ├── BUSCAR IMAGEM (Secao 8.6 — seguir pipeline completo)
-│   │   ├── Sobre PESSOA? → Buscar foto real: noticia (8.6.1) → Wikipedia (8.6.2)
-│   │   ├── Sobre TIME/EVENTO? → Extrair og:image das fontes pesquisadas (8.6.1.1)
-│   │   ├── Se nenhuma foto real → Gerar com Gemini (8.6.3)
+│   ├── **⚠️ BUSCAR IMAGEM (OBRIGATORIO + BLOQUEANTE — Secao 8.6)**
+│   │   ├── **REGRA #1: NUNCA gerar com Gemini ANTES de tentar foto real**
+│   │   ├── **REGRA #2: SEMPRE tentar download-news-image.sh com a URL da fonte PRIMEIRO**
+│   │   │   (a propria source.url do artigo JA tem og:image na maioria dos casos!)
+│   │   ├── PASSO IMEDIATO (TODOS os artigos):
+│   │   │   └── Rodar: ./scripts/download-news-image.sh "SLUG" "SOURCE_URL" "FONTE"
+│   │   │       Se sucesso → usar foto real. FIM.
+│   │   ├── Se falhou + artigo sobre PESSOA:
+│   │   │   ├── Buscar em outros sites de noticia (8.6.1)
+│   │   │   └── Se falhou → Wikipedia (8.6.2)
+│   │   ├── Se falhou + artigo sobre TIME/EVENTO:
+│   │   │   └── Tentar og:image de outra fonte pesquisada (8.6.1.1)
+│   │   ├── SOMENTE SE TUDO ACIMA FALHOU → Gerar com Gemini (8.6.3)
 │   │   ├── Usar a URL retornada no frontmatter (campo image)
 │   │   ├── Escrever legenda contextual com credito (80-150 chars)
 │   │   └── Se tudo falhar → usar fallback do banco verificado (Secao 8.6.6)
@@ -602,28 +611,78 @@ Renderiza um campo de futebol horizontal com a formacao tatica de um time. **Ide
 
 ## 8.6 Imagens - Pipeline Completo (Foto Real → IA → Fallback)
 
-O portal prioriza **fotos reais de pessoas** quando o artigo e sobre alguem especifico, e usa **IA (Gemini)** como fallback para artigos genericos. Todas as imagens sao hospedadas no **Cloudflare R2**.
+> **⚠️⚠️⚠️ REGRA CRITICA — NAO PULAR ESTE PASSO ⚠️⚠️⚠️**
+>
+> **NUNCA gerar imagem com Gemini (IA) sem ANTES tentar buscar foto real.**
+> A propria URL da fonte principal do artigo (campo `source.url`) quase sempre
+> tem uma og:image utilizavel. O primeiro passo e SEMPRE rodar:
+> ```bash
+> ./scripts/download-news-image.sh "SLUG" "URL-DA-FONTE" "NOME-DA-FONTE"
+> ```
+> Se retornar sucesso → usar a foto real. Gemini e ULTIMO recurso, nao primeiro.
+>
+> **Se o imageCaption comecar com "Ilustracao" e a fonte tinha foto disponivel, o artigo esta ERRADO.**
 
-**Pipeline de decisao (seguir NESTA ordem):**
+Todas as imagens sao hospedadas no **Cloudflare R2**.
+
+**Pipeline de decisao (seguir NESTA ordem, SEM pular etapas):**
 
 ```
-O artigo e sobre uma PESSOA especifica (tecnico, jogador, dirigente)?
+PARA QUALQUER ARTIGO — comecar sempre por aqui:
 │
-├── SIM → PASSO A: Buscar foto real da PESSOA
-│         ├── 1. Buscar em sites de noticia (secao 8.6.1) — fotos de maior qualidade
-│         │   ├── Achou artigo com og:image da pessoa? → Usar foto (Reproducao) ✅
-│         │   └── Nao achou? ↓
-│         ├── 2. Buscar na Wikipedia (secao 8.6.2) — fallback com licenca aberta
-│         │   ├── Wikipedia encontrou? → Usar foto (CC-BY-SA) ✅
-│         │   └── Nao encontrou? ↓
-│         ├── 3. Gerar com Gemini (secao 8.6.3) — ultimo recurso
-│         └── Definir imageCaption com credito da fonte
+├── PASSO 0 (OBRIGATORIO): Tentar og:image da propria fonte do artigo
+│   └── Rodar: ./scripts/download-news-image.sh "SLUG" "SOURCE_URL" "FONTE"
+│       ├── Sucesso? → Usar foto real. imageCaption com "Foto: Reproducao / FONTE" ✅ FIM
+│       └── Falhou? ↓
 │
-└── NAO → PASSO B: Tentar foto real das FONTES do artigo (secao 8.6.1.1)
-          ├── Alguma fonte pesquisada tem og:image relevante ao tema? → Usar foto ✅
-          │   (ex: foto do jogo, do estadio, da coletiva, do treino)
-          └── Nao achou foto relevante? → Gerar com Gemini (secao 8.6.3) ✅
+├── O artigo e sobre uma PESSOA especifica (tecnico, jogador, dirigente)?
+│   │
+│   ├── SIM → PASSO A: Buscar foto real da PESSOA
+│   │         ├── 1. Buscar em OUTROS sites de noticia (secao 8.6.1)
+│   │         │   ├── Achou artigo com og:image da pessoa? → Usar foto (Reproducao) ✅
+│   │         │   └── Nao achou? ↓
+│   │         ├── 2. Buscar na Wikipedia (secao 8.6.2) — fallback com licenca aberta
+│   │         │   ├── Wikipedia encontrou? → Usar foto (CC-BY-SA) ✅
+│   │         │   └── Nao encontrou? ↓
+│   │         ├── 3. Gerar com Gemini (secao 8.6.3) — ULTIMO recurso
+│   │         └── Definir imageCaption com credito da fonte
+│   │
+│   └── NAO → PASSO B: Tentar foto real de OUTRAS fontes pesquisadas (secao 8.6.1.1)
+│             ├── Alguma fonte tem og:image relevante ao tema? → Usar foto ✅
+│             │   (ex: foto do jogo, do estadio, da coletiva, do treino)
+│             └── Nao achou foto relevante? → Gerar com Gemini (secao 8.6.3) ✅
+│
+└── SOMENTE AQUI → Gemini (8.6.3). Nunca antes.
 ```
+
+### 8.6.0 PASSO ZERO (OBRIGATORIO para TODO artigo): Tentar og:image da fonte principal
+
+**ANTES de qualquer outra coisa**, o agente ja tem a URL da fonte principal (campo `source.url` do frontmatter). Essa URL quase sempre tem uma og:image utilizavel.
+
+**Comando (rodar SEMPRE):**
+```bash
+./scripts/download-news-image.sh "SLUG-DO-ARTIGO" "URL-DA-FONTE-PRINCIPAL" "NOME DA FONTE"
+```
+
+**Exemplo — artigo sobre Leonardo Jardim com fonte ESPN:**
+```bash
+./scripts/download-news-image.sh "flamengo-leonardo-jardim-novo-tecnico-2026" \
+  "https://www.espn.com.br/futebol/flamengo/artigo/_/id/16384806/..." \
+  "ESPN Brasil"
+# Resultado: foto REAL do Jardim, 152KB, direto da fonte que ja estava sendo usada!
+```
+
+**Se sucesso:** Usar a URL retornada. Legenda: `"Nome da pessoa/contexto — Foto: Reproducao / FONTE"`. **Pronto, nao precisa ir adiante.**
+
+**Se falhou (exit code 1):** Seguir para 8.6.1 (buscar em outros sites) ou 8.6.1.1 (outros fontes).
+
+**Por que isso e obrigatorio?**
+- A fonte JA foi pesquisada e verificada no PASSO 4
+- A og:image da fonte e quase sempre relevante ao tema
+- Nao precisa de busca extra, e so rodar o script com a URL que ja temos
+- Reduz uso de IA e melhora qualidade visual do portal
+
+---
 
 ### 8.6.1 FOTO REAL: Buscar em sites de noticia (para artigos sobre PESSOAS)
 
