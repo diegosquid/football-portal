@@ -16,8 +16,9 @@ source "$PROJECT_DIR/.env.cron"
 export CLAUDE_CODE_OAUTH_TOKEN
 
 # SSH agent para git push/pull funcionar
+# Carrega explicitamente a chave usada pelo GitHub (id_diego)
 eval "$(ssh-agent -s)" >/dev/null 2>&1
-ssh-add --apple-use-keychain 2>/dev/null || true
+ssh-add --apple-use-keychain "$HOME/.ssh/id_diego" 2>/dev/null || ssh-add "$HOME/.ssh/id_diego" 2>/dev/null || true
 
 # Limpa variáveis que impedem execução dentro de outra sessão Claude
 unset CLAUDECODE 2>/dev/null || true
@@ -71,5 +72,8 @@ log "--- claude agent END (exit code: $CLAUDE_EXIT) ---"
 if [ $CLAUDE_EXIT -ne 0 ]; then
   log "ERRO: Claude saiu com código $CLAUDE_EXIT"
 fi
+
+# Limpa ssh-agent pra nao acumular processos
+[ -n "${SSH_AGENT_PID:-}" ] && kill "$SSH_AGENT_PID" 2>/dev/null || true
 
 log "=== CRON END ==="
