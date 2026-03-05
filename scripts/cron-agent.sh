@@ -60,6 +60,23 @@ else
   log "WARN: git pull falhou (continuando mesmo assim)"
 fi
 
+# Checagem de espaçamento — SKIP se último artigo foi há menos de 45 min
+ULTIMO_MDX=$(ls -t "$PROJECT_DIR/content/articles/"*.mdx 2>/dev/null | head -1)
+if [ -n "$ULTIMO_MDX" ]; then
+  ULTIMO_EPOCH=$(stat -f %m "$ULTIMO_MDX" 2>/dev/null || stat -c %Y "$ULTIMO_MDX" 2>/dev/null)
+  AGORA_EPOCH=$(date +%s)
+  DIFF_MIN=$(( (AGORA_EPOCH - ULTIMO_EPOCH) / 60 ))
+  ULTIMO_NOME=$(basename "$ULTIMO_MDX")
+  if [ "$DIFF_MIN" -lt 45 ]; then
+    log "SKIP: ultimo artigo ($ULTIMO_NOME) publicado ha ${DIFF_MIN} min (minimo: 45 min)"
+    # Limpa ssh-agent antes de sair
+    [ -n "${SSH_AGENT_PID:-}" ] && kill "$SSH_AGENT_PID" 2>/dev/null || true
+    log "=== CRON END ==="
+    exit 0
+  fi
+  log "Ultimo artigo: $ULTIMO_NOME (ha ${DIFF_MIN} min) — OK, prosseguindo"
+fi
+
 # Executa o agente Claude
 log "--- claude agent START ---"
 claude -p "Leia o arquivo AGENT.md na raiz do repositorio e execute o fluxo completo da Secao 2. Este e o UNICO arquivo de instrucao. NAO leia CRON.MD nem outros .md de documentacao." \
