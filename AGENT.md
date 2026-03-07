@@ -317,8 +317,37 @@ Campo de futebol horizontal com posicoes dos jogadores. **Usar em:** pre-match, 
 
 ### 9.1 Pipeline (OBRIGATORIO para cada artigo)
 
+Seguir na ordem abaixo. Parar no primeiro que funcionar.
+
+**PASSO 1 — Foto da fonte (og:image da matéria original)**
+
+Usar a URL da fonte principal do artigo (campo `source.url`) para extrair a imagem:
+
 ```bash
-# Gerar imagem com Gemini + upload R2
+./scripts/download-news-image.sh "SLUG-DO-ARTIGO" "URL-DA-MATERIA-FONTE" "NOME DA FONTE"
+```
+
+- Extrai og:image da pagina e sobe no R2
+- Se encontrar: usar a URL retornada no `image` e legenda `"Descrição — Foto: Reprodução / FONTE"`
+- Se falhar (exit code 1): seguir para o Passo 2
+
+**PASSO 2 — Foto real via Wikipedia (para matérias sobre pessoa específica)**
+
+Se o artigo foca em um jogador, técnico ou dirigente específico:
+
+```bash
+./scripts/search-person-image.sh "SLUG-DO-ARTIGO" "NOME COMPLETO DA PESSOA"
+```
+
+- Busca na Wikipedia PT/EN e sobe no R2
+- Se encontrar: usar a URL retornada no `image` e legenda `"NOME — Foto: Reprodução / Wikipedia"`
+- Se NAO encontrar (exit code 1): seguir para o Passo 3
+
+**PASSO 3 — Imagem AI (Gemini)**
+
+Quando os passos anteriores falharem ou nao se aplicarem:
+
+```bash
 ./scripts/generate-image.sh "SLUG-DO-ARTIGO" "PROMPT EM INGLES"
 ```
 
@@ -350,7 +379,9 @@ OPINIAO:
 ### 9.3 Legenda (imageCaption)
 
 - Contextualizar com o tema do artigo (80-150 chars)
-- Para imagens geradas: comecar com "Ilustracao — [contexto]"
+- Para fotos reais (Wikipedia): `"NOME — Foto: Reprodução / Wikipedia"`
+- Para fotos reais (notícia): `"Descrição — Foto: Reprodução / FONTE"`
+- Para imagens geradas: comecar com `"Ilustração — [contexto]"`
 - Exemplo: `"Ilustracao — Maracana lotado para o classico decisivo pelo Brasileirao 2026"`
 
 ### 9.4 Fallback
