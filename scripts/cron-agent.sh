@@ -16,9 +16,13 @@ source "$PROJECT_DIR/.env.cron"
 export CLAUDE_CODE_OAUTH_TOKEN
 
 # SSH agent para git push/pull funcionar
-# Carrega explicitamente a chave usada pelo GitHub (id_diego)
+# Carrega a chave do GitHub (id_diego) via macOS Keychain (passphrase salva lá)
 eval "$(ssh-agent -s)" >/dev/null 2>&1
-ssh-add --apple-use-keychain "$HOME/.ssh/id_diego" 2>/dev/null || ssh-add "$HOME/.ssh/id_diego" 2>/dev/null || true
+if ssh-add --apple-use-keychain "$HOME/.ssh/id_diego" 2>/dev/null; then
+  SSH_OK=1
+else
+  SSH_OK=0
+fi
 
 # Limpa variáveis que impedem execução dentro de outra sessão Claude
 unset CLAUDECODE 2>/dev/null || true
@@ -47,6 +51,11 @@ log "Claude CLI: $(which claude 2>&1 || echo 'NAO ENCONTRADO')"
 cd "$PROJECT_DIR"
 log "Diretorio: $(pwd)"
 log "Branch: $(git branch --show-current 2>&1)"
+if [ "$SSH_OK" -eq 1 ]; then
+  log "SSH: chave id_diego carregada via Keychain"
+else
+  log "WARN SSH: falha ao carregar id_diego — git push/pull pode falhar"
+fi
 
 # Garante que estamos no branch main atualizado
 log "--- git pull ---"
