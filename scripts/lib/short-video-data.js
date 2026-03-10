@@ -500,4 +500,9 @@ module.exports = {
   getMediaDuration,
   copyFile,
   synthesizeNarration,
+  stripMarkdown,
+  splitSentences,
+  uniqueSentences,
+  countWords,
+  synthesizeSpeechWithGemini,
 };
