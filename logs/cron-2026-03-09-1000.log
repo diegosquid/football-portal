@@ -1,0 +1,35 @@
+[2026-03-09 10:00:01] === CRON START ===
+[2026-03-09 10:00:01] User: diegodmacedo | Shell: /bin/sh | PATH: /Users/diegodmacedo/.local/bin:/Users/diegodmacedo/.nvm/versions/node/v22.12.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+[2026-03-09 10:00:01] Node: v22.12.0
+[2026-03-09 10:00:01] Claude CLI: /Users/diegodmacedo/.local/bin/claude
+[2026-03-09 10:00:01] Diretorio: /Users/diegodmacedo/Documents/football-portal
+[2026-03-09 10:00:01] Branch: main
+[2026-03-09 10:00:01] SSH: chave id_diego carregada via Keychain
+[2026-03-09 10:00:01] --- git pull ---
+From github.com:diegosquid/football-portal
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+[2026-03-09 10:00:03] git pull OK
+[2026-03-09 10:00:03] Ultimo artigo: vasco-paradoxo-xg-brasileirao-2026.mdx (ha 114 min) — OK, prosseguindo
+[2026-03-09 10:00:04] --- claude agent START ---
+Fluxo completo executado. Resumo:
+
+---
+
+**Artigo publicado:** `segunda-da-neide-camisa-vermelha-cbf-2026`
+
+- **Tipo:** opinion — "Segunda da Neide" (coluna fixa de segunda-feira)
+- **Autor:** neide-ferreira (0/2 artigos hoje, OK)
+- **Tema:** Polêmica da camisa vermelha vetada pela CBF para a Copa 2026
+- **~760 palavras** | 3 fontes | 2 links internos + 1 externo (CNN Brasil)
+- **Imagem:** og:image extraída da CNN Brasil → uploadada no R2
+
+**Decisões do fluxo:**
+- Hora 10:00 BRT — fora do range de skip ✓
+- 4 artigos hoje, último há 1h45m ✓
+- Flamengo/Palmeiras/Cruzeiro saturados (3/10) → evitados ✓
+- renato-caldeira no limite (2/dia) → evitado ✓
+- Coluna fixa "Segunda da Neide" (segunda, 09:00) com prioridade máxima → opinion/neide-ferreira
+- Pauta: camisa vermelha da Seleção — polêmica sem times saturados, tom provocativo típico de Neide
+[2026-03-09 10:06:20] --- claude agent END (exit code: 0) ---
+[2026-03-09 10:06:20] === CRON END ===

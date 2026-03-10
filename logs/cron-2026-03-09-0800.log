@@ -1,0 +1,33 @@
+[2026-03-09 08:00:01] === CRON START ===
+[2026-03-09 08:00:01] User: diegodmacedo | Shell: /bin/sh | PATH: /Users/diegodmacedo/.local/bin:/Users/diegodmacedo/.nvm/versions/node/v22.12.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+[2026-03-09 08:00:01] Node: v22.12.0
+[2026-03-09 08:00:01] Claude CLI: /Users/diegodmacedo/.local/bin/claude
+[2026-03-09 08:00:01] Diretorio: /Users/diegodmacedo/Documents/football-portal
+[2026-03-09 08:00:01] Branch: main
+[2026-03-09 08:00:01] SSH: chave id_diego carregada via Keychain
+[2026-03-09 08:00:01] --- git pull ---
+From github.com:diegosquid/football-portal
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+[2026-03-09 08:00:04] git pull OK
+[2026-03-09 08:00:04] Ultimo artigo: radar-transferencias-2026-03-09.mdx (ha 114 min) — OK, prosseguindo
+[2026-03-09 08:00:04] --- claude agent START ---
+Fluxo completo executado com sucesso. Resumo:
+
+---
+
+**Artigo publicado:** `vasco-paradoxo-xg-brasileirao-2026`
+
+**Tipo:** `stat-analysis` | **Autor:** `thiago-borges` | **Categoria:** `brasileirao`
+
+**Decisões do fluxo:**
+- 08:00 BRT, segunda-feira → slot `stat-analysis/evergreen` ✓
+- 3 artigos hoje (limite 10), último há 1h56 (mínimo 45min) ✓
+- Saturados rejeitados: Palmeiras (4/10), Cruzeiro (3/10), Flamengo (3/10)
+- `renato-caldeira` com limite diário (2 artigos) → `thiago-borges` escolhido
+- Pauta: paradoxo do Vasco — maior xG do Brasileirão (7,18), pior conversão (3%), precisando de 28,3 chutes por gol
+- Imagem: og:image do Flashscore → R2 ✓
+- Verificação de fatos: dados confirmados em Flashscore, Lance! e Sofascore ✓
+- 3 links internos, 1 externo, 4 headings H2, ~950 palavras ✓
+[2026-03-09 08:05:56] --- claude agent END (exit code: 0) ---
+[2026-03-09 08:05:56] === CRON END ===

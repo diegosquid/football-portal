@@ -1,0 +1,45 @@
+[2026-03-10 00:00:00] === CRON START ===
+[2026-03-10 00:00:00] User: diegodmacedo | Shell: /bin/sh | PATH: /Users/diegodmacedo/.local/bin:/Users/diegodmacedo/.nvm/versions/node/v22.12.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+[2026-03-10 00:00:00] === CRON START ===
+[2026-03-10 00:00:00] User: diegodmacedo | Shell: /bin/sh | PATH: /Users/diegodmacedo/.local/bin:/Users/diegodmacedo/.nvm/versions/node/v22.12.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+[2026-03-10 00:00:00] Node: v22.12.0
+[2026-03-10 00:00:00] Claude CLI: /Users/diegodmacedo/.local/bin/claude
+[2026-03-10 00:00:00] Diretorio: /Users/diegodmacedo/Documents/football-portal
+[2026-03-10 00:00:00] Node: v22.12.0
+[2026-03-10 00:00:01] Claude CLI: /Users/diegodmacedo/.local/bin/claude
+[2026-03-10 00:00:01] Diretorio: /Users/diegodmacedo/Documents/football-portal
+[2026-03-10 00:00:01] Branch: main
+[2026-03-10 00:00:01] WARN SSH: falha ao carregar id_diego — git push/pull pode falhar
+[2026-03-10 00:00:01] --- git pull ---
+[2026-03-10 00:00:01] Branch: main
+[2026-03-10 00:00:01] WARN SSH: falha ao carregar id_diego — git push/pull pode falhar
+[2026-03-10 00:00:01] --- git pull ---
+[2026-03-10 00:00:01] Unstaged changes detectadas, fazendo git stash
+[2026-03-10 00:00:01] Unstaged changes detectadas, fazendo git stash
+Saved working directory and index state WIP on main: 147c699 content(post-match): Palmeiras campeão paulista 2026 — Abel bate recorde com 11 títulos
+Saved working directory and index state WIP on main: 147c699 content(post-match): Palmeiras campeão paulista 2026 — Abel bate recorde com 11 títulos
+fatal: Unable to create '/Users/diegodmacedo/Documents/football-portal/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+git@github.com: Permission denied (publickey).
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[2026-03-10 00:00:02] WARN: git pull falhou (continuando mesmo assim)
+[2026-03-10 00:00:02] WARN: git pull falhou (continuando mesmo assim)
+[2026-03-10 00:00:02] Ultimo artigo: palmeiras-campeao-paulista-2026-vitor-roque-abel-recorde.mdx (ha 233 min) — OK, prosseguindo
+[2026-03-10 00:00:02] Ultimo artigo: palmeiras-campeao-paulista-2026-vitor-roque-abel-recorde.mdx (ha 233 min) — OK, prosseguindo
+[2026-03-10 00:00:02] --- claude agent START ---
+[2026-03-10 00:00:02] --- claude agent START ---
+Error: Reached max turns (50)[2026-03-10 00:21:16] --- claude agent END (exit code: 0) ---
+[2026-03-10 00:21:16] === CRON END ===

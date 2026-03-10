@@ -1,0 +1,36 @@
+[2026-03-09 14:00:01] === CRON START ===
+[2026-03-09 14:00:01] User: diegodmacedo | Shell: /bin/sh | PATH: /Users/diegodmacedo/.local/bin:/Users/diegodmacedo/.nvm/versions/node/v22.12.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+[2026-03-09 14:00:01] Node: v22.12.0
+[2026-03-09 14:00:01] Claude CLI: /Users/diegodmacedo/.local/bin/claude
+[2026-03-09 14:00:01] Diretorio: /Users/diegodmacedo/Documents/football-portal
+[2026-03-09 14:00:01] Branch: main
+[2026-03-09 14:00:01] SSH: chave id_diego carregada via Keychain
+[2026-03-09 14:00:01] --- git pull ---
+From github.com:diegosquid/football-portal
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+[2026-03-09 14:00:03] git pull OK
+[2026-03-09 14:00:03] Ultimo artigo: west-ham-x-brentford-fa-cup-2026-quinta-fase.mdx (ha 109 min) — OK, prosseguindo
+[2026-03-09 14:00:03] --- claude agent START ---
+Fluxo completo da Seção 2 executado com sucesso. Resumo:
+
+**Artigo publicado:** `botafogo-x-barcelona-equ-libertadores-2026-jogo-volta`
+
+| Campo | Valor |
+|---|---|
+| Tipo | `news` |
+| Autor | `patricia-mendes` |
+| Categoria | `libertadores` |
+| Palavras | ~809 |
+| Imagem | og:image da CNN Brasil (R2) |
+| Status | ✅ commitado e pushed |
+
+**Decisões tomadas:**
+- Hora BRT 14:05 → slot 12:00-14:30 (`opinion` ou `pre-match`, fallback `news`)
+- Opinion já publicada (neide-ferreira). Pre-match sem jogos na janela 3-12h. → `news`
+- Renato-caldeira no limite (2/dia). Patricia-mendes tinha 1 artigo → escolhida
+- Botafogo: 1x nos últimos 10 → não saturado
+- Palmeiras e Cruzeiro saturados (3x) → evitados
+- 2 links internos + 1 externo ✓ | 3 H2s ✓ | keyword "Libertadores" no título, primeiras 100 palavras e H2 ✓
+[2026-03-09 14:07:27] --- claude agent END (exit code: 0) ---
+[2026-03-09 14:07:27] === CRON END ===

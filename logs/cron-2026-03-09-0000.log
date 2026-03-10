@@ -1,0 +1,45 @@
+[2026-03-09 00:00:00] === CRON START ===
+[2026-03-09 00:00:00] User: diegodmacedo | Shell: /bin/sh | PATH: /Users/diegodmacedo/.local/bin:/Users/diegodmacedo/.nvm/versions/node/v22.12.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+[2026-03-09 00:00:00] === CRON START ===
+[2026-03-09 00:00:00] User: diegodmacedo | Shell: /bin/sh | PATH: /Users/diegodmacedo/.local/bin:/Users/diegodmacedo/.nvm/versions/node/v22.12.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+[2026-03-09 00:00:00] Node: v22.12.0
+[2026-03-09 00:00:00] Claude CLI: /Users/diegodmacedo/.local/bin/claude
+[2026-03-09 00:00:00] Diretorio: /Users/diegodmacedo/Documents/football-portal
+[2026-03-09 00:00:00] Node: v22.12.0
+[2026-03-09 00:00:00] Claude CLI: /Users/diegodmacedo/.local/bin/claude
+[2026-03-09 00:00:00] Diretorio: /Users/diegodmacedo/Documents/football-portal
+[2026-03-09 00:00:00] Branch: main
+[2026-03-09 00:00:00] WARN SSH: falha ao carregar id_diego — git push/pull pode falhar
+[2026-03-09 00:00:00] --- git pull ---
+[2026-03-09 00:00:00] Branch: main
+[2026-03-09 00:00:00] WARN SSH: falha ao carregar id_diego — git push/pull pode falhar
+[2026-03-09 00:00:00] --- git pull ---
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[2026-03-09 00:00:02] WARN: git pull falhou (continuando mesmo assim)
+[2026-03-09 00:00:02] WARN: git pull falhou (continuando mesmo assim)
+[2026-03-09 00:00:02] Ultimo artigo: cruzeiro-1x0-atletico-mg-campeao-mineiro-2026.mdx (ha 114 min) — OK, prosseguindo
+[2026-03-09 00:00:02] Ultimo artigo: cruzeiro-1x0-atletico-mg-campeao-mineiro-2026.mdx (ha 114 min) — OK, prosseguindo
+[2026-03-09 00:00:02] --- claude agent START ---
+[2026-03-09 00:00:02] --- claude agent START ---
+Error: Reached max turns (50)[2026-03-09 00:10:40] --- claude agent END (exit code: 0) ---
+[2026-03-09 00:10:40] === CRON END ===
+
+SLUG: flamengo-campeao-carioca-2026-rossi-penaltis
+TIPO: post-match
+AUTOR: patricia-mendes
+CATEGORIA: brasileirao
+PALAVRAS: 843
+FONTES: 3
+IMAGEM: og-image (ESPN)
+TEMPO: ~10min
+STATUS: OK — commit local, push pendente (SSH sem agente ativo)
+{"type":"result","subtype":"error_during_execution","duration_ms":0,"duration_api_ms":0,"is_error":true,"num_turns":0,"stop_reason":null,"session_id":"c50b4d8f-0377-4e29-be0d-92770d3677de","total_cost_usd":0,"usage":{"input_tokens":0,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":0,"server_tool_use":{"web_search_requests":0,"web_fetch_requests":0},"service_tier":"standard","cache_creation":{"ephemeral_1h_input_tokens":0,"ephemeral_5m_input_tokens":0},"inference_geo":"","iterations":[],"speed":"standard"},"modelUsage":{},"permission_denials":[],"uuid":"ff9c54b3-2c47-4356-91da-b99d238fa229","errors":["EPERM: operation not permitted, lstat '/Users/diegodmacedo/Documents/football-portal'","Error: NON-FATAL: Lock acquisition failed for /Users/diegodmacedo/.local/share/claude/versions/2.1.71 (expected in multi-process scenarios)\n    at Xxq (/$bunfs/root/src/entrypoints/cli.js:2603:2066)\n    at zU8 (/$bunfs/root/src/entrypoints/cli.js:2603:1210)\n    at processTicksAndRejections (native:7:39)","Error: Plugin swift-lsp has an invalid manifest file at /Users/diegodmacedo/.claude/plugins/cache/claude-plugins-official/swift-lsp/1.0.0/.claude-plugin/plugin.json.\n\nValidation errors: Unrecognized keys: \"source\", \"category\", \"strict\"\n    at gyq (/$bunfs/root/src/entrypoints/cli.js:2152:15375)\n    at async kR7 (/$bunfs/root/src/entrypoints/cli.js:2156:780)\n    at async zf$ (/$bunfs/root/src/entrypoints/cli.js:2156:9570)\n    at processTicksAndRejections (native:7:39)"]}

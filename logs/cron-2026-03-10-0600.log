@@ -1,0 +1,71 @@
+[2026-03-10 06:00:01] === CRON START ===
+[2026-03-10 06:00:01] User: diegodmacedo | Shell: /bin/sh | PATH: /Users/diegodmacedo/.local/bin:/Users/diegodmacedo/.nvm/versions/node/v22.12.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+[2026-03-10 06:00:01] Node: v22.12.0
+[2026-03-10 06:00:01] Claude CLI: /Users/diegodmacedo/.local/bin/claude
+[2026-03-10 06:00:01] Diretorio: /Users/diegodmacedo/Documents/football-portal
+[2026-03-10 06:00:01] === CRON START ===
+[2026-03-10 06:00:01] User: diegodmacedo | Shell: /bin/sh | PATH: /Users/diegodmacedo/.local/bin:/Users/diegodmacedo/.nvm/versions/node/v22.12.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+[2026-03-10 06:00:01] Branch: main
+[2026-03-10 06:00:01] WARN SSH: falha ao carregar id_diego — git push/pull pode falhar
+[2026-03-10 06:00:01] --- git pull ---
+[2026-03-10 06:00:01] Node: v22.12.0
+[2026-03-10 06:00:01] Claude CLI: /Users/diegodmacedo/.local/bin/claude
+[2026-03-10 06:00:01] Diretorio: /Users/diegodmacedo/Documents/football-portal
+[2026-03-10 06:00:01] Branch: main
+[2026-03-10 06:00:01] WARN SSH: falha ao carregar id_diego — git push/pull pode falhar
+[2026-03-10 06:00:01] --- git pull ---
+git@github.com: Permission denied (publickey).
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[2026-03-10 06:00:02] WARN: git pull falhou (continuando mesmo assim)
+[2026-03-10 06:00:02] WARN: git pull falhou (continuando mesmo assim)
+[2026-03-10 06:00:02] Ultimo artigo: sao-paulo-roger-machado-novo-tecnico-2026.mdx (ha 339 min) — OK, prosseguindo
+[2026-03-10 06:00:02] Ultimo artigo: sao-paulo-roger-machado-novo-tecnico-2026.mdx (ha 339 min) — OK, prosseguindo
+[2026-03-10 06:00:02] --- claude agent START ---
+[2026-03-10 06:00:02] --- claude agent START ---
+---
+
+**Resultado da execução do fluxo Seção 2 — 06:11 BRT:**
+
+**Passos executados:**
+
+1. ✅ **Hora BRT**: 06:00 — fora do bloqueio 00:30–05:30, prosseguindo
+2. ✅ **Inventário**: 3 artigos hoje (abaixo do limite de 10), gap > 45 min
+3. ✅ **Tipo**: Slot 05:30–06:30 → `transfer-radar` (primário)
+4. ✅ **Saturação**: `sao-paulo` em 3/10 → evitado. Temas seguros: grêmio, cruzeiro
+5. ✅ **Pesquisa de notícias**: Konaté→Real Madrid, Anderson→Man City, janela doméstica, Evertton Araújo
+6. ✅ **Deduplicação**: `radar-transferencias-2026-03-10` já existia → **SKIP** (artigo já foi gerado e commitado pelo cron das 06:00)
+7. — **Artigo não gerado** (desnecessário — cron anterior já fez)
+
+**Artigo commitado pelo cron-0600 (c830c5c):**
+> "Radar 10/03 — Flamengo mira julho, Botafogo em alerta e Cruzeiro fecha elenco" (`renato-caldeira`)
+
+**⚠️ Problema crítico detectado — git push falhando:**
+
+Os 3 commits de hoje **não foram enviados ao GitHub** (nem ao Vercel):
+- `4301865` — West Ham FA Cup (00:02)
+- `ca5c77b` — Roger Machado/São Paulo (00:19)
+- `c830c5c` — Radar 10/03 (06:15)
+
+**Causa:** Chave SSH `id_diego` requer passphrase e não está carregada no agente SSH (`ssh-add -l` retorna vazio). O SSH agent perde as chaves ao reiniciar.
+
+**Solução:** Executar no terminal:
+```bash
+ssh-add ~/.ssh/id_diego
+# (digitar a passphrase)
+git push origin main
+```
+
+Ou configurar o macOS Keychain para carregar automaticamente:
+```bash
+ssh-add --apple-use-keychain ~/.ssh/id_diego
+```
+[2026-03-10 06:12:16] --- claude agent END (exit code: 0) ---
+[2026-03-10 06:12:16] === CRON END ===

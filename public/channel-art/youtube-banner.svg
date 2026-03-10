@@ -1,0 +1,122 @@
+<svg width="2560" height="1440" viewBox="0 0 2560 1440" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="320" y1="180" x2="2240" y2="1260" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A1024"/>
+      <stop offset="0.52" stop-color="#16213E"/>
+      <stop offset="1" stop-color="#081424"/>
+    </linearGradient>
+    <radialGradient id="glowLeft" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(620 360) rotate(36) scale(760 520)">
+      <stop stop-color="#E94560" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#E94560" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowRight" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(2040 760) rotate(-24) scale(760 640)">
+      <stop stop-color="#0EA5E9" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#0EA5E9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accentStroke" x1="574" y1="744" x2="1510" y2="744" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E94560"/>
+      <stop offset="1" stop-color="#FACC15"/>
+    </linearGradient>
+    <linearGradient id="logoTile" x1="0" y1="0" x2="190" y2="190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E94560"/>
+      <stop offset="1" stop-color="#FF6B8B"/>
+    </linearGradient>
+    <linearGradient id="waveBar" x1="0" y1="0" x2="0" y2="240" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FACC15"/>
+      <stop offset="1" stop-color="#E94560"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#020617" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+
+  <rect width="2560" height="1440" fill="url(#bg)"/>
+  <rect width="2560" height="1440" fill="url(#glowLeft)"/>
+  <rect width="2560" height="1440" fill="url(#glowRight)"/>
+
+  <g opacity="0.12">
+    <circle cx="2060" cy="700" r="360" stroke="#E2E8F0" stroke-width="2"/>
+    <circle cx="2060" cy="700" r="186" stroke="#E2E8F0" stroke-width="2"/>
+    <rect x="1760" y="390" width="600" height="620" rx="42" stroke="#E2E8F0" stroke-width="2"/>
+    <path d="M1760 570H1848V830H1760" stroke="#E2E8F0" stroke-width="2"/>
+    <path d="M2360 570H2272V830H2360" stroke="#E2E8F0" stroke-width="2"/>
+    <path d="M2060 390V1010" stroke="#E2E8F0" stroke-width="2"/>
+  </g>
+
+  <g opacity="0.08">
+    <rect x="84" y="84" width="2392" height="1272" rx="52" stroke="#F8FAFC" stroke-width="2"/>
+    <rect x="124" y="124" width="2312" height="1192" rx="40" stroke="#F8FAFC" stroke-width="2"/>
+  </g>
+
+  <g opacity="0.16">
+    <path d="M210 220C520 360 770 340 1060 220" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round"/>
+    <path d="M1560 1160C1830 1040 2100 1020 2350 1130" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="544" y="526" width="1472" height="388" rx="42" fill="rgba(3,7,18,0.0)"/>
+  </g>
+
+  <g transform="translate(574 598)">
+    <rect width="190" height="190" rx="34" fill="url(#logoTile)"/>
+    <g opacity="0.2">
+      <path d="M14 0H54L14 190H0V26C0 11.6406 11.6406 0 26 0H14Z" fill="white"/>
+      <path d="M92 0H132L92 190H52L92 0Z" fill="white"/>
+      <path d="M170 0H190V164C190 178.359 178.359 190 164 190H130L170 0Z" fill="white"/>
+    </g>
+    <g transform="translate(34 42)" stroke="white" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="0" y="0" width="122" height="98" rx="13"/>
+      <path d="M61 0V98"/>
+      <circle cx="61" cy="49" r="18"/>
+      <path d="M0 30H18V68H0"/>
+      <path d="M122 30H104V68H122"/>
+      <circle cx="61" cy="49" r="3.5" fill="white" stroke="none"/>
+    </g>
+  </g>
+
+  <g transform="translate(812 610)" fill="#F8FAFC">
+    <text x="0" y="0" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="700" letter-spacing="7" fill="#7DD3FC">YOUTUBE</text>
+    <text x="0" y="122" font-family="Inter, Arial, sans-serif" font-size="132" font-weight="900" letter-spacing="-4">
+      <tspan fill="#E94560">BEIRA</tspan>
+      <tspan dx="18" fill="#F8FAFC">DO CAMPO</tspan>
+    </text>
+    <text x="0" y="202" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="600" fill="#E2E8F0">
+      Notícias rápidas, análises e mercado da bola
+    </text>
+  </g>
+
+  <rect x="812" y="846" width="698" height="8" rx="999" fill="url(#accentStroke)"/>
+
+  <g transform="translate(812 900)" font-family="Inter, Arial, sans-serif">
+    <g>
+      <rect width="214" height="54" rx="27" fill="rgba(248,250,252,0.08)" stroke="rgba(248,250,252,0.12)"/>
+      <text x="34" y="36" font-size="26" font-weight="700" fill="#F8FAFC">Brasileirão</text>
+    </g>
+    <g transform="translate(236 0)">
+      <rect width="210" height="54" rx="27" fill="rgba(248,250,252,0.08)" stroke="rgba(248,250,252,0.12)"/>
+      <text x="34" y="36" font-size="26" font-weight="700" fill="#F8FAFC">Libertadores</text>
+    </g>
+    <g transform="translate(468 0)">
+      <rect width="188" height="54" rx="27" fill="rgba(248,250,252,0.08)" stroke="rgba(248,250,252,0.12)"/>
+      <text x="34" y="36" font-size="26" font-weight="700" fill="#F8FAFC">Champions</text>
+    </g>
+    <g transform="translate(678 0)">
+      <rect width="240" height="54" rx="27" fill="rgba(248,250,252,0.08)" stroke="rgba(248,250,252,0.12)"/>
+      <text x="34" y="36" font-size="26" font-weight="700" fill="#F8FAFC">Mercado da Bola</text>
+    </g>
+  </g>
+
+  <g transform="translate(2140 670)" opacity="0.88">
+    <rect x="0" y="54" width="10" height="56" rx="999" fill="rgba(248,250,252,0.34)"/>
+    <rect x="24" y="18" width="10" height="128" rx="999" fill="url(#waveBar)"/>
+    <rect x="48" y="40" width="10" height="84" rx="999" fill="rgba(248,250,252,0.34)"/>
+    <rect x="72" y="0" width="10" height="164" rx="999" fill="url(#waveBar)"/>
+    <rect x="96" y="52" width="10" height="60" rx="999" fill="rgba(248,250,252,0.34)"/>
+    <rect x="120" y="14" width="10" height="138" rx="999" fill="url(#waveBar)"/>
+    <rect x="144" y="62" width="10" height="44" rx="999" fill="rgba(248,250,252,0.34)"/>
+  </g>
+
+  <text x="574" y="1170" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="600" letter-spacing="2" fill="#94A3B8">
+    beiradocampo.com.br
+  </text>
+</svg>

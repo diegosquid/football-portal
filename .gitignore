@@ -40,3 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .velite
+
+# video studio
+video-studio/node_modules/
+video-studio/public/renders/
+
+# generated assets (shorts, audio, youtube tokens)
+/generated/
