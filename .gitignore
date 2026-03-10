@@ -47,3 +47,6 @@ video-studio/public/renders/
 
 # generated assets (shorts, audio, youtube tokens)
 /generated/
+
+# cron logs
+/logs/

@@ -1,9 +1,0 @@
-[2026-03-02T02:40:00-03:00] CRON START - football-portal-content
-[2026-03-02T02:40:00-03:00] Horario: 02:40 BRT (Segunda-feira, 2 de março de 2026)
-[2026-03-02T02:40:00-03:00] Slot atual: 00:30-05:30
-[2026-03-02T02:40:00-03:00] Decisao: SKIP - Horario fora do periodo de publicacao permitido
-[2026-03-02T02:40:00-03:00] Motivo: Slot 00:30-05:30 e reservado para nao publicacao (madrugada)
-[2026-03-02T02:40:00-03:00] Proximo slot valido: 05:30-06:30 (Radar de Transferencias)
-[2026-03-02T02:40:00-03:00] Artigos publicados ontem (01/03): 6
-[2026-03-02T02:40:00-03:00] Artigos publicados hoje (02/03): 0
-[2026-03-02T02:40:00-03:00] CRON END - SKIP (fora de horario)
