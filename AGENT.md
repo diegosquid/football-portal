@@ -530,3 +530,27 @@ ESPECIAL: Selecao Brasileira (SEMPRE em convocacao/jogos)
 - NUNCA 4+ artigos da mesma categoria no mesmo dia (exceto dia de rodada)
 - Se ultimo artigo foi sobre transferencias → proximo deve ser outra categoria
 - Variar entre times — nao publicar 3 artigos sobre o mesmo time em 2 dias (exceto se eventos distintos)
+
+---
+
+## 16. VIDEO SHORT + YOUTUBE (MANUAL)
+
+> **NAO automatizar no cron.** Gerar videos manualmente quando quiser.
+
+Comando unico para render + upload:
+
+```bash
+node scripts/publish-youtube-short.js SLUG --format clean --privacy public --thumbnail auto
+```
+
+Faz tudo: le o artigo MDX → gera roteiro → TTS com Gemini → renderiza Remotion → sobe no YouTube como public com thumbnail.
+
+NPM scripts disponiveis:
+
+```bash
+npm run short:render -- SLUG              # so renderiza
+npm run short:publish -- SLUG --format clean --privacy public --thumbnail auto  # render + upload
+npm run youtube:upload -- SLUG            # so upload (se ja renderizou)
+```
+
+Formatos: `clean`, `split`, `pulse`, `stacked`, `ticker`, `poster`, `briefing`

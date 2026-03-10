@@ -6,7 +6,10 @@
     "dev": "velite dev & next dev",
     "build": "velite build && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "short:render": "node scripts/render-remotion-short.js",
+    "short:publish": "node scripts/publish-youtube-short.js",
+    "youtube:upload": "node scripts/upload-youtube-short.js"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.998.0",
