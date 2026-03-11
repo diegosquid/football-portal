@@ -271,7 +271,7 @@ function resolveImage(article, outputDir, explicitImage) {
     ensureDir(outputDir);
     const ext = path.extname(new URL(image).pathname) || ".png";
     const downloadPath = path.join(outputDir, `source${ext}`);
-    run("curl", ["-L", "--fail", "--silent", "--show-error", image, "-o", downloadPath]);
+    run("curl", ["-kL", "--fail", "--silent", "--show-error", image, "-o", downloadPath]);
     return downloadPath;
   }
 

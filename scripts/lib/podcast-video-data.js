@@ -321,7 +321,7 @@ async function generatePodcastImages({blocks, article, outputDir}) {
       const result = run("bash", [scriptPath, `${article.slug}-podcast-${i}`, prompt]);
       const urlLines = result.split("\n").filter(Boolean);
       const publicUrl = urlLines[urlLines.length - 1];
-      run("curl", ["-L", "--fail", "--silent", publicUrl, "-o", localPath]);
+      run("curl", ["-kL", "--fail", "--silent", publicUrl, "-o", localPath]);
       console.log(`  ✅ Bloco ${i}: imagem gerada`);
     } catch (error) {
       console.warn(`  ⚠️  Bloco ${i}: fallback para imagem anterior`);
