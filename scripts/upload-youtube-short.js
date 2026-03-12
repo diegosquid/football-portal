@@ -535,11 +535,16 @@ async function main() {
 
   let thumbnailResult = null;
   if (thumbnailPath) {
-    thumbnailResult = await uploadThumbnail({
-      accessToken: token.access_token,
-      videoId: uploadResult.id,
-      thumbnailPath,
-    });
+    try {
+      thumbnailResult = await uploadThumbnail({
+        accessToken: token.access_token,
+        videoId: uploadResult.id,
+        thumbnailPath,
+      });
+    } catch (thumbErr) {
+      console.error(`⚠️  Thumbnail upload failed (video was uploaded successfully): ${thumbErr.message}`);
+      console.error(`   Video ID: ${uploadResult.id} — you can upload the thumbnail manually later.`);
+    }
   }
 
   let playlistResult = null;
