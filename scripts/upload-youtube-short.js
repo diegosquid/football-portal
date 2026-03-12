@@ -4,6 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const http = require("http");
 const {URL} = require("url");
+const {spawnSync} = require("child_process");
 require("dotenv").config({path: path.resolve(__dirname, "../.env.local")});
 
 const {PROJECT_DIR, SITE_NAME, SITE_URL, getLatestArticleSlug, loadArticle, ensureDir} = require("./lib/short-video-data");
@@ -422,18 +423,47 @@ async function uploadVideoBinary({uploadUrl, accessToken, videoPath}) {
   return json;
 }
 
+const YOUTUBE_THUMBNAIL_MAX_BYTES = 2 * 1024 * 1024; // 2 MB
+
+function compressThumbnail(thumbnailPath) {
+  const dir = path.dirname(thumbnailPath);
+  const compressedPath = path.join(dir, "thumb-compressed.jpg");
+  const result = spawnSync("ffmpeg", [
+    "-y", "-i", thumbnailPath,
+    "-vf", "scale=1280:-1",
+    "-q:v", "5",
+    compressedPath,
+  ], {stdio: "pipe"});
+
+  if (result.status !== 0) {
+    const stderr = result.stderr ? result.stderr.toString().slice(-200) : "";
+    throw new Error(`ffmpeg thumbnail compression failed: ${stderr}`);
+  }
+
+  const stat = fs.statSync(compressedPath);
+  console.log(`  📐 Thumbnail comprimida: ${(stat.size / 1024).toFixed(0)}KB (original > 2MB)`);
+  return compressedPath;
+}
+
 async function uploadThumbnail({accessToken, videoId, thumbnailPath}) {
-  const stat = fs.statSync(thumbnailPath);
-  const ext = path.extname(thumbnailPath).toLowerCase();
+  let finalPath = thumbnailPath;
+  const stat = fs.statSync(finalPath);
+
+  if (stat.size > YOUTUBE_THUMBNAIL_MAX_BYTES) {
+    finalPath = compressThumbnail(finalPath);
+  }
+
+  const finalStat = fs.statSync(finalPath);
+  const ext = path.extname(finalPath).toLowerCase();
   const contentType = ext === ".png" ? "image/png" : "image/jpeg";
   const response = await fetch(`${YOUTUBE_UPLOAD_BASE}/thumbnails/set?videoId=${encodeURIComponent(videoId)}`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${accessToken}`,
       "Content-Type": contentType,
-      "Content-Length": String(stat.size),
+      "Content-Length": String(finalStat.size),
     },
-    body: fs.createReadStream(thumbnailPath),
+    body: fs.createReadStream(finalPath),
     duplex: "half",
   });
 
