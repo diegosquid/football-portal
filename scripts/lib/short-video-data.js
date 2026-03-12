@@ -530,7 +530,7 @@ function synthesizeSpeechLocally({
   };
 }
 
-const DEFAULT_MINIMAX_NARRATOR = process.env.MINIMAX_NARRATOR_VOICE || "Portuguese_NaughtySchoolgirl";
+const DEFAULT_MINIMAX_NARRATOR = process.env.MINIMAX_NARRATOR_VOICE || "Portuguese_News_Reporter_v1";
 
 async function synthesizeNarration({
   text,
