@@ -45,6 +45,7 @@ function parseArgs(argv) {
     ttsProvider: "auto",
     voice: DEFAULT_VOICE,
     geminiVoice: DEFAULT_GEMINI_VOICE,
+    minimaxVoice: null,
     rate: DEFAULT_RATE,
   };
 
@@ -66,6 +67,9 @@ function parseArgs(argv) {
       i += 1;
     } else if (token === "--gemini-voice") {
       args.geminiVoice = argv[i + 1];
+      i += 1;
+    } else if (token === "--minimax-voice") {
+      args.minimaxVoice = argv[i + 1];
       i += 1;
     } else if (token === "--voice") {
       args.voice = argv[i + 1];
@@ -121,6 +125,7 @@ async function main() {
     outputDir,
     provider: args.ttsProvider,
     geminiVoiceName: args.geminiVoice,
+    minimaxVoiceId: args.minimaxVoice,
     localVoice: args.voice,
     localRate: args.rate,
   });
@@ -188,7 +193,9 @@ async function main() {
     format,
     compositionId,
     ttsProvider: narrationAudio.provider,
-    voice: narrationAudio.provider === "local" ? args.voice : args.geminiVoice,
+    voice: narrationAudio.provider === "minimax"
+      ? (narrationAudio.voiceId || args.minimaxVoice)
+      : narrationAudio.provider === "local" ? args.voice : args.geminiVoice,
     localFallbackVoice: args.voice,
     rate: Number(args.rate),
     durationSeconds: Number(durationSeconds.toFixed(2)),

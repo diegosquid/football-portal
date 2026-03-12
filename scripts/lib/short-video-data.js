@@ -530,12 +530,15 @@ function synthesizeSpeechLocally({
   };
 }
 
+const DEFAULT_MINIMAX_NARRATOR = process.env.MINIMAX_NARRATOR_VOICE || "Portuguese_Energetic_Speaker_v1";
+
 async function synthesizeNarration({
   text,
   textPath,
   outputDir,
   provider = "auto",
   geminiVoiceName,
+  minimaxVoiceId,
   localVoice,
   localRate,
 }) {
@@ -551,6 +554,16 @@ async function synthesizeNarration({
       outputDir,
       voice: localVoice,
       rate: localRate,
+    });
+  }
+
+  if (provider === "minimax") {
+    return synthesizeSpeechWithMiniMax({
+      text,
+      outputDir,
+      voiceId: minimaxVoiceId || DEFAULT_MINIMAX_NARRATOR,
+      speed: 1.0,
+      emotion: "neutral",
     });
   }
 
