@@ -32,6 +32,7 @@ function parseArgs(argv) {
     scriptFile: null,
     skipImages: false,
     skipTts: false,
+    ttsProvider: "gemini",
   };
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -45,6 +46,9 @@ function parseArgs(argv) {
       args.skipImages = true;
     } else if (token === "--skip-tts") {
       args.skipTts = true;
+    } else if (token === "--tts") {
+      args.ttsProvider = argv[i + 1];
+      i += 1;
     } else if (!token.startsWith("--") && !args.slug) {
       args.slug = token;
     }
@@ -141,6 +145,7 @@ async function main() {
     ttsResult = await synthesizePodcastAudio({
       turns,
       outputDir,
+      ttsProvider: args.ttsProvider,
     });
     console.log(`✅ Audio sintetizado: ${ttsResult.m4aPath}`);
   }

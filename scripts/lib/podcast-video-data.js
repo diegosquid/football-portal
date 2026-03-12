@@ -11,6 +11,7 @@ const {
   copyFile,
   getMediaDuration,
   synthesizeSpeechWithGemini,
+  synthesizeSpeechWithMiniMax,
   SITE_NAME,
   SITE_URL,
   PROJECT_DIR,
@@ -27,6 +28,11 @@ const GAP_BETWEEN_TURNS_S = 0.4;
 const VOICES = {
   Fernanda: "Kore",
   Ricardo: "Puck",
+};
+
+const MINIMAX_VOICES = {
+  Fernanda: process.env.MINIMAX_VOICE_FERNANDA || "Portuguese_NaughtySchoolgirl",
+  Ricardo: process.env.MINIMAX_VOICE_RICARDO || "Portuguese_Passionate_Commentator_v1",
 };
 const SPEAKER_COLORS = {
   Fernanda: "#facc15",
@@ -142,26 +148,62 @@ function parseDialogueTurns(script) {
 // TTS per turn with exact timing
 // ---------------------------------------------------------------------------
 
-async function synthesizePodcastAudio({turns, outputDir}) {
+async function synthesizePodcastAudio({turns, outputDir, ttsProvider = "gemini"}) {
   ensureDir(outputDir);
 
   const stylePrompt =
     "Leia em portugues do Brasil, com tom de ancora esportivo, firme, claro e natural. Mantenha ritmo jornalistico, com energia e naturalidade. Nao adicione palavras alem do texto fornecido.";
 
+  const useMinimax = ttsProvider === "minimax";
+  const voiceMap = useMinimax ? MINIMAX_VOICES : VOICES;
+  console.log(`  🔊 TTS provider: ${useMinimax ? "MiniMax" : "Gemini"}`);
+
   const turnResults = [];
 
   for (let i = 0; i < turns.length; i++) {
     const turn = turns[i];
-    const voiceName = VOICES[turn.speaker];
+    const voiceName = voiceMap[turn.speaker] || voiceMap.Fernanda;
+
+    // Skip if already generated (resume support)
+    const turnWavExisting = path.join(outputDir, `turn-${i}.wav`);
+    if (fs.existsSync(turnWavExisting)) {
+      const dur = getMediaDuration(turnWavExisting);
+      console.log(`  ⏩ Turn ${i + 1}/${turns.length} já existe (${dur.toFixed(1)}s), pulando...`);
+      turnResults.push({
+        index: i, speaker: turn.speaker, text: turn.text,
+        wavPath: turnWavExisting, durationSeconds: dur,
+        durationFrames: Math.ceil(dur * FPS),
+      });
+      continue;
+    }
 
     console.log(`  🎙️  Turn ${i + 1}/${turns.length} (${turn.speaker}/${voiceName}): ${countWords(turn.text)} palavras`);
 
-    const result = await synthesizeSpeechWithGemini({
-      text: turn.text,
-      outputDir,
-      voiceName,
-      stylePrompt,
-    });
+    // Rate limit: wait between MiniMax calls
+    if (useMinimax && i > 0) {
+      await new Promise((r) => setTimeout(r, 3000));
+    }
+
+    const turnDir = path.join(outputDir, `turn-${i}-tmp`);
+    ensureDir(turnDir);
+
+    let result;
+    if (useMinimax) {
+      result = await synthesizeSpeechWithMiniMax({
+        text: turn.text,
+        outputDir: turnDir,
+        voiceId: voiceName,
+        speed: 1.0,
+        emotion: "neutral",
+      });
+    } else {
+      result = await synthesizeSpeechWithGemini({
+        text: turn.text,
+        outputDir: turnDir,
+        voiceName,
+        stylePrompt,
+      });
+    }
 
     // Rename WAV to turn-specific name
     const turnWav = path.join(outputDir, `turn-${i}.wav`);
@@ -186,11 +228,8 @@ async function synthesizePodcastAudio({turns, outputDir}) {
       durationFrames: Math.ceil(durationSeconds * FPS),
     });
 
-    // Clean up intermediary files
-    for (const f of ["narration-gemini.pcm", "narration-gemini.wav", "narration.m4a"]) {
-      const p = path.join(outputDir, f);
-      if (fs.existsSync(p)) try { fs.unlinkSync(p); } catch {}
-    }
+    // Clean up turn temp dir
+    try { fs.rmSync(turnDir, {recursive: true, force: true}); } catch {}
   }
 
   // Generate silence file
