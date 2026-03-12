@@ -422,9 +422,6 @@ export const PodcastShort = (props) => {
         </div>
       </div>
 
-      {/* ── Active speaker text overlay ───────────────────────────────── */}
-      <ActiveSpeakerText turnTimings={allTurnTimings} speakerColors={speakerColors} />
-
       {/* ── Speaker indicator badge (bottom-left) ─────────────────────── */}
       <SpeakerIndicator turnTimings={allTurnTimings} speakerColors={speakerColors} />
 

@@ -54,8 +54,8 @@ const GAP_BETWEEN_TURNS_S = 0.3; // Mais curto pra shorts
 
 // MiniMax voice mapping (Portuguese Brazilian voices)
 const MINIMAX_VOICES = {
-  Fernanda: process.env.MINIMAX_VOICE_FERNANDA || "Portuguese_ConfidentWoman",
-  Ricardo: process.env.MINIMAX_VOICE_RICARDO || "Portuguese_BossyLeader",
+  Fernanda: process.env.MINIMAX_VOICE_FERNANDA || "Portuguese_Energetic_Speaker_v1",
+  Ricardo: process.env.MINIMAX_VOICE_RICARDO || "Portuguese_Passionate_Commentator_v1",
 };
 
 // ---------------------------------------------------------------------------
@@ -253,6 +253,56 @@ function extractShortQuotes(turns) {
 }
 
 // ---------------------------------------------------------------------------
+// YouTube title & description
+// ---------------------------------------------------------------------------
+
+const CATEGORY_EMOJIS = {
+  "transfer-radar": "🔄",
+  "pre-match": "⚽",
+  "post-match": "🏟️",
+  "stat-analysis": "📊",
+  analises: "🔍",
+  opiniao: "💬",
+  noticias: "📰",
+};
+
+function buildYouTubeTitle(articleTitle, category) {
+  const emoji = CATEGORY_EMOJIS[category] || "⚽";
+  // YouTube shorts titles: max ~100 chars, hook forte
+  const clean = articleTitle.replace(/\s*[-–—|]\s*$/, "").trim();
+  const title = `${emoji} ${clean}`;
+  return title.length > 95 ? title.slice(0, 92) + "..." : title;
+}
+
+function buildYouTubeDescription({articleTitle, excerpt, slug, teams, category}) {
+  const lines = [];
+
+  // Hook
+  lines.push("🎙️ Fernanda e Ricardo debatem:");
+  if (excerpt) lines.push(excerpt);
+  lines.push("");
+
+  // CTA
+  lines.push("📖 Leia a matéria completa:");
+  lines.push(`https://beiradocampo.com.br/${slug}`);
+  lines.push("");
+
+  // Canal
+  lines.push("🔔 Inscreva-se para mais shorts de futebol!");
+  lines.push("");
+
+  // Hashtags
+  const tags = ["shorts", "futebol", "brasileirao"];
+  if (category === "transfer-radar") tags.push("transferencias", "mercado");
+  for (const team of teams.slice(0, 3)) {
+    tags.push(team.toLowerCase().replace(/\s+/g, ""));
+  }
+  lines.push(tags.map((t) => `#${t}`).join(" "));
+
+  return lines.join("\n");
+}
+
+// ---------------------------------------------------------------------------
 // Build props for Remotion PodcastShort
 // ---------------------------------------------------------------------------
 
@@ -385,15 +435,21 @@ async function main() {
   // 5. TTS
   let ttsResult;
   if (args.skipTts) {
-    console.log("\n🔊 Pulando TTS (--skip-tts)");
-    ttsResult = {
-      m4aPath: path.join(outputDir, "narration.m4a"),
-      turnResults: turns.map((t, i) => ({
-        index: i, speaker: t.speaker, text: t.text,
-        wavPath: path.join(outputDir, `turn-${i}.wav`),
-        durationSeconds: 3, durationFrames: 90,
-      })),
-    };
+    console.log("\n🔊 Pulando TTS (--skip-tts), lendo durações dos WAVs existentes...");
+    const turnResults = [];
+    for (let i = 0; i < turns.length; i++) {
+      const wavPath = path.join(outputDir, `turn-${i}.wav`);
+      let durationSeconds = 3; // fallback
+      if (fs.existsSync(wavPath)) {
+        try { durationSeconds = getMediaDuration(wavPath); } catch {}
+      }
+      turnResults.push({
+        index: i, speaker: turns[i].speaker, text: turns[i].text,
+        wavPath, durationSeconds, durationFrames: Math.ceil(durationSeconds * FPS),
+      });
+      console.log(`   Turn ${i + 1}: ${turns[i].speaker} — ${durationSeconds.toFixed(1)}s (${Math.ceil(durationSeconds * FPS)} frames)`);
+    }
+    ttsResult = {m4aPath: path.join(outputDir, "narration.m4a"), turnResults};
   } else {
     const providerLabel = args.ttsProvider === "minimax" ? "MiniMax" : "Gemini";
     console.log(`\n🔊 Sintetizando TTS (2 vozes) [${providerLabel}]...`);
@@ -438,7 +494,20 @@ async function main() {
     {stdio: "inherit"}
   );
 
-  // 9. Manifest
+  // 9. YouTube title & description
+  const articleTitle = String(article.data.title || slug);
+  const category = String(article.data.category || "noticias");
+  const excerpt = String(article.data.excerpt || "");
+  const teams = Array.isArray(article.data.teams) ? article.data.teams : [];
+
+  const youtubeTitle = buildYouTubeTitle(articleTitle, category);
+  const youtubeDescription = buildYouTubeDescription({articleTitle, excerpt, slug, teams, category});
+
+  console.log(`\n📺 YouTube:`);
+  console.log(`   Título: ${youtubeTitle}`);
+  console.log(`   Descrição: ${youtubeDescription.split("\n")[0]}...`);
+
+  // 10. Manifest
   const manifest = {
     slug,
     articlePath: article.path,
@@ -451,7 +520,13 @@ async function main() {
     durationSeconds: Number(estimatedDuration),
     turnCount: turns.length,
     quoteCount: keyQuotes.length,
-    voices: {Fernanda: "Kore", Ricardo: "Puck"},
+    voices: {
+      Fernanda: args.ttsProvider === "minimax" ? MINIMAX_VOICES.Fernanda : "Kore",
+      Ricardo: args.ttsProvider === "minimax" ? MINIMAX_VOICES.Ricardo : "Puck",
+    },
+    ttsProvider: args.ttsProvider,
+    youtubeTitle,
+    youtubeDescription,
   };
 
   fs.writeFileSync(path.join(outputDir, "manifest.json"), JSON.stringify(manifest, null, 2));
