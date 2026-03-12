@@ -54,7 +54,7 @@ const GAP_BETWEEN_TURNS_S = 0.3; // Mais curto pra shorts
 
 // MiniMax voice mapping (Portuguese Brazilian voices)
 const MINIMAX_VOICES = {
-  Fernanda: process.env.MINIMAX_VOICE_FERNANDA || "Portuguese_News_Reporter_v1",
+  Fernanda: process.env.MINIMAX_VOICE_FERNANDA || "Portuguese_NaughtySchoolgirl",
   Ricardo: process.env.MINIMAX_VOICE_RICARDO || "Portuguese_Passionate_Commentator_v1",
 };
 
