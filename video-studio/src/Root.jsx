@@ -11,6 +11,8 @@ import {NewsShortBriefing} from "./NewsShortBriefing";
 import {LongformVideo} from "./LongformVideo";
 // eslint-disable-next-line no-unused-vars
 import {PodcastVideo} from "./PodcastVideo";
+// eslint-disable-next-line no-unused-vars
+import {PodcastShort} from "./PodcastShort";
 
 const defaultProps = {
   slug: "demo-short",
@@ -167,6 +169,33 @@ export const RemotionRoot = () => {
         }}
         calculateMetadata={({props}) => ({
           durationInFrames: props.durationInFrames ?? 9000,
+        })}
+      />
+      <Composition
+        id="PodcastShortClean"
+        component={PodcastShort}
+        width={1080}
+        height={1920}
+        fps={30}
+        durationInFrames={900}
+        defaultProps={{
+          slug: "demo",
+          title: "Demo Podcast Short",
+          excerpt: "Podcast short com dois narradores",
+          category: "noticias",
+          siteName: "Beira do Campo",
+          siteUrl: "beiradocampo.com.br",
+          followHandle: "@beiradocampotv",
+          imageSrc: "renders/demo/source.png",
+          audioSrc: "renders/demo/narration.m4a",
+          speakerColors: {Fernanda: "#facc15", Ricardo: "#7dd3fc"},
+          allTurnTimings: [],
+          quotes: [],
+          durationInFrames: 900,
+          fps: 30,
+        }}
+        calculateMetadata={({props}) => ({
+          durationInFrames: props.durationInFrames ?? 900,
         })}
       />
     </>

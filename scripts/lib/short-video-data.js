@@ -401,6 +401,96 @@ async function synthesizeSpeechWithGemini({
   };
 }
 
+// ---------------------------------------------------------------------------
+// MiniMax TTS — vozes mais realistas com suporte a emoção
+// ---------------------------------------------------------------------------
+
+const MINIMAX_API_KEY = process.env.MINIMAX_API_KEY;
+const MINIMAX_GROUP_ID = process.env.MINIMAX_GROUP_ID;
+const MINIMAX_TTS_MODEL = process.env.MINIMAX_TTS_MODEL || "speech-02-hd";
+const MINIMAX_TTS_BASE = "https://api.minimaxi.chat/v1/t2a_v2";
+
+async function synthesizeSpeechWithMiniMax({
+  text,
+  outputDir,
+  voiceId = "Portuguese_SentimentalLady",
+  speed = 1.0,
+  emotion = "neutral",
+  pitch = 0,
+}) {
+  if (!MINIMAX_API_KEY) {
+    throw new Error("MINIMAX_API_KEY is not configured in .env.local");
+  }
+  if (!MINIMAX_GROUP_ID) {
+    throw new Error("MINIMAX_GROUP_ID is not configured in .env.local (find it at platform.minimax.io → Account)");
+  }
+
+  ensureDir(outputDir);
+
+  const response = await fetch(`${MINIMAX_TTS_BASE}?GroupId=${MINIMAX_GROUP_ID}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${MINIMAX_API_KEY}`,
+    },
+    body: JSON.stringify({
+      model: MINIMAX_TTS_MODEL,
+      text,
+      stream: false,
+      language_boost: "Portuguese",
+      voice_setting: {
+        voice_id: voiceId,
+        speed,
+        emotion,
+        pitch,
+      },
+      audio_setting: {
+        sample_rate: 24000,
+        bitrate: 128000,
+        format: "mp3",
+        channel: 1,
+      },
+    }),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => "");
+    throw new Error(`MiniMax TTS failed (${response.status}): ${errorText.slice(0, 300)}`);
+  }
+
+  const data = await response.json();
+
+  if (data?.base_resp?.status_code !== 0) {
+    throw new Error(`MiniMax TTS error: ${data?.base_resp?.status_msg || JSON.stringify(data).slice(0, 300)}`);
+  }
+
+  const audioHex = data?.data?.audio;
+  if (!audioHex) {
+    throw new Error("MiniMax TTS returned no audio data");
+  }
+
+  const mp3Path = path.join(outputDir, "narration-minimax.mp3");
+  const wavPath = path.join(outputDir, "narration-minimax.wav");
+  const m4aPath = path.join(outputDir, "narration.m4a");
+
+  // Hex string → buffer → mp3
+  fs.writeFileSync(mp3Path, Buffer.from(audioHex, "hex"));
+
+  // mp3 → wav (para compatibilidade com concat)
+  run("ffmpeg", ["-y", "-i", mp3Path, "-ar", "24000", "-ac", "1", wavPath]);
+
+  // mp3 → m4a
+  run("ffmpeg", ["-y", "-i", mp3Path, "-c:a", "aac", "-b:a", "192k", m4aPath]);
+
+  return {
+    provider: "minimax",
+    voiceId,
+    wavPath,
+    m4aPath,
+    sourcePath: mp3Path,
+  };
+}
+
 function synthesizeSpeechLocally({
   textPath,
   outputDir,
@@ -505,4 +595,5 @@ module.exports = {
   uniqueSentences,
   countWords,
   synthesizeSpeechWithGemini,
+  synthesizeSpeechWithMiniMax,
 };
