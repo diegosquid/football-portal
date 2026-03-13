@@ -16,7 +16,7 @@ const GEMINI_TTS_VOICE = process.env.GEMINI_TTS_VOICE || "Kore";
 // ---------------------------------------------------------------------------
 // Gemini Text (para geração de roteiro de narração)
 // ---------------------------------------------------------------------------
-const GEMINI_TEXT_MODEL = process.env.GEMINI_TEXT_MODEL || "gemini-2.5-flash";
+const GEMINI_TEXT_MODEL = process.env.GEMINI_TEXT_MODEL || "gemini-3-flash-preview";
 const GEMINI_TEXT_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_TEXT_MODEL}:generateContent`;
 
 async function generateNarrationScript(article) {
