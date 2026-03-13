@@ -147,6 +147,34 @@ function normalizeSentence(text) {
     .trim();
 }
 
+// Sanitiza texto para TTS: placares, abreviações, símbolos
+function sanitizeForTTS(text) {
+  return text
+    // Placares: 2x1, 5x0, 0X3 → "2 a 1", "5 a 0", "0 a 3"
+    .replace(/(\d+)\s*[xX]\s*(\d+)/g, "$1 a $2")
+    // "vs" / "vs." → "versus"
+    .replace(/\bvs\.?\b/gi, "versus")
+    // R$ 10 milhões → "10 milhões de reais"
+    .replace(/R\$\s*([\d.,]+)\s*(milh[õo]es|bilh[õo]es|mil)?/gi, (_, val, unit) =>
+      unit ? `${val} ${unit} de reais` : `${val} reais`
+    )
+    // USD → "dólares"
+    .replace(/USD\s*([\d.,]+)\s*(milh[õo]es|bilh[õo]es|mil)?/gi, (_, val, unit) =>
+      unit ? `${val} ${unit} de dólares` : `${val} dólares`
+    )
+    // % → "por cento"
+    .replace(/(\d+)%/g, "$1 por cento")
+    // "1º" → "primeiro", "2ª" → "segunda" (mais comuns)
+    .replace(/\b1[ºo]\b/g, "primeiro").replace(/\b1[ªa]\b/g, "primeira")
+    .replace(/\b2[ºo]\b/g, "segundo").replace(/\b2[ªa]\b/g, "segunda")
+    .replace(/\b3[ºo]\b/g, "terceiro").replace(/\b3[ªa]\b/g, "terceira")
+    // Remover ** (bold markdown)
+    .replace(/\*\*/g, "")
+    // Limpar múltiplos espaços
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
 function shortenSentence(sentence, maxWords) {
   const clauses = sentence
     .split(/[,:;—-]\s+/)
@@ -245,7 +273,7 @@ function buildNarration(article) {
     chosen.push(full);
   }
 
-  return normalizeSentence([hook, ...chosen, outro].join(" "));
+  return sanitizeForTTS(normalizeSentence([hook, ...chosen, outro].join(" ")));
 }
 
 function extractHeadings(body) {
@@ -563,7 +591,7 @@ function synthesizeSpeechLocally({
 const DEFAULT_MINIMAX_NARRATOR = process.env.MINIMAX_NARRATOR_VOICE || "Portuguese_News_Reporter_v1";
 
 async function synthesizeNarration({
-  text,
+  text: rawText,
   textPath,
   outputDir,
   provider = "auto",
@@ -572,6 +600,7 @@ async function synthesizeNarration({
   localVoice,
   localRate,
 }) {
+  const text = sanitizeForTTS(rawText);
   const stylePrompt = [
     "Leia em português do Brasil, com tom de âncora esportivo, firme, claro e natural.",
     "Mantenha ritmo jornalístico, com energia moderada.",
@@ -639,4 +668,5 @@ module.exports = {
   countWords,
   synthesizeSpeechWithGemini,
   synthesizeSpeechWithMiniMax,
+  sanitizeForTTS,
 };

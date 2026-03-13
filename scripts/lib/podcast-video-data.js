@@ -12,6 +12,7 @@ const {
   getMediaDuration,
   synthesizeSpeechWithGemini,
   synthesizeSpeechWithMiniMax,
+  sanitizeForTTS,
   SITE_NAME,
   SITE_URL,
   PROJECT_DIR,
@@ -187,10 +188,12 @@ async function synthesizePodcastAudio({turns, outputDir, ttsProvider = "gemini"}
     const turnDir = path.join(outputDir, `turn-${i}-tmp`);
     ensureDir(turnDir);
 
+    const ttsText = sanitizeForTTS(turn.text);
+
     let result;
     if (useMinimax) {
       result = await synthesizeSpeechWithMiniMax({
-        text: turn.text,
+        text: ttsText,
         outputDir: turnDir,
         voiceId: voiceName,
         speed: 1.0,
@@ -198,7 +201,7 @@ async function synthesizePodcastAudio({turns, outputDir, ttsProvider = "gemini"}
       });
     } else {
       result = await synthesizeSpeechWithGemini({
-        text: turn.text,
+        text: ttsText,
         outputDir: turnDir,
         voiceName,
         stylePrompt,
