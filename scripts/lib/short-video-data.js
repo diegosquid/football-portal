@@ -180,8 +180,32 @@ function scoreSentence(sentence, keywords) {
   return score;
 }
 
+// Hooks de abertura por categoria — quebram a monotonia e prendem atenção
+const CATEGORY_HOOKS = {
+  "post-match": ["E o jogo acabou!", "Apita o árbitro!", "Resultado definido!"],
+  "pre-match": ["Bola vai rolar!", "É dia de decisão!", "Tudo pronto!"],
+  opiniao: ["Opinião quente!", "Hora de falar a verdade.", "Atenção, torcedor."],
+  "transfer-radar": ["Movimentação no mercado!", "Radar de transferências!", "Mercado agitado!"],
+  "stat-analysis": ["Os números não mentem.", "Análise completa!", "Dados que impressionam."],
+  libertadores: ["Libertadores em jogo!", "Noite de Libertadores!", "É continental!"],
+  brasileirao: ["Brasileirão na área!", "Rodada quente!", "Série A em ação!"],
+};
+
+const TRANSITIONS = ["E tem mais.", "Olha esse dado.", "Presta atenção.", "E não para por aí."];
+
+const OUTROS = [
+  "Leia a matéria completa no site. Siga o canal pra ficar por dentro!",
+  "Matéria completa no site. Se inscreva e ative o sininho!",
+  "Todos os detalhes no site. Siga o canal!",
+];
+
+function pickRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
 function buildNarration(article) {
   const excerpt = stripMarkdown(String(article.data.excerpt || "").trim());
+  const category = String(article.data.category || "noticias");
   const bodySentences = splitSentences(article.body);
   const keywords = [
     ...(Array.isArray(article.data.teams) ? article.data.teams : []),
@@ -202,20 +226,26 @@ function buildNarration(article) {
     .slice(0, 3)
     .map((sentence) => shortenSentence(sentence, 18));
 
-  const outro =
-    "Quer entender o cenário completo? Veja a matéria completa no site. Para mais notícias de futebol, siga este canal.";
-  const maxWords = 82;
-  const available = maxWords - countWords(outro);
+  // Hook de abertura baseado na categoria
+  const hooks = CATEGORY_HOOKS[category] || ["Atenção, torcedor!"];
+  const hook = pickRandom(hooks);
+  const outro = pickRandom(OUTROS);
+  const maxWords = 85;
+  const available = maxWords - countWords(hook) - countWords(outro);
   const chosen = [];
 
-  for (const segment of [excerpt, ...picks]) {
-    const candidate = normalizeSentence(segment);
+  const segments = [excerpt, ...picks];
+  for (let i = 0; i < segments.length; i++) {
+    const candidate = normalizeSentence(segments[i]);
     if (!candidate) continue;
-    if (countWords([...chosen, candidate].join(" ")) > available) break;
-    chosen.push(candidate);
+    // Transição natural entre o 2º e 3º dado
+    const prefix = chosen.length === 2 ? pickRandom(TRANSITIONS) + " " : "";
+    const full = prefix + candidate;
+    if (countWords([...chosen, full].join(" ")) > available) break;
+    chosen.push(full);
   }
 
-  return normalizeSentence(truncateWords([...chosen, outro].join(" "), maxWords));
+  return normalizeSentence([hook, ...chosen, outro].join(" "));
 }
 
 function extractHeadings(body) {
