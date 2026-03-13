@@ -88,7 +88,7 @@ function generateAndUpload(slug, format, dryRun) {
   console.log(`\n${"═".repeat(60)}`);
   console.log(`🎬 Gerando short: ${slug}`);
   console.log(`   Formato: ${format}`);
-  console.log(`   TTS: minimax (Portuguese_News_Reporter_v1)`);
+  console.log(`   TTS: elevenlabs`);
 
   if (dryRun) {
     console.log("   ⏭️  DRY RUN — pulando render/upload");
@@ -99,7 +99,7 @@ function generateAndUpload(slug, format, dryRun) {
     path.join(PROJECT_DIR, "scripts", "publish-youtube-short.js"),
     slug,
     "--format", format,
-    "--tts-provider", "minimax",
+    "--tts-provider", "elevenlabs",
     "--privacy", "public",
     "--thumbnail", "auto",
   ], {
