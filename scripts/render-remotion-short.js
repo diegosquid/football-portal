@@ -11,6 +11,7 @@ const {
   getLatestArticleSlug,
   loadArticle,
   buildNarration,
+  generateNarrationScript,
   buildHighlights,
   resolveAuthor,
   resolveImage,
@@ -42,6 +43,7 @@ function parseArgs(argv) {
     format: "clean",
     image: null,
     narrationFile: null,
+    aiNarration: false,
     ttsProvider: "auto",
     voice: DEFAULT_VOICE,
     geminiVoice: DEFAULT_GEMINI_VOICE,
@@ -60,6 +62,8 @@ function parseArgs(argv) {
     } else if (token === "--image") {
       args.image = argv[i + 1];
       i += 1;
+    } else if (token === "--ai-narration") {
+      args.aiNarration = true;
     } else if (token === "--narration-file") {
       args.narrationFile = argv[i + 1];
       i += 1;
@@ -111,9 +115,16 @@ async function main() {
   ensureDir(remotionAssetDir);
 
   const imagePath = resolveImage(article, outputDir, args.image);
-  const narration = args.narrationFile
-    ? fs.readFileSync(path.resolve(args.narrationFile), "utf8").trim()
-    : buildNarration(article);
+  let narration;
+  if (args.narrationFile) {
+    narration = fs.readFileSync(path.resolve(args.narrationFile), "utf8").trim();
+  } else if (args.aiNarration) {
+    console.log("🤖 Gerando roteiro de narração com Gemini...");
+    narration = await generateNarrationScript(article);
+    console.log(`📝 Roteiro gerado (${narration.split(/\s+/).length} palavras)`);
+  } else {
+    narration = buildNarration(article);
+  }
   const highlights = buildHighlights(article);
 
   const narrationTextPath = path.join(outputDir, "narration.txt");

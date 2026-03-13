@@ -72,6 +72,11 @@ function splitArgs(argv) {
       continue;
     }
 
+    if (arg === "--ai-narration") {
+      renderOnly.push(arg);
+      continue;
+    }
+
     if (["--image", "--narration-file", "--tts-provider", "--gemini-voice", "--minimax-voice", "--elevenlabs-voice", "--voice", "--rate"].includes(arg)) {
       pushFlag(renderOnly);
       continue;

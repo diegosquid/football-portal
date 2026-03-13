@@ -13,6 +13,82 @@ const GEMINI_TTS_MODEL = process.env.GEMINI_TTS_MODEL || "gemini-2.5-flash-previ
 const GEMINI_TTS_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_TTS_MODEL}:generateContent`;
 const GEMINI_TTS_VOICE = process.env.GEMINI_TTS_VOICE || "Kore";
 
+// ---------------------------------------------------------------------------
+// Gemini Text (para geração de roteiro de narração)
+// ---------------------------------------------------------------------------
+const GEMINI_TEXT_MODEL = process.env.GEMINI_TEXT_MODEL || "gemini-2.5-flash";
+const GEMINI_TEXT_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_TEXT_MODEL}:generateContent`;
+
+async function generateNarrationScript(article) {
+  if (!GEMINI_API_KEY) {
+    throw new Error("GEMINI_API_KEY is not configured in .env.local");
+  }
+
+  const title = String(article.data.title || "");
+  const excerpt = String(article.data.excerpt || "");
+  const category = String(article.data.category || "noticias");
+  const body = stripMarkdown(article.body);
+
+  const prompt = `Você é roteirista do canal "Beira do Campo" no YouTube. Escreva uma narração curta para um vídeo vertical (YouTube Shorts) sobre a matéria abaixo.
+
+REGRAS OBRIGATÓRIAS:
+- Entre 60 e 90 palavras (máximo absoluto: 90 palavras)
+- Duração alvo: 30-45 segundos quando lido em voz alta
+- Comece com um gancho que prenda atenção nos primeiros 3 segundos
+- Tom: âncora esportivo brasileiro, firme e envolvente (estilo ESPN/SporTV)
+- Linguagem coloquial mas profissional
+- NÃO use abreviações (escreva "primeiro" em vez de "1º")
+- NÃO use "x" para placares — escreva "a" (ex: "2 a 1", não "2x1")
+- NÃO use siglas sem explicar (ex: "VAR" está ok, mas "CBF" → "a CBF")
+- NÃO use asteriscos, markdown ou formatação
+- Termine com CTA curto: "Matéria completa no site. Siga o canal!"
+- Escreva APENAS a narração, sem títulos, sem instruções, sem aspas
+
+MATÉRIA:
+Título: ${title}
+Resumo: ${excerpt}
+Categoria: ${category}
+
+Conteúdo:
+${body.slice(0, 2000)}
+
+NARRAÇÃO:`;
+
+  const response = await fetch(`${GEMINI_TEXT_ENDPOINT}?key=${GEMINI_API_KEY}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: {
+        temperature: 0.7,
+        maxOutputTokens: 2048,
+        thinkingConfig: { thinkingBudget: 0 },
+      },
+    }),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => "");
+    throw new Error(`Gemini text failed (${response.status}): ${errorText.slice(0, 300)}`);
+  }
+
+  const data = await response.json();
+  const generatedText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+  if (!generatedText) {
+    throw new Error(`Gemini text returned no content: ${JSON.stringify(data).slice(0, 500)}`);
+  }
+
+  // Limpar e sanitizar o roteiro gerado
+  const cleaned = generatedText
+    .replace(/^["'""'']/g, "")
+    .replace(/["'""'']$/g, "")
+    .replace(/\*\*/g, "")
+    .trim();
+
+  return sanitizeForTTS(cleaned);
+}
+
 const AUTHOR_META = {
   "renato-caldeira": {
     name: "Renato Caldeira",
@@ -751,4 +827,5 @@ module.exports = {
   synthesizeSpeechWithMiniMax,
   synthesizeSpeechWithElevenLabs,
   sanitizeForTTS,
+  generateNarrationScript,
 };
