@@ -32,6 +32,7 @@ export default defineConfig({
               url: s.string(),
             })
             .optional(),
+          youtube: s.string().optional(),
           draft: s.boolean().default(false),
           featured: s.boolean().default(false),
           body: s.mdx(),
