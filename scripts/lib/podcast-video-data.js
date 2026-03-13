@@ -12,6 +12,7 @@ const {
   getMediaDuration,
   synthesizeSpeechWithGemini,
   synthesizeSpeechWithMiniMax,
+  synthesizeSpeechWithElevenLabs,
   sanitizeForTTS,
   SITE_NAME,
   SITE_URL,
@@ -34,6 +35,11 @@ const VOICES = {
 const MINIMAX_VOICES = {
   Fernanda: process.env.MINIMAX_VOICE_FERNANDA || "Portuguese_News_Reporter_v1",
   Ricardo: process.env.MINIMAX_VOICE_RICARDO || "Portuguese_Passionate_Commentator_v1",
+};
+
+const ELEVENLABS_VOICES = {
+  Fernanda: process.env.ELEVENLABS_VOICE_FERNANDA || "RGymW84CSmfVugnA5tvA",
+  Ricardo: process.env.ELEVENLABS_VOICE_RICARDO || "36rVQA1AOIPwpA3Hg1tC",
 };
 const SPEAKER_COLORS = {
   Fernanda: "#facc15",
@@ -155,9 +161,11 @@ async function synthesizePodcastAudio({turns, outputDir, ttsProvider = "gemini"}
   const stylePrompt =
     "Leia em portugues do Brasil, com tom de ancora esportivo, firme, claro e natural. Mantenha ritmo jornalistico, com energia e naturalidade. Nao adicione palavras alem do texto fornecido.";
 
+  const useElevenlabs = ttsProvider === "elevenlabs";
   const useMinimax = ttsProvider === "minimax";
-  const voiceMap = useMinimax ? MINIMAX_VOICES : VOICES;
-  console.log(`  🔊 TTS provider: ${useMinimax ? "MiniMax" : "Gemini"}`);
+  const voiceMap = useElevenlabs ? ELEVENLABS_VOICES : useMinimax ? MINIMAX_VOICES : VOICES;
+  const providerLabel = useElevenlabs ? "ElevenLabs" : useMinimax ? "MiniMax" : "Gemini";
+  console.log(`  🔊 TTS provider: ${providerLabel}`);
 
   const turnResults = [];
 
@@ -191,7 +199,13 @@ async function synthesizePodcastAudio({turns, outputDir, ttsProvider = "gemini"}
     const ttsText = sanitizeForTTS(turn.text);
 
     let result;
-    if (useMinimax) {
+    if (useElevenlabs) {
+      result = await synthesizeSpeechWithElevenLabs({
+        text: ttsText,
+        outputDir: turnDir,
+        voiceId: voiceName,
+      });
+    } else if (useMinimax) {
       result = await synthesizeSpeechWithMiniMax({
         text: ttsText,
         outputDir: turnDir,

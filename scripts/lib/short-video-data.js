@@ -549,6 +549,77 @@ async function synthesizeSpeechWithMiniMax({
   };
 }
 
+// ---------------------------------------------------------------------------
+// ElevenLabs TTS — vozes ultra-realistas
+// ---------------------------------------------------------------------------
+
+const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY;
+const ELEVENLABS_MODEL = process.env.ELEVENLABS_MODEL || "eleven_multilingual_v2";
+const ELEVENLABS_BASE = "https://api.elevenlabs.io/v1/text-to-speech";
+
+async function synthesizeSpeechWithElevenLabs({
+  text,
+  outputDir,
+  voiceId,
+  speed = 1.0,
+  stability = 0.5,
+  similarityBoost = 0.75,
+}) {
+  if (!ELEVENLABS_API_KEY) {
+    throw new Error("ELEVENLABS_API_KEY is not configured in .env.local");
+  }
+
+  ensureDir(outputDir);
+
+  const response = await fetch(
+    `${ELEVENLABS_BASE}/${voiceId}?output_format=mp3_44100_128`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "xi-api-key": ELEVENLABS_API_KEY,
+      },
+      body: JSON.stringify({
+        text,
+        model_id: ELEVENLABS_MODEL,
+        language_code: "pt",
+        voice_settings: {
+          stability,
+          similarity_boost: similarityBoost,
+          speed,
+        },
+      }),
+    }
+  );
+
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => "");
+    throw new Error(`ElevenLabs TTS failed (${response.status}): ${errorText.slice(0, 300)}`);
+  }
+
+  const mp3Path = path.join(outputDir, "narration-elevenlabs.mp3");
+  const wavPath = path.join(outputDir, "narration-elevenlabs.wav");
+  const m4aPath = path.join(outputDir, "narration.m4a");
+
+  // Response é binary MP3
+  const buffer = Buffer.from(await response.arrayBuffer());
+  fs.writeFileSync(mp3Path, buffer);
+
+  // mp3 → wav (para concat)
+  run("ffmpeg", ["-y", "-i", mp3Path, "-ar", "24000", "-ac", "1", wavPath]);
+
+  // mp3 → m4a
+  run("ffmpeg", ["-y", "-i", mp3Path, "-c:a", "aac", "-b:a", "192k", m4aPath]);
+
+  return {
+    provider: "elevenlabs",
+    voiceId,
+    wavPath,
+    m4aPath,
+    sourcePath: mp3Path,
+  };
+}
+
 function synthesizeSpeechLocally({
   textPath,
   outputDir,
@@ -589,6 +660,7 @@ function synthesizeSpeechLocally({
 }
 
 const DEFAULT_MINIMAX_NARRATOR = process.env.MINIMAX_NARRATOR_VOICE || "Portuguese_News_Reporter_v1";
+const DEFAULT_ELEVENLABS_VOICE = process.env.ELEVENLABS_VOICE_FERNANDA || "RGymW84CSmfVugnA5tvA";
 
 async function synthesizeNarration({
   text: rawText,
@@ -597,6 +669,7 @@ async function synthesizeNarration({
   provider = "auto",
   geminiVoiceName,
   minimaxVoiceId,
+  elevenlabsVoiceId,
   localVoice,
   localRate,
 }) {
@@ -623,6 +696,14 @@ async function synthesizeNarration({
       voiceId: minimaxVoiceId || DEFAULT_MINIMAX_NARRATOR,
       speed: 1.0,
       emotion: "neutral",
+    });
+  }
+
+  if (provider === "elevenlabs") {
+    return synthesizeSpeechWithElevenLabs({
+      text,
+      outputDir,
+      voiceId: elevenlabsVoiceId || DEFAULT_ELEVENLABS_VOICE,
     });
   }
 
@@ -668,5 +749,6 @@ module.exports = {
   countWords,
   synthesizeSpeechWithGemini,
   synthesizeSpeechWithMiniMax,
+  synthesizeSpeechWithElevenLabs,
   sanitizeForTTS,
 };

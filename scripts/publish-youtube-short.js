@@ -15,6 +15,7 @@ const FLAGS_WITH_VALUES = new Set([
   "--tts-provider",
   "--gemini-voice",
   "--minimax-voice",
+  "--elevenlabs-voice",
   "--voice",
   "--rate",
   "--video",
@@ -71,7 +72,7 @@ function splitArgs(argv) {
       continue;
     }
 
-    if (["--image", "--narration-file", "--tts-provider", "--gemini-voice", "--minimax-voice", "--voice", "--rate"].includes(arg)) {
+    if (["--image", "--narration-file", "--tts-provider", "--gemini-voice", "--minimax-voice", "--elevenlabs-voice", "--voice", "--rate"].includes(arg)) {
       pushFlag(renderOnly);
       continue;
     }
