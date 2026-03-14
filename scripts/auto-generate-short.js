@@ -25,10 +25,10 @@ const FORMATS = ["clean", "clean", "clean", "split", "pulse", "stacked", "poster
 const SKIP_CATEGORIES = ["opiniao"];
 
 function parseArgs(argv) {
-  const args = {dryRun: false, max: 3};
+  const args = {dryRun: false, max: 1};
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === "--dry-run") args.dryRun = true;
-    if (argv[i] === "--max") args.max = parseInt(argv[i + 1], 10) || 3;
+    if (argv[i] === "--max") args.max = parseInt(argv[i + 1], 10) || 1;
   }
   return args;
 }
