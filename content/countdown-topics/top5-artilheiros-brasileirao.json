@@ -1,0 +1,43 @@
+{
+  "slug": "top5-artilheiros-brasileirao",
+  "title": "Top 5 maiores artilheiros da história do Brasileirão",
+  "category": "curiosidades",
+  "narrationPrompt": "Foque na grandiosidade dos números e mencione curiosidades sobre cada jogador. Roberto (Vasco/Galo) é o maior artilheiro com 270 gols na era dos pontos corridos + mata-mata. Use tom épico e reverente.",
+  "items": [
+    {
+      "rank": 5,
+      "name": "Romário",
+      "stat": "204 gols",
+      "subtitle": "O Baixinho — Vasco, Flamengo, Fluminense",
+      "imageSrc": "generated/countdown-shorts/top5-artilheiros-brasileirao/images/romario.png"
+    },
+    {
+      "rank": 4,
+      "name": "Zico",
+      "stat": "215 gols",
+      "subtitle": "O Galinho de Quintino — Flamengo",
+      "imageSrc": "generated/countdown-shorts/top5-artilheiros-brasileirao/images/zico.png"
+    },
+    {
+      "rank": 3,
+      "name": "Edmundo",
+      "stat": "226 gols",
+      "subtitle": "O Animal — Vasco, Palmeiras, Fiorentina",
+      "imageSrc": "generated/countdown-shorts/top5-artilheiros-brasileirao/images/edmundo.png"
+    },
+    {
+      "rank": 2,
+      "name": "Roberto Dinamite",
+      "stat": "249 gols",
+      "subtitle": "Eterno ídolo — Vasco da Gama",
+      "imageSrc": "generated/countdown-shorts/top5-artilheiros-brasileirao/images/roberto-dinamite.png"
+    },
+    {
+      "rank": 1,
+      "name": "Roberto",
+      "stat": "270 gols",
+      "subtitle": "O maior artilheiro — Vasco, Atlético-MG",
+      "imageSrc": "generated/countdown-shorts/top5-artilheiros-brasileirao/images/roberto.png"
+    }
+  ]
+}

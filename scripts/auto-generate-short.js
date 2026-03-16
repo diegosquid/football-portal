@@ -101,6 +101,7 @@ function generateAndUpload(slug, format, dryRun) {
     "--format", format,
     "--ai-narration",
     "--tts-provider", "elevenlabs",
+    "--elevenlabs-voice", "r3KkFedJ4n8aabIZ0RFQ",
     "--privacy", "public",
     "--thumbnail", "auto",
   ], {
