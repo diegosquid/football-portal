@@ -35,6 +35,7 @@ const VOICES = {
 const MINIMAX_VOICES = {
   Fernanda: process.env.MINIMAX_VOICE_FERNANDA || "Portuguese_News_Reporter_v1",
   Ricardo: process.env.MINIMAX_VOICE_RICARDO || "Portuguese_Passionate_Commentator_v1",
+  Marcos: process.env.MINIMAX_VOICE_MARCOS || "Portuguese_Jovialman",
 };
 
 const ELEVENLABS_VOICES = {
@@ -206,12 +207,13 @@ async function synthesizePodcastAudio({turns, outputDir, ttsProvider = "gemini"}
         voiceId: voiceName,
       });
     } else if (useMinimax) {
+      const speakerEmotion = turn.speaker === "Marcos" ? "happy" : "neutral";
       result = await synthesizeSpeechWithMiniMax({
         text: ttsText,
         outputDir: turnDir,
         voiceId: voiceName,
         speed: 1.0,
-        emotion: "neutral",
+        emotion: speakerEmotion,
       });
     } else {
       result = await synthesizeSpeechWithGemini({

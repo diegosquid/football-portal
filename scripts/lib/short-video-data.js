@@ -735,7 +735,7 @@ function synthesizeSpeechLocally({
   };
 }
 
-const DEFAULT_MINIMAX_NARRATOR = process.env.MINIMAX_NARRATOR_VOICE || "Portuguese_News_Reporter_v1";
+const DEFAULT_MINIMAX_NARRATOR = process.env.MINIMAX_NARRATOR_VOICE || "Portuguese_Jovialman";
 const DEFAULT_ELEVENLABS_VOICE = process.env.ELEVENLABS_VOICE_FERNANDA || "RGymW84CSmfVugnA5tvA";
 
 async function synthesizeNarration({
@@ -771,7 +771,7 @@ async function synthesizeNarration({
       outputDir,
       voiceId: minimaxVoiceId || DEFAULT_MINIMAX_NARRATOR,
       speed: 1.0,
-      emotion: "neutral",
+      emotion: "happy",
     });
   }
 

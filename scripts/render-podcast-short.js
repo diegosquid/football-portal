@@ -56,6 +56,7 @@ const GAP_BETWEEN_TURNS_S = 0.3; // Mais curto pra shorts
 const MINIMAX_VOICES = {
   Fernanda: process.env.MINIMAX_VOICE_FERNANDA || "Portuguese_News_Reporter_v1",
   Ricardo: process.env.MINIMAX_VOICE_RICARDO || "Portuguese_Passionate_Commentator_v1",
+  Marcos: process.env.MINIMAX_VOICE_MARCOS || "Portuguese_Jovialman",
 };
 
 // ---------------------------------------------------------------------------
@@ -151,12 +152,13 @@ async function synthesizeShortPodcastAudio({turns, outputDir, ttsProvider = "gem
       const voiceId = MINIMAX_VOICES[turn.speaker] || "Portuguese_ConfidentWoman";
       console.log(`  🎙️  Turn ${i + 1}/${turns.length} (${turn.speaker}/${voiceId}) [MiniMax]: ${countWords(turn.text)} palavras`);
 
+      const speakerEmotion = turn.speaker === "Marcos" ? "happy" : "neutral";
       result = await synthesizeSpeechWithMiniMax({
         text: turn.text,
         outputDir,
         voiceId,
         speed: 1.05,
-        emotion: "neutral",
+        emotion: speakerEmotion,
       });
     } else {
       const voiceName = VOICES[turn.speaker];
