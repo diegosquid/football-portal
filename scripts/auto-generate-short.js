@@ -88,7 +88,7 @@ function generateAndUpload(slug, format, dryRun) {
   console.log(`\n${"═".repeat(60)}`);
   console.log(`🎬 Gerando short: ${slug}`);
   console.log(`   Formato: ${format}`);
-  console.log(`   TTS: elevenlabs + AI narration`);
+  console.log(`   TTS: minimax (Marcos - Portuguese_Jovialman) + AI narration`);
 
   if (dryRun) {
     console.log("   ⏭️  DRY RUN — pulando render/upload");
@@ -100,8 +100,8 @@ function generateAndUpload(slug, format, dryRun) {
     slug,
     "--format", format,
     "--ai-narration",
-    "--tts-provider", "elevenlabs",
-    "--elevenlabs-voice", "r3KkFedJ4n8aabIZ0RFQ",
+    "--tts-provider", "minimax",
+    "--minimax-voice", "Portuguese_Jovialman",
     "--privacy", "public",
     "--thumbnail", "auto",
   ], {
