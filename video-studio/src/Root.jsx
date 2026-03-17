@@ -13,6 +13,8 @@ import {LongformVideo} from "./LongformVideo";
 import {PodcastVideo} from "./PodcastVideo";
 // eslint-disable-next-line no-unused-vars
 import {PodcastShort} from "./PodcastShort";
+// eslint-disable-next-line no-unused-vars
+import {CountdownShort} from "./CountdownShort";
 
 const defaultProps = {
   slug: "demo-short",
@@ -196,6 +198,30 @@ export const RemotionRoot = () => {
         }}
         calculateMetadata={({props}) => ({
           durationInFrames: props.durationInFrames ?? 900,
+        })}
+      />
+      <Composition
+        id="CountdownShort"
+        component={CountdownShort}
+        width={1080}
+        height={1920}
+        fps={30}
+        durationInFrames={1500}
+        defaultProps={{
+          slug: "demo-countdown",
+          title: "Top 5 Demo",
+          category: "curiosidades",
+          siteName: "Beira do Campo",
+          siteUrl: "beiradocampo.com.br",
+          followHandle: "@beiradocampotv",
+          audioSrc: "renders/demo/narration.m4a",
+          items: [],
+          timings: [],
+          durationInFrames: 1500,
+          fps: 30,
+        }}
+        calculateMetadata={({props}) => ({
+          durationInFrames: props.durationInFrames ?? 1500,
         })}
       />
     </>

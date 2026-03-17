@@ -38,8 +38,8 @@ const {
 function parseArgs(argv) {
   const args = {
     topicFile: null,
-    ttsProvider: "elevenlabs",
-    voiceId: process.env.ELEVENLABS_VOICE_COUNTDOWN || "r3KkFedJ4n8aabIZ0RFQ",
+    ttsProvider: "minimax",
+    voiceId: process.env.MINIMAX_VOICE_COUNTDOWN || "Portuguese_Jovialman",
     geminiVoice: process.env.GEMINI_TTS_VOICE || "Kore",
   };
 
@@ -177,6 +177,7 @@ async function synthesizeSegments(segments, outputDir, args) {
       provider: args.ttsProvider,
       geminiVoiceName: args.geminiVoice,
       elevenlabsVoiceId: args.voiceId,
+      minimaxVoiceId: args.voiceId,
     });
 
     // Renomear pra não conflitar entre segmentos
@@ -260,7 +261,7 @@ async function main() {
   const args = parseArgs(process.argv.slice(2));
 
   if (!args.topicFile) {
-    console.error("Uso: node scripts/render-countdown-short.js <topic.json> [--tts-provider elevenlabs|gemini]");
+    console.error("Uso: node scripts/render-countdown-short.js <topic.json> [--tts-provider minimax|elevenlabs|gemini]");
     process.exit(1);
   }
 

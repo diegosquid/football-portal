@@ -152,13 +152,12 @@ async function synthesizeShortPodcastAudio({turns, outputDir, ttsProvider = "gem
       const voiceId = MINIMAX_VOICES[turn.speaker] || "Portuguese_ConfidentWoman";
       console.log(`  🎙️  Turn ${i + 1}/${turns.length} (${turn.speaker}/${voiceId}) [MiniMax]: ${countWords(turn.text)} palavras`);
 
-      const speakerEmotion = turn.speaker === "Marcos" ? "happy" : "neutral";
       result = await synthesizeSpeechWithMiniMax({
         text: turn.text,
         outputDir,
         voiceId,
         speed: 1.05,
-        emotion: speakerEmotion,
+        emotion: "fluent",
       });
     } else {
       const voiceName = VOICES[turn.speaker];

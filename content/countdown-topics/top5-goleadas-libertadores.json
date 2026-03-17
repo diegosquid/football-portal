@@ -1,0 +1,43 @@
+{
+  "slug": "top5-goleadas-libertadores",
+  "title": "Top 5 maiores goleadas da história da Libertadores",
+  "category": "curiosidades",
+  "narrationPrompt": "Tom épico e dramático. Enfatize o absurdo de cada goleada, mencione o contexto (fase do torneio, rivalidade). O número 1 deve ter build-up de suspense. Use expressões como 'massacre', 'atropelou', 'humilhação histórica'.",
+  "items": [
+    {
+      "rank": 5,
+      "name": "Peñarol 11 x 2 Valencia (VEN)",
+      "stat": "1970",
+      "subtitle": "Fase de grupos — maior goleada uruguaia na Libertadores",
+      "imageSrc": "generated/countdown-shorts/top5-goleadas-libertadores/images/penarol.png"
+    },
+    {
+      "rank": 4,
+      "name": "Bolívar 7 x 1 Trujillanos",
+      "stat": "2016",
+      "subtitle": "Fase de grupos — massacre boliviano na altitude de La Paz",
+      "imageSrc": "generated/countdown-shorts/top5-goleadas-libertadores/images/bolivar.png"
+    },
+    {
+      "rank": 3,
+      "name": "Santos 7 x 1 Universitario",
+      "stat": "2010",
+      "subtitle": "Fase de grupos — Neymar e Ganso destruíram os peruanos",
+      "imageSrc": "generated/countdown-shorts/top5-goleadas-libertadores/images/santos.png"
+    },
+    {
+      "rank": 2,
+      "name": "Cruzeiro 8 x 0 Deportivo Italia",
+      "stat": "1975",
+      "subtitle": "Fase de grupos — a maior goleada de um brasileiro na história",
+      "imageSrc": "generated/countdown-shorts/top5-goleadas-libertadores/images/cruzeiro.png"
+    },
+    {
+      "rank": 1,
+      "name": "Independiente 9 x 1 Emelec",
+      "stat": "1984",
+      "subtitle": "Semifinal — a maior goleada da história da Libertadores",
+      "imageSrc": "generated/countdown-shorts/top5-goleadas-libertadores/images/independiente.png"
+    }
+  ]
+}

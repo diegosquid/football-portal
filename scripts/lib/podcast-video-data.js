@@ -207,13 +207,12 @@ async function synthesizePodcastAudio({turns, outputDir, ttsProvider = "gemini"}
         voiceId: voiceName,
       });
     } else if (useMinimax) {
-      const speakerEmotion = turn.speaker === "Marcos" ? "happy" : "neutral";
       result = await synthesizeSpeechWithMiniMax({
         text: ttsText,
         outputDir: turnDir,
         voiceId: voiceName,
         speed: 1.0,
-        emotion: speakerEmotion,
+        emotion: "fluent",
       });
     } else {
       result = await synthesizeSpeechWithGemini({

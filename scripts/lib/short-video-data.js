@@ -549,7 +549,7 @@ async function synthesizeSpeechWithMiniMax({
   outputDir,
   voiceId = "Portuguese_SentimentalLady",
   speed = 1.0,
-  emotion = "neutral",
+  emotion = "fluent",
   pitch = 0,
 }) {
   if (!MINIMAX_API_KEY) {
@@ -771,7 +771,7 @@ async function synthesizeNarration({
       outputDir,
       voiceId: minimaxVoiceId || DEFAULT_MINIMAX_NARRATOR,
       speed: 1.0,
-      emotion: "happy",
+      emotion: "fluent",
     });
   }
 
