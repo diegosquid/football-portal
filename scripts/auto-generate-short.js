@@ -3,7 +3,9 @@
  * auto-generate-short.js
  *
  * Detecta artigos novos (últimas 24h) que ainda não têm short gerado,
- * e gera + publica automaticamente, rotacionando o estilo visual.
+ * e gera + publica automaticamente com mix diário de formatos.
+ *
+ * Mix diário: 2 notícias + 1 hottake + 1 ranking (top3)
  *
  * Uso:
  *   node scripts/auto-generate-short.js [--dry-run] [--max N]
@@ -18,8 +20,16 @@ const ARTICLES_DIR = path.join(PROJECT_DIR, "content", "articles");
 const SHORTS_DIR = path.join(PROJECT_DIR, "generated", "remotion-shorts");
 const NODE_BIN = process.execPath;
 
-// Estilos que rotacionam — clean é o mais usado, os outros dão variedade
-const FORMATS = ["clean", "clean", "clean", "split", "pulse", "stacked", "poster"];
+// Mix diário: 2 notícias + 1 hottake + 1 ranking (top3)
+// Cada execução do cron consome o próximo slot do dia
+const DAILY_MIX = [
+  {type: "news", formats: ["clean", "split", "pulse", "stacked", "poster"]},
+  {type: "hottake", formats: ["hottake"]},
+  {type: "news", formats: ["clean", "split", "pulse", "stacked", "poster"]},
+  {type: "top3", formats: ["countdown"]},
+];
+
+const STATE_FILE = path.join(PROJECT_DIR, "generated", ".auto-short-state.json");
 
 // Categorias que NÃO devem gerar short automaticamente
 const SKIP_CATEGORIES = ["opiniao"];
@@ -64,7 +74,6 @@ function getRecentArticles(hoursAgo = 24) {
 function hasShort(slug) {
   const dir = path.join(SHORTS_DIR, slug);
   if (!fs.existsSync(dir)) return false;
-  // Verifica se tem manifest com videoPath
   const manifest = path.join(dir, "manifest.json");
   if (!fs.existsSync(manifest)) return false;
   try {
@@ -80,13 +89,44 @@ function hasYoutubeUpload(slug) {
   return fs.existsSync(uploadFile);
 }
 
-function pickFormat(index) {
-  return FORMATS[index % FORMATS.length];
+function loadState() {
+  try {
+    if (fs.existsSync(STATE_FILE)) {
+      const data = JSON.parse(fs.readFileSync(STATE_FILE, "utf8"));
+      const today = new Date().toISOString().slice(0, 10);
+      if (data.date === today) return data;
+    }
+  } catch {}
+  return {date: new Date().toISOString().slice(0, 10), slotIndex: 0};
 }
 
-function generateAndUpload(slug, format, dryRun) {
+function saveState(state) {
+  const dir = path.dirname(STATE_FILE);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, {recursive: true});
+  fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2));
+}
+
+function getCurrentSlot() {
+  const state = loadState();
+  const slot = DAILY_MIX[state.slotIndex % DAILY_MIX.length];
+  return {slot, state};
+}
+
+function advanceSlot(state) {
+  state.slotIndex = (state.slotIndex + 1) % DAILY_MIX.length;
+  saveState(state);
+}
+
+function pickFormat(slot) {
+  const formats = slot.formats;
+  return formats[Math.floor(Math.random() * formats.length)];
+}
+
+function generateAndUpload(slug, format, dryRun, slotType) {
+  const typeLabel = {news: "📰 Notícia", hottake: "🔥 Hot Take", top3: "🏆 Top 3"}[slotType] || slotType;
   console.log(`\n${"═".repeat(60)}`);
   console.log(`🎬 Gerando short: ${slug}`);
+  console.log(`   Tipo: ${typeLabel}`);
   console.log(`   Formato: ${format}`);
   console.log(`   TTS: minimax (Marcos - Portuguese_Jovialman) + AI narration`);
 
@@ -123,6 +163,8 @@ function generateAndUpload(slug, format, dryRun) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
 
+  const {slot, state} = getCurrentSlot();
+  console.log(`📅 Slot do dia: ${state.slotIndex + 1}/${DAILY_MIX.length} — tipo: ${slot.type}`);
   console.log("🔍 Buscando artigos recentes sem short...\n");
 
   const recent = getRecentArticles(24);
@@ -130,6 +172,7 @@ async function main() {
 
   if (pending.length === 0) {
     console.log("✅ Todos os artigos recentes já têm short. Nada a fazer.");
+    advanceSlot(state);
     return;
   }
 
@@ -144,8 +187,8 @@ async function main() {
 
   for (let i = 0; i < toProcess.length; i++) {
     const article = toProcess[i];
-    const format = pickFormat(i + Date.now() % FORMATS.length);
-    const ok = generateAndUpload(article.slug, format, args.dryRun);
+    const format = pickFormat(slot);
+    const ok = generateAndUpload(article.slug, format, args.dryRun, slot.type);
     if (ok) success++;
     else failed++;
 
@@ -155,6 +198,9 @@ async function main() {
       await new Promise((r) => setTimeout(r, 10000));
     }
   }
+
+  // Avança pro próximo slot do mix diário
+  advanceSlot(state);
 
   console.log(`\n${"═".repeat(60)}`);
   console.log(`📊 Resumo: ${success} gerados, ${failed} falharam, ${pending.length - toProcess.length} restantes`);
