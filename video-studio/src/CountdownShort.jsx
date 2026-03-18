@@ -2,6 +2,7 @@ import React from "react";
 import {
   AbsoluteFill,
   Audio,
+  Easing,
   Img,
   interpolate,
   spring,
@@ -11,33 +12,426 @@ import {
 } from "remotion";
 import {FollowEndCard} from "./FollowEndCard";
 
-const palette = {
-  bg: "#030712",
-  card: "rgba(8, 22, 33, 0.88)",
-  cardBorder: "rgba(255,255,255,0.12)",
-  accent: "#facc15",
-  secondary: "#7dd3fc",
-  text: "#f8fafc",
-  softText: "rgba(248,250,252,0.72)",
-  gold: "#facc15",
-  silver: "#c0c0c0",
-  bronze: "#cd7f32",
+// ── Paleta cinematográfica por rank ──
+const rankThemes = {
+  3: {accent: "#cd7f32", glow: "rgba(205,127,50,0.4)", label: "BRONZE", emoji: "🥉"},
+  2: {accent: "#c0c0c0", glow: "rgba(192,192,192,0.35)", label: "PRATA", emoji: "🥈"},
+  1: {accent: "#facc15", glow: "rgba(250,204,21,0.5)", label: "OURO", emoji: "🏆"},
 };
 
-const rankColors = {
-  1: palette.gold,
-  2: palette.silver,
-  3: palette.bronze,
+const fallbackTheme = {accent: "#7dd3fc", glow: "rgba(125,211,252,0.3)", label: "", emoji: ""};
+
+const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
+
+// ── Grain overlay for cinematic feel ──
+const FilmGrain = ({opacity = 0.06}) => {
+  const frame = useCurrentFrame();
+  // Pseudo-random grain via frame-based offset
+  const seed = (frame * 7 + 13) % 100;
+  return (
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        opacity,
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' seed='${seed}' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+        backgroundSize: "128px 128px",
+        mixBlendMode: "overlay",
+        pointerEvents: "none",
+      }}
+    />
+  );
 };
 
-/**
- * CountdownShort — Ranking animado (5→4→3→2→1) sincronizado com áudio
- *
- * Props:
- *   items: [{ rank, name, stat, imageSrc?, subtitle?, startFrame, durationFrames }]
- *   introEndFrame: frame em que o intro termina (sincronizado com áudio)
- *   title, category, audioSrc, siteName, siteUrl, followHandle, followCallToAction
- */
+// ── Progress bar no topo ──
+const ProgressBar = ({items, activeIndex, frame}) => {
+  return (
+    <div style={{display: "flex", gap: 8, width: "100%"}}>
+      {items.map((_, i) => {
+        const isActive = i === activeIndex;
+        const isPast = i < activeIndex;
+        return (
+          <div
+            key={i}
+            style={{
+              flex: 1,
+              height: 4,
+              borderRadius: 2,
+              background: isPast
+                ? "rgba(250,204,21,0.8)"
+                : isActive
+                  ? `linear-gradient(90deg, rgba(250,204,21,0.9) ${clamp(((frame % 150) / 150) * 100, 0, 100)}%, rgba(255,255,255,0.15) ${clamp(((frame % 150) / 150) * 100, 0, 100)}%)`
+                  : "rgba(255,255,255,0.12)",
+              transition: "background 0.3s",
+            }}
+          />
+        );
+      })}
+    </div>
+  );
+};
+
+// ── Intro screen com título grande ──
+const IntroScreen = ({title, category, siteName, introEndFrame}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+
+  const titleSpring = spring({frame: Math.max(0, frame - 6), fps, config: {damping: 140, stiffness: 80}});
+  const titleY = interpolate(titleSpring, [0, 1], [80, 0]);
+  const titleOpacity = clamp(interpolate(frame, [6, 24], [0, 1]), 0, 1);
+
+  const categoryOpacity = clamp(interpolate(frame, [0, 14], [0, 1]), 0, 1);
+  const lineWidth = interpolate(frame, [14, 40], [0, 240], {extrapolateLeft: "clamp", extrapolateRight: "clamp"});
+  const exitOpacity = interpolate(frame, [introEndFrame - 14, introEndFrame], [1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  if (frame >= introEndFrame) return null;
+
+  return (
+    <AbsoluteFill
+      style={{
+        justifyContent: "center",
+        alignItems: "center",
+        opacity: exitOpacity,
+        background: "radial-gradient(ellipse at 50% 40%, rgba(250,204,21,0.06) 0%, transparent 60%)",
+      }}
+    >
+      {/* Category badge */}
+      <div
+        style={{
+          position: "absolute",
+          top: 320,
+          opacity: categoryOpacity,
+          padding: "14px 32px",
+          borderRadius: 999,
+          background: "rgba(250,204,21,0.1)",
+          border: "1px solid rgba(250,204,21,0.2)",
+          color: "#facc15",
+          fontSize: 24,
+          letterSpacing: 2,
+          textTransform: "uppercase",
+          fontWeight: 800,
+        }}
+      >
+        🏆 Ranking
+      </div>
+
+      {/* Title */}
+      <div
+        style={{
+          maxWidth: 900,
+          textAlign: "center",
+          fontSize: 88,
+          lineHeight: 0.94,
+          fontWeight: 900,
+          letterSpacing: -3.5,
+          padding: "0 60px",
+          opacity: titleOpacity,
+          transform: `translateY(${titleY}px)`,
+        }}
+      >
+        {title}
+      </div>
+
+      {/* Animated line */}
+      <div
+        style={{
+          width: lineWidth,
+          height: 4,
+          borderRadius: 2,
+          marginTop: 36,
+          background: "linear-gradient(90deg, transparent, #facc15, transparent)",
+        }}
+      />
+
+      {/* Site name */}
+      <div
+        style={{
+          marginTop: 24,
+          fontSize: 22,
+          color: "rgba(248,250,252,0.5)",
+          letterSpacing: 1.4,
+          textTransform: "uppercase",
+          opacity: categoryOpacity,
+        }}
+      >
+        {siteName}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+// ── Item card — fullscreen image hero + kinetic text ──
+const RankingItem = ({item, index, totalItems, isVisible, relFrame, exitFrame}) => {
+  const frame = useCurrentFrame();
+  const {fps, durationInFrames} = useVideoConfig();
+
+  if (!isVisible) return null;
+
+  const rank = item.rank || totalItems - index;
+  const theme = rankThemes[rank] || fallbackTheme;
+  const isTop1 = rank === 1;
+  const itemDur = item.durationFrames || 150;
+
+  // ── ENTRANCE: Smash cut zoom ──
+  const entranceSpring = spring({frame: relFrame, fps, config: {damping: isTop1 ? 100 : 160, stiffness: isTop1 ? 80 : 120}});
+  const imageScale = interpolate(relFrame, [0, itemDur], [1.15, 1.25], {extrapolateRight: "clamp"});
+  const imageInitialScale = interpolate(entranceSpring, [0, 1], [1.4, 1]);
+  const contentOpacity = clamp(interpolate(relFrame, [0, 10], [0, 1]), 0, 1);
+
+  // ── Staggered text reveals ──
+  const numberDelay = 4;
+  const nameDelay = 14;
+  const statDelay = 22;
+
+  const numSpring = spring({frame: Math.max(0, relFrame - numberDelay), fps, config: {damping: 100, stiffness: isTop1 ? 60 : 100}});
+  const numScale = interpolate(numSpring, [0, 1], [isTop1 ? 4 : 2.5, 1]);
+  const numOpacity = clamp(interpolate(relFrame, [numberDelay, numberDelay + 10], [0, 1]), 0, 1);
+
+  const nameSpring = spring({frame: Math.max(0, relFrame - nameDelay), fps, config: {damping: 180, stiffness: 120}});
+  const nameY = interpolate(nameSpring, [0, 1], [50, 0]);
+  const nameOpacity = clamp(interpolate(relFrame, [nameDelay, nameDelay + 12], [0, 1]), 0, 1);
+
+  const statSpring = spring({frame: Math.max(0, relFrame - statDelay), fps, config: {damping: 200, stiffness: 100}});
+  const statY = interpolate(statSpring, [0, 1], [30, 0]);
+  const statOpacity = clamp(interpolate(relFrame, [statDelay, statDelay + 12], [0, 1]), 0, 1);
+
+  // ── EXIT: fade + scale up ──
+  const exitOpacity = interpolate(relFrame, [itemDur - 8, itemDur], [1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  // ── #1 flash ──
+  const flashOpacity = isTop1
+    ? interpolate(relFrame, [0, 4, 16], [0.7, 0.5, 0], {extrapolateLeft: "clamp", extrapolateRight: "clamp"})
+    : 0;
+
+  // ── Parallax: image moves up slowly, text stays ──
+  const imageParallaxY = interpolate(relFrame, [0, itemDur], [0, -40], {extrapolateRight: "clamp"});
+
+  return (
+    <AbsoluteFill style={{opacity: contentOpacity * exitOpacity}}>
+      {/* ── FULLSCREEN IMAGE (hero) ── */}
+      <AbsoluteFill
+        style={{
+          transform: `scale(${imageScale * imageInitialScale}) translateY(${imageParallaxY}px)`,
+          filter: `saturate(1.1) contrast(1.05)`,
+        }}
+      >
+        {item.imageSrc && (
+          <Img
+            src={staticFile(item.imageSrc)}
+            style={{width: "100%", height: "100%", objectFit: "cover"}}
+          />
+        )}
+      </AbsoluteFill>
+
+      {/* ── Cinematic gradient overlay ── */}
+      <AbsoluteFill
+        style={{
+          background: `linear-gradient(180deg,
+            rgba(2,6,23,0.3) 0%,
+            rgba(2,6,23,0.1) 20%,
+            rgba(2,6,23,0.15) 45%,
+            rgba(2,6,23,0.75) 70%,
+            rgba(2,6,23,0.97) 100%)`,
+        }}
+      />
+
+      {/* ── Rank-colored vignette ── */}
+      <AbsoluteFill
+        style={{
+          background: `radial-gradient(ellipse at 50% 85%, ${theme.glow}, transparent 60%)`,
+          opacity: 0.6,
+        }}
+      />
+
+      {/* ── #1 golden flash ── */}
+      {flashOpacity > 0 && (
+        <AbsoluteFill
+          style={{
+            background: `radial-gradient(circle at 50% 50%, ${theme.glow}, transparent 60%)`,
+            opacity: flashOpacity,
+          }}
+        />
+      )}
+
+      {/* ── RANK NUMBER (massive, top-left) ── */}
+      <div
+        style={{
+          position: "absolute",
+          top: 140,
+          left: 64,
+          display: "flex",
+          alignItems: "baseline",
+          gap: 16,
+          opacity: numOpacity,
+          transform: `scale(${numScale})`,
+          transformOrigin: "top left",
+        }}
+      >
+        <span
+          style={{
+            fontSize: isTop1 ? 220 : 180,
+            fontWeight: 900,
+            color: theme.accent,
+            lineHeight: 0.8,
+            textShadow: `0 0 60px ${theme.glow}, 0 8px 30px rgba(0,0,0,0.5)`,
+            letterSpacing: -8,
+          }}
+        >
+          {rank}
+        </span>
+        <span
+          style={{
+            fontSize: 32,
+            fontWeight: 800,
+            color: "rgba(248,250,252,0.5)",
+            textTransform: "uppercase",
+            letterSpacing: 2,
+          }}
+        >
+          {rank === 1 ? "º lugar" : "º"}
+        </span>
+      </div>
+
+      {/* ── CONTENT BLOCK (bottom, over dark gradient) ── */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: 160,
+          left: 64,
+          right: 64,
+          display: "flex",
+          flexDirection: "column",
+          gap: 20,
+        }}
+      >
+        {/* Name with slide-up reveal */}
+        <div
+          style={{
+            opacity: nameOpacity,
+            transform: `translateY(${nameY}px)`,
+          }}
+        >
+          <div
+            style={{
+              fontSize: isTop1 ? 78 : 68,
+              fontWeight: 900,
+              lineHeight: 0.95,
+              letterSpacing: -2.5,
+              textShadow: "0 4px 20px rgba(0,0,0,0.6)",
+            }}
+          >
+            {item.name}
+          </div>
+        </div>
+
+        {/* Subtitle */}
+        {item.subtitle && (
+          <div
+            style={{
+              opacity: nameOpacity,
+              transform: `translateY(${nameY}px)`,
+              fontSize: 30,
+              color: "rgba(248,250,252,0.65)",
+              lineHeight: 1.2,
+            }}
+          >
+            {item.subtitle}
+          </div>
+        )}
+
+        {/* Stat with accent color + animated bar */}
+        <div
+          style={{
+            opacity: statOpacity,
+            transform: `translateY(${statY}px)`,
+            display: "flex",
+            flexDirection: "column",
+            gap: 14,
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 16,
+            }}
+          >
+            <div
+              style={{
+                width: 6,
+                height: 44,
+                borderRadius: 3,
+                background: theme.accent,
+                boxShadow: `0 0 16px ${theme.glow}`,
+              }}
+            />
+            <span
+              style={{
+                fontSize: isTop1 ? 52 : 44,
+                fontWeight: 900,
+                color: theme.accent,
+                letterSpacing: -1,
+                textShadow: isTop1 ? `0 0 30px ${theme.glow}` : "none",
+              }}
+            >
+              {item.stat}
+            </span>
+          </div>
+
+          {/* Animated accent bar */}
+          <div style={{width: "100%", height: 3, borderRadius: 2, background: "rgba(255,255,255,0.08)", overflow: "hidden"}}>
+            <div
+              style={{
+                width: `${clamp(interpolate(relFrame, [statDelay, statDelay + 30], [0, 100]), 0, 100)}%`,
+                height: "100%",
+                borderRadius: 2,
+                background: `linear-gradient(90deg, ${theme.accent}, ${theme.accent}66)`,
+                boxShadow: `0 0 12px ${theme.glow}`,
+              }}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* ── Progress dots (minimal, bottom-right) ── */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: 100,
+          right: 64,
+          display: "flex",
+          gap: 10,
+          alignItems: "center",
+        }}
+      >
+        {Array.from({length: totalItems}).map((_, i) => {
+          const isCurrent = i === index;
+          return (
+            <div
+              key={i}
+              style={{
+                width: isCurrent ? 28 : 8,
+                height: 8,
+                borderRadius: 4,
+                background: isCurrent ? theme.accent : "rgba(255,255,255,0.25)",
+                boxShadow: isCurrent ? `0 0 10px ${theme.glow}` : "none",
+                transition: "width 0.3s, background 0.3s",
+              }}
+            />
+          );
+        })}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+// ── Main composition ──
 export const CountdownShort = ({
   title,
   category,
@@ -52,425 +446,78 @@ export const CountdownShort = ({
   const frame = useCurrentFrame();
   const {fps, durationInFrames} = useVideoConfig();
 
-  // Intro usa timing real do áudio, ou fallback pra 2.5s
   const introFrames = introEndFrame || Math.round(fps * 2.5);
 
-  // ── Intro ──
-  const introOpacity = interpolate(frame, [0, 18], [0, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-  const introScale = interpolate(
-    spring({frame, fps, config: {damping: 180, stiffness: 120}}),
-    [0, 1],
-    [0.85, 1]
-  );
-  const introExit = interpolate(frame, [introFrames - 12, introFrames], [1, 0], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-
-  // Background pulse
-  const bgPulse = 0.02 * Math.sin(frame / 40);
+  // Sort items by rank descending (3→2→1) for countdown order
+  const sortedItems = [...items].sort((a, b) => (b.rank || 0) - (a.rank || 0));
 
   return (
     <AbsoluteFill
       style={{
         fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-        color: palette.text,
+        color: "#f8fafc",
         overflow: "hidden",
-        background: palette.bg,
+        background: "#020617",
       }}
     >
       {audioSrc && <Audio src={staticFile(audioSrc)} />}
 
-      {/* Background gradient animado */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: `radial-gradient(ellipse at 50% ${30 + bgPulse * 200}%, rgba(250,204,21,0.08) 0%, transparent 50%),
-                       radial-gradient(ellipse at 20% 80%, rgba(125,211,252,0.06) 0%, transparent 40%)`,
-        }}
+      {/* ── INTRO ── */}
+      <IntroScreen
+        title={title}
+        category={category}
+        siteName={siteName}
+        introEndFrame={introFrames}
       />
 
-      {/* Border frame */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 36,
-          border: "1px solid rgba(255,255,255,0.06)",
-          borderRadius: 36,
-        }}
-      />
-
-      {/* ── INTRO SCREEN ── */}
-      {frame < introFrames && (
-        <AbsoluteFill
-          style={{
-            justifyContent: "center",
-            alignItems: "center",
-            opacity: introOpacity * introExit,
-          }}
-        >
-          <div
-            style={{
-              position: "absolute",
-              top: 180,
-              padding: "14px 28px",
-              borderRadius: 999,
-              background: "rgba(255,255,255,0.08)",
-              border: "1px solid rgba(255,255,255,0.1)",
-              color: palette.secondary,
-              fontSize: 22,
-              letterSpacing: 1.4,
-              textTransform: "uppercase",
-              fontWeight: 700,
-            }}
-          >
-            {String(category || "curiosidades")
-              .replace(/-/g, " ")
-              .replace(/\b\w/g, (c) => c.toUpperCase())}
-          </div>
-
-          <div
-            style={{
-              maxWidth: 860,
-              textAlign: "center",
-              fontSize: 82,
-              lineHeight: 0.96,
-              fontWeight: 900,
-              letterSpacing: -3,
-              transform: `scale(${introScale})`,
-              padding: "0 60px",
-            }}
-          >
-            {title}
-          </div>
-
-          <div
-            style={{
-              width: 200,
-              height: 4,
-              borderRadius: 999,
-              marginTop: 32,
-              background: `linear-gradient(90deg, ${palette.accent}, rgba(250,204,21,0.1))`,
-            }}
-          />
-
-          <div
-            style={{
-              marginTop: 28,
-              fontSize: 24,
-              color: palette.softText,
-              letterSpacing: 1.2,
-              textTransform: "uppercase",
-            }}
-          >
-            {siteName}
-          </div>
-        </AbsoluteFill>
-      )}
-
-      {/* ── COUNTDOWN ITEMS (sincronizados com áudio) ── */}
-      {items.map((item, index) => {
-        // Usa timings reais do áudio quando disponíveis
+      {/* ── RANKING ITEMS ── */}
+      {sortedItems.map((item, index) => {
         const itemStart = item.startFrame != null ? item.startFrame : introFrames + index * 150;
         const itemDur = item.durationFrames || 150;
         const itemEnd = itemStart + itemDur;
         const relFrame = frame - itemStart;
         const isVisible = frame >= itemStart && frame < itemEnd;
 
-        if (!isVisible) return null;
-
-        const rank = item.rank || items.length - index;
-        const rankColor = rankColors[rank] || palette.accent;
-        const isTop1 = rank === 1;
-
-        // Animações de entrada
-        const cardSpring = spring({
-          frame: relFrame,
-          fps,
-          config: {damping: isTop1 ? 140 : 180, stiffness: isTop1 ? 100 : 140},
-        });
-        const cardY = interpolate(cardSpring, [0, 1], [120, 0]);
-        const cardOpacity = interpolate(relFrame, [0, 12], [0, 1], {
-          extrapolateLeft: "clamp",
-          extrapolateRight: "clamp",
-        });
-
-        // Número grande — entra com zoom
-        const numSpring = spring({
-          frame: Math.max(0, relFrame - 4),
-          fps,
-          config: {damping: 120, stiffness: isTop1 ? 80 : 120},
-        });
-        const numScale = interpolate(numSpring, [0, 1], [isTop1 ? 3 : 2, 1]);
-        const numOpacity = interpolate(relFrame, [2, 14], [0, 1], {
-          extrapolateLeft: "clamp",
-          extrapolateRight: "clamp",
-        });
-
-        // Stat bar grows (proporcional à duração do segmento)
-        const barGrowEnd = Math.min(40, Math.floor(itemDur * 0.4));
-        const barWidth = interpolate(relFrame, [14, 14 + barGrowEnd], [0, 100], {
-          extrapolateLeft: "clamp",
-          extrapolateRight: "clamp",
-        });
-
-        // Exit fade (últimos 10 frames do segmento)
-        const exitOpacity = interpolate(relFrame, [itemDur - 10, itemDur], [1, 0], {
-          extrapolateLeft: "clamp",
-          extrapolateRight: "clamp",
-        });
-
-        // Flash pra #1
-        const flashOpacity = isTop1
-          ? interpolate(relFrame, [0, 6, 14], [0.6, 0.6, 0], {
-              extrapolateLeft: "clamp",
-              extrapolateRight: "clamp",
-            })
-          : 0;
-
-        // Shake pro #1
-        const shakeX = isTop1 && relFrame < 10 ? Math.sin(relFrame * 4) * 4 : 0;
-        const shakeY = isTop1 && relFrame < 10 ? Math.cos(relFrame * 5) * 3 : 0;
-
         return (
-          <AbsoluteFill key={index} style={{opacity: cardOpacity * exitOpacity}}>
-            {isTop1 && (
-              <div
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  background: `radial-gradient(circle at 50% 40%, ${palette.gold}, transparent 70%)`,
-                  opacity: flashOpacity,
-                }}
-              />
-            )}
-
-            {/* Número gigante no fundo */}
-            <div
-              style={{
-                position: "absolute",
-                top: 160,
-                left: 0,
-                right: 0,
-                display: "flex",
-                justifyContent: "center",
-                opacity: numOpacity * 0.12,
-                transform: `scale(${numScale * 1.8})`,
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 500,
-                  fontWeight: 900,
-                  color: rankColor,
-                  lineHeight: 0.8,
-                }}
-              >
-                {rank}
-              </span>
-            </div>
-
-            {/* Card principal */}
-            <div
-              style={{
-                position: "absolute",
-                top: 280,
-                left: 60,
-                right: 60,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: 28,
-                transform: `translateY(${cardY}px) translate(${shakeX}px, ${shakeY}px)`,
-              }}
-            >
-              {/* Rank number */}
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 18,
-                  opacity: numOpacity,
-                  transform: `scale(${numScale})`,
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: isTop1 ? 160 : 120,
-                    fontWeight: 900,
-                    color: rankColor,
-                    lineHeight: 0.85,
-                    textShadow: isTop1
-                      ? `0 0 60px ${rankColor}, 0 0 120px rgba(250,204,21,0.3)`
-                      : `0 0 30px rgba(250,204,21,0.15)`,
-                  }}
-                >
-                  {rank}
-                </span>
-                <span
-                  style={{
-                    fontSize: 28,
-                    fontWeight: 700,
-                    color: palette.softText,
-                    textTransform: "uppercase",
-                    letterSpacing: 1.2,
-                  }}
-                >
-                  {rank === 1 ? "º lugar" : "º"}
-                </span>
-              </div>
-
-              {/* Imagem do item */}
-              {item.imageSrc && (
-                <div
-                  style={{
-                    width: 280,
-                    height: 280,
-                    borderRadius: 24,
-                    overflow: "hidden",
-                    border: `3px solid ${rankColor}`,
-                    boxShadow: `0 0 40px rgba(0,0,0,0.4), 0 0 20px ${rankColor}33`,
-                  }}
-                >
-                  <Img
-                    src={staticFile(item.imageSrc)}
-                    style={{width: "100%", height: "100%", objectFit: "cover"}}
-                  />
-                </div>
-              )}
-
-              {/* Nome */}
-              <div
-                style={{
-                  textAlign: "center",
-                  fontSize: isTop1 ? 72 : 62,
-                  fontWeight: 900,
-                  lineHeight: 0.95,
-                  letterSpacing: -2,
-                  maxWidth: 800,
-                  textShadow: "0 4px 20px rgba(0,0,0,0.5)",
-                }}
-              >
-                {item.name}
-              </div>
-
-              {/* Subtitle */}
-              {item.subtitle && (
-                <div
-                  style={{
-                    fontSize: 28,
-                    color: palette.softText,
-                    textAlign: "center",
-                    maxWidth: 700,
-                  }}
-                >
-                  {item.subtitle}
-                </div>
-              )}
-
-              {/* Stat com barra animada */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: 14,
-                  width: "100%",
-                  maxWidth: 700,
-                  marginTop: 8,
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: isTop1 ? 56 : 46,
-                    fontWeight: 900,
-                    color: rankColor,
-                    letterSpacing: -1,
-                    textShadow: isTop1 ? `0 0 30px ${rankColor}` : "none",
-                  }}
-                >
-                  {item.stat}
-                </div>
-
-                <div
-                  style={{
-                    width: "100%",
-                    height: 8,
-                    borderRadius: 999,
-                    background: "rgba(255,255,255,0.08)",
-                    overflow: "hidden",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: `${barWidth}%`,
-                      height: "100%",
-                      borderRadius: 999,
-                      background: `linear-gradient(90deg, ${rankColor}, ${rankColor}88)`,
-                      boxShadow: `0 0 14px ${rankColor}66`,
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Dots de posição */}
-            <div
-              style={{
-                position: "absolute",
-                bottom: 200,
-                left: 0,
-                right: 0,
-                display: "flex",
-                justifyContent: "center",
-                gap: 14,
-              }}
-            >
-              {items.map((_, dotIdx) => (
-                <div
-                  key={dotIdx}
-                  style={{
-                    width: dotIdx === index ? 32 : 12,
-                    height: 12,
-                    borderRadius: 999,
-                    background:
-                      dotIdx === index ? palette.accent : "rgba(255,255,255,0.2)",
-                    boxShadow:
-                      dotIdx === index ? `0 0 12px ${palette.accent}` : "none",
-                  }}
-                />
-              ))}
-            </div>
-
-            {/* Site branding */}
-            <div
-              style={{
-                position: "absolute",
-                bottom: 120,
-                left: 0,
-                right: 0,
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 22,
-                  color: palette.softText,
-                  letterSpacing: 1.2,
-                  textTransform: "uppercase",
-                }}
-              >
-                {siteName || "Beira do Campo"}
-              </span>
-            </div>
-          </AbsoluteFill>
+          <RankingItem
+            key={index}
+            item={item}
+            index={index}
+            totalItems={sortedItems.length}
+            isVisible={isVisible}
+            relFrame={relFrame}
+            exitFrame={itemEnd}
+          />
         );
       })}
+
+      {/* ── Progress bar (topo, sempre visível após intro) ── */}
+      {frame >= introFrames && frame < durationInFrames - 72 && (
+        <div style={{position: "absolute", top: 72, left: 64, right: 64}}>
+          <ProgressBar
+            items={sortedItems}
+            activeIndex={sortedItems.findIndex((item) => {
+              const start = item.startFrame ?? 0;
+              const dur = item.durationFrames ?? 150;
+              return frame >= start && frame < start + dur;
+            })}
+            frame={frame}
+          />
+        </div>
+      )}
+
+      {/* ── Film grain for premium feel ── */}
+      <FilmGrain opacity={0.04} />
+
+      {/* ── Vignette ── */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          boxShadow: "inset 0 0 120px 40px rgba(0,0,0,0.3)",
+          pointerEvents: "none",
+        }}
+      />
 
       <FollowEndCard
         callToAction={followCallToAction || "Para mais curiosidades de futebol, siga o canal"}

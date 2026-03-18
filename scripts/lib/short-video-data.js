@@ -89,6 +89,297 @@ NARRAÇÃO:`;
   return sanitizeForTTS(cleaned);
 }
 
+async function generateHotTakeScript(article) {
+  if (!GEMINI_API_KEY) {
+    throw new Error("GEMINI_API_KEY is not configured in .env.local");
+  }
+
+  const title = String(article.data.title || "");
+  const excerpt = String(article.data.excerpt || "");
+  const category = String(article.data.category || "noticias");
+  const body = stripMarkdown(article.body);
+
+  const prompt = `Você é um comentarista polêmico do canal "Beira do Campo" no YouTube. Seu estilo é ousado, direto e provocativo — tipo Neto, Casagrande ou Mauro Cezar. Escreva uma OPINIÃO QUENTE para um YouTube Shorts sobre a matéria abaixo.
+
+REGRAS OBRIGATÓRIAS:
+- Entre 50 e 70 palavras (máximo absoluto: 70 palavras)
+- Duração alvo: 25-35 segundos quando lido em voz alta
+- COMECE com uma frase de impacto nos primeiros 3 segundos. Exemplos:
+  "Isso é inaceitável!", "Pode me xingar, mas...", "Ninguém tá falando sobre isso...",
+  "Que absurdo!", "Eu avisei!", "Tá na cara!", "Vou falar o que ninguém tem coragem."
+- Tom: opinião forte, polêmico mas com argumentos — NÃO seja ofensivo ou desrespeitoso
+- Tenha um POSICIONAMENTO CLARO — não fique em cima do muro
+- Use 1 ou 2 dados/fatos da matéria para sustentar a opinião
+- Linguagem coloquial, como se estivesse discutindo com amigos no bar
+- NÃO use abreviações (escreva "primeiro" em vez de "1º")
+- NÃO use "x" para placares — escreva "a" (ex: "2 a 1", não "2x1")
+- NÃO use asteriscos, markdown ou formatação
+- Termine com CTA que convide debate: "Concorda? Comenta aí! Siga o canal!"
+- Escreva APENAS a narração, sem títulos, sem instruções, sem aspas
+
+MATÉRIA:
+Título: ${title}
+Resumo: ${excerpt}
+Categoria: ${category}
+
+Conteúdo:
+${body.slice(0, 2000)}
+
+OPINIÃO QUENTE:`;
+
+  const response = await fetch(`${GEMINI_TEXT_ENDPOINT}?key=${GEMINI_API_KEY}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: {
+        temperature: 0.9,
+        maxOutputTokens: 2048,
+        thinkingConfig: { thinkingBudget: 0 },
+      },
+    }),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => "");
+    throw new Error(`Gemini text failed (${response.status}): ${errorText.slice(0, 300)}`);
+  }
+
+  const data = await response.json();
+  const generatedText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+  if (!generatedText) {
+    throw new Error(`Gemini text returned no content: ${JSON.stringify(data).slice(0, 500)}`);
+  }
+
+  const cleaned = generatedText
+    .replace(/^["'""'']/g, "")
+    .replace(/["'""'']$/g, "")
+    .replace(/\*\*/g, "")
+    .trim();
+
+  return sanitizeForTTS(cleaned);
+}
+
+async function generateVersusScript(article) {
+  if (!GEMINI_API_KEY) {
+    throw new Error("GEMINI_API_KEY is not configured in .env.local");
+  }
+
+  const title = String(article.data.title || "");
+  const excerpt = String(article.data.excerpt || "");
+  const category = String(article.data.category || "noticias");
+  const body = stripMarkdown(article.body);
+
+  const prompt = `Você é roteirista do canal "Beira do Campo" no YouTube. Analise a matéria abaixo e crie um conteúdo de COMPARAÇÃO/VERSUS para YouTube Shorts.
+
+Identifique os dois lados da comparação (pode ser time vs time, jogador vs jogador, técnico vs técnico — o que fizer mais sentido para a matéria).
+
+Responda APENAS com um JSON válido, sem markdown, sem backticks, neste formato exato:
+{
+  "sideA": {
+    "name": "Nome do lado A (ex: Palmeiras, Arrascaeta)",
+    "stats": ["Dado 1 curto", "Dado 2 curto", "Dado 3 curto"]
+  },
+  "sideB": {
+    "name": "Nome do lado B (ex: Botafogo, Raphael Veiga)",
+    "stats": ["Dado 1 curto", "Dado 2 curto", "Dado 3 curto"]
+  },
+  "narration": "Narração de 50 a 70 palavras comparando os dois lados"
+}
+
+REGRAS PARA O JSON:
+- "name": nome curto (máximo 20 caracteres)
+- "stats": exatamente 3 dados curtos por lado (máximo 8 palavras cada), com números quando possível
+- "narration": entre 50 e 70 palavras
+  - Comece com gancho tipo "Quem é melhor?", "Duelo de gigantes!", "A comparação que todo mundo quer ver!"
+  - Compare os dois lados com dados concretos
+  - Tom: apresentador esportivo animado
+  - NÃO use "x" para placares — escreva "a" (ex: "2 a 1")
+  - NÃO use abreviações (escreva "primeiro" em vez de "1º")
+  - NÃO use asteriscos ou markdown
+  - Termine com: "Quem leva? Comenta aí! Siga o canal!"
+
+MATÉRIA:
+Título: ${title}
+Resumo: ${excerpt}
+Categoria: ${category}
+
+Conteúdo:
+${body.slice(0, 2000)}
+
+JSON:`;
+
+  const response = await fetch(`${GEMINI_TEXT_ENDPOINT}?key=${GEMINI_API_KEY}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: {
+        temperature: 0.7,
+        maxOutputTokens: 2048,
+        responseMimeType: "application/json",
+        thinkingConfig: { thinkingBudget: 0 },
+      },
+    }),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => "");
+    throw new Error(`Gemini text failed (${response.status}): ${errorText.slice(0, 300)}`);
+  }
+
+  const data = await response.json();
+  const generatedText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+  if (!generatedText) {
+    throw new Error(`Gemini text returned no content: ${JSON.stringify(data).slice(0, 500)}`);
+  }
+
+  const cleaned = generatedText.replace(/```json\s*/g, "").replace(/```\s*/g, "").trim();
+  const parsed = JSON.parse(cleaned);
+
+  if (!parsed.sideA?.name || !parsed.sideB?.name || !parsed.narration) {
+    throw new Error(`Invalid versus data: ${JSON.stringify(parsed).slice(0, 300)}`);
+  }
+
+  parsed.narration = sanitizeForTTS(
+    parsed.narration.replace(/^["'""'']/g, "").replace(/["'""'']$/g, "").replace(/\*\*/g, "").trim()
+  );
+
+  return parsed;
+}
+
+async function generateTop3Script(article) {
+  if (!GEMINI_API_KEY) {
+    throw new Error("GEMINI_API_KEY is not configured in .env.local");
+  }
+
+  const title = String(article.data.title || "");
+  const excerpt = String(article.data.excerpt || "");
+  const category = String(article.data.category || "noticias");
+  const body = stripMarkdown(article.body);
+
+  const prompt = `Você é roteirista do canal "Beira do Campo" no YouTube. Analise a matéria abaixo e crie um RANKING TOP 3 para YouTube Shorts.
+
+Identifique os 3 destaques mais interessantes da matéria e ordene em um ranking (3º → 2º → 1º). Pode ser top 3 jogadores, momentos, times, dados estatísticos — o que fizer mais sentido.
+
+Responda APENAS com um JSON válido, sem markdown, sem backticks:
+{
+  "rankingTitle": "Título curto e chamativo do ranking (ex: 'Top 3 Melhores Ataques', 'Top 3 Contratações')",
+  "items": [
+    {"rank": 3, "name": "Nome curto (max 25 chars)", "stat": "Dado principal (ex: '12 gols em 7 jogos')", "subtitle": "Detalhe extra curto", "imagePrompt": "Prompt in English for generating an image representing this item, photojournalistic style, no text or logos"},
+    {"rank": 2, "name": "...", "stat": "...", "subtitle": "...", "imagePrompt": "..."},
+    {"rank": 1, "name": "...", "stat": "...", "subtitle": "...", "imagePrompt": "..."}
+  ],
+  "narration": {
+    "intro": "Frase de abertura 10-15 palavras (ex: 'Atenção torcedor! O top 3 que ninguém esperava!')",
+    "item3": "15-20 palavras sobre o 3º lugar",
+    "item2": "15-20 palavras sobre o 2º lugar",
+    "item1": "15-25 palavras sobre o 1º lugar, com mais ênfase e suspense",
+    "cta": "Concorda com o ranking? Comenta aí! Siga o canal!"
+  }
+}
+
+REGRAS:
+- "name": máximo 25 caracteres
+- "stat": dado concreto com números quando possível
+- "imagePrompt": em inglês, estilo fotojornalístico, SEM texto/logos/rostos identificáveis
+- Tom da narração: apresentador animado, cria suspense pro número 1
+- NÃO use abreviações (escreva "terceiro" em vez de "3º")
+- NÃO use "x" para placares — escreva "a"
+- NÃO use asteriscos ou markdown
+
+MATÉRIA:
+Título: ${title}
+Resumo: ${excerpt}
+Categoria: ${category}
+
+Conteúdo:
+${body.slice(0, 2500)}
+
+JSON:`;
+
+  const response = await fetch(`${GEMINI_TEXT_ENDPOINT}?key=${GEMINI_API_KEY}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: {
+        temperature: 0.7,
+        maxOutputTokens: 2048,
+        responseMimeType: "application/json",
+        thinkingConfig: { thinkingBudget: 0 },
+      },
+    }),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => "");
+    throw new Error(`Gemini text failed (${response.status}): ${errorText.slice(0, 300)}`);
+  }
+
+  const data = await response.json();
+  const generatedText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+  if (!generatedText) {
+    throw new Error(`Gemini text returned no content: ${JSON.stringify(data).slice(0, 500)}`);
+  }
+
+  const cleaned = generatedText.replace(/```json\s*/g, "").replace(/```\s*/g, "").trim();
+  const parsed = JSON.parse(cleaned);
+
+  if (!parsed.items || parsed.items.length < 3 || !parsed.narration) {
+    throw new Error(`Invalid top3 data: ${JSON.stringify(parsed).slice(0, 300)}`);
+  }
+
+  // Sanitizar narrações
+  for (const key of Object.keys(parsed.narration)) {
+    parsed.narration[key] = sanitizeForTTS(
+      parsed.narration[key].replace(/^["'""'']/g, "").replace(/["'""'']$/g, "").replace(/\*\*/g, "").trim()
+    );
+  }
+
+  return parsed;
+}
+
+async function generateItemImage(imagePrompt, outputPath) {
+  if (!GEMINI_API_KEY) {
+    throw new Error("GEMINI_API_KEY is not configured in .env.local");
+  }
+
+  const GEMINI_IMAGE_MODEL = "gemini-3.1-flash-image-preview";
+  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_IMAGE_MODEL}:generateContent`;
+
+  const systemPrompt = "You are a photojournalistic image generator for a Brazilian football news portal. Generate images with AUTHENTIC PHOTOJOURNALISTIC STYLE — never cartoon or illustration. Natural lighting, realistic film grain, dynamic angles, shallow depth of field. NO text, NO watermarks, NO logos, NO identifiable faces — ONLY photorealistic photojournalism.";
+
+  const response = await fetch(`${endpoint}?key=${GEMINI_API_KEY}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: `${systemPrompt}\n\nGenerate an image: ${imagePrompt}` }] }],
+      generationConfig: { responseModalities: ["IMAGE", "TEXT"] },
+    }),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => "");
+    throw new Error(`Gemini image failed (${response.status}): ${errorText.slice(0, 300)}`);
+  }
+
+  const data = await response.json();
+  const parts = data?.candidates?.[0]?.content?.parts || [];
+  const imagePart = parts.find((p) => p?.inlineData?.mimeType?.startsWith("image/") || p?.inline_data?.mime_type?.startsWith("image/"));
+  const inlineData = imagePart?.inlineData || imagePart?.inline_data;
+
+  if (!inlineData?.data) {
+    throw new Error("Gemini image returned no image data");
+  }
+
+  fs.writeFileSync(outputPath, Buffer.from(inlineData.data, "base64"));
+  return outputPath;
+}
+
 const AUTHOR_META = {
   "renato-caldeira": {
     name: "Renato Caldeira",
@@ -828,4 +1119,8 @@ module.exports = {
   synthesizeSpeechWithElevenLabs,
   sanitizeForTTS,
   generateNarrationScript,
+  generateHotTakeScript,
+  generateVersusScript,
+  generateTop3Script,
+  generateItemImage,
 };

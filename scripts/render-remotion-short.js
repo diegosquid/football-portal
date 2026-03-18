@@ -12,6 +12,11 @@ const {
   loadArticle,
   buildNarration,
   generateNarrationScript,
+  generateHotTakeScript,
+  generateVersusScript,
+  generateTop3Script,
+  generateItemImage,
+  sanitizeForTTS,
   buildHighlights,
   resolveAuthor,
   resolveImage,
@@ -34,6 +39,9 @@ const FORMAT_MAP = {
   ticker: "NewsShortTicker",
   poster: "NewsShortPoster",
   briefing: "NewsShortBriefing",
+  hottake: "NewsShortHotTake",
+  versus: "NewsShortVersus",
+  top3: "CountdownShort",
 };
 
 function parseArgs(argv) {
@@ -114,10 +122,85 @@ async function main() {
   ensureDir(outputDir);
   ensureDir(remotionAssetDir);
 
+  // ── TOP 3: flow especial via countdown pipeline ──
+  if (format === "top3") {
+    console.log("🏆 Gerando Top 3 a partir do artigo...");
+    const top3Data = await generateTop3Script(article);
+    console.log(`📝 Ranking: ${top3Data.rankingTitle}`);
+    for (const item of top3Data.items) {
+      console.log(`   ${item.rank}º ${item.name} — ${item.stat}`);
+    }
+
+    // Gerar imagens para cada item
+    console.log("\n🎨 Gerando imagens para cada item...");
+    for (const item of top3Data.items) {
+      if (item.imagePrompt) {
+        const imgPath = path.join(outputDir, `item-${item.rank}.png`);
+        try {
+          await generateItemImage(item.imagePrompt, imgPath);
+          item.imageSrc = imgPath;
+          console.log(`   ✅ Item ${item.rank}: imagem gerada`);
+        } catch (err) {
+          console.log(`   ⚠️  Item ${item.rank}: falha na imagem (${err.message.slice(0, 80)})`);
+        }
+      }
+    }
+
+    // Montar topic.json para o countdown pipeline
+    const topicJson = {
+      slug,
+      title: top3Data.rankingTitle,
+      category: String(article.data.category || "curiosidades"),
+      items: top3Data.items.sort((a, b) => a.rank - b.rank),
+      segments: [
+        { key: "intro", text: sanitizeForTTS(top3Data.narration.intro) },
+        { key: "item-3", text: sanitizeForTTS(top3Data.narration.item3) },
+        { key: "item-2", text: sanitizeForTTS(top3Data.narration.item2) },
+        { key: "item-1", text: sanitizeForTTS(top3Data.narration.item1) },
+        { key: "cta", text: sanitizeForTTS(top3Data.narration.cta) },
+      ],
+    };
+
+    const topicPath = path.join(outputDir, "topic.json");
+    fs.writeFileSync(topicPath, JSON.stringify(topicJson, null, 2));
+
+    // Delegar pro render-countdown-short.js
+    console.log("\n🎬 Delegando para render-countdown-short.js...");
+    const countdownArgs = [
+      path.join(__dirname, "render-countdown-short.js"),
+      topicPath,
+      "--tts-provider", args.ttsProvider === "auto" ? "minimax" : args.ttsProvider,
+    ];
+    if (args.minimaxVoice) countdownArgs.push("--voice-id", args.minimaxVoice);
+    if (args.geminiVoice) countdownArgs.push("--gemini-voice", args.geminiVoice);
+
+    run(process.execPath, countdownArgs, { stdio: "inherit" });
+
+    // Ler manifest gerado pelo countdown
+    const countdownDir = path.join(PROJECT_DIR, "generated", "countdown-shorts", slug);
+    const countdownManifest = path.join(countdownDir, "manifest.json");
+    if (fs.existsSync(countdownManifest)) {
+      const manifest = JSON.parse(fs.readFileSync(countdownManifest, "utf8"));
+      process.stdout.write(`${JSON.stringify(manifest, null, 2)}\n`);
+    }
+    return;
+  }
+
   const imagePath = resolveImage(article, outputDir, args.image);
   let narration;
+  let versusData = null;
   if (args.narrationFile) {
     narration = fs.readFileSync(path.resolve(args.narrationFile), "utf8").trim();
+  } else if (format === "versus") {
+    console.log("⚔️  Gerando roteiro versus com Gemini...");
+    const versusResult = await generateVersusScript(article);
+    narration = versusResult.narration;
+    versusData = { sideA: versusResult.sideA, sideB: versusResult.sideB };
+    console.log(`📝 Versus: ${versusData.sideA.name} vs ${versusData.sideB.name} (${narration.split(/\s+/).length} palavras)`);
+  } else if (format === "hottake") {
+    console.log("🔥 Gerando roteiro de opinião quente com Gemini...");
+    narration = await generateHotTakeScript(article);
+    console.log(`📝 Opinião gerada (${narration.split(/\s+/).length} palavras)`);
   } else if (args.aiNarration) {
     console.log("🤖 Gerando roteiro de narração com Gemini...");
     narration = await generateNarrationScript(article);
@@ -168,10 +251,11 @@ async function main() {
     siteUrl: SITE_URL,
     imageSrc: `renders/${slug}/${copiedImageName}`,
     audioSrc: `renders/${slug}/${copiedAudioName}`,
-    callToAction: "Leia a matéria completa no site",
-    followCallToAction: "Para mais notícias de futebol, siga o canal",
+    callToAction: format === "hottake" ? "Concorda? Comenta aí!" : format === "versus" ? "Quem leva? Comenta!" : "Leia a matéria completa no site",
+    followCallToAction: format === "hottake" ? "Para mais opiniões quentes, siga o canal" : format === "versus" ? "Para mais duelos, siga o canal" : "Para mais notícias de futebol, siga o canal",
     followHandle: "@beiradocampotv",
     highlights,
+    ...(versusData ? { versusData } : {}),
     format,
     durationInFrames,
     fps: FPS,

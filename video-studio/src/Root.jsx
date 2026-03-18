@@ -7,6 +7,8 @@ import {NewsShortStacked} from "./NewsShortStacked";
 import {NewsShortTicker} from "./NewsShortTicker";
 import {NewsShortPoster} from "./NewsShortPoster";
 import {NewsShortBriefing} from "./NewsShortBriefing";
+import {NewsShortHotTake} from "./NewsShortHotTake";
+import {NewsShortVersus} from "./NewsShortVersus";
 // eslint-disable-next-line no-unused-vars
 import {LongformVideo} from "./LongformVideo";
 // eslint-disable-next-line no-unused-vars
@@ -122,6 +124,36 @@ export const RemotionRoot = () => {
         fps={30}
         durationInFrames={900}
         defaultProps={defaultProps}
+        calculateMetadata={({props}) => ({
+          durationInFrames: props.durationInFrames ?? 900,
+        })}
+      />
+      <Composition
+        id="NewsShortHotTake"
+        component={NewsShortHotTake}
+        width={1080}
+        height={1920}
+        fps={30}
+        durationInFrames={900}
+        defaultProps={defaultProps}
+        calculateMetadata={({props}) => ({
+          durationInFrames: props.durationInFrames ?? 900,
+        })}
+      />
+      <Composition
+        id="NewsShortVersus"
+        component={NewsShortVersus}
+        width={1080}
+        height={1920}
+        fps={30}
+        durationInFrames={900}
+        defaultProps={{
+          ...defaultProps,
+          versusData: {
+            sideA: {name: "Palmeiras", stats: ["Líder do Brasileirão", "12 gols marcados", "Melhor ataque"]},
+            sideB: {name: "Novorizontino", stats: ["Vice-campeão paulista", "8 gols marcados", "Melhor defesa"]},
+          },
+        }}
         calculateMetadata={({props}) => ({
           durationInFrames: props.durationInFrames ?? 900,
         })}
