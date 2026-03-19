@@ -26,7 +26,7 @@ const DAILY_MIX = [
   {type: "news", formats: ["clean", "split", "pulse", "stacked", "poster"]},
   {type: "hottake", formats: ["hottake"]},
   {type: "news", formats: ["clean", "split", "pulse", "stacked", "poster"]},
-  {type: "top3", formats: ["countdown"]},
+  {type: "top3", formats: ["top3"]},
 ];
 
 const STATE_FILE = path.join(PROJECT_DIR, "generated", ".auto-short-state.json");
