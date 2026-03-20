@@ -37,7 +37,7 @@ const VOICES = {
 const MINIMAX_VOICES = {
   Fernanda: process.env.MINIMAX_VOICE_FERNANDA || "Portuguese_LovelyLady",
   Ricardo: process.env.MINIMAX_VOICE_RICARDO || "Portuguese_Casual_Speaker_v1",
-  Marcos: process.env.MINIMAX_VOICE_MARCOS || "Portuguese_Raspy_Commentator_v1",
+  Marcos: process.env.MINIMAX_VOICE_MARCOS || "Portuguese_Jovialman",
 };
 
 const ELEVENLABS_VOICES = {
