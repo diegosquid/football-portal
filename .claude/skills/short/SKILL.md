@@ -53,35 +53,47 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
 
 6. **Interjeições e pausas** (use com moderação no texto):
    - Interjeições inline: `(laughs)`, `(sighs)`, `(gasps)`, `(clears throat)`, `(sniffs)`, `(groans)`
-   - Pausas dramáticas: `<#0.3#>` (curta) ou `<#0.5#>` (longa) — antes de dados impactantes
+   - Pausas dramáticas: `<#0.15#>` (curta) ou `<#0.3#>` (longa) — antes de dados impactantes
    - Use no MÁXIMO 2-3 interjeições e 2-3 pausas por roteiro
    - Interjeições vão no INÍCIO ou MEIO da frase, NUNCA no final
    - Pausas vão ANTES de números ou revelações impactantes
 
-7. Mostre ao usuário:
+7. **Título e descrição para YouTube**: Gere junto com o roteiro:
+   - **Título**: Curto (max 70 chars), chamativo, com gancho emocional. Estilo "notícia urgente" para shorts. Pode usar emoji no início (1 no máximo). NÃO repita o título do artigo — crie algo novo e mais atraente.
+   - **Descrição**: 2-3 linhas com contexto + link do artigo + hashtags. Formato:
+     ```
+     {frase de contexto curta}
+
+     Leia a matéria completa:
+     https://beiradocampo.com.br/{slug}
+
+     #futebol #brasileirao #tag1 #tag2
+     ```
+
+8. Mostre ao usuário:
    - O roteiro completo (com interjeições e pausas)
    - A emoção escolhida e por quê
+   - O título e descrição do YouTube
    - Contagem de palavras
    - Peça aprovação. Se o usuário pedir ajustes, refine até ele aprovar.
 
-### Fase 2: Salvar e Renderizar (mecânica — sem intervenção)
+### Fase 2: Salvar, Renderizar e Upload (mecânica — sem intervenção)
 
-8. Após aprovação, salve o roteiro:
+9. Após aprovação, salve o roteiro:
    - Crie o diretório `generated/remotion-shorts/{slug}/` se não existir
    - Salve em `generated/remotion-shorts/{slug}/narration.txt`
 
-9. Execute o render com o script mecânico:
-   ```bash
-   node scripts/render-remotion-short.js {slug} --format {formato} --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider minimax --minimax-voice Portuguese_Jovialman --emotion {emoção-escolhida} --speed 1.15
-   ```
+10. Execute o render + upload com o publish script:
+    ```bash
+    node scripts/publish-youtube-short.js {slug} --format {formato} --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider minimax --minimax-voice Portuguese_Jovialman --emotion {emoção-escolhida} --speed 1.15 --privacy public --thumbnail auto --title "{título}" --description "{descrição}"
+    ```
 
-10. Mostre o resultado (path do vídeo, duração, etc.) baseado no manifest gerado.
+11. Mostre o resultado (path do vídeo, duração, URL do YouTube) baseado no manifest e youtube-upload.json gerados.
 
 ## Notas
 
-- O auto-generate-short.js existente continua rodando normalmente no cron
-- Este skill dá controle manual sobre o roteiro antes de gastar TTS/render
+- Este skill dá controle manual sobre o roteiro, título e descrição antes de gastar TTS/render
 - Para formatos especiais (versus, top3), o roteiro precisa ser JSON — salve como narration.txt mesmo assim, o script sabe interpretar
-- Se o usuário quiser fazer upload pro YouTube, adicione `--privacy public --thumbnail auto` ou rode `npm run youtube:upload -- {slug}` separadamente
 - A emoção é aplicada à narração inteira (o MiniMax usa uma emoção por chamada TTS)
 - As interjeições e pausas são processadas pelo MiniMax inline no texto — o modelo interpreta e vocaliza
+- O título e descrição passados via --title/--description sobrescrevem os defaults automáticos do upload script
