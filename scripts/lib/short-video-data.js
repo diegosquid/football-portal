@@ -1036,6 +1036,8 @@ async function synthesizeNarration({
   provider = "auto",
   geminiVoiceName,
   minimaxVoiceId,
+  minimaxEmotion,
+  minimaxSpeed,
   elevenlabsVoiceId,
   localVoice,
   localRate,
@@ -1061,8 +1063,8 @@ async function synthesizeNarration({
       text,
       outputDir,
       voiceId: minimaxVoiceId || DEFAULT_MINIMAX_NARRATOR,
-      speed: 1.0,
-      emotion: "fluent",
+      speed: minimaxSpeed || 1.0,
+      emotion: minimaxEmotion || "neutral",
     });
   }
 

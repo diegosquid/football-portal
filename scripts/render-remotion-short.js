@@ -58,6 +58,8 @@ function parseArgs(argv) {
     minimaxVoice: null,
     elevenlabsVoice: null,
     rate: DEFAULT_RATE,
+    emotion: null,
+    speed: null,
   };
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -92,6 +94,12 @@ function parseArgs(argv) {
       i += 1;
     } else if (token === "--rate") {
       args.rate = argv[i + 1];
+      i += 1;
+    } else if (token === "--emotion") {
+      args.emotion = argv[i + 1];
+      i += 1;
+    } else if (token === "--speed") {
+      args.speed = parseFloat(argv[i + 1]);
       i += 1;
     } else if (!token.startsWith("--") && !args.slug) {
       args.slug = token;
@@ -224,6 +232,8 @@ async function main() {
     provider: args.ttsProvider,
     geminiVoiceName: args.geminiVoice,
     minimaxVoiceId: args.minimaxVoice,
+    minimaxEmotion: args.emotion,
+    minimaxSpeed: args.speed,
     elevenlabsVoiceId: args.elevenlabsVoice,
     localVoice: args.voice,
     localRate: args.rate,

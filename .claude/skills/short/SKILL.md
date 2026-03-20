@@ -1,0 +1,87 @@
+---
+name: short
+description: Gera roteiro de narração para YouTube Shorts a partir de um artigo do portal. Cria o texto com emoções e interjeições do MiniMax, mostra pro usuário aprovar, salva em narration.txt e depois roda o render+upload mecânico.
+user-invocable: true
+allowed-tools: Read, Grep, Glob, Bash, Edit, Write
+argument-hint: [slug-ou-latest] [formato]
+---
+
+# Gerador de YouTube Shorts — Beira do Campo
+
+Gere um roteiro de narração para short e depois renderize o vídeo.
+
+## Argumentos
+
+- `$ARGUMENTS[0]`: slug do artigo ou "latest" (default: latest)
+- `$ARGUMENTS[1]`: formato visual — clean, split, pulse, stacked, ticker, poster, briefing, hottake, versus, top3 (default: clean)
+
+## Fluxo
+
+### Fase 1: Roteiro (criativa — com aprovação do usuário)
+
+1. Resolva o slug:
+   - Se `$ARGUMENTS[0]` for "latest" ou vazio, descubra o artigo mais recente em `content/articles/` (ordene por data no frontmatter, pegue o mais recente que não seja draft)
+   - Caso contrário, use o slug fornecido
+
+2. Leia o artigo completo em `content/articles/{slug}.mdx`
+
+3. Gere o roteiro de narração adequado ao formato:
+   - **clean/split/pulse/stacked/ticker/poster/briefing**: Narração curta (60-90 palavras) no estilo âncora esportivo
+   - **hottake**: Opinião quente (50-70 palavras) com frase de impacto
+   - **versus**: JSON com sideA, sideB (nome, stats, strengths) + narração (50-70 palavras)
+   - **top3**: JSON com 3 items rankeados + narração por segmento (intro, item3, item2, item1, cta)
+
+4. Regras para TODOS os roteiros:
+   - Tom: âncora esportivo brasileiro, firme e envolvente (estilo ESPN/SporTV)
+   - Linguagem coloquial mas profissional
+   - NÃO use abreviações numéricas (escreva "primeiro" em vez de "1º")
+   - NÃO use "x" para placares — escreva "a" (ex: "2 a 1")
+   - NÃO use "R$" — escreva por extenso ("3 milhões de reais")
+   - NÃO use asteriscos, markdown ou formatação
+   - Comece com gancho que prende nos primeiros 3 segundos
+   - Termine com CTA curto: "Matéria completa no site. Siga o canal!"
+   - Escreva APENAS a narração, sem títulos ou instruções
+
+5. **Emoção do TTS**: Analise o conteúdo e escolha a emoção MiniMax mais adequada para a narração inteira:
+   - `happy` — gols, vitórias, comemorações, momentos positivos
+   - `sad` — derrotas, lesões, despedidas, momentos tristes
+   - `angry` — polêmicas, arbitragem, injustiças, indignação
+   - `fearful` — tensão, decisão, risco de rebaixamento, situação crítica
+   - `surprised` — viradas, zebras, números chocantes, revelações
+   - `neutral` — análises, transições, dados frios
+   - `disgusted` — escândalos, situações revoltantes
+
+6. **Interjeições e pausas** (use com moderação no texto):
+   - Interjeições inline: `(laughs)`, `(sighs)`, `(gasps)`, `(clears throat)`, `(sniffs)`, `(groans)`
+   - Pausas dramáticas: `<#0.3#>` (curta) ou `<#0.5#>` (longa) — antes de dados impactantes
+   - Use no MÁXIMO 2-3 interjeições e 2-3 pausas por roteiro
+   - Interjeições vão no INÍCIO ou MEIO da frase, NUNCA no final
+   - Pausas vão ANTES de números ou revelações impactantes
+
+7. Mostre ao usuário:
+   - O roteiro completo (com interjeições e pausas)
+   - A emoção escolhida e por quê
+   - Contagem de palavras
+   - Peça aprovação. Se o usuário pedir ajustes, refine até ele aprovar.
+
+### Fase 2: Salvar e Renderizar (mecânica — sem intervenção)
+
+8. Após aprovação, salve o roteiro:
+   - Crie o diretório `generated/remotion-shorts/{slug}/` se não existir
+   - Salve em `generated/remotion-shorts/{slug}/narration.txt`
+
+9. Execute o render com o script mecânico:
+   ```bash
+   node scripts/render-remotion-short.js {slug} --format {formato} --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider minimax --minimax-voice Portuguese_Jovialman --emotion {emoção-escolhida} --speed 1.15
+   ```
+
+10. Mostre o resultado (path do vídeo, duração, etc.) baseado no manifest gerado.
+
+## Notas
+
+- O auto-generate-short.js existente continua rodando normalmente no cron
+- Este skill dá controle manual sobre o roteiro antes de gastar TTS/render
+- Para formatos especiais (versus, top3), o roteiro precisa ser JSON — salve como narration.txt mesmo assim, o script sabe interpretar
+- Se o usuário quiser fazer upload pro YouTube, adicione `--privacy public --thumbnail auto` ou rode `npm run youtube:upload -- {slug}` separadamente
+- A emoção é aplicada à narração inteira (o MiniMax usa uma emoção por chamada TTS)
+- As interjeições e pausas são processadas pelo MiniMax inline no texto — o modelo interpreta e vocaliza
