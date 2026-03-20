@@ -19,6 +19,8 @@ const {
   PROJECT_DIR,
 } = require("./short-video-data");
 
+const { analyzeEmotions } = require("./minimax-emotions");
+
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_TEXT_MODEL = process.env.GEMINI_TEXT_MODEL || "gemini-2.5-flash";
 const GEMINI_TEXT_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_TEXT_MODEL}:generateContent`;
@@ -35,7 +37,7 @@ const VOICES = {
 const MINIMAX_VOICES = {
   Fernanda: process.env.MINIMAX_VOICE_FERNANDA || "Portuguese_LovelyLady",
   Ricardo: process.env.MINIMAX_VOICE_RICARDO || "Portuguese_Casual_Speaker_v1",
-  Marcos: process.env.MINIMAX_VOICE_MARCOS || "Portuguese_Jovialman",
+  Marcos: process.env.MINIMAX_VOICE_MARCOS || "Portuguese_Raspy_Commentator_v1",
 };
 
 const ELEVENLABS_VOICES = {
@@ -77,10 +79,12 @@ Regras:
 - Formato EXATO de cada fala:
   Fernanda: texto da fala aqui.
   Ricardo: texto da fala aqui.
-- NAO use asteriscos, parenteses ou indicacoes de acao
+- NAO use asteriscos ou indicacoes de acao
 - NAO use emojis
+- Voce PODE usar interjeicoes naturais entre parenteses quando fizer sentido: (laughs), (sighs), (gasps). Use com moderacao (2-3 vezes no maximo no dialogo todo). Exemplo: "(laughs) Eh verdade, Ricardo, ninguem esperava isso."
 - Cada fala deve ter no maximo 3-4 frases
-- IMPORTANTE: quando houver "x" entre nomes de times (ex: "Palmeiras x Corinthians"), escreva por extenso "versus" ou "contra" para leitura correta no TTS`;
+- IMPORTANTE: quando houver "x" entre nomes de times (ex: "Palmeiras x Corinthians"), escreva por extenso "versus" ou "contra" para leitura correta no TTS
+- IMPORTANTE: NUNCA escreva "R$". Sempre escreva o valor por extenso: "3,4 milhoes de reais", "500 mil reais", "dois bilhoes de reais"`;
 
   const userPrompt = `Titulo: ${title}
 Categoria: ${category}
@@ -130,7 +134,7 @@ function parseDialogueTurns(script) {
   let currentTurn = null;
 
   for (const line of lines) {
-    const match = line.match(/^(Fernanda|Ricardo):\s*(.+)/);
+    const match = line.match(/^\*{0,2}(Fernanda|Ricardo)\*{0,2}:\s*(.+)/);
     if (match) {
       if (currentTurn) {
         turns.push(currentTurn);
@@ -168,6 +172,21 @@ async function synthesizePodcastAudio({turns, outputDir, ttsProvider = "gemini"}
   const providerLabel = useElevenlabs ? "ElevenLabs" : useMinimax ? "MiniMax" : "Gemini";
   console.log(`  🔊 TTS provider: ${providerLabel}`);
 
+  // Enriquecer turns com emoções e tags (apenas MiniMax)
+  if (useMinimax) {
+    try {
+      const enriched = await analyzeEmotions(turns);
+      for (const e of enriched) {
+        if (e.index < turns.length) {
+          turns[e.index].emotion = e.emotion;
+          turns[e.index].textWithTags = e.textWithTags;
+        }
+      }
+    } catch (err) {
+      console.log(`  ⚠️  Emotion analysis failed, using neutral: ${err.message}`);
+    }
+  }
+
   const turnResults = [];
 
   for (let i = 0; i < turns.length; i++) {
@@ -187,7 +206,9 @@ async function synthesizePodcastAudio({turns, outputDir, ttsProvider = "gemini"}
       continue;
     }
 
-    console.log(`  🎙️  Turn ${i + 1}/${turns.length} (${turn.speaker}/${voiceName}): ${countWords(turn.text)} palavras`);
+    const turnEmotion = turn.emotion || "neutral";
+    const emotionLabel = useMinimax ? ` [${turnEmotion}]` : "";
+    console.log(`  🎙️  Turn ${i + 1}/${turns.length} (${turn.speaker}/${voiceName})${emotionLabel}: ${countWords(turn.text)} palavras`);
 
     // Rate limit: wait between MiniMax calls
     if (useMinimax && i > 0) {
@@ -197,7 +218,9 @@ async function synthesizePodcastAudio({turns, outputDir, ttsProvider = "gemini"}
     const turnDir = path.join(outputDir, `turn-${i}-tmp`);
     ensureDir(turnDir);
 
-    const ttsText = sanitizeForTTS(turn.text);
+    // Usar texto enriquecido (com tags) se disponível, senão texto original
+    const rawText = (useMinimax && turn.textWithTags) ? turn.textWithTags : turn.text;
+    const ttsText = sanitizeForTTS(rawText);
 
     let result;
     if (useElevenlabs) {
@@ -212,7 +235,7 @@ async function synthesizePodcastAudio({turns, outputDir, ttsProvider = "gemini"}
         outputDir: turnDir,
         voiceId: voiceName,
         speed: 1.0,
-        emotion: "fluent",
+        emotion: turnEmotion,
       });
     } else {
       result = await synthesizeSpeechWithGemini({

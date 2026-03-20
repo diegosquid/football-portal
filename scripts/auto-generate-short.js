@@ -128,7 +128,7 @@ function generateAndUpload(slug, format, dryRun, slotType) {
   console.log(`🎬 Gerando short: ${slug}`);
   console.log(`   Tipo: ${typeLabel}`);
   console.log(`   Formato: ${format}`);
-  console.log(`   TTS: minimax (Marcos - Portuguese_Jovialman) + AI narration`);
+  console.log(`   TTS: minimax (Marcos - Portuguese_Raspy_Commentator_v1) + AI narration`);
 
   if (dryRun) {
     console.log("   ⏭️  DRY RUN — pulando render/upload");

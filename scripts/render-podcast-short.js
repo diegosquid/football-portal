@@ -32,6 +32,7 @@ const {
   countWords,
   stripMarkdown,
   splitSentences,
+  sanitizeForTTS,
 } = require("./lib/short-video-data");
 
 const {
@@ -40,6 +41,8 @@ const {
   SPEAKER_COLORS,
   FPS,
 } = require("./lib/podcast-video-data");
+
+const { analyzeEmotions } = require("./lib/minimax-emotions");
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_TEXT_MODEL = process.env.GEMINI_TEXT_MODEL || "gemini-2.5-flash";
@@ -56,7 +59,7 @@ const GAP_BETWEEN_TURNS_S = 0.3; // Mais curto pra shorts
 const MINIMAX_VOICES = {
   Fernanda: process.env.MINIMAX_VOICE_FERNANDA || "Portuguese_LovelyLady",
   Ricardo: process.env.MINIMAX_VOICE_RICARDO || "Portuguese_Casual_Speaker_v1",
-  Marcos: process.env.MINIMAX_VOICE_MARCOS || "Portuguese_Jovialman",
+  Marcos: process.env.MINIMAX_VOICE_MARCOS || "Portuguese_Raspy_Commentator_v1",
 };
 
 // ---------------------------------------------------------------------------
@@ -90,9 +93,11 @@ REGRAS PARA SHORT (formato curto, 30-50 segundos):
 - Formato EXATO de cada fala:
   Fernanda: texto da fala aqui.
   Ricardo: texto da fala aqui.
-- NAO use asteriscos, parenteses ou indicacoes de acao
+- NAO use asteriscos ou indicacoes de acao
 - NAO use emojis
+- Voce PODE usar interjeicoes naturais entre parenteses quando fizer sentido: (laughs), (sighs), (gasps). Use com moderacao (1-2 vezes no maximo no short). Exemplo: "(gasps) Tres a zero, Ricardo!"
 - IMPORTANTE: quando houver "x" entre nomes de times, escreva "versus" ou "contra"
+- IMPORTANTE: NUNCA escreva "R$". Sempre escreva o valor por extenso: "3,4 milhoes de reais", "500 mil reais", "dois bilhoes de reais"
 - Foque nos 2-3 pontos mais impactantes do artigo, nao tente cobrir tudo`;
 
   const userPrompt = `Titulo: ${title}
@@ -144,27 +149,44 @@ async function synthesizeShortPodcastAudio({turns, outputDir, ttsProvider = "gem
   const turnResults = [];
   const isMiniMax = ttsProvider === "minimax";
 
+  // Enriquecer turns com emoções e tags (apenas MiniMax)
+  if (isMiniMax) {
+    try {
+      const enriched = await analyzeEmotions(turns);
+      for (const e of enriched) {
+        if (e.index < turns.length) {
+          turns[e.index].emotion = e.emotion;
+          turns[e.index].textWithTags = e.textWithTags;
+        }
+      }
+    } catch (err) {
+      console.log(`  ⚠️  Emotion analysis failed, using neutral: ${err.message}`);
+    }
+  }
+
   for (let i = 0; i < turns.length; i++) {
     const turn = turns[i];
 
     let result;
     if (isMiniMax) {
       const voiceId = MINIMAX_VOICES[turn.speaker] || "Portuguese_ConfidentWoman";
-      console.log(`  🎙️  Turn ${i + 1}/${turns.length} (${turn.speaker}/${voiceId}) [MiniMax]: ${countWords(turn.text)} palavras`);
+      const turnEmotion = turn.emotion || "neutral";
+      const rawText = turn.textWithTags || turn.text;
+      console.log(`  🎙️  Turn ${i + 1}/${turns.length} (${turn.speaker}/${voiceId}) [MiniMax] [${turnEmotion}]: ${countWords(turn.text)} palavras`);
 
       result = await synthesizeSpeechWithMiniMax({
-        text: turn.text,
+        text: sanitizeForTTS(rawText),
         outputDir,
         voiceId,
         speed: 1.05,
-        emotion: "fluent",
+        emotion: turnEmotion,
       });
     } else {
       const voiceName = VOICES[turn.speaker];
       console.log(`  🎙️  Turn ${i + 1}/${turns.length} (${turn.speaker}/${voiceName}) [Gemini]: ${countWords(turn.text)} palavras`);
 
       result = await synthesizeSpeechWithGemini({
-        text: turn.text,
+        text: sanitizeForTTS(turn.text),
         outputDir,
         voiceName,
         stylePrompt,
