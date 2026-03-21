@@ -50,7 +50,7 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
 5. **TTS Provider**: O default é **Fish Audio**. Se o usuário pedir MiniMax, usar `--tts-provider minimax`.
 
    **Fish Audio (DEFAULT) — emoções** (inline no texto, modelo S2-Pro):
-   - Voz padrão: `77ce39e301454f78bb5be6f8e6066d75`
+   - Voz padrão: `16a44fcd0a404937bdc18160ce998619`
    - Tags com colchetes: `[excited]`, `[whisper]`, `[sad]`, `[angry]`, `[calm]`, `[nervous]`
    - Mais de 64 expressões disponíveis via tags naturais
    - Use 2-4 tags de emoção por roteiro, variando conforme o assunto
@@ -101,7 +101,7 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
 
     **Fish Audio (default — Craque Neto):**
     ```bash
-    node scripts/publish-youtube-short.js {slug} --format {formato} --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider fish --fish-voice 77ce39e301454f78bb5be6f8e6066d75 --speed 1.0 --privacy public --thumbnail auto --title "{título}" --description "{descrição}"
+    node scripts/publish-youtube-short.js {slug} --format {formato} --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider fish --fish-voice 16a44fcd0a404937bdc18160ce998619 --speed 1.0 --privacy public --thumbnail auto --title "{título}" --description "{descrição}"
     ```
 
     **MiniMax (alternativo):**
