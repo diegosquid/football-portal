@@ -9,6 +9,7 @@ import {NewsShortPoster} from "./NewsShortPoster";
 import {NewsShortBriefing} from "./NewsShortBriefing";
 import {NewsShortHotTake} from "./NewsShortHotTake";
 import {NewsShortVersus} from "./NewsShortVersus";
+import {NewsShortDynamic} from "./NewsShortDynamic";
 // eslint-disable-next-line no-unused-vars
 import {LongformVideo} from "./LongformVideo";
 // eslint-disable-next-line no-unused-vars
@@ -17,6 +18,8 @@ import {PodcastVideo} from "./PodcastVideo";
 import {PodcastShort} from "./PodcastShort";
 // eslint-disable-next-line no-unused-vars
 import {CountdownShort} from "./CountdownShort";
+// eslint-disable-next-line no-unused-vars
+import {DailyRecapShort} from "./DailyRecapShort";
 
 const defaultProps = {
   slug: "demo-short",
@@ -159,6 +162,18 @@ export const RemotionRoot = () => {
         })}
       />
       <Composition
+        id="NewsShortDynamic"
+        component={NewsShortDynamic}
+        width={1080}
+        height={1920}
+        fps={30}
+        durationInFrames={900}
+        defaultProps={defaultProps}
+        calculateMetadata={({props}) => ({
+          durationInFrames: props.durationInFrames ?? 900,
+        })}
+      />
+      <Composition
         id="LongformVideo"
         component={LongformVideo}
         width={1920}
@@ -249,6 +264,30 @@ export const RemotionRoot = () => {
           audioSrc: "renders/demo/narration.m4a",
           items: [],
           timings: [],
+          durationInFrames: 1500,
+          fps: 30,
+        }}
+        calculateMetadata={({props}) => ({
+          durationInFrames: props.durationInFrames ?? 1500,
+        })}
+      />
+      <Composition
+        id="DailyRecapShort"
+        component={DailyRecapShort}
+        width={1080}
+        height={1920}
+        fps={30}
+        durationInFrames={1500}
+        defaultProps={{
+          slug: "daily-recap",
+          title: "Resumo do Dia",
+          date: "19 de março de 2026",
+          siteName: "Beira do Campo",
+          siteUrl: "beiradocampo.com.br",
+          followHandle: "@beiradocampotv",
+          audioSrc: "renders/demo/narration.m4a",
+          callToAction: "Para mais notícias de futebol, siga o canal",
+          items: [],
           durationInFrames: 1500,
           fps: 30,
         }}

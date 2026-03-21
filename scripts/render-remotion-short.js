@@ -32,7 +32,7 @@ const FPS = 30;
 const VIDEO_STUDIO_DIR = path.join(PROJECT_DIR, "video-studio");
 const GENERATED_ROOT = path.join(PROJECT_DIR, "generated", "remotion-shorts");
 const FORMAT_MAP = {
-  clean: "NewsShortClean",
+  clean: "NewsShortDynamic",
   split: "NewsShortSplit",
   pulse: "NewsShortPulse",
   stacked: "NewsShortStacked",
@@ -42,6 +42,7 @@ const FORMAT_MAP = {
   hottake: "NewsShortHotTake",
   versus: "NewsShortVersus",
   top3: "CountdownShort",
+  dynamic: "NewsShortDynamic",
 };
 
 function parseArgs(argv) {
