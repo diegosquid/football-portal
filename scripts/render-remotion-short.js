@@ -57,6 +57,7 @@ function parseArgs(argv) {
     geminiVoice: DEFAULT_GEMINI_VOICE,
     minimaxVoice: null,
     elevenlabsVoice: null,
+    fishVoice: null,
     rate: DEFAULT_RATE,
     emotion: null,
     speed: null,
@@ -88,6 +89,9 @@ function parseArgs(argv) {
       i += 1;
     } else if (token === "--elevenlabs-voice") {
       args.elevenlabsVoice = argv[i + 1];
+      i += 1;
+    } else if (token === "--fish-voice") {
+      args.fishVoice = argv[i + 1];
       i += 1;
     } else if (token === "--voice") {
       args.voice = argv[i + 1];
@@ -235,6 +239,8 @@ async function main() {
     minimaxEmotion: args.emotion,
     minimaxSpeed: args.speed,
     elevenlabsVoiceId: args.elevenlabsVoice,
+    fishVoiceId: args.fishVoice,
+    fishSpeed: args.speed,
     localVoice: args.voice,
     localRate: args.rate,
   });
@@ -305,6 +311,8 @@ async function main() {
     ttsProvider: narrationAudio.provider,
     voice: narrationAudio.provider === "minimax"
       ? (narrationAudio.voiceId || args.minimaxVoice)
+      : narrationAudio.provider === "fish"
+      ? (narrationAudio.referenceId || args.fishVoice)
       : narrationAudio.provider === "local" ? args.voice : args.geminiVoice,
     localFallbackVoice: args.voice,
     rate: Number(args.rate),

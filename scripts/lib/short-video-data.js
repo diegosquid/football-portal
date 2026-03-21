@@ -1029,6 +1029,75 @@ function synthesizeSpeechLocally({
 const DEFAULT_MINIMAX_NARRATOR = process.env.MINIMAX_NARRATOR_VOICE || "Portuguese_Jovialman";
 const DEFAULT_ELEVENLABS_VOICE = process.env.ELEVENLABS_VOICE_FERNANDA || "RGymW84CSmfVugnA5tvA";
 
+// ---------------------------------------------------------------------------
+// Fish Audio TTS — S2-Pro model, emotion via inline [tags]
+// ---------------------------------------------------------------------------
+
+const FISH_AUDIO_API_KEY = process.env.FISH_AUDIO_API_KEY;
+const FISH_AUDIO_MODEL = process.env.FISH_AUDIO_MODEL || "s2-pro";
+const FISH_AUDIO_BASE = "https://api.fish.audio/v1/tts";
+const DEFAULT_FISH_VOICE = process.env.FISH_AUDIO_VOICE || "";
+
+async function synthesizeSpeechWithFishAudio({
+  text,
+  outputDir,
+  referenceId,
+  speed = 1.0,
+  temperature = 0.7,
+}) {
+  if (!FISH_AUDIO_API_KEY) {
+    throw new Error("FISH_AUDIO_API_KEY is not configured in .env.local");
+  }
+
+  ensureDir(outputDir);
+
+  const body = {
+    text,
+    format: "mp3",
+    temperature,
+    prosody: { speed },
+  };
+  if (referenceId) {
+    body.reference_id = referenceId;
+  }
+
+  const response = await fetch(FISH_AUDIO_BASE, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${FISH_AUDIO_API_KEY}`,
+      "model": FISH_AUDIO_MODEL,
+    },
+    body: JSON.stringify(body),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => "");
+    throw new Error(`Fish Audio TTS failed (${response.status}): ${errorText.slice(0, 300)}`);
+  }
+
+  const mp3Path = path.join(outputDir, "narration-fish.mp3");
+  const wavPath = path.join(outputDir, "narration-fish.wav");
+  const m4aPath = path.join(outputDir, "narration.m4a");
+
+  const buffer = Buffer.from(await response.arrayBuffer());
+  fs.writeFileSync(mp3Path, buffer);
+
+  // mp3 → wav (para concat)
+  run("ffmpeg", ["-y", "-i", mp3Path, "-ar", "24000", "-ac", "1", wavPath]);
+
+  // mp3 → m4a
+  run("ffmpeg", ["-y", "-i", mp3Path, "-c:a", "aac", "-b:a", "192k", m4aPath]);
+
+  return {
+    provider: "fish",
+    referenceId: referenceId || null,
+    wavPath,
+    m4aPath,
+    sourcePath: mp3Path,
+  };
+}
+
 async function synthesizeNarration({
   text: rawText,
   textPath,
@@ -1039,6 +1108,9 @@ async function synthesizeNarration({
   minimaxEmotion,
   minimaxSpeed,
   elevenlabsVoiceId,
+  fishVoiceId,
+  fishSpeed,
+  fishTemperature,
   localVoice,
   localRate,
 }) {
@@ -1073,6 +1145,16 @@ async function synthesizeNarration({
       text,
       outputDir,
       voiceId: elevenlabsVoiceId || DEFAULT_ELEVENLABS_VOICE,
+    });
+  }
+
+  if (provider === "fish") {
+    return synthesizeSpeechWithFishAudio({
+      text,
+      outputDir,
+      referenceId: fishVoiceId || DEFAULT_FISH_VOICE || undefined,
+      speed: fishSpeed || 1.0,
+      temperature: fishTemperature || 0.7,
     });
   }
 
@@ -1119,6 +1201,7 @@ module.exports = {
   synthesizeSpeechWithGemini,
   synthesizeSpeechWithMiniMax,
   synthesizeSpeechWithElevenLabs,
+  synthesizeSpeechWithFishAudio,
   sanitizeForTTS,
   generateNarrationScript,
   generateHotTakeScript,

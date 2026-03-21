@@ -1,6 +1,6 @@
 ---
 name: short
-description: Gera roteiro de narração para YouTube Shorts a partir de um artigo do portal. Cria o texto com emoções e interjeições do MiniMax, mostra pro usuário aprovar, salva em narration.txt e depois roda o render+upload mecânico.
+description: Gera roteiro de narração para YouTube Shorts a partir de um artigo do portal. Cria o texto com emoções e interjeições, mostra pro usuário aprovar, salva em narration.txt e depois roda o render+upload mecânico. Suporta MiniMax e Fish Audio TTS.
 user-invocable: true
 allowed-tools: Read, Grep, Glob, Bash, Edit, Write
 argument-hint: [slug-ou-latest] [formato]
@@ -42,18 +42,27 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
    - Termine com CTA curto: "Matéria completa no site. Siga o canal!"
    - Escreva APENAS a narração, sem títulos ou instruções
 
-5. **Emoção do TTS**: Analise o conteúdo e escolha a emoção MiniMax mais adequada para a narração inteira:
-   - `happy` — gols, vitórias, comemorações, momentos positivos
-   - `sad` — derrotas, lesões, despedidas, momentos tristes
-   - `angry` — polêmicas, arbitragem, injustiças, indignação
-   - `fearful` — tensão, decisão, risco de rebaixamento, situação crítica
-   - `surprised` — viradas, zebras, números chocantes, revelações
+5. **TTS Provider**: O default é MiniMax. Se o usuário pedir Fish Audio, usar `--tts-provider fish`.
+
+   **MiniMax — emoções** (param `--emotion`):
+   - `happy` — gols, vitórias, comemorações
+   - `sad` — derrotas, lesões, despedidas
+   - `angry` — polêmicas, arbitragem, injustiças
+   - `fearful` — tensão, decisão, risco de rebaixamento
+   - `surprised` — viradas, zebras, números chocantes
    - `neutral` — análises, transições, dados frios
    - `disgusted` — escândalos, situações revoltantes
 
-6. **Interjeições e pausas** (use com moderação no texto):
-   - Interjeições inline: `(laughs)`, `(sighs)`, `(gasps)`, `(clears throat)`, `(sniffs)`, `(groans)`
-   - Pausas dramáticas: `<#0.15#>` (curta) ou `<#0.3#>` (longa) — antes de dados impactantes
+   **MiniMax — interjeições e pausas** (inline no texto):
+   - Interjeições: `(laughs)`, `(sighs)`, `(gasps)`, `(clears throat)`, `(sniffs)`, `(groans)`
+   - Pausas: `<#0.15#>` (curta) ou `<#0.3#>` (longa)
+
+   **Fish Audio — emoções** (inline no texto, modelo S2-Pro):
+   - Tags com colchetes: `[excited]`, `[whisper]`, `[sad]`, `[angry]`, `[calm]`, `[nervous]`
+   - Mais de 64 expressões disponíveis via tags naturais
+   - Controla expressividade via `temperature` (0-1, default 0.7)
+
+   **Regras de interjeições/pausas (ambos providers)**:
    - Use no MÁXIMO 2-3 interjeições e 2-3 pausas por roteiro
    - Interjeições vão no INÍCIO ou MEIO da frase, NUNCA no final
    - Pausas vão ANTES de números ou revelações impactantes
@@ -84,8 +93,15 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
    - Salve em `generated/remotion-shorts/{slug}/narration.txt`
 
 10. Execute o render + upload com o publish script:
+
+    **MiniMax (default):**
     ```bash
     node scripts/publish-youtube-short.js {slug} --format {formato} --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider minimax --minimax-voice Portuguese_Jovialman --emotion {emoção-escolhida} --speed 1.15 --privacy public --thumbnail auto --title "{título}" --description "{descrição}"
+    ```
+
+    **Fish Audio:**
+    ```bash
+    node scripts/publish-youtube-short.js {slug} --format {formato} --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider fish --fish-voice {reference-id} --speed 1.0 --privacy public --thumbnail auto --title "{título}" --description "{descrição}"
     ```
 
 11. Mostre o resultado (path do vídeo, duração, URL do YouTube) baseado no manifest e youtube-upload.json gerados.
@@ -94,6 +110,6 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
 
 - Este skill dá controle manual sobre o roteiro, título e descrição antes de gastar TTS/render
 - Para formatos especiais (versus, top3), o roteiro precisa ser JSON — salve como narration.txt mesmo assim, o script sabe interpretar
-- A emoção é aplicada à narração inteira (o MiniMax usa uma emoção por chamada TTS)
-- As interjeições e pausas são processadas pelo MiniMax inline no texto — o modelo interpreta e vocaliza
+- **MiniMax**: emoção via `--emotion`, interjeições `(gasps)` e pausas `<#0.15#>` inline no texto
+- **Fish Audio**: emoção via tags `[excited]` inline no texto, expressividade via `temperature`
 - O título e descrição passados via --title/--description sobrescrevem os defaults automáticos do upload script
