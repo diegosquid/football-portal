@@ -32,19 +32,31 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
    - **top3**: JSON com 3 items rankeados + narração por segmento (intro, item3, item2, item1, cta)
 
 4. Regras para TODOS os roteiros:
-   - Tom: âncora esportivo brasileiro, firme e envolvente (estilo ESPN/SporTV)
-   - Linguagem coloquial mas profissional
+   - **Tom: comentarista de mesa-redonda brasileira** — direto, opinativo, sem papas na língua, visceral
+   - Fala PARA o espectador como se estivesse numa conversa ("Ô meu amigo", "eu vou te falar", "presta atenção")
+   - Usa expressões fortes: "inadmissível", "absurdo", "coitado", "isso é vergonha"
+   - Toma partido, dá opinião, não fica em cima do muro — mesmo em notícias factuais
+   - Linguagem coloquial e apaixonada, como torcedor que entende de bola
+   - Pode usar hipérbole e dramatização controlada para engajar
    - NÃO use abreviações numéricas (escreva "primeiro" em vez de "1º")
    - NÃO use "x" para placares — escreva "a" (ex: "2 a 1")
    - NÃO use "R$" — escreva por extenso ("3 milhões de reais")
    - NÃO use asteriscos, markdown ou formatação
-   - Comece com gancho que prende nos primeiros 3 segundos
+   - NÃO mencione o nome de nenhum comentarista real (Neto, Casagrande, etc.)
+   - Comece com gancho que prende nos primeiros 3 segundos (interpelação direta ao espectador)
    - Termine com CTA curto: "Matéria completa no site. Siga o canal!"
    - Escreva APENAS a narração, sem títulos ou instruções
 
-5. **TTS Provider**: O default é MiniMax. Se o usuário pedir Fish Audio, usar `--tts-provider fish`.
+5. **TTS Provider**: O default é **Fish Audio**. Se o usuário pedir MiniMax, usar `--tts-provider minimax`.
 
-   **MiniMax — emoções** (param `--emotion`):
+   **Fish Audio (DEFAULT) — emoções** (inline no texto, modelo S2-Pro):
+   - Voz padrão: `77ce39e301454f78bb5be6f8e6066d75`
+   - Tags com colchetes: `[excited]`, `[whisper]`, `[sad]`, `[angry]`, `[calm]`, `[nervous]`
+   - Mais de 64 expressões disponíveis via tags naturais
+   - Use 2-4 tags de emoção por roteiro, variando conforme o assunto
+   - Combine a tag com o momento: `[angry]` pra polêmica, `[excited]` pra gol/virada, `[calm]` pra análise fria
+
+   **MiniMax (alternativo) — emoções** (param `--emotion`):
    - `happy` — gols, vitórias, comemorações
    - `sad` — derrotas, lesões, despedidas
    - `angry` — polêmicas, arbitragem, injustiças
@@ -52,20 +64,13 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
    - `surprised` — viradas, zebras, números chocantes
    - `neutral` — análises, transições, dados frios
    - `disgusted` — escândalos, situações revoltantes
-
-   **MiniMax — interjeições e pausas** (inline no texto):
    - Interjeições: `(laughs)`, `(sighs)`, `(gasps)`, `(clears throat)`, `(sniffs)`, `(groans)`
    - Pausas: `<#0.15#>` (curta) ou `<#0.3#>` (longa)
 
-   **Fish Audio — emoções** (inline no texto, modelo S2-Pro):
-   - Tags com colchetes: `[excited]`, `[whisper]`, `[sad]`, `[angry]`, `[calm]`, `[nervous]`
-   - Mais de 64 expressões disponíveis via tags naturais
-   - Controla expressividade via `temperature` (0-1, default 0.7)
-
-   **Regras de interjeições/pausas (ambos providers)**:
-   - Use no MÁXIMO 2-3 interjeições e 2-3 pausas por roteiro
-   - Interjeições vão no INÍCIO ou MEIO da frase, NUNCA no final
-   - Pausas vão ANTES de números ou revelações impactantes
+   **Regras de emoções/tags (ambos providers)**:
+   - Use no MÁXIMO 2-4 tags/interjeições por roteiro
+   - Tags vão no INÍCIO ou MEIO da frase, NUNCA no final
+   - Varie as emoções ao longo do roteiro para manter dinâmico
 
 7. **Título e descrição para YouTube**: Gere junto com o roteiro:
    - **Título**: Curto (max 70 chars), chamativo, com gancho emocional. Estilo "notícia urgente" para shorts. Pode usar emoji no início (1 no máximo). NÃO repita o título do artigo — crie algo novo e mais atraente.
@@ -94,14 +99,14 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
 
 10. Execute o render + upload com o publish script:
 
-    **MiniMax (default):**
+    **Fish Audio (default — Craque Neto):**
     ```bash
-    node scripts/publish-youtube-short.js {slug} --format {formato} --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider minimax --minimax-voice Portuguese_Jovialman --emotion {emoção-escolhida} --speed 1.15 --privacy public --thumbnail auto --title "{título}" --description "{descrição}"
+    node scripts/publish-youtube-short.js {slug} --format {formato} --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider fish --fish-voice 77ce39e301454f78bb5be6f8e6066d75 --speed 1.0 --privacy public --thumbnail auto --title "{título}" --description "{descrição}"
     ```
 
-    **Fish Audio:**
+    **MiniMax (alternativo):**
     ```bash
-    node scripts/publish-youtube-short.js {slug} --format {formato} --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider fish --fish-voice {reference-id} --speed 1.0 --privacy public --thumbnail auto --title "{título}" --description "{descrição}"
+    node scripts/publish-youtube-short.js {slug} --format {formato} --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider minimax --minimax-voice Portuguese_Jovialman --emotion {emoção-escolhida} --speed 1.15 --privacy public --thumbnail auto --title "{título}" --description "{descrição}"
     ```
 
 11. Mostre o resultado (path do vídeo, duração, URL do YouTube) baseado no manifest e youtube-upload.json gerados.
@@ -110,6 +115,6 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
 
 - Este skill dá controle manual sobre o roteiro, título e descrição antes de gastar TTS/render
 - Para formatos especiais (versus, top3), o roteiro precisa ser JSON — salve como narration.txt mesmo assim, o script sabe interpretar
-- **MiniMax**: emoção via `--emotion`, interjeições `(gasps)` e pausas `<#0.15#>` inline no texto
-- **Fish Audio**: emoção via tags `[excited]` inline no texto, expressividade via `temperature`
+- **Fish Audio (default)**: voz Craque Neto, emoção via tags `[excited]` inline no texto
+- **MiniMax (alternativo)**: emoção via `--emotion`, interjeições `(gasps)` e pausas `<#0.15#>` inline
 - O título e descrição passados via --title/--description sobrescrevem os defaults automáticos do upload script
