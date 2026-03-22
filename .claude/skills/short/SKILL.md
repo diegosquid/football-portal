@@ -13,7 +13,7 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
 ## Argumentos
 
 - `$ARGUMENTS[0]`: slug do artigo ou "latest" (default: latest)
-- `$ARGUMENTS[1]`: formato visual — clean, split, pulse, stacked, ticker, poster, briefing, hottake, versus, top3 (default: clean)
+- `$ARGUMENTS[1]`: formato visual — clean, split, pulse, stacked, ticker, poster, briefing, hottake (default: clean)
 
 ## Fluxo
 
@@ -26,10 +26,8 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
 2. Leia o artigo completo em `content/articles/{slug}.mdx`
 
 3. Gere o roteiro de narração adequado ao formato:
-   - **clean/split/pulse/stacked/ticker/poster/briefing**: Narração curta (60-90 palavras) no estilo âncora esportivo
+   - **clean/split/pulse/stacked/ticker/poster/briefing**: Narração curta (60-90 palavras) no estilo mesa-redonda
    - **hottake**: Opinião quente (50-70 palavras) com frase de impacto
-   - **versus**: JSON com sideA, sideB (nome, stats, strengths) + narração (50-70 palavras)
-   - **top3**: JSON com 3 items rankeados + narração por segmento (intro, item3, item2, item1, cta)
 
 4. Regras para TODOS os roteiros:
    - **Tom: comentarista de mesa-redonda brasileira** — direto, opinativo, sem papas na língua, visceral
@@ -114,7 +112,6 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
 ## Notas
 
 - Este skill dá controle manual sobre o roteiro, título e descrição antes de gastar TTS/render
-- Para formatos especiais (versus, top3), o roteiro precisa ser JSON — salve como narration.txt mesmo assim, o script sabe interpretar
-- **Fish Audio (default)**: voz Craque Neto, emoção via tags `[excited]` inline no texto
+- **Fish Audio (default)**: emoção via tags `[excited]` inline no texto
 - **MiniMax (alternativo)**: emoção via `--emotion`, interjeições `(gasps)` e pausas `<#0.15#>` inline
 - O título e descrição passados via --title/--description sobrescrevem os defaults automáticos do upload script
