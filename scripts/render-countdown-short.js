@@ -41,6 +41,7 @@ function parseArgs(argv) {
     ttsProvider: "minimax",
     voiceId: process.env.MINIMAX_VOICE_COUNTDOWN || "Portuguese_Jovialman",
     geminiVoice: process.env.GEMINI_TTS_VOICE || "Kore",
+    fishVoice: null,
   };
 
   for (let i = 0; i < argv.length; i++) {
@@ -51,6 +52,8 @@ function parseArgs(argv) {
       args.voiceId = argv[++i];
     } else if (token === "--gemini-voice") {
       args.geminiVoice = argv[++i];
+    } else if (token === "--fish-voice") {
+      args.fishVoice = argv[++i];
     } else if (!token.startsWith("--") && !args.topicFile) {
       args.topicFile = token;
     }
@@ -178,6 +181,7 @@ async function synthesizeSegments(segments, outputDir, args) {
       geminiVoiceName: args.geminiVoice,
       elevenlabsVoiceId: args.voiceId,
       minimaxVoiceId: args.voiceId,
+      fishVoiceId: args.fishVoice,
     });
 
     // Renomear pra não conflitar entre segmentos

@@ -186,6 +186,7 @@ async function main() {
     ];
     if (args.minimaxVoice) countdownArgs.push("--voice-id", args.minimaxVoice);
     if (args.geminiVoice) countdownArgs.push("--gemini-voice", args.geminiVoice);
+    if (args.fishVoice) countdownArgs.push("--fish-voice", args.fishVoice);
 
     run(process.execPath, countdownArgs, { stdio: "inherit" });
 
