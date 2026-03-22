@@ -13,7 +13,7 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
 ## Argumentos
 
 - `$ARGUMENTS[0]`: slug do artigo ou "latest" (default: latest)
-- `$ARGUMENTS[1]`: formato visual — clean, split, pulse, stacked, ticker, poster, briefing, hottake (default: clean)
+- `$ARGUMENTS[1]`: formato visual — clean, split, pulse, stacked, ticker, poster, briefing (default: clean)
 
 ## Fluxo
 
@@ -27,7 +27,6 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
 
 3. Gere o roteiro de narração adequado ao formato:
    - **clean/split/pulse/stacked/ticker/poster/briefing**: Narração curta (60-90 palavras) no estilo mesa-redonda
-   - **hottake**: Opinião quente (50-70 palavras) com frase de impacto
 
 4. Regras para TODOS os roteiros:
    - **Tom: comentarista de mesa-redonda brasileira** — direto, opinativo, sem papas na língua, visceral
