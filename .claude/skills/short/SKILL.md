@@ -29,29 +29,57 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
    - **clean/split/pulse/stacked/ticker/poster**: Narração curta (60-90 palavras) no estilo mesa-redonda
 
 4. Regras para TODOS os roteiros:
-   - **Tom: comentarista de mesa-redonda brasileira** — direto, opinativo, sem papas na língua, visceral
+
+   **Tom e estilo:**
+   - **Comentarista de mesa-redonda brasileira** — direto, opinativo, sem papas na língua, visceral
    - Fala PARA o espectador como se estivesse numa conversa ("Ô meu amigo", "eu vou te falar", "presta atenção")
    - Usa expressões fortes: "inadmissível", "absurdo", "coitado", "isso é vergonha"
    - Toma partido, dá opinião, não fica em cima do muro — mesmo em notícias factuais
    - Linguagem coloquial e apaixonada, como torcedor que entende de bola
    - Pode usar hipérbole e dramatização controlada para engajar
-   - NÃO use abreviações numéricas (escreva "primeiro" em vez de "1º")
-   - NÃO use "x" para placares — escreva "a" (ex: "2 a 1")
-   - NÃO use "R$" — escreva por extenso ("3 milhões de reais")
-   - NÃO use asteriscos, markdown ou formatação
    - NÃO mencione o nome de nenhum comentarista real (Neto, Casagrande, etc.)
    - Comece com gancho que prende nos primeiros 3 segundos (interpelação direta ao espectador)
    - Termine com CTA curto: "Matéria completa no site. Siga o canal!"
    - Escreva APENAS a narração, sem títulos ou instruções
 
+   **Otimização para TTS (CRÍTICO — o texto vai direto pro gerador de voz):**
+   - Frases CURTAS. Máximo 15-20 palavras por frase. Quebre frases longas com ponto final.
+   - Use vírgulas generosamente — cada vírgula gera uma micro-pausa natural no áudio
+   - Use ponto final entre ideias — gera pausa maior que vírgula
+   - Use reticências "..." para pausas dramáticas antes de revelações
+   - Use "—" (travessão) para pausas de respiração no meio da frase
+   - NÃO escreva blocos longos sem pontuação — o TTS vai falar tudo corrido e fica robótico
+   - NÃO use abreviações numéricas (escreva "primeiro" em vez de "1º")
+   - NÃO use "x" para placares — escreva "a" (ex: "2 a 1")
+   - NÃO use "R$" — escreva por extenso ("3 milhões de reais")
+   - NÃO use asteriscos, markdown ou formatação
+   - NÃO use parênteses para informação complementar — quebre em frase separada
+   - Números por extenso quando possíveis (mas "16 gols" tá ok, não precisa "dezesseis")
+   - Nomes estrangeiros: escreva como se lê em português (ex: "Mêmfis Depái" em vez de "Memphis Depay")
+
+   **Exemplo de roteiro BEM formatado para TTS:**
+   ```
+   [excited] Ô meu amigo, presta atenção! O Cruzeiro tá na lanterna. Zero vitórias, quatro derrotas, dezesseis gols sofridos. [angry] É a pior defesa da Série A! E o dado mais assustador... desde 2003, todos os times nessa situação foram rebaixados. Todos! [sad] Paysandu, Avaí, Coritiba — caíram. [calm] Agora, Artur Jorge assume a missão. Vai salvar a Raposa? Matéria completa no site. Siga o canal!
+   ```
+
+   **Exemplo de roteiro MAL formatado (NÃO fazer):**
+   ```
+   Cruzeiro em alerta máximo porque a Raposa chegou à sétima rodada do Brasileirão com zero vitórias e quatro derrotas e dezesseis gols sofridos sendo a pior defesa da Série A e o dado mais assustador é que desde 2003 todos os times que chegaram a esse ponto com os mesmos números foram rebaixados como Paysandu Avaí e Coritiba que todos caíram
+   ```
+
 5. **TTS Provider**: O default é **Fish Audio**. Se o usuário pedir MiniMax, usar `--tts-provider minimax`.
 
-   **Fish Audio (DEFAULT) — emoções** (inline no texto, modelo S2-Pro):
+   **Fish Audio (DEFAULT) — controle de voz** (inline no texto, modelo S2-Pro):
    - Voz padrão: `16a44fcd0a404937bdc18160ce998619`
-   - Tags com colchetes: `[excited]`, `[whisper]`, `[sad]`, `[angry]`, `[calm]`, `[nervous]`
-   - Mais de 64 expressões disponíveis via tags naturais
+   - **Emoções** via tags `[colchetes]`: `[excited]`, `[whisper]`, `[sad]`, `[angry]`, `[calm]`, `[nervous]`
+   - Aceita descrições naturais: `[whispering softly]`, `[shouting with excitement]`, `[professional news anchor]`
    - Use 2-4 tags de emoção por roteiro, variando conforme o assunto
    - Combine a tag com o momento: `[angry]` pra polêmica, `[excited]` pra gol/virada, `[calm]` pra análise fria
+   - **Pausas**: Fish Audio NÃO tem tags de pausa — use pontuação natural:
+     - Vírgula (,) = micro-pausa
+     - Ponto (.) = pausa curta
+     - Reticências (...) = pausa dramática
+     - Travessão (—) = pausa de respiração
 
    **MiniMax (alternativo) — emoções** (param `--emotion`):
    - `happy` — gols, vitórias, comemorações
