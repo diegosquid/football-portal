@@ -20,6 +20,8 @@ import {PodcastShort} from "./PodcastShort";
 import {CountdownShort} from "./CountdownShort";
 // eslint-disable-next-line no-unused-vars
 import {DailyRecapShort} from "./DailyRecapShort";
+// eslint-disable-next-line no-unused-vars
+import {CompilationShort} from "./CompilationShort";
 
 const defaultProps = {
   slug: "demo-short",
@@ -288,6 +290,29 @@ export const RemotionRoot = () => {
           audioSrc: "renders/demo/narration.m4a",
           callToAction: "Para mais notícias de futebol, siga o canal",
           items: [],
+          durationInFrames: 1500,
+          fps: 30,
+        }}
+        calculateMetadata={({props}) => ({
+          durationInFrames: props.durationInFrames ?? 1500,
+        })}
+      />
+      <Composition
+        id="CompilationShort"
+        component={CompilationShort}
+        width={1080}
+        height={1920}
+        fps={30}
+        durationInFrames={1500}
+        defaultProps={{
+          slug: "compilation-demo",
+          title: "Top 5 Gols",
+          category: "curiosidades",
+          siteName: "Beira do Campo",
+          siteUrl: "beiradocampo.com.br",
+          followHandle: "@beiradocampotv",
+          audioSrc: "renders/demo/narration.m4a",
+          clips: [],
           durationInFrames: 1500,
           fps: 30,
         }}
