@@ -18,11 +18,12 @@ Cria shorts de compilação estilo "Top 5 gols do Ronaldinho" com clipes de víd
    - **Tema**: qual o assunto da compilação? (ex: "Top 5 gols do Ronaldinho Gaúcho")
    - **Categoria**: curiosidades, brasileirao, champions, etc.
    - **Clipes**: pra cada clipe, precisa de:
-     - Path do vídeo (mp4 local)
+     - **Source**: URL do YouTube (ex: `https://youtube.com/watch?v=xxx`) OU path de mp4 local
      - Timestamp início (M:SS)
      - Timestamp fim (M:SS)
      - Label (competição, ano — ex: "Barcelona vs Real Madrid, 2007")
      - Contexto (o que acontece no clipe — ex: "Gol de bicicleta no clássico")
+   - O script aceita URLs do YouTube automaticamente — baixa com yt-dlp e corta com ffmpeg
 
 2. Monte o slug a partir do tema (ex: `top5-gols-ronaldinho`)
 

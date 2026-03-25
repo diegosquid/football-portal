@@ -69,7 +69,67 @@ function parseTimestamp(ts) {
 }
 
 /**
- * Corta um clipe de vídeo com ffmpeg para 1080x1920 vertical
+ * Detecta se a source é uma URL do YouTube
+ */
+function isYouTubeUrl(source) {
+  return /^https?:\/\/(www\.)?(youtube\.com|youtu\.be)\//.test(source);
+}
+
+/**
+ * Baixa um trecho de vídeo do YouTube com yt-dlp
+ * Retorna o path do arquivo baixado
+ */
+function downloadYouTubeClip(url, start, end, outputPath, outputDir) {
+  const startSec = parseTimestamp(start);
+  const endSec = parseTimestamp(end);
+
+  // yt-dlp com --download-sections pra baixar só o trecho
+  const sectionArg = `*${startSec}-${endSec}`;
+  const tempPath = path.join(outputDir, `yt-temp-${Date.now()}.mp4`);
+
+  const dlArgs = [
+    "-f", "best[height<=1080][ext=mp4]/best[height<=1080]/best",
+    "--download-sections", sectionArg,
+    "--force-keyframes-at-cuts",
+    "-o", tempPath,
+    "--no-playlist",
+    "--quiet",
+    url,
+  ];
+
+  console.log(`      📥 Baixando de YouTube: ${url} [${start} → ${end}]`);
+  const result = spawnSync("yt-dlp", dlArgs, {stdio: "pipe", timeout: 120000});
+  if (result.status !== 0) {
+    const stderr = result.stderr?.toString().slice(-300) || "";
+    throw new Error(`yt-dlp download failed: ${stderr}`);
+  }
+
+  // Converter pra vertical 1080x1920 com ffmpeg
+  const ffArgs = [
+    "-i", tempPath,
+    "-c:v", "libx264",
+    "-preset", "fast",
+    "-crf", "18",
+    "-an",
+    "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920",
+    "-y",
+    outputPath,
+  ];
+
+  const ff = spawnSync("ffmpeg", ffArgs, {stdio: "pipe"});
+  if (ff.status !== 0) {
+    const stderr = ff.stderr?.toString().slice(-300) || "";
+    throw new Error(`ffmpeg convert failed: ${stderr}`);
+  }
+
+  // Limpar temp
+  if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
+
+  return outputPath;
+}
+
+/**
+ * Corta um clipe de vídeo local com ffmpeg para 1080x1920 vertical
  */
 function cutClip(sourcePath, start, end, outputPath) {
   const startSec = parseTimestamp(start);
@@ -82,7 +142,7 @@ function cutClip(sourcePath, start, end, outputPath) {
     "-c:v", "libx264",
     "-preset", "fast",
     "-crf", "18",
-    "-an", // remove áudio original
+    "-an",
     "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920",
     "-y",
     outputPath,
@@ -203,16 +263,20 @@ async function main() {
   const clipsWithPaths = [];
 
   for (const clip of compilation.clips) {
-    const sourcePath = path.resolve(clip.source);
-    if (!fs.existsSync(sourcePath)) {
-      throw new Error(`Clip não encontrado: ${sourcePath}`);
-    }
-
     const clipFilename = `clip-${clip.rank}.mp4`;
     const clipOutputPath = path.join(outputDir, clipFilename);
 
-    console.log(`   #${clip.rank}: ${path.basename(clip.source)} [${clip.start} → ${clip.end}]`);
-    cutClip(sourcePath, clip.start, clip.end, clipOutputPath);
+    if (isYouTubeUrl(clip.source)) {
+      console.log(`   #${clip.rank}: 🌐 YouTube [${clip.start} → ${clip.end}]`);
+      downloadYouTubeClip(clip.source, clip.start, clip.end, clipOutputPath, outputDir);
+    } else {
+      const sourcePath = path.resolve(clip.source);
+      if (!fs.existsSync(sourcePath)) {
+        throw new Error(`Clip não encontrado: ${sourcePath}`);
+      }
+      console.log(`   #${clip.rank}: ${path.basename(clip.source)} [${clip.start} → ${clip.end}]`);
+      cutClip(sourcePath, clip.start, clip.end, clipOutputPath);
+    }
 
     // Copiar pro Remotion assets
     copyFile(clipOutputPath, path.join(remotionAssetDir, clipFilename));
