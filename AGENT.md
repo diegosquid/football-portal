@@ -29,13 +29,14 @@ Execute na ordem. Se qualquer passo falhar, va para "Secao 12 — Erros".
 3. **Determinar tipo de artigo** — consultar Secao 3
 4. **Analisar saturacao de temas** — executar: `node scripts/analyze-topics.js 10`
    - Se um time/tema aparece em 3+ dos ultimos 10 artigos → REJEITAR pauta sobre esse time
-5. **Pesquisar noticias** — web search conforme Secao 7
-6. **Deduplicar** — conferir regras da Secao 4
-7. **Verificar fatos** — conferir regras da Secao 11
-8. **Selecionar autor** — conferir Secao 5
-9. **Gerar artigo MDX** — seguir Secoes 6, 7 e 8
-10. **Gerar imagem** — seguir Secao 9
-11. **Salvar, commitar e push** — seguir Secao 10
+5. **Pesquisar noticias ATUAIS** — web search com data de HOJE (Secao 7). OBRIGATORIO: incluir a data do dia na busca para garantir que resultados sao recentes. Nunca usar dados defasados (rodada errada, classificacao velha, resultado de dias atras como se fosse atual)
+6. **Validar atualidade dos dados** — conferir Secao 7.1
+7. **Deduplicar** — conferir regras da Secao 4
+8. **Verificar fatos** — conferir regras da Secao 11
+9. **Selecionar autor** — conferir Secao 5
+10. **Gerar artigo MDX** — seguir Secoes 6, 7 e 8
+11. **Gerar imagem** — seguir Secao 9
+12. **Salvar, commitar e push** — seguir Secao 10
 
 ---
 
@@ -78,6 +79,34 @@ Se for dia/horario de coluna fixa → o tipo e `opinion` com o autor indicado. I
 - Em dia de rodada cheia: cobrir MAX 4-5 jogos (os mais relevantes)
 - Prioridade pre-jogo: (1) Brasileirao TIER 1-2, (2) Libertadores/Copa do Brasil, (3) Champions, (4) Brasileirao TIER 3-5
 - Prioridade pos-jogo: (1) Resultados surpreendentes (zebra, goleada, virada), (2) Classicos e jogos grandes, (3) Jogos que afetam classificacao (lideranca, Z4, G4), (4) Brasileiros em destaque internacional
+
+### 3.4 VALIDACAO DE ATUALIDADE (OBRIGATORIO)
+
+Toda pesquisa e dado usado no artigo DEVE ser do dia atual. Seguir estas regras:
+
+1. **Incluir data na busca** — SEMPRE adicionar a data de hoje nas queries de pesquisa:
+   - BOM: `"brasileirao rodada 9 resultados 27/03/2026"`, `"artilharia brasileirao 2026 março"`
+   - RUIM: `"brasileirao artilharia 2026"` (pode trazer resultado de semanas atras)
+
+2. **Validar rodada atual** — antes de escrever sobre campeonatos, confirmar:
+   - Qual e a rodada atual? (pesquisar `"brasileirao rodada atual 2026"`)
+   - Quais jogos ja aconteceram? Quais faltam?
+   - A classificacao que vou usar reflete os resultados mais recentes?
+
+3. **Dados estatisticos** — artilharia, assistencias, classificacao:
+   - SEMPRE buscar com data do dia para garantir que inclui jogos recentes
+   - Se a fonte mostra dados de rodada anterior, mencionar explicitamente ("apos X rodadas")
+   - NUNCA publicar ranking/classificacao desatualizado como se fosse atual
+
+4. **Noticias e transferencias** — confirmar que a informacao e de HOJE:
+   - Verificar data de publicacao das fontes
+   - Se a noticia e de ontem ou antes, so usar se ainda for relevante E deixar claro no texto
+   - Se um evento aconteceu entre a publicacao da fonte e agora, o artigo pode estar defasado → pesquisar mais
+
+5. **Teste rapido antes de publicar:**
+   - "Os dados que estou usando refletem o estado ATUAL do campeonato/torneio?"
+   - "Aconteceu algo nas ultimas horas que invalida alguma informacao do artigo?"
+   - Se a resposta for NAO ou TALVEZ → pesquisar de novo antes de publicar
 
 ---
 
