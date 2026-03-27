@@ -1,6 +1,6 @@
 ---
 name: short
-description: Gera roteiro de narração para YouTube Shorts a partir de um artigo do portal. Cria o texto com emoções e interjeições, mostra pro usuário aprovar, salva em narration.txt e depois roda o render+upload mecânico. Suporta MiniMax e Fish Audio TTS.
+description: Gera roteiro de narração para YouTube Shorts a partir de um artigo do portal ou de um tema livre (sem artigo). Cria o texto com emoções e interjeições, mostra pro usuário aprovar, salva em narration.txt e depois roda o render+upload mecânico. Suporta MiniMax e Fish Audio TTS. Suporta vídeo de fundo (--bg-video) no lugar de imagem estática.
 user-invocable: true
 allowed-tools: Read, Grep, Glob, Bash, Edit, Write
 argument-hint: [slug-ou-latest] [formato]
@@ -12,18 +12,19 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
 
 ## Argumentos
 
-- `$ARGUMENTS[0]`: slug do artigo ou "latest" (default: latest)
+- `$ARGUMENTS[0]`: slug do artigo, "latest", ou slug livre para vídeos sem artigo (default: latest)
 - `$ARGUMENTS[1]`: formato visual — clean, split, pulse, stacked, ticker, poster (default: clean)
 
 ## Fluxo
 
 ### Fase 1: Roteiro (criativa — com aprovação do usuário)
 
-1. Resolva o slug:
+1. Resolva o slug e a fonte de conteúdo:
    - Se `$ARGUMENTS[0]` for "latest" ou vazio, descubra o artigo mais recente em `content/articles/` (ordene por data no frontmatter, pegue o mais recente que não seja draft)
-   - Caso contrário, use o slug fornecido
+   - Caso contrário, tente usar o slug fornecido como artigo em `content/articles/{slug}.mdx`
+   - **Modo sem artigo**: Se não existir artigo com esse slug, pergunte ao usuário o tema/contexto e crie o roteiro com base nisso. Nesse caso, o slug será usado apenas como identificador do vídeo.
 
-2. Leia o artigo completo em `content/articles/{slug}.mdx`
+2. Leia o artigo completo (se existir) ou use o contexto fornecido pelo usuário
 
 3. Gere o roteiro de narração adequado ao formato:
    - **clean/split/pulse/stacked/ticker/poster**: Narração curta (60-90 palavras) no estilo mesa-redonda
@@ -97,9 +98,17 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
    - Tags vão no INÍCIO ou MEIO da frase, NUNCA no final
    - Varie as emoções ao longo do roteiro para manter dinâmico
 
-7. **Título e descrição para YouTube**: Gere junto com o roteiro:
+7. **Vídeo de fundo (opcional)**: Suporta 1 ou MÚLTIPLOS vídeos. Se o usuário fornecer URLs do YouTube ou caminhos locais:
+   - Baixe cada vídeo com `yt-dlp` (se URL do YouTube): `yt-dlp -f "bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080]" --merge-output-format mp4 -o "/tmp/{slug}-source-{N}.mp4" "URL"`
+   - Corte cada trecho com `ffmpeg`: `ffmpeg -y -ss {inicio} -i /tmp/{slug}-source-{N}.mp4 -t {duracao} -c copy generated/remotion-shorts/{slug}/bg-video-{N}.mp4`
+   - A duração total dos cortes deve cobrir a narração (~60-70s para ter margem)
+   - Pergunte ao usuário o ponto de início de cada vídeo se não foi especificado
+   - Passe múltiplos `--bg-video` na linha de comando: `--bg-video clip1.mp4 --bg-video clip2.mp4`
+   - O render script concatena automaticamente com ffmpeg antes de passar pro Remotion
+
+8. **Título e descrição para YouTube**: Gere junto com o roteiro:
    - **Título**: Curto (max 70 chars), chamativo, com gancho emocional. Estilo "notícia urgente" para shorts. Pode usar emoji no início (1 no máximo). NÃO repita o título do artigo — crie algo novo e mais atraente.
-   - **Descrição**: 2-3 linhas com contexto + link do artigo + hashtags. Formato:
+   - **Descrição**: 2-3 linhas com contexto + link do artigo (se existir) + hashtags. Formato:
      ```
      {frase de contexto curta}
 
@@ -108,6 +117,7 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
 
      #futebol #brasileirao #tag1 #tag2
      ```
+   - Se não houver artigo, omita o link "Leia a matéria completa"
 
 8. Mostre ao usuário:
    - O roteiro completo (com interjeições e pausas)
@@ -116,25 +126,44 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
    - Contagem de palavras
    - Peça aprovação. Se o usuário pedir ajustes, refine até ele aprovar.
 
-### Fase 2: Salvar, Renderizar e Upload (mecânica — sem intervenção)
+### Fase 2: Renderizar (após aprovação do roteiro)
 
-9. Após aprovação, salve o roteiro:
+9. Após aprovação do roteiro, salve:
    - Crie o diretório `generated/remotion-shorts/{slug}/` se não existir
    - Salve em `generated/remotion-shorts/{slug}/narration.txt`
 
-10. Execute o render + upload com o publish script:
+10. Execute APENAS o render (SEM upload):
 
-    **Fish Audio (default — Craque Neto):**
+    **Com artigo (padrão):**
     ```bash
-    node scripts/publish-youtube-short.js {slug} --format {formato} --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider fish --fish-voice 16a44fcd0a404937bdc18160ce998619 --speed 1.0 --privacy public --thumbnail auto --title "{título}" --description "{descrição}"
+    node scripts/render-remotion-short.js {slug} --format {formato} --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider fish --fish-voice 16a44fcd0a404937bdc18160ce998619 --speed 1.0
     ```
 
-    **MiniMax (alternativo):**
+    **Sem artigo:**
     ```bash
-    node scripts/publish-youtube-short.js {slug} --format {formato} --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider minimax --minimax-voice Portuguese_Jovialman --emotion {emoção-escolhida} --speed 1.15 --privacy public --thumbnail auto --title "{título}" --description "{descrição}"
+    node scripts/render-remotion-short.js {slug} --format {formato} --title "{título}" --excerpt "{excerpt}" --category "{categoria}" --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider fish --fish-voice 16a44fcd0a404937bdc18160ce998619 --speed 1.0
     ```
 
-11. Mostre o resultado (path do vídeo, duração, URL do YouTube) baseado no manifest e youtube-upload.json gerados.
+    **Com vídeo de fundo (qualquer modo):**
+    Adicione `--bg-video generated/remotion-shorts/{slug}/bg-video.mp4` ao comando.
+
+11. Abra o vídeo renderizado para o usuário assistir:
+    ```bash
+    open "generated/remotion-shorts/{slug}/{slug}-{formato}-remotion.mp4"
+    ```
+
+12. Mostre duração e pergunte: "Ficou bom? Quer ajustar algo ou posso publicar?"
+
+### Fase 3: Upload (SOMENTE após aprovação do vídeo)
+
+13. **Só execute o upload quando o usuário explicitamente aprovar o vídeo.**
+    ```bash
+    node scripts/upload-youtube-short.js {slug} --format {formato} --privacy public --thumbnail auto --title "{título}" --description "{descrição}"
+    ```
+
+14. Mostre a URL do YouTube após o upload.
+
+**IMPORTANTE**: NUNCA pule a fase 3. Sempre espere o usuário assistir e aprovar antes de fazer upload.
 
 ## Notas
 
@@ -142,3 +171,6 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
 - **Fish Audio (default)**: emoção via tags `[excited]` inline no texto
 - **MiniMax (alternativo)**: emoção via `--emotion`, interjeições `(gasps)` e pausas `<#0.15#>` inline
 - O título e descrição passados via --title/--description sobrescrevem os defaults automáticos do upload script
+- **Modo sem artigo**: quando não existe MDX, use `--title`, `--excerpt`, `--category` no render script
+- **Vídeo de fundo**: use `--bg-video` para substituir a imagem estática — funciona com ou sem artigo
+- **Só render**: use `render-remotion-short.js` em vez de `publish-youtube-short.js` quando o usuário não quer publicar
