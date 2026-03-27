@@ -1,0 +1,27 @@
+<svg width="140" height="148" viewBox="0 0 140 148" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shield outline -->
+  <path d="M70 4 L130 20 L130 80 Q130 110 100 130 L70 148 L40 130 Q10 110 10 80 L10 20 Z"
+        fill="none" stroke="#e94560" stroke-width="5" stroke-linejoin="round"/>
+
+  <!-- Field in perspective inside shield -->
+  <g opacity="0.9">
+    <path d="M38 100 L54 42 L86 42 L102 100 Z" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.8"/>
+    <line x1="45" y1="71" x2="95" y2="71" stroke="#ffffff" stroke-width="1.5" opacity="0.6"/>
+    <ellipse cx="70" cy="71" rx="11" ry="7" stroke="#ffffff" stroke-width="1.5" opacity="0.6"/>
+    <circle cx="70" cy="71" r="2" fill="#ffffff" opacity="0.7"/>
+    <path d="M60 42 L63 52 L77 52 L80 42" stroke="#ffffff" stroke-width="1.2" fill="none" opacity="0.5"/>
+    <path d="M50 100 L56 82 L84 82 L90 100" stroke="#ffffff" stroke-width="1.2" fill="none" opacity="0.5"/>
+  </g>
+
+  <!-- Red swoosh/ribbon -->
+  <path d="M8 88 Q30 72 55 82 Q80 92 105 76 Q120 68 134 74"
+        stroke="#e94560" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M8 88 Q30 72 55 82 Q80 92 105 76 Q120 68 134 74"
+        stroke="#e94560" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.5" transform="translate(0,4)"/>
+
+  <!-- Star -->
+  <g transform="translate(118, 2)">
+    <polygon points="8,0 10,6 16,6 11,10 13,16 8,12 3,16 5,10 0,6 6,6"
+             fill="#ffffff" opacity="0.9" transform="scale(0.7)"/>
+  </g>
+</svg>

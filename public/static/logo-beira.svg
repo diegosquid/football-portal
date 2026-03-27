@@ -1,0 +1,21 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer border -->
+  <rect x="4" y="4" width="112" height="112" rx="22" fill="#e94560"/>
+  <!-- Inner dark bg -->
+  <rect x="8" y="8" width="104" height="104" rx="18" fill="#1a1a2e"/>
+  <!-- Field in perspective (trapezoid) -->
+  <path d="M24 90L42 38H78L96 90Z" stroke="#e94560" stroke-width="2.2" fill="none"/>
+  <!-- Center line -->
+  <line x1="33" y1="64" x2="87" y2="64" stroke="#e94560" stroke-width="1.8" opacity="0.6"/>
+  <!-- Center circle -->
+  <ellipse cx="60" cy="64" rx="12" ry="8" stroke="#e94560" stroke-width="1.8" opacity="0.6"/>
+  <!-- Center dot -->
+  <circle cx="60" cy="64" r="2.5" fill="#e94560"/>
+  <!-- Penalty areas -->
+  <path d="M38 90L46 70H74L82 90" stroke="#e94560" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M48 38L52 48H68L72 38" stroke="#e94560" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <!-- "You are here" pulse at the sideline -->
+  <circle cx="60" cy="98" r="4" fill="#e94560" opacity="0.8"/>
+  <circle cx="60" cy="98" r="7" stroke="#e94560" stroke-width="1" opacity="0.4"/>
+  <circle cx="60" cy="98" r="10" stroke="#e94560" stroke-width="0.7" opacity="0.2"/>
+</svg>
