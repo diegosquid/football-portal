@@ -504,7 +504,13 @@ async function addVideoToPlaylist({accessToken, videoId, playlistId}) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const slug = resolveSlug(args);
-  const article = loadArticle(slug);
+  let article;
+  try {
+    article = loadArticle(slug);
+  } catch (_err) {
+    console.log("📝 Modo sem artigo — usando dados do CLI");
+    article = { data: { title: args.title || slug, excerpt: args.description || "", category: "noticias", tags: [] } };
+  }
   const outputDir = resolveOutputDir(slug);
   const manifestPath = path.join(outputDir, "manifest.json");
   const manifest = readJsonIfExists(manifestPath);

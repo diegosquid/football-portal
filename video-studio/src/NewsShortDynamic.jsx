@@ -3,6 +3,7 @@ import {
   AbsoluteFill,
   Audio,
   Img,
+  OffthreadVideo,
   interpolate,
   spring,
   staticFile,
@@ -10,6 +11,27 @@ import {
   useVideoConfig,
 } from "remotion";
 import {FollowEndCard} from "./FollowEndCard";
+
+const BgMedia = ({imageSrc, videoSrc, style}) => {
+  if (videoSrc) {
+    return (
+      <OffthreadVideo
+        src={staticFile(videoSrc)}
+        style={style}
+        muted
+      />
+    );
+  }
+  if (imageSrc) {
+    return (
+      <Img
+        src={staticFile(imageSrc)}
+        style={style}
+      />
+    );
+  }
+  return null;
+};
 
 const palette = {
   bg: "#06131d",
@@ -109,6 +131,7 @@ export const NewsShortDynamic = (props) => {
     siteName,
     followHandle,
     imageSrc,
+    videoSrc,
     audioSrc,
     callToAction,
     followCallToAction,
@@ -170,14 +193,15 @@ export const NewsShortDynamic = (props) => {
     >
       <Audio src={staticFile(audioSrc)} />
 
-      {/* ── Background: full image with aggressive Ken Burns ── */}
+      {/* ── Background: full image/video with aggressive Ken Burns ── */}
       <AbsoluteFill
         style={{
-          transform: `scale(${imgZoom}) translate(${imgPanX}px, ${imgPanY}px)`,
+          transform: videoSrc ? undefined : `scale(${imgZoom}) translate(${imgPanX}px, ${imgPanY}px)`,
         }}
       >
-        <Img
-          src={staticFile(imageSrc)}
+        <BgMedia
+          imageSrc={imageSrc}
+          videoSrc={videoSrc}
           style={{width: "100%", height: "100%", objectFit: "cover"}}
         />
       </AbsoluteFill>

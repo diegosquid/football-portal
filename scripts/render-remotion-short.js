@@ -43,6 +43,8 @@ const FORMAT_MAP = {
   versus: "NewsShortVersus",
   top3: "CountdownShort",
   dynamic: "NewsShortDynamic",
+  card: "NewsShortCard",
+  showcase: "ShowcaseShort",
 };
 
 function parseArgs(argv) {
@@ -51,6 +53,10 @@ function parseArgs(argv) {
     latest: false,
     format: "clean",
     image: null,
+    bgVideos: [],
+    title: null,
+    excerpt: null,
+    category: null,
     narrationFile: null,
     aiNarration: false,
     ttsProvider: "auto",
@@ -62,6 +68,9 @@ function parseArgs(argv) {
     rate: DEFAULT_RATE,
     emotion: null,
     speed: null,
+    bottomImage: null,
+    centerText: null,
+    cardPosition: null,
   };
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -73,6 +82,18 @@ function parseArgs(argv) {
       i += 1;
     } else if (token === "--image") {
       args.image = argv[i + 1];
+      i += 1;
+    } else if (token === "--bg-video") {
+      args.bgVideos.push(argv[i + 1]);
+      i += 1;
+    } else if (token === "--title") {
+      args.title = argv[i + 1];
+      i += 1;
+    } else if (token === "--excerpt") {
+      args.excerpt = argv[i + 1];
+      i += 1;
+    } else if (token === "--category") {
+      args.category = argv[i + 1];
       i += 1;
     } else if (token === "--ai-narration") {
       args.aiNarration = true;
@@ -106,6 +127,15 @@ function parseArgs(argv) {
     } else if (token === "--speed") {
       args.speed = parseFloat(argv[i + 1]);
       i += 1;
+    } else if (token === "--bottom-image") {
+      args.bottomImage = argv[i + 1];
+      i += 1;
+    } else if (token === "--center-text") {
+      args.centerText = argv[i + 1];
+      i += 1;
+    } else if (token === "--card-position") {
+      args.cardPosition = argv[i + 1];
+      i += 1;
     } else if (!token.startsWith("--") && !args.slug) {
       args.slug = token;
     }
@@ -127,8 +157,28 @@ async function main() {
     throw new Error(`Unknown format "${args.format}". Use one of: ${Object.keys(FORMAT_MAP).join(", ")}`);
   }
   const slug = args.slug || (args.latest ? getLatestArticleSlug() : getLatestArticleSlug());
-  const article = loadArticle(slug);
-  const author = resolveAuthor(article.data.author);
+
+  // Modo sem artigo: quando tem --narration-file + --title, artigo é opcional
+  const articleOptional = args.narrationFile && args.title;
+  let article, author;
+  try {
+    article = loadArticle(slug);
+    author = resolveAuthor(article.data.author);
+  } catch (err) {
+    if (!articleOptional) throw err;
+    console.log("📝 Modo sem artigo — usando dados do CLI");
+    article = {
+      data: {
+        title: args.title || slug,
+        excerpt: args.excerpt || "",
+        category: args.category || "noticias",
+        author: "renato-caldeira",
+      },
+      content: "",
+      body: "",
+    };
+    author = resolveAuthor(article.data.author);
+  }
 
   const outputDir = path.join(GENERATED_ROOT, slug);
   const remotionAssetDir = path.join(VIDEO_STUDIO_DIR, "public", "renders", slug);
@@ -200,7 +250,21 @@ async function main() {
     return;
   }
 
-  const imagePath = resolveImage(article, outputDir, args.image);
+  // Imagem opcional quando tem vídeo de fundo
+  let imagePath;
+  if (args.bgVideos.length > 0 && !args.image) {
+    // Criar placeholder transparente 1x1 pra não quebrar o Remotion
+    imagePath = path.join(outputDir, "source.png");
+    if (!fs.existsSync(imagePath)) {
+      const {execSync} = require("child_process");
+      execSync(`ffmpeg -y -f lavfi -i color=c=black@0:s=1x1 -frames:v 1 "${imagePath}" 2>/dev/null || true`);
+      // fallback: arquivo vazio
+      if (!fs.existsSync(imagePath)) fs.writeFileSync(imagePath, "");
+    }
+    console.log("🎥 Usando vídeo de fundo — imagem de placeholder");
+  } else {
+    imagePath = resolveImage(article, outputDir, args.image);
+  }
   let narration;
   let versusData = null;
   if (args.narrationFile) {
@@ -222,7 +286,7 @@ async function main() {
   } else {
     narration = buildNarration(article);
   }
-  const highlights = buildHighlights(article);
+  const highlights = article.body ? buildHighlights(article) : [String(args.title || article.data.title || "")];
 
   const narrationTextPath = path.join(outputDir, "narration.txt");
   const propsPath = path.join(outputDir, "input-props.json");
@@ -255,25 +319,80 @@ async function main() {
   copyFile(imagePath, path.join(remotionAssetDir, copiedImageName));
   copyFile(finalAudioPath, path.join(remotionAssetDir, copiedAudioName));
 
+  // Copiar/concatenar vídeo(s) de fundo se fornecido(s)
+  let copiedVideoName = null;
+  if (args.bgVideos.length > 0) {
+    copiedVideoName = "bg-video.mp4";
+    const destPath = path.join(remotionAssetDir, copiedVideoName);
+
+    for (const v of args.bgVideos) {
+      const p = path.resolve(v);
+      if (!fs.existsSync(p)) {
+        console.error(`❌ Vídeo de fundo não encontrado: ${p}`);
+        process.exit(1);
+      }
+    }
+
+    if (args.bgVideos.length === 1) {
+      copyFile(path.resolve(args.bgVideos[0]), destPath);
+      console.log(`🎥 Vídeo de fundo copiado: ${copiedVideoName}`);
+    } else {
+      console.log(`🎥 Concatenando ${args.bgVideos.length} vídeos de fundo...`);
+      const concatListPath = path.join(remotionAssetDir, "concat-list.txt");
+      const concatContent = args.bgVideos
+        .map((v) => `file '${path.resolve(v)}'`)
+        .join("\n");
+      fs.writeFileSync(concatListPath, concatContent);
+      run("ffmpeg", [
+        "-y", "-f", "concat", "-safe", "0",
+        "-i", concatListPath,
+        "-c", "copy",
+        destPath,
+      ]);
+      fs.unlinkSync(concatListPath);
+      console.log(`🎥 ${args.bgVideos.length} vídeos concatenados em: ${copiedVideoName}`);
+    }
+  }
+
+  // Copiar bottom image se fornecida (formato showcase)
+  let copiedBottomImageName = null;
+  if (args.bottomImage) {
+    const bottomPath = path.resolve(args.bottomImage);
+    if (!fs.existsSync(bottomPath)) {
+      console.error(`❌ Imagem inferior não encontrada: ${bottomPath}`);
+      process.exit(1);
+    }
+    const ext = path.extname(bottomPath) || ".jpg";
+    copiedBottomImageName = `bottom${ext}`;
+    copyFile(bottomPath, path.join(remotionAssetDir, copiedBottomImageName));
+    console.log(`🖼️  Imagem inferior copiada: ${copiedBottomImageName}`);
+  }
+
   const durationSeconds = getMediaDuration(finalAudioPath);
   const durationInFrames = Math.ceil(durationSeconds * FPS) + 12;
 
   const props = {
     slug,
-    title: String(article.data.title || ""),
-    excerpt: String(article.data.excerpt || ""),
-    category: String(article.data.category || ""),
+    title: String(args.title || article.data.title || ""),
+    excerpt: String(args.excerpt || article.data.excerpt || ""),
+    category: String(args.category || article.data.category || ""),
     authorName: author.name,
     micHandle: author.micHandle,
     siteName: SITE_NAME,
     siteUrl: SITE_URL,
     imageSrc: `renders/${slug}/${copiedImageName}`,
+    ...(copiedVideoName ? { videoSrc: `renders/${slug}/${copiedVideoName}` } : {}),
     audioSrc: `renders/${slug}/${copiedAudioName}`,
-    callToAction: format === "hottake" ? "Concorda? Comenta aí!" : format === "versus" ? "Quem leva? Comenta!" : "Leia a matéria completa no site",
+    callToAction: articleOptional && !article.slug
+      ? "" // sem artigo = sem CTA de "leia a matéria"
+      : format === "hottake" ? "Concorda? Comenta aí!" : format === "versus" ? "Quem leva? Comenta!" : "Leia a matéria completa no site",
     followCallToAction: format === "hottake" ? "Para mais opiniões quentes, siga o canal" : format === "versus" ? "Para mais duelos, siga o canal" : "Para mais notícias de futebol, siga o canal",
     followHandle: "@beiradocampotv",
     highlights,
     ...(versusData ? { versusData } : {}),
+    ...(copiedBottomImageName ? { bottomImageSrc: `renders/${slug}/${copiedBottomImageName}` } : {}),
+    ...(args.centerText ? { centerText: args.centerText } : {}),
+    ...(args.cardPosition ? { cardPosition: args.cardPosition } : {}),
     format,
     durationInFrames,
     fps: FPS,

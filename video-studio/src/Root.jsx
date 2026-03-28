@@ -22,6 +22,8 @@ import {CountdownShort} from "./CountdownShort";
 import {DailyRecapShort} from "./DailyRecapShort";
 // eslint-disable-next-line no-unused-vars
 import {CompilationShort} from "./CompilationShort";
+// eslint-disable-next-line no-unused-vars
+import {ShowcaseShort} from "./ShowcaseShort";
 
 const defaultProps = {
   slug: "demo-short",
@@ -295,6 +297,24 @@ export const RemotionRoot = () => {
         }}
         calculateMetadata={({props}) => ({
           durationInFrames: props.durationInFrames ?? 1500,
+        })}
+      />
+      <Composition
+        id="ShowcaseShort"
+        component={ShowcaseShort}
+        width={1080}
+        height={1920}
+        fps={30}
+        durationInFrames={900}
+        defaultProps={{
+          ...defaultProps,
+          bottomImageSrc: "renders/demo/bottom.jpg",
+          centerText: "Showcase Title",
+          cardPosition: "center",
+          callToAction: "",
+        }}
+        calculateMetadata={({props}) => ({
+          durationInFrames: props.durationInFrames ?? 900,
         })}
       />
       <Composition
