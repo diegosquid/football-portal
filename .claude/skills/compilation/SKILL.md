@@ -81,7 +81,7 @@ Cria shorts de compilação estilo "Top 5 gols do Ronaldinho" com clipes de víd
 
 7. Execute o render:
    ```bash
-   node scripts/render-compilation-short.js generated/compilation-shorts/{slug}/compilation.json --tts-provider fish --fish-voice 16a44fcd0a404937bdc18160ce998619
+   node scripts/render-compilation-short.js generated/compilation-shorts/{slug}/compilation.json --tts-provider fish --fish-voice 0865d7b8e1c2458bac16a7ad1179a4c5
    ```
 
 8. Mostre o resultado (path do vídeo, duração).

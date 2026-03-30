@@ -34,7 +34,7 @@ function parseArgs(argv) {
   const args = {
     compilationFile: null,
     ttsProvider: "fish",
-    fishVoice: process.env.FISH_VOICE_DEFAULT || "16a44fcd0a404937bdc18160ce998619",
+    fishVoice: process.env.FISH_VOICE_DEFAULT || "0865d7b8e1c2458bac16a7ad1179a4c5",
     minimaxVoice: "Portuguese_Jovialman",
     geminiVoice: process.env.GEMINI_TTS_VOICE || "Kore",
   };

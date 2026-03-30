@@ -71,7 +71,7 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
 5. **TTS Provider**: O default é **Fish Audio**. Se o usuário pedir MiniMax, usar `--tts-provider minimax`.
 
    **Fish Audio (DEFAULT) — controle de voz** (inline no texto, modelo S2-Pro):
-   - Voz padrão: `16a44fcd0a404937bdc18160ce998619`
+   - Voz padrão (voz diego): `0865d7b8e1c2458bac16a7ad1179a4c5`
    - **Emoções** via tags `[colchetes]`: `[excited]`, `[whisper]`, `[sad]`, `[angry]`, `[calm]`, `[nervous]`
    - Aceita descrições naturais: `[whispering softly]`, `[shouting with excitement]`, `[professional news anchor]`
    - Use 2-4 tags de emoção por roteiro, variando conforme o assunto
@@ -136,12 +136,12 @@ Gere um roteiro de narração para short e depois renderize o vídeo.
 
     **Com artigo (padrão):**
     ```bash
-    node scripts/render-remotion-short.js {slug} --format {formato} --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider fish --fish-voice 16a44fcd0a404937bdc18160ce998619 --speed 1.0
+    node scripts/render-remotion-short.js {slug} --format {formato} --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider fish --fish-voice 0865d7b8e1c2458bac16a7ad1179a4c5 --speed 1.0
     ```
 
     **Sem artigo:**
     ```bash
-    node scripts/render-remotion-short.js {slug} --format {formato} --title "{título}" --excerpt "{excerpt}" --category "{categoria}" --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider fish --fish-voice 16a44fcd0a404937bdc18160ce998619 --speed 1.0
+    node scripts/render-remotion-short.js {slug} --format {formato} --title "{título}" --excerpt "{excerpt}" --category "{categoria}" --narration-file generated/remotion-shorts/{slug}/narration.txt --tts-provider fish --fish-voice 0865d7b8e1c2458bac16a7ad1179a4c5 --speed 1.0
     ```
 
     **Com vídeo de fundo (qualquer modo):**
