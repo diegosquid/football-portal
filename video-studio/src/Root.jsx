@@ -10,6 +10,7 @@ import {NewsShortBriefing} from "./NewsShortBriefing";
 import {NewsShortHotTake} from "./NewsShortHotTake";
 import {NewsShortVersus} from "./NewsShortVersus";
 import {NewsShortDynamic} from "./NewsShortDynamic";
+import {NewsShortCard} from "./NewsShortCard";
 // eslint-disable-next-line no-unused-vars
 import {LongformVideo} from "./LongformVideo";
 // eslint-disable-next-line no-unused-vars
@@ -168,6 +169,18 @@ export const RemotionRoot = () => {
       <Composition
         id="NewsShortDynamic"
         component={NewsShortDynamic}
+        width={1080}
+        height={1920}
+        fps={30}
+        durationInFrames={900}
+        defaultProps={defaultProps}
+        calculateMetadata={({props}) => ({
+          durationInFrames: props.durationInFrames ?? 900,
+        })}
+      />
+      <Composition
+        id="NewsShortCard"
+        component={NewsShortCard}
         width={1080}
         height={1920}
         fps={30}

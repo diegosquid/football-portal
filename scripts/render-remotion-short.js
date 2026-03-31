@@ -67,7 +67,7 @@ function parseArgs(argv) {
     fishVoice: null,
     rate: DEFAULT_RATE,
     emotion: null,
-    speed: null,
+    speed: 1.1,
     bottomImage: null,
     centerText: null,
     cardPosition: null,
