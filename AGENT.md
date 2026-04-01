@@ -32,7 +32,7 @@ Execute na ordem. Se qualquer passo falhar, va para "Secao 12 — Erros".
 5. **Pesquisar noticias ATUAIS** — web search com data de HOJE (Secao 7). OBRIGATORIO: incluir a data do dia na busca para garantir que resultados sao recentes. Nunca usar dados defasados (rodada errada, classificacao velha, resultado de dias atras como se fosse atual)
 6. **Validar atualidade dos dados** — conferir Secao 7.1
 7. **Deduplicar** — conferir regras da Secao 4
-8. **Verificar fatos** — conferir regras da Secao 11
+8. **Verificar fatos** — conferir Secao 11. Para pos-jogo: OBRIGATORIO executar protocolo 11.1 (3 buscas + 3 fontes + validar resultado final)
 9. **Selecionar autor** — conferir Secao 5
 10. **Gerar artigo MDX** — seguir Secoes 6, 7 e 8
 11. **Gerar imagem** — seguir Secao 9
@@ -484,9 +484,50 @@ STATUS: OK | ERRO: [descricao]
 
 ANTES de publicar, verificar OBRIGATORIAMENTE:
 
+### 11.1 HARDENING DE RESULTADO (pos-jogo) — PROTOCOLO OBRIGATORIO
+
+**Nunca escrever o artigo pos-jogo sem executar este protocolo completo:**
+
+**Passo 1 — 3 buscas independentes com queries diferentes**
+
+Executar ao menos 3 queries separadas para o mesmo jogo:
+- Query A: `"[TimeA] [TimeB] resultado [DD/MM/YYYY]"`
+- Query B: `"[TimeA] x [TimeB] placar final [competicao] 2026"`
+- Query C: buscar diretamente em ge.globo.com OU espn.com.br OU lance.com.br
+
+**Passo 2 — Confirmar em 3 fontes TIER 1 independentes**
+
+As 3 fontes devem concordar no mesmo placar. Fontes validas (usar fontes DIFERENTES, nao variantes do mesmo conteudo):
+- ge.globo.com
+- espn.com.br
+- gazetaesportiva.com
+- lance.com.br
+- sites oficiais dos clubes ou federacoes (CBF, Brasileirao, etc.)
+
+**Passo 3 — Validar que o resultado e FINAL**
+
+- Confirmar indicacao de termino: "FT", "Fim de jogo", "Resultado final", horario de encerramento
+- NAO usar: placar ao vivo, resultado do intervalo, tweet antes do apito final
+- Se a ultima atualizacao da fonte e mais de 1h apos o horario previsto do jogo → provavelmente e final, mas ainda confirmar
+
+**Passo 4 — Regra de divergencia**
+
+- Se 2 fontes mostram placares diferentes → ABORTAR o artigo
+- Registrar no log: `STATUS: ERRO - Fontes divergentes sobre resultado. Aguardando confirmacao.`
+- NAO publicar ate que todas as fontes consultadas concordem
+
+**Passo 5 — Confirmar autores dos gols**
+
+- Os gols listados devem aparecer em ao menos 2 fontes com nomes E minutos concordantes
+- Se uma fonte lista gol de jogador X e outra lista jogador Y → apurar antes de publicar
+
+---
+
+### 11.2 Checklist por tipo
+
 ### Para pos-jogo:
-- [ ] Resultado confirmado em 2+ fontes
-- [ ] Autores de gols corretos
+- [ ] Protocolo 11.1 executado (3 buscas, 3 fontes, resultado final confirmado)
+- [ ] Autores de gols corretos (2+ fontes concordando)
 - [ ] Cartoes e substituicoes verificados
 - [ ] Estadio e publico corretos
 
