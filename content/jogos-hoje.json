@@ -1,6 +1,6 @@
 {
   "date": "2026-04-13",
-  "updatedAt": "2026-04-13T10:00:00-03:00",
+  "updatedAt": "2026-04-13T12:10:22-03:00",
   "games": [
     {
       "time": "07:00",
@@ -12,12 +12,21 @@
       "stadium": ""
     },
     {
+      "time": "11:45",
+      "home": "Al Ahli",
+      "away": "Al Duhail",
+      "competition": "Copa dos Campeões da Ásia Elite",
+      "round": "Oitavas de Final",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
       "time": "15:00",
       "home": "Al Sadd",
       "away": "Al Hilal",
       "competition": "Copa dos Campeões da Ásia Elite",
-      "round": "",
-      "channel": "ESPN 4",
+      "round": "Oitavas de Final",
+      "channel": "ESPN 4 / Disney+",
       "stadium": ""
     },
     {
@@ -35,7 +44,7 @@
       "away": "Lazio",
       "competition": "Campeonato Italiano",
       "round": "",
-      "channel": "Disney+ / xSports",
+      "channel": "Disney+ / XSports",
       "stadium": ""
     },
     {
@@ -44,7 +53,7 @@
       "away": "Getafe",
       "competition": "La Liga",
       "round": "",
-      "channel": "ESPN 3",
+      "channel": "ESPN 3 / Disney+",
       "stadium": ""
     },
     {
@@ -53,7 +62,7 @@
       "away": "Leeds United",
       "competition": "Premier League",
       "round": "",
-      "channel": "ESPN",
+      "channel": "ESPN / Disney+",
       "stadium": "Old Trafford"
     },
     {
@@ -61,6 +70,15 @@
       "home": "Defensa y Justicia",
       "away": "Talleres",
       "competition": "Campeonato Argentino",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "16:15",
+      "home": "Tondela",
+      "away": "Gil Vicente",
+      "competition": "Campeonato Português",
       "round": "",
       "channel": "Disney+",
       "stadium": ""
