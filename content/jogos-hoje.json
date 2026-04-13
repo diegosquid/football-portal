@@ -1,6 +1,6 @@
 {
   "date": "2026-04-13",
-  "updatedAt": "2026-04-13T12:10:22-03:00",
+  "updatedAt": "2026-04-13T14:30:00-03:00",
   "games": [
     {
       "time": "07:00",
@@ -61,7 +61,7 @@
       "home": "Manchester United",
       "away": "Leeds United",
       "competition": "Premier League",
-      "round": "",
+      "round": "Rodada 32",
       "channel": "ESPN / Disney+",
       "stadium": "Old Trafford"
     },
@@ -88,9 +88,9 @@
       "home": "Figueirense",
       "away": "Maringá",
       "competition": "Brasileirão Série C",
-      "round": "",
+      "round": "Rodada 2",
       "channel": "SportyNet / Canal do Benja",
-      "stadium": ""
+      "stadium": "Orlando Scarpelli"
     },
     {
       "time": "20:00",
