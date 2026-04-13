@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "hourly", priority: 1.0 },
+    { url: `${baseUrl}/jogos-futebol-hoje`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.9 },
     { url: `${baseUrl}/sobre`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
   ];
 
@@ -54,6 +55,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }));
   });
 
+  // Times "hoje" — /jogos-futebol-hoje/[team]
+  const teamHojePages: MetadataRoute.Sitemap = getAllTeams().map((team) => ({
+    url: `${baseUrl}/jogos-futebol-hoje/${team.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "hourly" as const,
+    priority: 0.85,
+  }));
+
   // Times — página 1
   const teamPages: MetadataRoute.Sitemap = getAllTeams().map((team) => ({
     url: `${baseUrl}/time/${team.slug}`,
@@ -90,6 +99,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...categoryPaginatedPages,
     ...authorPages,
     ...authorPaginatedPages,
+    ...teamHojePages,
     ...teamPages,
     ...teamPaginatedPages,
     ...articlePages,

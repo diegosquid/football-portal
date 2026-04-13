@@ -1153,7 +1153,55 @@ SE existe jogo que TERMINOU (hora_atual >= hora_jogo + 2h):
 3. Jogos que afetam muito a classificacao (lideranca, Z4, G4)
 4. Jogos com brasileiros em destaque (Champions, etc.)
 
-### 10.4 Cobertura de Rodada
+### 10.4 Atualizacao da Pagina "Jogos de Futebol Hoje"
+
+A pagina `/jogos-futebol-hoje` lista todos os jogos do dia com horarios, canais e competicoes. O arquivo de dados e `content/jogos-hoje.json`.
+
+**Quando atualizar:**
+- Na PRIMEIRA execucao do dia (entre 06:00 e 08:00 BRT): atualizar OBRIGATORIAMENTE
+- Se houver jogos no periodo da tarde/noite, atualizar novamente entre 12:00-14:00
+
+**Como atualizar:**
+
+1. Pesquisar na web: "jogos de futebol hoje [data]", "futebol na tv hoje", "programacao futebol hoje"
+2. Coletar TODOS os jogos do dia com:
+   - Horario (formato HH:MM, fuso Brasilia)
+   - Time mandante e visitante
+   - Competicao (nome completo)
+   - Rodada (se aplicavel)
+   - Canal de transmissao (TV aberta, fechada, streaming)
+   - Estadio (se disponivel)
+3. Montar JSON no formato:
+```json
+{
+  "date": "YYYY-MM-DD",
+  "updatedAt": "ISO 8601 com timezone -03:00",
+  "games": [
+    {
+      "time": "HH:MM",
+      "home": "Time Mandante",
+      "away": "Time Visitante",
+      "competition": "Nome da Competicao",
+      "round": "Rodada X",
+      "channel": "Canal1 / Canal2",
+      "stadium": "Nome do Estadio"
+    }
+  ]
+}
+```
+4. Salvar em `content/jogos-hoje.json`
+5. Fazer commit: `git add content/jogos-hoje.json && git commit -m "data(jogos-hoje): atualiza programação [data]"`
+
+**Prioridade de competicoes a incluir:**
+1. Brasileirao (Serie A, B, C)
+2. Copa do Brasil
+3. Libertadores / Sul-Americana
+4. Champions League / Europa League
+5. Premier League, La Liga, Serie A, Bundesliga, Ligue 1
+6. Campeonato Argentino, Uruguaio, outros sul-americanos
+7. Outras competicoes com transmissao no Brasil
+
+### 10.5 Cobertura de Rodada
 
 ```
 SE todos os jogos da rodada terminaram:
