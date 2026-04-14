@@ -1,15 +1,33 @@
 {
   "date": "2026-04-14",
-  "updatedAt": "2026-04-14T09:00:00-03:00",
+  "updatedAt": "2026-04-14T09:30:00-03:00",
   "games": [
     {
-      "time": "16:00",
-      "home": "Liverpool",
-      "away": "PSG",
-      "competition": "UEFA Champions League",
-      "round": "Quartas de Final - 2ª Mão",
-      "channel": "TNT Sports / Max",
-      "stadium": "Anfield"
+      "time": "15:00",
+      "home": "Al Ittihad",
+      "away": "Al Wahda",
+      "competition": "AFC Champions League",
+      "round": "Oitavas de Final",
+      "channel": "ESPN 3 / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "15:00",
+      "home": "Al Qadsiah",
+      "away": "Al Shabab",
+      "competition": "Campeonato Saudita",
+      "round": "",
+      "channel": "Canal GOAT",
+      "stadium": ""
+    },
+    {
+      "time": "15:00",
+      "home": "Inglaterra",
+      "away": "Espanha",
+      "competition": "Eliminatórias Europeias - Copa do Mundo Feminina 2027",
+      "round": "",
+      "channel": "ESPN 4 / Disney+",
+      "stadium": ""
     },
     {
       "time": "16:00",
@@ -17,26 +35,44 @@
       "away": "Barcelona",
       "competition": "UEFA Champions League",
       "round": "Quartas de Final - 2ª Mão",
-      "channel": "ESPN / Disney+",
+      "channel": "SBT / TNT / Max",
       "stadium": "Estádio Metropolitano"
     },
     {
-      "time": "19:00",
-      "home": "São Paulo",
-      "away": "O'Higgins",
-      "competition": "Copa Sul-Americana",
-      "round": "Fase de Grupos - Rodada 2",
-      "channel": "Disney+",
-      "stadium": "Estádio do Morumbis"
+      "time": "16:00",
+      "home": "Liverpool",
+      "away": "PSG",
+      "competition": "UEFA Champions League",
+      "round": "Quartas de Final - 2ª Mão",
+      "channel": "Max",
+      "stadium": "Anfield"
+    },
+    {
+      "time": "16:00",
+      "home": "Portsmouth",
+      "away": "Ipswich Town",
+      "competition": "Campeonato Inglês - Segunda Divisão",
+      "round": "",
+      "channel": "ESPN 2 / Disney+",
+      "stadium": ""
     },
     {
       "time": "19:00",
-      "home": "Grêmio",
-      "away": "Deportivo Riestra",
-      "competition": "Copa Sul-Americana",
+      "home": "Cerro Porteño",
+      "away": "Junior Barranquilla",
+      "competition": "Copa Libertadores",
       "round": "Fase de Grupos - Rodada 2",
       "channel": "Paramount+",
-      "stadium": "Arena do Grêmio"
+      "stadium": ""
+    },
+    {
+      "time": "19:00",
+      "home": "Estudiantes",
+      "away": "Cusco FC",
+      "competition": "Copa Libertadores",
+      "round": "Fase de Grupos - Rodada 2",
+      "channel": "ESPN 4 / Disney+",
+      "stadium": "Estadio UNO Jorge Luis Hirschi"
     },
     {
       "time": "19:00",
@@ -49,30 +85,21 @@
     },
     {
       "time": "19:00",
-      "home": "Cerro Porteño",
-      "away": "Junior",
-      "competition": "Copa Libertadores",
-      "round": "Fase de Grupos - Rodada 2",
-      "channel": "Paramount+",
-      "stadium": ""
-    },
-    {
-      "time": "19:00",
-      "home": "Estudiantes",
-      "away": "Cusco FC",
-      "competition": "Copa Libertadores",
-      "round": "Fase de Grupos - Rodada 2",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estadio UNO Jorge Luis Hirschi"
-    },
-    {
-      "time": "21:00",
-      "home": "Vasco",
-      "away": "Audax Italiano",
+      "home": "Grêmio",
+      "away": "Deportivo Riestra",
       "competition": "Copa Sul-Americana",
       "round": "Fase de Grupos - Rodada 2",
       "channel": "Paramount+",
-      "stadium": "São Januário"
+      "stadium": "Arena do Grêmio"
+    },
+    {
+      "time": "19:00",
+      "home": "São Paulo",
+      "away": "O'Higgins",
+      "competition": "Copa Sul-Americana",
+      "round": "Fase de Grupos - Rodada 2",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio do Morumbis"
     },
     {
       "time": "21:00",
@@ -89,17 +116,17 @@
       "away": "Deportivo La Guaira",
       "competition": "Copa Libertadores",
       "round": "Fase de Grupos - Rodada 2",
-      "channel": "ESPN / Disney+",
+      "channel": "ESPN 4 / Disney+",
       "stadium": ""
     },
     {
-      "time": "21:30",
-      "home": "Santos",
-      "away": "Deportivo Recoleta",
+      "time": "21:00",
+      "home": "Vasco",
+      "away": "Audax Italiano",
       "competition": "Copa Sul-Americana",
       "round": "Fase de Grupos - Rodada 2",
-      "channel": "SBT / ESPN",
-      "stadium": "Vila Belmiro"
+      "channel": "Paramount+",
+      "stadium": "São Januário"
     },
     {
       "time": "21:30",
@@ -111,6 +138,42 @@
       "stadium": ""
     },
     {
+      "time": "21:30",
+      "home": "Santos",
+      "away": "Deportivo Recoleta",
+      "competition": "Copa Sul-Americana",
+      "round": "Fase de Grupos - Rodada 2",
+      "channel": "SBT / ESPN / Disney+",
+      "stadium": "Vila Belmiro"
+    },
+    {
+      "time": "22:00",
+      "home": "Colômbia",
+      "away": "Chile",
+      "competition": "Eliminatórias Sul-Americanas - Copa do Mundo Feminina 2027",
+      "round": "",
+      "channel": "Xsports",
+      "stadium": ""
+    },
+    {
+      "time": "22:00",
+      "home": "Cruz Azul",
+      "away": "Los Angeles FC",
+      "competition": "Concacaf Champions League",
+      "round": "Quartas de Final",
+      "channel": "ESPN 2 / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "22:30",
+      "home": "Brasil",
+      "away": "Zâmbia",
+      "competition": "FIFA Series 2026",
+      "round": "",
+      "channel": "SporTV",
+      "stadium": ""
+    },
+    {
       "time": "23:00",
       "home": "LDU Quito",
       "away": "Mirassol",
@@ -118,6 +181,24 @@
       "round": "Fase de Grupos - Rodada 2",
       "channel": "Paramount+",
       "stadium": "Estádio Rodrigo Paz Delgado"
+    },
+    {
+      "time": "23:00",
+      "home": "Universitario",
+      "away": "Coquimbo Unido",
+      "competition": "Copa Libertadores",
+      "round": "Fase de Grupos - Rodada 2",
+      "channel": "ESPN 4 / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "00:30",
+      "home": "América",
+      "away": "Nashville SC",
+      "competition": "Concacaf Champions League",
+      "round": "Quartas de Final",
+      "channel": "ESPN 2 / Disney+",
+      "stadium": ""
     }
   ]
 }
