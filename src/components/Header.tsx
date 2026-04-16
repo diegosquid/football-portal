@@ -33,6 +33,12 @@ export function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-6 text-sm font-medium lg:flex">
+          <Link
+            href="/jogos-futebol-hoje"
+            className="transition-colors hover:text-primary"
+          >
+            Jogos de Hoje
+          </Link>
           {categories.slice(0, 6).map((cat) => (
             <Link
               key={cat.slug}
@@ -84,6 +90,13 @@ export function Header() {
       {/* Mobile menu */}
       {menuOpen && (
         <nav className="border-t border-white/10 bg-secondary px-4 pb-4 lg:hidden">
+          <Link
+            href="/jogos-futebol-hoje"
+            className="block py-2 text-sm font-semibold text-primary transition-colors hover:text-white"
+            onClick={() => setMenuOpen(false)}
+          >
+            Jogos de Hoje
+          </Link>
           {categories.map((cat) => (
             <Link
               key={cat.slug}

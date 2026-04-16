@@ -49,6 +49,14 @@ export function Footer() {
               Categorias
             </h3>
             <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/jogos-futebol-hoje"
+                  className="text-sm font-semibold text-primary transition-colors hover:text-white"
+                >
+                  Jogos de Hoje
+                </Link>
+              </li>
               {categories.map((cat) => (
                 <li key={cat.slug}>
                   <Link
