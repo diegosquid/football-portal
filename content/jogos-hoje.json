@@ -1,146 +1,191 @@
 {
-  "date": "2026-04-15",
-  "updatedAt": "2026-04-15T16:11:47-03:00",
+  "date": "2026-04-16",
+  "updatedAt": "2026-04-16T07:11:14-03:00",
   "games": [
     {
-      "time": "09:15",
-      "home": "Bangkok United",
-      "away": "Gamba Osaka",
-      "competition": "AFC Champions League Two",
-      "round": "",
-      "channel": "ESPN 4 / Disney+",
-      "stadium": ""
-    },
-    {
-      "time": "15:00",
-      "home": "Al-Nassr",
-      "away": "Al-Ettifaq",
-      "competition": "Campeonato Saudita",
-      "round": "",
-      "channel": "BandSports / Canal GOAT",
-      "stadium": ""
-    },
-    {
-      "time": "15:00",
-      "home": "Bahia",
-      "away": "Palmeiras",
-      "competition": "Campeonato Brasileiro Feminino Sub-20",
-      "round": "",
-      "channel": "UOL",
-      "stadium": ""
-    },
-    {
-      "time": "15:00",
-      "home": "Grêmio",
-      "away": "Flamengo",
-      "competition": "Campeonato Brasileiro Feminino Sub-20",
-      "round": "",
-      "channel": "UOL",
-      "stadium": ""
-    },
-    {
-      "time": "16:00",
-      "home": "Bayern de Munique",
-      "away": "Real Madrid",
-      "competition": "UEFA Champions League",
-      "round": "Quartas de Final - 2ª Mão",
-      "channel": "TNT / Max",
-      "stadium": "Allianz Arena"
-    },
-    {
-      "time": "16:00",
-      "home": "Arsenal",
-      "away": "Sporting CP",
-      "competition": "UEFA Champions League",
-      "round": "Quartas de Final - 2ª Mão",
-      "channel": "TNT / Max",
-      "stadium": "Emirates Stadium"
-    },
-    {
-      "time": "19:00",
-      "home": "Cruzeiro",
-      "away": "Universidad Católica",
-      "competition": "Copa Libertadores",
-      "round": "Fase de Grupos - Rodada 2",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio Mineirão"
-    },
-    {
-      "time": "19:00",
-      "home": "Libertad",
-      "away": "Rosario Central",
-      "competition": "Copa Libertadores",
-      "round": "Fase de Grupos - Rodada 2",
-      "channel": "Paramount+",
-      "stadium": ""
-    },
-    {
-      "time": "19:00",
-      "home": "Caracas",
-      "away": "Independiente Petrolero",
-      "competition": "Copa Sul-Americana",
-      "round": "Fase de Grupos - Rodada 2",
-      "channel": "ESPN 4 / Disney+",
-      "stadium": ""
-    },
-    {
-      "time": "19:00",
-      "home": "Racing",
-      "away": "Botafogo",
-      "competition": "Copa Sul-Americana",
-      "round": "Fase de Grupos - Rodada 2",
-      "channel": "Paramount+",
-      "stadium": "Estádio Presidente Perón"
-    },
-    {
-      "time": "21:00",
-      "home": "Olimpia",
-      "away": "Barracas Central",
-      "competition": "Copa Sul-Americana",
-      "round": "Fase de Grupos - Rodada 2",
-      "channel": "ESPN 4 / Disney+",
-      "stadium": ""
-    },
-    {
-      "time": "21:30",
-      "home": "River Plate",
-      "away": "Carabobo",
-      "competition": "Copa Sul-Americana",
-      "round": "Fase de Grupos - Rodada 2",
-      "channel": "Paramount+",
-      "stadium": ""
-    },
-    {
-      "time": "21:30",
-      "home": "Corinthians",
-      "away": "Independiente Santa Fé",
-      "competition": "Copa Libertadores",
-      "round": "Fase de Grupos - Rodada 2",
-      "channel": "Globo / Paramount+",
-      "stadium": "Neo Química Arena"
-    },
-    {
-      "time": "21:30",
-      "home": "Fluminense",
-      "away": "Independiente Rivadavia",
-      "competition": "Copa Libertadores",
-      "round": "Fase de Grupos - Rodada 2",
-      "channel": "Globo / Globoplay / Disney+",
-      "stadium": "Maracanã"
-    },
-    {
-      "time": "22:00",
-      "home": "LA Galaxy",
-      "away": "Toluca",
-      "competition": "Concacaf Champions League",
+      "time": "00:30",
+      "home": "Seattle Sounders",
+      "away": "Tigres",
+      "competition": "Concacaf Champions Cup",
       "round": "Quartas de Final",
       "channel": "Disney+",
       "stadium": ""
     },
     {
-      "time": "23:00",
-      "home": "América de Cali",
-      "away": "Alianza Atlético",
+      "time": "11:30",
+      "home": "PSV",
+      "away": "Twente",
+      "competition": "Copa da Holanda",
+      "round": "Final",
+      "channel": "NSports",
+      "stadium": ""
+    },
+    {
+      "time": "13:15",
+      "home": "Al-Saad",
+      "away": "Vissel Kobe",
+      "competition": "AFC Champions League Elite",
+      "round": "",
+      "channel": "ESPN 4 / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "13:45",
+      "home": "Celta de Vigo",
+      "away": "Freiburg",
+      "competition": "UEFA Europa League",
+      "round": "Quartas de Final - 2ª Mão",
+      "channel": "CazéTV / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "13:45",
+      "home": "AZ Alkmaar",
+      "away": "Shakhtar Donetsk",
+      "competition": "UEFA Conference League",
+      "round": "Quartas de Final - 2ª Mão",
+      "channel": "CazéTV / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "16:00",
+      "home": "Aston Villa",
+      "away": "Bologna",
+      "competition": "UEFA Europa League",
+      "round": "Quartas de Final - 2ª Mão",
+      "channel": "CazéTV / Disney+",
+      "stadium": "Villa Park"
+    },
+    {
+      "time": "16:00",
+      "home": "Nottingham Forest",
+      "away": "Porto",
+      "competition": "UEFA Europa League",
+      "round": "Quartas de Final - 2ª Mão",
+      "channel": "CazéTV / Disney+",
+      "stadium": "City Ground"
+    },
+    {
+      "time": "16:00",
+      "home": "Real Betis",
+      "away": "Braga",
+      "competition": "UEFA Europa League",
+      "round": "Quartas de Final - 2ª Mão",
+      "channel": "CazéTV / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "16:00",
+      "home": "AEK Atenas",
+      "away": "Rayo Vallecano",
+      "competition": "UEFA Conference League",
+      "round": "Quartas de Final - 2ª Mão",
+      "channel": "CazéTV / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "16:00",
+      "home": "Fiorentina",
+      "away": "Crystal Palace",
+      "competition": "UEFA Conference League",
+      "round": "Quartas de Final - 2ª Mão",
+      "channel": "CazéTV / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "16:00",
+      "home": "Strasbourg",
+      "away": "Mainz",
+      "competition": "UEFA Conference League",
+      "round": "Quartas de Final - 2ª Mão",
+      "channel": "CazéTV / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "19:00",
+      "home": "Palmeiras",
+      "away": "Sporting Cristal",
+      "competition": "Copa Libertadores",
+      "round": "Fase de Grupos - Rodada 2",
+      "channel": "Paramount+",
+      "stadium": "Allianz Parque"
+    },
+    {
+      "time": "19:00",
+      "home": "Lanús",
+      "away": "Always Ready",
+      "competition": "Copa Libertadores",
+      "round": "Fase de Grupos - Rodada 2",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "19:00",
+      "home": "Atlético-MG",
+      "away": "Juventud",
+      "competition": "Copa Sul-Americana",
+      "round": "Fase de Grupos - Rodada 2",
+      "channel": "ESPN / Disney+",
+      "stadium": "Arena MRV"
+    },
+    {
+      "time": "19:00",
+      "home": "Tigre",
+      "away": "Macará",
+      "competition": "Copa Sul-Americana",
+      "round": "Fase de Grupos - Rodada 2",
+      "channel": "Paramount+",
+      "stadium": ""
+    },
+    {
+      "time": "19:00",
+      "home": "Imperatriz",
+      "away": "ABC",
+      "competition": "Copa do Nordeste",
+      "round": "Fase de Grupos",
+      "channel": "SBT / SportyNet",
+      "stadium": "Frei Epifânio"
+    },
+    {
+      "time": "19:00",
+      "home": "América-RN",
+      "away": "Fortaleza",
+      "competition": "Copa do Nordeste",
+      "round": "Fase de Grupos",
+      "channel": "SportyNet",
+      "stadium": "Estádio Almeidão"
+    },
+    {
+      "time": "21:30",
+      "home": "Flamengo",
+      "away": "Independiente Medellín",
+      "competition": "Copa Libertadores",
+      "round": "Fase de Grupos - Rodada 2",
+      "channel": "ESPN / Disney+",
+      "stadium": "Maracanã"
+    },
+    {
+      "time": "21:30",
+      "home": "Peñarol",
+      "away": "Platense",
+      "competition": "Copa Libertadores",
+      "round": "Fase de Grupos - Rodada 2",
+      "channel": "Paramount+",
+      "stadium": ""
+    },
+    {
+      "time": "21:30",
+      "home": "RB Bragantino",
+      "away": "Blooming",
+      "competition": "Copa Sul-Americana",
+      "round": "Fase de Grupos - Rodada 2",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio Cícero Souza Marques"
+    },
+    {
+      "time": "21:30",
+      "home": "San Lorenzo",
+      "away": "Deportivo Cuenca",
       "competition": "Copa Sul-Americana",
       "round": "Fase de Grupos - Rodada 2",
       "channel": "Paramount+",
@@ -148,20 +193,11 @@
     },
     {
       "time": "23:00",
-      "home": "Independiente del Valle",
-      "away": "Universidad Central",
-      "competition": "Copa Libertadores",
-      "round": "Fase de Grupos - Rodada 2",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "time": "23:00",
-      "home": "Millonarios",
-      "away": "Boston River",
+      "home": "Cienciano",
+      "away": "Puerto Cabello",
       "competition": "Copa Sul-Americana",
       "round": "Fase de Grupos - Rodada 2",
-      "channel": "ESPN 2 / Disney+",
+      "channel": "Disney+",
       "stadium": ""
     }
   ]
