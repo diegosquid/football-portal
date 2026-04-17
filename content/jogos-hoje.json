@@ -1,6 +1,6 @@
 {
   "date": "2026-04-17",
-  "updatedAt": "2026-04-17T09:00:00-03:00",
+  "updatedAt": "2026-04-17T13:09:44-03:00",
   "games": [
     {
       "time": "11:45",
@@ -21,12 +21,39 @@
       "stadium": ""
     },
     {
+      "time": "13:30",
+      "home": "Elversberg",
+      "away": "Karlsruher",
+      "competition": "2. Bundesliga",
+      "round": "",
+      "channel": "OneFootball",
+      "stadium": ""
+    },
+    {
+      "time": "13:30",
+      "home": "Holstein Kiel",
+      "away": "Kaiserslautern",
+      "competition": "2. Bundesliga",
+      "round": "",
+      "channel": "OneFootball",
+      "stadium": ""
+    },
+    {
       "time": "14:00",
       "home": "Fenerbahçe",
       "away": "Rizespor",
       "competition": "Superliga Turca",
       "round": "",
       "channel": "ESPN 3 / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "15:00",
+      "home": "Le Mans",
+      "away": "Clermont",
+      "competition": "Ligue 2",
+      "round": "",
+      "channel": "OneFootball",
       "stadium": ""
     },
     {
@@ -44,7 +71,7 @@
       "away": "Colônia",
       "competition": "Bundesliga",
       "round": "",
-      "channel": "Canal GOAT / SportyNet",
+      "channel": "Canal GOAT / SportyNet / OneFootball",
       "stadium": ""
     },
     {
@@ -75,6 +102,15 @@
       "stadium": ""
     },
     {
+      "time": "16:00",
+      "home": "Las Palmas",
+      "away": "Leganés",
+      "competition": "LaLiga 2",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
       "time": "16:45",
       "home": "Rio Ave",
       "away": "AVS",
@@ -84,12 +120,30 @@
       "stadium": ""
     },
     {
+      "time": "18:00",
+      "home": "Plaza Colonia",
+      "away": "Paysandu",
+      "competition": "Campeonato Uruguaio 2ª Divisão",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
       "time": "20:00",
       "home": "Albion",
-      "away": "Central Española",
+      "away": "Central Español",
       "competition": "Campeonato Uruguaio",
       "round": "",
       "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "20:00",
+      "home": "Araucária",
+      "away": "Paraná Clube",
+      "competition": "Campeonato Paranaense 2ª Divisão",
+      "round": "",
+      "channel": "YouTube",
       "stadium": ""
     },
     {
@@ -97,6 +151,15 @@
       "home": "Unión de Santa Fé",
       "away": "Newell's Old Boys",
       "competition": "Campeonato Argentino",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "21:30",
+      "home": "Atenas",
+      "away": "Tacuarembó",
+      "competition": "Campeonato Uruguaio 2ª Divisão",
       "round": "",
       "channel": "Disney+",
       "stadium": ""
@@ -116,7 +179,7 @@
       "away": "Sporting Kansas City",
       "competition": "MLS",
       "round": "",
-      "channel": "Apple TV",
+      "channel": "Apple TV+",
       "stadium": ""
     }
   ]
