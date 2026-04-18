@@ -1,92 +1,380 @@
 {
-  "date": "2026-04-17",
-  "updatedAt": "2026-04-17T13:09:44-03:00",
+  "date": "2026-04-18",
+  "updatedAt": "2026-04-18T10:30:00-03:00",
   "games": [
     {
-      "time": "11:45",
-      "home": "Al Ahli",
-      "away": "Johor Darul Ta'zim",
-      "competition": "AFC Champions League Elite",
+      "time": "08:00",
+      "home": "Arminia Bielefeld",
+      "away": "Nürnberg",
+      "competition": "2. Bundesliga",
+      "round": "",
+      "channel": "OneFootball",
+      "stadium": ""
+    },
+    {
+      "time": "08:00",
+      "home": "Dynamo Dresden",
+      "away": "Bochum",
+      "competition": "2. Bundesliga",
+      "round": "",
+      "channel": "OneFootball",
+      "stadium": ""
+    },
+    {
+      "time": "08:00",
+      "home": "Magdeburg",
+      "away": "Fortuna Düsseldorf",
+      "competition": "2. Bundesliga",
+      "round": "",
+      "channel": "OneFootball",
+      "stadium": ""
+    },
+    {
+      "time": "08:30",
+      "home": "Brentford",
+      "away": "Fulham",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "XSports / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "08:30",
+      "home": "Portsmouth",
+      "away": "Leicester City",
+      "competition": "Championship (Inglaterra)",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "09:00",
+      "home": "Saarbrücken",
+      "away": "1860 Munique",
+      "competition": "3. Liga (Alemanha)",
+      "round": "",
+      "channel": "Canal GOAT / OneFootball",
+      "stadium": ""
+    },
+    {
+      "time": "10:00",
+      "home": "Udinese",
+      "away": "Parma",
+      "competition": "Campeonato Italiano",
       "round": "",
       "channel": "Disney+",
       "stadium": ""
     },
     {
-      "time": "13:30",
-      "home": "Sassuolo",
-      "away": "Como",
+      "time": "10:00",
+      "home": "Miramar Misiones",
+      "away": "Colón",
+      "competition": "Campeonato Uruguaio 2ª Divisão",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "10:30",
+      "home": "Hoffenheim",
+      "away": "Borussia Dortmund",
+      "competition": "Bundesliga",
+      "round": "",
+      "channel": "CazéTV / XSports / SportyNet / OneFootball",
+      "stadium": ""
+    },
+    {
+      "time": "10:30",
+      "home": "Bayer Leverkusen",
+      "away": "Augsburg",
+      "competition": "Bundesliga",
+      "round": "",
+      "channel": "Canal GOAT / OneFootball",
+      "stadium": ""
+    },
+    {
+      "time": "10:30",
+      "home": "Werder Bremen",
+      "away": "Hamburgo",
+      "competition": "Bundesliga",
+      "round": "",
+      "channel": "OneFootball",
+      "stadium": ""
+    },
+    {
+      "time": "10:30",
+      "home": "Union Berlin",
+      "away": "Wolfsburg",
+      "competition": "Bundesliga",
+      "round": "",
+      "channel": "OneFootball",
+      "stadium": ""
+    },
+    {
+      "time": "11:00",
+      "home": "Leeds United",
+      "away": "Wolverhampton",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "ESPN Brasil / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "11:00",
+      "home": "Newcastle",
+      "away": "Bournemouth",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "11:00",
+      "home": "Hull City",
+      "away": "Birmingham City",
+      "competition": "Championship (Inglaterra)",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "11:00",
+      "home": "Espanha",
+      "away": "Ucrânia",
+      "competition": "Eliminatórias Copa do Mundo Feminina",
+      "round": "",
+      "channel": "ESPN 4 / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "11:00",
+      "home": "Suécia",
+      "away": "Sérvia",
+      "competition": "Eliminatórias Copa do Mundo Feminina",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "11:00",
+      "home": "Liechtenstein",
+      "away": "Bósnia e Herzegovina",
+      "competition": "Eliminatórias Copa do Mundo Feminina",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "11:15",
+      "home": "Zaragoza",
+      "away": "Ceuta",
+      "competition": "LaLiga 2",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "11:30",
+      "home": "Nacional da Madeira",
+      "away": "Alverca",
+      "competition": "Campeonato Português",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "12:00",
+      "home": "Lorient",
+      "away": "Olympique de Marseille",
+      "competition": "Ligue 1",
+      "round": "",
+      "channel": "CazéTV",
+      "stadium": ""
+    },
+    {
+      "time": "13:00",
+      "home": "Napoli",
+      "away": "Lazio",
       "competition": "Campeonato Italiano",
       "round": "",
       "channel": "XSports / Disney+",
       "stadium": ""
     },
     {
-      "time": "13:30",
-      "home": "Elversberg",
-      "away": "Karlsruher",
-      "competition": "2. Bundesliga",
+      "time": "13:00",
+      "home": "Progreso",
+      "away": "Montevideo Wanderers",
+      "competition": "Campeonato Uruguaio",
       "round": "",
-      "channel": "OneFootball",
+      "channel": "Disney+",
       "stadium": ""
     },
     {
       "time": "13:30",
-      "home": "Holstein Kiel",
-      "away": "Kaiserslautern",
-      "competition": "2. Bundesliga",
+      "home": "Tottenham",
+      "away": "Brighton",
+      "competition": "Premier League",
       "round": "",
-      "channel": "OneFootball",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "13:30",
+      "home": "Eintracht Frankfurt",
+      "away": "RB Leipzig",
+      "competition": "Bundesliga",
+      "round": "",
+      "channel": "Canal GOAT / SporTV / OneFootball",
+      "stadium": ""
+    },
+    {
+      "time": "13:30",
+      "home": "Castellón",
+      "away": "Burgos",
+      "competition": "LaLiga 2",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "13:30",
+      "home": "Cultural Leonesa",
+      "away": "Córdoba",
+      "competition": "LaLiga 2",
+      "round": "",
+      "channel": "Disney+",
       "stadium": ""
     },
     {
       "time": "14:00",
-      "home": "Fenerbahçe",
-      "away": "Rizespor",
+      "home": "Gençlerbirligi",
+      "away": "Galatasaray",
       "competition": "Superliga Turca",
-      "round": "",
-      "channel": "ESPN 3 / Disney+",
-      "stadium": ""
-    },
-    {
-      "time": "15:00",
-      "home": "Le Mans",
-      "away": "Clermont",
-      "competition": "Ligue 2",
-      "round": "",
-      "channel": "OneFootball",
-      "stadium": ""
-    },
-    {
-      "time": "15:00",
-      "home": "Machida Zelvia",
-      "away": "Al Ittihad",
-      "competition": "AFC Champions League Elite",
       "round": "",
       "channel": "ESPN 4 / Disney+",
       "stadium": ""
     },
     {
-      "time": "15:30",
-      "home": "St. Pauli",
-      "away": "Colônia",
-      "competition": "Bundesliga",
+      "time": "14:00",
+      "home": "Angers",
+      "away": "Le Havre",
+      "competition": "Ligue 1",
       "round": "",
-      "channel": "Canal GOAT / SportyNet / OneFootball",
+      "channel": "CazéTV",
+      "stadium": ""
+    },
+    {
+      "time": "14:00",
+      "home": "Toronto FC",
+      "away": "Austin FC",
+      "competition": "MLS",
+      "round": "",
+      "channel": "Apple TV+",
+      "stadium": ""
+    },
+    {
+      "time": "14:00",
+      "home": "Casa Pia",
+      "away": "Alverca",
+      "competition": "Campeonato Português",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "15:00",
+      "home": "América-RJ",
+      "away": "Portuguesa",
+      "competition": "Brasileirão Série D",
+      "round": "",
+      "channel": "YouTube",
+      "stadium": ""
+    },
+    {
+      "time": "15:00",
+      "home": "Lagarto",
+      "away": "Retrô",
+      "competition": "Brasileirão Série D",
+      "round": "",
+      "channel": "YouTube",
+      "stadium": ""
+    },
+    {
+      "time": "15:00",
+      "home": "Portuguesa Santista",
+      "away": "Rio Preto",
+      "competition": "Paulistão A3",
+      "round": "",
+      "channel": "YouTube",
+      "stadium": ""
+    },
+    {
+      "time": "15:30",
+      "home": "Blumenau",
+      "away": "Azuriz",
+      "competition": "Brasileirão Série D",
+      "round": "",
+      "channel": "YouTube",
+      "stadium": ""
+    },
+    {
+      "time": "15:30",
+      "home": "CF Montréal",
+      "away": "NY Red Bulls",
+      "competition": "MLS",
+      "round": "",
+      "channel": "Apple TV+",
+      "stadium": ""
+    },
+    {
+      "time": "15:30",
+      "home": "Bélgica",
+      "away": "Escócia",
+      "competition": "Eliminatórias Copa do Mundo Feminina",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "15:30",
+      "home": "Hannover 96",
+      "away": "Paderborn",
+      "competition": "2. Bundesliga",
+      "round": "",
+      "channel": "OneFootball",
       "stadium": ""
     },
     {
       "time": "15:45",
-      "home": "Inter de Milão",
-      "away": "Cagliari",
+      "home": "Roma",
+      "away": "Atalanta",
       "competition": "Campeonato Italiano",
       "round": "",
-      "channel": "CazéTV / Disney+",
+      "channel": "ESPN / Disney+",
       "stadium": ""
     },
     {
-      "time": "15:45",
-      "home": "Lens",
-      "away": "Toulouse",
+      "time": "16:00",
+      "home": "Atlético de Madrid",
+      "away": "Real Sociedad",
+      "competition": "Copa do Rei (Final)",
+      "round": "Final",
+      "channel": "XSports / ESPN 4 / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "16:00",
+      "home": "Chelsea",
+      "away": "Manchester United",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "16:00",
+      "home": "Lille",
+      "away": "Nice",
       "competition": "Ligue 1",
       "round": "",
       "channel": "CazéTV",
@@ -94,92 +382,335 @@
     },
     {
       "time": "16:00",
-      "home": "Blackburn Rovers",
-      "away": "Coventry City",
-      "competition": "Championship (Inglaterra)",
+      "home": "Confiança",
+      "away": "Santa Cruz",
+      "competition": "Brasileirão Série C",
       "round": "",
-      "channel": "ESPN / Disney+",
+      "channel": "SportyNet",
       "stadium": ""
     },
     {
       "time": "16:00",
-      "home": "Las Palmas",
-      "away": "Leganés",
-      "competition": "LaLiga 2",
+      "home": "Vitória-ES",
+      "away": "Rio Branco-ES",
+      "competition": "Brasileirão Série D",
       "round": "",
-      "channel": "Disney+",
+      "channel": "YouTube",
       "stadium": ""
     },
     {
-      "time": "16:45",
-      "home": "Rio Ave",
-      "away": "AVS",
-      "competition": "Campeonato Português",
+      "time": "16:00",
+      "home": "Altos",
+      "away": "Ferroviário",
+      "competition": "Brasileirão Série D",
       "round": "",
-      "channel": "XSports / Disney+",
+      "channel": "YouTube",
       "stadium": ""
     },
     {
-      "time": "18:00",
-      "home": "Plaza Colonia",
-      "away": "Paysandu",
-      "competition": "Campeonato Uruguaio 2ª Divisão",
-      "round": "",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "time": "20:00",
-      "home": "Albion",
-      "away": "Central Español",
+      "time": "16:00",
+      "home": "Racing Montevideo",
+      "away": "Defensor Sporting",
       "competition": "Campeonato Uruguaio",
       "round": "",
       "channel": "Disney+",
       "stadium": ""
     },
     {
-      "time": "20:00",
-      "home": "Araucária",
-      "away": "Paraná Clube",
-      "competition": "Campeonato Paranaense 2ª Divisão",
+      "time": "16:10",
+      "home": "França",
+      "away": "Holanda",
+      "competition": "Eliminatórias Copa do Mundo Feminina",
       "round": "",
-      "channel": "YouTube",
+      "channel": "ESPN 2 / Disney+",
       "stadium": ""
     },
     {
-      "time": "20:30",
-      "home": "Unión de Santa Fé",
-      "away": "Newell's Old Boys",
-      "competition": "Campeonato Argentino",
+      "time": "16:30",
+      "home": "Gil Vicente",
+      "away": "Vitória de Guimarães",
+      "competition": "Campeonato Português",
       "round": "",
       "channel": "Disney+",
       "stadium": ""
     },
     {
-      "time": "21:30",
-      "home": "Atenas",
-      "away": "Tacuarembó",
+      "time": "17:00",
+      "home": "Inter de Limeira",
+      "away": "Ituano",
+      "competition": "Brasileirão Série C",
+      "round": "",
+      "channel": "Band / SportyNet",
+      "stadium": ""
+    },
+    {
+      "time": "17:00",
+      "home": "Moto Club",
+      "away": "Sampaio Corrêa",
+      "competition": "Brasileirão Série D",
+      "round": "",
+      "channel": "YouTube",
+      "stadium": ""
+    },
+    {
+      "time": "17:30",
+      "home": "Colorado Rapids",
+      "away": "Inter Miami",
+      "competition": "MLS",
+      "round": "",
+      "channel": "Apple TV+",
+      "stadium": ""
+    },
+    {
+      "time": "18:00",
+      "home": "América-MG",
+      "away": "Sport Recife",
+      "competition": "Brasileirão Série B",
+      "round": "",
+      "channel": "RedeTV! / ESPN / SportyNet / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "18:00",
+      "home": "Náutico",
+      "away": "São Bernardo",
+      "competition": "Brasileirão Série B",
+      "round": "",
+      "channel": "Premiere",
+      "stadium": ""
+    },
+    {
+      "time": "18:15",
+      "home": "Volta Redonda",
+      "away": "Caxias",
+      "competition": "Brasileirão Série C",
+      "round": "",
+      "channel": "SportyNet",
+      "stadium": ""
+    },
+    {
+      "time": "18:30",
+      "home": "Vasco da Gama",
+      "away": "São Paulo",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 12",
+      "channel": "Prime Video",
+      "stadium": ""
+    },
+    {
+      "time": "18:30",
+      "home": "Chapecoense",
+      "away": "Botafogo",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 12",
+      "channel": "Premiere",
+      "stadium": ""
+    },
+    {
+      "time": "18:30",
+      "home": "Vila Nova",
+      "away": "Operário Ferroviário",
+      "competition": "Brasileirão Série B",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "18:30",
+      "home": "Paysandu",
+      "away": "Barra",
+      "competition": "Brasileirão Série C",
+      "round": "",
+      "channel": "SportyNet",
+      "stadium": ""
+    },
+    {
+      "time": "19:30",
+      "home": "Independiente",
+      "away": "Defensa y Justicia",
+      "competition": "Campeonato Argentino",
+      "round": "",
+      "channel": "ESPN 4 / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "19:30",
+      "home": "Ypiranga",
+      "away": "Anápolis",
+      "competition": "Brasileirão Série C",
+      "round": "",
+      "channel": "SportyNet",
+      "stadium": ""
+    },
+    {
+      "time": "20:00",
+      "home": "Vitória",
+      "away": "Corinthians",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 12",
+      "channel": "SporTV / Premiere",
+      "stadium": ""
+    },
+    {
+      "time": "20:00",
+      "home": "Cerrito",
+      "away": "La Luz",
       "competition": "Campeonato Uruguaio 2ª Divisão",
       "round": "",
       "channel": "Disney+",
       "stadium": ""
     },
     {
-      "time": "22:00",
-      "home": "Atlético San Luis",
-      "away": "Pumas UNAM",
-      "competition": "Liga MX",
+      "time": "20:30",
+      "home": "Cruzeiro",
+      "away": "Grêmio",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 12",
+      "channel": "CazéTV / Record / Premiere",
+      "stadium": ""
+    },
+    {
+      "time": "20:30",
+      "home": "Avaí",
+      "away": "Ponte Preta",
+      "competition": "Brasileirão Série B",
       "round": "",
       "channel": "Disney+",
       "stadium": ""
     },
     {
-      "time": "23:30",
-      "home": "Vancouver Whitecaps",
-      "away": "Sporting Kansas City",
+      "time": "20:30",
+      "home": "Amazonas",
+      "away": "Maranhão",
+      "competition": "Brasileirão Série C",
+      "round": "",
+      "channel": "SportyNet",
+      "stadium": ""
+    },
+    {
+      "time": "20:30",
+      "home": "Atlanta United",
+      "away": "Nashville SC",
       "competition": "MLS",
       "round": "",
       "channel": "Apple TV+",
+      "stadium": ""
+    },
+    {
+      "time": "20:30",
+      "home": "FC Cincinnati",
+      "away": "Chicago Fire",
+      "competition": "MLS",
+      "round": "",
+      "channel": "Apple TV+",
+      "stadium": ""
+    },
+    {
+      "time": "20:30",
+      "home": "New England Revolution",
+      "away": "Columbus Crew",
+      "competition": "MLS",
+      "round": "",
+      "channel": "Apple TV+",
+      "stadium": ""
+    },
+    {
+      "time": "20:30",
+      "home": "New York City",
+      "away": "Charlotte FC",
+      "competition": "MLS",
+      "round": "",
+      "channel": "Apple TV+",
+      "stadium": ""
+    },
+    {
+      "time": "20:30",
+      "home": "Orlando City",
+      "away": "Houston Dynamo",
+      "competition": "MLS",
+      "round": "",
+      "channel": "Apple TV+",
+      "stadium": ""
+    },
+    {
+      "time": "20:30",
+      "home": "Philadelphia Union",
+      "away": "DC United",
+      "competition": "MLS",
+      "round": "",
+      "channel": "Apple TV+",
+      "stadium": ""
+    },
+    {
+      "time": "20:45",
+      "home": "CRB",
+      "away": "Juventude",
+      "competition": "Brasileirão Série B",
+      "round": "",
+      "channel": "XSports / SportyNet / Disney+",
+      "stadium": ""
+    },
+    {
+      "time": "21:30",
+      "home": "FC Dallas",
+      "away": "LA Galaxy",
+      "competition": "MLS",
+      "round": "",
+      "channel": "Apple TV+",
+      "stadium": ""
+    },
+    {
+      "time": "21:30",
+      "home": "Minnesota United",
+      "away": "Portland Timbers",
+      "competition": "MLS",
+      "round": "",
+      "channel": "Apple TV+",
+      "stadium": ""
+    },
+    {
+      "time": "22:00",
+      "home": "Monterrey",
+      "away": "Pachuca",
+      "competition": "Liga MX",
+      "round": "",
+      "channel": "SportyNet",
+      "stadium": ""
+    },
+    {
+      "time": "22:30",
+      "home": "Brasil",
+      "away": "Canadá",
+      "competition": "FIFA Series Feminina",
+      "round": "",
+      "channel": "Globo / SporTV / GeTV",
+      "stadium": ""
+    },
+    {
+      "time": "22:30",
+      "home": "Real Salt Lake",
+      "away": "San Diego FC",
+      "competition": "MLS",
+      "round": "",
+      "channel": "Apple TV+",
+      "stadium": ""
+    },
+    {
+      "time": "22:30",
+      "home": "Seattle Sounders",
+      "away": "St. Louis City",
+      "competition": "MLS",
+      "round": "",
+      "channel": "Apple TV+",
+      "stadium": ""
+    },
+    {
+      "time": "23:59",
+      "home": "Club América",
+      "away": "Toluca",
+      "competition": "Liga MX",
+      "round": "",
+      "channel": "SportyNet",
       "stadium": ""
     }
   ]
