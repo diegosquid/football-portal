@@ -77,14 +77,6 @@ export function WebSiteJsonLd() {
       url: siteConfig.url,
       logo: absoluteUrl(siteConfig.logo),
     },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${siteConfig.url}/busca?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
   };
   return <JsonLd data={data} />;
 }

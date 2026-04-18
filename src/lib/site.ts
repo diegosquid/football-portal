@@ -9,7 +9,7 @@ export const siteConfig = {
   creator: "Beira do Campo",
   publisher: "Beira do Campo",
   ogImage: "/og-default.jpg",
-  logo: "/logo.png",
+  logo: "/static/logo-512.png",
   twitterHandle: "@beira_do_campo",
   links: {
     twitter: "https://x.com/beira_do_campo",
