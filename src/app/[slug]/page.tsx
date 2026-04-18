@@ -7,11 +7,17 @@ import { MDXContent } from "@/components/mdx/MDXContent";
 import { CategoryBadge } from "@/components/CategoryBadge";
 import { ArticleCard } from "@/components/ArticleCard";
 import { ArticleImage } from "@/components/ArticleImage";
-import { NewsArticleJsonLd } from "@/components/JsonLd";
+import {
+  BreadcrumbJsonLd,
+  FAQPageJsonLd,
+  NewsArticleJsonLd,
+} from "@/components/JsonLd";
+import { ArticleFAQ } from "@/components/ArticleFAQ";
 import { SourceAttribution } from "@/components/mdx/SourceAttribution";
 import { getAuthor } from "@/lib/authors";
+import { getCategory } from "@/lib/categories";
 import { getFallbackImage } from "@/lib/images";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, truncateForMeta } from "@/lib/site";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -44,14 +50,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!article) return {};
 
   const author = getAuthor(article.author);
+  const metaDescription = truncateForMeta(
+    article.seoDescription ?? article.excerpt,
+    160,
+  );
 
   return {
     title: article.title,
-    description: article.excerpt,
+    description: metaDescription,
     authors: author ? [{ name: author.name }] : undefined,
     openGraph: {
       title: article.title,
-      description: article.excerpt,
+      description: metaDescription,
       type: "article",
       publishedTime: article.date,
       modifiedTime: article.updated ?? article.date,
@@ -62,7 +72,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: article.title,
-      description: article.excerpt,
+      description: metaDescription,
       images: article.image ? [article.image] : undefined,
     },
     alternates: {
@@ -77,7 +87,9 @@ export default async function ArticlePage({ params }: Props) {
   if (!article) notFound();
 
   const author = getAuthor(article.author);
+  const category = getCategory(article.category);
   const related = getRelated(article);
+  const faq = article.faq ?? [];
 
   return (
     <>
@@ -90,6 +102,17 @@ export default async function ArticlePage({ params }: Props) {
         image={article.image}
         slug={article.slug}
       />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Início", url: "/" },
+          {
+            name: category?.label ?? article.category,
+            url: `/categoria/${article.category}`,
+          },
+          { name: article.title, url: `/${article.slug}` },
+        ]}
+      />
+      {faq.length > 0 && <FAQPageJsonLd items={faq} />}
 
       <article className="mx-auto max-w-4xl px-4 py-8">
         {/* Breadcrumb */}
@@ -102,7 +125,7 @@ export default async function ArticlePage({ params }: Props) {
             href={`/categoria/${article.category}`}
             className="hover:text-primary"
           >
-            {article.category}
+            {category?.label ?? article.category}
           </Link>
           <span className="mx-2">/</span>
           <span className="text-gray-700">{article.title}</span>
@@ -175,6 +198,9 @@ export default async function ArticlePage({ params }: Props) {
         <div className="prose-article mt-8">
           <MDXContent code={article.body} />
         </div>
+
+        {/* FAQ */}
+        {faq.length > 0 && <ArticleFAQ items={faq} />}
 
         {/* Source attribution */}
         {article.source && (

@@ -1,10 +1,12 @@
 import { articles } from "#content";
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArticleCard } from "@/components/ArticleCard";
 import { Pagination } from "@/components/Pagination";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { getAllCategories, getCategory } from "@/lib/categories";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, truncateForMeta } from "@/lib/site";
 import {
   paginate,
   getPageNumbers,
@@ -48,14 +50,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const urls = buildPaginationUrls(basePath, pageNum, result.totalPages);
 
+  const metaDescription = truncateForMeta(
+    `${cat.description} — Página ${pageNum} de ${result.totalPages}. ${cat.longDescription}`,
+    160,
+  );
+
   return {
     title: `${cat.label} — Página ${pageNum}`,
-    description: `${cat.description} — Página ${pageNum} de ${result.totalPages}`,
+    description: metaDescription,
     alternates: { canonical: urls.canonical },
     openGraph: {
       title: `${cat.label} — Página ${pageNum} | ${siteConfig.name}`,
-      description: `${cat.description} — Página ${pageNum}`,
+      description: metaDescription,
       url: `${siteConfig.url}${urls.canonical}`,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${cat.label} — Página ${pageNum} | ${siteConfig.name}`,
+      description: metaDescription,
     },
   };
 }
@@ -80,6 +93,26 @@ export default async function CategoryPaginatedPage({ params }: Props) {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Início", url: "/" },
+          { name: cat.label, url: basePath },
+          { name: `Página ${pageNum}`, url: `${basePath}/pagina/${pageNum}` },
+        ]}
+      />
+
+      <nav className="mb-4 text-sm text-gray-500">
+        <Link href="/" className="hover:text-primary">
+          Início
+        </Link>
+        <span className="mx-2">/</span>
+        <Link href={basePath} className="hover:text-primary">
+          {cat.label}
+        </Link>
+        <span className="mx-2">/</span>
+        <span className="text-gray-700">Página {pageNum}</span>
+      </nav>
+
       <header className="mb-8">
         <div
           className={`badge-${category} mb-4 inline-block rounded-sm px-3 py-1 text-xs font-bold uppercase tracking-wider text-white`}

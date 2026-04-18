@@ -930,7 +930,8 @@ Todos os artigos devem ter exatamente este formato de frontmatter:
 ---
 title: "Titulo do artigo (max 120 chars)"       # OBRIGATORIO
 slug: "slug-do-artigo-sem-acentos"               # OBRIGATORIO - vira o nome do arquivo .mdx
-excerpt: "Resumo de ate 300 chars"               # OBRIGATORIO
+excerpt: "Resumo de ate 300 chars"               # OBRIGATORIO - abertura editorial exibida no topo do artigo
+seoDescription: "Resumo com ate 160 chars"       # RECOMENDADO - meta description enxuta (cai no <head>)
 date: "2026-02-24"                               # OBRIGATORIO - formato ISO (YYYY-MM-DD)
 author: "renato-caldeira"                        # OBRIGATORIO - slug do autor
 category: "transferencias"                       # OBRIGATORIO - slug da categoria
@@ -941,10 +942,21 @@ imageCaption: "Descricao da imagem"              # OPCIONAL
 source:                                          # OPCIONAL - fonte principal
   name: "ge.globo"
   url: "https://ge.globo.com/noticia-original"
+faq:                                             # RECOMENDADO - 3 a 5 perguntas frequentes (rich result FAQPage)
+  - question: "Que horas e o jogo?"
+    answer: "Domingo, 16h (Brasilia), no Maracana."
+  - question: "Onde assistir ao vivo?"
+    answer: "SporTV e Premiere transmitem a partida."
 featured: false                                  # OPCIONAL - destaque na home
 draft: false                                     # OPCIONAL - true = nao publica
 ---
 ```
+
+### Campos SEO — regras rapidas
+
+- `excerpt` (obrigatorio, ate 300 chars): texto editorial exibido como subtitulo do artigo. Pode ser mais longo e descritivo.
+- `seoDescription` (recomendado, ate 160 chars): meta description pura. Quando omitido, o site usa uma versao truncada do `excerpt`. **Sempre preencher** em pre-jogo, pos-jogo e pecas longas para ter controle total do snippet.
+- `faq` (recomendado em pre-jogo, tutoriais e "onde assistir"): 3-5 itens (pergunta + resposta curta, 1-2 frases). Gera rich result **FAQPage** e aumenta CTR no SERP. Nao repetir literalmente o texto do artigo — resumir.
 
 ### Autores disponiveis:
 - `renato-caldeira` - Editor-chefe (transferencias, mercado)

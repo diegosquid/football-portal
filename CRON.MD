@@ -488,6 +488,7 @@ ESPECIAL: Selecao Brasileira (SEMPRE em convocacao/jogos)
 title: "Titulo do artigo (50-65 chars ideal)"
 slug: "slug-sem-acentos-com-hifens"
 excerpt: "Resumo de ate 300 chars para o card"
+seoDescription: "Meta description ate 160 chars com keyword principal"  # RECOMENDADO
 # ⚠️ DATA E HORA: Sempre usar timezone de Brasilia (BRT = UTC-3)
 # Data: TZ="America/Sao_Paulo" date +%Y-%m-%d
 # Hora:  TZ="America/Sao_Paulo" date +%H:%M
@@ -501,9 +502,18 @@ imageCaption: "Credito da imagem"
 source:
   name: "Nome da fonte principal"
   url: "URL da fonte"
+faq:  # RECOMENDADO - 3 a 5 perguntas/respostas. Obrigatorio em pre-jogo, pos-jogo e "onde assistir"
+  - question: "Pergunta curta?"
+    answer: "Resposta direta de 1-2 frases (nao copiar literalmente o texto do artigo)."
+  - question: "Outra pergunta?"
+    answer: "Outra resposta direta."
 featured: false
 ---
 ```
+
+**Regras SEO do frontmatter:**
+- `seoDescription` **sempre** preenchido quando o excerpt passa de 160 chars. Inclua a keyword principal no inicio. Sem reticencias no meio.
+- `faq` **obrigatorio** em pre-jogo (questoes tipo "que horas e o jogo?", "onde assistir?", "escalacao provavel?"), pos-jogo ("quem marcou?", "proxima partida?") e tutoriais/evergreen. **Opcional** em opiniao e radar de transferencias. 3-5 itens, perguntas como usuario pesquisaria no Google, respostas curtas (1-2 frases).
 
 **Comando para gerar data/hora correta:**
 ```bash
@@ -1365,6 +1375,8 @@ FRONTMATTER:
 □ Date no formato correto (YYYY-MM-DD)
 □ IMAGEM relacionada ao tema (URL valida, nao placeholder)
 □ Legenda da imagem contextual (80-150 chars)
+□ seoDescription preenchida (<= 160 chars, keyword no inicio)
+□ faq com 3-5 itens (obrigatorio em pre/pos-jogo e "onde assistir")
 
 SEO:
 □ Meta title <= 60 chars

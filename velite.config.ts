@@ -18,6 +18,7 @@ export default defineConfig({
           title: s.string().max(120),
           slug: s.slug("articles"),
           excerpt: s.string().max(300),
+          seoDescription: s.string().max(160).optional(),
           date: s.isodate(),
           updated: s.isodate().optional(),
           author: s.string(),
@@ -32,6 +33,14 @@ export default defineConfig({
               url: s.string(),
             })
             .optional(),
+          faq: s
+            .array(
+              s.object({
+                question: s.string(),
+                answer: s.string(),
+              })
+            )
+            .default([]),
           youtube: s.string().optional(),
           draft: s.boolean().default(false),
           featured: s.boolean().default(false),

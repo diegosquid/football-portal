@@ -36,7 +36,8 @@ Execute na ordem. Se qualquer passo falhar, va para "Secao 12 — Erros".
 9. **Selecionar autor** — conferir Secao 5
 10. **Gerar artigo MDX** — seguir Secoes 6, 7 e 8
 11. **Gerar imagem** — seguir Secao 9
-12. **Salvar, commitar e push** — seguir Secao 10
+12. **Validar frontmatter SEO** — `node scripts/validate-frontmatter.js <slug>`. Se exit != 0 → CORRIGIR e validar de novo. NUNCA commitar com exit 1.
+13. **Salvar, commitar e push** — seguir Secao 10
 
 ---
 
@@ -204,6 +205,7 @@ Se pauta rejeitada → ir para proxima pauta da lista.
 - Historico do confronto
 - Pontos taticos
 - Palpite
+- **FAQ obrigatorio no frontmatter** (Secao 7.0) — perguntas sobre horario, onde assistir, escalacao
 
 **post-match:**
 - Gols e lances decisivos
@@ -211,6 +213,7 @@ Se pauta rejeitada → ir para proxima pauta da lista.
 - Destaques individuais
 - Numeros do jogo
 - Proximo compromisso
+- **FAQ obrigatorio no frontmatter** (Secao 7.0) — perguntas sobre resultado, autores dos gols, proxima partida, classificacao
 
 **transfer-radar:**
 - Negociacoes quentes (com status: 🟢 Provavel, 🟡 Negociando, ✅ Confirmado, ❌ Caiu)
@@ -233,7 +236,7 @@ Se pauta rejeitada → ir para proxima pauta da lista.
 - Introducao ao tema (o que e, por que importa)
 - Explicacao detalhada (regras, funcionamento, historia)
 - Dados e curiosidades
-- FAQ ou perguntas frequentes
+- **FAQ obrigatorio no frontmatter** (Secao 7.0) — usar o campo `faq:` do frontmatter (rich result FAQPage). NAO escrever um bloco "Perguntas Frequentes" no corpo do MDX: o site renderiza automaticamente a partir do frontmatter.
 - Nota: autor variavel (quem tem expertise no tema)
 
 **round-coverage:**
@@ -255,6 +258,7 @@ Template EXATO — todos os artigos DEVEM usar este formato:
 title: "Titulo do artigo (50-65 chars ideal, keyword no inicio)"
 slug: "slug-sem-acentos-com-hifens"
 excerpt: "Resumo ate 300 chars para card na home"
+seoDescription: "Meta description <= 160 chars, keyword no inicio"
 date: "YYYY-MM-DDTHH:MM:00-03:00"
 author: "slug-do-autor"
 category: "slug-da-categoria"
@@ -265,8 +269,52 @@ imageCaption: "Legenda contextual (80-150 chars)"
 source:
   name: "Nome das fontes"
   url: "URL da fonte principal"
+faq:
+  - question: "Pergunta direta como usuario pesquisaria no Google?"
+    answer: "Resposta curta de 1-2 frases, nao copia do texto do artigo."
+  - question: "Outra pergunta frequente?"
+    answer: "Outra resposta direta."
+  - question: "Uma terceira pergunta?"
+    answer: "Terceira resposta."
 featured: false
 ---
+```
+
+### 7.0 Campos SEO (`seoDescription` e `faq`) — OBRIGATORIOS
+
+**`seoDescription`** — meta description enxuta (<= 160 chars):
+- Obrigatorio em TODOS os artigos
+- Diferente do `excerpt` (excerpt pode ter 300 chars e e editorial; seoDescription e para o `<head>` do HTML)
+- Keyword principal nos primeiros 50 chars
+- Sem reticencias, sem ponto final obrigatorio, sem aspas
+- Exemplo (pos-jogo): `"Flamengo goleou o Medellin por 4x1 no Maracana com gols de Paqueta, Arrascaeta, Bruno Henrique e Pedro pela Libertadores 2026."`
+
+**`faq`** — 3 a 5 perguntas frequentes. Obrigatorio em:
+- `pre-match` → "Que horas e o jogo?", "Onde assistir?", "Qual a escalacao provavel?", "Onde e o jogo?", "Historico recente?"
+- `post-match` → "Quem marcou?", "Qual o proximo jogo?", "Como ficou a classificacao?", "Quem se destacou?"
+- `evergreen` → perguntas que o usuario faz sobre o tema (regulamento, formato, historia)
+- `jogos-de-hoje` relacionados → "A que horas e o jogo?", "Em qual canal passa?"
+
+Opcional em: `opinion`, `transfer-radar`, `stat-analysis`.
+
+Regras para FAQ:
+- Perguntas como o usuario pesquisaria no Google, nao como o autor escreve
+- Respostas diretas, 1-2 frases, auto-contidas (nao exigir leitura do artigo)
+- Nao copiar literalmente paragrafos do artigo (Google detecta e nao renderiza rich result)
+- Nao colocar links nas respostas do FAQ
+- Respostas devem trazer informacao factual verificavel (horario, canal, resultado), nao opiniao
+
+Exemplo completo (pre-match Flamengo x Palmeiras):
+```yaml
+faq:
+  - question: "Que horas é Flamengo x Palmeiras?"
+    answer: "A partida está marcada para domingo, 16h (Brasília), no Maracanã."
+  - question: "Onde assistir Flamengo x Palmeiras ao vivo?"
+    answer: "A Globo e o Premiere transmitem o jogo para todo o Brasil."
+  - question: "Qual a escalação provável do Flamengo?"
+    answer: "Rossi; Wesley, Léo Pereira, Fabrício Bruno, Ayrton Lucas; Pulgar, Gerson, De la Cruz; Everton Cebolinha, Pedro, Luiz Araújo."
+  - question: "Quem está suspenso ou contundido?"
+    answer: "O Flamengo não tem desfalques; no Palmeiras, Gustavo Gómez cumpre suspensão automática."
 ```
 
 ### 7.1 Campo `date`
@@ -442,14 +490,18 @@ https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&h=450&fit=cro
 # 2. Verificar que o arquivo existe
 ls content/articles/[slug].mdx
 
-# 3. Stage e commit
+# 3. Validar frontmatter SEO (OBRIGATORIO — bloqueia se exit != 0)
+node scripts/validate-frontmatter.js [slug]
+# Se exit 1 → ler os erros, editar o MDX, rodar de novo ate exit 0
+
+# 4. Stage e commit (SO depois do validate OK)
 git add content/articles/[slug].mdx
 git commit -m "content([tipo]): [titulo resumido]"
 
-# 4. Push
+# 5. Push
 git push origin main
 
-# 5. Verificar push
+# 6. Verificar push
 git log --oneline -1
 ```
 
@@ -545,6 +597,13 @@ As 3 fontes devem concordar no mesmo placar. Fontes validas (usar fontes DIFEREN
 - [ ] Minimo 3 fontes consultadas (2 para pos-jogo e opiniao)
 - [ ] Nenhum dado inventado ou inferido sem fonte
 - [ ] Se fontes divergem → ABORTAR publicacao ou investigar mais
+
+### Checklist SEO do frontmatter (qualquer tipo):
+- [ ] `seoDescription` preenchido, <= 160 chars, keyword nos primeiros 50 chars
+- [ ] `excerpt` diferente do `seoDescription` (excerpt editorial, seoDescription enxuta)
+- [ ] `faq` com 3-5 itens se o tipo exige (pre-match, post-match, evergreen) — perguntas no formato de busca do Google, respostas de 1-2 frases
+- [ ] Respostas do FAQ nao sao copia literal do texto do artigo
+- [ ] FAQ nao tem links, nao tem opiniao, so fato verificavel
 
 **ERROS INACEITAVEIS (tolerancia zero):**
 - Resultado de jogo invertido

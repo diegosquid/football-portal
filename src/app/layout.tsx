@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WebSiteJsonLd } from "@/components/JsonLd";
+import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
@@ -12,6 +12,8 @@ const inter = Inter({
   display: "swap",
   variable: "--font-inter",
 });
+
+const defaultSocialTitle = `${siteConfig.name} — Notícias, Análises e Tabelas do Futebol`;
 
 export const metadata: Metadata = {
   title: {
@@ -25,14 +27,25 @@ export const metadata: Metadata = {
     type: "website",
     locale: siteConfig.locale,
     url: siteConfig.url,
-    title: siteConfig.name,
+    title: defaultSocialTitle,
     description: siteConfig.description,
     siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} — Notícias de Futebol`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
+    title: defaultSocialTitle,
     description: siteConfig.description,
+    site: siteConfig.twitterHandle,
+    creator: siteConfig.twitterHandle,
+    images: [siteConfig.ogImage],
   },
   robots: {
     index: true,
@@ -57,6 +70,7 @@ export default function RootLayout({
       <GoogleAnalytics />
       <body className="flex min-h-screen flex-col antialiased">
         <WebSiteJsonLd />
+        <OrganizationJsonLd />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

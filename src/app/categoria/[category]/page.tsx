@@ -1,10 +1,15 @@
 import { articles } from "#content";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { ArticleCard } from "@/components/ArticleCard";
 import { Pagination } from "@/components/Pagination";
+import {
+  BreadcrumbJsonLd,
+  CollectionPageJsonLd,
+} from "@/components/JsonLd";
 import { getAllCategories, getCategory } from "@/lib/categories";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, truncateForMeta } from "@/lib/site";
 import { paginate, buildPaginationUrls } from "@/lib/pagination";
 
 interface Props {
@@ -20,14 +25,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cat = getCategory(category);
   if (!cat) return {};
 
+  const metaDescription = truncateForMeta(cat.longDescription, 160);
+
   return {
     title: `${cat.label} — Notícias`,
-    description: cat.description,
+    description: metaDescription,
     alternates: { canonical: `/categoria/${category}` },
     openGraph: {
       title: `${cat.label} — ${siteConfig.name}`,
-      description: cat.description,
+      description: metaDescription,
       url: `${siteConfig.url}/categoria/${category}`,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${cat.label} — ${siteConfig.name}`,
+      description: metaDescription,
     },
   };
 }
@@ -47,6 +60,33 @@ export default async function CategoryPage({ params }: Props) {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Início", url: "/" },
+          { name: cat.label, url: basePath },
+        ]}
+      />
+      {result && result.items.length > 0 && (
+        <CollectionPageJsonLd
+          name={`${cat.label} — Notícias`}
+          description={cat.longDescription}
+          url={basePath}
+          items={result.items.map((a) => ({
+            name: a.title,
+            url: `/${a.slug}`,
+          }))}
+        />
+      )}
+
+      {/* Breadcrumb visual */}
+      <nav className="mb-4 text-sm text-gray-500">
+        <Link href="/" className="hover:text-primary">
+          Início
+        </Link>
+        <span className="mx-2">/</span>
+        <span className="text-gray-700">{cat.label}</span>
+      </nav>
+
       <header className="mb-8">
         <div
           className={`badge-${category} mb-4 inline-block rounded-sm px-3 py-1 text-xs font-bold uppercase tracking-wider text-white`}
@@ -56,7 +96,9 @@ export default async function CategoryPage({ params }: Props) {
         <h1 className="text-3xl font-black text-secondary lg:text-4xl">
           {cat.label}
         </h1>
-        <p className="mt-2 text-gray-600">{cat.description}</p>
+        <p className="mt-3 max-w-3xl text-base text-gray-600">
+          {cat.longDescription}
+        </p>
       </header>
 
       {result && result.items.length > 0 ? (

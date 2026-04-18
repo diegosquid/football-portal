@@ -15,6 +15,19 @@ export default function HomePage() {
 
   return (
     <>
+      {/* Intro / H1 */}
+      <section className="mx-auto max-w-7xl px-4 pt-8">
+        <h1 className="text-3xl font-black leading-tight text-secondary sm:text-4xl">
+          Notícias de Futebol, Análises Táticas e Mercado da Bola
+        </h1>
+        <p className="mt-3 max-w-3xl text-base text-gray-600 sm:text-lg">
+          Cobertura diária do Brasileirão, Libertadores, Champions League e
+          seleções. Pré-jogo, pós-jogo, radar de transferências e opinião — do
+          chute inicial ao apito final, contado por quem assiste à beira do
+          campo.
+        </p>
+      </section>
+
       {/* Hero */}
       {featured && (
         <section className="mx-auto max-w-7xl px-4 pt-6">
