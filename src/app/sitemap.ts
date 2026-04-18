@@ -3,6 +3,7 @@ import { articles } from "#content";
 import { getAllCategories } from "@/lib/categories";
 import { getAllAuthors } from "@/lib/authors";
 import { getAllTeams } from "@/lib/teams";
+import { getAllMatches } from "@/lib/matches";
 import { siteConfig } from "@/lib/site";
 import { ARTICLES_PER_PAGE } from "@/lib/pagination";
 
@@ -93,6 +94,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     }));
 
+  // Páginas de "onde assistir" — uma por jogo em jogos-hoje.json.
+  // Silencioso se o arquivo estiver ausente no build.
+  let matchPages: MetadataRoute.Sitemap = [];
+  try {
+    matchPages = getAllMatches().map((m) => ({
+      url: `${baseUrl}/onde-assistir/${m.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "hourly" as const,
+      priority: 0.85,
+    }));
+  } catch {
+    // jogos-hoje.json ausente/corrompido — seguir sem matches.
+  }
+
   return [
     ...staticPages,
     ...categoryPages,
@@ -102,6 +117,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...teamHojePages,
     ...teamPages,
     ...teamPaginatedPages,
+    ...matchPages,
     ...articlePages,
   ];
 }

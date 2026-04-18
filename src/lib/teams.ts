@@ -35,3 +35,33 @@ export function getTeam(slug: string): Team | undefined {
 export function getAllTeams(): Team[] {
   return Object.values(teams);
 }
+
+function normalize(s: string): string {
+  return s
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "");
+}
+
+/**
+ * Resolve o slug do time a partir do nome de exibição (ex.: "Flamengo", "São Paulo").
+ * Retorna undefined se o nome não casar com nenhum time registrado — útil pra
+ * jogos internacionais sem time brasileiro cadastrado.
+ */
+export function resolveTeamSlug(displayName: string): string | undefined {
+  const target = normalize(displayName);
+  if (!target) return undefined;
+
+  for (const team of Object.values(teams)) {
+    const normalizedName = normalize(team.name);
+    if (
+      normalizedName === target ||
+      target.includes(normalizedName) ||
+      normalizedName.includes(target)
+    ) {
+      return team.slug;
+    }
+  }
+  return undefined;
+}

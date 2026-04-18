@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { buildMatchSlug } from "@/lib/matches";
+
 type Game = {
   time: string;
   home: string;
@@ -138,48 +141,52 @@ export function GameSchedule({ games, date, updatedAt }: GameScheduleProps) {
 
               {/* Games list */}
               <div className="overflow-hidden rounded-lg border border-gray-200 bg-white">
-                {grouped[competition].map((game, idx) => (
-                  <div
-                    key={`${game.home}-${game.away}-${idx}`}
-                    className={`flex items-center gap-3 px-4 py-3 sm:gap-4 ${
-                      idx > 0 ? "border-t border-gray-100" : ""
-                    }`}
-                  >
-                    {/* Time */}
-                    <div className="w-14 shrink-0 text-center">
-                      <span className="text-lg font-black text-primary">
-                        {game.time}
-                      </span>
-                    </div>
-
-                    {/* Teams */}
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-1.5">
-                        <span className="truncate text-sm font-semibold text-secondary sm:text-base">
-                          {game.home}
-                        </span>
-                        <span className="shrink-0 text-xs text-gray-400">
-                          x
-                        </span>
-                        <span className="truncate text-sm font-semibold text-secondary sm:text-base">
-                          {game.away}
+                {grouped[competition].map((game, idx) => {
+                  const matchSlug = buildMatchSlug(game.home, game.away);
+                  return (
+                    <Link
+                      key={`${game.home}-${game.away}-${idx}`}
+                      href={`/onde-assistir/${matchSlug}`}
+                      className={`flex items-center gap-3 px-4 py-3 transition-colors hover:bg-surface sm:gap-4 ${
+                        idx > 0 ? "border-t border-gray-100" : ""
+                      }`}
+                    >
+                      {/* Time */}
+                      <div className="w-14 shrink-0 text-center">
+                        <span className="text-lg font-black text-primary">
+                          {game.time}
                         </span>
                       </div>
-                      {game.stadium && (
-                        <p className="mt-0.5 text-xs text-gray-400">
-                          {game.stadium}
-                        </p>
-                      )}
-                    </div>
 
-                    {/* Channel */}
-                    <div className="shrink-0 text-right">
-                      <span className="rounded bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700">
-                        {game.channel}
-                      </span>
-                    </div>
-                  </div>
-                ))}
+                      {/* Teams */}
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5">
+                          <span className="truncate text-sm font-semibold text-secondary sm:text-base">
+                            {game.home}
+                          </span>
+                          <span className="shrink-0 text-xs text-gray-400">
+                            x
+                          </span>
+                          <span className="truncate text-sm font-semibold text-secondary sm:text-base">
+                            {game.away}
+                          </span>
+                        </div>
+                        {game.stadium && (
+                          <p className="mt-0.5 text-xs text-gray-400">
+                            {game.stadium}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Channel */}
+                      <div className="shrink-0 text-right">
+                        <span className="rounded bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700">
+                          {game.channel}
+                        </span>
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           ))}
