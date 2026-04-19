@@ -1,32 +1,13 @@
 import type { Metadata } from "next";
-import { readFileSync } from "fs";
-import { join } from "path";
 import { siteConfig } from "@/lib/site";
 import { GameSchedule } from "@/components/GameSchedule";
+import {
+  getScheduleMeta,
+  getTodayBRT,
+  getTodayMatches,
+} from "@/lib/matches";
 
 export const revalidate = 900; // 15 min
-
-type Game = {
-  time: string;
-  home: string;
-  away: string;
-  competition: string;
-  round: string;
-  channel: string;
-  stadium: string;
-};
-
-type ScheduleData = {
-  date: string;
-  updatedAt: string;
-  games: Game[];
-};
-
-function getSchedule(): ScheduleData {
-  const filePath = join(process.cwd(), "content", "jogos-hoje.json");
-  const raw = readFileSync(filePath, "utf-8");
-  return JSON.parse(raw) as ScheduleData;
-}
 
 export const metadata: Metadata = {
   title: "Jogos de Futebol Hoje — Programação Completa na TV",
@@ -60,12 +41,16 @@ export const metadata: Metadata = {
   },
 };
 
-function buildJsonLd(schedule: ScheduleData) {
-  return schedule.games.map((game) => ({
+export default function JogosFutebolHojePage() {
+  const games = getTodayMatches();
+  const { updatedAt } = getScheduleMeta();
+  const today = getTodayBRT();
+
+  const jsonLd = games.map((game) => ({
     "@context": "https://schema.org",
     "@type": "SportsEvent",
     name: `${game.home} x ${game.away}`,
-    startDate: `${schedule.date}T${game.time}:00-03:00`,
+    startDate: game.startDateIso,
     location: game.stadium
       ? { "@type": "Place", name: game.stadium }
       : undefined,
@@ -73,11 +58,6 @@ function buildJsonLd(schedule: ScheduleData) {
     awayTeam: { "@type": "SportsTeam", name: game.away },
     description: `${game.competition}${game.round ? ` — ${game.round}` : ""} — ${game.channel}`,
   }));
-}
-
-export default function JogosFutebolHojePage() {
-  const schedule = getSchedule();
-  const jsonLd = buildJsonLd(schedule);
 
   return (
     <>
@@ -87,7 +67,6 @@ export default function JogosFutebolHojePage() {
       />
 
       <div className="mx-auto max-w-4xl px-4 py-8">
-        {/* H1 */}
         <h1 className="mb-2 text-3xl font-black text-secondary sm:text-4xl">
           Jogos de Futebol Hoje
         </h1>
@@ -96,14 +75,8 @@ export default function JogosFutebolHojePage() {
           streaming. Atualizado diariamente.
         </p>
 
-        {/* Schedule */}
-        <GameSchedule
-          games={schedule.games}
-          date={schedule.date}
-          updatedAt={schedule.updatedAt}
-        />
+        <GameSchedule games={games} date={today} updatedAt={updatedAt} />
 
-        {/* SEO content */}
         <section className="mt-12 rounded-lg bg-surface p-6">
           <h2 className="mb-3 text-lg font-bold text-secondary">
             Onde assistir futebol hoje?

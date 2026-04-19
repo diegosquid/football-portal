@@ -1163,53 +1163,61 @@ SE existe jogo que TERMINOU (hora_atual >= hora_jogo + 2h):
 3. Jogos que afetam muito a classificacao (lideranca, Z4, G4)
 4. Jogos com brasileiros em destaque (Champions, etc.)
 
-### 10.4 Atualizacao da Pagina "Jogos de Futebol Hoje"
+### 10.4 Atualizacao de content/jogos.json — JANELA MOVEL DE 5 DIAS
 
-A pagina `/jogos-futebol-hoje` lista todos os jogos do dia com horarios, canais e competicoes. O arquivo de dados e `content/jogos-hoje.json`.
+A pagina `/jogos-futebol-hoje` (hoje) e as paginas `/onde-assistir/[slug]` (hoje + 4 dias a frente) leem **`content/jogos.json`**. Cobrimos **janela movel de 5 dias** — o SEO das paginas "onde assistir" depende de elas existirem ANTES da semana do jogo para o Google indexar.
 
 **Quando atualizar:**
-- Na PRIMEIRA execucao do dia (entre 06:00 e 08:00 BRT): atualizar OBRIGATORIAMENTE
-- Se houver jogos no periodo da tarde/noite, atualizar novamente entre 12:00-14:00
+- Slot 07:00-08:00 BRT: OBRIGATORIO. Refresh completo da janela.
+- Slot 13:00-14:00 BRT: SE houver jogos tarde/noite ou mudancas anunciadas.
 
 **Como atualizar:**
 
-1. Pesquisar na web: "jogos de futebol hoje [data]", "futebol na tv hoje", "programacao futebol hoje"
-2. Coletar TODOS os jogos do dia com:
-   - Horario (formato HH:MM, fuso Brasilia)
-   - Time mandante e visitante
-   - Competicao (nome completo)
-   - Rodada (se aplicavel)
-   - Canal de transmissao (TV aberta, fechada, streaming)
-   - Estadio (se disponivel)
-3. Montar JSON no formato:
+1. **Ler `content/jogos.json` atual** — NAO apagar dados bons. Fazer merge.
+2. Pesquisar programacao dos proximos 5 dias:
+   - "programacao futebol [DD/MM] a [DD/MM]"
+   - "brasileirao serie a rodada [N] e [N+1] jogos"
+   - "libertadores rodada [N] jogos horarios"
+   - "sul-americana rodada [N] jogos"
+   - "champions league jogos semana"
+   - "premier league rodada jogos [DD/MM]"
+3. Para cada jogo coletar: `date` (YYYY-MM-DD BRT), `time` (HH:MM BRT), `home`, `away`, `competition`, `round` (vazio se N/A), `channel` (usar `"A definir"` quando nao confirmado, NAO inventar), `stadium` (vazio quando nao confirmado).
+4. Merge: manter jogos futuros existentes (so atualizar campos divergentes), adicionar novos, remover `date < hoje`, ordenar por `date` asc + `time` asc.
+5. Formato do JSON:
 ```json
 {
-  "date": "YYYY-MM-DD",
-  "updatedAt": "ISO 8601 com timezone -03:00",
+  "updatedAt": "YYYY-MM-DDTHH:MM:00-03:00",
   "games": [
     {
-      "time": "HH:MM",
-      "home": "Time Mandante",
-      "away": "Time Visitante",
-      "competition": "Nome da Competicao",
-      "round": "Rodada X",
-      "channel": "Canal1 / Canal2",
-      "stadium": "Nome do Estadio"
+      "date": "2026-04-20",
+      "time": "20:00",
+      "home": "Cruzeiro",
+      "away": "Gremio",
+      "competition": "Brasileirao Serie A",
+      "round": "Rodada 12",
+      "channel": "Globo / Premiere",
+      "stadium": "Mineirao"
     }
   ]
 }
 ```
-4. Salvar em `content/jogos-hoje.json`
-5. Fazer commit: `git add content/jogos-hoje.json && git commit -m "data(jogos-hoje): atualiza programação [data]"`
+6. Salvar em `content/jogos.json`.
+7. Commit: `git add content/jogos.json && git commit -m "data(jogos): atualiza janela proximos 5 dias"`.
 
-**Prioridade de competicoes a incluir:**
-1. Brasileirao (Serie A, B, C)
+**Prioridade de competicoes (cobrir nesta ordem):**
+1. Brasileirao (A, B, C)
 2. Copa do Brasil
-3. Libertadores / Sul-Americana
-4. Champions League / Europa League
-5. Premier League, La Liga, Serie A, Bundesliga, Ligue 1
-6. Campeonato Argentino, Uruguaio, outros sul-americanos
-7. Outras competicoes com transmissao no Brasil
+3. Libertadores
+4. Sul-Americana
+5. Champions / Europa / Conference
+6. Premier League, La Liga, Serie A italiana, Bundesliga, Ligue 1
+7. Brasileirao Feminino A1
+8. Demais com transmissao no Brasil
+
+**Regras de qualidade:**
+- Nao sobrescrever campo existente com valor pior (ex: `"A definir"` sobre canal ja conhecido).
+- Se 2 fontes divergem no horario → manter o valor antigo.
+- Lidar com `channel: "A definir"` e `stadium: ""` e NORMAL para jogos 3-4 dias a frente.
 
 ### 10.5 Cobertura de Rodada
 

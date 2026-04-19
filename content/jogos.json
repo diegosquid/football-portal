@@ -1,8 +1,8 @@
 {
-  "date": "2026-04-19",
-  "updatedAt": "2026-04-19T10:00:00-03:00",
+  "updatedAt": "2026-04-19T12:00:00-03:00",
   "games": [
     {
+      "date": "2026-04-19",
       "time": "04:00",
       "home": "Nagoya Grampus",
       "away": "Avispa Fukuoka",
@@ -12,6 +12,7 @@
       "stadium": ""
     },
     {
+      "date": "2026-04-19",
       "time": "07:00",
       "home": "Kryvbas",
       "away": "Rukh Lviv",
@@ -21,6 +22,7 @@
       "stadium": ""
     },
     {
+      "date": "2026-04-19",
       "time": "07:30",
       "home": "Cremonese",
       "away": "Torino",
@@ -30,6 +32,7 @@
       "stadium": ""
     },
     {
+      "date": "2026-04-19",
       "time": "08:30",
       "home": "Eintracht Braunschweig",
       "away": "Hertha Berlim",
@@ -39,6 +42,7 @@
       "stadium": ""
     },
     {
+      "date": "2026-04-19",
       "time": "08:30",
       "home": "Greuther Fürth",
       "away": "Darmstadt",
@@ -48,6 +52,7 @@
       "stadium": ""
     },
     {
+      "date": "2026-04-19",
       "time": "08:30",
       "home": "Schalke 04",
       "away": "Preussen Münster",
@@ -57,6 +62,7 @@
       "stadium": ""
     },
     {
+      "date": "2026-04-19",
       "time": "10:00",
       "home": "Everton",
       "away": "Liverpool",
@@ -66,6 +72,7 @@
       "stadium": "Hill Dickinson Stadium"
     },
     {
+      "date": "2026-04-19",
       "time": "10:00",
       "home": "Aston Villa",
       "away": "Sunderland",
@@ -75,6 +82,7 @@
       "stadium": ""
     },
     {
+      "date": "2026-04-19",
       "time": "10:00",
       "home": "Nottingham Forest",
       "away": "Burnley",
@@ -84,6 +92,7 @@
       "stadium": ""
     },
     {
+      "date": "2026-04-19",
       "time": "11:00",
       "home": "Internacional",
       "away": "Mirassol",
@@ -93,6 +102,7 @@
       "stadium": "Beira-Rio"
     },
     {
+      "date": "2026-04-19",
       "time": "12:30",
       "home": "Manchester City",
       "away": "Arsenal",
@@ -102,6 +112,7 @@
       "stadium": "Etihad Stadium"
     },
     {
+      "date": "2026-04-19",
       "time": "16:00",
       "home": "Santos",
       "away": "Fluminense",
@@ -111,6 +122,7 @@
       "stadium": "Vila Belmiro"
     },
     {
+      "date": "2026-04-19",
       "time": "16:00",
       "home": "Coritiba",
       "away": "Atlético-MG",
@@ -120,6 +132,7 @@
       "stadium": "Couto Pereira"
     },
     {
+      "date": "2026-04-19",
       "time": "18:30",
       "home": "Palmeiras",
       "away": "Athletico-PR",
@@ -129,6 +142,7 @@
       "stadium": "Allianz Parque"
     },
     {
+      "date": "2026-04-19",
       "time": "18:30",
       "home": "Red Bull Bragantino",
       "away": "Remo",
@@ -138,6 +152,7 @@
       "stadium": ""
     },
     {
+      "date": "2026-04-19",
       "time": "18:30",
       "home": "Figueirense",
       "away": "Botafogo-PB",
@@ -147,6 +162,7 @@
       "stadium": "Orlando Scarpelli"
     },
     {
+      "date": "2026-04-19",
       "time": "19:00",
       "home": "Ferroviária",
       "away": "América-MG",
@@ -156,6 +172,7 @@
       "stadium": ""
     },
     {
+      "date": "2026-04-19",
       "time": "19:00",
       "home": "Santos",
       "away": "Atlético-MG",
@@ -165,6 +182,7 @@
       "stadium": ""
     },
     {
+      "date": "2026-04-19",
       "time": "19:00",
       "home": "São Paulo",
       "away": "Grêmio",
@@ -174,6 +192,7 @@
       "stadium": ""
     },
     {
+      "date": "2026-04-19",
       "time": "19:30",
       "home": "Flamengo",
       "away": "Bahia",
@@ -183,6 +202,7 @@
       "stadium": "Maracanã"
     },
     {
+      "date": "2026-04-19",
       "time": "19:30",
       "home": "Liverpool",
       "away": "Nacional",
@@ -192,6 +212,7 @@
       "stadium": ""
     },
     {
+      "date": "2026-04-19",
       "time": "20:00",
       "home": "Novorizontino",
       "away": "Athletic Club",
@@ -201,6 +222,7 @@
       "stadium": "Estádio Jorge Ismael de Biasi"
     },
     {
+      "date": "2026-04-19",
       "time": "20:00",
       "home": "Fortaleza",
       "away": "Criciúma",
@@ -210,6 +232,7 @@
       "stadium": "Estádio Presidente Vargas"
     },
     {
+      "date": "2026-04-19",
       "time": "20:00",
       "home": "Brasil",
       "away": "México",
@@ -219,6 +242,7 @@
       "stadium": ""
     },
     {
+      "date": "2026-04-19",
       "time": "20:00",
       "home": "Argentina",
       "away": "Colômbia",
@@ -228,6 +252,7 @@
       "stadium": ""
     },
     {
+      "date": "2026-04-19",
       "time": "20:00",
       "home": "Los Angeles FC",
       "away": "San Jose Earthquakes",
@@ -235,6 +260,146 @@
       "round": "",
       "channel": "Apple TV+",
       "stadium": ""
+    },
+    {
+      "date": "2026-04-20",
+      "time": "20:00",
+      "home": "Cruzeiro",
+      "away": "Grêmio",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 12",
+      "channel": "Globo / Premiere",
+      "stadium": "Mineirão"
+    },
+    {
+      "date": "2026-04-20",
+      "time": "20:00",
+      "home": "Ceará",
+      "away": "Vitória",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 12",
+      "channel": "Premiere",
+      "stadium": "Castelão"
+    },
+    {
+      "date": "2026-04-20",
+      "time": "20:00",
+      "home": "Corinthians",
+      "away": "Juventude",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 12",
+      "channel": "Premiere",
+      "stadium": "Neo Química Arena"
+    },
+    {
+      "date": "2026-04-20",
+      "time": "20:00",
+      "home": "Chapecoense",
+      "away": "Avaí",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 5",
+      "channel": "ESPN / Disney+",
+      "stadium": "Arena Condá"
+    },
+    {
+      "date": "2026-04-21",
+      "time": "19:00",
+      "home": "Internacional",
+      "away": "Atlético Nacional",
+      "competition": "Libertadores",
+      "round": "Rodada 3",
+      "channel": "Paramount+",
+      "stadium": "Beira-Rio"
+    },
+    {
+      "date": "2026-04-21",
+      "time": "21:30",
+      "home": "Racing",
+      "away": "São Paulo",
+      "competition": "Libertadores",
+      "round": "Rodada 3",
+      "channel": "ESPN / Paramount+",
+      "stadium": "Cilindro de Avellaneda"
+    },
+    {
+      "date": "2026-04-21",
+      "time": "21:30",
+      "home": "Bolívar",
+      "away": "Fluminense",
+      "competition": "Libertadores",
+      "round": "Rodada 3",
+      "channel": "Paramount+",
+      "stadium": "Hernando Siles"
+    },
+    {
+      "date": "2026-04-22",
+      "time": "19:00",
+      "home": "Botafogo",
+      "away": "Universidad de Chile",
+      "competition": "Libertadores",
+      "round": "Rodada 3",
+      "channel": "Paramount+",
+      "stadium": "Nilton Santos"
+    },
+    {
+      "date": "2026-04-22",
+      "time": "19:00",
+      "home": "Flamengo",
+      "away": "LDU",
+      "competition": "Libertadores",
+      "round": "Rodada 3",
+      "channel": "ESPN / Paramount+",
+      "stadium": "Maracanã"
+    },
+    {
+      "date": "2026-04-22",
+      "time": "21:30",
+      "home": "Cerro Porteño",
+      "away": "Palmeiras",
+      "competition": "Libertadores",
+      "round": "Rodada 3",
+      "channel": "Paramount+",
+      "stadium": "La Nueva Olla"
+    },
+    {
+      "date": "2026-04-22",
+      "time": "21:30",
+      "home": "Independiente del Valle",
+      "away": "Corinthians",
+      "competition": "Libertadores",
+      "round": "Rodada 3",
+      "channel": "Paramount+",
+      "stadium": "Estadio Banco Guayaquil"
+    },
+    {
+      "date": "2026-04-23",
+      "time": "19:00",
+      "home": "Atlético-MG",
+      "away": "Cienciano",
+      "competition": "Sul-Americana",
+      "round": "Rodada 3",
+      "channel": "ESPN / Disney+",
+      "stadium": "Arena MRV"
+    },
+    {
+      "date": "2026-04-23",
+      "time": "21:30",
+      "home": "Grêmio",
+      "away": "Godoy Cruz",
+      "competition": "Sul-Americana",
+      "round": "Rodada 3",
+      "channel": "Paramount+",
+      "stadium": "Arena do Grêmio"
+    },
+    {
+      "date": "2026-04-23",
+      "time": "21:30",
+      "home": "Bahia",
+      "away": "Deportivo Pereira",
+      "competition": "Sul-Americana",
+      "round": "Rodada 3",
+      "channel": "Paramount+",
+      "stadium": "Arena Fonte Nova"
     }
   ]
 }

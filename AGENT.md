@@ -81,7 +81,64 @@ Se for dia/horario de coluna fixa → o tipo e `opinion` com o autor indicado. I
 - Prioridade pre-jogo: (1) Brasileirao TIER 1-2, (2) Libertadores/Copa do Brasil, (3) Champions, (4) Brasileirao TIER 3-5
 - Prioridade pos-jogo: (1) Resultados surpreendentes (zebra, goleada, virada), (2) Classicos e jogos grandes, (3) Jogos que afetam classificacao (lideranca, Z4, G4), (4) Brasileiros em destaque internacional
 
-### 3.4 VALIDACAO DE ATUALIDADE (OBRIGATORIO)
+### 3.4 Atualizacao de content/jogos.json (OBRIGATORIO)
+
+Arquivo `content/jogos.json` alimenta as paginas `/jogos-futebol-hoje` e `/onde-assistir/[slug]`. Cobrir **janela movel de 5 dias (hoje + 4 dias a frente)** — o SEO depende da pagina existir ANTES da semana do jogo para o Google indexar.
+
+**Quando atualizar:**
+- Slot 07:00-08:00 BRT: **SEMPRE** antes de qualquer artigo. Refresh completo da janela.
+- Slot 13:00-14:00 BRT: SE houver jogos tarde/noite ou mudancas anunciadas.
+
+**Passos:**
+
+1. **Ler `content/jogos.json` atual** para ver a janela existente. Nao apagar dados bons — fazer MERGE.
+
+2. **Pesquisar programacao dos proximos 5 dias** (hoje + 4):
+   ```
+   "programacao futebol [DD/MM] a [DD/MM]"
+   "brasileirao serie a rodada [N] e [N+1] jogos"
+   "libertadores rodada [N] jogos horarios"
+   "sul-americana rodada [N] jogos"
+   "champions league jogos semana"
+   "premier league rodada jogos [DD/MM]"
+   ```
+
+3. **Para cada jogo**, coletar:
+   - `date` (YYYY-MM-DD em BRT)
+   - `time` (HH:MM em BRT)
+   - `home` / `away` (nomes comerciais: "Flamengo", "Sao Paulo", "Palmeiras")
+   - `competition` ("Brasileirao Serie A", "Libertadores", "Sul-Americana", "Champions League", "Premier League", etc.)
+   - `round` ("Rodada 13") — vazio se nao aplicavel
+   - `channel` — se nao confirmado, usar `"A definir"` (NAO inventar)
+   - `stadium` — vazio se nao confirmado
+
+4. **Merge inteligente** com o JSON existente:
+   - MANTER jogos cuja `date >= hoje` e cujo confronto ja existia — so atualizar `time`, `channel` ou `stadium` se a fonte divergiu
+   - ADICIONAR novos jogos descobertos na janela
+   - REMOVER jogos com `date < hoje` (lixo)
+   - ORDENAR: `date` asc, `time` asc
+
+5. **Prioridade de competicoes** (cobrir obrigatoriamente nesta ordem):
+   1. Brasileirao Serie A / B / C
+   2. Copa do Brasil
+   3. Libertadores
+   4. Sul-Americana
+   5. Champions League / Europa League / Conference
+   6. Premier League / La Liga / Serie A italiana / Bundesliga / Ligue 1
+   7. Brasileirao Feminino A1
+   8. Demais com transmissao no Brasil
+
+6. **Salvar** com `updatedAt` no timestamp atual BRT (formato `YYYY-MM-DDTHH:MM:00-03:00`).
+
+7. **Commit**: `data(jogos): atualiza janela proximos 5 dias`.
+
+**Regras de qualidade:**
+- Nunca sobrescrever campo existente com valor pior (ex: "A definir" sobre canal ja conhecido).
+- Se 2 fontes divergem no horario → ABORTAR e usar o valor antigo.
+- `channel` precisa ser o NOME do canal/streaming, nao URL ou link.
+- Lidar com `"A definir"` em canal e `""` em stadium é normal para jogos 3-4 dias a frente.
+
+### 3.5 VALIDACAO DE ATUALIDADE (OBRIGATORIO)
 
 Toda pesquisa e dado usado no artigo DEVE ser do dia atual. Seguir estas regras:
 

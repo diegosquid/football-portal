@@ -11,6 +11,7 @@ import {
 import { resolveTeamSlug } from "@/lib/teams";
 import { absoluteUrl, siteConfig, truncateForMeta } from "@/lib/site";
 import {
+  daysUntil,
   getAllMatches,
   getMatchBySlug,
   type Match,
@@ -36,6 +37,23 @@ function formatMatchDateBR(dateIso: string): string {
   });
 }
 
+function formatCountdown(days: number): string | null {
+  if (days < 0) return "Jogo já realizado";
+  if (days === 0) return "Hoje";
+  if (days === 1) return "Amanhã";
+  return `Em ${days} dias`;
+}
+
+function channelIsDefined(channel: string): boolean {
+  const normalized = channel.trim().toLowerCase();
+  return (
+    normalized !== "" &&
+    normalized !== "a definir" &&
+    normalized !== "tbd" &&
+    normalized !== "a confirmar"
+  );
+}
+
 function buildFaq(match: Match) {
   const dateFormatted = formatMatchDateBR(match.startDateIso);
   const competicaoText = match.round
@@ -49,7 +67,9 @@ function buildFaq(match: Match) {
     },
     {
       question: `Onde assistir ${match.home} x ${match.away} ao vivo?`,
-      answer: `A transmissão fica com ${match.channel}.`,
+      answer: channelIsDefined(match.channel)
+        ? `A transmissão fica com ${match.channel}.`
+        : "A emissora ainda não foi confirmada. A programação é atualizada diariamente — volte para conferir.",
     },
     {
       question: "Qual é a competição?",
@@ -72,9 +92,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const match = getMatchBySlug(slug);
   if (!match) return {};
 
+  const days = daysUntil(match.date);
+  const whenWord = days === 0 ? "hoje" : days === 1 ? "amanhã" : `dia ${match.date.split("-").reverse().slice(0, 2).join("/")}`;
   const title = `${match.home} x ${match.away}: horário, onde assistir e canal`;
+  const descChannelPart = channelIsDefined(match.channel)
+    ? ` Transmissão: ${match.channel}.`
+    : " Emissora a definir.";
   const metaDescription = truncateForMeta(
-    `${match.home} x ${match.away} hoje pelo ${match.competition}: horário (${match.time}), canal (${match.channel}) e onde assistir ao vivo.`,
+    `${match.home} x ${match.away} ${whenWord} pelo ${match.competition}: horário (${match.time}) e onde assistir ao vivo.${descChannelPart}`,
     160,
   );
   const canonical = `/onde-assistir/${match.slug}`;
@@ -125,8 +150,12 @@ export default async function OndeAssistirPage({ params }: Props) {
 
   const faq = buildFaq(match);
   const dateFormatted = formatMatchDateBR(match.startDateIso);
+  const daysToGo = daysUntil(match.date);
+  const countdown = formatCountdown(daysToGo);
+  const hasChannel = channelIsDefined(match.channel);
 
   // SportsEvent schema (enriched vs. /jogos-futebol-hoje)
+  const channelForSchema = hasChannel ? match.channel : "A definir";
   const sportsEventJsonLd = {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
@@ -139,7 +168,7 @@ export default async function OndeAssistirPage({ params }: Props) {
       : undefined,
     homeTeam: { "@type": "SportsTeam", name: match.home },
     awayTeam: { "@type": "SportsTeam", name: match.away },
-    description: `${match.competition}${match.round ? ` — ${match.round}` : ""} — Transmissão: ${match.channel}`,
+    description: `${match.competition}${match.round ? ` — ${match.round}` : ""} — Transmissão: ${channelForSchema}`,
     url: absoluteUrl(`/onde-assistir/${match.slug}`),
   };
 
@@ -179,18 +208,37 @@ export default async function OndeAssistirPage({ params }: Props) {
 
         {/* Header */}
         <header className="mb-6">
-          <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
-            {match.competition}
-            {match.round ? ` — ${match.round}` : ""}
-          </span>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+              {match.competition}
+              {match.round ? ` — ${match.round}` : ""}
+            </span>
+            {countdown && (
+              <span
+                className={`inline-block rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider ${
+                  daysToGo === 0
+                    ? "bg-green-100 text-green-800"
+                    : "bg-gray-100 text-gray-700"
+                }`}
+              >
+                {countdown}
+              </span>
+            )}
+          </div>
           <h1 className="mt-3 text-3xl font-black leading-tight text-secondary lg:text-4xl">
             Onde assistir {match.home} x {match.away}
           </h1>
           <p className="mt-3 text-base text-gray-600 sm:text-lg">
             {match.home} e {match.away} se enfrentam {dateFormatted} às{" "}
             <strong>{match.time}</strong> (horário de Brasília)
-            {match.stadium ? <>, no <strong>{match.stadium}</strong></> : null}.
-            A transmissão fica com <strong>{match.channel}</strong>.
+            {match.stadium ? <>, no <strong>{match.stadium}</strong></> : null}.{" "}
+            {hasChannel ? (
+              <>
+                A transmissão fica com <strong>{match.channel}</strong>.
+              </>
+            ) : (
+              <>A emissora ainda não foi confirmada.</>
+            )}
           </p>
         </header>
 
@@ -208,7 +256,9 @@ export default async function OndeAssistirPage({ params }: Props) {
             </div>
             <div className="flex justify-between px-5 py-3">
               <dt className="font-medium text-gray-500">Transmissão</dt>
-              <dd className="font-semibold text-secondary">{match.channel}</dd>
+              <dd className="font-semibold text-secondary">
+                {hasChannel ? match.channel : "A definir"}
+              </dd>
             </div>
             <div className="flex justify-between px-5 py-3">
               <dt className="font-medium text-gray-500">Competição</dt>

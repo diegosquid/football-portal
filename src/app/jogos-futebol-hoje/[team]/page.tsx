@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { readFileSync } from "fs";
-import { join } from "path";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { articles } from "#content";
@@ -8,37 +6,20 @@ import { siteConfig } from "@/lib/site";
 import { getAllTeams, getTeam } from "@/lib/teams";
 import { ArticleCard } from "@/components/ArticleCard";
 import { GameSchedule } from "@/components/GameSchedule";
+import {
+  getScheduleMeta,
+  getTodayBRT,
+  getTodayMatches,
+  type Match,
+} from "@/lib/matches";
 
 export const revalidate = 900;
-
-type Game = {
-  time: string;
-  home: string;
-  away: string;
-  competition: string;
-  round: string;
-  channel: string;
-  stadium: string;
-};
-
-type ScheduleData = {
-  date: string;
-  updatedAt: string;
-  games: Game[];
-};
 
 interface Props {
   params: Promise<{ team: string }>;
 }
 
-function getSchedule(): ScheduleData {
-  const filePath = join(process.cwd(), "content", "jogos-hoje.json");
-  const raw = readFileSync(filePath, "utf-8");
-  return JSON.parse(raw) as ScheduleData;
-}
-
-/** Match team name loosely against game home/away fields */
-function teamMatchesGame(teamName: string, game: Game): boolean {
+function teamMatchesGame(teamName: string, game: Match): boolean {
   const normalize = (s: string) =>
     s
       .toLowerCase()
@@ -89,21 +70,21 @@ export default async function TeamHojePage({ params }: Props) {
   const team = getTeam(teamSlug);
   if (!team) notFound();
 
-  const schedule = getSchedule();
-  const teamGames = schedule.games.filter((g) => teamMatchesGame(team.name, g));
+  const todayGames = getTodayMatches();
+  const teamGames = todayGames.filter((g) => teamMatchesGame(team.name, g));
+  const { updatedAt } = getScheduleMeta();
+  const today = getTodayBRT();
 
-  // Latest articles for this team
   const teamArticles = articles
     .filter((a) => !a.draft && a.teams.includes(team.slug))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 6);
 
-  // JSON-LD for team games
   const jsonLd = teamGames.map((game) => ({
     "@context": "https://schema.org",
     "@type": "SportsEvent",
     name: `${game.home} x ${game.away}`,
-    startDate: `${schedule.date}T${game.time}:00-03:00`,
+    startDate: game.startDateIso,
     location: game.stadium
       ? { "@type": "Place", name: game.stadium }
       : undefined,
@@ -122,7 +103,6 @@ export default async function TeamHojePage({ params }: Props) {
       )}
 
       <div className="mx-auto max-w-4xl px-4 py-8">
-        {/* H1 */}
         <h1 className="mb-2 text-3xl font-black text-secondary sm:text-4xl">
           {team.name} Hoje
         </h1>
@@ -131,7 +111,6 @@ export default async function TeamHojePage({ params }: Props) {
           notícias do time.
         </p>
 
-        {/* Today's games */}
         <section className="mb-10">
           <h2 className="mb-4 text-xl font-bold text-secondary">
             Jogo do {team.name} Hoje
@@ -140,8 +119,8 @@ export default async function TeamHojePage({ params }: Props) {
           {teamGames.length > 0 ? (
             <GameSchedule
               games={teamGames}
-              date={schedule.date}
-              updatedAt={schedule.updatedAt}
+              date={today}
+              updatedAt={updatedAt}
             />
           ) : (
             <div className="rounded-lg border border-gray-200 bg-white p-6 text-center">
@@ -162,7 +141,6 @@ export default async function TeamHojePage({ params }: Props) {
           )}
         </section>
 
-        {/* Latest articles */}
         {teamArticles.length > 0 && (
           <section className="mb-10">
             <div className="mb-4 flex items-center justify-between">
@@ -194,7 +172,6 @@ export default async function TeamHojePage({ params }: Props) {
           </section>
         )}
 
-        {/* SEO text */}
         <section className="rounded-lg bg-surface p-6">
           <h2 className="mb-3 text-lg font-bold text-secondary">
             {team.name} joga hoje? Onde assistir?
