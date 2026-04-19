@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-19T12:00:00-03:00",
+  "updatedAt": "2026-04-19T14:00:00-03:00",
   "games": [
     {
       "date": "2026-04-19",
@@ -113,6 +113,56 @@
     },
     {
       "date": "2026-04-19",
+      "time": "12:30",
+      "home": "Bayern de Munique",
+      "away": "Stuttgart",
+      "competition": "Bundesliga",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": "Allianz Arena"
+    },
+    {
+      "date": "2026-04-19",
+      "time": "15:45",
+      "home": "Juventus",
+      "away": "Bologna",
+      "competition": "Campeonato Italiano",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-19",
+      "time": "15:45",
+      "home": "Paris Saint-Germain",
+      "away": "Lyon",
+      "competition": "Ligue 1",
+      "round": "",
+      "channel": "CazéTV",
+      "stadium": "Parc des Princes"
+    },
+    {
+      "date": "2026-04-19",
+      "time": "16:00",
+      "home": "Londrina",
+      "away": "Ceará",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 5",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-19",
+      "time": "16:00",
+      "home": "Botafogo-SP",
+      "away": "Atlético-GO",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 5",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-19",
       "time": "16:00",
       "home": "Santos",
       "away": "Fluminense",
@@ -130,6 +180,26 @@
       "round": "Rodada 12",
       "channel": "Globo / Premiere",
       "stadium": "Couto Pereira"
+    },
+    {
+      "date": "2026-04-19",
+      "time": "17:00",
+      "home": "River Plate",
+      "away": "Boca Juniors",
+      "competition": "Campeonato Argentino",
+      "round": "Rodada 15",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estadio Más Monumental"
+    },
+    {
+      "date": "2026-04-19",
+      "time": "18:00",
+      "home": "Goiás",
+      "away": "Cuiabá",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 5",
+      "channel": "ESPN / Disney+",
+      "stadium": "Serrinha"
     },
     {
       "date": "2026-04-19",
@@ -246,7 +316,7 @@
       "time": "20:00",
       "home": "Argentina",
       "away": "Colômbia",
-      "competition": "Sul-Americano Sub-17 (Final)",
+      "competition": "Sul-Americano Sub-17",
       "round": "Final",
       "channel": "Sport2",
       "stadium": ""
