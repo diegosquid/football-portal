@@ -1,336 +1,6 @@
 {
-  "updatedAt": "2026-04-19T14:00:00-03:00",
+  "updatedAt": "2026-04-20T07:37:00-03:00",
   "games": [
-    {
-      "date": "2026-04-19",
-      "time": "04:00",
-      "home": "Nagoya Grampus",
-      "away": "Avispa Fukuoka",
-      "competition": "Campeonato Japonês",
-      "round": "",
-      "channel": "Canal GOAT / OneFootball",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "07:00",
-      "home": "Kryvbas",
-      "away": "Rukh Lviv",
-      "competition": "Campeonato Ucraniano",
-      "round": "",
-      "channel": "OneFootball",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "07:30",
-      "home": "Cremonese",
-      "away": "Torino",
-      "competition": "Campeonato Italiano",
-      "round": "",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "08:30",
-      "home": "Eintracht Braunschweig",
-      "away": "Hertha Berlim",
-      "competition": "2. Bundesliga",
-      "round": "",
-      "channel": "OneFootball",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "08:30",
-      "home": "Greuther Fürth",
-      "away": "Darmstadt",
-      "competition": "2. Bundesliga",
-      "round": "",
-      "channel": "OneFootball",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "08:30",
-      "home": "Schalke 04",
-      "away": "Preussen Münster",
-      "competition": "2. Bundesliga",
-      "round": "",
-      "channel": "OneFootball",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "10:00",
-      "home": "Everton",
-      "away": "Liverpool",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Hill Dickinson Stadium"
-    },
-    {
-      "date": "2026-04-19",
-      "time": "10:00",
-      "home": "Aston Villa",
-      "away": "Sunderland",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "10:00",
-      "home": "Nottingham Forest",
-      "away": "Burnley",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "11:00",
-      "home": "Internacional",
-      "away": "Mirassol",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 12",
-      "channel": "Premiere",
-      "stadium": "Beira-Rio"
-    },
-    {
-      "date": "2026-04-19",
-      "time": "12:30",
-      "home": "Manchester City",
-      "away": "Arsenal",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Etihad Stadium"
-    },
-    {
-      "date": "2026-04-19",
-      "time": "12:30",
-      "home": "Bayern de Munique",
-      "away": "Stuttgart",
-      "competition": "Bundesliga",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Allianz Arena"
-    },
-    {
-      "date": "2026-04-19",
-      "time": "15:45",
-      "home": "Juventus",
-      "away": "Bologna",
-      "competition": "Campeonato Italiano",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "15:45",
-      "home": "Paris Saint-Germain",
-      "away": "Lyon",
-      "competition": "Ligue 1",
-      "round": "",
-      "channel": "CazéTV",
-      "stadium": "Parc des Princes"
-    },
-    {
-      "date": "2026-04-19",
-      "time": "16:00",
-      "home": "Londrina",
-      "away": "Ceará",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 5",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "16:00",
-      "home": "Botafogo-SP",
-      "away": "Atlético-GO",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 5",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "16:00",
-      "home": "Santos",
-      "away": "Fluminense",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 12",
-      "channel": "Globo / GeTV / Premiere",
-      "stadium": "Vila Belmiro"
-    },
-    {
-      "date": "2026-04-19",
-      "time": "16:00",
-      "home": "Coritiba",
-      "away": "Atlético-MG",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 12",
-      "channel": "Globo / Premiere",
-      "stadium": "Couto Pereira"
-    },
-    {
-      "date": "2026-04-19",
-      "time": "17:00",
-      "home": "River Plate",
-      "away": "Boca Juniors",
-      "competition": "Campeonato Argentino",
-      "round": "Rodada 15",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estadio Más Monumental"
-    },
-    {
-      "date": "2026-04-19",
-      "time": "18:00",
-      "home": "Goiás",
-      "away": "Cuiabá",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 5",
-      "channel": "ESPN / Disney+",
-      "stadium": "Serrinha"
-    },
-    {
-      "date": "2026-04-19",
-      "time": "18:30",
-      "home": "Palmeiras",
-      "away": "Athletico-PR",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 12",
-      "channel": "Premiere",
-      "stadium": "Allianz Parque"
-    },
-    {
-      "date": "2026-04-19",
-      "time": "18:30",
-      "home": "Red Bull Bragantino",
-      "away": "Remo",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 12",
-      "channel": "Premiere",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "18:30",
-      "home": "Figueirense",
-      "away": "Botafogo-PB",
-      "competition": "Brasileirão Série C",
-      "round": "Rodada 3",
-      "channel": "Canal do Benja / SportyNet",
-      "stadium": "Orlando Scarpelli"
-    },
-    {
-      "date": "2026-04-19",
-      "time": "19:00",
-      "home": "Ferroviária",
-      "away": "América-MG",
-      "competition": "Brasileirão Feminino A1",
-      "round": "",
-      "channel": "UOL TV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "19:00",
-      "home": "Santos",
-      "away": "Atlético-MG",
-      "competition": "Brasileirão Feminino A1",
-      "round": "",
-      "channel": "UOL TV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "19:00",
-      "home": "São Paulo",
-      "away": "Grêmio",
-      "competition": "Brasileirão Feminino A1",
-      "round": "",
-      "channel": "SporTV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "19:30",
-      "home": "Flamengo",
-      "away": "Bahia",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 12",
-      "channel": "Premiere",
-      "stadium": "Maracanã"
-    },
-    {
-      "date": "2026-04-19",
-      "time": "19:30",
-      "home": "Liverpool",
-      "away": "Nacional",
-      "competition": "Campeonato Uruguaio",
-      "round": "",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "20:00",
-      "home": "Novorizontino",
-      "away": "Athletic Club",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 5",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio Jorge Ismael de Biasi"
-    },
-    {
-      "date": "2026-04-19",
-      "time": "20:00",
-      "home": "Fortaleza",
-      "away": "Criciúma",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 5",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio Presidente Vargas"
-    },
-    {
-      "date": "2026-04-19",
-      "time": "20:00",
-      "home": "Brasil",
-      "away": "México",
-      "competition": "Jogo das Lendas",
-      "round": "",
-      "channel": "XSports",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "20:00",
-      "home": "Argentina",
-      "away": "Colômbia",
-      "competition": "Sul-Americano Sub-17",
-      "round": "Final",
-      "channel": "Sport2",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-19",
-      "time": "20:00",
-      "home": "Los Angeles FC",
-      "away": "San Jose Earthquakes",
-      "competition": "MLS",
-      "round": "",
-      "channel": "Apple TV+",
-      "stadium": ""
-    },
     {
       "date": "2026-04-20",
       "time": "20:00",
@@ -373,103 +43,163 @@
     },
     {
       "date": "2026-04-21",
-      "time": "19:00",
-      "home": "Internacional",
-      "away": "Atlético Nacional",
-      "competition": "Libertadores",
-      "round": "Rodada 3",
-      "channel": "Paramount+",
-      "stadium": "Beira-Rio"
-    },
-    {
-      "date": "2026-04-21",
-      "time": "21:30",
-      "home": "Racing",
-      "away": "São Paulo",
-      "competition": "Libertadores",
-      "round": "Rodada 3",
-      "channel": "ESPN / Paramount+",
-      "stadium": "Cilindro de Avellaneda"
-    },
-    {
-      "date": "2026-04-21",
-      "time": "21:30",
-      "home": "Bolívar",
-      "away": "Fluminense",
-      "competition": "Libertadores",
-      "round": "Rodada 3",
-      "channel": "Paramount+",
-      "stadium": "Hernando Siles"
-    },
-    {
-      "date": "2026-04-22",
-      "time": "19:00",
+      "time": "17:00",
       "home": "Botafogo",
-      "away": "Universidad de Chile",
-      "competition": "Libertadores",
-      "round": "Rodada 3",
-      "channel": "Paramount+",
+      "away": "Chapecoense",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase (Ida)",
+      "channel": "SporTV / Premiere",
       "stadium": "Nilton Santos"
     },
     {
+      "date": "2026-04-21",
+      "time": "19:15",
+      "home": "São Paulo",
+      "away": "Juventude",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase (Ida)",
+      "channel": "SporTV / Premiere",
+      "stadium": "Morumbis"
+    },
+    {
+      "date": "2026-04-21",
+      "time": "19:30",
+      "home": "Grêmio",
+      "away": "Confiança",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase (Ida)",
+      "channel": "Amazon Prime Video",
+      "stadium": "Arena do Grêmio"
+    },
+    {
+      "date": "2026-04-21",
+      "time": "21:30",
+      "home": "Barra-SC",
+      "away": "Corinthians",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase (Ida)",
+      "channel": "Amazon Prime Video",
+      "stadium": "Ressacada"
+    },
+    {
+      "date": "2026-04-21",
+      "time": "21:30",
+      "home": "Paysandu",
+      "away": "Vasco",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase (Ida)",
+      "channel": "SporTV / Premiere / GE TV",
+      "stadium": "Mangueirão"
+    },
+    {
       "date": "2026-04-22",
       "time": "19:00",
+      "home": "Bahia",
+      "away": "Remo",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase (Ida)",
+      "channel": "SporTV / Premiere",
+      "stadium": "Arena Fonte Nova"
+    },
+    {
+      "date": "2026-04-22",
+      "time": "19:00",
+      "home": "Goiás",
+      "away": "Cruzeiro",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase (Ida)",
+      "channel": "SporTV / Premiere / GE TV",
+      "stadium": "Serrinha"
+    },
+    {
+      "date": "2026-04-22",
+      "time": "19:30",
+      "home": "Santos",
+      "away": "Coritiba",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase (Ida)",
+      "channel": "Amazon Prime Video",
+      "stadium": "Vila Belmiro"
+    },
+    {
+      "date": "2026-04-22",
+      "time": "20:30",
+      "home": "Athletic Club",
+      "away": "Internacional",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase (Ida)",
+      "channel": "Amazon Prime Video",
+      "stadium": "Orlando Scarpelli"
+    },
+    {
+      "date": "2026-04-22",
+      "time": "20:30",
+      "home": "Fortaleza",
+      "away": "CRB",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase (Ida)",
+      "channel": "Amazon Prime Video",
+      "stadium": "Arena Castelão"
+    },
+    {
+      "date": "2026-04-22",
+      "time": "21:30",
       "home": "Flamengo",
-      "away": "LDU",
-      "competition": "Libertadores",
-      "round": "Rodada 3",
-      "channel": "ESPN / Paramount+",
+      "away": "Vitória",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase (Ida)",
+      "channel": "SporTV / Premiere",
       "stadium": "Maracanã"
     },
     {
       "date": "2026-04-22",
       "time": "21:30",
-      "home": "Cerro Porteño",
-      "away": "Palmeiras",
-      "competition": "Libertadores",
-      "round": "Rodada 3",
-      "channel": "Paramount+",
-      "stadium": "La Nueva Olla"
-    },
-    {
-      "date": "2026-04-22",
-      "time": "21:30",
-      "home": "Independiente del Valle",
-      "away": "Corinthians",
-      "competition": "Libertadores",
-      "round": "Rodada 3",
-      "channel": "Paramount+",
-      "stadium": "Estadio Banco Guayaquil"
+      "home": "Red Bull Bragantino",
+      "away": "Mirassol",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase (Ida)",
+      "channel": "SporTV / Premiere",
+      "stadium": "Nabi Abi Chedid"
     },
     {
       "date": "2026-04-23",
       "time": "19:00",
       "home": "Atlético-MG",
-      "away": "Cienciano",
-      "competition": "Sul-Americana",
-      "round": "Rodada 3",
-      "channel": "ESPN / Disney+",
+      "away": "Ceará",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase (Ida)",
+      "channel": "SporTV / Premiere",
       "stadium": "Arena MRV"
     },
     {
       "date": "2026-04-23",
-      "time": "21:30",
-      "home": "Grêmio",
-      "away": "Godoy Cruz",
-      "competition": "Sul-Americana",
-      "round": "Rodada 3",
-      "channel": "Paramount+",
-      "stadium": "Arena do Grêmio"
+      "time": "19:30",
+      "home": "Palmeiras",
+      "away": "Jacuipense",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase (Ida)",
+      "channel": "Amazon Prime Video",
+      "stadium": "Allianz Parque"
     },
     {
       "date": "2026-04-23",
       "time": "21:30",
-      "home": "Bahia",
-      "away": "Deportivo Pereira",
-      "competition": "Sul-Americana",
-      "round": "Rodada 3",
-      "channel": "Paramount+",
-      "stadium": "Arena Fonte Nova"
+      "home": "Athletico-PR",
+      "away": "Atlético-GO",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase (Ida)",
+      "channel": "SporTV / Premiere",
+      "stadium": "Arena da Baixada"
+    },
+    {
+      "date": "2026-04-23",
+      "time": "21:30",
+      "home": "Operário-PR",
+      "away": "Fluminense",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase (Ida)",
+      "channel": "Amazon Prime Video",
+      "stadium": "Germano Krüger"
     }
   ]
 }
