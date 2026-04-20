@@ -1,6 +1,86 @@
 {
-  "updatedAt": "2026-04-20T12:22:00-03:00",
+  "updatedAt": "2026-04-20T13:11:00-03:00",
   "games": [
+    {
+      "date": "2026-04-20",
+      "time": "15:45",
+      "home": "Lecce",
+      "away": "Fiorentina",
+      "competition": "Serie A italiana",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-20",
+      "time": "16:00",
+      "home": "Crystal Palace",
+      "away": "West Ham",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-20",
+      "time": "19:00",
+      "home": "São Paulo",
+      "away": "Grêmio",
+      "competition": "Brasileirão Feminino A1",
+      "round": "7ª Rodada",
+      "channel": "SporTV / Globoplay",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-20",
+      "time": "19:00",
+      "home": "Ferroviária",
+      "away": "América-MG",
+      "competition": "Brasileirão Feminino A1",
+      "round": "7ª Rodada",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-20",
+      "time": "19:00",
+      "home": "Santos",
+      "away": "Atlético-MG",
+      "competition": "Brasileirão Feminino A1",
+      "round": "7ª Rodada",
+      "channel": "SporTV / NS Sports",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-20",
+      "time": "20:00",
+      "home": "Maringá",
+      "away": "Brusque",
+      "competition": "Brasileirão Série C",
+      "round": "3ª Rodada",
+      "channel": "Canal do Benja / SportyNet",
+      "stadium": "Estádio Regional Willie Davids"
+    },
+    {
+      "date": "2026-04-20",
+      "time": "21:00",
+      "home": "Juventude",
+      "away": "Corinthians",
+      "competition": "Brasileirão Feminino A1",
+      "round": "7ª Rodada",
+      "channel": "TV Brasil",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-21",
+      "time": "15:45",
+      "home": "Fluminense",
+      "away": "Palmeiras",
+      "competition": "Brasileirão Feminino A1",
+      "round": "7ª Rodada",
+      "channel": "TV Brasil",
+      "stadium": ""
+    },
     {
       "date": "2026-04-21",
       "time": "17:00",
