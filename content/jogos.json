@@ -1,46 +1,6 @@
 {
-  "updatedAt": "2026-04-20T07:37:00-03:00",
+  "updatedAt": "2026-04-20T12:22:00-03:00",
   "games": [
-    {
-      "date": "2026-04-20",
-      "time": "20:00",
-      "home": "Cruzeiro",
-      "away": "Grêmio",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 12",
-      "channel": "Globo / Premiere",
-      "stadium": "Mineirão"
-    },
-    {
-      "date": "2026-04-20",
-      "time": "20:00",
-      "home": "Ceará",
-      "away": "Vitória",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 12",
-      "channel": "Premiere",
-      "stadium": "Castelão"
-    },
-    {
-      "date": "2026-04-20",
-      "time": "20:00",
-      "home": "Corinthians",
-      "away": "Juventude",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 12",
-      "channel": "Premiere",
-      "stadium": "Neo Química Arena"
-    },
-    {
-      "date": "2026-04-20",
-      "time": "20:00",
-      "home": "Chapecoense",
-      "away": "Avaí",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 5",
-      "channel": "ESPN / Disney+",
-      "stadium": "Arena Condá"
-    },
     {
       "date": "2026-04-21",
       "time": "17:00",
