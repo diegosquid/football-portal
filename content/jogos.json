@@ -1,76 +1,6 @@
 {
-  "updatedAt": "2026-04-20T13:11:00-03:00",
+  "updatedAt": "2026-04-21T07:12:00-03:00",
   "games": [
-    {
-      "date": "2026-04-20",
-      "time": "15:45",
-      "home": "Lecce",
-      "away": "Fiorentina",
-      "competition": "Serie A italiana",
-      "round": "",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-20",
-      "time": "16:00",
-      "home": "Crystal Palace",
-      "away": "West Ham",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-20",
-      "time": "19:00",
-      "home": "São Paulo",
-      "away": "Grêmio",
-      "competition": "Brasileirão Feminino A1",
-      "round": "7ª Rodada",
-      "channel": "SporTV / Globoplay",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-20",
-      "time": "19:00",
-      "home": "Ferroviária",
-      "away": "América-MG",
-      "competition": "Brasileirão Feminino A1",
-      "round": "7ª Rodada",
-      "channel": "A definir",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-20",
-      "time": "19:00",
-      "home": "Santos",
-      "away": "Atlético-MG",
-      "competition": "Brasileirão Feminino A1",
-      "round": "7ª Rodada",
-      "channel": "SporTV / NS Sports",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-20",
-      "time": "20:00",
-      "home": "Maringá",
-      "away": "Brusque",
-      "competition": "Brasileirão Série C",
-      "round": "3ª Rodada",
-      "channel": "Canal do Benja / SportyNet",
-      "stadium": "Estádio Regional Willie Davids"
-    },
-    {
-      "date": "2026-04-20",
-      "time": "21:00",
-      "home": "Juventude",
-      "away": "Corinthians",
-      "competition": "Brasileirão Feminino A1",
-      "round": "7ª Rodada",
-      "channel": "TV Brasil",
-      "stadium": ""
-    },
     {
       "date": "2026-04-21",
       "time": "15:45",
@@ -240,6 +170,56 @@
       "round": "5ª Fase (Ida)",
       "channel": "Amazon Prime Video",
       "stadium": "Germano Krüger"
+    },
+    {
+      "date": "2026-04-25",
+      "time": "08:30",
+      "home": "Fulham",
+      "away": "Aston Villa",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-25",
+      "time": "11:00",
+      "home": "Liverpool",
+      "away": "Crystal Palace",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-25",
+      "time": "11:00",
+      "home": "West Ham",
+      "away": "Everton",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-25",
+      "time": "11:00",
+      "home": "Wolverhampton",
+      "away": "Tottenham",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-25",
+      "time": "13:30",
+      "home": "Arsenal",
+      "away": "Newcastle",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
     }
   ]
 }
