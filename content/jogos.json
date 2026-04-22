@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-22T07:38:00-03:00",
+  "updatedAt": "2026-04-22T13:15:00-03:00",
   "games": [
     {
       "date": "2026-04-22",
@@ -209,7 +209,17 @@
       "competition": "Brasileirão Série A",
       "round": "Rodada 13",
       "channel": "SporTV / Premiere",
-      "stadium": ""
+      "stadium": "Baenão"
+    },
+    {
+      "date": "2026-04-25",
+      "time": "18:30",
+      "home": "Athletic",
+      "away": "Náutico",
+      "competition": "Brasileirão Série B",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": "Arena Sicredi"
     },
     {
       "date": "2026-04-25",
@@ -260,6 +270,36 @@
       "round": "Rodada 13",
       "channel": "SporTV / Premiere",
       "stadium": "Arena do Grêmio"
+    },
+    {
+      "date": "2026-04-26",
+      "time": "16:00",
+      "home": "São Bernardo",
+      "away": "Goiás",
+      "competition": "Brasileirão Série B",
+      "round": "",
+      "channel": "Globo / SporTV / Premiere",
+      "stadium": "Estádio 1º de Maio"
+    },
+    {
+      "date": "2026-04-26",
+      "time": "18:00",
+      "home": "Ceará",
+      "away": "Vila Nova",
+      "competition": "Brasileirão Série B",
+      "round": "",
+      "channel": "A definir",
+      "stadium": "Arena Castelão"
+    },
+    {
+      "date": "2026-04-26",
+      "time": "18:00",
+      "home": "Operário-PR",
+      "away": "Fortaleza",
+      "competition": "Brasileirão Série B",
+      "round": "",
+      "channel": "RedeTV / ESPN / Disney+",
+      "stadium": "Germano Krüger"
     },
     {
       "date": "2026-04-26",
