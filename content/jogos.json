@@ -1,66 +1,6 @@
 {
-  "updatedAt": "2026-04-21T14:03:00-03:00",
+  "updatedAt": "2026-04-22T07:33:00-03:00",
   "games": [
-    {
-      "date": "2026-04-21",
-      "time": "15:45",
-      "home": "Fluminense",
-      "away": "Palmeiras",
-      "competition": "Brasileirão Feminino A1",
-      "round": "7ª Rodada",
-      "channel": "TV Brasil",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-21",
-      "time": "17:00",
-      "home": "Botafogo",
-      "away": "Chapecoense",
-      "competition": "Copa do Brasil",
-      "round": "5ª Fase (Ida)",
-      "channel": "SporTV / Premiere",
-      "stadium": "Nilton Santos"
-    },
-    {
-      "date": "2026-04-21",
-      "time": "19:15",
-      "home": "São Paulo",
-      "away": "Juventude",
-      "competition": "Copa do Brasil",
-      "round": "5ª Fase (Ida)",
-      "channel": "SporTV / Premiere",
-      "stadium": "Morumbis"
-    },
-    {
-      "date": "2026-04-21",
-      "time": "19:30",
-      "home": "Grêmio",
-      "away": "Confiança",
-      "competition": "Copa do Brasil",
-      "round": "5ª Fase (Ida)",
-      "channel": "Amazon Prime Video",
-      "stadium": "Arena do Grêmio"
-    },
-    {
-      "date": "2026-04-21",
-      "time": "21:30",
-      "home": "Barra-SC",
-      "away": "Corinthians",
-      "competition": "Copa do Brasil",
-      "round": "5ª Fase (Ida)",
-      "channel": "Amazon Prime Video",
-      "stadium": "Ressacada"
-    },
-    {
-      "date": "2026-04-21",
-      "time": "21:30",
-      "home": "Paysandu",
-      "away": "Vasco",
-      "competition": "Copa do Brasil",
-      "round": "5ª Fase (Ida)",
-      "channel": "SporTV / Premiere / GE TV",
-      "stadium": "Mangueirão"
-    },
     {
       "date": "2026-04-22",
       "time": "19:00",
@@ -300,6 +240,66 @@
       "round": "Rodada 13",
       "channel": "SporTV / Premiere",
       "stadium": "Brinco de Ouro da Princesa"
+    },
+    {
+      "date": "2026-04-26",
+      "time": "16:00",
+      "home": "Corinthians",
+      "away": "Vasco",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 13",
+      "channel": "Globo / Premiere",
+      "stadium": "Neo Química Arena"
+    },
+    {
+      "date": "2026-04-26",
+      "time": "16:00",
+      "home": "Grêmio",
+      "away": "Coritiba",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 13",
+      "channel": "SporTV / Premiere",
+      "stadium": "Arena do Grêmio"
+    },
+    {
+      "date": "2026-04-26",
+      "time": "18:30",
+      "home": "Athletico-PR",
+      "away": "Vitória",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 13",
+      "channel": "SporTV / Premiere",
+      "stadium": "Arena da Baixada"
+    },
+    {
+      "date": "2026-04-26",
+      "time": "18:30",
+      "home": "Red Bull Bragantino",
+      "away": "Palmeiras",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 13",
+      "channel": "SporTV / Premiere",
+      "stadium": "Nabi Abi Chedid"
+    },
+    {
+      "date": "2026-04-26",
+      "time": "20:30",
+      "home": "Atlético-MG",
+      "away": "Flamengo",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 13",
+      "channel": "SporTV / Premiere",
+      "stadium": "Arena MRV"
+    },
+    {
+      "date": "2026-04-26",
+      "time": "20:30",
+      "home": "Fluminense",
+      "away": "Chapecoense",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 13",
+      "channel": "SporTV / Premiere",
+      "stadium": "Maracanã"
     }
   ]
 }
