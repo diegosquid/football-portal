@@ -1,86 +1,6 @@
 {
-  "updatedAt": "2026-04-22T13:15:00-03:00",
+  "updatedAt": "2026-04-23T07:08:00-03:00",
   "games": [
-    {
-      "date": "2026-04-22",
-      "time": "19:00",
-      "home": "Bahia",
-      "away": "Remo",
-      "competition": "Copa do Brasil",
-      "round": "5ª Fase (Ida)",
-      "channel": "SporTV / Premiere",
-      "stadium": "Arena Fonte Nova"
-    },
-    {
-      "date": "2026-04-22",
-      "time": "19:00",
-      "home": "Goiás",
-      "away": "Cruzeiro",
-      "competition": "Copa do Brasil",
-      "round": "5ª Fase (Ida)",
-      "channel": "SporTV / Premiere / GE TV",
-      "stadium": "Serra Dourada"
-    },
-    {
-      "date": "2026-04-22",
-      "time": "19:30",
-      "home": "Santos",
-      "away": "Coritiba",
-      "competition": "Copa do Brasil",
-      "round": "5ª Fase (Ida)",
-      "channel": "Amazon Prime Video",
-      "stadium": "Vila Belmiro"
-    },
-    {
-      "date": "2026-04-22",
-      "time": "20:30",
-      "home": "Athletic Club",
-      "away": "Internacional",
-      "competition": "Copa do Brasil",
-      "round": "5ª Fase (Ida)",
-      "channel": "Amazon Prime Video",
-      "stadium": "Orlando Scarpelli"
-    },
-    {
-      "date": "2026-04-22",
-      "time": "20:30",
-      "home": "Cuiabá",
-      "away": "Botafogo-SP",
-      "competition": "Brasileirão Série B",
-      "round": "",
-      "channel": "SporTV / Premiere",
-      "stadium": "Arena Pantanal"
-    },
-    {
-      "date": "2026-04-22",
-      "time": "20:30",
-      "home": "Fortaleza",
-      "away": "CRB",
-      "competition": "Copa do Brasil",
-      "round": "5ª Fase (Ida)",
-      "channel": "Amazon Prime Video",
-      "stadium": "Arena Castelão"
-    },
-    {
-      "date": "2026-04-22",
-      "time": "21:30",
-      "home": "Flamengo",
-      "away": "Vitória",
-      "competition": "Copa do Brasil",
-      "round": "5ª Fase (Ida)",
-      "channel": "SporTV / Premiere",
-      "stadium": "Maracanã"
-    },
-    {
-      "date": "2026-04-22",
-      "time": "21:30",
-      "home": "Red Bull Bragantino",
-      "away": "Mirassol",
-      "competition": "Copa do Brasil",
-      "round": "5ª Fase (Ida)",
-      "channel": "SporTV / Premiere",
-      "stadium": "Nabi Abi Chedid"
-    },
     {
       "date": "2026-04-23",
       "time": "19:00",
@@ -243,7 +163,7 @@
     },
     {
       "date": "2026-04-25",
-      "time": "20:00",
+      "time": "21:00",
       "home": "São Paulo",
       "away": "Mirassol",
       "competition": "Brasileirão Série A",
@@ -334,12 +254,32 @@
     {
       "date": "2026-04-26",
       "time": "20:30",
+      "home": "Criciúma",
+      "away": "CRB",
+      "competition": "Brasileirão Série B",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": "Heriberto Hulse"
+    },
+    {
+      "date": "2026-04-26",
+      "time": "20:30",
       "home": "Fluminense",
       "away": "Chapecoense",
       "competition": "Brasileirão Série A",
       "round": "Rodada 13",
       "channel": "SporTV / Premiere",
       "stadium": "Maracanã"
+    },
+    {
+      "date": "2026-04-27",
+      "time": "16:00",
+      "home": "Manchester United",
+      "away": "Brentford",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": "Old Trafford"
     }
   ]
 }
