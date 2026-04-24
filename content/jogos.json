@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-24T07:08:00-03:00",
+  "updatedAt": "2026-04-24T12:15:00-03:00",
   "games": [
     {
       "date": "2026-04-24",
@@ -33,12 +33,12 @@
     },
     {
       "date": "2026-04-24",
-      "time": "19:00",
+      "time": "20:00",
       "home": "Ponte Preta",
       "away": "América-MG",
       "competition": "Brasileirão Série B",
       "round": "",
-      "channel": "SporTV / Premiere",
+      "channel": "ESPN / Disney+",
       "stadium": "Moisés Lucarelli"
     },
     {
