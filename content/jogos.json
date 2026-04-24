@@ -1,45 +1,35 @@
 {
-  "updatedAt": "2026-04-23T13:12:00-03:00",
+  "updatedAt": "2026-04-24T07:08:00-03:00",
   "games": [
     {
-      "date": "2026-04-23",
-      "time": "19:00",
-      "home": "Atlético-MG",
-      "away": "Ceará",
-      "competition": "Copa do Brasil",
-      "round": "5ª Fase (Ida)",
-      "channel": "SporTV / Premiere",
-      "stadium": "Arena MRV"
+      "date": "2026-04-24",
+      "time": "15:45",
+      "home": "Brest",
+      "away": "Lens",
+      "competition": "Ligue 1",
+      "round": "",
+      "channel": "CazéTV",
+      "stadium": ""
     },
     {
-      "date": "2026-04-23",
-      "time": "19:30",
-      "home": "Palmeiras",
-      "away": "Jacuipense",
-      "competition": "Copa do Brasil",
-      "round": "5ª Fase (Ida)",
-      "channel": "Amazon Prime Video",
-      "stadium": "Allianz Parque"
+      "date": "2026-04-24",
+      "time": "15:45",
+      "home": "Napoli",
+      "away": "Cremonese",
+      "competition": "Serie A Italiana",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
     },
     {
-      "date": "2026-04-23",
-      "time": "21:30",
-      "home": "Athletico-PR",
-      "away": "Atlético-GO",
-      "competition": "Copa do Brasil",
-      "round": "5ª Fase (Ida)",
-      "channel": "SporTV / Premiere",
-      "stadium": "Arena da Baixada"
-    },
-    {
-      "date": "2026-04-23",
-      "time": "21:30",
-      "home": "Operário-PR",
-      "away": "Fluminense",
-      "competition": "Copa do Brasil",
-      "round": "5ª Fase (Ida)",
-      "channel": "Amazon Prime Video",
-      "stadium": "Germano Krüger"
+      "date": "2026-04-24",
+      "time": "16:00",
+      "home": "Real Betis",
+      "away": "Real Madrid",
+      "competition": "La Liga",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
     },
     {
       "date": "2026-04-24",
@@ -50,6 +40,16 @@
       "round": "",
       "channel": "SporTV / Premiere",
       "stadium": "Moisés Lucarelli"
+    },
+    {
+      "date": "2026-04-24",
+      "time": "21:00",
+      "home": "Corinthians",
+      "away": "Ferroviária",
+      "competition": "Brasileirão Feminino A1",
+      "round": "",
+      "channel": "SporTV",
+      "stadium": ""
     },
     {
       "date": "2026-04-25",
@@ -280,6 +280,76 @@
       "round": "",
       "channel": "ESPN / Disney+",
       "stadium": "Old Trafford"
+    },
+    {
+      "date": "2026-04-28",
+      "time": "19:00",
+      "home": "Lanús",
+      "away": "LDU",
+      "competition": "Libertadores",
+      "round": "3ª Rodada",
+      "channel": "Paramount+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-28",
+      "time": "19:00",
+      "home": "Libertad",
+      "away": "Del Valle",
+      "competition": "Libertadores",
+      "round": "3ª Rodada",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-28",
+      "time": "19:00",
+      "home": "San Lorenzo",
+      "away": "Santos",
+      "competition": "Sul-Americana",
+      "round": "3ª Rodada",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-28",
+      "time": "21:00",
+      "home": "Universidad Central",
+      "away": "Rosario Central",
+      "competition": "Libertadores",
+      "round": "3ª Rodada",
+      "channel": "Paramount+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-28",
+      "time": "21:30",
+      "home": "Botafogo",
+      "away": "Independiente Petrolero",
+      "competition": "Sul-Americana",
+      "round": "3ª Rodada",
+      "channel": "Disney+",
+      "stadium": "Nilton Santos"
+    },
+    {
+      "date": "2026-04-28",
+      "time": "21:30",
+      "home": "Cruzeiro",
+      "away": "Boca Juniors",
+      "competition": "Libertadores",
+      "round": "3ª Rodada",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-28",
+      "time": "21:30",
+      "home": "São Paulo",
+      "away": "Millonarios",
+      "competition": "Sul-Americana",
+      "round": "3ª Rodada",
+      "channel": "Disney+",
+      "stadium": ""
     }
   ]
 }
