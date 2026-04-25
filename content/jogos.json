@@ -1,66 +1,6 @@
 {
-  "updatedAt": "2026-04-24T13:13:00-03:00",
+  "updatedAt": "2026-04-25T07:12:00-03:00",
   "games": [
-    {
-      "date": "2026-04-24",
-      "time": "15:45",
-      "home": "Brest",
-      "away": "Lens",
-      "competition": "Ligue 1",
-      "round": "",
-      "channel": "CazéTV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-24",
-      "time": "15:45",
-      "home": "Napoli",
-      "away": "Cremonese",
-      "competition": "Serie A Italiana",
-      "round": "",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-24",
-      "time": "16:00",
-      "home": "Real Betis",
-      "away": "Real Madrid",
-      "competition": "La Liga",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-24",
-      "time": "16:00",
-      "home": "Sunderland",
-      "away": "Nottingham Forest",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Stadium of Light"
-    },
-    {
-      "date": "2026-04-24",
-      "time": "20:00",
-      "home": "Ponte Preta",
-      "away": "América-MG",
-      "competition": "Brasileirão Série B",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Moisés Lucarelli"
-    },
-    {
-      "date": "2026-04-24",
-      "time": "21:00",
-      "home": "Corinthians",
-      "away": "Ferroviária",
-      "competition": "Brasileirão Feminino A1",
-      "round": "",
-      "channel": "SporTV",
-      "stadium": ""
-    },
     {
       "date": "2026-04-25",
       "time": "08:30",
@@ -113,22 +53,22 @@
     },
     {
       "date": "2026-04-25",
-      "time": "17:30",
+      "time": "18:30",
       "home": "Bahia",
       "away": "Santos",
       "competition": "Brasileirão Série A",
       "round": "Rodada 13",
-      "channel": "SporTV / Premiere",
+      "channel": "Premiere",
       "stadium": "Arena Fonte Nova"
     },
     {
       "date": "2026-04-25",
-      "time": "17:30",
+      "time": "18:30",
       "home": "Botafogo",
       "away": "Internacional",
       "competition": "Brasileirão Série A",
       "round": "Rodada 13",
-      "channel": "SporTV / Premiere",
+      "channel": "Prime Video",
       "stadium": "Arena BRB Mané Garrincha"
     },
     {
@@ -278,7 +218,7 @@
       "away": "Chapecoense",
       "competition": "Brasileirão Série A",
       "round": "Rodada 13",
-      "channel": "SporTV / Premiere",
+      "channel": "Record / CazéTV / Premiere",
       "stadium": "Maracanã"
     },
     {
@@ -377,6 +317,76 @@
       "home": "Sporting Cristal",
       "away": "Junior",
       "competition": "Libertadores",
+      "round": "3ª Rodada",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-29",
+      "time": "19:00",
+      "home": "Mirassol",
+      "away": "Always Ready",
+      "competition": "Libertadores",
+      "round": "3ª Rodada",
+      "channel": "Disney+",
+      "stadium": "Maião"
+    },
+    {
+      "date": "2026-04-29",
+      "time": "19:00",
+      "home": "Platense",
+      "away": "Santa Fe",
+      "competition": "Libertadores",
+      "round": "3ª Rodada",
+      "channel": "Paramount+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-29",
+      "time": "21:00",
+      "home": "Barcelona (ECU)",
+      "away": "Universidad Católica",
+      "competition": "Libertadores",
+      "round": "3ª Rodada",
+      "channel": "Paramount+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-29",
+      "time": "21:30",
+      "home": "Estudiantes",
+      "away": "Flamengo",
+      "competition": "Libertadores",
+      "round": "3ª Rodada",
+      "channel": "Globo / Paramount+",
+      "stadium": "Estadio UNO Jorge Luis Hirschi"
+    },
+    {
+      "date": "2026-04-29",
+      "time": "21:30",
+      "home": "Cerro Porteño",
+      "away": "Palmeiras",
+      "competition": "Libertadores",
+      "round": "3ª Rodada",
+      "channel": "Globo / ESPN / Disney+",
+      "stadium": "La Nueva Olla"
+    },
+    {
+      "date": "2026-04-29",
+      "time": "21:30",
+      "home": "Red Bull Bragantino",
+      "away": "River Plate",
+      "competition": "Sul-Americana",
+      "round": "3ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-29",
+      "time": "21:30",
+      "home": "Palestino",
+      "away": "Grêmio",
+      "competition": "Sul-Americana",
       "round": "3ª Rodada",
       "channel": "Disney+",
       "stadium": ""
