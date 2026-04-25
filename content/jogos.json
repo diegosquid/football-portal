@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-25T07:12:00-03:00",
+  "updatedAt": "2026-04-25T13:13:00-03:00",
   "games": [
     {
       "date": "2026-04-25",
@@ -54,6 +54,16 @@
     {
       "date": "2026-04-25",
       "time": "18:30",
+      "home": "Athletic",
+      "away": "Náutico",
+      "competition": "Brasileirão Série B",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": "Arena Sicredi"
+    },
+    {
+      "date": "2026-04-25",
+      "time": "18:30",
       "home": "Bahia",
       "away": "Santos",
       "competition": "Brasileirão Série A",
@@ -70,16 +80,6 @@
       "round": "Rodada 13",
       "channel": "Prime Video",
       "stadium": "Arena BRB Mané Garrincha"
-    },
-    {
-      "date": "2026-04-25",
-      "time": "18:30",
-      "home": "Athletic",
-      "away": "Náutico",
-      "competition": "Brasileirão Série B",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Arena Sicredi"
     },
     {
       "date": "2026-04-25",
@@ -294,9 +294,29 @@
     {
       "date": "2026-04-28",
       "time": "21:30",
-      "home": "São Paulo",
-      "away": "Millonarios",
+      "home": "Millonarios",
+      "away": "São Paulo",
       "competition": "Sul-Americana",
+      "round": "3ª Rodada",
+      "channel": "SBT / ESPN / Disney+",
+      "stadium": "Estádio Nemesio Camacho El Campín"
+    },
+    {
+      "date": "2026-04-28",
+      "time": "23:00",
+      "home": "O'Higgins",
+      "away": "Boston River",
+      "competition": "Sul-Americana",
+      "round": "3ª Rodada",
+      "channel": "Paramount+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-28",
+      "time": "23:00",
+      "home": "Sporting Cristal",
+      "away": "Junior",
+      "competition": "Libertadores",
       "round": "3ª Rodada",
       "channel": "Disney+",
       "stadium": ""
@@ -312,13 +332,13 @@
       "stadium": ""
     },
     {
-      "date": "2026-04-28",
-      "time": "23:00",
-      "home": "Sporting Cristal",
-      "away": "Junior",
-      "competition": "Libertadores",
+      "date": "2026-04-29",
+      "time": "19:00",
+      "home": "Caracas",
+      "away": "Racing",
+      "competition": "Sul-Americana",
       "round": "3ª Rodada",
-      "channel": "Disney+",
+      "channel": "ESPN / Disney+",
       "stadium": ""
     },
     {
@@ -354,16 +374,6 @@
     {
       "date": "2026-04-29",
       "time": "21:30",
-      "home": "Estudiantes",
-      "away": "Flamengo",
-      "competition": "Libertadores",
-      "round": "3ª Rodada",
-      "channel": "Globo / Paramount+",
-      "stadium": "Estadio UNO Jorge Luis Hirschi"
-    },
-    {
-      "date": "2026-04-29",
-      "time": "21:30",
       "home": "Cerro Porteño",
       "away": "Palmeiras",
       "competition": "Libertadores",
@@ -374,12 +384,22 @@
     {
       "date": "2026-04-29",
       "time": "21:30",
-      "home": "Red Bull Bragantino",
-      "away": "River Plate",
+      "home": "Cienciano",
+      "away": "Atlético-MG",
       "competition": "Sul-Americana",
       "round": "3ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
+      "channel": "Paramount+",
+      "stadium": "Estádio Inca Garcilaso de la Vega"
+    },
+    {
+      "date": "2026-04-29",
+      "time": "21:30",
+      "home": "Estudiantes",
+      "away": "Flamengo",
+      "competition": "Libertadores",
+      "round": "3ª Rodada",
+      "channel": "Globo / Paramount+",
+      "stadium": "Estadio UNO Jorge Luis Hirschi"
     },
     {
       "date": "2026-04-29",
@@ -389,6 +409,16 @@
       "competition": "Sul-Americana",
       "round": "3ª Rodada",
       "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-30",
+      "time": "21:30",
+      "home": "Red Bull Bragantino",
+      "away": "River Plate",
+      "competition": "Sul-Americana",
+      "round": "3ª Rodada",
+      "channel": "ESPN / Disney+",
       "stadium": ""
     }
   ]
