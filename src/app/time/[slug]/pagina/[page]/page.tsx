@@ -1,4 +1,5 @@
 import { articles } from "#content";
+import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import { ArticleCard } from "@/components/ArticleCard";
@@ -81,11 +82,11 @@ export default async function TeamPaginatedPage({ params }: Props) {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
       {/* Team header */}
-      <header className="mb-10 flex items-center gap-5">
+      <header className="mb-10 flex flex-wrap items-center gap-5">
         <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-secondary text-2xl font-black text-white">
           {team.shortName}
         </div>
-        <div>
+        <div className="min-w-0 flex-1">
           <h1 className="text-3xl font-black text-secondary lg:text-4xl">
             {team.name}
           </h1>
@@ -93,6 +94,25 @@ export default async function TeamPaginatedPage({ params }: Props) {
             {team.state} — Página {pageNum} de {result.totalPages}
           </p>
         </div>
+        <Link
+          href={`/jogos-futebol-hoje/${slug}`}
+          className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary/90"
+        >
+          <svg
+            className="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
+          </svg>
+          {team.name} joga hoje?
+        </Link>
       </header>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
