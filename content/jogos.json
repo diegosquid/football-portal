@@ -1,105 +1,25 @@
 {
-  "updatedAt": "2026-04-26T13:12:00-03:00",
+  "updatedAt": "2026-04-27T07:15:00-03:00",
   "games": [
     {
-      "date": "2026-04-26",
+      "date": "2026-04-27",
+      "time": "15:45",
+      "home": "Lazio",
+      "away": "Udinese",
+      "competition": "Serie A italiana",
+      "round": "",
+      "channel": "Disney+ Premium",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-27",
       "time": "16:00",
-      "home": "Corinthians",
-      "away": "Vasco",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 13",
-      "channel": "Globo / Premiere",
-      "stadium": "Neo Química Arena"
-    },
-    {
-      "date": "2026-04-26",
-      "time": "16:00",
-      "home": "Grêmio",
-      "away": "Coritiba",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 13",
-      "channel": "SporTV / Premiere",
-      "stadium": "Arena do Grêmio"
-    },
-    {
-      "date": "2026-04-26",
-      "time": "16:00",
-      "home": "São Bernardo",
-      "away": "Goiás",
-      "competition": "Brasileirão Série B",
+      "home": "Espanyol",
+      "away": "Levante",
+      "competition": "La Liga",
       "round": "",
-      "channel": "Globo / SporTV / Premiere",
-      "stadium": "Estádio 1º de Maio"
-    },
-    {
-      "date": "2026-04-26",
-      "time": "18:00",
-      "home": "Ceará",
-      "away": "Vila Nova",
-      "competition": "Brasileirão Série B",
-      "round": "",
-      "channel": "A definir",
-      "stadium": "Arena Castelão"
-    },
-    {
-      "date": "2026-04-26",
-      "time": "18:00",
-      "home": "Operário-PR",
-      "away": "Fortaleza",
-      "competition": "Brasileirão Série B",
-      "round": "",
-      "channel": "RedeTV / ESPN / Disney+",
-      "stadium": "Germano Krüger"
-    },
-    {
-      "date": "2026-04-26",
-      "time": "18:30",
-      "home": "Athletico-PR",
-      "away": "Vitória",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 13",
-      "channel": "SporTV / Premiere",
-      "stadium": "Arena da Baixada"
-    },
-    {
-      "date": "2026-04-26",
-      "time": "18:30",
-      "home": "Red Bull Bragantino",
-      "away": "Palmeiras",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 13",
-      "channel": "SporTV / Premiere",
-      "stadium": "Nabi Abi Chedid"
-    },
-    {
-      "date": "2026-04-26",
-      "time": "20:30",
-      "home": "Atlético-MG",
-      "away": "Flamengo",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 13",
-      "channel": "SporTV / Premiere",
-      "stadium": "Arena MRV"
-    },
-    {
-      "date": "2026-04-26",
-      "time": "20:30",
-      "home": "Criciúma",
-      "away": "CRB",
-      "competition": "Brasileirão Série B",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Heriberto Hulse"
-    },
-    {
-      "date": "2026-04-26",
-      "time": "20:30",
-      "home": "Fluminense",
-      "away": "Chapecoense",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 13",
-      "channel": "Record / CazéTV / Premiere",
-      "stadium": "Maracanã"
+      "channel": "ESPN3",
+      "stadium": ""
     },
     {
       "date": "2026-04-27",
@@ -110,6 +30,26 @@
       "round": "",
       "channel": "ESPN / Disney+",
       "stadium": "Old Trafford"
+    },
+    {
+      "date": "2026-04-27",
+      "time": "19:00",
+      "home": "Athletic Club",
+      "away": "Náutico",
+      "competition": "Brasileirão Série B",
+      "round": "",
+      "channel": "ESPN",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-28",
+      "time": "16:00",
+      "home": "PSG",
+      "away": "Bayern de Munique",
+      "competition": "Champions League",
+      "round": "Semifinal",
+      "channel": "SBT / TNT Sports / MAX",
+      "stadium": "Parc des Princes"
     },
     {
       "date": "2026-04-28",
@@ -233,6 +173,16 @@
     },
     {
       "date": "2026-04-29",
+      "time": "16:00",
+      "home": "Atlético de Madrid",
+      "away": "Arsenal",
+      "competition": "Champions League",
+      "round": "Semifinal",
+      "channel": "TNT Sports / MAX",
+      "stadium": "Estadio Metropolitano"
+    },
+    {
+      "date": "2026-04-29",
       "time": "19:00",
       "home": "Caracas",
       "away": "Racing",
@@ -258,7 +208,7 @@
       "away": "Always Ready",
       "competition": "Libertadores",
       "round": "3ª Rodada",
-      "channel": "Disney+",
+      "channel": "Paramount+",
       "stadium": "Maião"
     },
     {
@@ -329,6 +279,36 @@
       "competition": "Sul-Americana",
       "round": "3ª Rodada",
       "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-29",
+      "time": "23:00",
+      "home": "Universitario",
+      "away": "Nacional",
+      "competition": "Libertadores",
+      "round": "3ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estadio Monumental de Ate"
+    },
+    {
+      "date": "2026-04-30",
+      "time": "16:00",
+      "home": "Braga",
+      "away": "Freiburg",
+      "competition": "Europa League",
+      "round": "Semifinal",
+      "channel": "Band / ESPN / CazéTV",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-30",
+      "time": "16:00",
+      "home": "Nottingham Forest",
+      "away": "Aston Villa",
+      "competition": "Europa League",
+      "round": "Semifinal",
+      "channel": "Band / ESPN / CazéTV",
       "stadium": ""
     },
     {
