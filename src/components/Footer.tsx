@@ -3,12 +3,28 @@ import { categories } from "@/lib/categories";
 import { siteConfig } from "@/lib/site";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { Logo } from "@/components/Logo";
+import { teams } from "@/lib/teams";
+
+const FEATURED_TEAM_SLUGS = [
+  "flamengo",
+  "palmeiras",
+  "corinthians",
+  "sao-paulo",
+  "santos",
+  "botafogo",
+  "fluminense",
+  "vasco",
+];
 
 export function Footer() {
+  const featuredTeams = FEATURED_TEAM_SLUGS.map((slug) => teams[slug]).filter(
+    (t): t is NonNullable<typeof t> => Boolean(t),
+  );
+
   return (
     <footer className="bg-secondary text-white">
       <div className="mx-auto max-w-7xl px-4 py-12">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
           <div>
             <Link href="/">
@@ -67,6 +83,33 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          {/* Times */}
+          <div>
+            <h3 className="mb-3 text-sm font-bold uppercase tracking-wider text-gray-400">
+              Times
+            </h3>
+            <ul className="space-y-2">
+              {featuredTeams.map((team) => (
+                <li key={team.slug}>
+                  <Link
+                    href={`/time/${team.slug}`}
+                    className="text-sm text-gray-300 transition-colors hover:text-primary"
+                  >
+                    {team.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/time"
+                  className="text-sm font-semibold text-primary transition-colors hover:text-white"
+                >
+                  Ver todos os times →
+                </Link>
+              </li>
             </ul>
           </div>
 

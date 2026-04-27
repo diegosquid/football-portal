@@ -39,7 +39,7 @@ export function Header() {
           >
             Jogos de Hoje
           </Link>
-          {categories.slice(0, 6).map((cat) => (
+          {categories.slice(0, 5).map((cat) => (
             <Link
               key={cat.slug}
               href={`/categoria/${cat.slug}`}
@@ -48,6 +48,12 @@ export function Header() {
               {cat.label}
             </Link>
           ))}
+          <Link
+            href="/time"
+            className="transition-colors hover:text-primary"
+          >
+            Times
+          </Link>
           <Link
             href="/categoria/opiniao"
             className="transition-colors hover:text-primary"
@@ -107,6 +113,14 @@ export function Header() {
               {cat.label}
             </Link>
           ))}
+          <hr className="my-2 border-white/10" />
+          <Link
+            href="/time"
+            className="block py-2 text-sm font-semibold text-primary transition-colors hover:text-white"
+            onClick={() => setMenuOpen(false)}
+          >
+            Times
+          </Link>
           <hr className="my-2 border-white/10" />
           <Link
             href="/sobre"
