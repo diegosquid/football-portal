@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-28T12:14:00-03:00",
+  "updatedAt": "2026-04-28T13:13:00-03:00",
   "games": [
     {
       "date": "2026-04-28",
@@ -290,6 +290,16 @@
       "round": "Semifinal",
       "channel": "CazéTV",
       "stadium": "Estádio Municipal Henryk Reyman"
+    },
+    {
+      "date": "2026-04-30",
+      "time": "19:00",
+      "home": "Vasco",
+      "away": "Olimpia",
+      "competition": "Sul-Americana",
+      "round": "3ª Rodada",
+      "channel": "Paramount+",
+      "stadium": "São Januário"
     },
     {
       "date": "2026-04-30",
