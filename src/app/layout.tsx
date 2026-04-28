@@ -22,7 +22,17 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   metadataBase: new URL(siteConfig.url),
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    types: {
+      "application/rss+xml": [
+        { url: "/feed.xml", title: `${siteConfig.name} (RSS)` },
+      ],
+      "application/atom+xml": [
+        { url: "/atom.xml", title: `${siteConfig.name} (Atom)` },
+      ],
+    },
+  },
   openGraph: {
     type: "website",
     locale: siteConfig.locale,

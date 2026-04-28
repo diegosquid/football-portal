@@ -30,7 +30,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${cat.label} — Notícias`,
     description: metaDescription,
-    alternates: { canonical: `/categoria/${category}` },
+    alternates: {
+      canonical: `/categoria/${category}`,
+      types: {
+        "application/rss+xml": [
+          {
+            url: `/categoria/${category}/feed.xml`,
+            title: `${cat.label} — ${siteConfig.name} (RSS)`,
+          },
+        ],
+        "application/atom+xml": [
+          {
+            url: `/categoria/${category}/atom.xml`,
+            title: `${cat.label} — ${siteConfig.name} (Atom)`,
+          },
+        ],
+      },
+    },
     openGraph: {
       title: `${cat.label} — ${siteConfig.name}`,
       description: metaDescription,

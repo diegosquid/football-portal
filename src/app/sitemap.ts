@@ -15,7 +15,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/jogos-futebol-hoje`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.9 },
     { url: `${baseUrl}/time`, lastModified: new Date(), changeFrequency: "daily", priority: 0.8 },
     { url: `${baseUrl}/sobre`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
+    { url: `${baseUrl}/feed.xml`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.5 },
+    { url: `${baseUrl}/atom.xml`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.5 },
   ];
+
+  // Feeds por categoria (RSS + Atom)
+  const categoryFeedPages: MetadataRoute.Sitemap = getAllCategories().flatMap(
+    (cat) => [
+      {
+        url: `${baseUrl}/categoria/${cat.slug}/feed.xml`,
+        lastModified: new Date(),
+        changeFrequency: "hourly" as const,
+        priority: 0.4,
+      },
+      {
+        url: `${baseUrl}/categoria/${cat.slug}/atom.xml`,
+        lastModified: new Date(),
+        changeFrequency: "hourly" as const,
+        priority: 0.4,
+      },
+    ],
+  );
 
   // Categorias — página 1
   const categoryPages: MetadataRoute.Sitemap = getAllCategories().map((cat) => ({
@@ -112,6 +132,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticPages,
     ...categoryPages,
+    ...categoryFeedPages,
     ...categoryPaginatedPages,
     ...authorPages,
     ...authorPaginatedPages,

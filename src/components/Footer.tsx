@@ -143,6 +143,14 @@ export function Footer() {
                   Termos de Uso
                 </Link>
               </li>
+              <li>
+                <a
+                  href="/feed.xml"
+                  className="text-sm text-gray-300 transition-colors hover:text-primary"
+                >
+                  RSS
+                </a>
+              </li>
             </ul>
           </div>
 
