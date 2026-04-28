@@ -91,7 +91,7 @@ export function buildRss(opts: FeedOptions): string {
       ${authorTag}
       <category>${cdata(a.category)}</category>
       <description>${cdata(a.excerpt)}</description>
-      <enclosure url="${escapeXml(image)}" type="image/jpeg" />
+      <enclosure url="${escapeXml(image)}" length="0" type="image/jpeg" />
     </item>`;
     })
     .join("\n");
@@ -138,7 +138,7 @@ export function buildAtom(opts: FeedOptions): string {
 ${authorTag}
     <category term="${escapeXml(a.category)}" />
     <summary type="text">${cdata(a.excerpt)}</summary>
-    <link rel="enclosure" type="image/jpeg" href="${escapeXml(image)}" />
+    <link rel="enclosure" type="image/jpeg" length="0" href="${escapeXml(image)}" />
   </entry>`;
     })
     .join("\n");
