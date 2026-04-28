@@ -1,106 +1,6 @@
 {
-  "updatedAt": "2026-04-27T13:13:00-03:00",
+  "updatedAt": "2026-04-28T09:23:00-03:00",
   "games": [
-    {
-      "date": "2026-04-27",
-      "time": "13:30",
-      "home": "Cagliari",
-      "away": "Atalanta",
-      "competition": "Serie A italiana",
-      "round": "",
-      "channel": "ESPN 4 / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-27",
-      "time": "15:45",
-      "home": "Lazio",
-      "away": "Udinese",
-      "competition": "Serie A italiana",
-      "round": "",
-      "channel": "Disney+ Premium",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-27",
-      "time": "16:00",
-      "home": "Espanyol",
-      "away": "Levante",
-      "competition": "La Liga",
-      "round": "",
-      "channel": "ESPN3",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-27",
-      "time": "16:00",
-      "home": "Manchester United",
-      "away": "Brentford",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Old Trafford"
-    },
-    {
-      "date": "2026-04-27",
-      "time": "18:00",
-      "home": "América-MG",
-      "away": "São Paulo",
-      "competition": "Brasileirão Feminino A1",
-      "round": "",
-      "channel": "NSports",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-27",
-      "time": "19:00",
-      "home": "Athletic Club",
-      "away": "Náutico",
-      "competition": "Brasileirão Série B",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-27",
-      "time": "20:00",
-      "home": "Caxias",
-      "away": "Ypiranga",
-      "competition": "Brasileirão Série C",
-      "round": "4ª Rodada",
-      "channel": "SportyNet",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-27",
-      "time": "20:00",
-      "home": "Ferroviária",
-      "away": "Guarani",
-      "competition": "Brasileirão Série C",
-      "round": "4ª Rodada",
-      "channel": "Canal do Benja / SportyNet",
-      "stadium": "Estádio da Fonte Luminosa"
-    },
-    {
-      "date": "2026-04-27",
-      "time": "20:00",
-      "home": "Palmeiras",
-      "away": "Santos",
-      "competition": "Brasileirão Feminino A1",
-      "round": "",
-      "channel": "SporTV / Globoplay",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-27",
-      "time": "21:00",
-      "home": "Atlético-MG",
-      "away": "Botafogo",
-      "competition": "Brasileirão Feminino A1",
-      "round": "",
-      "channel": "TV Brasil",
-      "stadium": ""
-    },
     {
       "date": "2026-04-28",
       "time": "16:00",
@@ -373,6 +273,26 @@
     },
     {
       "date": "2026-04-30",
+      "time": "16:00",
+      "home": "Rayo Vallecano",
+      "away": "Strasbourg",
+      "competition": "Conference League",
+      "round": "Semifinal",
+      "channel": "CazéTV",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-30",
+      "time": "16:00",
+      "home": "Shakhtar Donetsk",
+      "away": "Crystal Palace",
+      "competition": "Conference League",
+      "round": "Semifinal",
+      "channel": "CazéTV",
+      "stadium": "Estádio Municipal Henryk Reyman"
+    },
+    {
+      "date": "2026-04-30",
       "time": "19:00",
       "home": "Bolívar",
       "away": "Fluminense",
@@ -440,6 +360,126 @@
       "round": "",
       "channel": "ESPN / Disney+",
       "stadium": "Elland Road"
+    },
+    {
+      "date": "2026-05-02",
+      "time": "10:00",
+      "home": "Udinese",
+      "away": "Torino",
+      "competition": "Serie A italiana",
+      "round": "35ª Rodada",
+      "channel": "ESPN 4 / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-02",
+      "time": "11:00",
+      "home": "Brentford",
+      "away": "West Ham United",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": "Gtech Community Stadium"
+    },
+    {
+      "date": "2026-05-02",
+      "time": "11:00",
+      "home": "Newcastle United",
+      "away": "Brighton",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": "St. James' Park"
+    },
+    {
+      "date": "2026-05-02",
+      "time": "11:00",
+      "home": "Wolverhampton",
+      "away": "Sunderland",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": "Molineux"
+    },
+    {
+      "date": "2026-05-02",
+      "time": "13:00",
+      "home": "Como",
+      "away": "Napoli",
+      "competition": "Serie A italiana",
+      "round": "35ª Rodada",
+      "channel": "ESPN 4 / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-02",
+      "time": "13:30",
+      "home": "Arsenal",
+      "away": "Fulham",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": "Emirates Stadium"
+    },
+    {
+      "date": "2026-05-02",
+      "time": "15:45",
+      "home": "Atalanta",
+      "away": "Genoa",
+      "competition": "Serie A italiana",
+      "round": "35ª Rodada",
+      "channel": "ESPN 4 / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-02",
+      "time": "16:00",
+      "home": "Botafogo",
+      "away": "Remo",
+      "competition": "Brasileirão Série A",
+      "round": "14ª Rodada",
+      "channel": "Premiere",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-02",
+      "time": "18:30",
+      "home": "Palmeiras",
+      "away": "Santos",
+      "competition": "Brasileirão Série A",
+      "round": "14ª Rodada",
+      "channel": "Premiere",
+      "stadium": "Allianz Parque"
+    },
+    {
+      "date": "2026-05-02",
+      "time": "18:30",
+      "home": "Vitória",
+      "away": "Coritiba",
+      "competition": "Brasileirão Série A",
+      "round": "14ª Rodada",
+      "channel": "Premiere",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-02",
+      "time": "20:30",
+      "home": "Athletico-PR",
+      "away": "Grêmio",
+      "competition": "Brasileirão Série A",
+      "round": "14ª Rodada",
+      "channel": "Amazon Prime Video",
+      "stadium": "Ligga Arena"
+    },
+    {
+      "date": "2026-05-02",
+      "time": "21:00",
+      "home": "Cruzeiro",
+      "away": "Atlético-MG",
+      "competition": "Brasileirão Série A",
+      "round": "14ª Rodada",
+      "channel": "SporTV / Premiere",
+      "stadium": "Mineirão"
     }
   ]
 }
