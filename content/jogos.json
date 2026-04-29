@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-29T09:40:00-03:00",
+  "updatedAt": "2026-04-29T13:12:00-03:00",
   "games": [
     {
       "date": "2026-04-29",
@@ -319,7 +319,7 @@
       "competition": "Brasileirão Série A",
       "round": "14ª Rodada",
       "channel": "Premiere",
-      "stadium": ""
+      "stadium": "Estádio Nilton Santos"
     },
     {
       "date": "2026-05-02",
@@ -349,7 +349,7 @@
       "competition": "Brasileirão Série A",
       "round": "14ª Rodada",
       "channel": "Premiere",
-      "stadium": ""
+      "stadium": "Barradão"
     },
     {
       "date": "2026-05-02",
@@ -469,7 +469,7 @@
       "competition": "Brasileirão Série A",
       "round": "14ª Rodada",
       "channel": "Premiere",
-      "stadium": ""
+      "stadium": "Arena Condá"
     },
     {
       "date": "2026-05-03",
@@ -479,7 +479,7 @@
       "competition": "Brasileirão Série A",
       "round": "14ª Rodada",
       "channel": "SporTV / Premiere",
-      "stadium": ""
+      "stadium": "Beira-Rio"
     },
     {
       "date": "2026-05-03",
@@ -489,7 +489,7 @@
       "competition": "Brasileirão Série A",
       "round": "14ª Rodada",
       "channel": "Record / CazéTV / Premiere",
-      "stadium": ""
+      "stadium": "Maião"
     }
   ]
 }
