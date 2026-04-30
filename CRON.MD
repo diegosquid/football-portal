@@ -1066,7 +1066,29 @@ git commit -m "content([tipo]): [titulo resumido curto]"
 
 # 4. Push (se configurado)
 git push origin main
+
+# 5. Notificar IndexNow (Bing/Yandex crawleiam em ~10 min)
+#    Não bloqueia: se falhar, só loga warning.
+node scripts/indexnow.js "https://beiradocampo.com.br/[slug]" || echo "⚠️ IndexNow falhou — seguir mesmo assim"
 ```
+
+### 9.2.1 IndexNow (Bing/Yandex)
+
+Toda publicação NOVA deve disparar `scripts/indexnow.js` com a URL do artigo.
+Bing crawleia em ~10 minutos em vez de dias. Não substitui Google (que descobre via sitemap), mas acelera dramaticamente Bing/Yandex.
+
+```bash
+# URL única (uso típico no cron)
+node scripts/indexnow.js https://beiradocampo.com.br/[slug]
+
+# Forçar resubmissão de todas as páginas estratégicas (manutenção)
+npm run indexnow:strategic
+
+# Resubmissão massiva (raro, ex: mudança de schema/sitemap)
+npm run indexnow:all
+```
+
+A chave fica em `public/fb687149f8edf99c2848836359af6927.txt` (não mexer).
 
 ### 9.3 Postagem no Twitter (Thread)
 
