@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-30T09:53:00-03:00",
+  "updatedAt": "2026-04-30T13:13:00-03:00",
   "games": [
     {
       "date": "2026-04-30",
@@ -54,6 +54,16 @@
     {
       "date": "2026-04-30",
       "time": "19:00",
+      "home": "Carabobo",
+      "away": "Blooming",
+      "competition": "Sul-Americana",
+      "round": "3ª Rodada",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-30",
+      "time": "19:00",
       "home": "Independiente Rivadavia",
       "away": "Deportivo La Guaira",
       "competition": "Libertadores",
@@ -83,6 +93,16 @@
     },
     {
       "date": "2026-04-30",
+      "time": "21:00",
+      "home": "Tigre",
+      "away": "América de Cali",
+      "competition": "Sul-Americana",
+      "round": "3ª Rodada",
+      "channel": "Paramount+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-04-30",
       "time": "21:30",
       "home": "Red Bull Bragantino",
       "away": "River Plate",
@@ -90,6 +110,16 @@
       "round": "3ª Rodada",
       "channel": "Paramount+",
       "stadium": "Estádio Municipal Cícero de Souza Marques"
+    },
+    {
+      "date": "2026-04-30",
+      "time": "23:00",
+      "home": "Alianza Atlético",
+      "away": "Macará",
+      "competition": "Sul-Americana",
+      "round": "3ª Rodada",
+      "channel": "Paramount+",
+      "stadium": ""
     },
     {
       "date": "2026-04-30",
@@ -114,12 +144,32 @@
     {
       "date": "2026-05-01",
       "time": "16:00",
+      "home": "Girona",
+      "away": "Mallorca",
+      "competition": "La Liga",
+      "round": "34ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estadi Montilivi"
+    },
+    {
+      "date": "2026-05-01",
+      "time": "16:00",
       "home": "Leeds United",
       "away": "Burnley",
       "competition": "Premier League",
       "round": "",
       "channel": "ESPN / Disney+",
       "stadium": "Elland Road"
+    },
+    {
+      "date": "2026-05-02",
+      "time": "09:00",
+      "home": "Levante",
+      "away": "Villarreal",
+      "competition": "La Liga",
+      "round": "34ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
     },
     {
       "date": "2026-05-02",
@@ -163,6 +213,16 @@
     },
     {
       "date": "2026-05-02",
+      "time": "11:15",
+      "home": "Valencia",
+      "away": "Atlético Madrid",
+      "competition": "La Liga",
+      "round": "34ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-02",
       "time": "13:00",
       "home": "Como",
       "away": "Napoli",
@@ -180,6 +240,16 @@
       "round": "",
       "channel": "ESPN / Disney+",
       "stadium": "Emirates Stadium"
+    },
+    {
+      "date": "2026-05-02",
+      "time": "13:30",
+      "home": "Alavés",
+      "away": "Athletic Club",
+      "competition": "La Liga",
+      "round": "34ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
     },
     {
       "date": "2026-05-02",
@@ -263,6 +333,16 @@
     },
     {
       "date": "2026-05-03",
+      "time": "09:00",
+      "home": "Elche",
+      "away": "Celta Vigo",
+      "competition": "La Liga",
+      "round": "34ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-03",
       "time": "10:00",
       "home": "Bournemouth",
       "away": "Crystal Palace",
@@ -283,12 +363,32 @@
     },
     {
       "date": "2026-05-03",
+      "time": "11:15",
+      "home": "Rayo Vallecano",
+      "away": "Getafe",
+      "competition": "La Liga",
+      "round": "34ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-03",
       "time": "12:00",
       "home": "Juventus",
       "away": "Hellas Verona",
       "competition": "Serie A italiana",
       "round": "35ª Rodada",
       "channel": "ESPN 4 / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-03",
+      "time": "13:30",
+      "home": "Real Oviedo",
+      "away": "Real Betis",
+      "competition": "La Liga",
+      "round": "34ª Rodada",
+      "channel": "ESPN / Disney+",
       "stadium": ""
     },
     {
@@ -370,6 +470,46 @@
       "round": "14ª Rodada",
       "channel": "Record / CazéTV / Premiere",
       "stadium": "Maião"
+    },
+    {
+      "date": "2026-05-04",
+      "time": "11:00",
+      "home": "Chelsea",
+      "away": "Nottingham Forest",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": "Stamford Bridge"
+    },
+    {
+      "date": "2026-05-04",
+      "time": "13:30",
+      "home": "Cremonese",
+      "away": "Lazio",
+      "competition": "Serie A italiana",
+      "round": "35ª Rodada",
+      "channel": "ESPN 4 / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-04",
+      "time": "15:45",
+      "home": "Roma",
+      "away": "Fiorentina",
+      "competition": "Serie A italiana",
+      "round": "35ª Rodada",
+      "channel": "ESPN 4 / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-04",
+      "time": "16:00",
+      "home": "Everton",
+      "away": "Manchester City",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": "Hill Dickinson Stadium"
     },
     {
       "date": "2026-05-04",
