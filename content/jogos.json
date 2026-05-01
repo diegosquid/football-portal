@@ -1,136 +1,6 @@
 {
-  "updatedAt": "2026-04-30T13:13:00-03:00",
+  "updatedAt": "2026-05-01T08:01:00-03:00",
   "games": [
-    {
-      "date": "2026-04-30",
-      "time": "16:00",
-      "home": "Braga",
-      "away": "Freiburg",
-      "competition": "Europa League",
-      "round": "Semifinal",
-      "channel": "Band / ESPN / CazéTV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-30",
-      "time": "16:00",
-      "home": "Nottingham Forest",
-      "away": "Aston Villa",
-      "competition": "Europa League",
-      "round": "Semifinal",
-      "channel": "Band / ESPN / CazéTV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-30",
-      "time": "16:00",
-      "home": "Rayo Vallecano",
-      "away": "Strasbourg",
-      "competition": "Conference League",
-      "round": "Semifinal",
-      "channel": "CazéTV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-30",
-      "time": "16:00",
-      "home": "Shakhtar Donetsk",
-      "away": "Crystal Palace",
-      "competition": "Conference League",
-      "round": "Semifinal",
-      "channel": "CazéTV",
-      "stadium": "Estádio Municipal Henryk Reyman"
-    },
-    {
-      "date": "2026-04-30",
-      "time": "19:00",
-      "home": "Bolívar",
-      "away": "Fluminense",
-      "competition": "Libertadores",
-      "round": "3ª Rodada",
-      "channel": "Paramount+",
-      "stadium": "Estádio Hernando Siles"
-    },
-    {
-      "date": "2026-04-30",
-      "time": "19:00",
-      "home": "Carabobo",
-      "away": "Blooming",
-      "competition": "Sul-Americana",
-      "round": "3ª Rodada",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-30",
-      "time": "19:00",
-      "home": "Independiente Rivadavia",
-      "away": "Deportivo La Guaira",
-      "competition": "Libertadores",
-      "round": "3ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-30",
-      "time": "19:00",
-      "home": "Vasco",
-      "away": "Olimpia",
-      "competition": "Sul-Americana",
-      "round": "3ª Rodada",
-      "channel": "Paramount+",
-      "stadium": "São Januário"
-    },
-    {
-      "date": "2026-04-30",
-      "time": "21:00",
-      "home": "Corinthians",
-      "away": "Peñarol",
-      "competition": "Libertadores",
-      "round": "3ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": "Neo Química Arena"
-    },
-    {
-      "date": "2026-04-30",
-      "time": "21:00",
-      "home": "Tigre",
-      "away": "América de Cali",
-      "competition": "Sul-Americana",
-      "round": "3ª Rodada",
-      "channel": "Paramount+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-30",
-      "time": "21:30",
-      "home": "Red Bull Bragantino",
-      "away": "River Plate",
-      "competition": "Sul-Americana",
-      "round": "3ª Rodada",
-      "channel": "Paramount+",
-      "stadium": "Estádio Municipal Cícero de Souza Marques"
-    },
-    {
-      "date": "2026-04-30",
-      "time": "23:00",
-      "home": "Alianza Atlético",
-      "away": "Macará",
-      "competition": "Sul-Americana",
-      "round": "3ª Rodada",
-      "channel": "Paramount+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-04-30",
-      "time": "23:00",
-      "home": "Independiente Medellín",
-      "away": "Cusco FC",
-      "competition": "Libertadores",
-      "round": "3ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
     {
       "date": "2026-05-01",
       "time": "15:45",
@@ -274,12 +144,32 @@
     {
       "date": "2026-05-02",
       "time": "16:00",
+      "home": "Botafogo-SP",
+      "away": "Náutico",
+      "competition": "Brasileirão Série B",
+      "round": "7ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio Santa Cruz"
+    },
+    {
+      "date": "2026-05-02",
+      "time": "16:00",
       "home": "Osasuna",
       "away": "Barcelona",
       "competition": "La Liga",
       "round": "34ª Rodada",
       "channel": "ESPN / Disney+",
       "stadium": "El Sadar"
+    },
+    {
+      "date": "2026-05-02",
+      "time": "18:30",
+      "home": "Cuiabá",
+      "away": "Criciúma",
+      "competition": "Brasileirão Série B",
+      "round": "7ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Arena Pantanal"
     },
     {
       "date": "2026-05-02",
@@ -310,6 +200,16 @@
       "round": "14ª Rodada",
       "channel": "Amazon Prime Video",
       "stadium": "Ligga Arena"
+    },
+    {
+      "date": "2026-05-02",
+      "time": "20:30",
+      "home": "Fortaleza",
+      "away": "Goiás",
+      "competition": "Brasileirão Série B",
+      "round": "7ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Arena Castelão"
     },
     {
       "date": "2026-05-02",
@@ -434,12 +334,52 @@
     {
       "date": "2026-05-03",
       "time": "16:00",
+      "home": "Operário",
+      "away": "Londrina",
+      "competition": "Brasileirão Série B",
+      "round": "7ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio Germano Krüger"
+    },
+    {
+      "date": "2026-05-03",
+      "time": "16:00",
+      "home": "São Bernardo",
+      "away": "Ponte Preta",
+      "competition": "Brasileirão Série B",
+      "round": "7ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio Primeiro de Maio"
+    },
+    {
+      "date": "2026-05-03",
+      "time": "16:00",
       "home": "São Paulo",
       "away": "Bahia",
       "competition": "Brasileirão Série A",
       "round": "14ª Rodada",
       "channel": "Globo / Premiere",
       "stadium": ""
+    },
+    {
+      "date": "2026-05-03",
+      "time": "18:00",
+      "home": "Sport",
+      "away": "Ceará",
+      "competition": "Brasileirão Série B",
+      "round": "7ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Ilha do Retiro"
+    },
+    {
+      "date": "2026-05-03",
+      "time": "18:30",
+      "home": "Atlético-GO",
+      "away": "Juventude",
+      "competition": "Brasileirão Série B",
+      "round": "7ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio Antônio Accioly"
     },
     {
       "date": "2026-05-03",
@@ -460,6 +400,26 @@
       "round": "14ª Rodada",
       "channel": "SporTV / Premiere",
       "stadium": "Beira-Rio"
+    },
+    {
+      "date": "2026-05-03",
+      "time": "20:30",
+      "home": "América-MG",
+      "away": "CRB",
+      "competition": "Brasileirão Série B",
+      "round": "7ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-03",
+      "time": "20:30",
+      "home": "Avaí",
+      "away": "Novorizontino",
+      "competition": "Brasileirão Série B",
+      "round": "7ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio da Ressacada"
     },
     {
       "date": "2026-05-03",
@@ -520,6 +480,86 @@
       "round": "34ª Rodada",
       "channel": "ESPN / Disney+",
       "stadium": "Ramón Sánchez Pizjuán"
+    },
+    {
+      "date": "2026-05-04",
+      "time": "19:00",
+      "home": "Vila Nova",
+      "away": "Athletic",
+      "competition": "Brasileirão Série B",
+      "round": "7ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio Onésio Brasileiro Alvarenga"
+    },
+    {
+      "date": "2026-05-05",
+      "time": "17:00",
+      "home": "Arsenal",
+      "away": "Atlético de Madrid",
+      "competition": "Champions League",
+      "round": "Semifinal",
+      "channel": "SBT / TNT / Max",
+      "stadium": "Emirates Stadium"
+    },
+    {
+      "date": "2026-05-05",
+      "time": "19:00",
+      "home": "Deportivo Riestra",
+      "away": "Grêmio",
+      "competition": "Sul-Americana",
+      "round": "4ª Rodada",
+      "channel": "Paramount+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-05",
+      "time": "19:00",
+      "home": "Independiente Petrolero",
+      "away": "Caracas",
+      "competition": "Sul-Americana",
+      "round": "4ª Rodada",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-05",
+      "time": "19:00",
+      "home": "Juventud",
+      "away": "Atlético-MG",
+      "competition": "Sul-Americana",
+      "round": "4ª Rodada",
+      "channel": "Paramount+",
+      "stadium": "Estadio Centenario"
+    },
+    {
+      "date": "2026-05-05",
+      "time": "21:30",
+      "home": "Academia Puerto Cabello",
+      "away": "Cienciano",
+      "competition": "Sul-Americana",
+      "round": "4ª Rodada",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-05",
+      "time": "21:30",
+      "home": "Deportivo Recoleta",
+      "away": "Santos",
+      "competition": "Sul-Americana",
+      "round": "4ª Rodada",
+      "channel": "Paramount+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-05",
+      "time": "23:00",
+      "home": "Deportivo Cuenca",
+      "away": "San Lorenzo",
+      "competition": "Sul-Americana",
+      "round": "4ª Rodada",
+      "channel": "Disney+",
+      "stadium": ""
     }
   ]
 }
