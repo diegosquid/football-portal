@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-02T11:30:00-03:00",
+  "updatedAt": "2026-05-02T13:14:00-03:00",
   "games": [
     {
       "date": "2026-05-02",
@@ -620,6 +620,16 @@
       "round": "4ª Rodada",
       "channel": "ESPN / Disney+",
       "stadium": "El Campín"
+    },
+    {
+      "date": "2026-05-06",
+      "time": "23:00",
+      "home": "Universidad Católica",
+      "away": "Cruzeiro",
+      "competition": "Libertadores",
+      "round": "4ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Claro Arena"
     }
   ]
 }
