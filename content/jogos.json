@@ -1,46 +1,6 @@
 {
-  "updatedAt": "2026-05-01T13:13:00-03:00",
+  "updatedAt": "2026-05-02T11:30:00-03:00",
   "games": [
-    {
-      "date": "2026-05-01",
-      "time": "15:45",
-      "home": "Pisa",
-      "away": "Lecce",
-      "competition": "Serie A italiana",
-      "round": "35ª Rodada",
-      "channel": "Disney+",
-      "stadium": "Arena Garibaldi"
-    },
-    {
-      "date": "2026-05-01",
-      "time": "15:45",
-      "home": "Santos",
-      "away": "Internacional",
-      "competition": "Brasileirão Feminino A1",
-      "round": "9ª Rodada",
-      "channel": "TV Brasil",
-      "stadium": "Vila Belmiro"
-    },
-    {
-      "date": "2026-05-01",
-      "time": "16:00",
-      "home": "Girona",
-      "away": "Mallorca",
-      "competition": "La Liga",
-      "round": "34ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estadi Montilivi"
-    },
-    {
-      "date": "2026-05-01",
-      "time": "16:00",
-      "home": "Leeds United",
-      "away": "Burnley",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Elland Road"
-    },
     {
       "date": "2026-05-02",
       "time": "09:00",
@@ -244,21 +204,21 @@
     {
       "date": "2026-05-03",
       "time": "09:00",
-      "home": "Sassuolo",
-      "away": "Milan",
-      "competition": "Serie A italiana",
-      "round": "35ª Rodada",
-      "channel": "ESPN 4 / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-03",
-      "time": "09:00",
       "home": "Elche",
       "away": "Celta Vigo",
       "competition": "La Liga",
       "round": "34ª Rodada",
       "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-03",
+      "time": "09:00",
+      "home": "Sassuolo",
+      "away": "Milan",
+      "competition": "Serie A italiana",
+      "round": "35ª Rodada",
+      "channel": "ESPN 4 / Disney+",
       "stadium": ""
     },
     {
@@ -610,6 +570,56 @@
       "round": "4ª Rodada",
       "channel": "Disney+",
       "stadium": ""
+    },
+    {
+      "date": "2026-05-06",
+      "time": "16:00",
+      "home": "Bayern de Munique",
+      "away": "PSG",
+      "competition": "Champions League",
+      "round": "Semifinal",
+      "channel": "SBT / TNT / Max",
+      "stadium": "Allianz Arena"
+    },
+    {
+      "date": "2026-05-06",
+      "time": "19:00",
+      "home": "Audax Italiano",
+      "away": "Vasco",
+      "competition": "Sul-Americana",
+      "round": "4ª Rodada",
+      "channel": "Paramount+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-06",
+      "time": "21:30",
+      "home": "Botafogo",
+      "away": "Racing",
+      "competition": "Sul-Americana",
+      "round": "4ª Rodada",
+      "channel": "Paramount+",
+      "stadium": "Estádio Nilton Santos"
+    },
+    {
+      "date": "2026-05-06",
+      "time": "21:30",
+      "home": "Independiente Rivadavia",
+      "away": "Fluminense",
+      "competition": "Libertadores",
+      "round": "4ª Rodada",
+      "channel": "Globo / ESPN / Disney+",
+      "stadium": "Malvinas Argentinas"
+    },
+    {
+      "date": "2026-05-06",
+      "time": "21:30",
+      "home": "Independiente Santa Fe",
+      "away": "Corinthians",
+      "competition": "Libertadores",
+      "round": "4ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "El Campín"
     }
   ]
 }
