@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-03T13:01:00-03:00",
+  "updatedAt": "2026-05-03T13:15:00-03:00",
   "games": [
     {
       "date": "2026-05-03",
@@ -273,13 +273,23 @@
     },
     {
       "date": "2026-05-05",
-      "time": "17:00",
+      "time": "16:00",
       "home": "Arsenal",
       "away": "Atlético de Madrid",
       "competition": "Champions League",
       "round": "Semifinal",
       "channel": "SBT / TNT / Max",
       "stadium": "Emirates Stadium"
+    },
+    {
+      "date": "2026-05-05",
+      "time": "19:00",
+      "home": "Sporting Cristal",
+      "away": "Palmeiras",
+      "competition": "Libertadores",
+      "round": "4ª Rodada",
+      "channel": "Paramount+",
+      "stadium": ""
     },
     {
       "date": "2026-05-05",
