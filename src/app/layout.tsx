@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { MicrosoftClarity } from "@/components/MicrosoftClarity";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -78,6 +79,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={inter.variable}>
       <GoogleAnalytics />
+      <MicrosoftClarity />
       <body className="flex min-h-screen flex-col antialiased">
         <WebSiteJsonLd />
         <OrganizationJsonLd />
