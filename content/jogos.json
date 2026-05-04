@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-04T08:44:00-03:00",
+  "updatedAt": "2026-05-04T13:19:00-03:00",
   "games": [
     {
       "date": "2026-05-04",
@@ -353,6 +353,46 @@
     },
     {
       "date": "2026-05-07",
+      "time": "16:00",
+      "home": "Aston Villa",
+      "away": "Nottingham Forest",
+      "competition": "Europa League",
+      "round": "Semifinal",
+      "channel": "CazéTV / Prime Video",
+      "stadium": "Villa Park"
+    },
+    {
+      "date": "2026-05-07",
+      "time": "16:00",
+      "home": "Freiburg",
+      "away": "Braga",
+      "competition": "Europa League",
+      "round": "Semifinal",
+      "channel": "CazéTV / Prime Video",
+      "stadium": "Europa-Park Stadion"
+    },
+    {
+      "date": "2026-05-07",
+      "time": "16:00",
+      "home": "Shakhtar Donetsk",
+      "away": "Crystal Palace",
+      "competition": "Conference League",
+      "round": "Semifinal",
+      "channel": "CazéTV",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-07",
+      "time": "16:00",
+      "home": "Strasbourg",
+      "away": "Rayo Vallecano",
+      "competition": "Conference League",
+      "round": "Semifinal",
+      "channel": "CazéTV",
+      "stadium": "Stade de la Meinau"
+    },
+    {
+      "date": "2026-05-07",
       "time": "19:00",
       "home": "Boston River",
       "away": "Millonarios",
@@ -410,6 +450,26 @@
       "round": "4ª Rodada",
       "channel": "Disney+",
       "stadium": ""
+    },
+    {
+      "date": "2026-05-08",
+      "time": "15:45",
+      "home": "Torino",
+      "away": "Sassuolo",
+      "competition": "Serie A italiana",
+      "round": "36ª Rodada",
+      "channel": "ESPN 4 / Disney+",
+      "stadium": "Stadio Olimpico Grande Torino"
+    },
+    {
+      "date": "2026-05-08",
+      "time": "16:00",
+      "home": "Levante",
+      "away": "Osasuna",
+      "competition": "La Liga",
+      "round": "35ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Ciutat de Valencia"
     }
   ]
 }
