@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-06T09:42:00-03:00",
+  "updatedAt": "2026-05-06T13:12:00-03:00",
   "games": [
     {
       "date": "2026-05-06",
@@ -8,7 +8,7 @@
       "away": "PSG",
       "competition": "Champions League",
       "round": "Semifinal",
-      "channel": "SBT / TNT / Max",
+      "channel": "TNT / Max",
       "stadium": "Allianz Arena"
     },
     {
@@ -80,16 +80,6 @@
       "round": "4ª Rodada",
       "channel": "Paramount+",
       "stadium": "Estádio Nilton Santos"
-    },
-    {
-      "date": "2026-05-06",
-      "time": "21:30",
-      "home": "Carabobo",
-      "away": "River Plate",
-      "competition": "Sul-Americana",
-      "round": "4ª Rodada",
-      "channel": "Paramount+",
-      "stadium": ""
     },
     {
       "date": "2026-05-06",
@@ -217,6 +207,16 @@
       "home": "Platense",
       "away": "Peñarol",
       "competition": "Libertadores",
+      "round": "4ª Rodada",
+      "channel": "Paramount+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-07",
+      "time": "21:30",
+      "home": "Carabobo",
+      "away": "River Plate",
+      "competition": "Sul-Americana",
       "round": "4ª Rodada",
       "channel": "Paramount+",
       "stadium": ""
@@ -584,6 +584,26 @@
     {
       "date": "2026-05-10",
       "time": "18:30",
+      "home": "Corinthians",
+      "away": "São Paulo",
+      "competition": "Brasileirão Série A",
+      "round": "15ª Rodada",
+      "channel": "Prime Video",
+      "stadium": "Neo Química Arena"
+    },
+    {
+      "date": "2026-05-10",
+      "time": "18:30",
+      "home": "Mirassol",
+      "away": "Chapecoense",
+      "competition": "Brasileirão Série A",
+      "round": "15ª Rodada",
+      "channel": "Premiere",
+      "stadium": "Estádio Municipal José Maria de Campos Maia"
+    },
+    {
+      "date": "2026-05-10",
+      "time": "18:30",
       "home": "Santos",
       "away": "Red Bull Bragantino",
       "competition": "Brasileirão Série A",
@@ -593,13 +613,13 @@
     },
     {
       "date": "2026-05-10",
-      "time": "18:30",
-      "home": "Corinthians",
-      "away": "São Paulo",
+      "time": "19:30",
+      "home": "Grêmio",
+      "away": "Flamengo",
       "competition": "Brasileirão Série A",
       "round": "15ª Rodada",
-      "channel": "Prime Video",
-      "stadium": "Neo Química Arena"
+      "channel": "Premiere",
+      "stadium": "Arena do Grêmio"
     },
     {
       "date": "2026-05-10",
