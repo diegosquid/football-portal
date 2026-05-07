@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-07T09:12:00-03:00",
+  "updatedAt": "2026-05-07T13:12:00-03:00",
   "games": [
     {
       "date": "2026-05-07",
@@ -444,6 +444,16 @@
     {
       "date": "2026-05-10",
       "time": "16:00",
+      "home": "Barcelona",
+      "away": "Real Madrid",
+      "competition": "La Liga",
+      "round": "35ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Spotify Camp Nou"
+    },
+    {
+      "date": "2026-05-10",
+      "time": "16:00",
       "home": "Remo",
       "away": "Palmeiras",
       "competition": "Brasileirão Série A",
@@ -510,6 +520,16 @@
       "round": "",
       "channel": "ESPN / Disney+",
       "stadium": "Tottenham Hotspur Stadium"
+    },
+    {
+      "date": "2026-05-11",
+      "time": "19:00",
+      "home": "Novorizontino",
+      "away": "Botafogo-SP",
+      "competition": "Brasileirão Série B",
+      "round": "8ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio Dr. Jorge Ismael de Biasi"
     }
   ]
 }
