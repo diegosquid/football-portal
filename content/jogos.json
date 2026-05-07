@@ -1,136 +1,6 @@
 {
-  "updatedAt": "2026-05-06T13:12:00-03:00",
+  "updatedAt": "2026-05-07T09:12:00-03:00",
   "games": [
-    {
-      "date": "2026-05-06",
-      "time": "16:00",
-      "home": "Bayern de Munique",
-      "away": "PSG",
-      "competition": "Champions League",
-      "round": "Semifinal",
-      "channel": "TNT / Max",
-      "stadium": "Allianz Arena"
-    },
-    {
-      "date": "2026-05-06",
-      "time": "19:00",
-      "home": "Audax Italiano",
-      "away": "Vasco",
-      "competition": "Sul-Americana",
-      "round": "4ª Rodada",
-      "channel": "Paramount+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-06",
-      "time": "19:00",
-      "home": "Cusco",
-      "away": "Estudiantes",
-      "competition": "Libertadores",
-      "round": "4ª Rodada",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-06",
-      "time": "19:00",
-      "home": "Deportivo La Guaira",
-      "away": "Bolívar",
-      "competition": "Libertadores",
-      "round": "4ª Rodada",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-06",
-      "time": "19:00",
-      "home": "Montevideo City Torque",
-      "away": "Palestino",
-      "competition": "Sul-Americana",
-      "round": "4ª Rodada",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-06",
-      "time": "21:00",
-      "home": "Barracas Central",
-      "away": "Olimpia",
-      "competition": "Sul-Americana",
-      "round": "4ª Rodada",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-06",
-      "time": "21:00",
-      "home": "Macará",
-      "away": "Tigre",
-      "competition": "Sul-Americana",
-      "round": "4ª Rodada",
-      "channel": "Paramount+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-06",
-      "time": "21:30",
-      "home": "Botafogo",
-      "away": "Racing",
-      "competition": "Sul-Americana",
-      "round": "4ª Rodada",
-      "channel": "Paramount+",
-      "stadium": "Estádio Nilton Santos"
-    },
-    {
-      "date": "2026-05-06",
-      "time": "21:30",
-      "home": "Independiente Rivadavia",
-      "away": "Fluminense",
-      "competition": "Libertadores",
-      "round": "4ª Rodada",
-      "channel": "Globo / ESPN / Disney+",
-      "stadium": "Malvinas Argentinas"
-    },
-    {
-      "date": "2026-05-06",
-      "time": "21:30",
-      "home": "Independiente Santa Fe",
-      "away": "Corinthians",
-      "competition": "Libertadores",
-      "round": "4ª Rodada",
-      "channel": "Paramount+ / Globo",
-      "stadium": "El Campín"
-    },
-    {
-      "date": "2026-05-06",
-      "time": "23:00",
-      "home": "Alianza Atlético",
-      "away": "América de Cali",
-      "competition": "Sul-Americana",
-      "round": "4ª Rodada",
-      "channel": "Paramount+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-06",
-      "time": "23:00",
-      "home": "Deportes Tolima",
-      "away": "Nacional",
-      "competition": "Libertadores",
-      "round": "4ª Rodada",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-06",
-      "time": "23:00",
-      "home": "Universidad Católica",
-      "away": "Cruzeiro",
-      "competition": "Libertadores",
-      "round": "4ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": "Claro Arena"
-    },
     {
       "date": "2026-05-07",
       "time": "16:00",
@@ -630,6 +500,16 @@
       "round": "15ª Rodada",
       "channel": "Record / CazéTV / Premiere",
       "stadium": "São Januário"
+    },
+    {
+      "date": "2026-05-11",
+      "time": "16:00",
+      "home": "Tottenham",
+      "away": "Leeds",
+      "competition": "Premier League",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": "Tottenham Hotspur Stadium"
     }
   ]
 }
