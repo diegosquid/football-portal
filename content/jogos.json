@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-08T08:48:00-03:00",
+  "updatedAt": "2026-05-08T13:17:00-03:00",
   "games": [
     {
       "date": "2026-05-08",
@@ -24,72 +24,12 @@
     {
       "date": "2026-05-08",
       "time": "16:00",
-      "home": "Goiás",
-      "away": "Vila Nova",
-      "competition": "Brasileirão Série B",
-      "round": "8ª Rodada",
-      "channel": "RedeTV! / Disney+",
-      "stadium": "Estádio da Serrinha"
-    },
-    {
-      "date": "2026-05-08",
-      "time": "16:00",
       "home": "Levante",
       "away": "Osasuna",
       "competition": "La Liga",
       "round": "35ª Rodada",
       "channel": "ESPN / Disney+",
       "stadium": "Ciutat de Valencia"
-    },
-    {
-      "date": "2026-05-08",
-      "time": "18:00",
-      "home": "Athletic",
-      "away": "Cuiabá",
-      "competition": "Brasileirão Série B",
-      "round": "8ª Rodada",
-      "channel": "Disney+",
-      "stadium": "Estádio Joaquim Portugal"
-    },
-    {
-      "date": "2026-05-08",
-      "time": "18:30",
-      "home": "Ponte Preta",
-      "away": "Sport",
-      "competition": "Brasileirão Série B",
-      "round": "8ª Rodada",
-      "channel": "Disney+",
-      "stadium": "Estádio Moisés Lucarelli"
-    },
-    {
-      "date": "2026-05-08",
-      "time": "19:00",
-      "home": "Ceará",
-      "away": "Atlético-GO",
-      "competition": "Brasileirão Série B",
-      "round": "8ª Rodada",
-      "channel": "Disney+",
-      "stadium": "Arena Castelão"
-    },
-    {
-      "date": "2026-05-08",
-      "time": "20:30",
-      "home": "CRB",
-      "away": "Operário-PR",
-      "competition": "Brasileirão Série B",
-      "round": "8ª Rodada",
-      "channel": "Disney+",
-      "stadium": "Estádio Rei Pelé"
-    },
-    {
-      "date": "2026-05-08",
-      "time": "21:15",
-      "home": "Juventude",
-      "away": "Criciúma",
-      "competition": "Brasileirão Série B",
-      "round": "8ª Rodada",
-      "channel": "Disney+",
-      "stadium": "Estádio Alfredo Jaconi"
     },
     {
       "date": "2026-05-09",
@@ -234,6 +174,16 @@
     {
       "date": "2026-05-09",
       "time": "16:00",
+      "home": "Goiás",
+      "away": "Vila Nova",
+      "competition": "Brasileirão Série B",
+      "round": "8ª Rodada",
+      "channel": "RedeTV! / Disney+",
+      "stadium": "Estádio da Serrinha"
+    },
+    {
+      "date": "2026-05-09",
+      "time": "16:00",
       "home": "Londrina",
       "away": "São Bernardo",
       "competition": "Brasileirão Série B",
@@ -250,6 +200,16 @@
       "round": "8ª Rodada",
       "channel": "Disney+",
       "stadium": ""
+    },
+    {
+      "date": "2026-05-09",
+      "time": "18:00",
+      "home": "Athletic",
+      "away": "Cuiabá",
+      "competition": "Brasileirão Série B",
+      "round": "8ª Rodada",
+      "channel": "Disney+",
+      "stadium": "Estádio Joaquim Portugal"
     },
     {
       "date": "2026-05-09",
@@ -273,6 +233,36 @@
     },
     {
       "date": "2026-05-09",
+      "time": "18:30",
+      "home": "Ponte Preta",
+      "away": "Sport",
+      "competition": "Brasileirão Série B",
+      "round": "8ª Rodada",
+      "channel": "Disney+",
+      "stadium": "Estádio Moisés Lucarelli"
+    },
+    {
+      "date": "2026-05-09",
+      "time": "19:00",
+      "home": "Ceará",
+      "away": "Atlético-GO",
+      "competition": "Brasileirão Série B",
+      "round": "8ª Rodada",
+      "channel": "Disney+",
+      "stadium": "Arena Castelão"
+    },
+    {
+      "date": "2026-05-09",
+      "time": "20:30",
+      "home": "CRB",
+      "away": "Operário-PR",
+      "competition": "Brasileirão Série B",
+      "round": "8ª Rodada",
+      "channel": "Disney+",
+      "stadium": "Estádio Rei Pelé"
+    },
+    {
+      "date": "2026-05-09",
       "time": "21:00",
       "home": "Bahia",
       "away": "Cruzeiro",
@@ -280,6 +270,16 @@
       "round": "15ª Rodada",
       "channel": "SporTV / Premiere",
       "stadium": "Arena Fonte Nova"
+    },
+    {
+      "date": "2026-05-09",
+      "time": "21:15",
+      "home": "Juventude",
+      "away": "Criciúma",
+      "competition": "Brasileirão Série B",
+      "round": "8ª Rodada",
+      "channel": "Disney+",
+      "stadium": "Estádio Alfredo Jaconi"
     },
     {
       "date": "2026-05-10",
