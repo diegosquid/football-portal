@@ -1,116 +1,6 @@
 {
-  "updatedAt": "2026-05-07T13:12:00-03:00",
+  "updatedAt": "2026-05-08T08:48:00-03:00",
   "games": [
-    {
-      "date": "2026-05-07",
-      "time": "16:00",
-      "home": "Aston Villa",
-      "away": "Nottingham Forest",
-      "competition": "Europa League",
-      "round": "Semifinal",
-      "channel": "CazéTV / Prime Video",
-      "stadium": "Villa Park"
-    },
-    {
-      "date": "2026-05-07",
-      "time": "16:00",
-      "home": "Freiburg",
-      "away": "Braga",
-      "competition": "Europa League",
-      "round": "Semifinal",
-      "channel": "CazéTV / Prime Video",
-      "stadium": "Europa-Park Stadion"
-    },
-    {
-      "date": "2026-05-07",
-      "time": "16:00",
-      "home": "Shakhtar Donetsk",
-      "away": "Crystal Palace",
-      "competition": "Conference League",
-      "round": "Semifinal",
-      "channel": "CazéTV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-07",
-      "time": "16:00",
-      "home": "Strasbourg",
-      "away": "Rayo Vallecano",
-      "competition": "Conference League",
-      "round": "Semifinal",
-      "channel": "CazéTV",
-      "stadium": "Stade de la Meinau"
-    },
-    {
-      "date": "2026-05-07",
-      "time": "19:00",
-      "home": "Boston River",
-      "away": "Millonarios",
-      "competition": "Sul-Americana",
-      "round": "4ª Rodada",
-      "channel": "Paramount+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-07",
-      "time": "19:00",
-      "home": "Mirassol",
-      "away": "LDU",
-      "competition": "Libertadores",
-      "round": "4ª Rodada",
-      "channel": "Paramount+",
-      "stadium": "Estádio Municipal José Maria de Campos Maia"
-    },
-    {
-      "date": "2026-05-07",
-      "time": "19:00",
-      "home": "O'Higgins",
-      "away": "São Paulo",
-      "competition": "Sul-Americana",
-      "round": "4ª Rodada",
-      "channel": "Disney+",
-      "stadium": "Estádio Codelco El Teniente"
-    },
-    {
-      "date": "2026-05-07",
-      "time": "19:00",
-      "home": "Platense",
-      "away": "Peñarol",
-      "competition": "Libertadores",
-      "round": "4ª Rodada",
-      "channel": "Paramount+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-07",
-      "time": "21:30",
-      "home": "Carabobo",
-      "away": "River Plate",
-      "competition": "Sul-Americana",
-      "round": "4ª Rodada",
-      "channel": "Paramount+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-07",
-      "time": "21:30",
-      "home": "Independiente Medellín",
-      "away": "Flamengo",
-      "competition": "Libertadores",
-      "round": "4ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio Atanasio Girardot"
-    },
-    {
-      "date": "2026-05-07",
-      "time": "23:00",
-      "home": "Junior Barranquilla",
-      "away": "Cerro Porteño",
-      "competition": "Libertadores",
-      "round": "4ª Rodada",
-      "channel": "Disney+",
-      "stadium": ""
-    },
     {
       "date": "2026-05-08",
       "time": "14:30",
@@ -203,6 +93,16 @@
     },
     {
       "date": "2026-05-09",
+      "time": "08:00",
+      "home": "Elche",
+      "away": "Alavés",
+      "competition": "La Liga",
+      "round": "35ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-09",
       "time": "08:30",
       "home": "Liverpool",
       "away": "Chelsea",
@@ -219,6 +119,16 @@
       "competition": "Serie A italiana",
       "round": "36ª Rodada",
       "channel": "ESPN 4 / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-09",
+      "time": "10:15",
+      "home": "Sevilla",
+      "away": "Espanyol",
+      "competition": "La Liga",
+      "round": "35ª Rodada",
+      "channel": "ESPN / Disney+",
       "stadium": ""
     },
     {
@@ -290,6 +200,16 @@
       "round": "",
       "channel": "ESPN / Disney+",
       "stadium": "Etihad Stadium"
+    },
+    {
+      "date": "2026-05-09",
+      "time": "15:00",
+      "home": "Real Sociedad",
+      "away": "Real Betis",
+      "competition": "La Liga",
+      "round": "35ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
     },
     {
       "date": "2026-05-09",
@@ -370,6 +290,16 @@
       "round": "36ª Rodada",
       "channel": "ESPN 4 / Disney+",
       "stadium": "Stadio Artemio Franchi"
+    },
+    {
+      "date": "2026-05-10",
+      "time": "09:15",
+      "home": "Athletic Bilbao",
+      "away": "Valencia",
+      "competition": "La Liga",
+      "round": "35ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "San Mamés"
     },
     {
       "date": "2026-05-10",
@@ -513,6 +443,26 @@
     },
     {
       "date": "2026-05-11",
+      "time": "14:00",
+      "home": "Rayo Vallecano",
+      "away": "Girona",
+      "competition": "La Liga",
+      "round": "35ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-11",
+      "time": "14:45",
+      "home": "Napoli",
+      "away": "Bologna",
+      "competition": "Serie A italiana",
+      "round": "36ª Rodada",
+      "channel": "ESPN 4 / Disney+",
+      "stadium": "Stadio Diego Armando Maradona"
+    },
+    {
+      "date": "2026-05-11",
       "time": "16:00",
       "home": "Tottenham",
       "away": "Leeds",
@@ -530,6 +480,36 @@
       "round": "8ª Rodada",
       "channel": "ESPN / Disney+",
       "stadium": "Estádio Dr. Jorge Ismael de Biasi"
+    },
+    {
+      "date": "2026-05-12",
+      "time": "19:30",
+      "home": "Internacional",
+      "away": "Athletic Club",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase",
+      "channel": "SporTV / Premiere",
+      "stadium": "Beira-Rio"
+    },
+    {
+      "date": "2026-05-12",
+      "time": "21:30",
+      "home": "Cruzeiro",
+      "away": "Goiás",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase",
+      "channel": "SporTV / Premiere",
+      "stadium": "Mineirão"
+    },
+    {
+      "date": "2026-05-12",
+      "time": "21:30",
+      "home": "Fluminense",
+      "away": "Operário-PR",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase",
+      "channel": "Amazon Prime Video",
+      "stadium": "Maracanã"
     }
   ]
 }
