@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-09T11:31:00-03:00",
+  "updatedAt": "2026-05-09T13:18:00-03:00",
   "games": [
     {
       "date": "2026-05-09",
@@ -20,6 +20,46 @@
       "round": "",
       "channel": "ESPN / Disney+",
       "stadium": "Anfield"
+    },
+    {
+      "date": "2026-05-09",
+      "time": "09:30",
+      "home": "Augsburg",
+      "away": "Borussia Mönchengladbach",
+      "competition": "Bundesliga",
+      "round": "33ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-09",
+      "time": "09:30",
+      "home": "Hoffenheim",
+      "away": "Werder Bremen",
+      "competition": "Bundesliga",
+      "round": "33ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-09",
+      "time": "09:30",
+      "home": "Leipzig",
+      "away": "St. Pauli",
+      "competition": "Bundesliga",
+      "round": "33ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-09",
+      "time": "09:30",
+      "home": "Stuttgart",
+      "away": "Bayer Leverkusen",
+      "competition": "Bundesliga",
+      "round": "33ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
     },
     {
       "date": "2026-05-09",
@@ -144,6 +184,16 @@
     {
       "date": "2026-05-09",
       "time": "16:00",
+      "home": "Fluminense",
+      "away": "Santos",
+      "competition": "Brasileirão Feminino A1",
+      "round": "10ª Rodada",
+      "channel": "TV Brasil",
+      "stadium": "Estádio Luso-Brasileiro"
+    },
+    {
+      "date": "2026-05-09",
+      "time": "16:00",
       "home": "Goiás",
       "away": "Vila Nova",
       "competition": "Brasileirão Série B",
@@ -190,6 +240,16 @@
       "round": "15ª Rodada",
       "channel": "Premiere",
       "stadium": "Estádio do Maracanã"
+    },
+    {
+      "date": "2026-05-09",
+      "time": "18:00",
+      "home": "Mixto",
+      "away": "Bahia",
+      "competition": "Brasileirão Feminino A1",
+      "round": "10ª Rodada",
+      "channel": "UOL Play",
+      "stadium": "Estádio Presidente Eurico Gaspar Dutra"
     },
     {
       "date": "2026-05-09",
@@ -363,6 +423,16 @@
     },
     {
       "date": "2026-05-10",
+      "time": "17:00",
+      "home": "Red Bull Bragantino",
+      "away": "Grêmio",
+      "competition": "Brasileirão Feminino A1",
+      "round": "10ª Rodada",
+      "channel": "TV Brasil",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-10",
       "time": "18:30",
       "home": "Corinthians",
       "away": "São Paulo",
@@ -433,6 +503,16 @@
     },
     {
       "date": "2026-05-11",
+      "time": "15:00",
+      "home": "Vitória",
+      "away": "Juventude",
+      "competition": "Brasileirão Feminino A1",
+      "round": "10ª Rodada",
+      "channel": "TV Brasil",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-11",
       "time": "16:00",
       "home": "Tottenham",
       "away": "Leeds",
@@ -443,6 +523,26 @@
     },
     {
       "date": "2026-05-11",
+      "time": "18:00",
+      "home": "Internacional",
+      "away": "Botafogo",
+      "competition": "Brasileirão Feminino A1",
+      "round": "10ª Rodada",
+      "channel": "SporTV",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-11",
+      "time": "19:00",
+      "home": "Flamengo",
+      "away": "Ferroviária",
+      "competition": "Brasileirão Feminino A1",
+      "round": "10ª Rodada",
+      "channel": "SporTV",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-11",
       "time": "19:00",
       "home": "Novorizontino",
       "away": "Botafogo-SP",
@@ -450,6 +550,26 @@
       "round": "8ª Rodada",
       "channel": "ESPN / Disney+",
       "stadium": "Estádio Dr. Jorge Ismael de Biasi"
+    },
+    {
+      "date": "2026-05-11",
+      "time": "21:00",
+      "home": "Palmeiras",
+      "away": "Atlético-MG",
+      "competition": "Brasileirão Feminino A1",
+      "round": "10ª Rodada",
+      "channel": "SporTV",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-11",
+      "time": "21:30",
+      "home": "Corinthians",
+      "away": "São Paulo",
+      "competition": "Brasileirão Feminino A1",
+      "round": "10ª Rodada",
+      "channel": "SporTV",
+      "stadium": ""
     },
     {
       "date": "2026-05-12",
