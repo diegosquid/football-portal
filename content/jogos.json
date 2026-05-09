@@ -1,36 +1,6 @@
 {
-  "updatedAt": "2026-05-08T13:17:00-03:00",
+  "updatedAt": "2026-05-09T11:31:00-03:00",
   "games": [
-    {
-      "date": "2026-05-08",
-      "time": "14:30",
-      "home": "Borussia Dortmund",
-      "away": "Eintracht Frankfurt",
-      "competition": "Bundesliga",
-      "round": "33ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": "Signal Iduna Park"
-    },
-    {
-      "date": "2026-05-08",
-      "time": "15:45",
-      "home": "Torino",
-      "away": "Sassuolo",
-      "competition": "Serie A italiana",
-      "round": "36ª Rodada",
-      "channel": "ESPN 4 / Disney+",
-      "stadium": "Stadio Olimpico Grande Torino"
-    },
-    {
-      "date": "2026-05-08",
-      "time": "16:00",
-      "home": "Levante",
-      "away": "Osasuna",
-      "competition": "La Liga",
-      "round": "35ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": "Ciutat de Valencia"
-    },
     {
       "date": "2026-05-09",
       "time": "08:00",
@@ -510,6 +480,76 @@
       "round": "5ª Fase",
       "channel": "Amazon Prime Video",
       "stadium": "Maracanã"
+    },
+    {
+      "date": "2026-05-13",
+      "time": "19:00",
+      "home": "Vasco",
+      "away": "Paysandu",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase",
+      "channel": "SporTV / Premiere",
+      "stadium": "São Januário"
+    },
+    {
+      "date": "2026-05-13",
+      "time": "19:00",
+      "home": "Juventude",
+      "away": "São Paulo",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase",
+      "channel": "SporTV / Premiere",
+      "stadium": "Estádio Alfredo Jaconi"
+    },
+    {
+      "date": "2026-05-13",
+      "time": "19:30",
+      "home": "Coritiba",
+      "away": "Santos",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase",
+      "channel": "Amazon Prime Video",
+      "stadium": "Couto Pereira"
+    },
+    {
+      "date": "2026-05-13",
+      "time": "20:30",
+      "home": "Mirassol",
+      "away": "Red Bull Bragantino",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase",
+      "channel": "SporTV / Premiere",
+      "stadium": "Estádio Municipal José Maria de Campos Maia"
+    },
+    {
+      "date": "2026-05-13",
+      "time": "21:30",
+      "home": "Ceará",
+      "away": "Atlético-MG",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase",
+      "channel": "SporTV / Premiere",
+      "stadium": "Arena Castelão"
+    },
+    {
+      "date": "2026-05-13",
+      "time": "21:30",
+      "home": "Remo",
+      "away": "Bahia",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase",
+      "channel": "SporTV / Premiere",
+      "stadium": "Mangueirão"
+    },
+    {
+      "date": "2026-05-13",
+      "time": "21:30",
+      "home": "Jacuipense",
+      "away": "Palmeiras",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase",
+      "channel": "Amazon Prime Video",
+      "stadium": ""
     }
   ]
 }
