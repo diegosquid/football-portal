@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-10T11:41:00-03:00",
+  "updatedAt": "2026-05-10T13:13:00-03:00",
   "games": [
     {
       "date": "2026-05-10",
@@ -104,6 +104,16 @@
     {
       "date": "2026-05-10",
       "time": "16:00",
+      "home": "Náutico",
+      "away": "América-MG",
+      "competition": "Brasileirão Série B",
+      "round": "8ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Aflitos"
+    },
+    {
+      "date": "2026-05-10",
+      "time": "16:00",
       "home": "Remo",
       "away": "Palmeiras",
       "competition": "Brasileirão Série A",
@@ -153,6 +163,16 @@
     },
     {
       "date": "2026-05-10",
+      "time": "18:30",
+      "home": "Avaí",
+      "away": "Fortaleza",
+      "competition": "Brasileirão Série B",
+      "round": "8ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio da Ressacada"
+    },
+    {
+      "date": "2026-05-10",
       "time": "19:30",
       "home": "Grêmio",
       "away": "Flamengo",
@@ -160,6 +180,16 @@
       "round": "15ª Rodada",
       "channel": "Premiere",
       "stadium": "Arena do Grêmio"
+    },
+    {
+      "date": "2026-05-10",
+      "time": "19:30",
+      "home": "Novorizontino",
+      "away": "Botafogo-SP",
+      "competition": "Brasileirão Série B",
+      "round": "8ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio Dr. Jorge Ismael de Biasi"
     },
     {
       "date": "2026-05-10",
@@ -230,16 +260,6 @@
       "round": "10ª Rodada",
       "channel": "SporTV",
       "stadium": ""
-    },
-    {
-      "date": "2026-05-11",
-      "time": "19:00",
-      "home": "Novorizontino",
-      "away": "Botafogo-SP",
-      "competition": "Brasileirão Série B",
-      "round": "8ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio Dr. Jorge Ismael de Biasi"
     },
     {
       "date": "2026-05-11",
