@@ -1,316 +1,6 @@
 {
-  "updatedAt": "2026-05-09T13:18:00-03:00",
+  "updatedAt": "2026-05-10T11:41:00-03:00",
   "games": [
-    {
-      "date": "2026-05-09",
-      "time": "08:00",
-      "home": "Elche",
-      "away": "Alavés",
-      "competition": "La Liga",
-      "round": "35ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-09",
-      "time": "08:30",
-      "home": "Liverpool",
-      "away": "Chelsea",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Anfield"
-    },
-    {
-      "date": "2026-05-09",
-      "time": "09:30",
-      "home": "Augsburg",
-      "away": "Borussia Mönchengladbach",
-      "competition": "Bundesliga",
-      "round": "33ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-09",
-      "time": "09:30",
-      "home": "Hoffenheim",
-      "away": "Werder Bremen",
-      "competition": "Bundesliga",
-      "round": "33ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-09",
-      "time": "09:30",
-      "home": "Leipzig",
-      "away": "St. Pauli",
-      "competition": "Bundesliga",
-      "round": "33ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-09",
-      "time": "09:30",
-      "home": "Stuttgart",
-      "away": "Bayer Leverkusen",
-      "competition": "Bundesliga",
-      "round": "33ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-09",
-      "time": "10:00",
-      "home": "Cagliari",
-      "away": "Udinese",
-      "competition": "Serie A italiana",
-      "round": "36ª Rodada",
-      "channel": "ESPN 4 / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-09",
-      "time": "10:15",
-      "home": "Sevilla",
-      "away": "Espanyol",
-      "competition": "La Liga",
-      "round": "35ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-09",
-      "time": "11:00",
-      "home": "Brighton",
-      "away": "Wolverhampton",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "American Express Stadium"
-    },
-    {
-      "date": "2026-05-09",
-      "time": "11:00",
-      "home": "Fulham",
-      "away": "Bournemouth",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Craven Cottage"
-    },
-    {
-      "date": "2026-05-09",
-      "time": "11:00",
-      "home": "Sunderland",
-      "away": "Manchester Utd",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Stadium of Light"
-    },
-    {
-      "date": "2026-05-09",
-      "time": "12:30",
-      "home": "Wolfsburg",
-      "away": "Bayern de Munique",
-      "competition": "Bundesliga",
-      "round": "33ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": "Volkswagen Arena"
-    },
-    {
-      "date": "2026-05-09",
-      "time": "13:00",
-      "home": "Lazio",
-      "away": "Inter",
-      "competition": "Serie A italiana",
-      "round": "36ª Rodada",
-      "channel": "ESPN 4 / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-09",
-      "time": "13:30",
-      "home": "Atlético de Madrid",
-      "away": "Celta de Vigo",
-      "competition": "La Liga",
-      "round": "35ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": "Riyadh Air Metropolitano"
-    },
-    {
-      "date": "2026-05-09",
-      "time": "13:30",
-      "home": "Manchester City",
-      "away": "Brentford",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Etihad Stadium"
-    },
-    {
-      "date": "2026-05-09",
-      "time": "15:00",
-      "home": "Real Sociedad",
-      "away": "Real Betis",
-      "competition": "La Liga",
-      "round": "35ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-09",
-      "time": "15:45",
-      "home": "Lecce",
-      "away": "Juventus",
-      "competition": "Serie A italiana",
-      "round": "36ª Rodada",
-      "channel": "ESPN 4 / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-09",
-      "time": "16:00",
-      "home": "Coritiba",
-      "away": "Internacional",
-      "competition": "Brasileirão Série A",
-      "round": "15ª Rodada",
-      "channel": "Premiere",
-      "stadium": "Couto Pereira"
-    },
-    {
-      "date": "2026-05-09",
-      "time": "16:00",
-      "home": "Fluminense",
-      "away": "Santos",
-      "competition": "Brasileirão Feminino A1",
-      "round": "10ª Rodada",
-      "channel": "TV Brasil",
-      "stadium": "Estádio Luso-Brasileiro"
-    },
-    {
-      "date": "2026-05-09",
-      "time": "16:00",
-      "home": "Goiás",
-      "away": "Vila Nova",
-      "competition": "Brasileirão Série B",
-      "round": "8ª Rodada",
-      "channel": "RedeTV! / Disney+",
-      "stadium": "Estádio da Serrinha"
-    },
-    {
-      "date": "2026-05-09",
-      "time": "16:00",
-      "home": "Londrina",
-      "away": "São Bernardo",
-      "competition": "Brasileirão Série B",
-      "round": "8ª Rodada",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-09",
-      "time": "16:00",
-      "home": "Náutico",
-      "away": "América-MG",
-      "competition": "Brasileirão Série B",
-      "round": "8ª Rodada",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-09",
-      "time": "18:00",
-      "home": "Athletic",
-      "away": "Cuiabá",
-      "competition": "Brasileirão Série B",
-      "round": "8ª Rodada",
-      "channel": "Disney+",
-      "stadium": "Estádio Joaquim Portugal"
-    },
-    {
-      "date": "2026-05-09",
-      "time": "18:00",
-      "home": "Fluminense",
-      "away": "Vitória",
-      "competition": "Brasileirão Série A",
-      "round": "15ª Rodada",
-      "channel": "Premiere",
-      "stadium": "Estádio do Maracanã"
-    },
-    {
-      "date": "2026-05-09",
-      "time": "18:00",
-      "home": "Mixto",
-      "away": "Bahia",
-      "competition": "Brasileirão Feminino A1",
-      "round": "10ª Rodada",
-      "channel": "UOL Play",
-      "stadium": "Estádio Presidente Eurico Gaspar Dutra"
-    },
-    {
-      "date": "2026-05-09",
-      "time": "18:30",
-      "home": "Avaí",
-      "away": "Fortaleza",
-      "competition": "Brasileirão Série B",
-      "round": "8ª Rodada",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-09",
-      "time": "18:30",
-      "home": "Ponte Preta",
-      "away": "Sport",
-      "competition": "Brasileirão Série B",
-      "round": "8ª Rodada",
-      "channel": "Disney+",
-      "stadium": "Estádio Moisés Lucarelli"
-    },
-    {
-      "date": "2026-05-09",
-      "time": "19:00",
-      "home": "Ceará",
-      "away": "Atlético-GO",
-      "competition": "Brasileirão Série B",
-      "round": "8ª Rodada",
-      "channel": "Disney+",
-      "stadium": "Arena Castelão"
-    },
-    {
-      "date": "2026-05-09",
-      "time": "20:30",
-      "home": "CRB",
-      "away": "Operário-PR",
-      "competition": "Brasileirão Série B",
-      "round": "8ª Rodada",
-      "channel": "Disney+",
-      "stadium": "Estádio Rei Pelé"
-    },
-    {
-      "date": "2026-05-09",
-      "time": "21:00",
-      "home": "Bahia",
-      "away": "Cruzeiro",
-      "competition": "Brasileirão Série A",
-      "round": "15ª Rodada",
-      "channel": "SporTV / Premiere",
-      "stadium": "Arena Fonte Nova"
-    },
-    {
-      "date": "2026-05-09",
-      "time": "21:15",
-      "home": "Juventude",
-      "away": "Criciúma",
-      "competition": "Brasileirão Série B",
-      "round": "8ª Rodada",
-      "channel": "Disney+",
-      "stadium": "Estádio Alfredo Jaconi"
-    },
     {
       "date": "2026-05-10",
       "time": "09:00",
@@ -583,6 +273,16 @@
     },
     {
       "date": "2026-05-12",
+      "time": "19:30",
+      "home": "Londrina",
+      "away": "São Bernardo",
+      "competition": "Brasileirão Série B",
+      "round": "8ª Rodada",
+      "channel": "Disney+",
+      "stadium": "Estádio do Café"
+    },
+    {
+      "date": "2026-05-12",
       "time": "21:30",
       "home": "Cruzeiro",
       "away": "Goiás",
@@ -670,6 +370,66 @@
       "round": "5ª Fase",
       "channel": "Amazon Prime Video",
       "stadium": ""
+    },
+    {
+      "date": "2026-05-14",
+      "time": "18:00",
+      "home": "Chapecoense",
+      "away": "Botafogo",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase",
+      "channel": "A definir",
+      "stadium": "Arena Condá"
+    },
+    {
+      "date": "2026-05-14",
+      "time": "19:00",
+      "home": "Atlético-GO",
+      "away": "Athletico-PR",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase",
+      "channel": "SporTV / Premiere",
+      "stadium": "Antônio Accioly"
+    },
+    {
+      "date": "2026-05-14",
+      "time": "19:00",
+      "home": "Confiança",
+      "away": "Grêmio",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase",
+      "channel": "Amazon Prime Video",
+      "stadium": "Batistão"
+    },
+    {
+      "date": "2026-05-14",
+      "time": "19:30",
+      "home": "Corinthians",
+      "away": "Barra-SC",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase",
+      "channel": "Amazon Prime Video",
+      "stadium": "Neo Química Arena"
+    },
+    {
+      "date": "2026-05-14",
+      "time": "21:30",
+      "home": "Vitória",
+      "away": "Flamengo",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase",
+      "channel": "SporTV / Premiere",
+      "stadium": "Barradão"
+    },
+    {
+      "date": "2026-05-14",
+      "time": "21:30",
+      "home": "CRB",
+      "away": "Fortaleza",
+      "competition": "Copa do Brasil",
+      "round": "5ª Fase",
+      "channel": "Amazon Prime Video",
+      "stadium": "Rei Pelé"
     }
   ]
 }
