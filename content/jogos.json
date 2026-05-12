@@ -1,106 +1,6 @@
 {
-  "updatedAt": "2026-05-11T13:14:00-03:00",
+  "updatedAt": "2026-05-12T13:17:00-03:00",
   "games": [
-    {
-      "date": "2026-05-11",
-      "time": "14:00",
-      "home": "Rayo Vallecano",
-      "away": "Girona",
-      "competition": "La Liga",
-      "round": "35ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-11",
-      "time": "14:45",
-      "home": "Napoli",
-      "away": "Bologna",
-      "competition": "Serie A italiana",
-      "round": "36ª Rodada",
-      "channel": "ESPN 4 / Disney+",
-      "stadium": "Stadio Diego Armando Maradona"
-    },
-    {
-      "date": "2026-05-11",
-      "time": "15:00",
-      "home": "Vitória",
-      "away": "Juventude",
-      "competition": "Brasileirão Feminino A1",
-      "round": "10ª Rodada",
-      "channel": "TV Brasil",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-11",
-      "time": "16:00",
-      "home": "Tottenham",
-      "away": "Leeds",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Tottenham Hotspur Stadium"
-    },
-    {
-      "date": "2026-05-11",
-      "time": "18:00",
-      "home": "Internacional",
-      "away": "Botafogo",
-      "competition": "Brasileirão Feminino A1",
-      "round": "10ª Rodada",
-      "channel": "SporTV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-11",
-      "time": "19:00",
-      "home": "Flamengo",
-      "away": "Ferroviária",
-      "competition": "Brasileirão Feminino A1",
-      "round": "10ª Rodada",
-      "channel": "SporTV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-11",
-      "time": "20:00",
-      "home": "Inter de Limeira",
-      "away": "Santa Cruz",
-      "competition": "Brasileirão Série C",
-      "round": "",
-      "channel": "Canal GOAT / SportyNet",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-11",
-      "time": "20:00",
-      "home": "Maringá",
-      "away": "Guarani",
-      "competition": "Brasileirão Série C",
-      "round": "",
-      "channel": "Canal GOAT / SportyNet",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-11",
-      "time": "21:00",
-      "home": "Palmeiras",
-      "away": "Atlético-MG",
-      "competition": "Brasileirão Feminino A1",
-      "round": "10ª Rodada",
-      "channel": "SporTV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-11",
-      "time": "21:30",
-      "home": "Corinthians",
-      "away": "São Paulo",
-      "competition": "Brasileirão Feminino A1",
-      "round": "10ª Rodada",
-      "channel": "SporTV",
-      "stadium": ""
-    },
     {
       "date": "2026-05-12",
       "time": "14:00",
@@ -138,7 +38,7 @@
       "away": "Athletic Club",
       "competition": "Copa do Brasil",
       "round": "5ª Fase",
-      "channel": "SporTV / Premiere",
+      "channel": "Amazon Prime Video",
       "stadium": "Beira-Rio"
     },
     {
@@ -148,8 +48,8 @@
       "away": "São Bernardo",
       "competition": "Brasileirão Série B",
       "round": "8ª Rodada",
-      "channel": "Disney+",
-      "stadium": "Estádio do Café"
+      "channel": "ESPN / Disney+",
+      "stadium": ""
     },
     {
       "date": "2026-05-12",
@@ -158,7 +58,7 @@
       "away": "Goiás",
       "competition": "Copa do Brasil",
       "round": "5ª Fase",
-      "channel": "SporTV / Premiere",
+      "channel": "GE TV / SporTV / Premiere",
       "stadium": "Mineirão"
     },
     {
@@ -370,6 +270,76 @@
       "round": "5ª Fase",
       "channel": "Amazon Prime Video",
       "stadium": "Rei Pelé"
+    },
+    {
+      "date": "2026-05-16",
+      "time": "15:00",
+      "home": "Operário-PR",
+      "away": "Náutico",
+      "competition": "Brasileirão Série B",
+      "round": "9ª Rodada",
+      "channel": "A definir",
+      "stadium": "Germano Krüger"
+    },
+    {
+      "date": "2026-05-16",
+      "time": "15:00",
+      "home": "São Bernardo",
+      "away": "América Mineiro",
+      "competition": "Brasileirão Série B",
+      "round": "9ª Rodada",
+      "channel": "A definir",
+      "stadium": "Estádio Primeiro de Maio"
+    },
+    {
+      "date": "2026-05-16",
+      "time": "17:30",
+      "home": "Botafogo-SP",
+      "away": "Goiás",
+      "competition": "Brasileirão Série B",
+      "round": "9ª Rodada",
+      "channel": "A definir",
+      "stadium": "Serrinha"
+    },
+    {
+      "date": "2026-05-16",
+      "time": "18:30",
+      "home": "Atlético-MG",
+      "away": "Mirassol",
+      "competition": "Brasileirão Série A",
+      "round": "16ª Rodada",
+      "channel": "Premiere",
+      "stadium": "Arena MRV"
+    },
+    {
+      "date": "2026-05-16",
+      "time": "18:30",
+      "home": "Internacional",
+      "away": "Vasco",
+      "competition": "Brasileirão Série A",
+      "round": "16ª Rodada",
+      "channel": "Amazon Prime Video",
+      "stadium": "Beira-Rio"
+    },
+    {
+      "date": "2026-05-16",
+      "time": "19:00",
+      "home": "Fluminense",
+      "away": "São Paulo",
+      "competition": "Brasileirão Série A",
+      "round": "16ª Rodada",
+      "channel": "Record / CazéTV / Premiere",
+      "stadium": "Maracanã"
+    },
+    {
+      "date": "2026-05-16",
+      "time": "21:00",
+      "home": "Palmeiras",
+      "away": "Cruzeiro",
+      "competition": "Brasileirão Série A",
+      "round": "16ª Rodada",
+      "channel": "SporTV / Premiere",
+      "stadium": "Arena Crefisa Barueri"
     }
   ]
 }
