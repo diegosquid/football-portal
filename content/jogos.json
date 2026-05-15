@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-15T09:35:00-03:00",
+  "updatedAt": "2026-05-15T13:13:00-03:00",
   "games": [
     {
       "date": "2026-05-15",
@@ -308,7 +308,7 @@
       "away": "Corinthians",
       "competition": "Brasileirão Série A",
       "round": "16ª Rodada",
-      "channel": "A definir",
+      "channel": "Globo / Premiere",
       "stadium": "Estádio Nilton Santos"
     },
     {
@@ -424,12 +424,12 @@
     {
       "date": "2026-05-19",
       "time": "21:00",
-      "home": "Mirassol",
-      "away": "Always Ready",
+      "home": "Always Ready",
+      "away": "Mirassol",
       "competition": "Copa Libertadores",
       "round": "5ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
+      "channel": "Paramount+",
+      "stadium": "Estadio Municipal El Alto"
     },
     {
       "date": "2026-05-19",
