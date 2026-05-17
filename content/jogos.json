@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-17T11:35:00-03:00",
+  "updatedAt": "2026-05-17T13:05:00-03:00",
   "games": [
     {
       "date": "2026-05-17",
@@ -198,7 +198,7 @@
       "away": "Grêmio",
       "competition": "Brasileirão Série A",
       "round": "16ª Rodada",
-      "channel": "A definir",
+      "channel": "Globo / Premiere",
       "stadium": "Arena Fonte Nova"
     },
     {
@@ -248,7 +248,7 @@
       "away": "Remo",
       "competition": "Brasileirão Série A",
       "round": "16ª Rodada",
-      "channel": "A definir",
+      "channel": "Premiere",
       "stadium": "Arena Condá"
     },
     {
@@ -258,7 +258,7 @@
       "away": "Vitória",
       "competition": "Brasileirão Série A",
       "round": "16ª Rodada",
-      "channel": "A definir",
+      "channel": "Premiere",
       "stadium": "Estádio Municipal Cícero de Souza Marques"
     },
     {
@@ -308,7 +308,7 @@
       "away": "Londrina",
       "competition": "Brasileirão Série B",
       "round": "9ª Rodada",
-      "channel": "Disney+",
+      "channel": "ESPN / Disney+",
       "stadium": "Estádio Moisés Lucarelli"
     },
     {
@@ -358,8 +358,8 @@
       "away": "Aston Villa",
       "competition": "UEFA Europa League",
       "round": "Final",
-      "channel": "ESPN / Disney+",
-      "stadium": "Vodafone Park, Istambul"
+      "channel": "CazéTV / Disney+",
+      "stadium": "Beşiktaş Park, Istambul"
     },
     {
       "date": "2026-05-20",
