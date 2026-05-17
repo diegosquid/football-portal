@@ -1,86 +1,6 @@
 {
-  "updatedAt": "2026-05-16T16:53:00-03:00",
+  "updatedAt": "2026-05-17T11:35:00-03:00",
   "games": [
-    {
-      "date": "2026-05-16",
-      "time": "16:00",
-      "home": "Operário-PR",
-      "away": "Náutico",
-      "competition": "Brasileirão Série B",
-      "round": "9ª Rodada",
-      "channel": "RedeTV! / Disney+",
-      "stadium": "Germano Krüger"
-    },
-    {
-      "date": "2026-05-16",
-      "time": "16:00",
-      "home": "São Bernardo",
-      "away": "América Mineiro",
-      "competition": "Brasileirão Série B",
-      "round": "9ª Rodada",
-      "channel": "SporTV / Premiere",
-      "stadium": "Estádio Primeiro de Maio"
-    },
-    {
-      "date": "2026-05-16",
-      "time": "18:30",
-      "home": "Atlético-MG",
-      "away": "Mirassol",
-      "competition": "Brasileirão Série A",
-      "round": "16ª Rodada",
-      "channel": "Premiere",
-      "stadium": "Arena MRV"
-    },
-    {
-      "date": "2026-05-16",
-      "time": "18:30",
-      "home": "Goiás",
-      "away": "Botafogo-SP",
-      "competition": "Brasileirão Série B",
-      "round": "9ª Rodada",
-      "channel": "Disney+",
-      "stadium": "Serrinha"
-    },
-    {
-      "date": "2026-05-16",
-      "time": "18:30",
-      "home": "Internacional",
-      "away": "Vasco",
-      "competition": "Brasileirão Série A",
-      "round": "16ª Rodada",
-      "channel": "Amazon Prime Video",
-      "stadium": "Beira-Rio"
-    },
-    {
-      "date": "2026-05-16",
-      "time": "19:00",
-      "home": "Fluminense",
-      "away": "São Paulo",
-      "competition": "Brasileirão Série A",
-      "round": "16ª Rodada",
-      "channel": "Record / CazéTV / Premiere",
-      "stadium": "Maracanã"
-    },
-    {
-      "date": "2026-05-16",
-      "time": "20:30",
-      "home": "Cuiabá",
-      "away": "Novorizontino",
-      "competition": "Brasileirão Série B",
-      "round": "9ª Rodada",
-      "channel": "Disney+",
-      "stadium": "Arena Pantanal"
-    },
-    {
-      "date": "2026-05-16",
-      "time": "21:00",
-      "home": "Palmeiras",
-      "away": "Cruzeiro",
-      "competition": "Brasileirão Série A",
-      "round": "16ª Rodada",
-      "channel": "SporTV / Premiere",
-      "stadium": "Arena Crefisa Barueri"
-    },
     {
       "date": "2026-05-17",
       "time": "08:30",
@@ -418,7 +338,7 @@
       "away": "Cruzeiro",
       "competition": "Copa Libertadores",
       "round": "5ª Rodada",
-      "channel": "ESPN / Disney+",
+      "channel": "Paramount+",
       "stadium": "La Bombonera"
     },
     {
@@ -430,6 +350,16 @@
       "round": "5ª Rodada",
       "channel": "SBT / ESPN / Disney+",
       "stadium": "MorumBIS"
+    },
+    {
+      "date": "2026-05-20",
+      "time": "16:00",
+      "home": "Freiburg",
+      "away": "Aston Villa",
+      "competition": "UEFA Europa League",
+      "round": "Final",
+      "channel": "ESPN / Disney+",
+      "stadium": "Vodafone Park, Istambul"
     },
     {
       "date": "2026-05-20",
@@ -500,6 +430,26 @@
       "round": "5ª Rodada",
       "channel": "A definir",
       "stadium": "Estádio Monumental"
+    },
+    {
+      "date": "2026-05-21",
+      "time": "19:00",
+      "home": "Atlético-MG",
+      "away": "Cienciano",
+      "competition": "Copa Sul-Americana",
+      "round": "5ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Arena MRV"
+    },
+    {
+      "date": "2026-05-21",
+      "time": "21:30",
+      "home": "Peñarol",
+      "away": "Corinthians",
+      "competition": "Copa Libertadores",
+      "round": "5ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio Centenario"
     }
   ]
 }
