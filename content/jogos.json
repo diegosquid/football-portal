@@ -1,306 +1,6 @@
 {
-  "updatedAt": "2026-05-17T13:05:00-03:00",
+  "updatedAt": "2026-05-18T10:00:00-03:00",
   "games": [
-    {
-      "date": "2026-05-17",
-      "time": "08:30",
-      "home": "Manchester United",
-      "away": "Nottingham Forest",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Old Trafford"
-    },
-    {
-      "date": "2026-05-17",
-      "time": "11:00",
-      "home": "Santos",
-      "away": "Coritiba",
-      "competition": "Brasileirão Série A",
-      "round": "16ª Rodada",
-      "channel": "Premiere",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-17",
-      "time": "11:00",
-      "home": "Brentford",
-      "away": "Crystal Palace",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Gtech Community Stadium"
-    },
-    {
-      "date": "2026-05-17",
-      "time": "11:00",
-      "home": "Everton",
-      "away": "Sunderland",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-17",
-      "time": "11:00",
-      "home": "Leeds United",
-      "away": "Brighton",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Elland Road"
-    },
-    {
-      "date": "2026-05-17",
-      "time": "11:00",
-      "home": "Wolverhampton",
-      "away": "Fulham",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Molineux Stadium"
-    },
-    {
-      "date": "2026-05-17",
-      "time": "11:00",
-      "home": "Arsenal",
-      "away": "Burnley",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-17",
-      "time": "11:00",
-      "home": "Chelsea",
-      "away": "Tottenham",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Stamford Bridge"
-    },
-    {
-      "date": "2026-05-17",
-      "time": "11:00",
-      "home": "AFC Bournemouth",
-      "away": "Manchester City",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-17",
-      "time": "13:30",
-      "home": "Newcastle United",
-      "away": "West Ham",
-      "competition": "Premier League",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "St. James' Park"
-    },
-    {
-      "date": "2026-05-17",
-      "time": "14:00",
-      "home": "Athletic Bilbao",
-      "away": "Celta Vigo",
-      "competition": "La Liga",
-      "round": "38ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-17",
-      "time": "14:00",
-      "home": "Atlético de Madrid",
-      "away": "Girona",
-      "competition": "La Liga",
-      "round": "38ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-17",
-      "time": "14:00",
-      "home": "Elche",
-      "away": "Getafe",
-      "competition": "La Liga",
-      "round": "38ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-17",
-      "time": "14:00",
-      "home": "Levante",
-      "away": "Mallorca",
-      "competition": "La Liga",
-      "round": "38ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-17",
-      "time": "14:00",
-      "home": "Osasuna",
-      "away": "Espanyol",
-      "competition": "La Liga",
-      "round": "38ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-17",
-      "time": "14:00",
-      "home": "Rayo Vallecano",
-      "away": "Villarreal",
-      "competition": "La Liga",
-      "round": "38ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-17",
-      "time": "14:00",
-      "home": "Real Oviedo",
-      "away": "Alavés",
-      "competition": "La Liga",
-      "round": "38ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-17",
-      "time": "14:00",
-      "home": "Real Sociedad",
-      "away": "Valencia",
-      "competition": "La Liga",
-      "round": "38ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-17",
-      "time": "14:00",
-      "home": "Sevilla",
-      "away": "Real Madrid",
-      "competition": "La Liga",
-      "round": "38ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estadio Ramón Sánchez-Pizjuán"
-    },
-    {
-      "date": "2026-05-17",
-      "time": "16:00",
-      "home": "Bahia",
-      "away": "Grêmio",
-      "competition": "Brasileirão Série A",
-      "round": "16ª Rodada",
-      "channel": "Globo / Premiere",
-      "stadium": "Arena Fonte Nova"
-    },
-    {
-      "date": "2026-05-17",
-      "time": "16:00",
-      "home": "Botafogo",
-      "away": "Corinthians",
-      "competition": "Brasileirão Série A",
-      "round": "16ª Rodada",
-      "channel": "Globo / Premiere",
-      "stadium": "Estádio Nilton Santos"
-    },
-    {
-      "date": "2026-05-17",
-      "time": "16:00",
-      "home": "Athletic Club",
-      "away": "Juventude",
-      "competition": "Brasileirão Série B",
-      "round": "9ª Rodada",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-17",
-      "time": "16:15",
-      "home": "Barcelona",
-      "away": "Real Betis",
-      "competition": "La Liga",
-      "round": "38ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estadi Olímpic Lluís Companys"
-    },
-    {
-      "date": "2026-05-17",
-      "time": "18:00",
-      "home": "Vila Nova",
-      "away": "Avaí",
-      "competition": "Brasileirão Série B",
-      "round": "9ª Rodada",
-      "channel": "RedeTV! / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-17",
-      "time": "18:30",
-      "home": "Chapecoense",
-      "away": "Remo",
-      "competition": "Brasileirão Série A",
-      "round": "16ª Rodada",
-      "channel": "Premiere",
-      "stadium": "Arena Condá"
-    },
-    {
-      "date": "2026-05-17",
-      "time": "18:30",
-      "home": "Red Bull Bragantino",
-      "away": "Vitória",
-      "competition": "Brasileirão Série A",
-      "round": "16ª Rodada",
-      "channel": "Premiere",
-      "stadium": "Estádio Municipal Cícero de Souza Marques"
-    },
-    {
-      "date": "2026-05-17",
-      "time": "18:30",
-      "home": "Criciúma",
-      "away": "Atlético-GO",
-      "competition": "Brasileirão Série B",
-      "round": "9ª Rodada",
-      "channel": "Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-17",
-      "time": "18:30",
-      "home": "Ceará",
-      "away": "Fortaleza",
-      "competition": "Brasileirão Série B",
-      "round": "9ª Rodada",
-      "channel": "A definir",
-      "stadium": "Arena Castelão"
-    },
-    {
-      "date": "2026-05-17",
-      "time": "19:30",
-      "home": "Athletico Paranaense",
-      "away": "Flamengo",
-      "competition": "Brasileirão Série A",
-      "round": "16ª Rodada",
-      "channel": "SporTV / Premiere",
-      "stadium": "Arena da Baixada"
-    },
-    {
-      "date": "2026-05-17",
-      "time": "20:30",
-      "home": "Sport",
-      "away": "CRB",
-      "competition": "Brasileirão Série B",
-      "round": "9ª Rodada",
-      "channel": "A definir",
-      "stadium": "Ilha do Retiro"
-    },
     {
       "date": "2026-05-18",
       "time": "19:00",
@@ -310,6 +10,46 @@
       "round": "9ª Rodada",
       "channel": "ESPN / Disney+",
       "stadium": "Estádio Moisés Lucarelli"
+    },
+    {
+      "date": "2026-05-18",
+      "time": "19:00",
+      "home": "Ferroviária",
+      "away": "Vitória",
+      "competition": "Brasileirão Feminino A1",
+      "round": "11ª Rodada",
+      "channel": "UOL",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-18",
+      "time": "20:00",
+      "home": "São Paulo",
+      "away": "Juventude",
+      "competition": "Brasileirão Feminino A1",
+      "round": "11ª Rodada",
+      "channel": "N Sports",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-18",
+      "time": "21:00",
+      "home": "Palmeiras",
+      "away": "Botafogo",
+      "competition": "Brasileirão Feminino A1",
+      "round": "11ª Rodada",
+      "channel": "TV Brasil",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-18",
+      "time": "21:00",
+      "home": "Cruzeiro",
+      "away": "Corinthians",
+      "competition": "Brasileirão Feminino A1",
+      "round": "11ª Rodada",
+      "channel": "SporTV",
+      "stadium": ""
     },
     {
       "date": "2026-05-19",
@@ -329,7 +69,7 @@
       "competition": "Copa Libertadores",
       "round": "5ª Rodada",
       "channel": "Paramount+",
-      "stadium": "Estadio Municipal El Alto"
+      "stadium": "Asunción, Paraguai"
     },
     {
       "date": "2026-05-19",
@@ -398,8 +138,18 @@
       "away": "Palestino",
       "competition": "Copa Sul-Americana",
       "round": "5ª Rodada",
-      "channel": "ESPN / Disney+",
+      "channel": "Paramount+",
       "stadium": "Arena do Grêmio"
+    },
+    {
+      "date": "2026-05-20",
+      "time": "21:30",
+      "home": "River Plate",
+      "away": "Red Bull Bragantino",
+      "competition": "Copa Sul-Americana",
+      "round": "5ª Rodada",
+      "channel": "Disney+",
+      "stadium": "Estádio Monumental"
     },
     {
       "date": "2026-05-20",
@@ -422,16 +172,6 @@
       "stadium": "Allianz Parque"
     },
     {
-      "date": "2026-05-20",
-      "time": "21:30",
-      "home": "River Plate",
-      "away": "Red Bull Bragantino",
-      "competition": "Copa Sul-Americana",
-      "round": "5ª Rodada",
-      "channel": "A definir",
-      "stadium": "Estádio Monumental"
-    },
-    {
       "date": "2026-05-21",
       "time": "19:00",
       "home": "Atlético-MG",
@@ -450,6 +190,16 @@
       "round": "5ª Rodada",
       "channel": "ESPN / Disney+",
       "stadium": "Estádio Centenario"
+    },
+    {
+      "date": "2026-05-22",
+      "time": "19:00",
+      "home": "Náutico",
+      "away": "Cuiabá",
+      "competition": "Brasileirão Série B",
+      "round": "10ª Rodada",
+      "channel": "A definir",
+      "stadium": "Estádio dos Aflitos"
     }
   ]
 }
