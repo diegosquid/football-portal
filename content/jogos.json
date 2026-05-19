@@ -1,66 +1,6 @@
 {
-  "updatedAt": "2026-05-18T13:15:00-03:00",
+  "updatedAt": "2026-05-19T13:11:00-03:00",
   "games": [
-    {
-      "date": "2026-05-18",
-      "time": "16:00",
-      "home": "Arsenal",
-      "away": "Burnley",
-      "competition": "Premier League",
-      "round": "Rodada 37",
-      "channel": "ESPN / Disney+",
-      "stadium": "Emirates Stadium"
-    },
-    {
-      "date": "2026-05-18",
-      "time": "19:00",
-      "home": "Ponte Preta",
-      "away": "Londrina",
-      "competition": "Brasileirão Série B",
-      "round": "9ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio Moisés Lucarelli"
-    },
-    {
-      "date": "2026-05-18",
-      "time": "19:00",
-      "home": "Ferroviária",
-      "away": "Vitória",
-      "competition": "Brasileirão Feminino A1",
-      "round": "11ª Rodada",
-      "channel": "UOL",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-18",
-      "time": "20:00",
-      "home": "São Paulo",
-      "away": "Juventude",
-      "competition": "Brasileirão Feminino A1",
-      "round": "11ª Rodada",
-      "channel": "N Sports",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-18",
-      "time": "21:00",
-      "home": "Cruzeiro",
-      "away": "Corinthians",
-      "competition": "Brasileirão Feminino A1",
-      "round": "11ª Rodada",
-      "channel": "SporTV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-05-18",
-      "time": "21:00",
-      "home": "Palmeiras",
-      "away": "Botafogo",
-      "competition": "Brasileirão Feminino A1",
-      "round": "11ª Rodada",
-      "channel": "TV Brasil",
-      "stadium": ""
-    },
     {
       "date": "2026-05-19",
       "time": "15:30",
@@ -228,8 +168,88 @@
       "away": "Cuiabá",
       "competition": "Brasileirão Série B",
       "round": "10ª Rodada",
-      "channel": "A definir",
+      "channel": "SporTV / Premiere",
       "stadium": "Estádio dos Aflitos"
+    },
+    {
+      "date": "2026-05-23",
+      "time": "16:00",
+      "home": "Novorizontino",
+      "away": "Ceará",
+      "competition": "Brasileirão Série B",
+      "round": "10ª Rodada",
+      "channel": "RedeTV! / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-23",
+      "time": "17:00",
+      "home": "São Paulo",
+      "away": "Botafogo",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 17",
+      "channel": "Globo / SporTV / Premiere",
+      "stadium": "MorumBIS"
+    },
+    {
+      "date": "2026-05-23",
+      "time": "17:00",
+      "home": "Vitória",
+      "away": "Internacional",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 17",
+      "channel": "Globo / Premiere",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-23",
+      "time": "18:30",
+      "home": "Fortaleza",
+      "away": "Londrina",
+      "competition": "Brasileirão Série B",
+      "round": "10ª Rodada",
+      "channel": "Disney+",
+      "stadium": "Castelão"
+    },
+    {
+      "date": "2026-05-23",
+      "time": "19:00",
+      "home": "Mirassol",
+      "away": "Fluminense",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 17",
+      "channel": "Premiere",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-23",
+      "time": "19:00",
+      "home": "Grêmio",
+      "away": "Santos",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 17",
+      "channel": "Premiere",
+      "stadium": "Arena do Grêmio"
+    },
+    {
+      "date": "2026-05-23",
+      "time": "20:30",
+      "home": "Juventude",
+      "away": "Sport",
+      "competition": "Brasileirão Série B",
+      "round": "10ª Rodada",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-23",
+      "time": "21:00",
+      "home": "Flamengo",
+      "away": "Palmeiras",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 17",
+      "channel": "SporTV / Premiere",
+      "stadium": "Maracanã"
     }
   ]
 }
