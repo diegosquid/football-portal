@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-20T09:48:00-03:00",
+  "updatedAt": "2026-05-20T13:17:00-03:00",
   "games": [
     {
       "date": "2026-05-20",
@@ -53,6 +53,26 @@
     },
     {
       "date": "2026-05-20",
+      "time": "21:00",
+      "home": "Vitória",
+      "away": "ABC",
+      "competition": "Copa do Nordeste",
+      "round": "Semifinal",
+      "channel": "SBT / SporTV",
+      "stadium": "Barradão"
+    },
+    {
+      "date": "2026-05-20",
+      "time": "21:00",
+      "home": "Fortaleza",
+      "away": "Sport",
+      "competition": "Copa do Nordeste",
+      "round": "Semifinal",
+      "channel": "SBT",
+      "stadium": "Castelão"
+    },
+    {
+      "date": "2026-05-20",
       "time": "21:30",
       "home": "River Plate",
       "away": "Red Bull Bragantino",
@@ -93,6 +113,26 @@
     },
     {
       "date": "2026-05-21",
+      "time": "19:00",
+      "home": "Deportivo La Guaira",
+      "away": "Independiente Rivadavia",
+      "competition": "Copa Libertadores",
+      "round": "5ª Rodada",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-21",
+      "time": "19:00",
+      "home": "Puerto Cabello",
+      "away": "Juventud",
+      "competition": "Copa Sul-Americana",
+      "round": "5ª Rodada",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-21",
       "time": "21:30",
       "home": "Peñarol",
       "away": "Corinthians",
@@ -100,6 +140,16 @@
       "round": "5ª Rodada",
       "channel": "ESPN / Disney+",
       "stadium": "Estádio Centenario"
+    },
+    {
+      "date": "2026-05-21",
+      "time": "21:30",
+      "home": "Universidad Católica",
+      "away": "Barcelona-EQU",
+      "competition": "Copa Libertadores",
+      "round": "5ª Rodada",
+      "channel": "Paramount+",
+      "stadium": ""
     },
     {
       "date": "2026-05-22",
