@@ -1,66 +1,6 @@
 {
-  "updatedAt": "2026-05-19T13:11:00-03:00",
+  "updatedAt": "2026-05-20T09:48:00-03:00",
   "games": [
-    {
-      "date": "2026-05-19",
-      "time": "15:30",
-      "home": "Bournemouth",
-      "away": "Manchester City",
-      "competition": "Premier League",
-      "round": "Rodada 37",
-      "channel": "ESPN / Disney+",
-      "stadium": "Vitality Stadium"
-    },
-    {
-      "date": "2026-05-19",
-      "time": "16:15",
-      "home": "Chelsea",
-      "away": "Tottenham",
-      "competition": "Premier League",
-      "round": "Rodada 37",
-      "channel": "ESPN / Disney+",
-      "stadium": "Stamford Bridge"
-    },
-    {
-      "date": "2026-05-19",
-      "time": "19:00",
-      "home": "Fluminense",
-      "away": "Bolívar",
-      "competition": "Copa Libertadores",
-      "round": "5ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": "Maracanã"
-    },
-    {
-      "date": "2026-05-19",
-      "time": "21:00",
-      "home": "Always Ready",
-      "away": "Mirassol",
-      "competition": "Copa Libertadores",
-      "round": "5ª Rodada",
-      "channel": "Paramount+",
-      "stadium": "Asunción, Paraguai"
-    },
-    {
-      "date": "2026-05-19",
-      "time": "21:30",
-      "home": "Boca Juniors",
-      "away": "Cruzeiro",
-      "competition": "Copa Libertadores",
-      "round": "5ª Rodada",
-      "channel": "Paramount+",
-      "stadium": "La Bombonera"
-    },
-    {
-      "date": "2026-05-19",
-      "time": "21:30",
-      "home": "São Paulo",
-      "away": "Millonarios",
-      "competition": "Copa Sul-Americana",
-      "round": "5ª Rodada",
-      "channel": "SBT / ESPN / Disney+",
-      "stadium": "MorumBIS"
-    },
     {
       "date": "2026-05-20",
       "time": "16:00",
@@ -250,6 +190,136 @@
       "round": "Rodada 17",
       "channel": "SporTV / Premiere",
       "stadium": "Maracanã"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "16:00",
+      "home": "Cruzeiro",
+      "away": "Chapecoense",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 17",
+      "channel": "Prime Video",
+      "stadium": "Mineirão"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "16:00",
+      "home": "Remo",
+      "away": "Athletico-PR",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 17",
+      "channel": "Premiere",
+      "stadium": "Mangueirão"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "16:00",
+      "home": "Atlético-GO",
+      "away": "São Bernardo",
+      "competition": "Brasileirão Série B",
+      "round": "10ª Rodada",
+      "channel": "Disney+",
+      "stadium": "Antônio Accioly"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "16:00",
+      "home": "Crystal Palace",
+      "away": "Arsenal",
+      "competition": "Premier League",
+      "round": "Rodada 38",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-24",
+      "time": "16:00",
+      "home": "Manchester City",
+      "away": "Aston Villa",
+      "competition": "Premier League",
+      "round": "Rodada 38",
+      "channel": "ESPN / Disney+",
+      "stadium": "Etihad Stadium"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "16:00",
+      "home": "Liverpool",
+      "away": "Brentford",
+      "competition": "Premier League",
+      "round": "Rodada 38",
+      "channel": "ESPN / Disney+",
+      "stadium": "Anfield"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "16:00",
+      "home": "Sunderland",
+      "away": "Chelsea",
+      "competition": "Premier League",
+      "round": "Rodada 38",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-24",
+      "time": "16:30",
+      "home": "CRB",
+      "away": "Ponte Preta",
+      "competition": "Brasileirão Série B",
+      "round": "10ª Rodada",
+      "channel": "Disney+",
+      "stadium": "Rei Pelé"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "18:00",
+      "home": "Avaí",
+      "away": "Goiás",
+      "competition": "Brasileirão Série B",
+      "round": "10ª Rodada",
+      "channel": "Disney+",
+      "stadium": "Ressacada"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "18:30",
+      "home": "Corinthians",
+      "away": "Atlético-MG",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 17",
+      "channel": "Record / CazéTV / Premiere",
+      "stadium": "Neo Química Arena"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "18:30",
+      "home": "América-MG",
+      "away": "Vila Nova",
+      "competition": "Brasileirão Série B",
+      "round": "10ª Rodada",
+      "channel": "Disney+",
+      "stadium": "Independência"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "20:30",
+      "home": "Vasco",
+      "away": "Red Bull Bragantino",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 17",
+      "channel": "SporTV / Premiere",
+      "stadium": "São Januário"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "20:30",
+      "home": "Operário-PR",
+      "away": "Criciúma",
+      "competition": "Brasileirão Série B",
+      "round": "10ª Rodada",
+      "channel": "Disney+",
+      "stadium": "Germano Kruger"
     }
   ]
 }
