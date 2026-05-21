@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-21T09:09:00-03:00",
+  "updatedAt": "2026-05-21T13:39:00-03:00",
   "games": [
     {
       "date": "2026-05-21",
@@ -69,6 +69,16 @@
       "competition": "Copa Sul-Americana",
       "round": "5ª Rodada",
       "channel": "Paramount+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-21",
+      "time": "23:00",
+      "home": "Macará",
+      "away": "Alianza Atlético",
+      "competition": "Copa Sul-Americana",
+      "round": "5ª Rodada",
+      "channel": "ESPN / Disney+",
       "stadium": ""
     },
     {
@@ -243,7 +253,7 @@
     },
     {
       "date": "2026-05-24",
-      "time": "18:00",
+      "time": "19:00",
       "home": "Avaí",
       "away": "Goiás",
       "competition": "Brasileirão Série B",
