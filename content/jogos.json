@@ -1,106 +1,6 @@
 {
-  "updatedAt": "2026-05-20T13:17:00-03:00",
+  "updatedAt": "2026-05-21T09:09:00-03:00",
   "games": [
-    {
-      "date": "2026-05-20",
-      "time": "16:00",
-      "home": "Freiburg",
-      "away": "Aston Villa",
-      "competition": "UEFA Europa League",
-      "round": "Final",
-      "channel": "CazéTV / Disney+",
-      "stadium": "Beşiktaş Park, Istambul"
-    },
-    {
-      "date": "2026-05-20",
-      "time": "19:00",
-      "home": "Santos",
-      "away": "San Lorenzo",
-      "competition": "Copa Sul-Americana",
-      "round": "5ª Rodada",
-      "channel": "ESPN / Disney+",
-      "stadium": "Vila Belmiro"
-    },
-    {
-      "date": "2026-05-20",
-      "time": "19:00",
-      "home": "Olimpia",
-      "away": "Vasco",
-      "competition": "Copa Sul-Americana",
-      "round": "5ª Rodada",
-      "channel": "Paramount+",
-      "stadium": "Defensores del Chaco"
-    },
-    {
-      "date": "2026-05-20",
-      "time": "21:00",
-      "home": "Independiente Petrolero",
-      "away": "Botafogo",
-      "competition": "Copa Sul-Americana",
-      "round": "5ª Rodada",
-      "channel": "Paramount+",
-      "stadium": "Estádio Olímpico Pátria"
-    },
-    {
-      "date": "2026-05-20",
-      "time": "21:00",
-      "home": "Grêmio",
-      "away": "Palestino",
-      "competition": "Copa Sul-Americana",
-      "round": "5ª Rodada",
-      "channel": "Paramount+",
-      "stadium": "Arena do Grêmio"
-    },
-    {
-      "date": "2026-05-20",
-      "time": "21:00",
-      "home": "Vitória",
-      "away": "ABC",
-      "competition": "Copa do Nordeste",
-      "round": "Semifinal",
-      "channel": "SBT / SporTV",
-      "stadium": "Barradão"
-    },
-    {
-      "date": "2026-05-20",
-      "time": "21:00",
-      "home": "Fortaleza",
-      "away": "Sport",
-      "competition": "Copa do Nordeste",
-      "round": "Semifinal",
-      "channel": "SBT",
-      "stadium": "Castelão"
-    },
-    {
-      "date": "2026-05-20",
-      "time": "21:30",
-      "home": "River Plate",
-      "away": "Red Bull Bragantino",
-      "competition": "Copa Sul-Americana",
-      "round": "5ª Rodada",
-      "channel": "Disney+",
-      "stadium": "Estádio Monumental"
-    },
-    {
-      "date": "2026-05-20",
-      "time": "21:30",
-      "home": "Flamengo",
-      "away": "Estudiantes",
-      "competition": "Copa Libertadores",
-      "round": "5ª Rodada",
-      "channel": "Globo / Paramount+",
-      "stadium": "Maracanã"
-    },
-    {
-      "date": "2026-05-20",
-      "time": "21:30",
-      "home": "Palmeiras",
-      "away": "Cerro Porteño",
-      "competition": "Copa Libertadores",
-      "round": "5ª Rodada",
-      "channel": "Globo / ESPN / Disney+",
-      "stadium": "Allianz Parque"
-    },
     {
       "date": "2026-05-21",
       "time": "19:00",
@@ -133,6 +33,16 @@
     },
     {
       "date": "2026-05-21",
+      "time": "21:00",
+      "home": "Racing",
+      "away": "Caracas",
+      "competition": "Copa Sul-Americana",
+      "round": "5ª Rodada",
+      "channel": "Paramount+",
+      "stadium": "Estádio Presidente Perón"
+    },
+    {
+      "date": "2026-05-21",
       "time": "21:30",
       "home": "Peñarol",
       "away": "Corinthians",
@@ -147,6 +57,16 @@
       "home": "Universidad Católica",
       "away": "Barcelona-EQU",
       "competition": "Copa Libertadores",
+      "round": "5ª Rodada",
+      "channel": "Paramount+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-21",
+      "time": "21:30",
+      "home": "Blooming",
+      "away": "Carabobo",
+      "competition": "Copa Sul-Americana",
       "round": "5ª Rodada",
       "channel": "Paramount+",
       "stadium": ""
@@ -370,6 +290,26 @@
       "round": "10ª Rodada",
       "channel": "Disney+",
       "stadium": "Germano Kruger"
+    },
+    {
+      "date": "2026-05-25",
+      "time": "19:00",
+      "home": "Botafogo-SP",
+      "away": "Athletic Club",
+      "competition": "Brasileirão Série B",
+      "round": "10ª Rodada",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-05-25",
+      "time": "20:00",
+      "home": "Coritiba",
+      "away": "Bahia",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 17",
+      "channel": "SporTV / Premiere",
+      "stadium": "Estádio Couto Pereira"
     }
   ]
 }
