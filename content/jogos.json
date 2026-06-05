@@ -1,75 +1,15 @@
 {
-  "updatedAt": "2026-06-03T13:18:00-03:00",
+  "updatedAt": "2026-06-05T10:26:00-03:00",
   "games": [
     {
-      "date": "2026-06-03",
-      "time": "15:00",
-      "home": "RD Congo",
-      "away": "Dinamarca",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "ESPN 4 / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-06-03",
-      "time": "15:45",
-      "home": "Holanda",
-      "away": "Argélia",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-06-03",
-      "time": "15:45",
-      "home": "Polônia",
-      "away": "Nigéria",
+      "date": "2026-06-05",
+      "time": "14:45",
+      "home": "Hungria",
+      "away": "Finlândia",
       "competition": "Amistoso Internacional",
       "round": "",
       "channel": "SporTV",
       "stadium": ""
-    },
-    {
-      "date": "2026-06-03",
-      "time": "20:00",
-      "home": "Avaí",
-      "away": "Chapecoense",
-      "competition": "Copa Sul-Sudeste",
-      "round": "Final - Ida",
-      "channel": "YouTube",
-      "stadium": "Ressacada"
-    },
-    {
-      "date": "2026-06-03",
-      "time": "22:00",
-      "home": "Coreia do Sul",
-      "away": "El Salvador",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "SporTV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-06-04",
-      "time": "16:00",
-      "home": "Espanha",
-      "away": "Iraque",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-06-04",
-      "time": "20:00",
-      "home": "Anápolis",
-      "away": "Paysandu",
-      "competition": "Copa Verde",
-      "round": "Final - Ida",
-      "channel": "SportyNet / YouTube",
-      "stadium": "Jonas Duarte"
     },
     {
       "date": "2026-06-05",
@@ -78,8 +18,48 @@
       "away": "Juventude",
       "competition": "Brasileirão Série B",
       "round": "Rodada 12",
-      "channel": "A definir",
+      "channel": "Disney+",
       "stadium": "Couto Pereira"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "20:00",
+      "home": "Argentina",
+      "away": "Peru",
+      "competition": "Eliminatórias Copa do Mundo Feminina",
+      "round": "",
+      "channel": "Xsports",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-05",
+      "time": "21:00",
+      "home": "Haiti",
+      "away": "Peru",
+      "competition": "Amistoso Internacional",
+      "round": "",
+      "channel": "SporTV",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-06",
+      "time": "10:00",
+      "home": "Criciúma",
+      "away": "Londrina",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 12",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-06",
+      "time": "10:00",
+      "home": "Bélgica",
+      "away": "Tunísia",
+      "competition": "Amistoso Internacional",
+      "round": "",
+      "channel": "A definir",
+      "stadium": ""
     },
     {
       "date": "2026-06-06",
@@ -93,6 +73,16 @@
     },
     {
       "date": "2026-06-06",
+      "time": "17:00",
+      "home": "Inglaterra",
+      "away": "Nova Zelândia",
+      "competition": "Amistoso Internacional",
+      "round": "",
+      "channel": "SporTV 3 / ESPN / Disney+",
+      "stadium": "Raymond James Stadium"
+    },
+    {
+      "date": "2026-06-06",
       "time": "19:00",
       "home": "Brasil",
       "away": "Egito",
@@ -100,6 +90,16 @@
       "round": "",
       "channel": "Globo / SporTV",
       "stadium": "Huntington Bank Field"
+    },
+    {
+      "date": "2026-06-06",
+      "time": "21:00",
+      "home": "Argentina",
+      "away": "Honduras",
+      "competition": "Amistoso Internacional",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": "Kyle Field"
     },
     {
       "date": "2026-06-06",
@@ -113,6 +113,36 @@
     },
     {
       "date": "2026-06-07",
+      "time": "15:00",
+      "home": "CRB",
+      "away": "São Bernardo",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 12",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-07",
+      "time": "15:45",
+      "home": "Croácia",
+      "away": "Eslovênia",
+      "competition": "Amistoso Internacional",
+      "round": "",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-07",
+      "time": "16:00",
+      "home": "Marrocos",
+      "away": "Noruega",
+      "competition": "Amistoso Internacional",
+      "round": "",
+      "channel": "A definir",
+      "stadium": "Sports Illustrated Stadium"
+    },
+    {
+      "date": "2026-06-07",
       "time": "18:30",
       "home": "Paysandu",
       "away": "Anápolis",
@@ -120,6 +150,86 @@
       "round": "Final - Volta",
       "channel": "SportyNet / YouTube",
       "stadium": "Mangueirão"
+    },
+    {
+      "date": "2026-06-07",
+      "time": "20:00",
+      "home": "Colômbia",
+      "away": "Jordânia",
+      "competition": "Amistoso Internacional",
+      "round": "",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-08",
+      "time": "15:45",
+      "home": "Holanda",
+      "away": "Uzbequistão",
+      "competition": "Amistoso Internacional",
+      "round": "",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-08",
+      "time": "16:10",
+      "home": "França",
+      "away": "Irlanda do Norte",
+      "competition": "Amistoso Internacional",
+      "round": "",
+      "channel": "A definir",
+      "stadium": "Decathlon Arena"
+    },
+    {
+      "date": "2026-06-08",
+      "time": "23:00",
+      "home": "Peru",
+      "away": "Espanha",
+      "competition": "Amistoso Internacional",
+      "round": "",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-09",
+      "time": "12:00",
+      "home": "RD Congo",
+      "away": "Chile",
+      "competition": "Amistoso Internacional",
+      "round": "",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-09",
+      "time": "18:00",
+      "home": "Náutico",
+      "away": "Fortaleza",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 12",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-09",
+      "time": "18:00",
+      "home": "Ponte Preta",
+      "away": "Cuiabá",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 12",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-09",
+      "time": "21:30",
+      "home": "Brasil",
+      "away": "EUA",
+      "competition": "Amistoso Internacional Feminino",
+      "round": "",
+      "channel": "Globo / SporTV",
+      "stadium": "Arena Castelão"
     }
   ]
 }
