@@ -1,6 +1,16 @@
 {
-  "updatedAt": "2026-06-05T10:26:00-03:00",
+  "updatedAt": "2026-06-05T13:10:00-03:00",
   "games": [
+    {
+      "date": "2026-06-05",
+      "time": "13:30",
+      "home": "Eslováquia",
+      "away": "Montenegro",
+      "competition": "Amistoso Internacional",
+      "round": "",
+      "channel": "SporTV 3",
+      "stadium": ""
+    },
     {
       "date": "2026-06-05",
       "time": "14:45",
@@ -13,7 +23,27 @@
     },
     {
       "date": "2026-06-05",
-      "time": "19:00",
+      "time": "15:35",
+      "home": "Alemanha",
+      "away": "Noruega",
+      "competition": "Amistoso Internacional",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-05",
+      "time": "16:00",
+      "home": "Espanha",
+      "away": "Inglaterra",
+      "competition": "Eliminatórias Copa do Mundo Feminina",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-05",
+      "time": "20:00",
       "home": "Operário-PR",
       "away": "Juventude",
       "competition": "Brasileirão Série B",
@@ -183,6 +213,26 @@
     },
     {
       "date": "2026-06-08",
+      "time": "20:00",
+      "home": "América-MG",
+      "away": "Atlético-GO",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 12",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-08",
+      "time": "20:00",
+      "home": "Vila Nova-GO",
+      "away": "Botafogo-SP",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 12",
+      "channel": "A definir",
+      "stadium": "Estádio Onésio Brasileiro Alvarenga"
+    },
+    {
+      "date": "2026-06-08",
       "time": "23:00",
       "home": "Peru",
       "away": "Espanha",
@@ -208,7 +258,7 @@
       "away": "Fortaleza",
       "competition": "Brasileirão Série B",
       "round": "Rodada 12",
-      "channel": "A definir",
+      "channel": "Premiere / SporTV",
       "stadium": ""
     },
     {
@@ -219,6 +269,26 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 12",
       "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-09",
+      "time": "20:00",
+      "home": "Senegal",
+      "away": "Arábia Saudita",
+      "competition": "Amistoso Internacional",
+      "round": "",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-09",
+      "time": "21:30",
+      "home": "Argentina",
+      "away": "Islândia",
+      "competition": "Amistoso Internacional",
+      "round": "",
+      "channel": "ESPN / Disney+",
       "stadium": ""
     },
     {
