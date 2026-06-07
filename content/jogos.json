@@ -1,75 +1,25 @@
 {
-  "updatedAt": "2026-06-06T13:14:00-03:00",
+  "updatedAt": "2026-06-07T08:16:00-03:00",
   "games": [
     {
-      "date": "2026-06-06",
+      "date": "2026-06-07",
       "time": "10:00",
-      "home": "Bélgica",
-      "away": "Tunísia",
+      "home": "Liechtenstein",
+      "away": "Chipre",
       "competition": "Amistoso Internacional",
       "round": "",
-      "channel": "A definir",
-      "stadium": "King Baudouin Stadium"
+      "channel": "SporTV",
+      "stadium": ""
     },
     {
-      "date": "2026-06-06",
-      "time": "11:00",
-      "home": "Criciúma",
-      "away": "Londrina",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 12",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio Heriberto Hülse"
-    },
-    {
-      "date": "2026-06-06",
-      "time": "14:45",
-      "home": "Portugal",
-      "away": "Chile",
+      "date": "2026-06-07",
+      "time": "13:30",
+      "home": "Dinamarca",
+      "away": "Ucrânia",
       "competition": "Amistoso Internacional",
       "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio do Jamor"
-    },
-    {
-      "date": "2026-06-06",
-      "time": "17:00",
-      "home": "Inglaterra",
-      "away": "Nova Zelândia",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "SporTV 3 / ESPN / Disney+",
-      "stadium": "Raymond James Stadium"
-    },
-    {
-      "date": "2026-06-06",
-      "time": "19:00",
-      "home": "Brasil",
-      "away": "Egito",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "Globo / SporTV",
-      "stadium": "Huntington Bank Field"
-    },
-    {
-      "date": "2026-06-06",
-      "time": "21:00",
-      "home": "Argentina",
-      "away": "Honduras",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Kyle Field"
-    },
-    {
-      "date": "2026-06-06",
-      "time": "21:30",
-      "home": "EUA",
-      "away": "Alemanha",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": "Soldier Field"
+      "channel": "SporTV",
+      "stadium": ""
     },
     {
       "date": "2026-06-07",
@@ -78,7 +28,7 @@
       "away": "Eslovênia",
       "competition": "Amistoso Internacional",
       "round": "",
-      "channel": "A definir",
+      "channel": "SporTV",
       "stadium": ""
     },
     {
@@ -94,11 +44,21 @@
     {
       "date": "2026-06-07",
       "time": "16:00",
+      "home": "Grécia",
+      "away": "Itália",
+      "competition": "Amistoso Internacional",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-07",
+      "time": "16:00",
       "home": "Marrocos",
       "away": "Noruega",
       "competition": "Amistoso Internacional",
       "round": "",
-      "channel": "A definir",
+      "channel": "CazéTV / XSports",
       "stadium": "Sports Illustrated Stadium"
     },
     {
@@ -270,6 +230,16 @@
       "round": "",
       "channel": "A definir",
       "stadium": ""
+    },
+    {
+      "date": "2026-06-11",
+      "time": "16:00",
+      "home": "México",
+      "away": "África do Sul",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo A",
+      "channel": "Globo / SporTV / CazéTV",
+      "stadium": "Estádio Azteca"
     }
   ]
 }
