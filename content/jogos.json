@@ -1,96 +1,6 @@
 {
-  "updatedAt": "2026-06-07T08:25:00-03:00",
+  "updatedAt": "2026-06-08T09:43:00-03:00",
   "games": [
-    {
-      "date": "2026-06-07",
-      "time": "10:00",
-      "home": "Liechtenstein",
-      "away": "Chipre",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "SporTV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-06-07",
-      "time": "13:30",
-      "home": "Dinamarca",
-      "away": "Ucrânia",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "SporTV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-06-07",
-      "time": "15:45",
-      "home": "Croácia",
-      "away": "Eslovênia",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "SporTV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-06-07",
-      "time": "16:00",
-      "home": "CRB",
-      "away": "São Bernardo",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 12",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-06-07",
-      "time": "16:00",
-      "home": "Grécia",
-      "away": "Itália",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-06-07",
-      "time": "16:00",
-      "home": "Marrocos",
-      "away": "Noruega",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "CazéTV / XSports",
-      "stadium": "Sports Illustrated Stadium"
-    },
-    {
-      "date": "2026-06-07",
-      "time": "17:00",
-      "home": "Equador",
-      "away": "Guatemala",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "A definir",
-      "stadium": "ScottsMiracle-Gro Field"
-    },
-    {
-      "date": "2026-06-07",
-      "time": "18:30",
-      "home": "Paysandu",
-      "away": "Anápolis",
-      "competition": "Copa Verde",
-      "round": "Final - Volta",
-      "channel": "SportyNet / YouTube",
-      "stadium": "Mangueirão"
-    },
-    {
-      "date": "2026-06-07",
-      "time": "20:00",
-      "home": "Colômbia",
-      "away": "Jordânia",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "SporTV",
-      "stadium": "Snapdragon Stadium"
-    },
     {
       "date": "2026-06-08",
       "time": "15:45",
@@ -268,7 +178,7 @@
       "away": "África do Sul",
       "competition": "Copa do Mundo 2026",
       "round": "Fase de Grupos - Grupo A",
-      "channel": "Globo / SporTV / CazéTV",
+      "channel": "Globo / SporTV / SBT / N Sports / CazéTV",
       "stadium": "Estádio Azteca"
     },
     {
@@ -277,9 +187,29 @@
       "home": "Coreia do Sul",
       "away": "República Tcheca",
       "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos",
-      "channel": "Band / CazéTV",
+      "round": "Fase de Grupos - Grupo A",
+      "channel": "CazéTV",
       "stadium": "Estádio Akron"
+    },
+    {
+      "date": "2026-06-12",
+      "time": "16:00",
+      "home": "Canadá",
+      "away": "Bósnia-Herzegovina",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo B",
+      "channel": "CazéTV",
+      "stadium": "BMO Field"
+    },
+    {
+      "date": "2026-06-12",
+      "time": "22:00",
+      "home": "Estados Unidos",
+      "away": "Paraguai",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo D",
+      "channel": "Globo / SporTV / SBT / N Sports / CazéTV",
+      "stadium": "SoFi Stadium"
     }
   ]
 }
