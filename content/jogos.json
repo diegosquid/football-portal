@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-09T07:13:00-03:00",
+  "updatedAt": "2026-06-09T13:14:00-03:00",
   "games": [
     {
       "date": "2026-06-09",
@@ -19,7 +19,7 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 12",
       "channel": "Premiere / SporTV",
-      "stadium": ""
+      "stadium": "Estádio dos Aflitos"
     },
     {
       "date": "2026-06-09",
@@ -29,7 +29,7 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 12",
       "channel": "ESPN / Disney+",
-      "stadium": ""
+      "stadium": "Estádio Moisés Lucarelli"
     },
     {
       "date": "2026-06-09",
@@ -153,6 +153,16 @@
     },
     {
       "date": "2026-06-12",
+      "time": "19:00",
+      "home": "Atlético Goianiense",
+      "away": "CRB",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 13",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio Antônio Accioly"
+    },
+    {
+      "date": "2026-06-12",
       "time": "22:00",
       "home": "Estados Unidos",
       "away": "Paraguai",
@@ -160,6 +170,16 @@
       "round": "Fase de Grupos - Grupo D",
       "channel": "Globo / SporTV / SBT / N Sports / CazéTV",
       "stadium": "SoFi Stadium"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "01:00",
+      "home": "Austrália",
+      "away": "Turquia",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo D",
+      "channel": "CazéTV",
+      "stadium": "BC Place"
     },
     {
       "date": "2026-06-13",
