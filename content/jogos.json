@@ -1,56 +1,6 @@
 {
-  "updatedAt": "2026-06-08T13:17:00-03:00",
+  "updatedAt": "2026-06-09T07:13:00-03:00",
   "games": [
-    {
-      "date": "2026-06-08",
-      "time": "15:45",
-      "home": "Holanda",
-      "away": "Uzbequistão",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-06-08",
-      "time": "16:10",
-      "home": "França",
-      "away": "Irlanda do Norte",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "SporTV / ge tv",
-      "stadium": "Decathlon Arena"
-    },
-    {
-      "date": "2026-06-08",
-      "time": "20:00",
-      "home": "América-MG",
-      "away": "Atlético-GO",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 12",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-06-08",
-      "time": "20:00",
-      "home": "Vila Nova-GO",
-      "away": "Botafogo-SP",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 12",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio Onésio Brasileiro Alvarenga"
-    },
-    {
-      "date": "2026-06-08",
-      "time": "23:00",
-      "home": "Peru",
-      "away": "Espanha",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "SporTV",
-      "stadium": ""
-    },
     {
       "date": "2026-06-09",
       "time": "12:00",
@@ -210,6 +160,36 @@
       "round": "Fase de Grupos - Grupo D",
       "channel": "Globo / SporTV / SBT / N Sports / CazéTV",
       "stadium": "SoFi Stadium"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "16:00",
+      "home": "Catar",
+      "away": "Suíça",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo B",
+      "channel": "CazéTV",
+      "stadium": "Levi's Stadium"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "19:00",
+      "home": "Brasil",
+      "away": "Marrocos",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo C",
+      "channel": "Globo / SporTV / SBT / N Sports / CazéTV",
+      "stadium": "MetLife Stadium"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "22:00",
+      "home": "Haiti",
+      "away": "Escócia",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo C",
+      "channel": "CazéTV",
+      "stadium": "Gillette Stadium"
     }
   ]
 }
