@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-10T07:14:00-03:00",
+  "updatedAt": "2026-06-10T13:16:00-03:00",
   "games": [
     {
       "date": "2026-06-10",
@@ -68,7 +68,7 @@
       "away": "África do Sul",
       "competition": "Copa do Mundo 2026",
       "round": "Fase de Grupos - Grupo A",
-      "channel": "Globo / Band / SBT / SporTV / N Sports / CazéTV",
+      "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
       "stadium": "Estádio Azteca"
     },
     {
@@ -78,7 +78,7 @@
       "away": "República Tcheca",
       "competition": "Copa do Mundo 2026",
       "round": "Fase de Grupos - Grupo A",
-      "channel": "Band / CazéTV",
+      "channel": "CazéTV",
       "stadium": "Estádio Akron"
     },
     {
@@ -88,7 +88,7 @@
       "away": "Bósnia-Herzegovina",
       "competition": "Copa do Mundo 2026",
       "round": "Fase de Grupos - Grupo B",
-      "channel": "Band / CazéTV",
+      "channel": "CazéTV",
       "stadium": "BMO Field"
     },
     {
@@ -108,7 +108,7 @@
       "away": "Paraguai",
       "competition": "Copa do Mundo 2026",
       "round": "Fase de Grupos - Grupo D",
-      "channel": "Globo / Band / SBT / SporTV / N Sports / CazéTV",
+      "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
       "stadium": "SoFi Stadium"
     },
     {
@@ -128,7 +128,7 @@
       "away": "Marrocos",
       "competition": "Copa do Mundo 2026",
       "round": "Fase de Grupos - Grupo C",
-      "channel": "Globo / Band / SBT / SporTV / N Sports / CazéTV",
+      "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
       "stadium": "MetLife Stadium"
     },
     {
@@ -138,7 +138,7 @@
       "away": "Escócia",
       "competition": "Copa do Mundo 2026",
       "round": "Fase de Grupos - Grupo C",
-      "channel": "Band / CazéTV",
+      "channel": "CazéTV",
       "stadium": "Gillette Stadium"
     },
     {
@@ -178,7 +178,7 @@
       "away": "Curaçao",
       "competition": "Copa do Mundo 2026",
       "round": "Fase de Grupos - Grupo E",
-      "channel": "Globo / Band / SporTV / CazéTV",
+      "channel": "Globo / SporTV / CazéTV",
       "stadium": "NRG Stadium"
     },
     {
@@ -208,7 +208,7 @@
       "away": "Japão",
       "competition": "Copa do Mundo 2026",
       "round": "Fase de Grupos - Grupo F",
-      "channel": "Globo / Band / SBT / SporTV / N Sports / CazéTV",
+      "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
       "stadium": "AT&T Stadium"
     },
     {
@@ -238,7 +238,7 @@
       "away": "Equador",
       "competition": "Copa do Mundo 2026",
       "round": "Fase de Grupos - Grupo E",
-      "channel": "Globo / Band / SporTV / CazéTV",
+      "channel": "Globo / SporTV / CazéTV",
       "stadium": "Lincoln Financial Field"
     },
     {
