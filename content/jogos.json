@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-11T07:11:00-03:00",
+  "updatedAt": "2026-06-11T13:17:00-03:00",
   "games": [
     {
       "date": "2026-06-11",
@@ -33,16 +33,6 @@
     },
     {
       "date": "2026-06-12",
-      "time": "19:00",
-      "home": "Atlético Goianiense",
-      "away": "CRB",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 13",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio Antônio Accioly"
-    },
-    {
-      "date": "2026-06-12",
       "time": "22:00",
       "home": "Estados Unidos",
       "away": "Paraguai",
@@ -50,6 +40,16 @@
       "round": "Fase de Grupos - Grupo D",
       "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
       "stadium": "SoFi Stadium"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "15:00",
+      "home": "Atlético Goianiense",
+      "away": "CRB",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 13",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio Antônio Accioly"
     },
     {
       "date": "2026-06-13",
@@ -93,7 +93,7 @@
     },
     {
       "date": "2026-06-14",
-      "time": "10:00",
+      "time": "11:00",
       "home": "Juventude",
       "away": "Ponte Preta",
       "competition": "Brasileirão Série B",
@@ -103,7 +103,7 @@
     },
     {
       "date": "2026-06-14",
-      "time": "10:00",
+      "time": "11:00",
       "home": "São Bernardo",
       "away": "Sport",
       "competition": "Brasileirão Série B",
@@ -163,7 +163,7 @@
     },
     {
       "date": "2026-06-14",
-      "time": "18:00",
+      "time": "19:00",
       "home": "Novorizontino",
       "away": "Náutico",
       "competition": "Brasileirão Série B",
@@ -223,7 +223,7 @@
     },
     {
       "date": "2026-06-15",
-      "time": "20:00",
+      "time": "21:00",
       "home": "Criciúma",
       "away": "Ceará",
       "competition": "Brasileirão Série B",
@@ -233,7 +233,7 @@
     },
     {
       "date": "2026-06-15",
-      "time": "20:00",
+      "time": "21:00",
       "home": "Londrina",
       "away": "Avaí",
       "competition": "Brasileirão Série B",
