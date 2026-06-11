@@ -1,66 +1,6 @@
 {
-  "updatedAt": "2026-06-10T13:16:00-03:00",
+  "updatedAt": "2026-06-11T07:11:00-03:00",
   "games": [
-    {
-      "date": "2026-06-10",
-      "time": "01:00",
-      "home": "Guatemala",
-      "away": "Áustria",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "A definir",
-      "stadium": ""
-    },
-    {
-      "date": "2026-06-10",
-      "time": "16:45",
-      "home": "Portugal",
-      "away": "Nigéria",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "A definir",
-      "stadium": ""
-    },
-    {
-      "date": "2026-06-10",
-      "time": "17:00",
-      "home": "Inglaterra",
-      "away": "Costa Rica",
-      "competition": "Amistoso Internacional",
-      "round": "",
-      "channel": "A definir",
-      "stadium": ""
-    },
-    {
-      "date": "2026-06-10",
-      "time": "20:00",
-      "home": "Ceará",
-      "away": "Avaí",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 12",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio Presidente Vargas"
-    },
-    {
-      "date": "2026-06-10",
-      "time": "20:00",
-      "home": "Goiás",
-      "away": "Novorizontino",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 12",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio da Serrinha"
-    },
-    {
-      "date": "2026-06-10",
-      "time": "21:00",
-      "home": "Sport",
-      "away": "Athletic Club",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 12",
-      "channel": "ESPN / Disney+",
-      "stadium": "Ilha do Retiro"
-    },
     {
       "date": "2026-06-11",
       "time": "16:00",
@@ -250,6 +190,66 @@
       "round": "Fase de Grupos - Grupo F",
       "channel": "Globo / SporTV / CazéTV",
       "stadium": "Estadio BBVA"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "13:00",
+      "home": "Espanha",
+      "away": "Cabo Verde",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo H",
+      "channel": "CazéTV",
+      "stadium": "Mercedes-Benz Stadium"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "16:00",
+      "home": "Bélgica",
+      "away": "Egito",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo G",
+      "channel": "Globo / SporTV / CazéTV",
+      "stadium": "Lumen Field"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "19:00",
+      "home": "Arábia Saudita",
+      "away": "Uruguai",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo H",
+      "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
+      "stadium": "Hard Rock Stadium"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "20:00",
+      "home": "Criciúma",
+      "away": "Ceará",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 13",
+      "channel": "ESPN / Disney+",
+      "stadium": "Heriberto Hülse"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "20:00",
+      "home": "Londrina",
+      "away": "Avaí",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 13",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio VGD"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "22:00",
+      "home": "Irã",
+      "away": "Nova Zelândia",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo G",
+      "channel": "CazéTV",
+      "stadium": "SoFi Stadium"
     }
   ]
 }
