@@ -1,26 +1,6 @@
 {
-  "updatedAt": "2026-06-11T13:17:00-03:00",
+  "updatedAt": "2026-06-12T07:06:00-03:00",
   "games": [
-    {
-      "date": "2026-06-11",
-      "time": "16:00",
-      "home": "México",
-      "away": "África do Sul",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo A",
-      "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
-      "stadium": "Estádio Azteca"
-    },
-    {
-      "date": "2026-06-11",
-      "time": "23:00",
-      "home": "Coreia do Sul",
-      "away": "República Tcheca",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo A",
-      "channel": "CazéTV",
-      "stadium": "Estádio Akron"
-    },
     {
       "date": "2026-06-12",
       "time": "16:00",
@@ -250,6 +230,46 @@
       "round": "Fase de Grupos - Grupo G",
       "channel": "CazéTV",
       "stadium": "SoFi Stadium"
+    },
+    {
+      "date": "2026-06-16",
+      "time": "16:00",
+      "home": "França",
+      "away": "Senegal",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo I",
+      "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
+      "stadium": "MetLife Stadium"
+    },
+    {
+      "date": "2026-06-16",
+      "time": "19:00",
+      "home": "Iraque",
+      "away": "Noruega",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo I",
+      "channel": "CazéTV",
+      "stadium": "Gillette Stadium"
+    },
+    {
+      "date": "2026-06-16",
+      "time": "19:00",
+      "home": "Fortaleza",
+      "away": "América Mineiro",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 13",
+      "channel": "ESPN / Disney+",
+      "stadium": "Arena Castelão"
+    },
+    {
+      "date": "2026-06-16",
+      "time": "22:00",
+      "home": "Argentina",
+      "away": "Argélia",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo J",
+      "channel": "CazéTV",
+      "stadium": "Arrowhead Stadium"
     }
   ]
 }
