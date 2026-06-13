@@ -1,6 +1,16 @@
 {
-  "updatedAt": "2026-06-13T11:45:00-03:00",
+  "updatedAt": "2026-06-13T13:18:00-03:00",
   "games": [
+    {
+      "date": "2026-06-13",
+      "time": "11:00",
+      "home": "Guarani",
+      "away": "Caxias",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 10",
+      "channel": "SportyNet",
+      "stadium": "Brinco de Ouro"
+    },
     {
       "date": "2026-06-13",
       "time": "16:00",
@@ -10,6 +20,16 @@
       "round": "Fase de Grupos - Grupo B",
       "channel": "CazéTV",
       "stadium": "Levi's Stadium"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "16:00",
+      "home": "Amazonas",
+      "away": "Anápolis",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 10",
+      "channel": "SportyNet",
+      "stadium": "Estádio da Colina"
     },
     {
       "date": "2026-06-13",
@@ -63,6 +83,16 @@
     },
     {
       "date": "2026-06-14",
+      "time": "11:00",
+      "home": "Brusque",
+      "away": "Santa Cruz",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 10",
+      "channel": "SportyNet",
+      "stadium": "Estádio Augusto Bauer"
+    },
+    {
+      "date": "2026-06-14",
       "time": "14:00",
       "home": "Alemanha",
       "away": "Curaçao",
@@ -93,6 +123,26 @@
     },
     {
       "date": "2026-06-14",
+      "time": "16:00",
+      "home": "Paysandu",
+      "away": "Internacional de Limeira",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 10",
+      "channel": "Band / SportyNet",
+      "stadium": "Curuzu"
+    },
+    {
+      "date": "2026-06-14",
+      "time": "16:30",
+      "home": "Itabaiana",
+      "away": "Ituano",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 10",
+      "channel": "SportyNet",
+      "stadium": "Etelvino Mendonça"
+    },
+    {
+      "date": "2026-06-14",
       "time": "17:00",
       "home": "Países Baixos",
       "away": "Japão",
@@ -120,6 +170,26 @@
       "round": "Rodada 13",
       "channel": "ESPN / Disney+ / RedeTV",
       "stadium": "Estádio Jorge Ismael de Biasi"
+    },
+    {
+      "date": "2026-06-14",
+      "time": "19:30",
+      "home": "Floresta",
+      "away": "Figueirense",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 10",
+      "channel": "SportyNet",
+      "stadium": "Presidente Vargas"
+    },
+    {
+      "date": "2026-06-14",
+      "time": "19:30",
+      "home": "Volta Redonda",
+      "away": "Confiança",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 10",
+      "channel": "SportyNet",
+      "stadium": "Raulino de Oliveira"
     },
     {
       "date": "2026-06-14",
@@ -163,6 +233,16 @@
     },
     {
       "date": "2026-06-15",
+      "time": "18:30",
+      "home": "Maringá",
+      "away": "Maranhão",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 10",
+      "channel": "SportyNet",
+      "stadium": "Willie Davids"
+    },
+    {
+      "date": "2026-06-15",
       "time": "19:00",
       "home": "Arábia Saudita",
       "away": "Uruguai",
@@ -170,6 +250,16 @@
       "round": "Fase de Grupos - Grupo H",
       "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
       "stadium": "Hard Rock Stadium"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "20:30",
+      "home": "Ypiranga",
+      "away": "Botafogo-PB",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 10",
+      "channel": "SportyNet",
+      "stadium": "Colosso da Lagoa"
     },
     {
       "date": "2026-06-15",
