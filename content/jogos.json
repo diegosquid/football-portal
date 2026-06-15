@@ -1,166 +1,6 @@
 {
-  "updatedAt": "2026-06-14T08:04:00-03:00",
+  "updatedAt": "2026-06-15T09:43:00-03:00",
   "games": [
-    {
-      "date": "2026-06-14",
-      "time": "01:00",
-      "home": "Austrália",
-      "away": "Turquia",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo D",
-      "channel": "Globo / SBT / SporTV / CazéTV",
-      "stadium": "BC Place"
-    },
-    {
-      "date": "2026-06-14",
-      "time": "11:00",
-      "home": "Juventude",
-      "away": "Ponte Preta",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 13",
-      "channel": "ESPN / Disney+",
-      "stadium": "Alfredo Jaconi"
-    },
-    {
-      "date": "2026-06-14",
-      "time": "11:00",
-      "home": "São Bernardo",
-      "away": "Sport",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 13",
-      "channel": "Premiere",
-      "stadium": "Estádio Primeiro de Maio"
-    },
-    {
-      "date": "2026-06-14",
-      "time": "11:00",
-      "home": "Brusque",
-      "away": "Santa Cruz",
-      "competition": "Brasileirão Série C",
-      "round": "Rodada 10",
-      "channel": "SportyNet",
-      "stadium": "Estádio Augusto Bauer"
-    },
-    {
-      "date": "2026-06-14",
-      "time": "14:00",
-      "home": "Alemanha",
-      "away": "Curaçao",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo E",
-      "channel": "Globo / SporTV / CazéTV",
-      "stadium": "NRG Stadium"
-    },
-    {
-      "date": "2026-06-14",
-      "time": "15:00",
-      "home": "Athletic Club",
-      "away": "Goiás",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 13",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio Joaquim Portugal"
-    },
-    {
-      "date": "2026-06-14",
-      "time": "16:00",
-      "home": "Cuiabá",
-      "away": "Vila Nova",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 13",
-      "channel": "ESPN / Disney+",
-      "stadium": "Arena Pantanal"
-    },
-    {
-      "date": "2026-06-14",
-      "time": "16:00",
-      "home": "Paysandu",
-      "away": "Internacional de Limeira",
-      "competition": "Brasileirão Série C",
-      "round": "Rodada 10",
-      "channel": "Band / SportyNet",
-      "stadium": "Curuzu"
-    },
-    {
-      "date": "2026-06-14",
-      "time": "16:30",
-      "home": "Itabaiana",
-      "away": "Ituano",
-      "competition": "Brasileirão Série C",
-      "round": "Rodada 10",
-      "channel": "SportyNet",
-      "stadium": "Etelvino Mendonça"
-    },
-    {
-      "date": "2026-06-14",
-      "time": "17:00",
-      "home": "Países Baixos",
-      "away": "Japão",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo F",
-      "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
-      "stadium": "AT&T Stadium"
-    },
-    {
-      "date": "2026-06-14",
-      "time": "18:00",
-      "home": "Botafogo-SP",
-      "away": "Operário PR",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 13",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio Santa Cruz"
-    },
-    {
-      "date": "2026-06-14",
-      "time": "19:00",
-      "home": "Novorizontino",
-      "away": "Náutico",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 13",
-      "channel": "ESPN / Disney+ / RedeTV",
-      "stadium": "Estádio Jorge Ismael de Biasi"
-    },
-    {
-      "date": "2026-06-14",
-      "time": "19:30",
-      "home": "Floresta",
-      "away": "Figueirense",
-      "competition": "Brasileirão Série C",
-      "round": "Rodada 10",
-      "channel": "SportyNet",
-      "stadium": "Presidente Vargas"
-    },
-    {
-      "date": "2026-06-14",
-      "time": "19:30",
-      "home": "Volta Redonda",
-      "away": "Confiança",
-      "competition": "Brasileirão Série C",
-      "round": "Rodada 10",
-      "channel": "SportyNet",
-      "stadium": "Raulino de Oliveira"
-    },
-    {
-      "date": "2026-06-14",
-      "time": "20:00",
-      "home": "Costa do Marfim",
-      "away": "Equador",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo E",
-      "channel": "Globo / SporTV / CazéTV",
-      "stadium": "Lincoln Financial Field"
-    },
-    {
-      "date": "2026-06-14",
-      "time": "23:00",
-      "home": "Suécia",
-      "away": "Tunísia",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo F",
-      "channel": "Globo / SporTV / CazéTV",
-      "stadium": "Estadio BBVA"
-    },
     {
       "date": "2026-06-15",
       "time": "13:00",
@@ -370,6 +210,36 @@
       "round": "Fase de Grupos - Grupo A",
       "channel": "Globo / SporTV / CazéTV",
       "stadium": "Estadio Akron"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "16:00",
+      "home": "EUA",
+      "away": "Austrália",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo D",
+      "channel": "CazéTV",
+      "stadium": "Lumen Field"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "19:00",
+      "home": "Escócia",
+      "away": "Marrocos",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo C",
+      "channel": "CazéTV",
+      "stadium": "Gillette Stadium"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "21:30",
+      "home": "Brasil",
+      "away": "Haiti",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo C",
+      "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
+      "stadium": "Lincoln Financial Field"
     }
   ]
 }
