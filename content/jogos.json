@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-16T07:36:00-03:00",
+  "updatedAt": "2026-06-16T13:20:00-03:00",
   "games": [
     {
       "date": "2026-06-16",
@@ -14,22 +14,22 @@
     {
       "date": "2026-06-16",
       "time": "19:00",
-      "home": "Fortaleza",
-      "away": "América Mineiro",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 13",
-      "channel": "ESPN / Disney+",
-      "stadium": "Arena Castelão"
-    },
-    {
-      "date": "2026-06-16",
-      "time": "19:00",
       "home": "Iraque",
       "away": "Noruega",
       "competition": "Copa do Mundo 2026",
       "round": "Fase de Grupos - Grupo I",
       "channel": "CazéTV",
       "stadium": "Gillette Stadium"
+    },
+    {
+      "date": "2026-06-16",
+      "time": "20:00",
+      "home": "Fortaleza",
+      "away": "América Mineiro",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 13",
+      "channel": "ESPN / Disney+",
+      "stadium": "Arena Castelão"
     },
     {
       "date": "2026-06-16",
@@ -110,16 +110,6 @@
       "round": "Fase de Grupos - Grupo B",
       "channel": "Globo / SporTV / CazéTV",
       "stadium": "SoFi Stadium"
-    },
-    {
-      "date": "2026-06-18",
-      "time": "19:00",
-      "home": "Goiás",
-      "away": "Operário Ferroviário",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 14",
-      "channel": "Disney+",
-      "stadium": ""
     },
     {
       "date": "2026-06-18",
