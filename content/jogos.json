@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-18T08:46:00-03:00",
+  "updatedAt": "2026-06-18T13:12:00-03:00",
   "games": [
     {
       "date": "2026-06-18",
@@ -99,7 +99,7 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 14",
       "channel": "Disney+",
-      "stadium": ""
+      "stadium": "Estádio do Café"
     },
     {
       "date": "2026-06-20",
@@ -129,7 +129,7 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 14",
       "channel": "Disney+",
-      "stadium": ""
+      "stadium": "Estádio Presidente Vargas"
     },
     {
       "date": "2026-06-20",
@@ -139,7 +139,7 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 14",
       "channel": "Disney+",
-      "stadium": ""
+      "stadium": "Estádio Onésio Brasileiro Alvarenga"
     },
     {
       "date": "2026-06-20",
@@ -179,7 +179,7 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 14",
       "channel": "Disney+",
-      "stadium": ""
+      "stadium": "Ressacada"
     },
     {
       "date": "2026-06-21",
@@ -209,7 +209,7 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 14",
       "channel": "Disney+",
-      "stadium": ""
+      "stadium": "Estádio Rei Pelé"
     },
     {
       "date": "2026-06-21",
@@ -260,6 +260,16 @@
       "round": "Fase de Grupos - Grupo I",
       "channel": "CazéTV",
       "stadium": "Lincoln Financial Field"
+    },
+    {
+      "date": "2026-06-22",
+      "time": "20:00",
+      "home": "Ponte Preta",
+      "away": "Novorizontino",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 14",
+      "channel": "Disney+",
+      "stadium": "Estádio Moisés Lucarelli"
     },
     {
       "date": "2026-06-22",
