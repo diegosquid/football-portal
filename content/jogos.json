@@ -1,56 +1,6 @@
 {
-  "updatedAt": "2026-06-18T13:12:00-03:00",
+  "updatedAt": "2026-06-19T07:54:00-03:00",
   "games": [
-    {
-      "date": "2026-06-18",
-      "time": "13:00",
-      "home": "República Tcheca",
-      "away": "África do Sul",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo A",
-      "channel": "CazéTV",
-      "stadium": "Mercedes-Benz Stadium"
-    },
-    {
-      "date": "2026-06-18",
-      "time": "16:00",
-      "home": "Suíça",
-      "away": "Bósnia e Herzegovina",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo B",
-      "channel": "Globo / SporTV / CazéTV",
-      "stadium": "SoFi Stadium"
-    },
-    {
-      "date": "2026-06-18",
-      "time": "19:00",
-      "home": "Canadá",
-      "away": "Catar",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo B",
-      "channel": "CazéTV",
-      "stadium": "BC Place"
-    },
-    {
-      "date": "2026-06-18",
-      "time": "21:00",
-      "home": "Sport",
-      "away": "Atlético Goianiense",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 14",
-      "channel": "Disney+",
-      "stadium": "Ilha do Retiro"
-    },
-    {
-      "date": "2026-06-18",
-      "time": "22:00",
-      "home": "México",
-      "away": "Coreia do Sul",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo A",
-      "channel": "Globo / SporTV / CazéTV",
-      "stadium": "Estadio Akron"
-    },
     {
       "date": "2026-06-19",
       "time": "16:00",
@@ -108,7 +58,7 @@
       "away": "Suécia",
       "competition": "Copa do Mundo 2026",
       "round": "Fase de Grupos - Grupo F",
-      "channel": "Globo / SporTV / CazéTV",
+      "channel": "CazéTV",
       "stadium": "NRG Stadium"
     },
     {
@@ -280,6 +230,56 @@
       "round": "Fase de Grupos - Grupo I",
       "channel": "Globo / SporTV / CazéTV",
       "stadium": "MetLife Stadium"
+    },
+    {
+      "date": "2026-06-23",
+      "time": "00:00",
+      "home": "Jordânia",
+      "away": "Argélia",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo J",
+      "channel": "Globo / SporTV / CazéTV",
+      "stadium": "Levi's Stadium"
+    },
+    {
+      "date": "2026-06-23",
+      "time": "14:00",
+      "home": "Portugal",
+      "away": "Uzbequistão",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo K",
+      "channel": "CazéTV",
+      "stadium": "NRG Stadium"
+    },
+    {
+      "date": "2026-06-23",
+      "time": "17:00",
+      "home": "Inglaterra",
+      "away": "Gana",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo L",
+      "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
+      "stadium": "Gillette Stadium"
+    },
+    {
+      "date": "2026-06-23",
+      "time": "20:00",
+      "home": "Panamá",
+      "away": "Croácia",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo L",
+      "channel": "CazéTV",
+      "stadium": "BMO Field"
+    },
+    {
+      "date": "2026-06-23",
+      "time": "23:00",
+      "home": "Colômbia",
+      "away": "RD Congo",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo K",
+      "channel": "Globo / SporTV / CazéTV",
+      "stadium": "Estadio Akron"
     }
   ]
 }
