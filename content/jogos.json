@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-23T07:11:00-03:00",
+  "updatedAt": "2026-06-23T13:15:00-03:00",
   "games": [
     {
       "date": "2026-06-23",
@@ -240,6 +240,46 @@
       "round": "Fase de Grupos - Grupo H",
       "channel": "Globo / SporTV / CazéTV",
       "stadium": "Estadio Akron"
+    },
+    {
+      "date": "2026-06-27",
+      "time": "00:00",
+      "home": "Egito",
+      "away": "Irã",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo G",
+      "channel": "CazéTV",
+      "stadium": "Lumen Field"
+    },
+    {
+      "date": "2026-06-27",
+      "time": "00:00",
+      "home": "Nova Zelândia",
+      "away": "Bélgica",
+      "competition": "Copa do Mundo 2026",
+      "round": "Fase de Grupos - Grupo G",
+      "channel": "SporTV / CazéTV",
+      "stadium": "BC Place"
+    },
+    {
+      "date": "2026-06-27",
+      "time": "11:00",
+      "home": "Operário PR",
+      "away": "América Mineiro",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 15",
+      "channel": "Disney+",
+      "stadium": "Germano Krüger"
+    },
+    {
+      "date": "2026-06-27",
+      "time": "16:00",
+      "home": "Criciúma",
+      "away": "São Bernardo",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 15",
+      "channel": "Disney+",
+      "stadium": "Heriberto Hülse"
     },
     {
       "date": "2026-06-27",
