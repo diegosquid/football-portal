@@ -1,66 +1,6 @@
 {
-  "updatedAt": "2026-06-23T13:15:00-03:00",
+  "updatedAt": "2026-06-24T08:57:00-03:00",
   "games": [
-    {
-      "date": "2026-06-23",
-      "time": "00:00",
-      "home": "Jordânia",
-      "away": "Argélia",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo J",
-      "channel": "Globo / SporTV / CazéTV",
-      "stadium": "Levi's Stadium"
-    },
-    {
-      "date": "2026-06-23",
-      "time": "14:00",
-      "home": "Portugal",
-      "away": "Uzbequistão",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo K",
-      "channel": "CazéTV",
-      "stadium": "NRG Stadium"
-    },
-    {
-      "date": "2026-06-23",
-      "time": "17:00",
-      "home": "Inglaterra",
-      "away": "Gana",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo L",
-      "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
-      "stadium": "Gillette Stadium"
-    },
-    {
-      "date": "2026-06-23",
-      "time": "20:00",
-      "home": "América Mineiro",
-      "away": "Criciúma",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 14",
-      "channel": "Disney+",
-      "stadium": "Arena Independência"
-    },
-    {
-      "date": "2026-06-23",
-      "time": "20:00",
-      "home": "Panamá",
-      "away": "Croácia",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo L",
-      "channel": "CazéTV",
-      "stadium": "BMO Field"
-    },
-    {
-      "date": "2026-06-23",
-      "time": "23:00",
-      "home": "Colômbia",
-      "away": "RD Congo",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo K",
-      "channel": "Globo / SporTV / CazéTV",
-      "stadium": "Estadio Akron"
-    },
     {
       "date": "2026-06-24",
       "time": "16:00",
@@ -340,6 +280,56 @@
       "round": "Fase de Grupos - Grupo J",
       "channel": "Globo / SporTV / CazéTV",
       "stadium": "AT&T Stadium"
+    },
+    {
+      "date": "2026-06-28",
+      "time": "16:00",
+      "home": "Athletic-MG",
+      "away": "Avaí",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 15",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-28",
+      "time": "16:00",
+      "home": "Atlético Goianiense",
+      "away": "Ponte Preta",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 15",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-28",
+      "time": "16:00",
+      "home": "Juventude",
+      "away": "Ceará",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 15",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-28",
+      "time": "18:30",
+      "home": "Fortaleza",
+      "away": "Sport",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 15",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-28",
+      "time": "18:30",
+      "home": "Náutico",
+      "away": "Goiás",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 15",
+      "channel": "Disney+",
+      "stadium": ""
     }
   ]
 }
