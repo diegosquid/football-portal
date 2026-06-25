@@ -7,7 +7,7 @@
       "away": "Alemanha",
       "competition": "Copa do Mundo 2026",
       "round": "Fase de Grupos - Grupo E",
-      "channel": "CazéTV",
+      "channel": "Globo / SporTV / CazéTV",
       "stadium": "MetLife Stadium"
     },
     {
@@ -17,7 +17,7 @@
       "away": "Costa do Marfim",
       "competition": "Copa do Mundo 2026",
       "round": "Fase de Grupos - Grupo E",
-      "channel": "CazéTV",
+      "channel": "CazéTV / SporTV 2",
       "stadium": "Lincoln Financial Field"
     },
     {
@@ -27,7 +27,7 @@
       "away": "Suécia",
       "competition": "Copa do Mundo 2026",
       "round": "Fase de Grupos - Grupo F",
-      "channel": "CazéTV",
+      "channel": "Globo / SporTV / CazéTV",
       "stadium": "AT&T Stadium"
     },
     {
@@ -57,7 +57,7 @@
       "away": "Estados Unidos",
       "competition": "Copa do Mundo 2026",
       "round": "Fase de Grupos - Grupo D",
-      "channel": "CazéTV",
+      "channel": "Globo / SporTV / CazéTV",
       "stadium": "SoFi Stadium"
     },
     {
@@ -302,6 +302,16 @@
     },
     {
       "date": "2026-06-29",
+      "time": "20:00",
+      "home": "Botafogo-SP",
+      "away": "CRB",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 15",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-06-29",
       "time": "22:00",
       "home": "1º do Grupo F",
       "away": "Marrocos",
@@ -311,5 +321,5 @@
       "stadium": "Estadio BBVA"
     }
   ],
-  "updatedAt": "2026-06-25T06:55:00-03:00"
+  "updatedAt": "2026-06-25T07:21:00-03:00"
 }
