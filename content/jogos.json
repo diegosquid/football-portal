@@ -1,66 +1,5 @@
 {
-  "updatedAt": "2026-06-24T13:17:00-03:00",
   "games": [
-    {
-      "date": "2026-06-24",
-      "time": "16:00",
-      "home": "Suíça",
-      "away": "Canadá",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo B",
-      "channel": "SporTV / CazéTV",
-      "stadium": "BC Place"
-    },
-    {
-      "date": "2026-06-24",
-      "time": "16:00",
-      "home": "Bósnia-Herzegovina",
-      "away": "Qatar",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo B",
-      "channel": "CazéTV",
-      "stadium": "Lumen Field"
-    },
-    {
-      "date": "2026-06-24",
-      "time": "19:00",
-      "home": "Escócia",
-      "away": "Brasil",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo C",
-      "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
-      "stadium": "Hard Rock Stadium"
-    },
-    {
-      "date": "2026-06-24",
-      "time": "19:00",
-      "home": "Marrocos",
-      "away": "Haiti",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo C",
-      "channel": "CazéTV",
-      "stadium": "Mercedes-Benz Stadium"
-    },
-    {
-      "date": "2026-06-24",
-      "time": "22:00",
-      "home": "República Tcheca",
-      "away": "México",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo A",
-      "channel": "SporTV / CazéTV",
-      "stadium": "Estadio Azteca"
-    },
-    {
-      "date": "2026-06-24",
-      "time": "22:00",
-      "home": "África do Sul",
-      "away": "Coreia do Sul",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo A",
-      "channel": "CazéTV",
-      "stadium": "Estadio BBVA"
-    },
     {
       "date": "2026-06-25",
       "time": "17:00",
@@ -313,6 +252,16 @@
     },
     {
       "date": "2026-06-28",
+      "time": "16:00",
+      "home": "África do Sul",
+      "away": "Canadá",
+      "competition": "Copa do Mundo 2026",
+      "round": "16 avos de final",
+      "channel": "SporTV / CazéTV",
+      "stadium": "SoFi Stadium"
+    },
+    {
+      "date": "2026-06-28",
       "time": "18:30",
       "home": "Fortaleza",
       "away": "Sport",
@@ -330,6 +279,37 @@
       "round": "Rodada 15",
       "channel": "Globo / SporTV / Disney+",
       "stadium": ""
+    },
+    {
+      "date": "2026-06-29",
+      "time": "14:00",
+      "home": "Brasil",
+      "away": "2º do Grupo F",
+      "competition": "Copa do Mundo 2026",
+      "round": "16 avos de final",
+      "channel": "Globo / SporTV / CazéTV",
+      "stadium": "NRG Stadium"
+    },
+    {
+      "date": "2026-06-29",
+      "time": "17:30",
+      "home": "Alemanha",
+      "away": "3º colocado",
+      "competition": "Copa do Mundo 2026",
+      "round": "16 avos de final",
+      "channel": "SporTV / CazéTV",
+      "stadium": "Gillette Stadium"
+    },
+    {
+      "date": "2026-06-29",
+      "time": "22:00",
+      "home": "1º do Grupo F",
+      "away": "Marrocos",
+      "competition": "Copa do Mundo 2026",
+      "round": "16 avos de final",
+      "channel": "CazéTV",
+      "stadium": "Estadio BBVA"
     }
-  ]
+  ],
+  "updatedAt": "2026-06-25T06:55:00-03:00"
 }
