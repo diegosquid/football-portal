@@ -1,75 +1,6 @@
 {
+  "updatedAt": "2026-06-26T13:08:00-03:00",
   "games": [
-    {
-      "date": "2026-06-25",
-      "time": "17:00",
-      "home": "Equador",
-      "away": "Alemanha",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo E",
-      "channel": "Globo / SporTV / CazéTV",
-      "stadium": "MetLife Stadium"
-    },
-    {
-      "date": "2026-06-25",
-      "time": "17:00",
-      "home": "Curação",
-      "away": "Costa do Marfim",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo E",
-      "channel": "CazéTV / SporTV 2",
-      "stadium": "Lincoln Financial Field"
-    },
-    {
-      "date": "2026-06-25",
-      "time": "20:00",
-      "home": "Japão",
-      "away": "Suécia",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo F",
-      "channel": "Globo / SporTV / CazéTV",
-      "stadium": "AT&T Stadium"
-    },
-    {
-      "date": "2026-06-25",
-      "time": "20:00",
-      "home": "Tunísia",
-      "away": "Holanda",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo F",
-      "channel": "CazéTV",
-      "stadium": "GEHA Field at Arrowhead"
-    },
-    {
-      "date": "2026-06-25",
-      "time": "20:30",
-      "home": "Cuiabá",
-      "away": "Londrina",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 15",
-      "channel": "Disney+",
-      "stadium": "Arena Pantanal"
-    },
-    {
-      "date": "2026-06-25",
-      "time": "23:00",
-      "home": "Turquia",
-      "away": "Estados Unidos",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo D",
-      "channel": "Globo / SporTV / CazéTV",
-      "stadium": "SoFi Stadium"
-    },
-    {
-      "date": "2026-06-25",
-      "time": "23:00",
-      "home": "Paraguai",
-      "away": "Austrália",
-      "competition": "Copa do Mundo 2026",
-      "round": "Fase de Grupos - Grupo D",
-      "channel": "CazéTV",
-      "stadium": "Levi's Stadium"
-    },
     {
       "date": "2026-06-26",
       "time": "16:00",
@@ -284,7 +215,7 @@
       "date": "2026-06-29",
       "time": "14:00",
       "home": "Brasil",
-      "away": "2º do Grupo F",
+      "away": "Japão",
       "competition": "Copa do Mundo 2026",
       "round": "16 avos de final",
       "channel": "Globo / SporTV / CazéTV",
@@ -313,13 +244,42 @@
     {
       "date": "2026-06-29",
       "time": "22:00",
-      "home": "1º do Grupo F",
+      "home": "Países Baixos",
       "away": "Marrocos",
       "competition": "Copa do Mundo 2026",
       "round": "16 avos de final",
       "channel": "CazéTV",
       "stadium": "Estadio BBVA"
+    },
+    {
+      "date": "2026-06-30",
+      "time": "14:00",
+      "home": "Costa do Marfim",
+      "away": "2º do Grupo I",
+      "competition": "Copa do Mundo 2026",
+      "round": "16 avos de final",
+      "channel": "CazéTV",
+      "stadium": "AT&T Stadium"
+    },
+    {
+      "date": "2026-06-30",
+      "time": "18:00",
+      "home": "1º do Grupo I",
+      "away": "3º colocado",
+      "competition": "Copa do Mundo 2026",
+      "round": "16 avos de final",
+      "channel": "CazéTV",
+      "stadium": "MetLife Stadium"
+    },
+    {
+      "date": "2026-06-30",
+      "time": "22:00",
+      "home": "México",
+      "away": "3º colocado",
+      "competition": "Copa do Mundo 2026",
+      "round": "16 avos de final",
+      "channel": "SporTV / CazéTV",
+      "stadium": "Estadio Azteca"
     }
-  ],
-  "updatedAt": "2026-06-25T13:15:00-03:00"
+  ]
 }
