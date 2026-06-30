@@ -1,36 +1,6 @@
 {
-  "updatedAt": "2026-06-29T13:14:00-03:00",
+  "updatedAt": "2026-06-30T13:08:00-03:00",
   "games": [
-    {
-      "date": "2026-06-29",
-      "time": "14:00",
-      "home": "Brasil",
-      "away": "Japão",
-      "competition": "Copa do Mundo 2026",
-      "round": "16 avos de final",
-      "channel": "Globo / SporTV / CazéTV",
-      "stadium": "NRG Stadium"
-    },
-    {
-      "date": "2026-06-29",
-      "time": "17:30",
-      "home": "Alemanha",
-      "away": "Paraguai",
-      "competition": "Copa do Mundo 2026",
-      "round": "16 avos de final",
-      "channel": "SporTV / CazéTV",
-      "stadium": "Gillette Stadium"
-    },
-    {
-      "date": "2026-06-29",
-      "time": "22:00",
-      "home": "Países Baixos",
-      "away": "Marrocos",
-      "competition": "Copa do Mundo 2026",
-      "round": "16 avos de final",
-      "channel": "CazéTV",
-      "stadium": "Estadio BBVA"
-    },
     {
       "date": "2026-06-30",
       "time": "14:00",
@@ -169,7 +139,7 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 16",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "Arena Castelão"
     },
     {
       "date": "2026-07-03",
@@ -180,6 +150,66 @@
       "round": "16 avos de final",
       "channel": "CazéTV",
       "stadium": "Arrowhead Stadium"
+    },
+    {
+      "date": "2026-07-04",
+      "time": "14:00",
+      "home": "Canadá",
+      "away": "Marrocos",
+      "competition": "Copa do Mundo 2026",
+      "round": "Oitavas de final",
+      "channel": "CazéTV",
+      "stadium": "NRG Stadium"
+    },
+    {
+      "date": "2026-07-04",
+      "time": "16:00",
+      "home": "Criciúma",
+      "away": "Sport",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 16",
+      "channel": "A definir",
+      "stadium": "Heriberto Hülse"
+    },
+    {
+      "date": "2026-07-04",
+      "time": "16:00",
+      "home": "Londrina",
+      "away": "CRB",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 16",
+      "channel": "A definir",
+      "stadium": "Estádio do Café"
+    },
+    {
+      "date": "2026-07-04",
+      "time": "16:00",
+      "home": "Novorizontino",
+      "away": "Atlético Goianiense",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 16",
+      "channel": "A definir",
+      "stadium": "Estádio Jorge Ismael de Biasi"
+    },
+    {
+      "date": "2026-07-04",
+      "time": "18:00",
+      "home": "Paraguai",
+      "away": "França ou Suécia",
+      "competition": "Copa do Mundo 2026",
+      "round": "Oitavas de final",
+      "channel": "SporTV / CazéTV",
+      "stadium": "Lincoln Financial Field"
+    },
+    {
+      "date": "2026-07-04",
+      "time": "20:00",
+      "home": "Goiás",
+      "away": "Ceará",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 16",
+      "channel": "A definir",
+      "stadium": "Estádio da Serrinha"
     }
   ]
 }
