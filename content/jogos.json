@@ -1,46 +1,6 @@
 {
-  "updatedAt": "2026-06-30T13:08:00-03:00",
+  "updatedAt": "2026-07-01T09:07:00-03:00",
   "games": [
-    {
-      "date": "2026-06-30",
-      "time": "14:00",
-      "home": "Costa do Marfim",
-      "away": "Noruega",
-      "competition": "Copa do Mundo 2026",
-      "round": "16 avos de final",
-      "channel": "CazéTV",
-      "stadium": "AT&T Stadium"
-    },
-    {
-      "date": "2026-06-30",
-      "time": "18:00",
-      "home": "França",
-      "away": "Suécia",
-      "competition": "Copa do Mundo 2026",
-      "round": "16 avos de final",
-      "channel": "SporTV / CazéTV",
-      "stadium": "MetLife Stadium"
-    },
-    {
-      "date": "2026-06-30",
-      "time": "20:00",
-      "home": "Botafogo-SP",
-      "away": "CRB",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 15",
-      "channel": "Disney+",
-      "stadium": "Estádio Santa Cruz"
-    },
-    {
-      "date": "2026-06-30",
-      "time": "22:00",
-      "home": "México",
-      "away": "Equador",
-      "competition": "Copa do Mundo 2026",
-      "round": "16 avos de final",
-      "channel": "SporTV / CazéTV",
-      "stadium": "Estadio Azteca"
-    },
     {
       "date": "2026-07-01",
       "time": "13:00",
@@ -84,6 +44,16 @@
     {
       "date": "2026-07-02",
       "time": "20:00",
+      "home": "Portugal",
+      "away": "Croácia",
+      "competition": "Copa do Mundo 2026",
+      "round": "16 avos de final",
+      "channel": "SporTV / CazéTV",
+      "stadium": "BMO Field"
+    },
+    {
+      "date": "2026-07-02",
+      "time": "20:00",
       "home": "Cuiabá",
       "away": "América Mineiro",
       "competition": "Brasileirão Série B",
@@ -93,13 +63,13 @@
     },
     {
       "date": "2026-07-02",
-      "time": "20:00",
-      "home": "Portugal",
-      "away": "Croácia",
-      "competition": "Copa do Mundo 2026",
-      "round": "16 avos de final",
-      "channel": "SporTV / CazéTV",
-      "stadium": "BMO Field"
+      "time": "21:00",
+      "home": "Fortaleza",
+      "away": "Ponte Preta",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 16",
+      "channel": "A definir",
+      "stadium": "Arena Castelão"
     },
     {
       "date": "2026-07-03",
@@ -130,16 +100,6 @@
       "round": "16 avos de final",
       "channel": "Globo / CazéTV",
       "stadium": "Hard Rock Stadium"
-    },
-    {
-      "date": "2026-07-03",
-      "time": "21:00",
-      "home": "Fortaleza",
-      "away": "Ponte Preta",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 16",
-      "channel": "A definir",
-      "stadium": "Arena Castelão"
     },
     {
       "date": "2026-07-03",
@@ -195,7 +155,7 @@
       "date": "2026-07-04",
       "time": "18:00",
       "home": "Paraguai",
-      "away": "França ou Suécia",
+      "away": "França",
       "competition": "Copa do Mundo 2026",
       "round": "Oitavas de final",
       "channel": "SporTV / CazéTV",
@@ -210,6 +170,36 @@
       "round": "Rodada 16",
       "channel": "A definir",
       "stadium": "Estádio da Serrinha"
+    },
+    {
+      "date": "2026-07-05",
+      "time": "17:00",
+      "home": "Brasil",
+      "away": "Noruega",
+      "competition": "Copa do Mundo 2026",
+      "round": "Oitavas de final",
+      "channel": "Globo / SporTV / CazéTV",
+      "stadium": "MetLife Stadium"
+    },
+    {
+      "date": "2026-07-05",
+      "time": "20:30",
+      "home": "Náutico",
+      "away": "Juventude",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 16",
+      "channel": "A definir",
+      "stadium": "Estádio dos Aflitos"
+    },
+    {
+      "date": "2026-07-05",
+      "time": "21:00",
+      "home": "México",
+      "away": "A definir",
+      "competition": "Copa do Mundo 2026",
+      "round": "Oitavas de final",
+      "channel": "SporTV / CazéTV",
+      "stadium": "Estadio Azteca"
     }
   ]
 }
