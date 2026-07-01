@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T09:07:00-03:00",
+  "updatedAt": "2026-07-01T13:11:00-03:00",
   "games": [
     {
       "date": "2026-07-01",
@@ -178,7 +178,7 @@
       "away": "Noruega",
       "competition": "Copa do Mundo 2026",
       "round": "Oitavas de final",
-      "channel": "Globo / SporTV / CazéTV",
+      "channel": "Globo / SporTV / CazéTV / SBT",
       "stadium": "MetLife Stadium"
     },
     {
@@ -195,7 +195,7 @@
       "date": "2026-07-05",
       "time": "21:00",
       "home": "México",
-      "away": "A definir",
+      "away": "Inglaterra",
       "competition": "Copa do Mundo 2026",
       "round": "Oitavas de final",
       "channel": "SporTV / CazéTV",
