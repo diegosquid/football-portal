@@ -1,46 +1,6 @@
 {
-  "updatedAt": "2026-07-02T13:15:00-03:00",
+  "updatedAt": "2026-07-03T09:21:00-03:00",
   "games": [
-    {
-      "date": "2026-07-02",
-      "time": "16:00",
-      "home": "Espanha",
-      "away": "Áustria",
-      "competition": "Copa do Mundo 2026",
-      "round": "16 avos de final",
-      "channel": "Globo / SporTV / CazéTV",
-      "stadium": "SoFi Stadium"
-    },
-    {
-      "date": "2026-07-02",
-      "time": "20:00",
-      "home": "Cuiabá",
-      "away": "América Mineiro",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 16",
-      "channel": "A definir",
-      "stadium": "Arena Pantanal"
-    },
-    {
-      "date": "2026-07-02",
-      "time": "20:00",
-      "home": "Portugal",
-      "away": "Croácia",
-      "competition": "Copa do Mundo 2026",
-      "round": "16 avos de final",
-      "channel": "SporTV / CazéTV",
-      "stadium": "BMO Field"
-    },
-    {
-      "date": "2026-07-02",
-      "time": "21:00",
-      "home": "Fortaleza",
-      "away": "Ponte Preta",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 16",
-      "channel": "A definir",
-      "stadium": "Arena Castelão"
-    },
     {
       "date": "2026-07-03",
       "time": "00:00",
@@ -173,6 +133,16 @@
     },
     {
       "date": "2026-07-06",
+      "time": "16:00",
+      "home": "Portugal",
+      "away": "Espanha",
+      "competition": "Copa do Mundo 2026",
+      "round": "Oitavas de final",
+      "channel": "SporTV / CazéTV",
+      "stadium": "AT&T Stadium"
+    },
+    {
+      "date": "2026-07-06",
       "time": "19:00",
       "home": "Botafogo-SP",
       "away": "Avaí",
@@ -200,6 +170,26 @@
       "round": "Oitavas de final",
       "channel": "SporTV / CazéTV",
       "stadium": "Lumen Field"
+    },
+    {
+      "date": "2026-07-07",
+      "time": "13:00",
+      "home": "Vencedor Argentina/Cabo Verde",
+      "away": "Vencedor Austrália/Egito",
+      "competition": "Copa do Mundo 2026",
+      "round": "Oitavas de final",
+      "channel": "CazéTV",
+      "stadium": "Mercedes-Benz Stadium"
+    },
+    {
+      "date": "2026-07-07",
+      "time": "17:00",
+      "home": "Suíça",
+      "away": "Vencedor Colômbia/Gana",
+      "competition": "Copa do Mundo 2026",
+      "round": "Oitavas de final",
+      "channel": "CazéTV",
+      "stadium": "BC Place"
     }
   ]
 }
