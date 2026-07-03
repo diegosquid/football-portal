@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T09:21:00-03:00",
+  "updatedAt": "2026-07-03T13:15:00-03:00",
   "games": [
     {
       "date": "2026-07-03",
@@ -48,7 +48,7 @@
       "away": "Marrocos",
       "competition": "Copa do Mundo 2026",
       "round": "Oitavas de final",
-      "channel": "CazéTV",
+      "channel": "Globo / SBT / SporTV / CazéTV",
       "stadium": "NRG Stadium"
     },
     {
@@ -58,7 +58,7 @@
       "away": "Sport",
       "competition": "Brasileirão Série B",
       "round": "Rodada 16",
-      "channel": "A definir",
+      "channel": "Disney+",
       "stadium": "Heriberto Hülse"
     },
     {
@@ -68,7 +68,7 @@
       "away": "CRB",
       "competition": "Brasileirão Série B",
       "round": "Rodada 16",
-      "channel": "A definir",
+      "channel": "Rede TV",
       "stadium": "Estádio do Café"
     },
     {
@@ -78,7 +78,7 @@
       "away": "Atlético Goianiense",
       "competition": "Brasileirão Série B",
       "round": "Rodada 16",
-      "channel": "A definir",
+      "channel": "Disney+",
       "stadium": "Estádio Jorge Ismael de Biasi"
     },
     {
@@ -98,7 +98,7 @@
       "away": "Ceará",
       "competition": "Brasileirão Série B",
       "round": "Rodada 16",
-      "channel": "A definir",
+      "channel": "GOAT",
       "stadium": "Estádio da Serrinha"
     },
     {
@@ -118,7 +118,7 @@
       "away": "Juventude",
       "competition": "Brasileirão Série B",
       "round": "Rodada 16",
-      "channel": "A definir",
+      "channel": "SporTV",
       "stadium": "Estádio dos Aflitos"
     },
     {
@@ -148,7 +148,7 @@
       "away": "Avaí",
       "competition": "Brasileirão Série B",
       "round": "Rodada 16",
-      "channel": "A definir",
+      "channel": "Disney+",
       "stadium": "Estádio Santa Cruz"
     },
     {
@@ -158,7 +158,7 @@
       "away": "São Bernardo",
       "competition": "Brasileirão Série B",
       "round": "Rodada 16",
-      "channel": "A definir",
+      "channel": "Disney+",
       "stadium": "Estádio Onésio Brasileiro Alvarenga"
     },
     {
@@ -190,6 +190,16 @@
       "round": "Oitavas de final",
       "channel": "CazéTV",
       "stadium": "BC Place"
+    },
+    {
+      "date": "2026-07-07",
+      "time": "20:00",
+      "home": "Athletic Club",
+      "away": "Operário-PR",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 16",
+      "channel": "Disney+",
+      "stadium": ""
     }
   ]
 }
