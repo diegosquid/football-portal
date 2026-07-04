@@ -1,46 +1,6 @@
 {
-  "updatedAt": "2026-07-03T13:15:00-03:00",
+  "updatedAt": "2026-07-04T09:41:00-03:00",
   "games": [
-    {
-      "date": "2026-07-03",
-      "time": "00:00",
-      "home": "Suíça",
-      "away": "Argélia",
-      "competition": "Copa do Mundo 2026",
-      "round": "16 avos de final",
-      "channel": "CazéTV",
-      "stadium": "BC Place"
-    },
-    {
-      "date": "2026-07-03",
-      "time": "15:00",
-      "home": "Austrália",
-      "away": "Egito",
-      "competition": "Copa do Mundo 2026",
-      "round": "16 avos de final",
-      "channel": "Globo / CazéTV",
-      "stadium": "AT&T Stadium"
-    },
-    {
-      "date": "2026-07-03",
-      "time": "19:00",
-      "home": "Argentina",
-      "away": "Cabo Verde",
-      "competition": "Copa do Mundo 2026",
-      "round": "16 avos de final",
-      "channel": "Globo / CazéTV",
-      "stadium": "Hard Rock Stadium"
-    },
-    {
-      "date": "2026-07-03",
-      "time": "22:30",
-      "home": "Colômbia",
-      "away": "Gana",
-      "competition": "Copa do Mundo 2026",
-      "round": "16 avos de final",
-      "channel": "CazéTV",
-      "stadium": "Arrowhead Stadium"
-    },
     {
       "date": "2026-07-04",
       "time": "14:00",
@@ -174,8 +134,8 @@
     {
       "date": "2026-07-07",
       "time": "13:00",
-      "home": "Vencedor Argentina/Cabo Verde",
-      "away": "Vencedor Austrália/Egito",
+      "home": "Argentina",
+      "away": "Egito",
       "competition": "Copa do Mundo 2026",
       "round": "Oitavas de final",
       "channel": "CazéTV",
@@ -185,7 +145,7 @@
       "date": "2026-07-07",
       "time": "17:00",
       "home": "Suíça",
-      "away": "Vencedor Colômbia/Gana",
+      "away": "Colômbia",
       "competition": "Copa do Mundo 2026",
       "round": "Oitavas de final",
       "channel": "CazéTV",
