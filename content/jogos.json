@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T08:59:00-03:00",
+  "updatedAt": "2026-07-07T13:14:00-03:00",
   "games": [
     {
       "date": "2026-07-07",
@@ -44,8 +44,8 @@
     {
       "date": "2026-07-09",
       "time": "17:00",
-      "home": "Marrocos",
-      "away": "França",
+      "home": "França",
+      "away": "Marrocos",
       "competition": "Copa do Mundo 2026",
       "round": "Quartas de final",
       "channel": "SporTV / CazéTV",
@@ -54,8 +54,8 @@
     {
       "date": "2026-07-10",
       "time": "16:00",
-      "home": "Bélgica",
-      "away": "Espanha",
+      "home": "Espanha",
+      "away": "Bélgica",
       "competition": "Copa do Mundo 2026",
       "round": "Quartas de final",
       "channel": "SporTV / CazéTV",
@@ -72,16 +72,6 @@
       "stadium": "Alfredo Jaconi"
     },
     {
-      "date": "2026-07-10",
-      "time": "20:00",
-      "home": "Sport",
-      "away": "Botafogo-SP",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 17",
-      "channel": "A definir",
-      "stadium": "Ilha do Retiro"
-    },
-    {
       "date": "2026-07-11",
       "time": "18:00",
       "home": "Noruega",
@@ -90,6 +80,16 @@
       "round": "Quartas de final",
       "channel": "SporTV / CazéTV",
       "stadium": "Hard Rock Stadium"
+    },
+    {
+      "date": "2026-07-11",
+      "time": "20:00",
+      "home": "Sport",
+      "away": "Botafogo-SP",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 17",
+      "channel": "A definir",
+      "stadium": "Ilha do Retiro"
     },
     {
       "date": "2026-07-11",
