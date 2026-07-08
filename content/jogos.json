@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-08T09:05:00-03:00",
+  "updatedAt": "2026-07-08T13:11:00-03:00",
   "games": [
     {
       "date": "2026-07-08",
@@ -64,8 +64,8 @@
     {
       "date": "2026-07-11",
       "time": "22:00",
-      "home": "Suíça",
-      "away": "Argentina",
+      "home": "Argentina",
+      "away": "Suíça",
       "competition": "Copa do Mundo 2026",
       "round": "Quartas de final",
       "channel": "SporTV / CazéTV",
@@ -73,7 +73,7 @@
     },
     {
       "date": "2026-07-12",
-      "time": "20:00",
+      "time": "11:00",
       "home": "Operário",
       "away": "Novorizontino",
       "competition": "Brasileirão Série B",
@@ -83,33 +83,43 @@
     },
     {
       "date": "2026-07-12",
-      "time": "20:00",
+      "time": "16:00",
       "home": "São Bernardo",
       "away": "Cuiabá",
       "competition": "Brasileirão Série B",
       "round": "Rodada 17",
-      "channel": "ESPN / Disney+",
+      "channel": "Premiere",
       "stadium": ""
     },
     {
       "date": "2026-07-12",
-      "time": "20:00",
+      "time": "16:00",
       "home": "Avaí",
       "away": "Náutico",
       "competition": "Brasileirão Série B",
       "round": "Rodada 17",
       "channel": "ESPN / Disney+",
-      "stadium": ""
+      "stadium": "Ressacada"
     },
     {
       "date": "2026-07-12",
-      "time": "20:00",
+      "time": "18:00",
       "home": "Atlético-GO",
       "away": "Fortaleza",
       "competition": "Brasileirão Série B",
       "round": "Rodada 17",
       "channel": "ESPN / Disney+",
-      "stadium": ""
+      "stadium": "Antônio Accioly"
+    },
+    {
+      "date": "2026-07-12",
+      "time": "19:00",
+      "home": "CRB",
+      "away": "Goiás",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 17",
+      "channel": "ESPN / Disney+",
+      "stadium": "Rei Pelé"
     }
   ]
 }
