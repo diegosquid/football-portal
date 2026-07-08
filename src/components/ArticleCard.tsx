@@ -16,7 +16,7 @@ interface ArticleCardProps {
   featured?: boolean;
 }
 
-function timeAgo(dateString: string): string {
+export function timeAgo(dateString: string): string {
   // Sempre interpretar datas como BRT (UTC-3), independente do timezone do servidor
   const dateInput = dateString.includes('T') ? dateString : dateString + "T12:00:00-03:00";
   const articleDate = new Date(dateInput);
@@ -28,7 +28,7 @@ function timeAgo(dateString: string): string {
   // Obter hora atual em BRT (UTC-3)
   const now = new Date();
   const nowBRT = new Date(now.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
-  
+
   const diffMs = Math.max(0, nowBRT.getTime() - articleDate.getTime());
   const diffHours = Math.round(diffMs / 3600000);
   const diffDays = Math.floor(diffMs / 86400000);
@@ -61,62 +61,73 @@ export function ArticleCard({
     return (
       <Link
         href={`/${slug}`}
-        className="group relative block overflow-hidden rounded-xl bg-dark"
+        className="group relative block overflow-hidden bg-campo"
       >
         <ArticleImage
           src={image}
           alt={title}
           width={800}
           height={450}
-          className="h-[400px] w-full object-cover transition-transform duration-300 group-hover:scale-105 lg:h-[500px]"
+          className="h-[400px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] lg:h-[520px]"
           fallbackSrc={getFallbackImage(category)}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+        <div className="absolute inset-0 bg-gradient-to-t from-campo-deep via-campo-deep/45 to-transparent" />
+
+        <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-10">
           <CategoryBadge category={category} />
-          <h2 className="mt-3 text-2xl font-bold leading-tight text-white lg:text-4xl">
-            {title}
+          <h2 className="mt-4 max-w-3xl font-display text-3xl font-extrabold leading-[1.03] tracking-tight text-cal lg:text-5xl">
+            <span className="title-underline">{title}</span>
           </h2>
-          <p className="mt-2 line-clamp-2 text-sm text-gray-300 lg:text-base">
+          <p className="mt-3 line-clamp-2 max-w-2xl font-serif text-base italic text-cal/75 lg:text-xl">
             {excerpt}
           </p>
-          <div className="mt-3 flex items-center gap-3 text-xs text-gray-400">
+          <div className="mt-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.15em] text-cal/60">
             {authorData && <span>{authorData.name}</span>}
-            <span>&middot;</span>
+            <span className="h-1 w-1 rotate-45 bg-lima" />
             <span>{timeAgo(date)}</span>
-            <span>&middot;</span>
+            <span className="h-1 w-1 rotate-45 bg-lima" />
             <span>{readingTime} min de leitura</span>
           </div>
         </div>
+
+        {/* Seta de canto */}
+        <span className="absolute right-6 top-6 hidden h-12 w-12 items-center justify-center border border-cal/30 text-xl text-cal transition-all duration-300 group-hover:border-lima group-hover:bg-lima group-hover:text-ink lg:flex">
+          ↗
+        </span>
       </Link>
     );
   }
 
   return (
     <Link href={`/${slug}`} className="group flex flex-col">
-      <div className="relative overflow-hidden rounded-lg">
+      <div className="relative overflow-hidden">
         <ArticleImage
           src={image}
           alt={title}
           width={400}
           height={225}
-          className="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          className="aspect-video w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
           fallbackSrc={getFallbackImage(category)}
         />
-        <div className="absolute left-3 top-3">
+        <div className="absolute inset-0 bg-campo/0 transition-colors duration-300 group-hover:bg-campo/15" />
+        <div className="absolute left-0 top-3">
           <CategoryBadge category={category} size="sm" />
         </div>
       </div>
-      <div className="mt-3 flex flex-1 flex-col">
-        <h3 className="font-bold leading-snug text-secondary transition-colors group-hover:text-primary lg:text-lg">
-          {title}
+
+      {/* Régua de coluna, jeito de jornal */}
+      <div className="mt-3 flex flex-1 flex-col border-t-[3px] border-ink pt-3">
+        <h3 className="font-display text-lg font-bold leading-snug tracking-tight text-ink">
+          <span className="title-underline">{title}</span>
         </h3>
-        <p className="mt-1 line-clamp-2 text-sm text-gray-500">{excerpt}</p>
-        <div className="mt-auto flex items-center gap-2 pt-3 text-xs text-gray-400">
+        <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-gray-600">
+          {excerpt}
+        </p>
+        <div className="mt-auto flex items-center gap-2 pt-4 font-mono text-[10px] uppercase tracking-[0.12em] text-gray-500">
           {authorData && <span>{authorData.name}</span>}
-          <span>&middot;</span>
+          <span className="h-1 w-1 rotate-45 bg-gray-400" />
           <span>{timeAgo(date)}</span>
-          <span>&middot;</span>
+          <span className="h-1 w-1 rotate-45 bg-gray-400" />
           <span>{readingTime} min</span>
         </div>
       </div>

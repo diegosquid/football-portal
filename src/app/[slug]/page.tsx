@@ -114,40 +114,40 @@ export default async function ArticlePage({ params }: Props) {
       />
       {faq.length > 0 && <FAQPageJsonLd items={faq} />}
 
-      <article className="mx-auto max-w-4xl px-4 py-8">
+      <article className="mx-auto max-w-4xl px-4 py-10">
         {/* Breadcrumb */}
-        <nav className="mb-6 text-sm text-gray-500">
-          <Link href="/" className="hover:text-primary">
+        <nav className="mb-8 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.15em] text-gray-500">
+          <Link href="/" className="transition-colors hover:text-primary">
             Início
           </Link>
-          <span className="mx-2">/</span>
+          <span className="h-1 w-1 rotate-45 bg-gray-400" />
           <Link
             href={`/categoria/${article.category}`}
-            className="hover:text-primary"
+            className="transition-colors hover:text-primary"
           >
             {category?.label ?? article.category}
           </Link>
-          <span className="mx-2">/</span>
-          <span className="text-gray-700">{article.title}</span>
         </nav>
 
-        {/* Header */}
+        {/* Cabeçalho */}
         <header>
           <CategoryBadge category={article.category} linked />
 
-          <h1 className="mt-3 text-3xl font-black leading-tight text-secondary lg:text-4xl">
+          <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.02] tracking-tight text-ink lg:text-5xl">
             {article.title}
           </h1>
 
-          <p className="mt-3 text-lg text-gray-600">{article.excerpt}</p>
+          <p className="mt-5 font-serif text-xl italic leading-relaxed text-gray-600 lg:text-2xl">
+            {article.excerpt}
+          </p>
 
-          <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-gray-500">
+          <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 border-y border-ink/15 py-3.5 font-mono text-xs uppercase tracking-[0.1em] text-gray-500">
             {author && (
               <Link
                 href={`/autor/${author.slug}`}
-                className="flex items-center gap-2 font-medium text-secondary hover:text-primary"
+                className="flex items-center gap-2.5 font-bold normal-case tracking-normal text-ink transition-colors hover:text-primary"
               >
-                <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full ring-2 ring-primary/20">
+                <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full ring-2 ring-lima">
                   <Image
                     src={author.avatar}
                     alt={author.name}
@@ -155,7 +155,7 @@ export default async function ArticlePage({ params }: Props) {
                     className="object-cover"
                     sizes="32px"
                   />
-                </div>
+                </span>
                 {author.name}
               </Link>
             )}
@@ -172,37 +172,40 @@ export default async function ArticlePage({ params }: Props) {
                 });
               })()}
             </time>
-            <span>{article.readingTime} min de leitura</span>
+            <span className="flex items-center gap-2">
+              <span className="h-1 w-1 rotate-45 bg-lima" />
+              {article.readingTime} min de leitura
+            </span>
           </div>
         </header>
 
-        {/* Featured image */}
+        {/* Imagem de destaque */}
         <figure className="mt-8">
           <ArticleImage
             src={article.image}
             alt={article.title}
             width={900}
             height={506}
-            className="w-full rounded-xl object-cover"
+            className="w-full object-cover"
             priority
             fallbackSrc={getFallbackImage(article.category)}
           />
           {article.imageCaption && (
-            <figcaption className="mt-2 text-center text-sm text-gray-500">
+            <figcaption className="mt-2.5 border-l-2 border-lima pl-3 text-left font-mono text-xs text-gray-500">
               {article.imageCaption}
             </figcaption>
           )}
         </figure>
 
-        {/* Article body */}
-        <div className="prose-article mt-8">
+        {/* Corpo do artigo */}
+        <div className="prose-article mt-10">
           <MDXContent code={article.body} />
         </div>
 
         {/* FAQ */}
         {faq.length > 0 && <ArticleFAQ items={faq} />}
 
-        {/* Source attribution */}
+        {/* Fonte */}
         {article.source && (
           <SourceAttribution
             name={article.source.name}
@@ -212,11 +215,11 @@ export default async function ArticlePage({ params }: Props) {
 
         {/* Tags */}
         {article.tags.length > 0 && (
-          <div className="mt-8 flex flex-wrap gap-2">
+          <div className="mt-10 flex flex-wrap gap-2">
             {article.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600"
+                className="border border-ink/15 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-gray-600"
               >
                 #{tag}
               </span>
@@ -224,11 +227,14 @@ export default async function ArticlePage({ params }: Props) {
           </div>
         )}
 
-        {/* Author box */}
+        {/* Caixa do autor */}
         {author && (
-          <div className="mt-10 rounded-xl border border-gray-200 bg-gray-50 p-6">
+          <div className="mt-12 border-y-2 border-ink bg-gray-50/60 px-6 py-6">
+            <p className="mb-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500">
+              Quem escreve
+            </p>
             <div className="flex items-start gap-4">
-              <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-2 ring-primary/20">
+              <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-2 ring-lima">
                 <Image
                   src={author.avatar}
                   alt={author.name}
@@ -240,26 +246,34 @@ export default async function ArticlePage({ params }: Props) {
               <div>
                 <Link
                   href={`/autor/${author.slug}`}
-                  className="font-bold text-secondary hover:text-primary"
+                  className="font-display text-lg font-bold text-ink transition-colors hover:text-primary"
                 >
                   {author.name}
                 </Link>
-                <p className="text-sm text-gray-500">{author.role}</p>
-                <p className="mt-2 text-sm text-gray-600">{author.bio}</p>
+                <p className="font-serif text-sm italic text-gray-500">
+                  {author.role}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                  {author.bio}
+                </p>
               </div>
             </div>
           </div>
         )}
       </article>
 
-      {/* Related articles */}
+      {/* Leia também */}
       {related.length > 0 && (
-        <section className="border-t border-gray-200 bg-surface">
-          <div className="mx-auto max-w-7xl px-4 py-12">
-            <h2 className="mb-6 text-2xl font-black text-secondary">
-              Leia também
-            </h2>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="border-t-2 border-ink bg-surface/60">
+          <div className="mx-auto max-w-7xl px-4 py-14">
+            <div className="mb-8 flex items-center gap-3">
+              <span className="h-3 w-3 rotate-45 border border-ink/30 bg-lima" />
+              <h2 className="shrink-0 font-display text-2xl font-extrabold uppercase tracking-tight text-ink">
+                Leia também
+              </h2>
+              <div className="h-px flex-1 bg-ink/15" />
+            </div>
+            <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((article) => (
                 <ArticleCard
                   key={article.slug}

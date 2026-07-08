@@ -67,10 +67,17 @@ export default function JogosFutebolHojePage() {
       />
 
       <div className="mx-auto max-w-4xl px-4 py-8">
-        <h1 className="mb-2 text-3xl font-black text-secondary sm:text-4xl">
+        <p className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.25em] text-gray-500">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+          </span>
+          Em campo
+        </p>
+        <h1 className="mt-3 font-display text-4xl font-extrabold leading-none tracking-tight text-ink sm:text-6xl">
           Jogos de Futebol Hoje
         </h1>
-        <p className="mb-8 text-gray-500">
+        <p className="mb-10 mt-4 max-w-2xl leading-relaxed text-gray-600">
           Programação completa dos jogos de futebol na TV aberta, fechada e
           streaming. Atualizado diariamente.
         </p>

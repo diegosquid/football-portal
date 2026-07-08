@@ -2,44 +2,261 @@
 @source "../../src";
 @plugin "@tailwindcss/typography";
 
-@theme inline {
-  --color-primary: #e94560;
-  --color-primary-dark: #c7344d;
-  --color-secondary: #16213e;
-  --color-tertiary: #0f3460;
-  --color-dark: #1a1a2e;
-  --color-surface: #f8f9fa;
-  --color-brasileirao: #008000;
-  --color-libertadores: #0066cc;
-  --color-champions: #6600cc;
+/* ============================================================
+   BEIRA DO CAMPO — sistema "grama & giz"
+   Papel-cal, verde-campo profundo, lima elétrico.
+   Display: Bricolage Grotesque · Serifa: Instrument Serif
+   Corpo: Archivo · Dados: Spline Sans Mono
+   ============================================================ */
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Inter", ui-sans-serif, system-ui, sans-serif;
+@theme inline {
+  /* Marca */
+  --color-campo: #0d2f1f;
+  --color-campo-deep: #081f14;
+  --color-lima: #cdf463;
+  --color-cal: #f3efe3;
+  --color-ink: #17251c;
+
+  /* Semânticos (compatível com páginas legadas) */
+  --color-primary: #0d7a3f;
+  --color-primary-dark: #09542c;
+  --color-secondary: #17251c;
+  --color-tertiary: #1e3a5f;
+  --color-dark: #0d2f1f;
+  --color-surface: #eae6d6;
+
+  /* Categorias */
+  --color-brasileirao: #0e7c3f;
+  --color-libertadores: #1e4fc2;
+  --color-champions: #5b2d8e;
+  --color-transferencias: #d9342b;
+  --color-analises: #1e3a5f;
+  --color-selecao: #f2c230;
+  --color-internacional: #17251c;
+  --color-opiniao: #e8622c;
+
+  /* Neutros quentes (substituem o cinza frio padrão) */
+  --color-gray-50: #f8f6ec;
+  --color-gray-100: #eeebdd;
+  --color-gray-200: #ddd8c4;
+  --color-gray-300: #c2bda6;
+  --color-gray-400: #9d9884;
+  --color-gray-500: #7d7967;
+  --color-gray-600: #615e4f;
+  --color-gray-700: #4c4a3e;
+  --color-gray-800: #33322a;
+  --color-gray-900: #21201b;
+  --color-gray-950: #131310;
+
+  /* Tipografia */
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-archivo), ui-sans-serif,
+    sans-serif;
+  --font-serif: var(--font-instrument), Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-spline-mono), ui-monospace, "SF Mono", monospace;
+  --font-heading: var(--font-bricolage), ui-sans-serif, sans-serif;
 }
 
 body {
   font-family: var(--font-sans);
-  color: var(--color-secondary);
-  background: white;
+  color: var(--color-ink);
+  background-color: var(--color-cal);
 }
 
-/* Article body typography */
+::selection {
+  background: var(--color-lima);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Grão de papel sutil sobre tudo */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* ---------- Ticker de jogos (letreiro) ---------- */
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 55s linear infinite;
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+@keyframes ticker-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- Revelação em cascata no carregamento ---------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.rise-1 {
+  animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+}
+.rise-2 {
+  animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
+}
+.rise-3 {
+  animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both;
+}
+.rise-4 {
+  animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .rise-1,
+  .rise-2,
+  .rise-3,
+  .rise-4,
+  .ticker-track {
+    animation: none;
+  }
+}
+
+/* ---------- Detalhes tipográficos ---------- */
+
+/* Números de camisa: preenchimento lima com traço de tinta */
+.num-jersey {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--color-lima);
+  -webkit-text-stroke: 1.2px var(--color-ink);
+  letter-spacing: -0.02em;
+}
+
+/* Wordmark gigante vazado (footer) */
+.text-outline-cal {
+  color: transparent;
+  -webkit-text-stroke: 1.5px color-mix(in srgb, var(--color-cal) 16%, transparent);
+}
+
+/* Sublinhado que desliza (títulos em hover) */
+.title-underline {
+  background-image: linear-gradient(var(--color-lima), var(--color-lima));
+  background-repeat: no-repeat;
+  background-size: 0% 0.45em;
+  background-position: 0 88%;
+  transition: background-size 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .title-underline,
+a:hover > .title-underline {
+  background-size: 100% 0.45em;
+}
+
+/* Link de navegação com régua deslizante */
+.hover-line {
+  position: relative;
+}
+
+.hover-line::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.45rem;
+  height: 2px;
+  background: var(--color-lima);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-line:hover::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Corpo do artigo ---------- */
 .prose-article {
   @apply prose prose-lg max-w-none;
-  @apply prose-headings:font-bold prose-headings:text-secondary;
+  @apply prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-ink;
   @apply prose-p:text-gray-700 prose-p:leading-relaxed;
-  @apply prose-a:text-primary prose-a:no-underline hover:prose-a:underline;
-  @apply prose-img:rounded-lg;
-  @apply prose-blockquote:border-l-primary prose-blockquote:text-gray-600;
-  @apply prose-strong:text-secondary;
+  @apply prose-a:font-medium prose-a:text-primary prose-a:underline prose-a:decoration-lima prose-a:decoration-[3px] prose-a:underline-offset-2 hover:prose-a:decoration-primary;
+  @apply prose-img:rounded-sm;
+  @apply prose-strong:text-ink;
+  @apply prose-li:text-gray-700;
 }
 
-/* Category badge colors */
+/* Capitular na abertura */
+.prose-article > p:first-of-type::first-letter {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 3.2em;
+  line-height: 0.82;
+  float: left;
+  padding-right: 0.14em;
+  color: var(--color-campo);
+}
+
+/* Citações em serifa itálica com régua lima */
+.prose-article blockquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.45em;
+  line-height: 1.35;
+  color: var(--color-gray-700);
+  border-left: 3px solid var(--color-lima);
+  padding-left: 1.25rem;
+  quotes: none;
+}
+
+.prose-article blockquote p::before,
+.prose-article blockquote p::after {
+  content: none;
+}
+
+/* Tabelas com cabeçalho mono, jeito de boletim */
+.prose-article table {
+  font-size: 0.9em;
+}
+
+.prose-article thead th {
+  font-family: var(--font-mono);
+  font-size: 0.72em;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-gray-500);
+  border-bottom: 2px solid var(--color-ink);
+}
+
+.prose-article tbody tr {
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+/* ---------- Selos de categoria ---------- */
 .badge-brasileirao { background-color: var(--color-brasileirao); }
 .badge-libertadores { background-color: var(--color-libertadores); }
 .badge-champions { background-color: var(--color-champions); }
-.badge-transferencias { background-color: var(--color-primary); }
-.badge-analises { background-color: var(--color-tertiary); }
-.badge-selecao { background-color: #f5c518; color: #16213e; }
-.badge-futebol-internacional { background-color: var(--color-dark); }
-.badge-opiniao { background-color: #ff6b35; }
+.badge-transferencias { background-color: var(--color-transferencias); }
+.badge-analises { background-color: var(--color-analises); }
+.badge-selecao { background-color: var(--color-selecao); color: var(--color-ink); }
+.badge-futebol-internacional { background-color: var(--color-internacional); }
+.badge-opiniao { background-color: var(--color-opiniao); }

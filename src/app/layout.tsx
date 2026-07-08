@@ -1,17 +1,43 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import {
+  Archivo,
+  Bricolage_Grotesque,
+  Instrument_Serif,
+  Spline_Sans_Mono,
+} from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { MatchTicker } from "@/components/MatchTicker";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { MicrosoftClarity } from "@/components/MicrosoftClarity";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
-const inter = Inter({
+const archivo = Archivo({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-archivo",
+});
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-bricolage",
+});
+
+const instrument = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-instrument",
+});
+
+const splineMono = Spline_Sans_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-spline-mono",
 });
 
 const defaultSocialTitle = `${siteConfig.name} — Notícias, Análises e Tabelas do Futebol`;
@@ -77,13 +103,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={inter.variable}>
+    <html
+      lang="pt-BR"
+      className={`${archivo.variable} ${bricolage.variable} ${instrument.variable} ${splineMono.variable}`}
+    >
       <GoogleAnalytics />
       <MicrosoftClarity />
       <body className="flex min-h-screen flex-col antialiased">
         <WebSiteJsonLd />
         <OrganizationJsonLd />
+        <div className="grain" aria-hidden="true" />
         <Header />
+        <MatchTicker />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

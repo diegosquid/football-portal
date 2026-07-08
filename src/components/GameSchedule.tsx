@@ -89,77 +89,79 @@ export function GameSchedule({ games, date, updatedAt }: GameScheduleProps) {
 
   return (
     <div>
-      <div className="mb-6 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-        <h2 className="text-xl font-bold capitalize text-secondary sm:text-2xl">
+      <div className="mb-8 flex flex-col gap-1 border-b-2 border-ink pb-4 sm:flex-row sm:items-end sm:justify-between">
+        <h2 className="font-display text-xl font-extrabold capitalize tracking-tight text-ink sm:text-2xl">
           {formatDateBR(date)}
         </h2>
-        <span className="text-xs text-gray-500">
+        <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-gray-500">
           Atualizado em {formatUpdatedAt(updatedAt)}
         </span>
       </div>
 
       {games.length === 0 ? (
-        <div className="rounded-lg border border-gray-200 bg-white p-8 text-center">
-          <p className="text-lg text-gray-500">
+        <div className="border border-ink/15 bg-gray-50/60 p-10 text-center">
+          <p className="font-display text-xl font-bold text-ink">
             Nenhum jogo programado para hoje.
           </p>
-          <p className="mt-2 text-sm text-gray-400">
+          <p className="mt-2 font-serif italic text-gray-500">
             Volte mais tarde — a programação é atualizada diariamente.
           </p>
         </div>
       ) : (
-        <div className="space-y-6">
+        <div className="space-y-8">
           {competitions.map((competition) => (
             <div key={competition}>
-              <div className="mb-3 flex items-center gap-2">
+              <div className="mb-3 flex items-center gap-2.5">
                 <span
-                  className={`inline-block rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider text-white ${getCompetitionColor(competition)}`}
-                >
+                  className={`h-2.5 w-2.5 shrink-0 ${getCompetitionColor(competition)}`}
+                />
+                <span className="font-display text-sm font-extrabold uppercase tracking-wide text-ink">
                   {competition}
                 </span>
                 {grouped[competition][0].round && (
-                  <span className="text-xs text-gray-500">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-gray-500">
                     {grouped[competition][0].round}
                   </span>
                 )}
+                <div className="h-px flex-1 bg-ink/15" />
               </div>
 
-              <div className="overflow-hidden rounded-lg border border-gray-200 bg-white">
+              <div className="border border-ink/15 bg-white/40">
                 {grouped[competition].map((game, idx) => (
                   <Link
                     key={game.slug}
                     href={`/onde-assistir/${game.slug}`}
-                    className={`flex items-center gap-3 px-4 py-3 transition-colors hover:bg-surface sm:gap-4 ${
-                      idx > 0 ? "border-t border-gray-100" : ""
+                    className={`group flex items-center gap-3 px-4 py-3.5 transition-colors hover:bg-lima/20 sm:gap-4 ${
+                      idx > 0 ? "border-t border-ink/10" : ""
                     }`}
                   >
-                    <div className="w-14 shrink-0 text-center">
-                      <span className="text-lg font-black text-primary">
+                    <div className="w-16 shrink-0 border-r border-ink/10 pr-3 text-center">
+                      <span className="font-mono text-base font-bold text-primary">
                         {game.time}
                       </span>
                     </div>
 
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-1.5">
-                        <span className="truncate text-sm font-semibold text-secondary sm:text-base">
+                        <span className="truncate font-display text-sm font-bold text-ink sm:text-base">
                           {game.home}
                         </span>
-                        <span className="shrink-0 text-xs text-gray-400">
-                          x
+                        <span className="shrink-0 font-mono text-xs text-gray-400">
+                          ×
                         </span>
-                        <span className="truncate text-sm font-semibold text-secondary sm:text-base">
+                        <span className="truncate font-display text-sm font-bold text-ink sm:text-base">
                           {game.away}
                         </span>
                       </div>
                       {game.stadium && (
-                        <p className="mt-0.5 text-xs text-gray-400">
+                        <p className="mt-0.5 font-mono text-[11px] text-gray-500">
                           {game.stadium}
                         </p>
                       )}
                     </div>
 
                     <div className="shrink-0 text-right">
-                      <span className="rounded bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700">
+                      <span className="border border-ink/15 bg-cal px-2 py-1 font-mono text-[11px] font-medium text-gray-700 transition-colors group-hover:border-ink/30">
                         {game.channel}
                       </span>
                     </div>

@@ -12,33 +12,36 @@ export function Pagination({ currentPage, totalPages, pageUrl }: PaginationProps
   const pages = buildPageRange(currentPage, totalPages);
 
   return (
-    <nav aria-label="Paginação" className="mt-12 flex items-center justify-center gap-2">
+    <nav
+      aria-label="Paginação"
+      className="mt-14 flex items-center justify-center gap-2 font-mono text-sm"
+    >
       {/* Anterior */}
       {currentPage > 1 ? (
         <Link
           href={pageUrl(currentPage - 1)}
-          className="flex h-10 items-center rounded-lg border border-gray-200 px-4 text-sm font-medium text-secondary transition-colors hover:bg-primary hover:text-white hover:border-primary"
+          className="flex h-11 items-center border border-ink/20 px-4 font-medium uppercase tracking-wider text-ink transition-colors hover:border-ink hover:bg-ink hover:text-cal"
           rel="prev"
         >
-          ← Anterior
+          ← Ant
         </Link>
       ) : (
-        <span className="flex h-10 items-center rounded-lg border border-gray-100 px-4 text-sm font-medium text-gray-300 cursor-not-allowed">
-          ← Anterior
+        <span className="flex h-11 cursor-not-allowed items-center border border-ink/10 px-4 font-medium uppercase tracking-wider text-gray-300">
+          ← Ant
         </span>
       )}
 
       {/* Números de página — desktop */}
-      <div className="hidden sm:flex items-center gap-1">
+      <div className="hidden items-center gap-2 sm:flex">
         {pages.map((item, idx) =>
           item === "ellipsis" ? (
-            <span key={`ellipsis-${idx}`} className="px-2 text-gray-400">
+            <span key={`ellipsis-${idx}`} className="px-1 text-gray-400">
               …
             </span>
           ) : item === currentPage ? (
             <span
               key={item}
-              className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
+              className="flex h-11 w-11 items-center justify-center bg-ink font-bold text-lima"
               aria-current="page"
             >
               {item}
@@ -47,7 +50,7 @@ export function Pagination({ currentPage, totalPages, pageUrl }: PaginationProps
             <Link
               key={item}
               href={pageUrl(item)}
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-200 text-sm font-medium text-secondary transition-colors hover:bg-primary hover:text-white hover:border-primary"
+              className="flex h-11 w-11 items-center justify-center border border-ink/20 font-medium text-ink transition-colors hover:border-ink hover:bg-ink hover:text-cal"
             >
               {item}
             </Link>
@@ -56,22 +59,22 @@ export function Pagination({ currentPage, totalPages, pageUrl }: PaginationProps
       </div>
 
       {/* Mobile: "Página X de Y" */}
-      <span className="sm:hidden text-sm text-gray-500">
-        Página {currentPage} de {totalPages}
+      <span className="text-xs uppercase tracking-wider text-gray-500 sm:hidden">
+        {currentPage} / {totalPages}
       </span>
 
       {/* Próxima */}
       {currentPage < totalPages ? (
         <Link
           href={pageUrl(currentPage + 1)}
-          className="flex h-10 items-center rounded-lg border border-gray-200 px-4 text-sm font-medium text-secondary transition-colors hover:bg-primary hover:text-white hover:border-primary"
+          className="flex h-11 items-center border border-ink/20 px-4 font-medium uppercase tracking-wider text-ink transition-colors hover:border-ink hover:bg-ink hover:text-cal"
           rel="next"
         >
-          Próxima →
+          Próx →
         </Link>
       ) : (
-        <span className="flex h-10 items-center rounded-lg border border-gray-100 px-4 text-sm font-medium text-gray-300 cursor-not-allowed">
-          Próxima →
+        <span className="flex h-11 cursor-not-allowed items-center border border-ink/10 px-4 font-medium uppercase tracking-wider text-gray-300">
+          Próx →
         </span>
       )}
     </nav>

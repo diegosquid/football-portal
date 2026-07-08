@@ -16,30 +16,57 @@ const FEATURED_TEAM_SLUGS = [
   "vasco",
 ];
 
+/* Meio-campo em giz: linha central + círculo */
+function PitchLines({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 600 300"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+    >
+      <circle cx="300" cy="150" r="90" stroke="currentColor" strokeWidth="2" />
+      <circle cx="300" cy="150" r="4" fill="currentColor" />
+      <line x1="300" y1="0" x2="300" y2="300" stroke="currentColor" strokeWidth="2" />
+      <rect x="0" y="60" width="70" height="180" stroke="currentColor" strokeWidth="2" />
+      <rect x="530" y="60" width="70" height="180" stroke="currentColor" strokeWidth="2" />
+    </svg>
+  );
+}
+
 export function Footer() {
   const featuredTeams = FEATURED_TEAM_SLUGS.map((slug) => teams[slug]).filter(
     (t): t is NonNullable<typeof t> => Boolean(t),
   );
 
   return (
-    <footer className="bg-secondary text-white">
-      <div className="mx-auto max-w-7xl px-4 py-12">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
-          {/* Brand */}
+    <footer className="relative overflow-hidden bg-campo-deep text-cal">
+      <PitchLines className="pointer-events-none absolute -right-24 -top-16 w-[560px] text-lima/[0.07]" />
+
+      {/* Wordmark gigante vazado */}
+      <div className="relative select-none overflow-hidden border-b border-cal/10 px-4 pt-10 pb-2" aria-hidden="true">
+        <p className="text-outline-cal whitespace-nowrap text-center font-display text-[10.5vw] font-extrabold uppercase leading-[0.8] tracking-tight">
+          Beira do Campo
+        </p>
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 py-12">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
+          {/* Marca */}
           <div>
             <Link href="/">
               <Logo />
             </Link>
-            <p className="mt-3 text-sm text-gray-400">
+            <p className="mt-4 text-sm leading-relaxed text-cal/50">
               {siteConfig.description}
             </p>
-            <div className="mt-4 flex gap-3">
+            <div className="mt-5 flex gap-3">
               <a
                 href={siteConfig.links.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter / X"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-gray-300 transition-colors hover:bg-primary hover:text-white"
+                className="flex h-10 w-10 items-center justify-center border border-cal/20 text-cal/70 transition-colors hover:border-lima hover:bg-lima hover:text-ink"
               >
                 <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -50,7 +77,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-gray-300 transition-colors hover:bg-red-600 hover:text-white"
+                className="flex h-10 w-10 items-center justify-center border border-cal/20 text-cal/70 transition-colors hover:border-lima hover:bg-lima hover:text-ink"
               >
                 <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
@@ -59,16 +86,16 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Categories */}
+          {/* Categorias */}
           <div>
-            <h3 className="mb-3 text-sm font-bold uppercase tracking-wider text-gray-400">
+            <h3 className="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-lima">
               Categorias
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               <li>
                 <Link
                   href="/jogos-futebol-hoje"
-                  className="text-sm font-semibold text-primary transition-colors hover:text-white"
+                  className="text-sm font-semibold text-lima transition-colors hover:text-cal"
                 >
                   Jogos de Hoje
                 </Link>
@@ -77,7 +104,7 @@ export function Footer() {
                 <li key={cat.slug}>
                   <Link
                     href={`/categoria/${cat.slug}`}
-                    className="text-sm text-gray-300 transition-colors hover:text-primary"
+                    className="text-sm text-cal/70 transition-colors hover:text-lima"
                   >
                     {cat.label}
                   </Link>
@@ -88,15 +115,15 @@ export function Footer() {
 
           {/* Times */}
           <div>
-            <h3 className="mb-3 text-sm font-bold uppercase tracking-wider text-gray-400">
+            <h3 className="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-lima">
               Times
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {featuredTeams.map((team) => (
                 <li key={team.slug}>
                   <Link
                     href={`/time/${team.slug}`}
-                    className="text-sm text-gray-300 transition-colors hover:text-primary"
+                    className="text-sm text-cal/70 transition-colors hover:text-lima"
                   >
                     {team.name}
                   </Link>
@@ -105,7 +132,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/time"
-                  className="text-sm font-semibold text-primary transition-colors hover:text-white"
+                  className="text-sm font-semibold text-lima transition-colors hover:text-cal"
                 >
                   Ver todos os times →
                 </Link>
@@ -113,16 +140,16 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Institutional */}
+          {/* Institucional */}
           <div>
-            <h3 className="mb-3 text-sm font-bold uppercase tracking-wider text-gray-400">
+            <h3 className="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-lima">
               Institucional
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               <li>
                 <Link
                   href="/sobre"
-                  className="text-sm text-gray-300 transition-colors hover:text-primary"
+                  className="text-sm text-cal/70 transition-colors hover:text-lima"
                 >
                   Sobre Nós
                 </Link>
@@ -130,7 +157,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/politica-de-privacidade"
-                  className="text-sm text-gray-300 transition-colors hover:text-primary"
+                  className="text-sm text-cal/70 transition-colors hover:text-lima"
                 >
                   Política de Privacidade
                 </Link>
@@ -138,7 +165,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/termos-de-uso"
-                  className="text-sm text-gray-300 transition-colors hover:text-primary"
+                  className="text-sm text-cal/70 transition-colors hover:text-lima"
                 >
                   Termos de Uso
                 </Link>
@@ -146,7 +173,7 @@ export function Footer() {
               <li>
                 <a
                   href="/feed.xml"
-                  className="text-sm text-gray-300 transition-colors hover:text-primary"
+                  className="text-sm text-cal/70 transition-colors hover:text-lima"
                 >
                   RSS
                 </a>
@@ -156,22 +183,22 @@ export function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h3 className="mb-3 text-sm font-bold uppercase tracking-wider text-gray-400">
+            <h3 className="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-lima">
               Newsletter
             </h3>
-            <p className="mb-3 text-sm text-gray-400">
+            <p className="mb-4 text-sm text-cal/50">
               Receba as principais notícias do dia no seu e-mail.
             </p>
             <NewsletterForm />
           </div>
         </div>
 
-        <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-gray-500">
+        <div className="mt-12 flex flex-col items-center gap-1 border-t border-cal/10 pt-6 text-center font-mono text-[11px] uppercase tracking-[0.15em] text-cal/40">
           <p>
-            &copy; {new Date().getFullYear()} {siteConfig.name}. Todos os
-            direitos reservados.
+            © {new Date().getFullYear()} {siteConfig.name} — Todos os direitos
+            reservados
           </p>
-          <p className="mt-1">
+          <p className="normal-case tracking-normal">
             As informações deste portal são agregadas de fontes públicas com a
             devida atribuição.
           </p>

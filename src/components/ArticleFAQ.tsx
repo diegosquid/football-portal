@@ -5,15 +5,27 @@ interface FAQItem {
 
 export function ArticleFAQ({ items }: { items: FAQItem[] }) {
   return (
-    <section className="mt-10 rounded-xl border border-gray-200 bg-gray-50 p-6">
-      <h2 className="mb-4 text-xl font-bold text-secondary">
+    <section className="mt-12 border-t-2 border-ink pt-6">
+      <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500">
+        Tira-dúvidas
+      </p>
+      <h2 className="mt-2 font-display text-2xl font-extrabold tracking-tight text-ink">
         Perguntas frequentes
       </h2>
-      <dl className="space-y-4">
+      <dl className="mt-5 divide-y divide-ink/10">
         {items.map((item, i) => (
-          <div key={i}>
-            <dt className="font-semibold text-secondary">{item.question}</dt>
-            <dd className="mt-1 text-gray-700">{item.answer}</dd>
+          <div key={i} className="flex gap-4 py-4">
+            <span className="num-jersey shrink-0 text-2xl leading-none">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <dt className="font-display font-bold text-ink">
+                {item.question}
+              </dt>
+              <dd className="mt-1.5 text-sm leading-relaxed text-gray-600">
+                {item.answer}
+              </dd>
+            </div>
           </div>
         ))}
       </dl>

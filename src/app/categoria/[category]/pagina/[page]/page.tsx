@@ -101,33 +101,35 @@ export default async function CategoryPaginatedPage({ params }: Props) {
         ]}
       />
 
-      <nav className="mb-4 text-sm text-gray-500">
-        <Link href="/" className="hover:text-primary">
+      <nav className="mb-6 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.15em] text-gray-500">
+        <Link href="/" className="transition-colors hover:text-primary">
           Início
         </Link>
-        <span className="mx-2">/</span>
-        <Link href={basePath} className="hover:text-primary">
+        <span className="h-1 w-1 rotate-45 bg-gray-400" />
+        <Link href={basePath} className="transition-colors hover:text-primary">
           {cat.label}
         </Link>
-        <span className="mx-2">/</span>
+        <span className="h-1 w-1 rotate-45 bg-gray-400" />
         <span className="text-gray-700">Página {pageNum}</span>
       </nav>
 
-      <header className="mb-8">
-        <div
-          className={`badge-${category} mb-4 inline-block rounded-sm px-3 py-1 text-xs font-bold uppercase tracking-wider text-white`}
-        >
-          {cat.label}
-        </div>
-        <h1 className="text-3xl font-black text-secondary lg:text-4xl">
+      <header className="mb-10 border-b-2 border-ink pb-8">
+        <p className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.25em] text-gray-500">
+          <span
+            className="inline-block h-2 w-2"
+            style={{ backgroundColor: cat.color }}
+          />
+          Editoria
+        </p>
+        <h1 className="mt-3 font-display text-4xl font-extrabold leading-none tracking-tight text-ink sm:text-6xl">
           {cat.label}
         </h1>
-        <p className="mt-2 text-gray-600">
+        <p className="mt-4 text-gray-600">
           {cat.description} — Página {pageNum} de {result.totalPages}
         </p>
       </header>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
         {result.items.map((article) => (
           <ArticleCard
             key={article.slug}

@@ -42,15 +42,13 @@ export function NewsletterForm() {
 
   if (status === "success") {
     return (
-      <p className="text-sm text-primary font-medium">
-        ✓ {message}
-      </p>
+      <p className="font-mono text-sm font-medium text-lima">✓ {message}</p>
     );
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-2">
-      <div className="flex gap-2">
+      <div className="flex">
         <input
           type="email"
           value={email}
@@ -58,18 +56,18 @@ export function NewsletterForm() {
           placeholder="seu@email.com"
           required
           disabled={status === "loading"}
-          className="flex-1 rounded bg-white/10 px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary disabled:opacity-50"
+          className="min-w-0 flex-1 border border-cal/25 bg-transparent px-3 py-2.5 font-mono text-sm text-cal placeholder:text-cal/35 focus:border-lima focus:outline-none disabled:opacity-50"
         />
         <button
           type="submit"
           disabled={status === "loading"}
-          className="rounded bg-primary px-4 py-2 text-sm font-bold transition-colors hover:bg-primary-dark disabled:opacity-50"
+          className="shrink-0 border border-lima bg-lima px-4 py-2.5 font-mono text-sm font-bold uppercase tracking-wider text-ink transition-colors hover:bg-cal hover:border-cal disabled:opacity-50"
         >
           {status === "loading" ? "..." : "OK"}
         </button>
       </div>
       {status === "error" && (
-        <p className="text-xs text-red-400">{message}</p>
+        <p className="font-mono text-xs text-[#ff8f7a]">{message}</p>
       )}
     </form>
   );
