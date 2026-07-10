@@ -1,16 +1,6 @@
 {
-  "updatedAt": "2026-07-09T13:24:00-03:00",
+  "updatedAt": "2026-07-10T09:28:00-03:00",
   "games": [
-    {
-      "date": "2026-07-09",
-      "time": "17:00",
-      "home": "França",
-      "away": "Marrocos",
-      "competition": "Copa do Mundo 2026",
-      "round": "Quartas de final",
-      "channel": "Globo / SporTV / CazéTV",
-      "stadium": "Gillette Stadium"
-    },
     {
       "date": "2026-07-10",
       "time": "16:00",
@@ -130,6 +120,16 @@
       "round": "Rodada 17",
       "channel": "ESPN / Disney+",
       "stadium": "Presidente Vargas"
+    },
+    {
+      "date": "2026-07-14",
+      "time": "16:00",
+      "home": "França",
+      "away": "Espanha / Bélgica",
+      "competition": "Copa do Mundo 2026",
+      "round": "Semifinal",
+      "channel": "Globo / SporTV / CazéTV",
+      "stadium": "AT&T Stadium"
     }
   ]
 }
