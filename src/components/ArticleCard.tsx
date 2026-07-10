@@ -75,8 +75,8 @@ export function ArticleCard({
 
         <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-10">
           <CategoryBadge category={category} />
-          <h2 className="mt-4 max-w-3xl font-display text-3xl font-extrabold leading-[1.03] tracking-tight text-cal lg:text-5xl">
-            <span className="title-underline">{title}</span>
+          <h2 className="mt-4 max-w-3xl font-display text-3xl font-extrabold leading-[1.12] tracking-tight text-cal lg:text-5xl">
+            <span className="title-underline-below">{title}</span>
           </h2>
           <p className="mt-3 line-clamp-2 max-w-2xl font-serif text-base italic text-cal/75 lg:text-xl">
             {excerpt}
