@@ -1,36 +1,6 @@
 {
-  "updatedAt": "2026-07-10T13:12:00-03:00",
+  "updatedAt": "2026-07-11T11:25:00-03:00",
   "games": [
-    {
-      "date": "2026-07-10",
-      "time": "16:00",
-      "home": "Espanha",
-      "away": "Bélgica",
-      "competition": "Copa do Mundo 2026",
-      "round": "Quartas de final",
-      "channel": "Globo / SporTV / CazéTV",
-      "stadium": "SoFi Stadium"
-    },
-    {
-      "date": "2026-07-10",
-      "time": "19:00",
-      "home": "Juventude",
-      "away": "Vila Nova",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 17",
-      "channel": "ESPN / Disney+",
-      "stadium": "Alfredo Jaconi"
-    },
-    {
-      "date": "2026-07-10",
-      "time": "20:00",
-      "home": "Sport",
-      "away": "Botafogo-SP",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 17",
-      "channel": "ESPN / Disney+",
-      "stadium": "Ilha do Retiro"
-    },
     {
       "date": "2026-07-11",
       "time": "18:00",
@@ -125,11 +95,21 @@
       "date": "2026-07-14",
       "time": "16:00",
       "home": "França",
-      "away": "Espanha / Bélgica",
+      "away": "Espanha",
       "competition": "Copa do Mundo 2026",
       "round": "Semifinal",
       "channel": "Globo / SporTV / CazéTV",
       "stadium": "AT&T Stadium"
+    },
+    {
+      "date": "2026-07-15",
+      "time": "16:00",
+      "home": "Noruega/Inglaterra",
+      "away": "Argentina/Suíça",
+      "competition": "Copa do Mundo 2026",
+      "round": "Semifinal",
+      "channel": "Globo / SporTV / CazéTV",
+      "stadium": "Mercedes-Benz Stadium"
     }
   ]
 }
