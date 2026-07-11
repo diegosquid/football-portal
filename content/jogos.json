@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-11T11:25:00-03:00",
+  "updatedAt": "2026-07-11T13:13:00-03:00",
   "games": [
     {
       "date": "2026-07-11",
@@ -8,7 +8,7 @@
       "away": "Inglaterra",
       "competition": "Copa do Mundo 2026",
       "round": "Quartas de final",
-      "channel": "SporTV / CazéTV",
+      "channel": "Globo / SporTV / CazéTV",
       "stadium": "Hard Rock Stadium"
     },
     {
@@ -18,7 +18,7 @@
       "away": "Suíça",
       "competition": "Copa do Mundo 2026",
       "round": "Quartas de final",
-      "channel": "SporTV / CazéTV",
+      "channel": "CazéTV",
       "stadium": "Arrowhead Stadium"
     },
     {
@@ -29,7 +29,7 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 17",
       "channel": "ESPN / Disney+",
-      "stadium": ""
+      "stadium": "Germano Krüger"
     },
     {
       "date": "2026-07-12",
