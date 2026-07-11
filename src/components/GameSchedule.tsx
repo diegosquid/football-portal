@@ -4,7 +4,8 @@ import type { Match } from "@/lib/matches";
 type GameScheduleProps = {
   games: Match[];
   date: string;
-  updatedAt: string;
+  updatedAt?: string;
+  emptyMessage?: string;
 };
 
 const competitionColors: Record<string, string> = {
@@ -26,6 +27,8 @@ const competitionColors: Record<string, string> = {
   "Campeonato Argentino": "bg-sky-600",
   "Campeonato Uruguaio": "bg-sky-700",
   "Campeonato Ucraniano": "bg-amber-600",
+  "Copa do Mundo 2026": "bg-teal-700",
+  "Copa do Nordeste": "bg-rose-700",
 };
 
 function getCompetitionColor(competition: string): string {
@@ -55,7 +58,12 @@ function formatUpdatedAt(isoStr: string): string {
   });
 }
 
-export function GameSchedule({ games, date, updatedAt }: GameScheduleProps) {
+export function GameSchedule({
+  games,
+  date,
+  updatedAt,
+  emptyMessage = "Nenhum jogo programado para hoje.",
+}: GameScheduleProps) {
   const grouped = games.reduce<Record<string, Match[]>>((acc, game) => {
     const key = game.competition;
     if (!acc[key]) acc[key] = [];
@@ -93,15 +101,17 @@ export function GameSchedule({ games, date, updatedAt }: GameScheduleProps) {
         <h2 className="font-display text-xl font-extrabold capitalize tracking-tight text-ink sm:text-2xl">
           {formatDateBR(date)}
         </h2>
-        <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-gray-500">
-          Atualizado em {formatUpdatedAt(updatedAt)}
-        </span>
+        {updatedAt && (
+          <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-gray-500">
+            Atualizado em {formatUpdatedAt(updatedAt)}
+          </span>
+        )}
       </div>
 
       {games.length === 0 ? (
         <div className="border border-ink/15 bg-gray-50/60 p-10 text-center">
           <p className="font-display text-xl font-bold text-ink">
-            Nenhum jogo programado para hoje.
+            {emptyMessage}
           </p>
           <p className="mt-2 font-serif italic text-gray-500">
             Volte mais tarde — a programação é atualizada diariamente.

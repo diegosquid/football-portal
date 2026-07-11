@@ -91,6 +91,59 @@ export function getTodayMatches(): Match[] {
   return getAllMatches().filter((m) => m.date === today);
 }
 
+/** Soma dias a uma data YYYY-MM-DD no fuso de Brasília. */
+export function addDaysBRT(dateStr: string, days: number): string {
+  const d = new Date(`${dateStr}T12:00:00-03:00`);
+  d.setDate(d.getDate() + days);
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Sao_Paulo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(d);
+}
+
+/** Data de amanhã no fuso de Brasília (YYYY-MM-DD). */
+export function getTomorrowBRT(): string {
+  return addDaysBRT(getTodayBRT(), 1);
+}
+
+/** Jogos de uma data específica (YYYY-MM-DD, BRT). */
+export function getMatchesByDate(date: string): Match[] {
+  return getAllMatches().filter((m) => m.date === date);
+}
+
+/** Só jogos de AMANHÃ (BRT) — para a landing /jogos-de-amanha. */
+export function getTomorrowMatches(): Match[] {
+  return getMatchesByDate(getTomorrowBRT());
+}
+
+/** Jogos futuros da janela (depois de hoje), ordenados por data e horário. */
+export function getUpcomingMatches(): Match[] {
+  const today = getTodayBRT();
+  return getAllMatches()
+    .filter((m) => m.date > today)
+    .sort((a, b) =>
+      a.date === b.date ? a.time.localeCompare(b.time) : a.date.localeCompare(b.date),
+    );
+}
+
+/** Data curta pt-BR: "11/07". */
+export function formatDateShortBR(dateStr: string): string {
+  const [, month, day] = dateStr.split("-");
+  return `${day}/${month}`;
+}
+
+/** Data longa pt-BR: "sexta-feira, 11 de julho". */
+export function formatDateLongBR(dateStr: string): string {
+  return new Date(`${dateStr}T12:00:00-03:00`).toLocaleDateString("pt-BR", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    timeZone: "America/Sao_Paulo",
+  });
+}
+
 export function getMatchBySlug(slug: string): Match | undefined {
   return getAllMatches().find((m) => m.slug === slug);
 }

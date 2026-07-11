@@ -3,6 +3,7 @@ import { articles } from "#content";
 import { getAllCategories } from "@/lib/categories";
 import { getAllAuthors } from "@/lib/authors";
 import { getAllTeams } from "@/lib/teams";
+import { getAllCompetitions } from "@/lib/competitions";
 import { getAllMatches } from "@/lib/matches";
 import { siteConfig } from "@/lib/site";
 import { ARTICLES_PER_PAGE } from "@/lib/pagination";
@@ -13,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "hourly", priority: 1.0 },
     { url: `${baseUrl}/jogos-futebol-hoje`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.9 },
+    { url: `${baseUrl}/jogos-de-amanha`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.9 },
+    { url: `${baseUrl}/jogos-da-semana`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.85 },
     { url: `${baseUrl}/time`, lastModified: new Date(), changeFrequency: "daily", priority: 0.8 },
     { url: `${baseUrl}/sobre`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
     { url: `${baseUrl}/feed.xml`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.5 },
@@ -85,6 +88,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
+  // Competições "hoje" — /jogos-futebol-hoje/[competicao]
+  const competitionHojePages: MetadataRoute.Sitemap = getAllCompetitions().map(
+    (comp) => ({
+      url: `${baseUrl}/jogos-futebol-hoje/${comp.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "hourly" as const,
+      priority: 0.85,
+    }),
+  );
+
   // Times — página 1
   const teamPages: MetadataRoute.Sitemap = getAllTeams().map((team) => ({
     url: `${baseUrl}/time/${team.slug}`,
@@ -137,6 +150,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...authorPages,
     ...authorPaginatedPages,
     ...teamHojePages,
+    ...competitionHojePages,
     ...teamPages,
     ...teamPaginatedPages,
     ...matchPages,

@@ -9,6 +9,8 @@ import {
   FAQPageJsonLd,
 } from "@/components/JsonLd";
 import { resolveTeamSlug } from "@/lib/teams";
+import { compDo, getCompetition, resolveCompetitionSlug } from "@/lib/competitions";
+import { pelaCompetition } from "@/lib/schedule-seo";
 import { absoluteUrl, siteConfig, truncateForMeta } from "@/lib/site";
 import {
   daysUntil,
@@ -73,7 +75,7 @@ function buildFaq(match: Match) {
     },
     {
       question: "Qual é a competição?",
-      answer: `Partida válida pelo ${competicaoText}.`,
+      answer: `Partida válida ${pelaCompetition(competicaoText)}.`,
     },
   ];
 
@@ -99,7 +101,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? ` Transmissão: ${match.channel}.`
     : " Emissora a definir.";
   const metaDescription = truncateForMeta(
-    `${match.home} x ${match.away} ${whenWord} pelo ${match.competition}: horário (${match.time}) e onde assistir ao vivo.${descChannelPart}`,
+    `${match.home} x ${match.away} ${whenWord} ${pelaCompetition(match.competition)}: horário (${match.time}) e onde assistir ao vivo.${descChannelPart}`,
     160,
   );
   const canonical = `/onde-assistir/${match.slug}`;
@@ -154,23 +156,61 @@ export default async function OndeAssistirPage({ params }: Props) {
   const countdown = formatCountdown(daysToGo);
   const hasChannel = channelIsDefined(match.channel);
 
+  const competitionSlug = resolveCompetitionSlug(match.competition);
+  const competitionHub = competitionSlug
+    ? getCompetition(competitionSlug)
+    : undefined;
+
   // SportsEvent schema (enriched vs. /jogos-futebol-hoje)
   const channelForSchema = hasChannel ? match.channel : "A definir";
+  const homeTeamSchema = { "@type": "SportsTeam", name: match.home };
+  const awayTeamSchema = { "@type": "SportsTeam", name: match.away };
   const sportsEventJsonLd = {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
     name: `${match.home} x ${match.away}`,
+    sport: "Futebol",
     startDate: match.startDateIso,
     eventStatus: "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     location: match.stadium
       ? { "@type": "Place", name: match.stadium }
       : undefined,
-    homeTeam: { "@type": "SportsTeam", name: match.home },
-    awayTeam: { "@type": "SportsTeam", name: match.away },
+    homeTeam: homeTeamSchema,
+    awayTeam: awayTeamSchema,
+    competitor: [homeTeamSchema, awayTeamSchema],
     description: `${match.competition}${match.round ? ` — ${match.round}` : ""} — Transmissão: ${channelForSchema}`,
     url: absoluteUrl(`/onde-assistir/${match.slug}`),
   };
+
+  // BroadcastEvent — elegibilidade pra rich results de transmissão ao vivo
+  const broadcastServices = hasChannel
+    ? match.channel
+        .split("/")
+        .map((c) => c.trim())
+        .filter(Boolean)
+    : [];
+  const broadcastJsonLd =
+    broadcastServices.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "BroadcastEvent",
+          name: `Transmissão ao vivo: ${match.home} x ${match.away}`,
+          isLiveBroadcast: true,
+          inLanguage: "pt-BR",
+          startDate: match.startDateIso,
+          broadcastOfEvent: {
+            "@type": "SportsEvent",
+            name: `${match.home} x ${match.away}`,
+            startDate: match.startDateIso,
+            url: absoluteUrl(`/onde-assistir/${match.slug}`),
+          },
+          publishedOn: broadcastServices.map((name) => ({
+            "@type": "BroadcastService",
+            name,
+          })),
+        }
+      : null;
 
   return (
     <>
@@ -178,6 +218,12 @@ export default async function OndeAssistirPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(sportsEventJsonLd) }}
       />
+      {broadcastJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(broadcastJsonLd) }}
+        />
+      )}
       <BreadcrumbJsonLd
         items={[
           { name: "Início", url: "/" },
@@ -285,7 +331,7 @@ export default async function OndeAssistirPage({ params }: Props) {
         </section>
 
         {/* Team hubs */}
-        {(homeSlug || awaySlug) && (
+        {(homeSlug || awaySlug || competitionHub) && (
           <section className="mb-10">
             <h2 className="mb-3 text-lg font-bold text-secondary">
               Mais sobre os times
@@ -321,6 +367,14 @@ export default async function OndeAssistirPage({ params }: Props) {
                   className="rounded-full border border-gray-200 bg-white px-4 py-2 font-medium text-secondary transition-colors hover:border-primary hover:text-primary"
                 >
                   {match.away} hoje
+                </Link>
+              )}
+              {competitionHub && (
+                <Link
+                  href={`/jogos-futebol-hoje/${competitionHub.slug}`}
+                  className="rounded-full border border-gray-200 bg-white px-4 py-2 font-medium text-secondary transition-colors hover:border-primary hover:text-primary"
+                >
+                  Jogos {compDo(competitionHub)} hoje
                 </Link>
               )}
             </div>

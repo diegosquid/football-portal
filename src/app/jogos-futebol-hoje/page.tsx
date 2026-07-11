@@ -1,63 +1,82 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { GameSchedule } from "@/components/GameSchedule";
+import { UpcomingMatches } from "@/components/UpcomingMatches";
+import { ArticleFAQ } from "@/components/ArticleFAQ";
+import { FAQPageJsonLd } from "@/components/JsonLd";
+import { getAllCompetitions } from "@/lib/competitions";
 import {
+  buildDayFaq,
+  matchesItemListJsonLd,
+  sportsEventJsonLd,
+} from "@/lib/schedule-seo";
+import {
+  formatDateLongBR,
+  formatDateShortBR,
   getScheduleMeta,
   getTodayBRT,
   getTodayMatches,
+  getTomorrowMatches,
 } from "@/lib/matches";
 
 export const revalidate = 900; // 15 min
 
-export const metadata: Metadata = {
-  title: "Jogos de Futebol Hoje — Programação Completa na TV",
-  description:
-    "Confira todos os jogos de futebol hoje com horários, canais de TV e onde assistir ao vivo. Brasileirão, Libertadores, Champions League, Premier League e mais.",
-  keywords: [
-    "jogos futebol hoje",
-    "jogos de hoje",
-    "futebol hoje na tv",
-    "programação futebol hoje",
-    "onde assistir futebol hoje",
-    "jogos de futebol hoje ao vivo",
-  ],
-  alternates: {
-    canonical: `${siteConfig.url}/jogos-futebol-hoje`,
-  },
-  openGraph: {
-    title: "Jogos de Futebol Hoje — Programação Completa na TV",
-    description:
-      "Todos os jogos de futebol de hoje com horários e canais. Atualizado diariamente.",
-    url: `${siteConfig.url}/jogos-futebol-hoje`,
-    siteName: siteConfig.name,
-    locale: "pt_BR",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Jogos de Futebol Hoje — Programação na TV",
-    description:
-      "Confira todos os jogos de futebol hoje com horários e canais de TV.",
-  },
-};
+export function generateMetadata(): Metadata {
+  const today = getTodayBRT();
+  const games = getTodayMatches();
+  const dateShort = formatDateShortBR(today);
+  const dateLong = formatDateLongBR(today);
+
+  const title = `Jogos de Futebol Hoje (${dateShort}): Horários e Onde Assistir`;
+  const description =
+    games.length > 0
+      ? `Veja os ${games.length} jogos de futebol hoje, ${dateLong}: horários, canais de TV e onde assistir ao vivo. Brasileirão, Copa do Mundo, Libertadores e mais.`
+      : `Confira a programação dos jogos de futebol hoje, ${dateLong}, com horários, canais de TV e onde assistir ao vivo. Atualizado diariamente.`;
+
+  return {
+    title,
+    description,
+    keywords: [
+      "jogos futebol hoje",
+      "jogos de hoje",
+      "futebol hoje na tv",
+      "programação futebol hoje",
+      "onde assistir futebol hoje",
+      "jogos de futebol hoje ao vivo",
+    ],
+    alternates: {
+      canonical: `${siteConfig.url}/jogos-futebol-hoje`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${siteConfig.url}/jogos-futebol-hoje`,
+      siteName: siteConfig.name,
+      locale: "pt_BR",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
+}
 
 export default function JogosFutebolHojePage() {
   const games = getTodayMatches();
+  const tomorrowGames = getTomorrowMatches();
   const { updatedAt } = getScheduleMeta();
   const today = getTodayBRT();
+  const faq = buildDayFaq(games, "hoje", today);
 
-  const jsonLd = games.map((game) => ({
-    "@context": "https://schema.org",
-    "@type": "SportsEvent",
-    name: `${game.home} x ${game.away}`,
-    startDate: game.startDateIso,
-    location: game.stadium
-      ? { "@type": "Place", name: game.stadium }
-      : undefined,
-    homeTeam: { "@type": "SportsTeam", name: game.home },
-    awayTeam: { "@type": "SportsTeam", name: game.away },
-    description: `${game.competition}${game.round ? ` — ${game.round}` : ""} — ${game.channel}`,
-  }));
+  const jsonLd = games.map(sportsEventJsonLd);
+  const itemListJsonLd = matchesItemListJsonLd(
+    `Jogos de futebol hoje (${formatDateShortBR(today)})`,
+    "/jogos-futebol-hoje",
+    games,
+  );
 
   return (
     <>
@@ -65,6 +84,13 @@ export default function JogosFutebolHojePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {games.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+        />
+      )}
+      <FAQPageJsonLd items={faq} />
 
       <div className="mx-auto max-w-4xl px-4 py-8">
         <p className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.25em] text-gray-500">
@@ -77,12 +103,66 @@ export default function JogosFutebolHojePage() {
         <h1 className="mt-3 font-display text-4xl font-extrabold leading-none tracking-tight text-ink sm:text-6xl">
           Jogos de Futebol Hoje
         </h1>
-        <p className="mb-10 mt-4 max-w-2xl leading-relaxed text-gray-600">
+        <p className="mt-4 max-w-2xl leading-relaxed text-gray-600">
           Programação completa dos jogos de futebol na TV aberta, fechada e
           streaming. Atualizado diariamente.
         </p>
 
+        {/* Navegação entre agendas */}
+        <nav className="mb-10 mt-5 flex flex-wrap gap-2 text-sm">
+          <Link
+            href="/jogos-de-amanha"
+            className="border border-ink/15 bg-white px-4 py-2 font-medium text-ink transition-colors hover:border-primary hover:text-primary"
+          >
+            Jogos de amanhã →
+          </Link>
+          <Link
+            href="/jogos-da-semana"
+            className="border border-ink/15 bg-white px-4 py-2 font-medium text-ink transition-colors hover:border-primary hover:text-primary"
+          >
+            Agenda da semana →
+          </Link>
+        </nav>
+
         <GameSchedule games={games} date={today} updatedAt={updatedAt} />
+
+        {/* Hubs por competição */}
+        <section className="mt-10">
+          <h2 className="mb-3 font-display text-lg font-extrabold text-ink">
+            Jogos de hoje por competição
+          </h2>
+          <div className="flex flex-wrap gap-2 text-sm">
+            {getAllCompetitions().map((comp) => (
+              <Link
+                key={comp.slug}
+                href={`/jogos-futebol-hoje/${comp.slug}`}
+                className="border border-ink/15 bg-white px-3 py-1.5 font-medium text-gray-700 transition-colors hover:border-primary hover:text-primary"
+              >
+                {comp.shortName}
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Teaser de amanhã — interlinking + frescor */}
+        {tomorrowGames.length > 0 && (
+          <section className="mt-12">
+            <div className="mb-4 flex items-center justify-between">
+              <h2 className="font-display text-xl font-extrabold text-ink">
+                Amanhã no futebol
+              </h2>
+              <Link
+                href="/jogos-de-amanha"
+                className="text-sm font-medium text-primary hover:underline"
+              >
+                Ver todos →
+              </Link>
+            </div>
+            <UpcomingMatches matches={tomorrowGames.slice(0, 5)} />
+          </section>
+        )}
+
+        <ArticleFAQ items={faq} />
 
         <section className="mt-12 rounded-lg bg-surface p-6">
           <h2 className="mb-3 text-lg font-bold text-secondary">
@@ -104,20 +184,34 @@ export default function JogosFutebolHojePage() {
               transmitidos na <strong>TV aberta</strong> (Globo, Band, Record),{" "}
               <strong>TV fechada</strong> (ESPN, SporTV, Premiere, TNT Sports) e{" "}
               <strong>streaming</strong> (Disney+, Paramount+, CazéTV, Amazon
-              Prime Video). Acompanhe também nossos{" "}
-              <a
+              Prime Video). Veja também os{" "}
+              <Link
+                href="/jogos-de-amanha"
+                className="font-medium text-primary hover:underline"
+              >
+                jogos de amanhã
+              </Link>
+              , a{" "}
+              <Link
+                href="/jogos-da-semana"
+                className="font-medium text-primary hover:underline"
+              >
+                agenda da semana
+              </Link>{" "}
+              e nossos{" "}
+              <Link
                 href="/categoria/brasileirao"
                 className="font-medium text-primary hover:underline"
               >
                 artigos sobre o Brasileirão
-              </a>{" "}
+              </Link>{" "}
               e as{" "}
-              <a
+              <Link
                 href="/categoria/libertadores"
                 className="font-medium text-primary hover:underline"
               >
                 últimas da Libertadores
-              </a>
+              </Link>
               .
             </p>
           </div>

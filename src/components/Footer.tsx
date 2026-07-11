@@ -100,6 +100,22 @@ export function Footer() {
                   Jogos de Hoje
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/jogos-de-amanha"
+                  className="text-sm font-semibold text-lima transition-colors hover:text-cal"
+                >
+                  Jogos de Amanhã
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/jogos-da-semana"
+                  className="text-sm font-semibold text-lima transition-colors hover:text-cal"
+                >
+                  Agenda da Semana
+                </Link>
+              </li>
               {categories.map((cat) => (
                 <li key={cat.slug}>
                   <Link
