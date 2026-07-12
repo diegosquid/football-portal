@@ -1,26 +1,6 @@
 {
-  "updatedAt": "2026-07-11T13:13:00-03:00",
+  "updatedAt": "2026-07-12T07:11:00-03:00",
   "games": [
-    {
-      "date": "2026-07-11",
-      "time": "18:00",
-      "home": "Noruega",
-      "away": "Inglaterra",
-      "competition": "Copa do Mundo 2026",
-      "round": "Quartas de final",
-      "channel": "Globo / SporTV / CazéTV",
-      "stadium": "Hard Rock Stadium"
-    },
-    {
-      "date": "2026-07-11",
-      "time": "22:00",
-      "home": "Argentina",
-      "away": "Suíça",
-      "competition": "Copa do Mundo 2026",
-      "round": "Quartas de final",
-      "channel": "CazéTV",
-      "stadium": "Arrowhead Stadium"
-    },
     {
       "date": "2026-07-12",
       "time": "11:00",
@@ -104,8 +84,8 @@
     {
       "date": "2026-07-15",
       "time": "16:00",
-      "home": "Noruega/Inglaterra",
-      "away": "Argentina/Suíça",
+      "home": "Inglaterra",
+      "away": "Argentina",
       "competition": "Copa do Mundo 2026",
       "round": "Semifinal",
       "channel": "Globo / SporTV / CazéTV",
