@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-12T07:11:00-03:00",
+  "updatedAt": "2026-07-12T13:12:00-03:00",
   "games": [
     {
       "date": "2026-07-12",
@@ -90,6 +90,26 @@
       "round": "Semifinal",
       "channel": "Globo / SporTV / CazéTV",
       "stadium": "Mercedes-Benz Stadium"
+    },
+    {
+      "date": "2026-07-16",
+      "time": "19:30",
+      "home": "Botafogo",
+      "away": "Santos",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 19",
+      "channel": "Premiere",
+      "stadium": "Nilton Santos"
+    },
+    {
+      "date": "2026-07-16",
+      "time": "19:30",
+      "home": "Vitória",
+      "away": "Vasco",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 19",
+      "channel": "Premiere",
+      "stadium": "Barradão"
     }
   ]
 }
