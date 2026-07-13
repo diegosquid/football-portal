@@ -1,56 +1,6 @@
 {
-  "updatedAt": "2026-07-12T13:12:00-03:00",
+  "updatedAt": "2026-07-13T08:31:00-03:00",
   "games": [
-    {
-      "date": "2026-07-12",
-      "time": "11:00",
-      "home": "Operário",
-      "away": "Novorizontino",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 17",
-      "channel": "ESPN / Disney+",
-      "stadium": "Germano Krüger"
-    },
-    {
-      "date": "2026-07-12",
-      "time": "16:00",
-      "home": "São Bernardo",
-      "away": "Cuiabá",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 17",
-      "channel": "Premiere",
-      "stadium": ""
-    },
-    {
-      "date": "2026-07-12",
-      "time": "16:00",
-      "home": "Avaí",
-      "away": "Náutico",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 17",
-      "channel": "ESPN / Disney+",
-      "stadium": "Ressacada"
-    },
-    {
-      "date": "2026-07-12",
-      "time": "18:00",
-      "home": "Atlético-GO",
-      "away": "Fortaleza",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 17",
-      "channel": "ESPN / Disney+",
-      "stadium": "Antônio Accioly"
-    },
-    {
-      "date": "2026-07-12",
-      "time": "19:00",
-      "home": "CRB",
-      "away": "Goiás",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 17",
-      "channel": "ESPN / Disney+",
-      "stadium": "Rei Pelé"
-    },
     {
       "date": "2026-07-13",
       "time": "19:00",
@@ -110,6 +60,16 @@
       "round": "Rodada 19",
       "channel": "Premiere",
       "stadium": "Barradão"
+    },
+    {
+      "date": "2026-07-17",
+      "time": "20:00",
+      "home": "Mirassol",
+      "away": "Grêmio",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 19",
+      "channel": "Amazon Prime Video",
+      "stadium": "Maião"
     }
   ]
 }
