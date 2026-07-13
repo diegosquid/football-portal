@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-13T08:31:00-03:00",
+  "updatedAt": "2026-07-13T13:11:00-03:00",
   "games": [
     {
       "date": "2026-07-13",
@@ -8,7 +8,7 @@
       "away": "Londrina",
       "competition": "Brasileirão Série B",
       "round": "Rodada 17",
-      "channel": "ESPN / Disney+",
+      "channel": "Disney+",
       "stadium": "Arena Independência"
     },
     {
@@ -28,7 +28,7 @@
       "away": "Espanha",
       "competition": "Copa do Mundo 2026",
       "round": "Semifinal",
-      "channel": "Globo / SporTV / CazéTV",
+      "channel": "CazéTV",
       "stadium": "AT&T Stadium"
     },
     {
@@ -38,7 +38,7 @@
       "away": "Argentina",
       "competition": "Copa do Mundo 2026",
       "round": "Semifinal",
-      "channel": "Globo / SporTV / CazéTV",
+      "channel": "Globo / SBT / SporTV / CazéTV",
       "stadium": "Mercedes-Benz Stadium"
     },
     {
@@ -62,14 +62,24 @@
       "stadium": "Barradão"
     },
     {
-      "date": "2026-07-17",
-      "time": "20:00",
+      "date": "2026-07-16",
+      "time": "21:30",
       "home": "Mirassol",
       "away": "Grêmio",
       "competition": "Brasileirão Série A",
       "round": "Rodada 19",
-      "channel": "Amazon Prime Video",
+      "channel": "Premiere",
       "stadium": "Maião"
+    },
+    {
+      "date": "2026-07-17",
+      "time": "21:30",
+      "home": "Fluminense",
+      "away": "Red Bull Bragantino",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 19",
+      "channel": "Premiere",
+      "stadium": "Maracanã"
     }
   ]
 }
