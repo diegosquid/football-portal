@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-15T09:54:00-03:00",
+  "updatedAt": "2026-07-15T13:08:00-03:00",
   "games": [
     {
       "date": "2026-07-15",
@@ -8,7 +8,7 @@
       "away": "Argentina",
       "competition": "Copa do Mundo 2026",
       "round": "Semifinal",
-      "channel": "Globo / SBT / SporTV / CazéTV",
+      "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
       "stadium": "Mercedes-Benz Stadium"
     },
     {
@@ -53,7 +53,7 @@
     },
     {
       "date": "2026-07-17",
-      "time": "21:30",
+      "time": "20:00",
       "home": "Fluminense",
       "away": "Red Bull Bragantino",
       "competition": "Brasileirão Série A",
@@ -68,7 +68,7 @@
       "away": "A definir",
       "competition": "Copa do Mundo 2026",
       "round": "Disputa de 3º Lugar",
-      "channel": "Globo / SBT / SporTV / N Sports",
+      "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
       "stadium": "Hard Rock Stadium"
     },
     {
