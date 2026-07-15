@@ -1,16 +1,6 @@
 {
-  "updatedAt": "2026-07-14T08:43:00-03:00",
+  "updatedAt": "2026-07-15T09:54:00-03:00",
   "games": [
-    {
-      "date": "2026-07-14",
-      "time": "16:00",
-      "home": "França",
-      "away": "Espanha",
-      "competition": "Copa do Mundo 2026",
-      "round": "Semifinal",
-      "channel": "CazéTV",
-      "stadium": "AT&T Stadium"
-    },
     {
       "date": "2026-07-15",
       "time": "16:00",
@@ -43,7 +33,17 @@
     },
     {
       "date": "2026-07-17",
-      "time": "21:30",
+      "time": "19:30",
+      "home": "Bahia",
+      "away": "Chapecoense",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 4",
+      "channel": "Premiere",
+      "stadium": "Arena Fonte Nova"
+    },
+    {
+      "date": "2026-07-17",
+      "time": "20:00",
       "home": "Mirassol",
       "away": "Grêmio",
       "competition": "Brasileirão Série A",
@@ -60,6 +60,26 @@
       "round": "Rodada 19",
       "channel": "Premiere",
       "stadium": "Maracanã"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "18:00",
+      "home": "França",
+      "away": "A definir",
+      "competition": "Copa do Mundo 2026",
+      "round": "Disputa de 3º Lugar",
+      "channel": "Globo / SBT / SporTV / N Sports",
+      "stadium": "Hard Rock Stadium"
+    },
+    {
+      "date": "2026-07-19",
+      "time": "16:00",
+      "home": "Espanha",
+      "away": "A definir",
+      "competition": "Copa do Mundo 2026",
+      "round": "Final",
+      "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
+      "stadium": "MetLife Stadium"
     }
   ]
 }
