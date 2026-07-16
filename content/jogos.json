@@ -1,16 +1,6 @@
 {
-  "updatedAt": "2026-07-15T13:08:00-03:00",
+  "updatedAt": "2026-07-16T08:35:00-03:00",
   "games": [
-    {
-      "date": "2026-07-15",
-      "time": "16:00",
-      "home": "Inglaterra",
-      "away": "Argentina",
-      "competition": "Copa do Mundo 2026",
-      "round": "Semifinal",
-      "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
-      "stadium": "Mercedes-Benz Stadium"
-    },
     {
       "date": "2026-07-16",
       "time": "19:30",
@@ -32,14 +22,54 @@
       "stadium": "Barradão"
     },
     {
+      "date": "2026-07-16",
+      "time": "20:00",
+      "home": "CRB",
+      "away": "Náutico",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 18",
+      "channel": "SportyNet / Disney+",
+      "stadium": "Estádio Rei Pelé"
+    },
+    {
       "date": "2026-07-17",
-      "time": "19:30",
-      "home": "Bahia",
-      "away": "Chapecoense",
+      "time": "19:00",
+      "home": "América-MG",
+      "away": "Ceará",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 18",
+      "channel": "SportyNet / Disney+",
+      "stadium": "Estádio Independência"
+    },
+    {
+      "date": "2026-07-17",
+      "time": "19:00",
+      "home": "Juventude",
+      "away": "Cuiabá",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 18",
+      "channel": "SportyNet / Disney+",
+      "stadium": "Estádio Alfredo Jaconi"
+    },
+    {
+      "date": "2026-07-17",
+      "time": "19:00",
+      "home": "São Bernardo",
+      "away": "Avaí",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 18",
+      "channel": "SportyNet / Disney+",
+      "stadium": "Estádio 1º de Maio"
+    },
+    {
+      "date": "2026-07-17",
+      "time": "20:00",
+      "home": "Fluminense",
+      "away": "Red Bull Bragantino",
       "competition": "Brasileirão Série A",
-      "round": "Rodada 4",
-      "channel": "Premiere",
-      "stadium": "Arena Fonte Nova"
+      "round": "Rodada 19",
+      "channel": "SporTV / Premiere",
+      "stadium": "Maracanã"
     },
     {
       "date": "2026-07-17",
@@ -53,29 +83,79 @@
     },
     {
       "date": "2026-07-17",
-      "time": "20:00",
-      "home": "Fluminense",
-      "away": "Red Bull Bragantino",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 19",
-      "channel": "Premiere",
-      "stadium": "Maracanã"
+      "time": "21:00",
+      "home": "Fortaleza",
+      "away": "Novorizontino",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 18",
+      "channel": "SportyNet / Disney+",
+      "stadium": "Estádio Castelão"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "16:00",
+      "home": "Criciúma",
+      "away": "Vila Nova",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 18",
+      "channel": "SportyNet / Disney+",
+      "stadium": "Estádio Heriberto Hulse"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "16:00",
+      "home": "Ponte Preta",
+      "away": "Goiás",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 18",
+      "channel": "SportyNet / Disney+",
+      "stadium": "Estádio Moisés Lucarelli"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "16:00",
+      "home": "Sport",
+      "away": "Operário-PR",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 18",
+      "channel": "SportyNet / Disney+",
+      "stadium": "Estádio Ilha do Retiro"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "18:00",
+      "home": "Atlético-GO",
+      "away": "Athletic",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 18",
+      "channel": "SportyNet / Disney+",
+      "stadium": "Estádio Antonio Accioly"
     },
     {
       "date": "2026-07-18",
       "time": "18:00",
       "home": "França",
-      "away": "A definir",
+      "away": "Inglaterra",
       "competition": "Copa do Mundo 2026",
       "round": "Disputa de 3º Lugar",
       "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
       "stadium": "Hard Rock Stadium"
     },
     {
+      "date": "2026-07-18",
+      "time": "21:00",
+      "home": "Londrina",
+      "away": "Botafogo-SP",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 18",
+      "channel": "SportyNet / Disney+",
+      "stadium": "Estádio Vitorino Gonçalves Dias"
+    },
+    {
       "date": "2026-07-19",
       "time": "16:00",
-      "home": "Espanha",
-      "away": "A definir",
+      "home": "Argentina",
+      "away": "Espanha",
       "competition": "Copa do Mundo 2026",
       "round": "Final",
       "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
