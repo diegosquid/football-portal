@@ -1,36 +1,6 @@
 {
-  "updatedAt": "2026-07-16T16:26:00-03:00",
+  "updatedAt": "2026-07-17T13:12:00-03:00",
   "games": [
-    {
-      "date": "2026-07-16",
-      "time": "19:30",
-      "home": "Botafogo",
-      "away": "Santos",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 19",
-      "channel": "Record / Premiere / CazéTV",
-      "stadium": "Nilton Santos"
-    },
-    {
-      "date": "2026-07-16",
-      "time": "19:30",
-      "home": "Vitória",
-      "away": "Vasco",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 19",
-      "channel": "Premiere",
-      "stadium": "Barradão"
-    },
-    {
-      "date": "2026-07-16",
-      "time": "20:00",
-      "home": "CRB",
-      "away": "Náutico",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 18",
-      "channel": "SportyNet / Disney+",
-      "stadium": "Estádio Rei Pelé"
-    },
     {
       "date": "2026-07-17",
       "time": "19:00",
@@ -38,7 +8,7 @@
       "away": "Ceará",
       "competition": "Brasileirão Série B",
       "round": "Rodada 18",
-      "channel": "SportyNet / Disney+",
+      "channel": "ESPN / Disney+",
       "stadium": "Estádio Independência"
     },
     {
@@ -48,7 +18,7 @@
       "away": "Cuiabá",
       "competition": "Brasileirão Série B",
       "round": "Rodada 18",
-      "channel": "SportyNet / Disney+",
+      "channel": "ESPN / Disney+",
       "stadium": "Estádio Alfredo Jaconi"
     },
     {
@@ -58,7 +28,7 @@
       "away": "Avaí",
       "competition": "Brasileirão Série B",
       "round": "Rodada 18",
-      "channel": "SportyNet / Disney+",
+      "channel": "Premiere",
       "stadium": "Estádio 1º de Maio"
     },
     {
@@ -88,8 +58,18 @@
       "away": "Novorizontino",
       "competition": "Brasileirão Série B",
       "round": "Rodada 18",
-      "channel": "SportyNet / Disney+",
+      "channel": "ESPN / Disney+",
       "stadium": "Estádio Castelão"
+    },
+    {
+      "date": "2026-07-17",
+      "time": "21:00",
+      "home": "Londrina",
+      "away": "Botafogo-SP",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 18",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio Vitorino Gonçalves Dias"
     },
     {
       "date": "2026-07-18",
@@ -98,7 +78,7 @@
       "away": "Vila Nova",
       "competition": "Brasileirão Série B",
       "round": "Rodada 18",
-      "channel": "SportyNet / Disney+",
+      "channel": "ESPN / Disney+",
       "stadium": "Estádio Heriberto Hulse"
     },
     {
@@ -108,7 +88,7 @@
       "away": "Goiás",
       "competition": "Brasileirão Série B",
       "round": "Rodada 18",
-      "channel": "SportyNet / Disney+",
+      "channel": "ESPN / Rede TV / Disney+",
       "stadium": "Estádio Moisés Lucarelli"
     },
     {
@@ -118,7 +98,7 @@
       "away": "Operário-PR",
       "competition": "Brasileirão Série B",
       "round": "Rodada 18",
-      "channel": "SportyNet / Disney+",
+      "channel": "ESPN / Disney+",
       "stadium": "Estádio Ilha do Retiro"
     },
     {
@@ -128,7 +108,7 @@
       "away": "Athletic",
       "competition": "Brasileirão Série B",
       "round": "Rodada 18",
-      "channel": "SportyNet / Disney+",
+      "channel": "ESPN / Disney+",
       "stadium": "Estádio Antonio Accioly"
     },
     {
@@ -142,16 +122,6 @@
       "stadium": "Hard Rock Stadium"
     },
     {
-      "date": "2026-07-18",
-      "time": "21:00",
-      "home": "Londrina",
-      "away": "Botafogo-SP",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 18",
-      "channel": "SportyNet / Disney+",
-      "stadium": "Estádio Vitorino Gonçalves Dias"
-    },
-    {
       "date": "2026-07-19",
       "time": "16:00",
       "home": "Argentina",
@@ -160,6 +130,26 @@
       "round": "Final",
       "channel": "Globo / SBT / SporTV / N Sports / CazéTV",
       "stadium": "MetLife Stadium"
+    },
+    {
+      "date": "2026-07-21",
+      "time": "19:30",
+      "home": "Atlético-MG",
+      "away": "Bahia",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 19",
+      "channel": "SporTV / Premiere",
+      "stadium": "Arena MRV"
+    },
+    {
+      "date": "2026-07-21",
+      "time": "21:30",
+      "home": "Universidad Central",
+      "away": "Santos",
+      "competition": "Sul-Americana",
+      "round": "Playoffs (Ida)",
+      "channel": "SBT / ESPN / Disney+",
+      "stadium": ""
     }
   ]
 }
