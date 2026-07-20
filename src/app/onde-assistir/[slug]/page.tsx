@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import Link from "next/link";
 import { articles } from "#content";
 import { ArticleCard } from "@/components/ArticleCard";
@@ -18,6 +18,26 @@ import {
   getMatchBySlug,
   type Match,
 } from "@/lib/matches";
+
+/**
+ * Slugs placeholder ("espanha-x-a-definir-2026-07-19") ficam indexados até o
+ * confronto real ser definido — resolve pro slug atual do mesmo dia/time.
+ */
+function resolvePlaceholderSlug(slug: string): string | undefined {
+  const parsed = slug.match(/^(.+)-x-(.+)-(\d{4}-\d{2}-\d{2})$/);
+  if (!parsed) return undefined;
+  const [, homePart, awayPart, date] = parsed;
+  if (!homePart.includes("a-definir") && !awayPart.includes("a-definir")) {
+    return undefined;
+  }
+  const known = homePart.includes("a-definir") ? awayPart : homePart;
+  if (known.includes("a-definir")) return undefined;
+  return getAllMatches().find(
+    (m) =>
+      m.date === date &&
+      (m.slug.startsWith(`${known}-x-`) || m.slug.includes(`-x-${known}-`)),
+  )?.slug;
+}
 
 export const revalidate = 900; // 15 min — mesmo ritmo de jogos-futebol-hoje
 
@@ -79,6 +99,16 @@ function buildFaq(match: Match) {
     },
   ];
 
+  if (channelIsDefined(match.channel)) {
+    const passaNaGlobo = /\bglobo\b/i.test(match.channel);
+    faq.push({
+      question: `${match.home} x ${match.away} vai passar na Globo?`,
+      answer: passaNaGlobo
+        ? `Sim! A Globo está entre as emissoras que transmitem ${match.home} x ${match.away}. Transmissão completa: ${match.channel}.`
+        : `Não — o jogo não terá transmissão da TV Globo. Quem transmite ${match.home} x ${match.away} é ${match.channel}.`,
+    });
+  }
+
   if (match.stadium) {
     faq.push({
       question: "Onde é o jogo?",
@@ -95,13 +125,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!match) return {};
 
   const days = daysUntil(match.date);
-  const whenWord = days === 0 ? "hoje" : days === 1 ? "amanhã" : `dia ${match.date.split("-").reverse().slice(0, 2).join("/")}`;
-  const title = `${match.home} x ${match.away}: horário, onde assistir e canal`;
+  const dateShort = match.date.split("-").reverse().slice(0, 2).join("/");
+  const whenWord = days === 0 ? "hoje" : days === 1 ? "amanhã" : `dia ${dateShort}`;
+  // "hoje (22/07)" / "amanhã (22/07)" / "(22/07)" — data no title ajuda o CTR
+  const whenTitle = days === 0 || days === 1 ? `${whenWord} (${dateShort})` : `(${dateShort})`;
+  const title = `${match.home} x ${match.away} ${whenTitle}: que horas é o jogo e onde assistir`;
   const descChannelPart = channelIsDefined(match.channel)
     ? ` Transmissão: ${match.channel}.`
     : " Emissora a definir.";
   const metaDescription = truncateForMeta(
-    `${match.home} x ${match.away} ${whenWord} ${pelaCompetition(match.competition)}: horário (${match.time}) e onde assistir ao vivo.${descChannelPart}`,
+    `Que horas é ${match.home} e ${match.away}? O jogo ${whenWord} ${pelaCompetition(match.competition)} começa às ${match.time} (Brasília). Veja onde assistir ao vivo.${descChannelPart}`,
     160,
   );
   const canonical = `/onde-assistir/${match.slug}`;
@@ -129,7 +162,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function OndeAssistirPage({ params }: Props) {
   const { slug } = await params;
   const match = getMatchBySlug(slug);
-  if (!match) notFound();
+  if (!match) {
+    const resolved = resolvePlaceholderSlug(slug);
+    if (resolved) permanentRedirect(`/onde-assistir/${resolved}`);
+    notFound();
+  }
 
   const homeSlug = resolveTeamSlug(match.home);
   const awaySlug = resolveTeamSlug(match.away);
@@ -287,6 +324,24 @@ export default async function OndeAssistirPage({ params }: Props) {
             )}
           </p>
         </header>
+
+        {/* Resposta direta — intenção "que horas é o jogo" */}
+        <section className="mb-8 border-l-4 border-primary bg-surface p-5">
+          <h2 className="text-lg font-bold text-secondary">
+            Que horas é {match.home} x {match.away}?
+          </h2>
+          <p className="mt-2 leading-relaxed text-gray-700">
+            O jogo entre {match.home} e {match.away} começa às{" "}
+            <strong className="text-secondary">{match.time}</strong> (horário
+            de Brasília), {dateFormatted}
+            {hasChannel ? (
+              <>
+                , com transmissão de <strong>{match.channel}</strong>
+              </>
+            ) : null}
+            .
+          </p>
+        </section>
 
         {/* Ficha técnica */}
         <section className="mb-10 overflow-hidden rounded-xl border border-gray-200 bg-white">

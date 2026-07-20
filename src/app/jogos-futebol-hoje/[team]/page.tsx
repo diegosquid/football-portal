@@ -44,15 +44,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const comp = getCompetition(slug);
   if (comp) {
-    const title = `Jogos ${compDo(comp)} Hoje — Horários e Onde Assistir`;
-    const description = `Veja se tem jogo ${compDo(comp)} hoje, os horários, canais de transmissão e os próximos jogos da competição. Atualizado diariamente.`;
+    const title = `Jogos ${compDo(comp)} Hoje: Horários, Canais e Onde Assistir`;
+    const description = `Jogos ${compDo(comp)} hoje: horários, canais de transmissão e onde assistir ao vivo — mais os jogos de amanhã e os próximos da competição. Atualizado diariamente.`;
     return {
       title,
       description,
       keywords: [
         `jogos ${compDo(comp).toLowerCase()} hoje`,
+        `jogos de hoje ${comp.shortName.toLowerCase()}`,
         `tem jogo ${compDo(comp).toLowerCase()} hoje`,
         `${comp.shortName.toLowerCase()} hoje`,
+        `quem joga hoje pel${comp.artigo} ${comp.shortName.toLowerCase()}`,
+        `jogos ${comp.shortName.toLowerCase()} amanhã`,
         `onde assistir ${comp.shortName.toLowerCase()}`,
         `próximos jogos ${comp.shortName.toLowerCase()}`,
       ],
@@ -187,8 +190,16 @@ function CompetitionHojeView({ comp }: { comp: Competition }) {
           Jogos {compDo(comp)} Hoje
         </h1>
         <p className="mb-8 text-gray-500">
-          Confira os jogos {compDo(comp)} hoje, horários, canais de transmissão
-          e os próximos jogos da competição.
+          Confira os jogos {compDo(comp)} hoje — horários, canais de
+          transmissão e onde assistir ao vivo — e os próximos jogos da
+          competição. Veja também os{" "}
+          <Link
+            href="/jogos-de-amanha"
+            className="font-medium text-primary hover:underline"
+          >
+            jogos de amanhã
+          </Link>
+          .
         </p>
 
         <section className="mb-10">

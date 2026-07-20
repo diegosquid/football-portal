@@ -14,10 +14,14 @@ import {
 } from "@/components/JsonLd";
 import { ArticleFAQ } from "@/components/ArticleFAQ";
 import { SourceAttribution } from "@/components/mdx/SourceAttribution";
+import { TeamNextMatch } from "@/components/TeamNextMatch";
 import { getAuthor } from "@/lib/authors";
 import { getCategory } from "@/lib/categories";
 import { getFallbackImage } from "@/lib/images";
 import { siteConfig, truncateForMeta } from "@/lib/site";
+
+// ISR: mantém o box "Próximo jogo" (agenda de jogos.json) fresco nos artigos
+export const revalidate = 900;
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -211,6 +215,11 @@ export default async function ArticlePage({ params }: Props) {
             name={article.source.name}
             url={article.source.url}
           />
+        )}
+
+        {/* Próximo jogo dos times do artigo */}
+        {article.teams.length > 0 && (
+          <TeamNextMatch teamSlugs={article.teams} />
         )}
 
         {/* Tags */}

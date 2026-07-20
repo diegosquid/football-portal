@@ -25,11 +25,11 @@ export function generateMetadata(): Metadata {
   const dateShort = formatDateShortBR(tomorrow);
   const dateLong = formatDateLongBR(tomorrow);
 
-  const title = `Jogos de Futebol Amanhã (${dateShort}): Horários e Onde Assistir`;
+  const title = `Jogos de Futebol Amanhã na TV (${dateShort}): Horários e Onde Assistir`;
   const description =
     games.length > 0
-      ? `Veja os ${games.length} jogos de futebol amanhã, ${dateLong}: horários, canais de TV e onde assistir ao vivo. Programação atualizada diariamente.`
-      : `Confira a programação dos jogos de futebol de amanhã, ${dateLong}, com horários e canais de TV. Atualizado diariamente.`;
+      ? `Veja os ${games.length} jogos de futebol amanhã na TV, ${dateLong}: horários, canais e onde assistir ao vivo. Programação atualizada diariamente.`
+      : `Confira a programação dos jogos de futebol de amanhã na TV, ${dateLong}, com horários e canais. Atualizado diariamente.`;
 
   return {
     title,
@@ -66,6 +66,19 @@ export default function JogosDeAmanhaPage() {
   const tomorrow = getTomorrowBRT();
   const faq = buildDayFaq(games, "amanhã", tomorrow);
 
+  // Agrupa por canal individual (um jogo "Globo / SporTV" aparece nos dois)
+  const channelMap = new Map<string, typeof games>();
+  for (const g of games) {
+    const norm = g.channel.trim().toLowerCase();
+    if (!norm || ["a definir", "tbd", "a confirmar"].includes(norm)) continue;
+    for (const c of g.channel.split("/").map((s) => s.trim()).filter(Boolean)) {
+      channelMap.set(c, [...(channelMap.get(c) ?? []), g]);
+    }
+  }
+  const channelGroups = [...channelMap.entries()].sort(
+    (a, b) => b[1].length - a[1].length,
+  );
+
   const jsonLd = games.map(sportsEventJsonLd);
   const itemListJsonLd = matchesItemListJsonLd(
     `Jogos de futebol amanhã (${formatDateShortBR(tomorrow)})`,
@@ -99,7 +112,7 @@ export default function JogosDeAmanhaPage() {
           Agenda
         </p>
         <h1 className="mt-3 font-display text-4xl font-extrabold leading-none tracking-tight text-ink sm:text-6xl">
-          Jogos de Futebol Amanhã
+          Jogos de Futebol Amanhã na TV
         </h1>
         <p className="mt-4 max-w-2xl leading-relaxed text-gray-600">
           Todos os jogos de amanhã com horários, canais de TV e streaming.
@@ -127,6 +140,37 @@ export default function JogosDeAmanhaPage() {
           updatedAt={updatedAt}
           emptyMessage="Nenhum jogo programado para amanhã."
         />
+
+        {channelGroups.length > 0 && (
+          <section className="mt-12">
+            <h2 className="mb-4 font-display text-2xl font-extrabold tracking-tight text-ink">
+              Onde vai passar: jogos de amanhã por canal
+            </h2>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {channelGroups.map(([channel, list]) => (
+                <div
+                  key={channel}
+                  className="border border-ink/15 bg-white p-4"
+                >
+                  <h3 className="font-bold text-ink">{channel}</h3>
+                  <ul className="mt-2 space-y-1.5 text-sm text-gray-600">
+                    {list.map((g) => (
+                      <li key={g.slug}>
+                        <Link
+                          href={`/onde-assistir/${g.slug}`}
+                          className="font-medium text-secondary transition-colors hover:text-primary"
+                        >
+                          {g.home} x {g.away}
+                        </Link>{" "}
+                        — {g.time}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         <ArticleFAQ items={faq} />
 
