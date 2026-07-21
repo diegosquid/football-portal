@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T13:14:00-03:00",
+  "updatedAt": "2026-07-21T08:56:00-03:00",
   "games": [
     {
       "date": "2026-07-21",
@@ -174,6 +174,16 @@
     {
       "date": "2026-07-23",
       "time": "19:30",
+      "home": "Botafogo",
+      "away": "Vitória",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 4 (adiado)",
+      "channel": "Record / CazéTV / Premiere",
+      "stadium": "Estádio Nilton Santos"
+    },
+    {
+      "date": "2026-07-23",
+      "time": "19:30",
       "home": "Corinthians",
       "away": "Remo",
       "competition": "Brasileirão Série A",
@@ -210,6 +220,36 @@
       "round": "Playoffs (Ida)",
       "channel": "ESPN / Disney+",
       "stadium": "La Bombonera, Buenos Aires"
+    },
+    {
+      "date": "2026-07-25",
+      "time": "18:30",
+      "home": "Athletico-PR",
+      "away": "Internacional",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 20",
+      "channel": "A definir",
+      "stadium": "Arena da Baixada"
+    },
+    {
+      "date": "2026-07-25",
+      "time": "18:30",
+      "home": "Santos",
+      "away": "Chapecoense",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 20",
+      "channel": "A definir",
+      "stadium": "Vila Belmiro"
+    },
+    {
+      "date": "2026-07-25",
+      "time": "20:30",
+      "home": "Vasco",
+      "away": "Mirassol",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 20",
+      "channel": "A definir",
+      "stadium": "São Januário"
     }
   ]
 }
