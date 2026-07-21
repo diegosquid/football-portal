@@ -1,6 +1,16 @@
 {
-  "updatedAt": "2026-07-21T08:56:00-03:00",
+  "updatedAt": "2026-07-21T13:14:00-03:00",
   "games": [
+    {
+      "date": "2026-07-21",
+      "time": "19:00",
+      "home": "Nacional",
+      "away": "Tigre",
+      "competition": "Sul-Americana",
+      "round": "Playoffs (Ida)",
+      "channel": "ESPN / Disney+",
+      "stadium": "Parque Central, Montevidéu"
+    },
     {
       "date": "2026-07-21",
       "time": "19:30",
@@ -124,6 +134,16 @@
     {
       "date": "2026-07-22",
       "time": "21:30",
+      "home": "Lanús",
+      "away": "Cienciano",
+      "competition": "Sul-Americana",
+      "round": "Playoffs (Ida)",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estadio Ciudad de Lanús, Buenos Aires"
+    },
+    {
+      "date": "2026-07-22",
+      "time": "21:30",
       "home": "Náutico",
       "away": "Londrina",
       "competition": "Brasileirão Série B",
@@ -204,6 +224,16 @@
     {
       "date": "2026-07-23",
       "time": "21:30",
+      "home": "Boca Juniors",
+      "away": "O'Higgins",
+      "competition": "Sul-Americana",
+      "round": "Playoffs (Ida)",
+      "channel": "ESPN / Disney+",
+      "stadium": "La Bombonera, Buenos Aires"
+    },
+    {
+      "date": "2026-07-23",
+      "time": "21:30",
       "home": "Botafogo-SP",
       "away": "Juventude",
       "competition": "Brasileirão Série B",
@@ -214,12 +244,12 @@
     {
       "date": "2026-07-23",
       "time": "21:30",
-      "home": "Boca Juniors",
-      "away": "O'Higgins",
+      "home": "Santa Fe",
+      "away": "Caracas",
       "competition": "Sul-Americana",
       "round": "Playoffs (Ida)",
       "channel": "ESPN / Disney+",
-      "stadium": "La Bombonera, Buenos Aires"
+      "stadium": "Estadio El Campín, Bogotá"
     },
     {
       "date": "2026-07-25",
