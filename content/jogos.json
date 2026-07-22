@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-22T08:56:00-03:00",
+  "updatedAt": "2026-07-22T13:17:00-03:00",
   "games": [
     {
       "date": "2026-07-22",
@@ -234,6 +234,16 @@
     {
       "date": "2026-07-26",
       "time": "16:00",
+      "home": "Criciúma",
+      "away": "Náutico",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 20",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio Heriberto Hülse, Criciúma"
+    },
+    {
+      "date": "2026-07-26",
+      "time": "16:00",
       "home": "Cruzeiro",
       "away": "Botafogo",
       "competition": "Brasileirão Série A",
@@ -254,12 +264,32 @@
     {
       "date": "2026-07-26",
       "time": "18:30",
+      "home": "América Mineiro",
+      "away": "Goiás",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 20",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio Raimundo Sampaio, Belo Horizonte"
+    },
+    {
+      "date": "2026-07-26",
+      "time": "18:30",
       "home": "Flamengo",
       "away": "São Paulo",
       "competition": "Brasileirão Série A",
       "round": "Rodada 20",
       "channel": "Globo / Premiere",
       "stadium": "Maracanã, Rio de Janeiro"
+    },
+    {
+      "date": "2026-07-26",
+      "time": "18:30",
+      "home": "Londrina",
+      "away": "Novorizontino",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 20",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio VGD, Londrina"
     },
     {
       "date": "2026-07-26",
