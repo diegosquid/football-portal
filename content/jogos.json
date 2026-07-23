@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-23T09:14:00-03:00",
+  "updatedAt": "2026-07-23T13:14:00-03:00",
   "games": [
     {
       "date": "2026-07-23",
@@ -88,7 +88,7 @@
       "away": "Internacional",
       "competition": "Brasileirão Série A",
       "round": "Rodada 20",
-      "channel": "A definir",
+      "channel": "Amazon Prime Video",
       "stadium": "Arena da Baixada"
     },
     {
@@ -98,7 +98,7 @@
       "away": "Chapecoense",
       "competition": "Brasileirão Série A",
       "round": "Rodada 20",
-      "channel": "A definir",
+      "channel": "SporTV / Premiere",
       "stadium": "Vila Belmiro"
     },
     {
@@ -108,7 +108,7 @@
       "away": "Mirassol",
       "competition": "Brasileirão Série A",
       "round": "Rodada 20",
-      "channel": "A definir",
+      "channel": "Record / CazéTV / Premiere",
       "stadium": "São Januário"
     },
     {
@@ -178,7 +178,7 @@
       "away": "Fluminense",
       "competition": "Brasileirão Série A",
       "round": "Rodada 20",
-      "channel": "A definir",
+      "channel": "Premiere",
       "stadium": "Arena do Grêmio, Porto Alegre"
     },
     {
@@ -198,7 +198,7 @@
       "away": "Coritiba",
       "competition": "Brasileirão Série A",
       "round": "Rodada 20",
-      "channel": "A definir",
+      "channel": "Premiere",
       "stadium": "Estádio Nabi Abi Chedid"
     },
     {
@@ -218,8 +218,38 @@
       "away": "Vitória",
       "competition": "Brasileirão Série A",
       "round": "Rodada 20",
-      "channel": "A definir",
+      "channel": "Premiere",
       "stadium": "Mangueirão, Belém"
+    },
+    {
+      "date": "2026-07-27",
+      "time": "19:30",
+      "home": "Atlético Goianiense",
+      "away": "Operário PR",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 20",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-27",
+      "time": "19:30",
+      "home": "CRB",
+      "away": "Vila Nova",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 20",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-27",
+      "time": "19:30",
+      "home": "Sport",
+      "away": "Cuiabá",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 20",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
     }
   ]
 }
