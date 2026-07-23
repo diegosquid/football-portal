@@ -1,116 +1,6 @@
 {
-  "updatedAt": "2026-07-22T13:17:00-03:00",
+  "updatedAt": "2026-07-23T09:14:00-03:00",
   "games": [
-    {
-      "date": "2026-07-22",
-      "time": "19:00",
-      "home": "Independiente Medellín",
-      "away": "Vasco",
-      "competition": "Sul-Americana",
-      "round": "Playoffs (Ida)",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estadio Atanasio Girardot, Medellín"
-    },
-    {
-      "date": "2026-07-22",
-      "time": "19:30",
-      "home": "Ceará",
-      "away": "CRB",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 19",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio Presidente Vargas"
-    },
-    {
-      "date": "2026-07-22",
-      "time": "19:30",
-      "home": "Coritiba",
-      "away": "Palmeiras",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 19",
-      "channel": "Amazon Prime Video",
-      "stadium": "Estádio Couto Pereira"
-    },
-    {
-      "date": "2026-07-22",
-      "time": "19:30",
-      "home": "Operário-PR",
-      "away": "Ponte Preta",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 19",
-      "channel": "Disney+",
-      "stadium": "Estádio Germano Krüger"
-    },
-    {
-      "date": "2026-07-22",
-      "time": "20:30",
-      "home": "Goiás",
-      "away": "Sport",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 19",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio da Serrinha"
-    },
-    {
-      "date": "2026-07-22",
-      "time": "21:30",
-      "home": "Chapecoense",
-      "away": "Flamengo",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 19",
-      "channel": "Globo / Premiere",
-      "stadium": "Arena Condá"
-    },
-    {
-      "date": "2026-07-22",
-      "time": "21:30",
-      "home": "Internacional",
-      "away": "Cruzeiro",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 19",
-      "channel": "Globo / Premiere",
-      "stadium": "Estádio Beira-Rio"
-    },
-    {
-      "date": "2026-07-22",
-      "time": "21:30",
-      "home": "Lanús",
-      "away": "Cienciano",
-      "competition": "Sul-Americana",
-      "round": "Playoffs (Ida)",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estadio Ciudad de Lanús, Buenos Aires"
-    },
-    {
-      "date": "2026-07-22",
-      "time": "21:30",
-      "home": "Náutico",
-      "away": "Londrina",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 19",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio dos Aflitos"
-    },
-    {
-      "date": "2026-07-22",
-      "time": "21:30",
-      "home": "São Paulo",
-      "away": "Athletico-PR",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 19",
-      "channel": "Globo / Premiere",
-      "stadium": "Estádio do Morumbi"
-    },
-    {
-      "date": "2026-07-22",
-      "time": "21:30",
-      "home": "Sporting Cristal",
-      "away": "Red Bull Bragantino",
-      "competition": "Sul-Americana",
-      "round": "Playoffs (Ida)",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estadio Alberto Gallardo, Lima"
-    },
     {
       "date": "2026-07-23",
       "time": "19:00",
@@ -118,7 +8,7 @@
       "away": "Grêmio",
       "competition": "Sul-Americana",
       "round": "Playoffs (Ida)",
-      "channel": "ESPN / Disney+",
+      "channel": "Paramount+",
       "stadium": "Estadio Hernando Siles, La Paz"
     },
     {
@@ -188,7 +78,7 @@
       "away": "Caracas",
       "competition": "Sul-Americana",
       "round": "Playoffs (Ida)",
-      "channel": "ESPN / Disney+",
+      "channel": "Paramount+",
       "stadium": "Estadio El Campín, Bogotá"
     },
     {
@@ -284,22 +174,22 @@
     {
       "date": "2026-07-26",
       "time": "18:30",
-      "home": "Londrina",
-      "away": "Novorizontino",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 20",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio VGD, Londrina"
-    },
-    {
-      "date": "2026-07-26",
-      "time": "18:30",
       "home": "Grêmio",
       "away": "Fluminense",
       "competition": "Brasileirão Série A",
       "round": "Rodada 20",
       "channel": "A definir",
       "stadium": "Arena do Grêmio, Porto Alegre"
+    },
+    {
+      "date": "2026-07-26",
+      "time": "18:30",
+      "home": "Londrina",
+      "away": "Novorizontino",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 20",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio VGD, Londrina"
     },
     {
       "date": "2026-07-26",
