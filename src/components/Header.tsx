@@ -71,6 +71,13 @@ export function Header() {
             Jogos de hoje
           </Link>
 
+          <Link
+            href="/probabilidades"
+            className="hover-line shrink-0 px-3 py-3 text-[13px] font-semibold uppercase tracking-wide text-cal/80 transition-colors hover:text-cal"
+          >
+            Palpites
+          </Link>
+
           {NAV_CATEGORIES.map((cat) => (
             <Link
               key={cat.slug}
@@ -136,6 +143,16 @@ export function Header() {
               <span className="font-mono text-xs text-lima">00</span>
               <span className="font-display text-3xl font-extrabold uppercase tracking-tight text-lima">
                 Jogos de hoje
+              </span>
+            </Link>
+            <Link
+              href="/probabilidades"
+              onClick={() => setMenuOpen(false)}
+              className="rise flex items-baseline gap-4 border-b border-cal/10 py-4"
+            >
+              <span className="font-mono text-xs text-lima">•</span>
+              <span className="font-display text-3xl font-extrabold uppercase tracking-tight text-lima">
+                Palpites
               </span>
             </Link>
             {categories.map((cat, i) => (

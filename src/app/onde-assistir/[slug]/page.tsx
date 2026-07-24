@@ -11,6 +11,8 @@ import {
 import { resolveTeamSlug } from "@/lib/teams";
 import { compDo, getCompetition, resolveCompetitionSlug } from "@/lib/competitions";
 import { pelaCompetition } from "@/lib/schedule-seo";
+import { ProbabilityPanel } from "@/components/ProbabilityPanel";
+import { getPredictionFor } from "@/lib/probabilities";
 import { absoluteUrl, siteConfig, truncateForMeta } from "@/lib/site";
 import {
   daysUntil,
@@ -198,6 +200,8 @@ export default async function OndeAssistirPage({ params }: Props) {
     ? getCompetition(competitionSlug)
     : undefined;
 
+  const prediction = getPredictionFor(match.home, match.away);
+
   // SportsEvent schema (enriched vs. /jogos-futebol-hoje)
   const channelForSchema = hasChannel ? match.channel : "A definir";
   const homeTeamSchema = { "@type": "SportsTeam", name: match.home };
@@ -384,6 +388,31 @@ export default async function OndeAssistirPage({ params }: Props) {
             </div>
           </dl>
         </section>
+
+        {/* Probabilidades — modelo próprio (aparece quando há predição do jogo) */}
+        {prediction && (
+          <section className="mb-10">
+            <h2 className="mb-1 text-lg font-bold text-secondary">
+              Probabilidades: quem tem mais chance?
+            </h2>
+            <p className="mb-4 text-sm text-gray-600">
+              Estimativa do nosso modelo estatístico para {match.home} x{" "}
+              {match.away}.
+            </p>
+            <ProbabilityPanel prediction={prediction} />
+            <p className="mt-3 text-xs text-gray-500">
+              Estimativa estatística (modelo de Poisson) — não é garantia de
+              resultado.{" "}
+              <Link
+                href="/probabilidades"
+                className="font-medium text-primary hover:underline"
+              >
+                Veja como calculamos
+              </Link>
+              .
+            </p>
+          </section>
+        )}
 
         {/* Team hubs */}
         {(homeSlug || awaySlug || competitionHub) && (

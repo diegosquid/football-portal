@@ -1,5 +1,10 @@
 import Link from "next/link";
 import type { Match } from "@/lib/matches";
+import {
+  getPredictionsIndex,
+  predictionKey,
+  type Prediction,
+} from "@/lib/probabilities";
 
 type GameScheduleProps = {
   games: Match[];
@@ -95,6 +100,8 @@ export function GameSchedule({
     return pa - pb;
   });
 
+  const predIndex = getPredictionsIndex();
+
   return (
     <div>
       <div className="mb-8 flex flex-col gap-1 border-b-2 border-ink pb-4 sm:flex-row sm:items-end sm:justify-between">
@@ -137,51 +144,105 @@ export function GameSchedule({
               </div>
 
               <div className="border border-ink/15 bg-white/40">
-                {grouped[competition].map((game, idx) => (
-                  <Link
-                    key={game.slug}
-                    href={`/onde-assistir/${game.slug}`}
-                    className={`group flex items-center gap-3 px-4 py-3.5 transition-colors hover:bg-lima/20 sm:gap-4 ${
-                      idx > 0 ? "border-t border-ink/10" : ""
-                    }`}
-                  >
-                    <div className="w-16 shrink-0 border-r border-ink/10 pr-3 text-center">
-                      <span className="font-mono text-base font-bold text-primary">
-                        {game.time}
-                      </span>
-                    </div>
-
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-1.5">
-                        <span className="truncate font-display text-sm font-bold text-ink sm:text-base">
-                          {game.home}
-                        </span>
-                        <span className="shrink-0 font-mono text-xs text-gray-400">
-                          ×
-                        </span>
-                        <span className="truncate font-display text-sm font-bold text-ink sm:text-base">
-                          {game.away}
+                {grouped[competition].map((game, idx) => {
+                  const pred = predIndex.get(
+                    predictionKey(game.home, game.away),
+                  );
+                  return (
+                    <Link
+                      key={game.slug}
+                      href={`/onde-assistir/${game.slug}`}
+                      className={`group flex items-center gap-3 px-4 py-3.5 transition-colors hover:bg-lima/20 sm:gap-4 ${
+                        idx > 0 ? "border-t border-ink/10" : ""
+                      }`}
+                    >
+                      <div className="w-16 shrink-0 border-r border-ink/10 pr-3 text-center">
+                        <span className="font-mono text-base font-bold text-primary">
+                          {game.time}
                         </span>
                       </div>
-                      {game.stadium && (
-                        <p className="mt-0.5 font-mono text-[11px] text-gray-500">
-                          {game.stadium}
-                        </p>
-                      )}
-                    </div>
 
-                    <div className="shrink-0 text-right">
-                      <span className="border border-ink/15 bg-cal px-2 py-1 font-mono text-[11px] font-medium text-gray-700 transition-colors group-hover:border-ink/30">
-                        {game.channel}
-                      </span>
-                    </div>
-                  </Link>
-                ))}
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5">
+                          <span className="truncate font-display text-sm font-bold text-ink sm:text-base">
+                            {game.home}
+                          </span>
+                          <span className="shrink-0 font-mono text-xs text-gray-400">
+                            ×
+                          </span>
+                          <span className="truncate font-display text-sm font-bold text-ink sm:text-base">
+                            {game.away}
+                          </span>
+                        </div>
+                        {game.stadium && (
+                          <p className="mt-0.5 font-mono text-[11px] text-gray-500">
+                            {game.stadium}
+                          </p>
+                        )}
+                        {pred && (
+                          <MiniProbBar
+                            prediction={pred}
+                            home={game.home}
+                            away={game.away}
+                          />
+                        )}
+                      </div>
+
+                      <div className="shrink-0 text-right">
+                        <span className="border border-ink/15 bg-cal px-2 py-1 font-mono text-[11px] font-medium text-gray-700 transition-colors group-hover:border-ink/30">
+                          {game.channel}
+                        </span>
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           ))}
         </div>
       )}
+    </div>
+  );
+}
+
+/** Barrinha compacta 1x2 + % do favorito, pra listas de jogos. */
+function MiniProbBar({
+  prediction,
+  home,
+  away,
+}: {
+  prediction: Prediction;
+  home: string;
+  away: string;
+}) {
+  const casa = Math.round(prediction.resultado.casa * 100);
+  const empate = Math.round(prediction.resultado.empate * 100);
+  const fora = Math.round(prediction.resultado.fora * 100);
+  const max = Math.max(casa, empate, fora);
+  const favColor =
+    max === casa
+      ? "text-primary"
+      : max === fora
+        ? "text-ink"
+        : "text-gray-500";
+
+  return (
+    <div className="mt-1.5 flex items-center gap-2">
+      <span
+        className="flex h-1.5 w-20 shrink-0 overflow-hidden rounded-full sm:w-28"
+        role="img"
+        aria-label={`Probabilidade: ${home} ${casa}%, empate ${empate}%, ${away} ${fora}%`}
+      >
+        <span style={{ width: `${casa}%` }} className="bg-primary" />
+        <span style={{ width: `${empate}%` }} className="bg-gray-300" />
+        <span style={{ width: `${fora}%` }} className="bg-ink" />
+      </span>
+      <span
+        className={`font-mono text-[11px] font-semibold ${favColor}`}
+        title="Chance do favorito segundo o modelo"
+      >
+        {max}%
+      </span>
     </div>
   );
 }
