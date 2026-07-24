@@ -17,6 +17,17 @@ export const OG_COLORS = {
 };
 
 /**
+ * Marca "quina do campo" — bandeirinha de escanteio + arco de córner + bola,
+ * giz sobre lima. Espelha o <LogoMark> de components/Logo.tsx. Embutida como
+ * data URI porque o satori renderiza <img> de SVG com mais previsibilidade que
+ * SVG inline.
+ */
+const LOGO_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><rect width="48" height="48" fill="${OG_COLORS.lima}"/><line x1="15" y1="33" x2="48" y2="33" stroke="${OG_COLORS.ink}" stroke-width="2.5"/><line x1="15" y1="33" x2="15" y2="48" stroke="${OG_COLORS.ink}" stroke-width="2.5"/><path d="M23 33 A8 8 0 0 1 15 41" fill="none" stroke="${OG_COLORS.ink}" stroke-width="2.5"/><line x1="15" y1="33" x2="15" y2="10" stroke="${OG_COLORS.ink}" stroke-width="2.5" stroke-linecap="round"/><path d="M15 10 L31 14.5 L15 19 Z" fill="${OG_COLORS.ink}"/><circle cx="33.5" cy="41.5" r="2.6" fill="${OG_COLORS.ink}"/></svg>`;
+
+/** Data URI da marca — usada no header do OgShell. */
+export const OG_LOGO_DATA_URI = `data:image/svg+xml;utf8,${encodeURIComponent(LOGO_SVG)}`;
+
+/**
  * Busca TTF no Google Fonts (sem User-Agent moderno o css2 devolve truetype,
  * que é o formato que o satori aceita). Retorna null em falha — a imagem sai
  * com a fonte default do next/og em vez de quebrar.
@@ -193,27 +204,25 @@ export function OgShell({
         style={{
           display: "flex",
           alignItems: "center",
-          gap: 18,
+          gap: 16,
         }}
       >
-        <div
-          style={{
-            width: 30,
-            height: 30,
-            backgroundColor: OG_COLORS.lima,
-            display: "flex",
-          }}
-        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={OG_LOGO_DATA_URI} width={48} height={48} alt="" style={{ display: "flex" }} />
         <div
           style={{
             display: "flex",
-            fontFamily: "mono",
-            fontSize: 28,
-            letterSpacing: 8,
-            color: OG_COLORS.cal,
+            alignItems: "baseline",
+            gap: 12,
+            fontFamily: "display",
+            fontSize: 36,
+            letterSpacing: -0.5,
+            textTransform: "uppercase",
+            lineHeight: 1,
           }}
         >
-          BEIRA DO CAMPO
+          <div style={{ display: "flex", color: OG_COLORS.cal }}>Beira</div>
+          <div style={{ display: "flex", color: OG_COLORS.lima }}>do Campo</div>
         </div>
       </div>
 
