@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-24T08:25:00-03:00",
+  "updatedAt": "2026-07-24T08:29:00-03:00",
   "games": [
     {
       "date": "2026-07-24",
@@ -7,7 +7,7 @@
       "home": "Flamengo",
       "away": "Grêmio",
       "competition": "Brasileirão Feminino A1",
-      "round": "",
+      "round": "Rodada 13",
       "channel": "SporTV",
       "stadium": ""
     },
@@ -17,7 +17,7 @@
       "home": "Internacional",
       "away": "Fluminense",
       "competition": "Brasileirão Feminino A1",
-      "round": "",
+      "round": "Rodada 13",
       "channel": "N Sports",
       "stadium": ""
     },
@@ -27,8 +27,8 @@
       "home": "América-MG",
       "away": "Santos",
       "competition": "Brasileirão Feminino A1",
-      "round": "",
-      "channel": "UOL",
+      "round": "Rodada 13",
+      "channel": "UOL Esporte",
       "stadium": ""
     },
     {
@@ -47,7 +47,7 @@
       "home": "Cruzeiro",
       "away": "São Paulo",
       "competition": "Brasileirão Feminino A1",
-      "round": "",
+      "round": "Rodada 13",
       "channel": "SporTV",
       "stadium": ""
     },
@@ -129,7 +129,7 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
       "channel": "ESPN / Disney+",
-      "stadium": "Estádio Raimundo Sampaio, Belo Horizonte"
+      "stadium": "Arena Independência, Belo Horizonte"
     },
     {
       "date": "2026-07-26",
@@ -193,13 +193,13 @@
     },
     {
       "date": "2026-07-27",
-      "time": "19:30",
-      "home": "Atlético Goianiense",
-      "away": "Operário PR",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 20",
-      "channel": "ESPN / Disney+",
-      "stadium": ""
+      "time": "19:00",
+      "home": "Bahia",
+      "away": "Botafogo",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 13",
+      "channel": "A definir",
+      "stadium": "Arena Cajueiro, Feira de Santana"
     },
     {
       "date": "2026-07-27",
@@ -209,7 +209,17 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
       "channel": "ESPN / Disney+",
-      "stadium": ""
+      "stadium": "Estádio Rei Pelé, Maceió"
+    },
+    {
+      "date": "2026-07-27",
+      "time": "19:30",
+      "home": "Operário PR",
+      "away": "Atlético Goianiense",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 20",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio Germano Krüger, Ponta Grossa"
     },
     {
       "date": "2026-07-27",
@@ -219,6 +229,46 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
       "channel": "ESPN / Disney+",
+      "stadium": "Ilha do Retiro, Recife"
+    },
+    {
+      "date": "2026-07-28",
+      "time": "19:30",
+      "home": "Athletic",
+      "away": "Ponte Preta",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 20",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-28",
+      "time": "19:30",
+      "home": "Avaí",
+      "away": "Juventude",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 20",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-28",
+      "time": "21:30",
+      "home": "Santos",
+      "away": "Universidad Central",
+      "competition": "Sul-Americana",
+      "round": "Playoffs (Volta)",
+      "channel": "SBT / ESPN / Disney+",
+      "stadium": "Vila Belmiro, Santos"
+    },
+    {
+      "date": "2026-07-28",
+      "time": "21:35",
+      "home": "Botafogo-SP",
+      "away": "Fortaleza",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 20",
+      "channel": "A definir",
       "stadium": ""
     }
   ]
