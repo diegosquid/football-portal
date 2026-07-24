@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-24T08:29:00-03:00",
+  "updatedAt": "2026-07-24T13:15:00-03:00",
   "games": [
     {
       "date": "2026-07-24",
@@ -214,12 +214,12 @@
     {
       "date": "2026-07-27",
       "time": "19:30",
-      "home": "Operário PR",
-      "away": "Atlético Goianiense",
+      "home": "Atlético Goianiense",
+      "away": "Operário PR",
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
       "channel": "ESPN / Disney+",
-      "stadium": "Estádio Germano Krüger, Ponta Grossa"
+      "stadium": "Estádio Antônio Accioly, Goiânia"
     },
     {
       "date": "2026-07-27",
@@ -234,22 +234,22 @@
     {
       "date": "2026-07-28",
       "time": "19:30",
-      "home": "Athletic",
-      "away": "Ponte Preta",
+      "home": "Ponte Preta",
+      "away": "Athletic",
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "Estádio Moisés Lucarelli, Campinas"
     },
     {
       "date": "2026-07-28",
       "time": "19:30",
-      "home": "Avaí",
-      "away": "Juventude",
+      "home": "Juventude",
+      "away": "Avaí",
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "Estádio Alfredo Jaconi, Caxias do Sul"
     },
     {
       "date": "2026-07-28",
@@ -264,12 +264,12 @@
     {
       "date": "2026-07-28",
       "time": "21:35",
-      "home": "Botafogo-SP",
-      "away": "Fortaleza",
+      "home": "Fortaleza",
+      "away": "Botafogo-SP",
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "Arena Castelão, Fortaleza"
     }
   ]
 }
