@@ -91,9 +91,11 @@ Arquivo `content/jogos.json` alimenta as paginas `/jogos-futebol-hoje` e `/onde-
 
 **Passos:**
 
-1. **Ler `content/jogos.json` atual** para ver a janela existente. Nao apagar dados bons — fazer MERGE.
+1. **Arquivar a janela atual antes de editar** — executar `node scripts/archive-matches.js`. Isso preserva as paginas `/onde-assistir/[slug]` depois que o jogo sair da janela movel.
 
-2. **Pesquisar programacao dos proximos 5 dias** (hoje + 4):
+2. **Ler `content/jogos.json` atual** para ver a janela existente. Nao apagar dados bons — fazer MERGE.
+
+3. **Pesquisar programacao dos proximos 5 dias** (hoje + 4):
    ```
    "programacao futebol [DD/MM] a [DD/MM]"
    "brasileirao serie a rodada [N] e [N+1] jogos"
@@ -103,7 +105,7 @@ Arquivo `content/jogos.json` alimenta as paginas `/jogos-futebol-hoje` e `/onde-
    "premier league rodada jogos [DD/MM]"
    ```
 
-3. **Para cada jogo**, coletar:
+4. **Para cada jogo**, coletar:
    - `date` (YYYY-MM-DD em BRT)
    - `time` (HH:MM em BRT)
    - `home` / `away` (nomes comerciais: "Flamengo", "Sao Paulo", "Palmeiras")
@@ -112,13 +114,13 @@ Arquivo `content/jogos.json` alimenta as paginas `/jogos-futebol-hoje` e `/onde-
    - `channel` — se nao confirmado, usar `"A definir"` (NAO inventar)
    - `stadium` — vazio se nao confirmado
 
-4. **Merge inteligente** com o JSON existente:
+5. **Merge inteligente** com o JSON existente:
    - MANTER jogos cuja `date >= hoje` e cujo confronto ja existia — so atualizar `time`, `channel` ou `stadium` se a fonte divergiu
    - ADICIONAR novos jogos descobertos na janela
    - REMOVER jogos com `date < hoje` (lixo)
    - ORDENAR: `date` asc, `time` asc
 
-5. **Prioridade de competicoes** (cobrir obrigatoriamente nesta ordem):
+6. **Prioridade de competicoes** (cobrir obrigatoriamente nesta ordem):
    1. Brasileirao Serie A / B / C
    2. Copa do Brasil
    3. Libertadores
@@ -128,9 +130,11 @@ Arquivo `content/jogos.json` alimenta as paginas `/jogos-futebol-hoje` e `/onde-
    7. Brasileirao Feminino A1
    8. Demais com transmissao no Brasil
 
-6. **Salvar** com `updatedAt` no timestamp atual BRT (formato `YYYY-MM-DDTHH:MM:00-03:00`).
+7. **Salvar** com `updatedAt` no timestamp atual BRT (formato `YYYY-MM-DDTHH:MM:00-03:00`).
 
-7. **Commit**: `data(jogos): atualiza janela proximos 5 dias`.
+8. **Atualizar os historicos** — executar novamente `node scripts/archive-matches.js`. Se houver `APIFOOTBALL_KEY`, executar também `node scripts/build-probabilities.js` para gerar os palpites, registrar resultados encerrados e recalcular as metricas publicas.
+
+9. **Commit**: incluir `content/jogos.json`, `content/jogos-historico.json`, `content/probabilidades.json` e `content/probabilidades-historico.json` quando alterados. Mensagem: `data(jogos): atualiza janela proximos 5 dias`.
 
 **Regras de qualidade:**
 - Nunca sobrescrever campo existente com valor pior (ex: "A definir" sobre canal ja conhecido).

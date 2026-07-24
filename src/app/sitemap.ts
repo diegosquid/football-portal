@@ -4,18 +4,23 @@ import { getAllCategories } from "@/lib/categories";
 import { getAllAuthors } from "@/lib/authors";
 import { getAllTeams } from "@/lib/teams";
 import { getAllCompetitions } from "@/lib/competitions";
-import { getAllMatches } from "@/lib/matches";
+import { getAllKnownMatches } from "@/lib/matches";
+import { getProbabilitiesData } from "@/lib/probabilities";
 import { siteConfig } from "@/lib/site";
 import { ARTICLES_PER_PAGE } from "@/lib/pagination";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
+  const probabilitiesUpdatedAt =
+    getProbabilitiesData()?.generatedAt ?? new Date().toISOString();
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "hourly", priority: 1.0 },
     { url: `${baseUrl}/jogos-futebol-hoje`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.9 },
     { url: `${baseUrl}/jogos-de-amanha`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.9 },
     { url: `${baseUrl}/jogos-da-semana`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.85 },
+    { url: `${baseUrl}/probabilidades`, lastModified: new Date(probabilitiesUpdatedAt), changeFrequency: "hourly", priority: 0.9 },
+    { url: `${baseUrl}/metodologia-dos-palpites`, lastModified: new Date(probabilitiesUpdatedAt), changeFrequency: "monthly", priority: 0.65 },
     { url: `${baseUrl}/time`, lastModified: new Date(), changeFrequency: "daily", priority: 0.8 },
     { url: `${baseUrl}/sobre`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
     { url: `${baseUrl}/feed.xml`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.5 },
@@ -132,9 +137,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Silencioso se o arquivo estiver ausente no build.
   let matchPages: MetadataRoute.Sitemap = [];
   try {
-    matchPages = getAllMatches().map((m) => ({
+    matchPages = getAllKnownMatches().map((m) => ({
       url: `${baseUrl}/onde-assistir/${m.slug}`,
-      lastModified: new Date(),
+      lastModified: new Date(`${m.date}T${m.time}:00-03:00`),
       changeFrequency: "hourly" as const,
       priority: 0.85,
     }));

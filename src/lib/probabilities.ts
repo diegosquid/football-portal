@@ -4,8 +4,11 @@ import { join } from "path";
 /** Uma predição por confronto — saída do modelo Poisson (scripts/build-probabilities.js). */
 export interface Prediction {
   date: string;
+  time?: string;
   home: string;
   away: string;
+  competition?: string;
+  round?: string;
   lambdaHome: number;
   lambdaAway: number;
   golsEsperados: number;
@@ -20,6 +23,12 @@ export interface Prediction {
     forcaDefesaFora: number;
     jogosConsiderados: { casa: number; fora: number };
   };
+  actualResult?: {
+    homeGoals: number;
+    awayGoals: number;
+    outcome: "casa" | "empate" | "fora";
+    recordedAt: string;
+  };
 }
 
 export interface ProbabilitiesData {
@@ -29,6 +38,17 @@ export interface ProbabilitiesData {
   disclaimer: string;
   leagueAverages: { golsCasa: number; golsFora: number };
   predictions: Prediction[];
+}
+
+export interface ProbabilityHistoryData {
+  updatedAt: string;
+  predictions: Prediction[];
+  metrics?: {
+    evaluated: number;
+    hitRate: number;
+    brierScore: number;
+    minimumSample: number;
+  };
 }
 
 /** Lê content/probabilidades.json. Retorna null se o arquivo ainda não existe. */
@@ -41,8 +61,25 @@ function loadData(): ProbabilitiesData | null {
   }
 }
 
+function loadHistory(): ProbabilityHistoryData | null {
+  try {
+    const filePath = join(
+      process.cwd(),
+      "content",
+      "probabilidades-historico.json",
+    );
+    return JSON.parse(readFileSync(filePath, "utf-8")) as ProbabilityHistoryData;
+  } catch {
+    return null;
+  }
+}
+
 export function getProbabilitiesData(): ProbabilitiesData | null {
   return loadData();
+}
+
+export function getProbabilityHistory(): ProbabilityHistoryData | null {
+  return loadHistory();
 }
 
 export function getAllPredictions(): Prediction[] {
@@ -66,11 +103,17 @@ export function predictionKey(home: string, away: string): string {
 export function getPredictionFor(
   home: string,
   away: string,
+  date?: string,
 ): Prediction | undefined {
   const h = normalizeTeam(home);
   const a = normalizeTeam(away);
-  return getAllPredictions().find(
-    (p) => normalizeTeam(p.home) === h && normalizeTeam(p.away) === a,
+  const current = getAllPredictions();
+  const historical = loadHistory()?.predictions ?? [];
+  return [...current, ...historical].find(
+    (p) =>
+      normalizeTeam(p.home) === h &&
+      normalizeTeam(p.away) === a &&
+      (!date || p.date === date),
   );
 }
 

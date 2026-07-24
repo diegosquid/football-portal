@@ -12,6 +12,7 @@ import { getProbabilitiesData, type Prediction } from "@/lib/probabilities";
 import {
   buildMatchSlug,
   formatDateLongBR,
+  formatDateShortBR,
   getMatchBySlug,
   getTodayBRT,
   getTomorrowBRT,
@@ -19,36 +20,43 @@ import {
 
 export const revalidate = 900; // 15 min
 
-const PAGE_TITLE =
-  "Palpites e Probabilidades dos Jogos de Hoje: Quem Vai Ganhar";
 const PAGE_DESCRIPTION =
-  "Palpites e probabilidades dos jogos de hoje calculados por modelo estatístico próprio: quem tem mais chance de vencer, gols e ambos marcam. Atualizado a cada rodada.";
+  "Veja os palpites de hoje com chances de vitória, empate, mais de 2,5 gols, ambos marcam e placar provável, calculados por modelo estatístico próprio.";
 
 export function generateMetadata(): Metadata {
+  const today = getTodayBRT();
+  const data = getProbabilitiesData();
+  const title = `Palpites de Hoje (${formatDateShortBR(today)}): Probabilidades dos Jogos`;
+  const description =
+    data && data.predictions.length > 0
+      ? `${PAGE_DESCRIPTION} ${data.predictions.length} jogos analisados.`
+      : PAGE_DESCRIPTION;
+
   return {
-    title: PAGE_TITLE,
-    description: PAGE_DESCRIPTION,
-    keywords: [
-      "palpites de hoje",
-      "palpites futebol",
-      "probabilidades futebol",
-      "quem vai ganhar",
-      "prognóstico dos jogos",
-      "palpites brasileirão",
-    ],
+    title,
+    description,
     alternates: { canonical: `${siteConfig.url}/probabilidades` },
     openGraph: {
-      title: PAGE_TITLE,
-      description: PAGE_DESCRIPTION,
+      title,
+      description,
       url: `${siteConfig.url}/probabilidades`,
       siteName: siteConfig.name,
       locale: "pt_BR",
       type: "website",
+      images: [
+        {
+          url: "/og-probabilidades.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Palpites de hoje — probabilidades, gols e placar",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
-      title: PAGE_TITLE,
-      description: PAGE_DESCRIPTION,
+      title,
+      description,
+      images: ["/og-probabilidades.jpg"],
     },
   };
 }
@@ -63,6 +71,15 @@ function dayLabel(dateStr: string, today: string, tomorrow: string): string {
   if (dateStr === today) return "Hoje";
   if (dateStr === tomorrow) return "Amanhã";
   return formatDateLongBR(dateStr);
+}
+
+function formatGeneratedAt(timestamp?: string): string | null {
+  if (!timestamp) return null;
+  return new Intl.DateTimeFormat("pt-BR", {
+    dateStyle: "short",
+    timeStyle: "short",
+    timeZone: "America/Sao_Paulo",
+  }).format(new Date(timestamp));
 }
 
 const FAQ = [
@@ -93,6 +110,7 @@ export default function ProbabilidadesPage() {
   const predictions = data?.predictions ?? [];
   const today = getTodayBRT();
   const tomorrow = getTomorrowBRT();
+  const updatedAt = formatGeneratedAt(data?.generatedAt);
 
   // Agrupa por data (Hoje, Amanhã, próximos) para escaneabilidade e SEO.
   const byDate = new Map<string, Prediction[]>();
@@ -103,15 +121,22 @@ export default function ProbabilidadesPage() {
     a[0].localeCompare(b[0]),
   );
 
-  const collectionItems = predictions.map((p) => ({
-    name: `${p.home} x ${p.away}`,
-    url: "/probabilidades",
-  }));
+  const collectionItems = predictions.map((p) => {
+    const slug = buildMatchSlug(p.home, p.away, p.date);
+    return {
+      name: `${p.home} x ${p.away}`,
+      url: getMatchBySlug(slug)
+        ? `/onde-assistir/${slug}`
+        : `/probabilidades#${slug}`,
+    };
+  });
+
+  const collectionTitle = `Palpites de Hoje (${formatDateShortBR(today)}): Probabilidades dos Jogos`;
 
   return (
     <>
       <CollectionPageJsonLd
-        name={PAGE_TITLE}
+        name={collectionTitle}
         description={PAGE_DESCRIPTION}
         url="/probabilidades"
         items={collectionItems}
@@ -129,13 +154,28 @@ export default function ProbabilidadesPage() {
           Modelo estatístico
         </p>
         <h1 className="mt-3 font-display text-4xl font-extrabold leading-none tracking-tight text-ink sm:text-6xl">
-          Palpites e Probabilidades dos Jogos
+          Palpites de Hoje e dos Próximos Jogos
         </h1>
         <p className="mt-4 max-w-2xl leading-relaxed text-gray-600">
           Quem tem mais chance de vencer cada jogo, com o palpite do nosso
           modelo estatístico próprio. Calculamos a força de ataque e defesa de
           cada time para estimar resultado, gols e ambos marcam — não é palpite
           de achismo, é dado.
+        </p>
+        <p className="mt-3 text-sm text-gray-500">
+          {updatedAt && (
+            <>
+              Atualizado em <time dateTime={data?.generatedAt}>{updatedAt}</time>
+              {" · "}
+            </>
+          )}
+          Modelo Poisson v1 · Fonte dos resultados: API-Football ·{" "}
+          <Link
+            href="/metodologia-dos-palpites"
+            className="font-medium text-primary hover:underline"
+          >
+            metodologia e desempenho
+          </Link>
         </p>
 
         <nav className="mb-10 mt-5 flex flex-wrap gap-2 text-sm">
@@ -173,7 +213,7 @@ export default function ProbabilidadesPage() {
                     const hasMatchPage = Boolean(getMatchBySlug(slug));
                     const heading = `${p.home} x ${p.away}`;
                     return (
-                      <article key={slug}>
+                      <article key={slug} id={slug} className="scroll-mt-24">
                         <h3 className="mb-2 font-display text-xl font-extrabold tracking-tight text-ink">
                           {hasMatchPage ? (
                             <Link
@@ -226,10 +266,19 @@ export default function ProbabilidadesPage() {
               informativo. Apostas são para maiores de 18 anos; aposte com
               responsabilidade.
             </p>
+            <p>
+              <Link
+                href="/metodologia-dos-palpites"
+                className="font-medium text-primary hover:underline"
+              >
+                Leia a metodologia completa, as limitações e o acompanhamento
+                de desempenho do modelo →
+              </Link>
+            </p>
           </div>
         </section>
 
-        {/* FAQ — featured snippet / AI Overview */}
+        {/* FAQ visível: responde dúvidas reais; o schema apenas descreve o conteúdo. */}
         <section className="mt-10">
           <h2 className="mb-4 font-display text-2xl font-extrabold tracking-tight text-ink">
             Perguntas frequentes sobre os palpites

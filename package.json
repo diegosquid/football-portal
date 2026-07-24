@@ -11,6 +11,8 @@
     "short:publish": "node scripts/publish-youtube-short.js",
     "youtube:upload": "node scripts/upload-youtube-short.js",
     "daily-recap:render": "node scripts/render-daily-recap.js",
+    "matches:archive": "node scripts/archive-matches.js",
+    "probabilities:build": "node scripts/build-probabilities.js",
     "indexnow": "node scripts/indexnow.js",
     "indexnow:all": "node scripts/indexnow.js --all",
     "indexnow:strategic": "node scripts/indexnow.js --strategic"

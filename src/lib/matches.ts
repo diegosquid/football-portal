@@ -28,6 +28,20 @@ function getSchedule(): ScheduleData {
   return JSON.parse(raw) as ScheduleData;
 }
 
+function getScheduleHistory(): ScheduleData {
+  try {
+    const filePath = join(
+      process.cwd(),
+      "content",
+      "jogos-historico.json",
+    );
+    const raw = readFileSync(filePath, "utf-8");
+    return JSON.parse(raw) as ScheduleData;
+  } catch {
+    return { updatedAt: getSchedule().updatedAt, games: [] };
+  }
+}
+
 function slugifyTeam(name: string): string {
   return name
     .normalize("NFD")
@@ -48,6 +62,15 @@ function toMatch(game: Game): Match {
     slug: buildMatchSlug(game.home, game.away, game.date),
     startDateIso: `${game.date}T${game.time}:00-03:00`,
   };
+}
+
+function dedupeMatches(matches: Match[]): Match[] {
+  const seen = new Set<string>();
+  return matches.filter((match) => {
+    if (seen.has(match.slug)) return false;
+    seen.add(match.slug);
+    return true;
+  });
 }
 
 /** Data de hoje no fuso de Brasília (YYYY-MM-DD). */
@@ -72,17 +95,23 @@ export function getTodayBRT(): string {
 export function getAllMatches(): Match[] {
   const today = getTodayBRT();
   const schedule = getSchedule();
-  const matches = schedule.games
-    .filter((g) => g.date >= today)
-    .map(toMatch);
+  return dedupeMatches(
+    schedule.games.filter((g) => g.date >= today).map(toMatch),
+  );
+}
 
-  // Dedup por slug (data no slug evita colisão entre dias)
-  const seen = new Set<string>();
-  return matches.filter((m) => {
-    if (seen.has(m.slug)) return false;
-    seen.add(m.slug);
-    return true;
-  });
+/**
+ * Todos os confrontos conhecidos, inclusive os já realizados.
+ * Mantém as páginas individuais estáveis depois que o jogo sai da agenda móvel.
+ */
+export function getAllKnownMatches(): Match[] {
+  const current = getSchedule().games.map(toMatch);
+  const historical = getScheduleHistory().games.map(toMatch);
+  return dedupeMatches([...current, ...historical]).sort((a, b) =>
+    a.date === b.date
+      ? a.time.localeCompare(b.time)
+      : b.date.localeCompare(a.date),
+  );
 }
 
 /** Só jogos de HOJE (BRT) — para o TV-guide /jogos-futebol-hoje. */
@@ -145,7 +174,7 @@ export function formatDateLongBR(dateStr: string): string {
 }
 
 export function getMatchBySlug(slug: string): Match | undefined {
-  return getAllMatches().find((m) => m.slug === slug);
+  return getAllKnownMatches().find((m) => m.slug === slug);
 }
 
 export function getScheduleMeta(): { updatedAt: string } {

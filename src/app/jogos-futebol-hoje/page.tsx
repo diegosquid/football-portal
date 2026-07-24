@@ -122,6 +122,12 @@ export default function JogosFutebolHojePage() {
           >
             Agenda da semana →
           </Link>
+          <Link
+            href="/probabilidades"
+            className="border border-primary/40 bg-primary/5 px-4 py-2 font-medium text-primary transition-colors hover:bg-primary hover:text-white"
+          >
+            Palpites dos jogos de hoje →
+          </Link>
         </nav>
 
         <GameSchedule games={games} date={today} updatedAt={updatedAt} />
@@ -211,6 +217,13 @@ export default function JogosFutebolHojePage() {
                 className="font-medium text-primary hover:underline"
               >
                 últimas da Libertadores
+              </Link>
+              . Consulte também os{" "}
+              <Link
+                href="/probabilidades"
+                className="font-medium text-primary hover:underline"
+              >
+                palpites e probabilidades dos jogos de hoje
               </Link>
               .
             </p>

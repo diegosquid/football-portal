@@ -61,6 +61,39 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-4 pt-6">
+        <div className="grid gap-3 border-y border-ink/15 py-5 sm:grid-cols-2">
+          <Link
+            href="/jogos-futebol-hoje"
+            className="group border border-ink/15 bg-white p-4 transition-colors hover:border-primary"
+          >
+            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
+              Agenda ao vivo
+            </p>
+            <h2 className="mt-1 font-display text-xl font-extrabold text-ink group-hover:text-primary">
+              Jogos de futebol hoje
+            </h2>
+            <p className="mt-1 text-sm text-gray-600">
+              Horários, canais e onde assistir cada partida.
+            </p>
+          </Link>
+          <Link
+            href="/probabilidades"
+            className="group border border-ink/15 bg-white p-4 transition-colors hover:border-primary"
+          >
+            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
+              Modelo estatístico
+            </p>
+            <h2 className="mt-1 font-display text-xl font-extrabold text-ink group-hover:text-primary">
+              Palpites dos jogos de hoje
+            </h2>
+            <p className="mt-1 text-sm text-gray-600">
+              Probabilidades de vitória, gols e placar provável.
+            </p>
+          </Link>
+        </div>
+      </section>
+
       {/* Destaque + mais recentes */}
       <section className="mx-auto grid max-w-7xl gap-10 px-4 pt-10 lg:grid-cols-12">
         {featured && (

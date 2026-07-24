@@ -191,6 +191,7 @@ async function fetchFinishedResults(leagueId) {
   return data
     .filter((e) => e.match_status === "Finished")
     .map((e) => ({
+      date: e.match_date,
       home: e.match_hometeam_name,
       away: e.match_awayteam_name,
       hg: parseInt(e.match_hometeam_score, 10),
@@ -281,6 +282,136 @@ function getUpcomingFixtures() {
   return games.filter((g) => g.date >= today);
 }
 
+const PROBABILITIES_PATH = join(
+  process.cwd(),
+  "content",
+  "probabilidades.json",
+);
+const HISTORY_PATH = join(
+  process.cwd(),
+  "content",
+  "probabilidades-historico.json",
+);
+
+function readJson(filePath, fallback) {
+  try {
+    return JSON.parse(readFileSync(filePath, "utf-8"));
+  } catch {
+    return fallback;
+  }
+}
+
+function predictionKey(prediction) {
+  return [prediction.date, prediction.home, prediction.away]
+    .join("|")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
+function mergePredictions(...groups) {
+  const merged = new Map();
+  for (const prediction of groups.flat()) {
+    merged.set(predictionKey(prediction), {
+      ...merged.get(predictionKey(prediction)),
+      ...prediction,
+    });
+  }
+  return [...merged.values()].sort((a, b) =>
+    a.date.localeCompare(b.date),
+  );
+}
+
+function enrichArchivedPredictions(predictions, fixtures) {
+  const fixtureByKey = new Map(
+    fixtures.map((fixture) => [predictionKey(fixture), fixture]),
+  );
+  return predictions.map((prediction) => {
+    const fixture = fixtureByKey.get(predictionKey(prediction));
+    if (!fixture) return prediction;
+    return {
+      ...prediction,
+      time: fixture.time,
+      competition: fixture.competition,
+      round: fixture.round,
+    };
+  });
+}
+
+function evaluateHistoricalPredictions(
+  predictions,
+  resultsByCompetition,
+  resolvers,
+) {
+  return predictions.map((prediction) => {
+    if (prediction.actualResult || !prediction.competition) return prediction;
+    const results = resultsByCompetition[prediction.competition];
+    const resolve = resolvers[prediction.competition];
+    if (!results || !resolve) return prediction;
+
+    const homeKey = resolve(prediction.home);
+    const awayKey = resolve(prediction.away);
+    const result = results.find(
+      (item) =>
+        item.date === prediction.date &&
+        item.home === homeKey &&
+        item.away === awayKey,
+    );
+    if (!result) return prediction;
+
+    const outcome =
+      result.hg > result.ag
+        ? "casa"
+        : result.hg < result.ag
+          ? "fora"
+          : "empate";
+    return {
+      ...prediction,
+      actualResult: {
+        homeGoals: result.hg,
+        awayGoals: result.ag,
+        outcome,
+        recordedAt: new Date().toISOString(),
+      },
+    };
+  });
+}
+
+function calculateMetrics(predictions) {
+  const evaluated = predictions.filter((prediction) => prediction.actualResult);
+  if (evaluated.length === 0) {
+    return { evaluated: 0, hitRate: 0, brierScore: 0, minimumSample: 20 };
+  }
+
+  let hits = 0;
+  let brierTotal = 0;
+  for (const prediction of evaluated) {
+    const probabilities = prediction.resultado;
+    const predicted = Object.entries(probabilities).reduce((best, current) =>
+      current[1] > best[1] ? current : best,
+    )[0];
+    if (predicted === prediction.actualResult.outcome) hits += 1;
+
+    const targets = {
+      casa: prediction.actualResult.outcome === "casa" ? 1 : 0,
+      empate: prediction.actualResult.outcome === "empate" ? 1 : 0,
+      fora: prediction.actualResult.outcome === "fora" ? 1 : 0,
+    };
+    brierTotal +=
+      ((probabilities.casa - targets.casa) ** 2 +
+        (probabilities.empate - targets.empate) ** 2 +
+        (probabilities.fora - targets.fora) ** 2) /
+      3;
+  }
+
+  return {
+    evaluated: evaluated.length,
+    hitRate: round2(hits / evaluated.length),
+    brierScore: round2(brierTotal / evaluated.length),
+    minimumSample: 20,
+  };
+}
+
 async function main() {
   if (!API_KEY) {
     console.error("✗ APIFOOTBALL_KEY ausente no .env.local");
@@ -288,12 +419,29 @@ async function main() {
   }
 
   const fixtures = getUpcomingFixtures();
-  const competitions = [...new Set(fixtures.map((f) => f.competition))];
+  const previousCurrent = readJson(PROBABILITIES_PATH, { predictions: [] });
+  const previousHistory = readJson(HISTORY_PATH, { predictions: [] });
+  const archived = enrichArchivedPredictions(
+    mergePredictions(
+      previousHistory.predictions ?? [],
+      previousCurrent.predictions ?? [],
+    ),
+    fixtures,
+  );
+  const competitions = [
+    ...new Set(
+      [
+        ...fixtures.map((fixture) => fixture.competition),
+        ...archived.map((prediction) => prediction.competition),
+      ].filter(Boolean),
+    ),
+  ];
   console.log(`Confrontos futuros no jogos.json: ${fixtures.length}`);
   console.log(`Competições: ${competitions.join(", ")}\n`);
 
   // Constrói um modelo por liga coberta.
   const models = {};
+  const resultsByCompetition = {};
   for (const comp of competitions) {
     const leagueId = LEAGUE_MAP[comp];
     if (!leagueId) {
@@ -301,6 +449,7 @@ async function main() {
       continue;
     }
     const results = await fetchFinishedResults(leagueId);
+    resultsByCompetition[comp] = results;
     const model = computeModel(results);
     if (!model) {
       console.log(`— ${comp}: 0 resultados retornados (pulado)`);
@@ -331,8 +480,11 @@ async function main() {
     }
     predictions.push({
       date: f.date,
+      time: f.time,
       home: f.home,
       away: f.away,
+      competition: f.competition,
+      round: f.round,
       ...predictFixture(model, homeKey, awayKey),
     });
   }
@@ -345,9 +497,24 @@ async function main() {
       "Estimativas estatísticas de modelo próprio. Não são garantia de resultado.",
     predictions,
   };
+  writeFileSync(PROBABILITIES_PATH, JSON.stringify(out, null, 2) + "\n");
+
+  const historicalPredictions = evaluateHistoricalPredictions(
+    mergePredictions(archived, predictions),
+    resultsByCompetition,
+    resolvers,
+  );
   writeFileSync(
-    join(process.cwd(), "content", "probabilidades.json"),
-    JSON.stringify(out, null, 2) + "\n",
+    HISTORY_PATH,
+    JSON.stringify(
+      {
+        updatedAt: out.generatedAt,
+        predictions: historicalPredictions,
+        metrics: calculateMetrics(historicalPredictions),
+      },
+      null,
+      2,
+    ) + "\n",
   );
 
   console.log(`\n✓ ${predictions.length} predições geradas.`);

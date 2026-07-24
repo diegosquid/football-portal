@@ -12,11 +12,14 @@ import { resolveTeamSlug } from "@/lib/teams";
 import { compDo, getCompetition, resolveCompetitionSlug } from "@/lib/competitions";
 import { pelaCompetition } from "@/lib/schedule-seo";
 import { ProbabilityPanel } from "@/components/ProbabilityPanel";
-import { getPredictionFor } from "@/lib/probabilities";
+import {
+  getPredictionFor,
+  type Prediction,
+} from "@/lib/probabilities";
 import { absoluteUrl, siteConfig, truncateForMeta } from "@/lib/site";
 import {
   daysUntil,
-  getAllMatches,
+  getAllKnownMatches,
   getMatchBySlug,
   type Match,
 } from "@/lib/matches";
@@ -34,7 +37,7 @@ function resolvePlaceholderSlug(slug: string): string | undefined {
   }
   const known = homePart.includes("a-definir") ? awayPart : homePart;
   if (known.includes("a-definir")) return undefined;
-  return getAllMatches().find(
+  return getAllKnownMatches().find(
     (m) =>
       m.date === date &&
       (m.slug.startsWith(`${known}-x-`) || m.slug.includes(`-x-${known}-`)),
@@ -48,7 +51,7 @@ interface Props {
 }
 
 export function generateStaticParams() {
-  return getAllMatches().map((m) => ({ slug: m.slug }));
+  return getAllKnownMatches().map((m) => ({ slug: m.slug }));
 }
 
 function formatMatchDateBR(dateIso: string): string {
@@ -78,22 +81,27 @@ function channelIsDefined(channel: string): boolean {
   );
 }
 
-function buildFaq(match: Match) {
+function buildFaq(match: Match, prediction?: Prediction) {
   const dateFormatted = formatMatchDateBR(match.startDateIso);
+  const isPast = daysUntil(match.date) < 0;
   const competicaoText = match.round
     ? `${match.competition} — ${match.round}`
     : match.competition;
 
   const faq: { question: string; answer: string }[] = [
     {
-      question: `Que horas é ${match.home} x ${match.away}?`,
-      answer: `${match.home} x ${match.away} começa às ${match.time} (horário de Brasília), ${dateFormatted}.`,
+      question: `Que horas ${isPast ? "foi" : "é"} ${match.home} x ${match.away}?`,
+      answer: `${match.home} x ${match.away} ${isPast ? "foi marcado" : "começa"} às ${match.time} (horário de Brasília), ${dateFormatted}.`,
     },
     {
-      question: `Onde assistir ${match.home} x ${match.away} ao vivo?`,
+      question: isPast
+        ? `Onde passou ${match.home} x ${match.away}?`
+        : `Onde assistir ${match.home} x ${match.away} ao vivo?`,
       answer: channelIsDefined(match.channel)
-        ? `A transmissão fica com ${match.channel}.`
-        : "A emissora ainda não foi confirmada. A programação é atualizada diariamente — volte para conferir.",
+        ? `A transmissão ${isPast ? "foi" : "fica"} de ${match.channel}.`
+        : isPast
+          ? "A emissora da partida não foi registrada na agenda."
+          : "A emissora ainda não foi confirmada. A programação é atualizada diariamente — volte para conferir.",
     },
     {
       question: "Qual é a competição?",
@@ -106,8 +114,8 @@ function buildFaq(match: Match) {
     faq.push({
       question: `${match.home} x ${match.away} vai passar na Globo?`,
       answer: passaNaGlobo
-        ? `Sim! A Globo está entre as emissoras que transmitem ${match.home} x ${match.away}. Transmissão completa: ${match.channel}.`
-        : `Não — o jogo não terá transmissão da TV Globo. Quem transmite ${match.home} x ${match.away} é ${match.channel}.`,
+        ? `${isPast ? "Sim. A Globo esteve" : "Sim! A Globo está"} entre as emissoras da partida. Transmissão completa: ${match.channel}.`
+        : `${isPast ? "Não houve" : "Não haverá"} transmissão da TV Globo. ${isPast ? "A partida passou" : "Quem transmite"} em ${match.channel}.`,
     });
   }
 
@@ -115,6 +123,16 @@ function buildFaq(match: Match) {
     faq.push({
       question: "Onde é o jogo?",
       answer: `O confronto será no ${match.stadium}.`,
+    });
+  }
+
+  if (prediction) {
+    const casa = Math.round(prediction.resultado.casa * 100);
+    const empate = Math.round(prediction.resultado.empate * 100);
+    const fora = Math.round(prediction.resultado.fora * 100);
+    faq.push({
+      question: `Qual é o palpite para ${match.home} x ${match.away}?`,
+      answer: `O modelo do Beira do Campo calculou ${casa}% de chance para ${match.home}, ${empate}% de empate e ${fora}% para ${match.away}. O placar individual mais provável foi ${prediction.placarProvavel}.`,
     });
   }
 
@@ -127,17 +145,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!match) return {};
 
   const days = daysUntil(match.date);
+  const prediction = getPredictionFor(match.home, match.away, match.date);
+  const isPast = days < 0;
   const dateShort = match.date.split("-").reverse().slice(0, 2).join("/");
   const whenWord = days === 0 ? "hoje" : days === 1 ? "amanhã" : `dia ${dateShort}`;
   // "hoje (22/07)" / "amanhã (22/07)" / "(22/07)" — data no title ajuda o CTR
   const whenTitle = days === 0 || days === 1 ? `${whenWord} (${dateShort})` : `(${dateShort})`;
-  const title = `${match.home} x ${match.away} ${whenTitle}: que horas é o jogo e onde assistir`;
+  const title = prediction
+    ? prediction.actualResult
+      ? `${match.home} ${prediction.actualResult.homeGoals} x ${prediction.actualResult.awayGoals} ${match.away}: resultado e palpite`
+      : isPast
+        ? `${match.home} x ${match.away} (${dateShort}): palpite e probabilidades`
+        : `${match.home} x ${match.away} ${whenTitle}: palpite e onde assistir`
+    : `${match.home} x ${match.away} ${whenTitle}: que horas é o jogo e onde assistir`;
   const descChannelPart = channelIsDefined(match.channel)
     ? ` Transmissão: ${match.channel}.`
     : " Emissora a definir.";
+  const probabilityPart = prediction
+    ? ` Palpite: ${Math.round(prediction.resultado.casa * 100)}% ${match.home}, ${Math.round(prediction.resultado.empate * 100)}% empate e ${Math.round(prediction.resultado.fora * 100)}% ${match.away}.`
+    : "";
   const metaDescription = truncateForMeta(
-    `Que horas é ${match.home} e ${match.away}? O jogo ${whenWord} ${pelaCompetition(match.competition)} começa às ${match.time} (Brasília). Veja onde assistir ao vivo.${descChannelPart}`,
-    160,
+    isPast
+      ? `${match.home} x ${match.away}, ${dateShort}: veja o palpite estatístico, as probabilidades e as informações da partida ${pelaCompetition(match.competition)}.${probabilityPart}`
+      : `${match.home} x ${match.away} ${whenWord}, às ${match.time} (Brasília): palpite, probabilidades e onde assistir.${probabilityPart}${descChannelPart}`,
+    165,
   );
   const canonical = `/onde-assistir/${match.slug}`;
 
@@ -189,7 +220,6 @@ export default async function OndeAssistirPage({ params }: Props) {
           .slice(0, 6)
       : [];
 
-  const faq = buildFaq(match);
   const dateFormatted = formatMatchDateBR(match.startDateIso);
   const daysToGo = daysUntil(match.date);
   const countdown = formatCountdown(daysToGo);
@@ -200,7 +230,8 @@ export default async function OndeAssistirPage({ params }: Props) {
     ? getCompetition(competitionSlug)
     : undefined;
 
-  const prediction = getPredictionFor(match.home, match.away);
+  const prediction = getPredictionFor(match.home, match.away, match.date);
+  const faq = buildFaq(match, prediction);
 
   // SportsEvent schema (enriched vs. /jogos-futebol-hoje)
   const channelForSchema = hasChannel ? match.channel : "A definir";
@@ -212,7 +243,10 @@ export default async function OndeAssistirPage({ params }: Props) {
     name: `${match.home} x ${match.away}`,
     sport: "Futebol",
     startDate: match.startDateIso,
-    eventStatus: "https://schema.org/EventScheduled",
+    eventStatus:
+      daysToGo < 0
+        ? "https://schema.org/EventCompleted"
+        : "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     location: match.stadium
       ? { "@type": "Place", name: match.stadium }
@@ -232,7 +266,7 @@ export default async function OndeAssistirPage({ params }: Props) {
         .filter(Boolean)
     : [];
   const broadcastJsonLd =
-    broadcastServices.length > 0
+    broadcastServices.length > 0 && daysToGo >= 0
       ? {
           "@context": "https://schema.org",
           "@type": "BroadcastEvent",
@@ -313,18 +347,30 @@ export default async function OndeAssistirPage({ params }: Props) {
             )}
           </div>
           <h1 className="mt-3 text-3xl font-black leading-tight text-secondary lg:text-4xl">
-            Onde assistir {match.home} x {match.away}
+            {prediction?.actualResult
+              ? `${match.home} ${prediction.actualResult.homeGoals} x ${prediction.actualResult.awayGoals} ${match.away}: resultado e palpite`
+              : prediction && daysToGo < 0
+                ? `${match.home} x ${match.away}: palpite e informações do jogo`
+                : prediction
+                  ? `${match.home} x ${match.away}: palpite e onde assistir`
+              : `Onde assistir ${match.home} x ${match.away}`}
           </h1>
           <p className="mt-3 text-base text-gray-600 sm:text-lg">
-            {match.home} e {match.away} se enfrentam {dateFormatted} às{" "}
+            {match.home} e {match.away}{" "}
+            {daysToGo < 0 ? "se enfrentaram" : "se enfrentam"} {dateFormatted} às{" "}
             <strong>{match.time}</strong> (horário de Brasília)
             {match.stadium ? <>, no <strong>{match.stadium}</strong></> : null}.{" "}
             {hasChannel ? (
               <>
-                A transmissão fica com <strong>{match.channel}</strong>.
+                A transmissão {daysToGo < 0 ? "ficou" : "fica"} com{" "}
+                <strong>{match.channel}</strong>.
               </>
             ) : (
-              <>A emissora ainda não foi confirmada.</>
+              <>
+                {daysToGo < 0
+                  ? "A emissora não foi registrada na agenda."
+                  : "A emissora ainda não foi confirmada."}
+              </>
             )}
           </p>
         </header>
@@ -332,10 +378,11 @@ export default async function OndeAssistirPage({ params }: Props) {
         {/* Resposta direta — intenção "que horas é o jogo" */}
         <section className="mb-8 border-l-4 border-primary bg-surface p-5">
           <h2 className="text-lg font-bold text-secondary">
-            Que horas é {match.home} x {match.away}?
+            Que horas {daysToGo < 0 ? "foi" : "é"} {match.home} x {match.away}?
           </h2>
           <p className="mt-2 leading-relaxed text-gray-700">
-            O jogo entre {match.home} e {match.away} começa às{" "}
+            O jogo entre {match.home} e {match.away}{" "}
+            {daysToGo < 0 ? "foi marcado para" : "começa"} às{" "}
             <strong className="text-secondary">{match.time}</strong> (horário
             de Brasília), {dateFormatted}
             {hasChannel ? (
@@ -393,13 +440,26 @@ export default async function OndeAssistirPage({ params }: Props) {
         {prediction && (
           <section className="mb-10">
             <h2 className="mb-1 text-lg font-bold text-secondary">
-              Probabilidades: quem tem mais chance?
+              {prediction.actualResult
+                ? "Palpite do modelo e resultado"
+                : "Palpite e probabilidades: quem tem mais chance?"}
             </h2>
             <p className="mb-4 text-sm text-gray-600">
               Estimativa do nosso modelo estatístico para {match.home} x{" "}
               {match.away}.
             </p>
             <ProbabilityPanel prediction={prediction} />
+            {prediction.actualResult && (
+              <div className="mt-3 border-l-4 border-primary bg-surface p-4 text-sm text-gray-700">
+                Resultado registrado:{" "}
+                <strong>
+                  {match.home} {prediction.actualResult.homeGoals} x{" "}
+                  {prediction.actualResult.awayGoals} {match.away}
+                </strong>
+                . Este jogo já entra no acompanhamento público de desempenho do
+                modelo.
+              </div>
+            )}
             <p className="mt-3 text-xs text-gray-500">
               Estimativa estatística (modelo de Poisson) — não é garantia de
               resultado.{" "}
@@ -407,7 +467,7 @@ export default async function OndeAssistirPage({ params }: Props) {
                 href="/probabilidades"
                 className="font-medium text-primary hover:underline"
               >
-                Veja como calculamos
+                Veja como calculamos e acompanhamos o desempenho
               </Link>
               .
             </p>

@@ -116,6 +116,22 @@ export function Footer() {
                   Agenda da Semana
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/probabilidades"
+                  className="text-sm font-semibold text-lima transition-colors hover:text-cal"
+                >
+                  Palpites de Hoje
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/metodologia-dos-palpites"
+                  className="text-sm text-cal/70 transition-colors hover:text-lima"
+                >
+                  Como Calculamos
+                </Link>
+              </li>
               {categories.map((cat) => (
                 <li key={cat.slug}>
                   <Link

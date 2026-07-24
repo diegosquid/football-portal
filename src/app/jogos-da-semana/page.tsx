@@ -162,6 +162,12 @@ export default function JogosDaSemanaPage() {
           >
             Jogos de amanhã →
           </Link>
+          <Link
+            href="/probabilidades"
+            className="border border-primary/40 bg-primary/5 px-4 py-2 font-medium text-primary transition-colors hover:bg-primary hover:text-white"
+          >
+            Palpites da semana →
+          </Link>
         </nav>
 
         {dates.length === 0 ? (
@@ -206,6 +212,13 @@ export default function JogosDaSemanaPage() {
               className="font-medium text-primary hover:underline"
             >
               jogos de amanhã
+            </Link>
+            {" "}e os{" "}
+            <Link
+              href="/probabilidades"
+              className="font-medium text-primary hover:underline"
+            >
+              palpites e probabilidades
             </Link>
             .
           </p>
