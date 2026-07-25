@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-24T15:03:14.869Z",
+  "updatedAt": "2026-07-25T10:15:43.866Z",
   "predictions": [
     {
       "date": "2026-07-24",
@@ -245,6 +245,251 @@
       "time": "20:30",
       "competition": "Brasileirão Série A",
       "round": "Rodada 20"
+    },
+    {
+      "date": "2026-07-25",
+      "time": "16:00",
+      "home": "Mixto",
+      "away": "Palmeiras",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 14",
+      "lambdaHome": 0.94,
+      "lambdaAway": 1.1,
+      "golsEsperados": 2.04,
+      "resultado": {
+        "casa": 0.30864493950781424,
+        "empate": 0.3033374095519075,
+        "fora": 0.3880176509402785
+      },
+      "gols": {
+        "over25": 0.33497389951554835,
+        "under25": 0.6650261004844517
+      },
+      "ambosMarcam": {
+        "sim": 0.40743214507469716,
+        "nao": 0.592567854925303
+      },
+      "placarProvavel": "0-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.7,
+        "forcaDefesaCasa": 0.94,
+        "forcaAtaqueFora": 1.03,
+        "forcaDefesaFora": 0.9,
+        "jogosConsiderados": {
+          "casa": 5,
+          "fora": 5
+        }
+      }
+    },
+    {
+      "date": "2026-07-25",
+      "time": "16:00",
+      "home": "Iguatu",
+      "away": "Nacional-AM",
+      "competition": "Brasileirão Série D",
+      "round": "",
+      "lambdaHome": 1.24,
+      "lambdaAway": 1.2,
+      "golsEsperados": 2.43,
+      "resultado": {
+        "casa": 0.37274875763251836,
+        "empate": 0.27439856173067784,
+        "fora": 0.3528526806368036
+      },
+      "gols": {
+        "over25": 0.43861168196541683,
+        "under25": 0.5613883180345832
+      },
+      "ambosMarcam": {
+        "sim": 0.49489399694245184,
+        "nao": 0.5051060030575482
+      },
+      "placarProvavel": "1-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.16,
+        "forcaDefesaCasa": 1.03,
+        "forcaAtaqueFora": 1.22,
+        "forcaDefesaFora": 0.79,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 6
+        }
+      }
+    },
+    {
+      "date": "2026-07-25",
+      "time": "17:00",
+      "home": "Ferroviária",
+      "away": "Maranhão",
+      "competition": "Brasileirão Série C",
+      "round": "",
+      "lambdaHome": 1.05,
+      "lambdaAway": 0.55,
+      "golsEsperados": 1.6,
+      "resultado": {
+        "casa": 0.47113544372296995,
+        "empate": 0.3368612912000332,
+        "fora": 0.19200326507699658
+      },
+      "gols": {
+        "over25": 0.21657578309632936,
+        "under25": 0.7834242169036707
+      },
+      "ambosMarcam": {
+        "sim": 0.27559840382518025,
+        "nao": 0.7244015961748197
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.87,
+        "forcaDefesaCasa": 0.85,
+        "forcaAtaqueFora": 0.68,
+        "forcaDefesaFora": 0.94,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 7
+        }
+      }
+    },
+    {
+      "date": "2026-07-25",
+      "time": "17:00",
+      "home": "Santa Cruz",
+      "away": "Figueirense",
+      "competition": "Brasileirão Série C",
+      "round": "",
+      "lambdaHome": 0.97,
+      "lambdaAway": 0.66,
+      "golsEsperados": 1.64,
+      "resultado": {
+        "casa": 0.4155075643009573,
+        "empate": 0.342265210172024,
+        "fora": 0.24222722552701814
+      },
+      "gols": {
+        "over25": 0.2260480033147482,
+        "under25": 0.7739519966852518
+      },
+      "ambosMarcam": {
+        "sim": 0.3017773010832913,
+        "nao": 0.6982226989167087
+      },
+      "placarProvavel": "0-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.81,
+        "forcaDefesaCasa": 0.74,
+        "forcaAtaqueFora": 0.94,
+        "forcaDefesaFora": 0.94,
+        "jogosConsiderados": {
+          "casa": 6,
+          "fora": 7
+        }
+      }
+    },
+    {
+      "date": "2026-07-25",
+      "time": "17:00",
+      "home": "RB Bragantino",
+      "away": "Atlético-MG",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 14",
+      "lambdaHome": 1.45,
+      "lambdaAway": 1.43,
+      "golsEsperados": 2.88,
+      "resultado": {
+        "casa": 0.3794638331677453,
+        "empate": 0.24876648646495889,
+        "fora": 0.37176968036729546
+      },
+      "gols": {
+        "over25": 0.5492290049741732,
+        "under25": 0.4507709950258269
+      },
+      "ambosMarcam": {
+        "sim": 0.5821329526263178,
+        "nao": 0.41786704737368224
+      },
+      "placarProvavel": "1-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.03,
+        "forcaDefesaCasa": 1.15,
+        "forcaAtaqueFora": 1.1,
+        "forcaDefesaFora": 0.94,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 6
+        }
+      }
+    },
+    {
+      "date": "2026-07-25",
+      "time": "18:30",
+      "home": "Confiança",
+      "away": "Itabaiana",
+      "competition": "Brasileirão Série C",
+      "round": "",
+      "lambdaHome": 0.97,
+      "lambdaAway": 0.77,
+      "golsEsperados": 1.73,
+      "resultado": {
+        "casa": 0.3892921004941216,
+        "empate": 0.3337797550560163,
+        "fora": 0.2769281444498615
+      },
+      "gols": {
+        "over25": 0.25192906420219563,
+        "under25": 0.7480709357978043
+      },
+      "ambosMarcam": {
+        "sim": 0.3319626167509207,
+        "nao": 0.6680373832490794
+      },
+      "placarProvavel": "0-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.81,
+        "forcaDefesaCasa": 0.85,
+        "forcaAtaqueFora": 0.94,
+        "forcaDefesaFora": 0.94,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 7
+        }
+      }
+    },
+    {
+      "date": "2026-07-25",
+      "time": "19:00",
+      "home": "Volta Redonda",
+      "away": "Anápolis",
+      "competition": "Brasileirão Série C",
+      "round": "",
+      "lambdaHome": 1.36,
+      "lambdaAway": 0.38,
+      "golsEsperados": 1.74,
+      "resultado": {
+        "casa": 0.617757684713825,
+        "empate": 0.2787992481761504,
+        "fora": 0.10344306711002454
+      },
+      "gols": {
+        "over25": 0.25416167180119975,
+        "under25": 0.7458383281988004
+      },
+      "ambosMarcam": {
+        "sim": 0.2366523384586636,
+        "nao": 0.7633476615413364
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.94,
+        "forcaDefesaCasa": 0.68,
+        "forcaAtaqueFora": 0.59,
+        "forcaDefesaFora": 1.13,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 7
+        }
+      }
     },
     {
       "date": "2026-07-26",
@@ -639,24 +884,24 @@
       "lambdaAway": 0.7,
       "golsEsperados": 2.62,
       "resultado": {
-        "casa": 0.6621410246399901,
-        "empate": 0.20943966999995411,
-        "fora": 0.1284193053600554
+        "casa": 0.6631575116614777,
+        "empate": 0.20884184869899763,
+        "fora": 0.12800063963952427
       },
       "gols": {
-        "over25": 0.4853587188949845,
-        "under25": 0.5146412811050154
+        "over25": 0.4868009200719066,
+        "under25": 0.5131990799280933
       },
       "ambosMarcam": {
-        "sim": 0.4292621086047088,
-        "nao": 0.5707378913952912
+        "sim": 0.42983134175401616,
+        "nao": 0.5701686582459838
       },
       "placarProvavel": "1-0",
       "explicacao": {
         "forcaAtaqueCasa": 1.08,
-        "forcaDefesaCasa": 1.01,
-        "forcaAtaqueFora": 0.62,
-        "forcaDefesaFora": 1.17,
+        "forcaDefesaCasa": 1,
+        "forcaAtaqueFora": 0.61,
+        "forcaDefesaFora": 1.18,
         "jogosConsiderados": {
           "casa": 7,
           "fora": 6
@@ -769,6 +1014,41 @@
       "round": "Rodada 20"
     },
     {
+      "date": "2026-07-27",
+      "time": "19:30",
+      "home": "Atlético Goianiense",
+      "away": "Operário PR",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 20",
+      "lambdaHome": 1.19,
+      "lambdaAway": 1.13,
+      "golsEsperados": 2.32,
+      "resultado": {
+        "casa": 0.37431526639478135,
+        "empate": 0.2822621465247091,
+        "fora": 0.34342258708051004
+      },
+      "gols": {
+        "over25": 0.40851222177155294,
+        "under25": 0.591487778228447
+      },
+      "ambosMarcam": {
+        "sim": 0.4703854188778101,
+        "nao": 0.52961458112219
+      },
+      "placarProvavel": "1-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.96,
+        "forcaDefesaCasa": 0.92,
+        "forcaAtaqueFora": 1.2,
+        "forcaDefesaFora": 0.97,
+        "jogosConsiderados": {
+          "casa": 10,
+          "fora": 9
+        }
+      }
+    },
+    {
       "date": "2026-07-28",
       "home": "Athletic",
       "away": "Ponte Preta",
@@ -858,6 +1138,251 @@
         "forcaDefesaCasa": 1.13,
         "forcaAtaqueFora": 0.66,
         "forcaDefesaFora": 0.9,
+        "jogosConsiderados": {
+          "casa": 9,
+          "fora": 10
+        }
+      }
+    },
+    {
+      "date": "2026-07-28",
+      "time": "19:30",
+      "home": "Juventude",
+      "away": "Avaí",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 20",
+      "lambdaHome": 1.7,
+      "lambdaAway": 0.4,
+      "golsEsperados": 2.1,
+      "resultado": {
+        "casa": 0.6966027673227824,
+        "empate": 0.22142214036873553,
+        "fora": 0.08197509230848216
+      },
+      "gols": {
+        "over25": 0.3500927396148014,
+        "under25": 0.6499072603851986
+      },
+      "ambosMarcam": {
+        "sim": 0.2699823451146268,
+        "nao": 0.7300176548853732
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.06,
+        "forcaDefesaCasa": 0.4,
+        "forcaAtaqueFora": 0.99,
+        "forcaDefesaFora": 1.25,
+        "jogosConsiderados": {
+          "casa": 10,
+          "fora": 9
+        }
+      }
+    },
+    {
+      "date": "2026-07-28",
+      "time": "19:30",
+      "home": "Ponte Preta",
+      "away": "Athletic",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 20",
+      "lambdaHome": 0.82,
+      "lambdaAway": 1.46,
+      "golsEsperados": 2.27,
+      "resultado": {
+        "casa": 0.21060635108118764,
+        "empate": 0.2670090750667619,
+        "fora": 0.522384573852051
+      },
+      "gols": {
+        "over25": 0.3971686790660108,
+        "under25": 0.6028313209339892
+      },
+      "ambosMarcam": {
+        "sim": 0.42830965234942586,
+        "nao": 0.5716903476505741
+      },
+      "placarProvavel": "0-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.7,
+        "forcaDefesaCasa": 1.45,
+        "forcaAtaqueFora": 0.99,
+        "forcaDefesaFora": 0.91,
+        "jogosConsiderados": {
+          "casa": 10,
+          "fora": 9
+        }
+      }
+    },
+    {
+      "date": "2026-07-28",
+      "time": "21:35",
+      "home": "Fortaleza",
+      "away": "Botafogo-SP",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 20",
+      "lambdaHome": 1.34,
+      "lambdaAway": 0.74,
+      "golsEsperados": 2.08,
+      "resultado": {
+        "casa": 0.5100288031383511,
+        "empate": 0.2832133968679007,
+        "fora": 0.20675779999374796
+      },
+      "gols": {
+        "over25": 0.34492573979781943,
+        "under25": 0.6550742602021805
+      },
+      "ambosMarcam": {
+        "sim": 0.3860775460958083,
+        "nao": 0.6139224539041916
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.3,
+        "forcaDefesaCasa": 0.92,
+        "forcaAtaqueFora": 0.79,
+        "forcaDefesaFora": 0.8,
+        "jogosConsiderados": {
+          "casa": 9,
+          "fora": 10
+        }
+      }
+    },
+    {
+      "date": "2026-07-29",
+      "time": "19:30",
+      "home": "Internacional",
+      "away": "Flamengo",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 21",
+      "lambdaHome": 0.95,
+      "lambdaAway": 1.62,
+      "golsEsperados": 2.57,
+      "resultado": {
+        "casa": 0.2207363570347722,
+        "empate": 0.2479023047284766,
+        "fora": 0.5313613382367514
+      },
+      "gols": {
+        "over25": 0.47470285255537764,
+        "under25": 0.5252971474446223
+      },
+      "ambosMarcam": {
+        "sim": 0.4922233547510401,
+        "nao": 0.5077766452489598
+      },
+      "placarProvavel": "0-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.85,
+        "forcaDefesaCasa": 0.99,
+        "forcaAtaqueFora": 1.47,
+        "forcaDefesaFora": 0.72,
+        "jogosConsiderados": {
+          "casa": 10,
+          "fora": 10
+        }
+      }
+    },
+    {
+      "date": "2026-07-29",
+      "time": "19:30",
+      "home": "Mirassol",
+      "away": "Remo",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 21",
+      "lambdaHome": 1.72,
+      "lambdaAway": 1.09,
+      "golsEsperados": 2.81,
+      "resultado": {
+        "casa": 0.520248866645434,
+        "empate": 0.23867686596382504,
+        "fora": 0.2410742673907411
+      },
+      "gols": {
+        "over25": 0.5323219451361533,
+        "under25": 0.4676780548638467
+      },
+      "ambosMarcam": {
+        "sim": 0.5447230121721165,
+        "nao": 0.45527698782788345
+      },
+      "placarProvavel": "1-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.9,
+        "forcaDefesaCasa": 1.05,
+        "forcaAtaqueFora": 0.93,
+        "forcaDefesaFora": 1.25,
+        "jogosConsiderados": {
+          "casa": 10,
+          "fora": 10
+        }
+      }
+    },
+    {
+      "date": "2026-07-29",
+      "time": "21:30",
+      "home": "Fluminense",
+      "away": "Bahia",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 21",
+      "lambdaHome": 1.73,
+      "lambdaAway": 1.24,
+      "golsEsperados": 2.97,
+      "resultado": {
+        "casa": 0.4873801289114051,
+        "empate": 0.2367194073320539,
+        "fora": 0.27590046375654115
+      },
+      "gols": {
+        "over25": 0.5700987153820076,
+        "under25": 0.4299012846179923
+      },
+      "ambosMarcam": {
+        "sim": 0.5850551004089007,
+        "nao": 0.4149448995910993
+      },
+      "placarProvavel": "1-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.12,
+        "forcaDefesaCasa": 0.99,
+        "forcaAtaqueFora": 1.12,
+        "forcaDefesaFora": 1.01,
+        "jogosConsiderados": {
+          "casa": 10,
+          "fora": 9
+        }
+      }
+    },
+    {
+      "date": "2026-07-29",
+      "time": "21:30",
+      "home": "Vitória",
+      "away": "Palmeiras",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 21",
+      "lambdaHome": 1.1,
+      "lambdaAway": 0.83,
+      "golsEsperados": 1.93,
+      "resultado": {
+        "casa": 0.41756816973847477,
+        "empate": 0.31104704780509596,
+        "fora": 0.27138478245642955
+      },
+      "gols": {
+        "over25": 0.3042032509724113,
+        "under25": 0.6957967490275887
+      },
+      "ambosMarcam": {
+        "sim": 0.37575070200500055,
+        "nao": 0.6242492979949994
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.06,
+        "forcaDefesaCasa": 0.55,
+        "forcaAtaqueFora": 1.35,
+        "forcaDefesaFora": 0.68,
         "jogosConsiderados": {
           "casa": 9,
           "fora": 10

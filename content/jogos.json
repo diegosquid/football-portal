@@ -1,54 +1,74 @@
 {
-  "updatedAt": "2026-07-24T13:15:00-03:00",
+  "updatedAt": "2026-07-25T07:15:00-03:00",
   "games": [
     {
-      "date": "2026-07-24",
-      "time": "19:00",
-      "home": "Flamengo",
-      "away": "Grêmio",
+      "date": "2026-07-25",
+      "time": "16:00",
+      "home": "Mixto",
+      "away": "Palmeiras",
       "competition": "Brasileirão Feminino A1",
-      "round": "Rodada 13",
-      "channel": "SporTV",
+      "round": "Rodada 14",
+      "channel": "TV Brasil",
       "stadium": ""
     },
     {
-      "date": "2026-07-24",
-      "time": "19:00",
-      "home": "Internacional",
-      "away": "Fluminense",
-      "competition": "Brasileirão Feminino A1",
-      "round": "Rodada 13",
-      "channel": "N Sports",
+      "date": "2026-07-25",
+      "time": "16:00",
+      "home": "Iguatu",
+      "away": "Nacional-AM",
+      "competition": "Brasileirão Série D",
+      "round": "",
+      "channel": "Metrópoles Esportes",
       "stadium": ""
     },
     {
-      "date": "2026-07-24",
-      "time": "20:00",
-      "home": "América-MG",
-      "away": "Santos",
-      "competition": "Brasileirão Feminino A1",
-      "round": "Rodada 13",
-      "channel": "UOL Esporte",
+      "date": "2026-07-25",
+      "time": "16:00",
+      "home": "Portuguesa-SP",
+      "away": "Uberlândia",
+      "competition": "Brasileirão Série D",
+      "round": "",
+      "channel": "Metrópoles Esportes",
       "stadium": ""
     },
     {
-      "date": "2026-07-24",
-      "time": "21:15",
-      "home": "Huracán",
-      "away": "Banfield",
+      "date": "2026-07-25",
+      "time": "17:00",
+      "home": "Ferroviária",
+      "away": "Maranhão",
+      "competition": "Brasileirão Série C",
+      "round": "",
+      "channel": "SportyNet+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-25",
+      "time": "17:00",
+      "home": "Santa Cruz",
+      "away": "Figueirense",
+      "competition": "Brasileirão Série C",
+      "round": "",
+      "channel": "Band / SportyNet",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-25",
+      "time": "17:00",
+      "home": "RB Bragantino",
+      "away": "Atlético-MG",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 14",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-25",
+      "time": "17:00",
+      "home": "Newell's Old Boys",
+      "away": "Talleres",
       "competition": "Campeonato Argentino",
       "round": "",
       "channel": "ESPN / Disney+",
-      "stadium": ""
-    },
-    {
-      "date": "2026-07-24",
-      "time": "21:30",
-      "home": "Cruzeiro",
-      "away": "São Paulo",
-      "competition": "Brasileirão Feminino A1",
-      "round": "Rodada 13",
-      "channel": "SporTV",
       "stadium": ""
     },
     {
@@ -73,6 +93,36 @@
     },
     {
       "date": "2026-07-25",
+      "time": "18:30",
+      "home": "Confiança",
+      "away": "Itabaiana",
+      "competition": "Brasileirão Série C",
+      "round": "",
+      "channel": "SportyNet+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-25",
+      "time": "19:00",
+      "home": "Volta Redonda",
+      "away": "Anápolis",
+      "competition": "Brasileirão Série C",
+      "round": "",
+      "channel": "SportyNet",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-25",
+      "time": "19:15",
+      "home": "River Plate",
+      "away": "Barracas Central",
+      "competition": "Campeonato Argentino",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-25",
       "time": "20:30",
       "home": "Vasco",
       "away": "Mirassol",
@@ -80,6 +130,16 @@
       "round": "Rodada 20",
       "channel": "Record / CazéTV / Premiere",
       "stadium": "São Januário"
+    },
+    {
+      "date": "2026-07-25",
+      "time": "21:30",
+      "home": "Lanús",
+      "away": "San Lorenzo",
+      "competition": "Campeonato Argentino",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
     },
     {
       "date": "2026-07-26",
@@ -204,22 +264,22 @@
     {
       "date": "2026-07-27",
       "time": "19:30",
-      "home": "CRB",
-      "away": "Vila Nova",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 20",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio Rei Pelé, Maceió"
-    },
-    {
-      "date": "2026-07-27",
-      "time": "19:30",
       "home": "Atlético Goianiense",
       "away": "Operário PR",
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
       "channel": "ESPN / Disney+",
       "stadium": "Estádio Antônio Accioly, Goiânia"
+    },
+    {
+      "date": "2026-07-27",
+      "time": "19:30",
+      "home": "CRB",
+      "away": "Vila Nova",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 20",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio Rei Pelé, Maceió"
     },
     {
       "date": "2026-07-27",
@@ -234,22 +294,22 @@
     {
       "date": "2026-07-28",
       "time": "19:30",
-      "home": "Ponte Preta",
-      "away": "Athletic",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 20",
-      "channel": "A definir",
-      "stadium": "Estádio Moisés Lucarelli, Campinas"
-    },
-    {
-      "date": "2026-07-28",
-      "time": "19:30",
       "home": "Juventude",
       "away": "Avaí",
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
       "channel": "A definir",
       "stadium": "Estádio Alfredo Jaconi, Caxias do Sul"
+    },
+    {
+      "date": "2026-07-28",
+      "time": "19:30",
+      "home": "Ponte Preta",
+      "away": "Athletic",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 20",
+      "channel": "A definir",
+      "stadium": "Estádio Moisés Lucarelli, Campinas"
     },
     {
       "date": "2026-07-28",
@@ -270,6 +330,66 @@
       "round": "Rodada 20",
       "channel": "A definir",
       "stadium": "Arena Castelão, Fortaleza"
+    },
+    {
+      "date": "2026-07-29",
+      "time": "19:00",
+      "home": "Vasco",
+      "away": "Independiente Medellín",
+      "competition": "Sul-Americana",
+      "round": "Playoffs (Volta)",
+      "channel": "ESPN / Disney+",
+      "stadium": "São Januário, Rio de Janeiro"
+    },
+    {
+      "date": "2026-07-29",
+      "time": "19:30",
+      "home": "Internacional",
+      "away": "Flamengo",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 21",
+      "channel": "A definir",
+      "stadium": "Beira-Rio, Porto Alegre"
+    },
+    {
+      "date": "2026-07-29",
+      "time": "19:30",
+      "home": "Mirassol",
+      "away": "Remo",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 21",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-29",
+      "time": "21:30",
+      "home": "Fluminense",
+      "away": "Bahia",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 21",
+      "channel": "A definir",
+      "stadium": "Maracanã, Rio de Janeiro"
+    },
+    {
+      "date": "2026-07-29",
+      "time": "21:30",
+      "home": "Vitória",
+      "away": "Palmeiras",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 21",
+      "channel": "A definir",
+      "stadium": "Estádio Manoel Barradas, Salvador"
+    },
+    {
+      "date": "2026-07-29",
+      "time": "21:30",
+      "home": "Red Bull Bragantino",
+      "away": "Sporting Cristal",
+      "competition": "Sul-Americana",
+      "round": "Playoffs (Volta)",
+      "channel": "Paramount+",
+      "stadium": "Estádio Nabi Abi Chedid, Bragança Paulista"
     }
   ]
 }
