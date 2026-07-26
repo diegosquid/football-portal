@@ -5,6 +5,8 @@ import { GameSchedule } from "@/components/GameSchedule";
 import { UpcomingMatches } from "@/components/UpcomingMatches";
 import { ArticleFAQ } from "@/components/ArticleFAQ";
 import { FAQPageJsonLd } from "@/components/JsonLd";
+import { ShareWhatsApp } from "@/components/ShareWhatsApp";
+import { buildShareText } from "@/lib/share";
 import { getAllCompetitions } from "@/lib/competitions";
 import {
   buildDayFaq,
@@ -107,6 +109,27 @@ export default function JogosFutebolHojePage() {
           Programação completa dos jogos de futebol na TV aberta, fechada e
           streaming. Atualizado diariamente.
         </p>
+
+        {/* Compartilhar a lista pronta no WhatsApp */}
+        {games.length > 0 && (
+          <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+            <ShareWhatsApp
+              text={buildShareText(games, {
+                label: "hoje",
+                dateShort: formatDateShortBR(today),
+                path: "/jogos-futebol-hoje",
+              })}
+              contentType="jogos_do_dia"
+              itemId={today}
+              gamesCount={games.length}
+              label="Mandar no grupo"
+              fullWidth
+            />
+            <span className="text-xs text-gray-500">
+              Lista pronta com horários e canais
+            </span>
+          </div>
+        )}
 
         {/* Navegação entre agendas */}
         <nav className="mb-10 mt-5 flex flex-wrap gap-2 text-sm">

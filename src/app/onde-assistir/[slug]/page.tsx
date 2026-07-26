@@ -12,6 +12,8 @@ import { resolveTeamSlug } from "@/lib/teams";
 import { compDo, getCompetition, resolveCompetitionSlug } from "@/lib/competitions";
 import { pelaCompetition } from "@/lib/schedule-seo";
 import { ProbabilityPanel } from "@/components/ProbabilityPanel";
+import { ShareWhatsApp } from "@/components/ShareWhatsApp";
+import { buildMatchShareText } from "@/lib/share";
 import {
   getPredictionFor,
   type Prediction,
@@ -473,6 +475,42 @@ export default async function OndeAssistirPage({ params }: Props) {
             </p>
           </section>
         )}
+
+        {/* Compartilhar o jogo — intenção alta: "que horas é e onde passa" */}
+        <section className="mb-10 border-2 border-ink bg-lima/20 p-5 sm:p-6">
+          <p className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-ink/60">
+            Passa pra frente
+          </p>
+          <h2 className="mt-2 font-display text-xl font-extrabold tracking-tight text-ink sm:text-2xl">
+            Manda no grupo quem vai assistir
+          </h2>
+          <p className="mb-4 mt-1.5 text-sm leading-relaxed text-gray-700">
+            Mensagem pronta com horário, canal
+            {prediction ? " e o palpite do nosso modelo" : ""} — é só colar.
+          </p>
+          <ShareWhatsApp
+            text={buildMatchShareText(match, {
+              whenLabel:
+                daysToGo === 0
+                  ? "Hoje"
+                  : daysToGo === 1
+                    ? "Amanhã"
+                    : dateFormatted,
+              odds: prediction
+                ? {
+                    casa: Math.round(prediction.resultado.casa * 100),
+                    empate: Math.round(prediction.resultado.empate * 100),
+                    fora: Math.round(prediction.resultado.fora * 100),
+                  }
+                : undefined,
+            })}
+            contentType="jogo"
+            itemId={match.slug}
+            label="Mandar no grupo"
+            size="large"
+            fullWidth
+          />
+        </section>
 
         {/* Team hubs */}
         {(homeSlug || awaySlug || competitionHub) && (
