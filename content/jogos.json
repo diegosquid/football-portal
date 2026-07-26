@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-26T09:45:00-03:00",
+  "updatedAt": "2026-07-26T13:05:00-03:00",
   "games": [
     {
       "date": "2026-07-26",
@@ -68,7 +68,7 @@
       "away": "Ceará",
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
-      "channel": "SporTV / Premiere",
+      "channel": "Globo / SporTV / Premiere",
       "stadium": "Estádio 1° de Maio"
     },
     {
@@ -208,7 +208,7 @@
       "away": "Botafogo",
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 13",
-      "channel": "A definir",
+      "channel": "N Sports",
       "stadium": "Arena Cajueiro, Feira de Santana"
     },
     {
