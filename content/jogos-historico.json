@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-26T06:13:00-03:00",
+  "updatedAt": "2026-07-26T09:45:00-03:00",
   "games": [
     {
       "date": "2026-07-24",
@@ -193,6 +193,36 @@
     },
     {
       "date": "2026-07-26",
+      "time": "11:00",
+      "home": "Corinthians",
+      "away": "Vitória",
+      "competition": "Brasileirão Feminino A1",
+      "round": "",
+      "channel": "TV Brasil",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-26",
+      "time": "15:00",
+      "home": "Juventude",
+      "away": "Ferroviária",
+      "competition": "Brasileirão Feminino A1",
+      "round": "",
+      "channel": "UOL Esporte",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-26",
+      "time": "15:00",
+      "home": "Atlético Tucumán",
+      "away": "Independiente Rivadavia",
+      "competition": "Campeonato Argentino",
+      "round": "",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-26",
       "time": "16:00",
       "home": "Bahia",
       "away": "Corinthians",
@@ -230,6 +260,36 @@
       "round": "Rodada 20",
       "channel": "SporTV / Premiere",
       "stadium": "Estádio 1° de Maio"
+    },
+    {
+      "date": "2026-07-26",
+      "time": "16:00",
+      "home": "Brusque",
+      "away": "Ituano",
+      "competition": "Brasileirão Série C",
+      "round": "",
+      "channel": "SportyNet",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-26",
+      "time": "16:00",
+      "home": "Ypiranga-RS",
+      "away": "Barra-SC",
+      "competition": "Brasileirão Série C",
+      "round": "",
+      "channel": "SportyNet",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-26",
+      "time": "17:15",
+      "home": "Estudiantes",
+      "away": "Independiente",
+      "competition": "Campeonato Argentino",
+      "round": "",
+      "channel": "ESPN 3 / Disney+",
+      "stadium": ""
     },
     {
       "date": "2026-07-26",
@@ -283,6 +343,16 @@
     },
     {
       "date": "2026-07-26",
+      "time": "18:30",
+      "home": "Caxias",
+      "away": "Botafogo-PB",
+      "competition": "Brasileirão Série C",
+      "round": "",
+      "channel": "SportyNet",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-26",
       "time": "19:30",
       "home": "Palmeiras",
       "away": "Atlético-MG",
@@ -300,6 +370,26 @@
       "round": "Rodada 20",
       "channel": "Premiere",
       "stadium": "Mangueirão, Belém"
+    },
+    {
+      "date": "2026-07-26",
+      "time": "19:30",
+      "home": "Deportivo Riestra",
+      "away": "Boca Juniors",
+      "competition": "Campeonato Argentino",
+      "round": "",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-26",
+      "time": "20:30",
+      "home": "Amazonas",
+      "away": "Paysandu",
+      "competition": "Brasileirão Série C",
+      "round": "",
+      "channel": "SportyNet",
+      "stadium": ""
     },
     {
       "date": "2026-07-27",
@@ -409,7 +499,7 @@
       "competition": "Brasileirão Série A",
       "round": "Rodada 21",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "Estádio José Maria de Campos Maia, Mirassol"
     },
     {
       "date": "2026-07-29",
@@ -440,6 +530,36 @@
       "round": "Playoffs (Volta)",
       "channel": "Paramount+",
       "stadium": "Estádio Nabi Abi Chedid, Bragança Paulista"
+    },
+    {
+      "date": "2026-07-30",
+      "time": "19:00",
+      "home": "Grêmio",
+      "away": "Bolívar",
+      "competition": "Sul-Americana",
+      "round": "Playoffs (Volta)",
+      "channel": "Paramount+",
+      "stadium": "Arena do Grêmio, Porto Alegre"
+    },
+    {
+      "date": "2026-07-30",
+      "time": "19:30",
+      "home": "Corinthians",
+      "away": "Athletico-PR",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 21",
+      "channel": "Record / CazéTV / Premiere",
+      "stadium": "Neo Química Arena, São Paulo"
+    },
+    {
+      "date": "2026-07-30",
+      "time": "21:30",
+      "home": "Coritiba",
+      "away": "Cruzeiro",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 21",
+      "channel": "A definir",
+      "stadium": "Estádio Couto Pereira, Curitiba"
     }
   ]
 }
