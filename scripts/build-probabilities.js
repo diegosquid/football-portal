@@ -489,12 +489,42 @@ async function main() {
     });
   }
 
+  // Ranking de força por competição — o modelo já calcula, só não expunha.
+  // Alimenta o hub /estatisticas (ataque/defesa de cada time vs. média da liga).
+  const teamStrengths = {};
+  for (const [comp, model] of Object.entries(models)) {
+    teamStrengths[comp] = Object.entries(model.strengths)
+      .map(([name, s]) => {
+        const games = s.games.home + s.games.away;
+        // Média das forças casa/fora — 1.0 = exatamente a média da liga.
+        const ataque = (s.attackHome + s.attackAway) / 2;
+        const defesa = (s.defenseHome + s.defenseAway) / 2;
+        return {
+          time: name,
+          jogos: games,
+          ataque: round2(ataque),
+          defesa: round2(defesa),
+          // Saldo de força: >0 = time acima da média da liga no conjunto.
+          saldo: round2(ataque - defesa),
+        };
+      })
+      .filter((t) => t.jogos > 0)
+      .sort((a, b) => b.saldo - a.saldo);
+  }
+
   const out = {
     generatedAt: new Date().toISOString(),
     source: "apifootball.com",
     model: "poisson-v1",
     disclaimer:
       "Estimativas estatísticas de modelo próprio. Não são garantia de resultado.",
+    leagueAverages: Object.fromEntries(
+      Object.entries(models).map(([comp, m]) => [
+        comp,
+        { golsCasa: round2(m.leagueHomeAvg), golsFora: round2(m.leagueAwayAvg) },
+      ]),
+    ),
+    teamStrengths,
     predictions,
   };
   writeFileSync(PROBABILITIES_PATH, JSON.stringify(out, null, 2) + "\n");

@@ -31,12 +31,27 @@ export interface Prediction {
   };
 }
 
+/** Força de um time vs. média da liga. 1.0 = exatamente na média. */
+export interface TeamStrength {
+  time: string;
+  jogos: number;
+  /** >1 marca mais que a média da liga. */
+  ataque: number;
+  /** <1 sofre menos que a média da liga (quanto menor, melhor). */
+  defesa: number;
+  /** ataque - defesa. >0 = conjunto acima da média. */
+  saldo: number;
+}
+
 export interface ProbabilitiesData {
   generatedAt: string;
   source: string;
   model: string;
   disclaimer: string;
-  leagueAverages: { golsCasa: number; golsFora: number };
+  /** Médias de gols por competição: { "Brasileirão Série A": {golsCasa, golsFora} } */
+  leagueAverages?: Record<string, { golsCasa: number; golsFora: number }>;
+  /** Ranking de força por competição. */
+  teamStrengths?: Record<string, TeamStrength[]>;
   predictions: Prediction[];
 }
 

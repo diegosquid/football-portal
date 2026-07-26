@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { articles } from "#content";
 import { getAllCategories } from "@/lib/categories";
 import { getAllAuthors } from "@/lib/authors";
-import { getAllTeams } from "@/lib/teams";
+import { getAllTeams, teamPlaysInGame } from "@/lib/teams";
 import { getAllCompetitions } from "@/lib/competitions";
 import { getAllKnownMatches } from "@/lib/matches";
 import { getProbabilitiesData } from "@/lib/probabilities";
@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/jogos-da-semana`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.85 },
     { url: `${baseUrl}/probabilidades`, lastModified: new Date(probabilitiesUpdatedAt), changeFrequency: "hourly", priority: 0.9 },
     { url: `${baseUrl}/metodologia-dos-palpites`, lastModified: new Date(probabilitiesUpdatedAt), changeFrequency: "monthly", priority: 0.65 },
+    { url: `${baseUrl}/estatisticas`, lastModified: new Date(probabilitiesUpdatedAt), changeFrequency: "daily", priority: 0.8 },
     { url: `${baseUrl}/time`, lastModified: new Date(), changeFrequency: "daily", priority: 0.8 },
     { url: `${baseUrl}/sobre`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
     { url: `${baseUrl}/feed.xml`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.5 },
@@ -93,6 +94,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
+  // Calendário por time — /proximos-jogos/[time] (só times com jogos na base)
+  const knownMatches = getAllKnownMatches();
+  const proximosJogosPages: MetadataRoute.Sitemap = getAllTeams()
+    .filter((team) =>
+      knownMatches.some((m) => teamPlaysInGame(team.slug, m.home, m.away)),
+    )
+    .map((team) => ({
+      url: `${baseUrl}/proximos-jogos/${team.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "daily" as const,
+      priority: 0.8,
+    }));
+
   // Competições "hoje" — /jogos-futebol-hoje/[competicao]
   const competitionHojePages: MetadataRoute.Sitemap = getAllCompetitions().map(
     (comp) => ({
@@ -155,6 +169,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...authorPages,
     ...authorPaginatedPages,
     ...teamHojePages,
+    ...proximosJogosPages,
     ...competitionHojePages,
     ...teamPages,
     ...teamPaginatedPages,

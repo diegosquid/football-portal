@@ -76,7 +76,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const team = getTeam(slug);
   if (!team) return {};
 
-  const title = `${team.name} Hoje: Jogo, Horário, Onde Assistir e Próximo Jogo`;
+  const title = `${team.name} Joga Hoje? Horário, Canal e Onde Assistir`;
   const description = `Veja se o ${team.name} joga hoje, o horário do jogo, canal de transmissão, o próximo jogo e as últimas notícias. Atualizado diariamente.`;
 
   return {

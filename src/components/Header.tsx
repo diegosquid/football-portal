@@ -77,6 +77,12 @@ export function Header() {
           >
             Palpites
           </Link>
+          <Link
+            href="/estatisticas"
+            className="hover-line shrink-0 px-3 py-3 text-[13px] font-semibold uppercase tracking-wide text-cal/80 transition-colors hover:text-cal"
+          >
+            Estatísticas
+          </Link>
 
           {NAV_CATEGORIES.map((cat) => (
             <Link
