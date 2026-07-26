@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Trimmer - Beira do Campo</title>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #14141f;
+      --surface2: #1e1e2e;
+      --border: #2a2a3e;
+      --accent: #f59e0b;
+      --accent2: #10b981;
+      --text: #e4e4e7;
+      --text2: #a1a1aa;
+      --danger: #ef4444;
+      --radius: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .header {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .header h1 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .header .badge {
+      font-size: 11px;
+      padding: 2px 8px;
+      background: var(--accent);
+      color: #000;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      height: calc(100vh - 57px);
+    }
+    .main {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      overflow-y: auto;
+    }
+    .sidebar {
+      border-left: 1px solid var(--border);
+      padding: 20px;
+      overflow-y: auto;
+      background: var(--surface);
+    }
+
+    /* Input bar */
+    .input-bar {
+      display: flex;
+      gap: 8px;
+    }
+    .input-bar input {
+      flex: 1;
+      padding: 10px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+    }
+    .input-bar input:focus { border-color: var(--accent); }
+    .input-bar input::placeholder { color: var(--text2); }
+    .btn {
+      padding: 10px 18px;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-primary { background: var(--accent); color: #000; }
+    .btn-primary:hover:not(:disabled) { background: #fbbf24; }
+    .btn-success { background: var(--accent2); color: #000; }
+    .btn-success:hover:not(:disabled) { background: #34d399; }
+    .btn-danger { background: var(--danger); color: #fff; }
+    .btn-sm { padding: 6px 12px; font-size: 12px; }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .btn-outline:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+
+    /* Video area */
+    .video-container {
+      position: relative;
+      background: #000;
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 16/9;
+    }
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .crop-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+    }
+    .crop-mask {
+      position: absolute;
+      background: rgba(0,0,0,0.6);
+    }
+    .crop-box {
+      position: absolute;
+      border: 2px dashed var(--accent);
+      pointer-events: all;
+      cursor: move;
+    }
+    .crop-box .handle {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+    .crop-box .handle-tl { top: -6px; left: -6px; cursor: nw-resize; }
+    .crop-box .handle-tr { top: -6px; right: -6px; cursor: ne-resize; }
+    .crop-box .handle-bl { bottom: -6px; left: -6px; cursor: sw-resize; }
+    .crop-box .handle-br { bottom: -6px; right: -6px; cursor: se-resize; }
+    .crop-label {
+      position: absolute;
+      top: 4px; left: 4px;
+      font-size: 10px;
+      background: var(--accent);
+      color: #000;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* Timeline */
+    .timeline-section {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .timeline-header h3 { font-size: 13px; color: var(--text2); }
+    .time-display {
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .timeline-track {
+      position: relative;
+      height: 48px;
+      background: var(--surface2);
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .timeline-progress {
+      position: absolute;
+      top: 0; bottom: 0;
+      background: rgba(245, 158, 11, 0.15);
+      pointer-events: none;
+    }
+    .timeline-playhead {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: var(--accent);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .timeline-handle {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 8px;
+      cursor: ew-resize;
+      z-index: 4;
+    }
+    .timeline-handle::after {
+      content: "";
+      position: absolute;
+      top: 4px; bottom: 4px;
+      width: 4px;
+      border-radius: 2px;
+    }
+    .timeline-handle.in-handle { left: 0; }
+    .timeline-handle.in-handle::after { left: 2px; background: var(--accent2); }
+    .timeline-handle.out-handle { right: 0; }
+    .timeline-handle.out-handle::after { right: 2px; background: var(--danger); }
+    .timeline-range {
+      position: absolute;
+      top: 0; bottom: 0;
+      background: rgba(16, 185, 129, 0.12);
+      border-left: 2px solid var(--accent2);
+      border-right: 2px solid var(--danger);
+      z-index: 2;
+    }
+    .time-inputs {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+      align-items: center;
+    }
+    .time-input-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .time-input-group label {
+      font-size: 11px;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .time-input-group input {
+      width: 80px;
+      padding: 5px 8px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
+      text-align: center;
+    }
+    .time-input-group input:focus { outline: none; border-color: var(--accent); }
+
+    /* Sidebar sections */
+    .section { margin-bottom: 20px; }
+    .section h3 {
+      font-size: 12px;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .preview-9x16 {
+      aspect-ratio: 9/16;
+      background: #000;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .preview-9x16 video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .preset-btns {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .aspect-btn.active {
+      background: var(--accent) !important;
+      color: #000 !important;
+      border-color: var(--accent) !important;
+    }
+    .slug-select {
+      width: 100%;
+      padding: 8px 10px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 13px;
+    }
+    .slug-select:focus { outline: none; border-color: var(--accent); }
+    .status {
+      padding: 10px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      margin-top: 8px;
+    }
+    .status.loading { background: rgba(245,158,11,0.15); color: var(--accent); }
+    .status.success { background: rgba(16,185,129,0.15); color: var(--accent2); }
+    .status.error { background: rgba(239,68,68,0.15); color: var(--danger); }
+    .hidden { display: none !important; }
+
+    /* Playback controls */
+    .playback-controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Video Trimmer</h1>
+    <span class="badge">Beira do Campo</span>
+  </div>
+
+  <div class="layout">
+    <div class="main">
+      <!-- URL input -->
+      <div class="input-bar">
+        <input type="text" id="urlInput" placeholder="Cole uma URL do YouTube ou caminho local..." />
+        <button class="btn btn-primary" id="loadBtn" onclick="loadVideo()">Carregar</button>
+      </div>
+
+      <!-- Video player -->
+      <div class="video-container" id="videoContainer">
+        <video id="videoPlayer" crossorigin="anonymous"></video>
+        <div class="crop-overlay" id="cropOverlay">
+          <div class="crop-mask" id="maskTop"></div>
+          <div class="crop-mask" id="maskBottom"></div>
+          <div class="crop-mask" id="maskLeft"></div>
+          <div class="crop-mask" id="maskRight"></div>
+          <div class="crop-box" id="cropBox">
+            <span class="crop-label">9:16</span>
+            <div class="handle handle-tl" data-handle="tl"></div>
+            <div class="handle handle-tr" data-handle="tr"></div>
+            <div class="handle handle-bl" data-handle="bl"></div>
+            <div class="handle handle-br" data-handle="br"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Playback -->
+      <div class="playback-controls">
+        <button class="btn btn-sm btn-outline" onclick="skipTime(-5)">-5s</button>
+        <button class="btn btn-sm btn-outline" onclick="skipTime(-1)">-1s</button>
+        <button class="btn btn-sm btn-primary" id="playPauseBtn" onclick="togglePlay()">Play</button>
+        <button class="btn btn-sm btn-outline" onclick="skipTime(1)">+1s</button>
+        <button class="btn btn-sm btn-outline" onclick="skipTime(5)">+5s</button>
+        <button class="btn btn-sm btn-outline" onclick="setIn()">Set In</button>
+        <button class="btn btn-sm btn-outline" onclick="setOut()">Set Out</button>
+        <button class="btn btn-sm btn-danger" onclick="resetInOut()" title="Reset In/Out">Reset</button>
+      </div>
+
+      <!-- Timeline -->
+      <div class="timeline-section">
+        <div class="timeline-header">
+          <h3>Timeline</h3>
+          <span class="time-display" id="timeDisplay">0:00.0 / 0:00.0</span>
+        </div>
+        <div class="timeline-track" id="timelineTrack">
+          <div class="timeline-range" id="timelineRange"></div>
+          <div class="timeline-handle in-handle" id="inHandle"></div>
+          <div class="timeline-handle out-handle" id="outHandle"></div>
+          <div class="timeline-playhead" id="playhead"></div>
+        </div>
+        <div class="time-inputs">
+          <div class="time-input-group">
+            <label>In</label>
+            <input type="text" id="inTime" value="0:00.0" />
+          </div>
+          <div class="time-input-group">
+            <label>Out</label>
+            <input type="text" id="outTime" value="0:00.0" />
+          </div>
+          <div class="time-input-group">
+            <label>Dur</label>
+            <input type="text" id="durTime" value="0:00.0" readonly style="opacity:0.6" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="section">
+        <h3>Preview 9:16</h3>
+        <div class="preview-9x16" id="previewBox">
+          <video id="previewPlayer" muted></video>
+        </div>
+        <button class="btn btn-sm btn-primary" id="previewPlayBtn" onclick="togglePreviewPlay()" style="width:100%;margin-top:8px">
+          ▶ Play Preview
+        </button>
+      </div>
+
+      <div class="section">
+        <h3>Aspect Ratio</h3>
+        <div class="preset-btns" style="margin-bottom:8px">
+          <button class="btn btn-sm btn-outline aspect-btn active" data-ratio="9:16" onclick="setAspectRatio(9/16, this)">9:16</button>
+          <button class="btn btn-sm btn-outline aspect-btn" data-ratio="4:3" onclick="setAspectRatio(4/3, this)">4:3</button>
+          <button class="btn btn-sm btn-outline aspect-btn" data-ratio="16:9" onclick="setAspectRatio(16/9, this)">16:9</button>
+          <button class="btn btn-sm btn-outline aspect-btn" data-ratio="1:1" onclick="setAspectRatio(1, this)">1:1</button>
+        </div>
+        <h3>Posicao</h3>
+        <div class="preset-btns">
+          <button class="btn btn-sm btn-outline" onclick="setCropPreset('center')">Centro</button>
+          <button class="btn btn-sm btn-outline" onclick="setCropPreset('left')">Esquerda</button>
+          <button class="btn btn-sm btn-outline" onclick="setCropPreset('right')">Direita</button>
+          <button class="btn btn-sm btn-outline" onclick="setCropPreset('full')">Full</button>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Salvar para artigo</h3>
+        <select class="slug-select" id="slugSelect">
+          <option value="">Selecione um artigo...</option>
+        </select>
+      </div>
+
+      <div class="section" style="display: flex; flex-direction: column; gap: 8px;">
+        <button class="btn btn-success" id="trimBtn" onclick="trimVideo()" disabled>
+          Cortar e Exportar
+        </button>
+        <button class="btn btn-primary hidden" id="saveBtn" onclick="saveToProject()" disabled>
+          Salvar como bg-video
+        </button>
+      </div>
+
+      <div id="statusArea"></div>
+    </div>
+  </div>
+
+  <script>
+    // State
+    let videoData = null;
+    let inPoint = 0;
+    let outPoint = 0;
+    let selectedRatio = 9 / 16; // current aspect ratio
+    let cropRect = { x: 0.3, y: 0, w: 0.4, h: 1 }; // 9:16 center crop
+    let trimmedUrl = null;
+    let isDragging = null;
+    let dragStart = {};
+
+    const video = document.getElementById("videoPlayer");
+    const preview = document.getElementById("previewPlayer");
+    const cropBox = document.getElementById("cropBox");
+
+    // Format time
+    function fmt(s) {
+      if (isNaN(s)) return "0:00.0";
+      const m = Math.floor(s / 60);
+      const sec = (s % 60).toFixed(1).padStart(4, "0");
+      return `${m}:${sec}`;
+    }
+
+    function parseTime(str) {
+      const parts = str.split(":");
+      if (parts.length === 2) return parseFloat(parts[0]) * 60 + parseFloat(parts[1]);
+      return parseFloat(str) || 0;
+    }
+
+    // Load video
+    async function loadVideo() {
+      const url = document.getElementById("urlInput").value.trim();
+      if (!url) return;
+
+      const btn = document.getElementById("loadBtn");
+      btn.disabled = true;
+      btn.textContent = "Baixando...";
+      showStatus("Baixando video...", "loading");
+
+      try {
+        const isYoutube = url.includes("youtube.com") || url.includes("youtu.be");
+        const endpoint = isYoutube ? "/api/download" : "/api/load-local";
+        const body = isYoutube ? { url } : { filePath: url };
+
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+
+        if (!res.ok) {
+          const err = await res.json();
+          throw new Error(err.error || "Falhou");
+        }
+
+        videoData = await res.json();
+        video.src = videoData.url;
+        preview.src = videoData.url;
+        outPoint = videoData.duration;
+
+        document.getElementById("outTime").value = fmt(outPoint);
+        document.getElementById("durTime").value = fmt(outPoint);
+        document.getElementById("trimBtn").disabled = false;
+
+        updateTimeline();
+        initCrop();
+        showStatus(`Carregado! ${videoData.width}x${videoData.height}, ${fmt(videoData.duration)}`, "success");
+      } catch (err) {
+        showStatus("Erro: " + err.message, "error");
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Carregar";
+      }
+    }
+
+    // Playback
+    function togglePlay() {
+      if (video.paused) {
+        video.play();
+        preview.play();
+        document.getElementById("playPauseBtn").textContent = "Pause";
+      } else {
+        video.pause();
+        preview.pause();
+        document.getElementById("playPauseBtn").textContent = "Play";
+      }
+    }
+
+    function skipTime(delta) {
+      video.currentTime = Math.max(0, video.currentTime + delta);
+      preview.currentTime = video.currentTime;
+    }
+
+    function setIn() {
+      inPoint = video.currentTime;
+      document.getElementById("inTime").value = fmt(inPoint);
+      updateDuration();
+      updateTimeline();
+    }
+
+    function setOut() {
+      outPoint = video.currentTime;
+      document.getElementById("outTime").value = fmt(outPoint);
+      updateDuration();
+      updateTimeline();
+    }
+
+    function resetInOut() {
+      if (!videoData) return;
+      inPoint = 0;
+      outPoint = videoData.duration;
+      document.getElementById("inTime").value = fmt(0);
+      document.getElementById("outTime").value = fmt(outPoint);
+      updateDuration();
+      updateTimeline();
+    }
+
+    function togglePreviewPlay() {
+      const btn = document.getElementById("previewPlayBtn");
+      if (!videoData) return;
+
+      // Sync preview to in-point and play the cropped range
+      if (preview.paused) {
+        preview.currentTime = inPoint;
+        video.currentTime = inPoint;
+        preview.play();
+        video.play();
+        btn.textContent = "⏸ Pause Preview";
+
+        // Stop at out point
+        const checkEnd = () => {
+          if (preview.currentTime >= outPoint) {
+            preview.pause();
+            video.pause();
+            btn.textContent = "▶ Play Preview";
+            document.getElementById("playPauseBtn").textContent = "Play";
+            preview.removeEventListener("timeupdate", checkEnd);
+          }
+        };
+        preview.addEventListener("timeupdate", checkEnd);
+        document.getElementById("playPauseBtn").textContent = "Pause";
+      } else {
+        preview.pause();
+        video.pause();
+        btn.textContent = "▶ Play Preview";
+        document.getElementById("playPauseBtn").textContent = "Play";
+      }
+    }
+
+    function updateDuration() {
+      document.getElementById("durTime").value = fmt(outPoint - inPoint);
+    }
+
+    // Time input changes
+    document.getElementById("inTime").addEventListener("change", (e) => {
+      inPoint = parseTime(e.target.value);
+      updateDuration();
+      updateTimeline();
+    });
+    document.getElementById("outTime").addEventListener("change", (e) => {
+      outPoint = parseTime(e.target.value);
+      updateDuration();
+      updateTimeline();
+    });
+
+    // Timeline
+    video.addEventListener("timeupdate", () => {
+      if (!videoData) return;
+      const pct = video.currentTime / videoData.duration;
+      document.getElementById("playhead").style.left = `${pct * 100}%`;
+      document.getElementById("timeDisplay").textContent =
+        `${fmt(video.currentTime)} / ${fmt(videoData.duration)}`;
+
+      // Loop within in/out
+      if (video.currentTime > outPoint) {
+        video.currentTime = inPoint;
+        preview.currentTime = inPoint;
+      }
+    });
+
+    function updateTimeline() {
+      if (!videoData) return;
+      const range = document.getElementById("timelineRange");
+      const inPct = (inPoint / videoData.duration) * 100;
+      const outPct = (outPoint / videoData.duration) * 100;
+      range.style.left = `${inPct}%`;
+      range.style.width = `${outPct - inPct}%`;
+    }
+
+    // Timeline click to seek
+    document.getElementById("timelineTrack").addEventListener("click", (e) => {
+      if (!videoData) return;
+      const rect = e.currentTarget.getBoundingClientRect();
+      const pct = (e.clientX - rect.left) / rect.width;
+      video.currentTime = pct * videoData.duration;
+      preview.currentTime = video.currentTime;
+    });
+
+    // Crop
+    function initCrop() {
+      // Default: 9:16 center crop
+      setCropPreset("center");
+    }
+
+    function setAspectRatio(ratio, btn) {
+      selectedRatio = ratio;
+      // Update active button
+      document.querySelectorAll(".aspect-btn").forEach(b => b.classList.remove("active"));
+      if (btn) btn.classList.add("active");
+      // Update preview box aspect ratio
+      document.getElementById("previewBox").style.aspectRatio = `${ratio}`;
+      // Update crop label
+      const labels = {"0.5625": "9:16", "1.3333333333333333": "4:3", "1.7777777777777777": "16:9", "1": "1:1"};
+      const label = labels[String(ratio)] || `${ratio.toFixed(2)}`;
+      document.querySelector(".crop-label").textContent = label;
+      // Re-apply center preset
+      setCropPreset("center");
+    }
+
+    function setCropPreset(preset) {
+      const videoRatio = videoData ? videoData.width / videoData.height : 16 / 9;
+
+      // Calculate crop dimensions based on selected aspect ratio
+      let cropW, cropH;
+      if (selectedRatio <= videoRatio) {
+        // Crop is narrower or equal to video — full height, partial width
+        cropW = selectedRatio / videoRatio;
+        cropH = 1;
+      } else {
+        // Crop is wider than video — full width, partial height
+        cropW = 1;
+        cropH = videoRatio / selectedRatio;
+      }
+
+      switch (preset) {
+        case "center":
+          cropRect = { x: (1 - cropW) / 2, y: (1 - cropH) / 2, w: cropW, h: cropH };
+          break;
+        case "left":
+          cropRect = { x: 0, y: (1 - cropH) / 2, w: cropW, h: cropH };
+          break;
+        case "right":
+          cropRect = { x: 1 - cropW, y: (1 - cropH) / 2, w: cropW, h: cropH };
+          break;
+        case "full":
+          cropRect = { x: 0, y: 0, w: 1, h: 1 };
+          break;
+      }
+      renderCrop();
+    }
+
+    function renderCrop() {
+      const container = document.getElementById("videoContainer");
+      const cw = container.clientWidth;
+      const ch = container.clientHeight;
+
+      // Compute video render area (letterboxed)
+      let vw, vh, vx, vy;
+      if (videoData) {
+        const containerRatio = cw / ch;
+        const videoRatio = videoData.width / videoData.height;
+        if (videoRatio > containerRatio) {
+          vw = cw; vh = cw / videoRatio;
+          vx = 0; vy = (ch - vh) / 2;
+        } else {
+          vh = ch; vw = ch * videoRatio;
+          vy = 0; vx = (cw - vw) / 2;
+        }
+      } else {
+        vw = cw; vh = ch; vx = 0; vy = 0;
+      }
+
+      const bx = vx + cropRect.x * vw;
+      const by = vy + cropRect.y * vh;
+      const bw = cropRect.w * vw;
+      const bh = cropRect.h * vh;
+
+      cropBox.style.left = bx + "px";
+      cropBox.style.top = by + "px";
+      cropBox.style.width = bw + "px";
+      cropBox.style.height = bh + "px";
+
+      // Masks
+      document.getElementById("maskTop").style.cssText = `top:0;left:0;right:0;height:${by}px`;
+      document.getElementById("maskBottom").style.cssText = `bottom:0;left:0;right:0;height:${ch - by - bh}px`;
+      document.getElementById("maskLeft").style.cssText = `top:${by}px;left:0;width:${bx}px;height:${bh}px`;
+      document.getElementById("maskRight").style.cssText = `top:${by}px;right:0;width:${cw - bx - bw}px;height:${bh}px`;
+
+      // Update preview clip
+      if (videoData) {
+        preview.style.objectPosition = `${-cropRect.x / cropRect.w * 100}% ${-cropRect.y / cropRect.h * 100}%`;
+        // Use CSS clip-path on preview
+        const scaleX = 1 / cropRect.w;
+        const scaleY = 1 / cropRect.h;
+        const tx = -cropRect.x * scaleX * 100;
+        const ty = -cropRect.y * scaleY * 100;
+        preview.style.transform = `scale(${scaleX}, ${scaleY})`;
+        preview.style.transformOrigin = `${cropRect.x * 100 + cropRect.w * 50}% ${cropRect.y * 100 + cropRect.h * 50}%`;
+      }
+    }
+
+    // Drag crop box
+    cropBox.addEventListener("mousedown", (e) => {
+      if (e.target.classList.contains("handle")) return; // handled separately
+      isDragging = "move";
+      dragStart = { mx: e.clientX, my: e.clientY, ...cropRect };
+      e.preventDefault();
+    });
+
+    cropBox.querySelectorAll(".handle").forEach((h) => {
+      h.addEventListener("mousedown", (e) => {
+        isDragging = "resize-" + h.dataset.handle;
+        dragStart = { mx: e.clientX, my: e.clientY, ...cropRect };
+        e.preventDefault();
+        e.stopPropagation();
+      });
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (!isDragging || !videoData) return;
+      const container = document.getElementById("videoContainer");
+      const cw = container.clientWidth;
+      const ch = container.clientHeight;
+
+      // Video render area
+      const containerRatio = cw / ch;
+      const videoRatio = videoData.width / videoData.height;
+      let vw, vh, vx, vy;
+      if (videoRatio > containerRatio) {
+        vw = cw; vh = cw / videoRatio; vx = 0; vy = (ch - vh) / 2;
+      } else {
+        vh = ch; vw = ch * videoRatio; vy = 0; vx = (cw - vw) / 2;
+      }
+
+      const dx = (e.clientX - dragStart.mx) / vw;
+      const dy = (e.clientY - dragStart.my) / vh;
+
+      if (isDragging === "move") {
+        cropRect.x = Math.max(0, Math.min(1 - dragStart.w, dragStart.x + dx));
+        cropRect.y = Math.max(0, Math.min(1 - dragStart.h, dragStart.y + dy));
+      }
+      // Could add handle resize logic here
+
+      renderCrop();
+    });
+
+    document.addEventListener("mouseup", () => { isDragging = null; });
+
+    window.addEventListener("resize", renderCrop);
+
+    // Trim
+    async function trimVideo() {
+      if (!videoData) return;
+      const btn = document.getElementById("trimBtn");
+      btn.disabled = true;
+      btn.textContent = "Cortando...";
+      showStatus("Processando com ffmpeg...", "loading");
+
+      const slug = document.getElementById("slugSelect").value;
+
+      try {
+        const res = await fetch("/api/trim", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            sourceUrl: videoData.url,
+            startTime: inPoint,
+            endTime: outPoint,
+            crop: cropRect,
+            aspectRatio: selectedRatio,
+            slug: slug || undefined,
+          }),
+        });
+
+        if (!res.ok) {
+          const err = await res.json();
+          throw new Error(err.error || "Trim failed");
+        }
+
+        const result = await res.json();
+        trimmedUrl = result.url;
+
+        // Update preview with trimmed video
+        preview.src = trimmedUrl;
+        preview.style.transform = "";
+        preview.style.transformOrigin = "";
+
+        document.getElementById("saveBtn").classList.remove("hidden");
+        document.getElementById("saveBtn").disabled = !slug;
+        showStatus(`Cortado! ${fmt(result.duration)} - ${result.filename}`, "success");
+      } catch (err) {
+        showStatus("Erro: " + err.message, "error");
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Cortar e Exportar";
+      }
+    }
+
+    // Save
+    async function saveToProject() {
+      const slug = document.getElementById("slugSelect").value;
+      if (!slug || !trimmedUrl) return;
+
+      const btn = document.getElementById("saveBtn");
+      btn.disabled = true;
+      btn.textContent = "Salvando...";
+
+      try {
+        const res = await fetch("/api/save", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ trimmedUrl, slug }),
+        });
+
+        if (!res.ok) throw new Error("Save failed");
+        const result = await res.json();
+        showStatus(`Salvo! ${result.path}`, "success");
+      } catch (err) {
+        showStatus("Erro: " + err.message, "error");
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Salvar como bg-video";
+      }
+    }
+
+    // Slug select
+    document.getElementById("slugSelect").addEventListener("change", () => {
+      const slug = document.getElementById("slugSelect").value;
+      document.getElementById("saveBtn").disabled = !slug || !trimmedUrl;
+    });
+
+    // Load articles
+    async function loadArticles() {
+      try {
+        const res = await fetch("/api/articles");
+        const articles = await res.json();
+        const sel = document.getElementById("slugSelect");
+        for (const a of articles) {
+          const opt = document.createElement("option");
+          opt.value = a.slug;
+          opt.textContent = a.title;
+          sel.appendChild(opt);
+        }
+      } catch {}
+    }
+
+    function showStatus(msg, type) {
+      document.getElementById("statusArea").innerHTML =
+        `<div class="status ${type}">${msg}</div>`;
+    }
+
+    // Keyboard shortcuts
+    document.addEventListener("keydown", (e) => {
+      if (e.target.tagName === "INPUT" || e.target.tagName === "SELECT") return;
+      switch (e.key) {
+        case " ": e.preventDefault(); togglePlay(); break;
+        case "i": setIn(); break;
+        case "o": setOut(); break;
+        case "ArrowLeft": skipTime(e.shiftKey ? -5 : -1); break;
+        case "ArrowRight": skipTime(e.shiftKey ? 5 : 1); break;
+      }
+    });
+
+    // Init
+    loadArticles();
+    renderCrop();
+
+    // Sync preview with main video
+    video.addEventListener("seeked", () => {
+      preview.currentTime = video.currentTime;
+    });
+  </script>
+</body>
+</html>

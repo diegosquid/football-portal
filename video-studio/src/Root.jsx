@@ -11,6 +11,7 @@ import {NewsShortHotTake} from "./NewsShortHotTake";
 import {NewsShortVersus} from "./NewsShortVersus";
 import {NewsShortDynamic} from "./NewsShortDynamic";
 import {NewsShortCard} from "./NewsShortCard";
+import {LotofacilResultado} from "./LotofacilResultado";
 // eslint-disable-next-line no-unused-vars
 import {LongformVideo} from "./LongformVideo";
 // eslint-disable-next-line no-unused-vars
@@ -188,6 +189,34 @@ export const RemotionRoot = () => {
         defaultProps={defaultProps}
         calculateMetadata={({props}) => ({
           durationInFrames: props.durationInFrames ?? 900,
+        })}
+      />
+      <Composition
+        id="LotofacilResultado"
+        component={LotofacilResultado}
+        width={1080}
+        height={1920}
+        fps={30}
+        durationInFrames={1200}
+        defaultProps={{
+          slug: "lotofacil-demo",
+          concurso: 3500,
+          dataExtenso: "sábado, 31 de maio",
+          dezenas: ["01", "02", "04", "06", "08", "09", "11", "13", "15", "17", "19", "20", "22", "24", "25"],
+          acumulou: false,
+          ganhadores15: 2,
+          premio15Label: "R$ 1.234.567,89",
+          ganhadores14: 312,
+          premio14Label: "R$ 1.842,30",
+          proximoConcurso: 3501,
+          proximoEstimadoLabel: "R$ 1.700.000,00",
+          audioSrc: "renders/lotofacil-demo/narration.m4a",
+          siteUrl: "dezeneiro.com.br",
+          durationInFrames: 1200,
+          fps: 30,
+        }}
+        calculateMetadata={({props}) => ({
+          durationInFrames: props.durationInFrames ?? 1200,
         })}
       />
       <Composition

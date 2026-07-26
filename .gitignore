@@ -50,3 +50,7 @@ video-studio/public/renders/
 
 # cron logs
 /logs/
+
+# tools/ — utilitários locais (sem dependências nem temporários)
+tools/**/node_modules/
+tools/**/tmp/
