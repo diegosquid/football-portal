@@ -21,8 +21,7 @@ VAPID_PUBLIC_KEY = "BMDACyLZJmm2lfceuNmEERAfCvcia7yPoiykaL5378-2BSHh-JwYCfsgVDSu
 [[d1_databases]]
 binding = "DB"
 database_name = "beiradocampo"
-# Preencher com o id devolvido por: wrangler d1 create beiradocampo
-database_id = ""
+database_id = "5c71f70f-9b12-467b-abb5-bc4fb3e100c3"
 
 [observability]
 enabled = true
