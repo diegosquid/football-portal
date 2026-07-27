@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { isSubscribed, pushSupported, subscribeToPush } from "@/lib/push-client";
+import { trackClick } from "@/lib/track";
 
 type Status =
   | "checking"
@@ -11,85 +13,37 @@ type Status =
   | "denied"
   | "error";
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "";
-const VAPID_PUBLIC_KEY = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? "";
-
-/**
- * base64url -> Uint8Array (formato exigido pelo applicationServerKey).
- * Constrói sobre um ArrayBuffer explícito para satisfazer BufferSource.
- */
-function urlBase64ToUint8Array(base64: string): Uint8Array<ArrayBuffer> {
-  const padding = "=".repeat((4 - (base64.length % 4)) % 4);
-  const normalized = (base64 + padding).replace(/-/g, "+").replace(/_/g, "/");
-  const raw = atob(normalized);
-  const output = new Uint8Array(new ArrayBuffer(raw.length));
-  for (let i = 0; i < raw.length; i++) output[i] = raw.charCodeAt(i);
-  return output;
-}
-
-function trackPush(action: string) {
-  const gtag = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
-  if (typeof gtag === "function") {
-    gtag("event", "push_optin", { action });
-  }
-}
-
 export function PushOptIn() {
   const [status, setStatus] = useState<Status>("checking");
 
   useEffect(() => {
-    if (
-      typeof window === "undefined" ||
-      !("serviceWorker" in navigator) ||
-      !("PushManager" in window) ||
-      !VAPID_PUBLIC_KEY ||
-      !API
-    ) {
-      setStatus("unsupported");
-      return;
-    }
-    if (Notification.permission === "denied") {
-      setStatus("denied");
-      return;
-    }
-    // Já inscrito? Não mostra o convite de novo.
-    navigator.serviceWorker
-      .getRegistration()
-      .then((reg) => reg?.pushManager.getSubscription())
-      .then((sub) => setStatus(sub ? "subscribed" : "idle"))
-      .catch(() => setStatus("idle"));
+    let cancelled = false;
+    // Tudo dentro da continuação assíncrona: nada de setState síncrono aqui.
+    void (async () => {
+      let next: Status;
+      if (!pushSupported()) next = "unsupported";
+      else if (Notification.permission === "denied") next = "denied";
+      else next = (await isSubscribed()) ? "subscribed" : "idle";
+      if (!cancelled) setStatus(next);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   async function subscribe() {
     setStatus("loading");
-    try {
-      const permission = await Notification.requestPermission();
-      if (permission !== "granted") {
-        setStatus(permission === "denied" ? "denied" : "idle");
-        trackPush("recusado");
-        return;
-      }
-
-      const reg = await navigator.serviceWorker.register("/sw.js");
-      await navigator.serviceWorker.ready;
-
-      const subscription = await reg.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY),
-      });
-
-      const res = await fetch(`${API}/push/subscribe`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ subscription: subscription.toJSON() }),
-      });
-      if (!res.ok) throw new Error("falha ao registrar");
-
+    const result = await subscribeToPush();
+    if (result === "granted") {
       setStatus("subscribed");
-      trackPush("aceito");
-    } catch {
-      setStatus("error");
+      trackClick({ event: "push_inscrito", gaEvent: "push_optin" });
+      return;
     }
+    if (result === "denied") {
+      setStatus("denied");
+      return;
+    }
+    setStatus(result === "dismissed" ? "idle" : "error");
   }
 
   if (status === "checking" || status === "unsupported") return null;
