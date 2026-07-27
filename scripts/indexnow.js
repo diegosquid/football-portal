@@ -61,6 +61,59 @@ function buildStrategicUrls() {
   return [...strategic, ...teamPages];
 }
 
+/**
+ * Páginas de jogo (/onde-assistir/[slug]) da janela atual + as agendas.
+ *
+ * São as URLs de maior tráfego do portal e nascem novas todo dia — mas não
+ * entravam nem em --strategic nem em --all, então o Bing só as descobria
+ * pelo sitemap, dias depois. Com o jogo já passado, tarde demais.
+ */
+function buildJogosUrls() {
+  const base = `https://${HOST}`;
+  const jogosPath = path.join(__dirname, "..", "content", "jogos.json");
+  if (!fs.existsSync(jogosPath)) {
+    console.error("❌ content/jogos.json não encontrado.");
+    process.exit(1);
+  }
+
+  const { games } = JSON.parse(fs.readFileSync(jogosPath, "utf-8"));
+  const hoje = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Sao_Paulo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+
+  const slugify = (s) =>
+    s
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
+
+  const matchUrls = [
+    ...new Set(
+      games
+        .filter((g) => g.date >= hoje)
+        .map(
+          (g) =>
+            `${base}/onde-assistir/${slugify(g.home)}-x-${slugify(g.away)}-${g.date}`,
+        ),
+    ),
+  ];
+
+  const agendas = [
+    `${base}/jogos-futebol-hoje`,
+    `${base}/jogos-de-amanha`,
+    `${base}/jogos-da-semana`,
+    `${base}/probabilidades`,
+    `${base}/estatisticas`,
+  ];
+
+  return [...agendas, ...matchUrls];
+}
+
 function buildAllUrls() {
   const articlesPath = path.join(__dirname, "..", ".velite", "articles.json");
   if (!fs.existsSync(articlesPath)) {
@@ -138,7 +191,8 @@ async function main() {
       "Uso: node scripts/indexnow.js <url1> [url2 ...]\n" +
         "     node scripts/indexnow.js --file urls.txt\n" +
         "     node scripts/indexnow.js --all\n" +
-        "     node scripts/indexnow.js --strategic",
+        "     node scripts/indexnow.js --strategic\n" +
+        "     node scripts/indexnow.js --jogos",
     );
     process.exit(1);
   }
@@ -147,6 +201,8 @@ async function main() {
     urls = buildAllUrls();
   } else if (args[0] === "--strategic") {
     urls = buildStrategicUrls();
+  } else if (args[0] === "--jogos") {
+    urls = buildJogosUrls();
   } else if (args[0] === "--file") {
     if (!args[1]) {
       console.error("❌ --file precisa de um caminho.");
