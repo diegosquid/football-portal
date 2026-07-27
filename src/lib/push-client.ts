@@ -1,6 +1,6 @@
 /**
- * Lógica de inscrição em push, compartilhada entre o botão da página de
- * palpites (PushOptIn) e o modal de convite (PushPrompt).
+ * Lógica de inscrição em push, compartilhada entre o banner de conteúdo
+ * (PushBanner) e o botão da página de palpites (PushOptIn).
  */
 
 const API = process.env.NEXT_PUBLIC_API_URL ?? "";

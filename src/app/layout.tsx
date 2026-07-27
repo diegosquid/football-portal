@@ -10,7 +10,6 @@ import { Footer } from "@/components/Footer";
 import { MatchTicker } from "@/components/MatchTicker";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
-import { PushPrompt } from "@/components/PushPrompt";
 import { MicrosoftClarity } from "@/components/MicrosoftClarity";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
@@ -118,7 +117,6 @@ export default function RootLayout({
         <MatchTicker />
         <main className="flex-1">{children}</main>
         <Footer />
-        <PushPrompt />
       </body>
     </html>
   );
