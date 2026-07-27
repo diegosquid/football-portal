@@ -14,7 +14,17 @@ type State = "checking" | "hidden" | "idle" | "asking" | "done" | "blocked";
  * O escurecimento só acontece DEPOIS do clique, e interstitial disparado
  * por ação do usuário é explicitamente permitido pelo Google.
  */
-export function PushBanner({ context = "jogo" }: { context?: string }) {
+export function PushBanner({
+  context = "jogo",
+  /**
+   * Versão enxuta, para quando o banner fica ACIMA do conteúdo principal:
+   * mantém o destaque do bloco escuro sem empurrar a lista de jogos pra baixo.
+   */
+  compact = false,
+}: {
+  context?: string;
+  compact?: boolean;
+}) {
   const [state, setState] = useState<State>("checking");
 
   useEffect(() => {
@@ -109,45 +119,91 @@ export function PushBanner({ context = "jogo" }: { context?: string }) {
         se dissolve no conteúdo. Invertido, ele interrompe a leitura — mesmo
         tratamento do rodapé, então continua na linguagem do site.
       */}
-      <section className="mb-10 overflow-hidden bg-campo-deep">
-        <div className="relative p-6 sm:flex sm:items-center sm:justify-between sm:gap-8 sm:p-8">
+      <section
+        className={`overflow-hidden bg-campo-deep ${compact ? "mb-8" : "mb-10"}`}
+      >
+        <div
+          className={`relative sm:flex sm:items-center sm:justify-between sm:gap-6 ${
+            compact
+              ? "flex items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4"
+              : "p-6 sm:gap-8 sm:p-8"
+          }`}
+        >
           {/* Marca d'água tipográfica, como nas peças do rodapé */}
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute -right-6 -top-6 select-none font-display text-[7rem] font-extrabold leading-none text-lima/[0.06] sm:text-[10rem]"
+            className={`pointer-events-none absolute -right-6 select-none font-display font-extrabold leading-none text-lima/[0.06] ${
+              compact ? "-top-8 text-[6rem]" : "-top-6 text-[7rem] sm:text-[10rem]"
+            }`}
           >
             ⚽
           </span>
 
           <div className="relative sm:flex-1">
-            <p className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-lima">
-              <span className="relative flex h-2 w-2">
+            <p
+              className={`flex items-center gap-2 whitespace-nowrap font-mono font-bold uppercase text-lima ${
+                compact
+                  ? "text-[9px] tracking-[0.14em] sm:text-[11px] sm:tracking-[0.25em]"
+                  : "text-[11px] tracking-[0.25em]"
+              }`}
+            >
+              <span className="relative flex h-2 w-2 shrink-0">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lima opacity-60" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-lima" />
               </span>
               Notificação diária
             </p>
-            <h2 className="mt-3 font-display text-2xl font-extrabold leading-[1.1] tracking-tight text-cal sm:text-3xl">
-              Receba os palpites dos jogos diariamente
+            <h2
+              className={`font-display font-extrabold leading-[1.15] tracking-tight text-cal ${
+                compact
+                  ? "mt-1 text-base sm:mt-1.5 sm:text-xl"
+                  : "mt-3 text-2xl sm:text-3xl"
+              }`}
+            >
+              {/* No mobile compacto o texto precisa caber ao lado do botão. */}
+              {compact ? (
+                <>
+                  <span className="sm:hidden">Palpites todo dia</span>
+                  <span className="hidden sm:inline">
+                    Receba os palpites dos jogos diariamente
+                  </span>
+                </>
+              ) : (
+                "Receba os palpites dos jogos diariamente"
+              )}
             </h2>
-            <p className="mt-2.5 max-w-md text-sm leading-relaxed text-cal/60">
+            <p
+              className={`max-w-md leading-relaxed text-cal/60 ${
+                compact
+                  ? "mt-1 hidden text-xs sm:block"
+                  : "mt-2.5 text-sm"
+              }`}
+            >
               Toda manhã, os jogos do dia com a chance de cada time segundo o
               nosso modelo. É grátis e você cancela quando quiser.
             </p>
           </div>
 
-          <div className="relative mt-6 shrink-0 sm:mt-0">
+          <div
+            className={`relative shrink-0 ${compact ? "" : "mt-6 sm:mt-0"}`}
+          >
             <button
               type="button"
               onClick={accept}
               disabled={state === "asking"}
-              className="w-full rounded-md bg-lima px-7 py-4 font-display text-base font-extrabold text-ink shadow-[0_3px_0_0_rgba(0,0,0,0.35)] transition-all hover:-translate-y-0.5 hover:shadow-[0_5px_0_0_rgba(0,0,0,0.35)] active:translate-y-0 active:shadow-[0_1px_0_0_rgba(0,0,0,0.35)] disabled:opacity-60 sm:w-auto"
+              className={`rounded-md bg-lima font-display font-extrabold text-ink shadow-[0_3px_0_0_rgba(0,0,0,0.35)] transition-all hover:-translate-y-0.5 hover:shadow-[0_5px_0_0_rgba(0,0,0,0.35)] active:translate-y-0 active:shadow-[0_1px_0_0_rgba(0,0,0,0.35)] disabled:opacity-60 sm:w-auto ${
+                compact
+                  ? "px-4 py-2.5 text-sm sm:px-6 sm:py-3"
+                  : "w-full px-7 py-4 text-base"
+              }`}
             >
               {state === "asking" ? "Aguardando…" : "Quero receber"}
             </button>
-            <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-wider text-cal/40 sm:text-right">
-              Sem spam · 1 por dia
-            </p>
+            {!compact && (
+              <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-wider text-cal/40 sm:text-right">
+                Sem spam · 1 por dia
+              </p>
+            )}
           </div>
         </div>
       </section>

@@ -154,6 +154,9 @@ export default function JogosFutebolHojePage() {
           </Link>
         </nav>
 
+        {/* Convite de notificação — versão enxuta por ficar acima da lista */}
+        <PushBanner context="jogos-hoje" compact />
+
         <GameSchedule games={games} date={today} updatedAt={updatedAt} />
 
         {/* Hubs por competição */}
@@ -191,11 +194,6 @@ export default function JogosFutebolHojePage() {
             <UpcomingMatches matches={tomorrowGames.slice(0, 5)} />
           </section>
         )}
-
-        {/* Convite de notificação — inline, sem overlay (seguro para SEO) */}
-        <div className="mt-12">
-          <PushBanner context="jogos-hoje" />
-        </div>
 
         <ArticleFAQ items={faq} />
 

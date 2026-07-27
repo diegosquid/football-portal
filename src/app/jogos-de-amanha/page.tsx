@@ -141,6 +141,9 @@ export default function JogosDeAmanhaPage() {
           </Link>
         </nav>
 
+        {/* Convite de notificação — versão enxuta por ficar acima da lista */}
+        <PushBanner context="jogos-amanha" compact />
+
         <GameSchedule
           games={games}
           date={tomorrow}
@@ -178,11 +181,6 @@ export default function JogosDeAmanhaPage() {
             </div>
           </section>
         )}
-
-        {/* Convite de notificação — inline, sem overlay (seguro para SEO) */}
-        <div className="mt-12">
-          <PushBanner context="jogos-amanha" />
-        </div>
 
         <ArticleFAQ items={faq} />
 
