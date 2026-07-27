@@ -3,6 +3,7 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { GameSchedule } from "@/components/GameSchedule";
 import { ArticleFAQ } from "@/components/ArticleFAQ";
+import { PushBanner } from "@/components/PushBanner";
 import { BreadcrumbJsonLd, FAQPageJsonLd } from "@/components/JsonLd";
 import {
   buildDayFaq,
@@ -177,6 +178,11 @@ export default function JogosDeAmanhaPage() {
             </div>
           </section>
         )}
+
+        {/* Convite de notificação — inline, sem overlay (seguro para SEO) */}
+        <div className="mt-12">
+          <PushBanner context="jogos-amanha" />
+        </div>
 
         <ArticleFAQ items={faq} />
 

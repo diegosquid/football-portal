@@ -6,6 +6,7 @@ import { UpcomingMatches } from "@/components/UpcomingMatches";
 import { ArticleFAQ } from "@/components/ArticleFAQ";
 import { FAQPageJsonLd } from "@/components/JsonLd";
 import { ShareWhatsApp } from "@/components/ShareWhatsApp";
+import { PushBanner } from "@/components/PushBanner";
 import { buildShareText } from "@/lib/share";
 import { getAllCompetitions } from "@/lib/competitions";
 import {
@@ -190,6 +191,11 @@ export default function JogosFutebolHojePage() {
             <UpcomingMatches matches={tomorrowGames.slice(0, 5)} />
           </section>
         )}
+
+        {/* Convite de notificação — inline, sem overlay (seguro para SEO) */}
+        <div className="mt-12">
+          <PushBanner context="jogos-hoje" />
+        </div>
 
         <ArticleFAQ items={faq} />
 
