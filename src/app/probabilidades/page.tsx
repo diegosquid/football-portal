@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { ProbabilityPanel } from "@/components/ProbabilityPanel";
+import { PushOptIn } from "@/components/PushOptIn";
 import { ArticleFAQ } from "@/components/ArticleFAQ";
 import {
   BreadcrumbJsonLd,
@@ -177,6 +178,10 @@ export default function ProbabilidadesPage() {
             metodologia e desempenho
           </Link>
         </p>
+
+        <div className="mt-6">
+          <PushOptIn />
+        </div>
 
         <nav className="mb-10 mt-5 flex flex-wrap gap-2 text-sm">
           <Link

@@ -1,0 +1,28 @@
+name = "beiradocampo-api"
+main = "src/index.js"
+compatibility_date = "2026-07-01"
+
+# Notificação diária dos palpites — 11:05 UTC = 08:05 BRT.
+# Roda depois da routine que atualiza jogos.json e probabilidades.json (07h BRT).
+[triggers]
+crons = ["5 11 * * *"]
+
+[vars]
+SITE_URL = "https://beiradocampo.com.br"
+VAPID_SUBJECT = "mailto:contato@beiradocampo.com.br"
+
+# Chave pública VAPID — não é segredo (vai pro navegador também).
+# Preencher com a saída de: node scripts/generate-vapid-keys.js
+VAPID_PUBLIC_KEY = ""
+
+# A chave PRIVADA é secret, nunca vai neste arquivo:
+#   wrangler secret put VAPID_PRIVATE_KEY
+
+[[d1_databases]]
+binding = "DB"
+database_name = "beiradocampo"
+# Preencher com o id devolvido por: wrangler d1 create beiradocampo
+database_id = ""
+
+[observability]
+enabled = true

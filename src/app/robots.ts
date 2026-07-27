@@ -7,6 +7,8 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        // Painel interno — não é conteúdo público.
+        disallow: ["/admin"],
       },
     ],
     sitemap: [

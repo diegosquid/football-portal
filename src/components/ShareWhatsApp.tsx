@@ -16,15 +16,7 @@ interface ShareWhatsAppProps {
   size?: "default" | "large";
 }
 
-/** gtag pode não ter carregado (Script afterInteractive) — acesso defensivo. */
-function trackShare(params: Record<string, unknown>) {
-  if (typeof window === "undefined") return;
-  const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void })
-    .gtag;
-  if (typeof gtag !== "function") return;
-  // Evento recomendado do GA4: 'share' com method/content_type/item_id.
-  gtag("event", "share", { method: "whatsapp", ...params });
-}
+import { trackClick } from "@/lib/track";
 
 export function ShareWhatsApp({
   text,
@@ -43,10 +35,16 @@ export function ShareWhatsApp({
       target="_blank"
       rel="noopener noreferrer"
       onClick={() =>
-        trackShare({
-          content_type: contentType,
-          item_id: itemId,
-          ...(gamesCount !== undefined ? { games_count: gamesCount } : {}),
+        trackClick({
+          event: "share_whatsapp",
+          // GA4 tem evento recomendado 'share' — mantemos o nome padrão lá.
+          gaEvent: "share",
+          label: itemId,
+          gaParams: {
+            method: "whatsapp",
+            content_type: contentType,
+            ...(gamesCount !== undefined ? { games_count: gamesCount } : {}),
+          },
         })
       }
       className={[
