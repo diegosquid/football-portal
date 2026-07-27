@@ -59,3 +59,6 @@ tools/**/tmp/
 *.vapid-private.key
 .vapid-private.key
 workers/**/.vapid-private.key
+*.admin-private.key
+.admin-private.key
+workers/**/.admin-private.key
