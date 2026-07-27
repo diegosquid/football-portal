@@ -12,8 +12,17 @@ import { trackClick } from "@/lib/track";
 const DISMISS_KEY = "bdc_push_prompt_dismissed_at";
 /** Depois de recusar, só volta a perguntar daqui a 30 dias. */
 const DISMISS_DAYS = 30;
-/** Espera o usuário se engajar antes de convidar. */
+/** Tempo mínimo na página antes de convidar. */
 const DELAY_MS = 12_000;
+/**
+ * Rolagem mínima antes de convidar.
+ *
+ * SEO: o Google penaliza "interstitial intrusivo" — pop-up que cobre o
+ * conteúdo de quem acabou de chegar da busca. Exigir rolagem garante que o
+ * convite só aparece para quem já está lendo, nunca na chegada. De quebra,
+ * rastreadores não rolam a página, então nunca veem o modal.
+ */
+const SCROLL_MIN_PX = 600;
 
 type View = "hidden" | "invite" | "asking" | "success" | "blocked";
 
@@ -33,20 +42,42 @@ export function PushPrompt() {
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    // Só convida quem pode receber, ainda não recebe e não recusou faz pouco.
-    // Três porteiros — o modal só aparece para quem PODE e AINDA NÃO decidiu.
+    // Porteiros: só convida quem PODE receber e AINDA NÃO decidiu.
     if (!pushSupported()) return;
     if (Notification.permission !== "default") return; // já aceitou ou bloqueou
     if (dismissedRecently()) return;
 
     let cancelled = false;
+    let elapsed = false;
+    let scrolled = false;
+
+    // Só convida quando o tempo E a rolagem acontecerem — nunca na chegada.
+    const maybeShow = () => {
+      if (!cancelled && elapsed && scrolled) {
+        window.removeEventListener("scroll", onScroll);
+        setView("invite");
+      }
+    };
+    const onScroll = () => {
+      if (window.scrollY >= SCROLL_MIN_PX) {
+        scrolled = true;
+        maybeShow();
+      }
+    };
+
     void isSubscribed().then((already) => {
       if (already || cancelled) return;
-      timer.current = setTimeout(() => setView("invite"), DELAY_MS);
+      timer.current = setTimeout(() => {
+        elapsed = true;
+        maybeShow();
+      }, DELAY_MS);
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll(); // caso a página já esteja rolada (voltou pelo histórico)
     });
 
     return () => {
       cancelled = true;
+      window.removeEventListener("scroll", onScroll);
       if (timer.current) clearTimeout(timer.current);
     };
   }, []);
@@ -162,8 +193,15 @@ export function PushPrompt() {
   /* --- Convite (soft ask) --- */
   return (
     <>
+      {/*
+        SEO: no mobile NÃO escurecemos a página — um fundo cobrindo tudo é o
+        que o Google trata como interstitial intrusivo. Lá o convite é só uma
+        faixa inferior, que a política permite ("banner com espaço razoável de
+        tela e fácil de dispensar"). No desktop o fundo é padrão de modal e a
+        política de interstitial mobile não se aplica.
+      */}
       <div
-        className="fixed inset-0 z-[99] bg-ink/40 backdrop-blur-[1px]"
+        className="fixed inset-0 z-[99] hidden bg-ink/40 backdrop-blur-[1px] sm:block"
         onClick={dismiss}
         aria-hidden="true"
       />

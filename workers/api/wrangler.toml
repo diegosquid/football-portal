@@ -2,10 +2,10 @@ name = "beiradocampo-api"
 main = "src/index.js"
 compatibility_date = "2026-07-01"
 
-# Notificação diária dos palpites — 11:05 UTC = 08:05 BRT.
+# Notificação diária dos palpites — 13:05 UTC = 10:05 BRT.
 # Roda depois da routine que atualiza jogos.json e probabilidades.json (07h BRT).
 [triggers]
-crons = ["5 11 * * *"]
+crons = ["5 13 * * *"]
 
 [vars]
 SITE_URL = "https://beiradocampo.com.br"
