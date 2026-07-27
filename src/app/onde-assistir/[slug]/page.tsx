@@ -477,6 +477,10 @@ export default async function OndeAssistirPage({ params }: Props) {
           </section>
         )}
 
+        {/* Convite de notificação — logo após o palpite, onde o contexto
+            "receba isso todo dia" é mais forte. Inline, sem overlay. */}
+        <PushBanner context={match.slug} />
+
         {/* Compartilhar o jogo — intenção alta: "que horas é e onde passa" */}
         <section className="mb-10 border-2 border-ink bg-lima/20 p-5 sm:p-6">
           <p className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-ink/60">
@@ -587,9 +591,6 @@ export default async function OndeAssistirPage({ params }: Props) {
             </div>
           </section>
         )}
-
-        {/* Convite de notificação — inline, sem overlay (seguro para SEO) */}
-        <PushBanner context={match.slug} />
 
         {/* FAQ */}
         <ArticleFAQ items={faq} />
