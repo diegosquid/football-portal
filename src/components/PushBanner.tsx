@@ -104,25 +104,52 @@ export function PushBanner({ context = "jogo" }: { context?: string }) {
         </div>
       )}
 
-      <section className="mb-10 border-2 border-ink bg-cal p-5 sm:p-6">
-        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-ink/50">
-          Modelo estatístico
-        </p>
-        <h2 className="mt-2 font-display text-xl font-extrabold leading-tight tracking-tight text-ink sm:text-2xl">
-          Receba os palpites dos jogos diariamente
-        </h2>
-        <p className="mb-4 mt-1.5 text-sm leading-relaxed text-gray-700">
-          Toda manhã, os jogos do dia com a chance de cada time segundo o nosso
-          modelo. É grátis e você cancela quando quiser.
-        </p>
-        <button
-          type="button"
-          onClick={accept}
-          disabled={state === "asking"}
-          className="w-full rounded-md border-2 border-ink bg-lima px-6 py-3.5 font-display text-base font-extrabold text-ink transition-transform hover:-translate-y-0.5 disabled:opacity-60 sm:w-auto"
-        >
-          {state === "asking" ? "Aguardando…" : "Quero receber"}
-        </button>
+      {/*
+        Bloco escuro de propósito: no fundo claro da página, um card claro
+        se dissolve no conteúdo. Invertido, ele interrompe a leitura — mesmo
+        tratamento do rodapé, então continua na linguagem do site.
+      */}
+      <section className="mb-10 overflow-hidden bg-campo-deep">
+        <div className="relative p-6 sm:flex sm:items-center sm:justify-between sm:gap-8 sm:p-8">
+          {/* Marca d'água tipográfica, como nas peças do rodapé */}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-6 -top-6 select-none font-display text-[7rem] font-extrabold leading-none text-lima/[0.06] sm:text-[10rem]"
+          >
+            ⚽
+          </span>
+
+          <div className="relative sm:flex-1">
+            <p className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-lima">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lima opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-lima" />
+              </span>
+              Notificação diária
+            </p>
+            <h2 className="mt-3 font-display text-2xl font-extrabold leading-[1.1] tracking-tight text-cal sm:text-3xl">
+              Receba os palpites dos jogos diariamente
+            </h2>
+            <p className="mt-2.5 max-w-md text-sm leading-relaxed text-cal/60">
+              Toda manhã, os jogos do dia com a chance de cada time segundo o
+              nosso modelo. É grátis e você cancela quando quiser.
+            </p>
+          </div>
+
+          <div className="relative mt-6 shrink-0 sm:mt-0">
+            <button
+              type="button"
+              onClick={accept}
+              disabled={state === "asking"}
+              className="w-full rounded-md bg-lima px-7 py-4 font-display text-base font-extrabold text-ink shadow-[0_3px_0_0_rgba(0,0,0,0.35)] transition-all hover:-translate-y-0.5 hover:shadow-[0_5px_0_0_rgba(0,0,0,0.35)] active:translate-y-0 active:shadow-[0_1px_0_0_rgba(0,0,0,0.35)] disabled:opacity-60 sm:w-auto"
+            >
+              {state === "asking" ? "Aguardando…" : "Quero receber"}
+            </button>
+            <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-wider text-cal/40 sm:text-right">
+              Sem spam · 1 por dia
+            </p>
+          </div>
+        </div>
       </section>
     </>
   );
