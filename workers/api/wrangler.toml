@@ -13,7 +13,7 @@ VAPID_SUBJECT = "mailto:contato@beiradocampo.com.br"
 
 # Chave pública VAPID — não é segredo (vai pro navegador também).
 # Preencher com a saída de: node scripts/generate-vapid-keys.js
-VAPID_PUBLIC_KEY = ""
+VAPID_PUBLIC_KEY = "BMDACyLZJmm2lfceuNmEERAfCvcia7yPoiykaL5378-2BSHh-JwYCfsgVDSuYKLGQuGDnGWVKTX_kMXWT_lYRhQ"
 
 # A chave PRIVADA é secret, nunca vai neste arquivo:
 #   wrangler secret put VAPID_PRIVATE_KEY

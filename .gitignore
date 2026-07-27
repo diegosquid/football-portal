@@ -54,3 +54,8 @@ video-studio/public/renders/
 # tools/ — utilitários locais (sem dependências nem temporários)
 tools/**/node_modules/
 tools/**/tmp/
+
+# Chave privada VAPID — nunca versionar
+*.vapid-private.key
+.vapid-private.key
+workers/**/.vapid-private.key
