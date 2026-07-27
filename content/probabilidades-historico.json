@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-27T11:37:09.349Z",
+  "updatedAt": "2026-07-27T16:13:57.509Z",
   "predictions": [
     {
       "date": "2026-07-24",
@@ -1413,6 +1413,41 @@
         "forcaDefesaCasa": 1.11,
         "forcaAtaqueFora": 1.54,
         "forcaDefesaFora": 1.15,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 7
+        }
+      }
+    },
+    {
+      "date": "2026-07-27",
+      "time": "20:00",
+      "home": "Guarani",
+      "away": "Inter de Limeira",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 15",
+      "lambdaHome": 1.24,
+      "lambdaAway": 0.98,
+      "golsEsperados": 2.22,
+      "resultado": {
+        "casa": 0.4226578013555177,
+        "empate": 0.2865678292485908,
+        "fora": 0.2907743693958917
+      },
+      "gols": {
+        "over25": 0.3821943695364365,
+        "under25": 0.6178056304635635
+      },
+      "ambosMarcam": {
+        "sim": 0.4433752602952191,
+        "nao": 0.5566247397047809
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.21,
+        "forcaDefesaCasa": 0.85,
+        "forcaAtaqueFora": 1.19,
+        "forcaDefesaFora": 0.81,
         "jogosConsiderados": {
           "casa": 7,
           "fora": 7

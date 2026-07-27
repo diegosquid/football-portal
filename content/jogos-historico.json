@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-27T08:35:00-03:00",
+  "updatedAt": "2026-07-27T13:13:00-03:00",
   "games": [
     {
       "date": "2026-07-24",
@@ -442,6 +442,16 @@
       "stadium": "Estádio Presidente Vargas, Fortaleza"
     },
     {
+      "date": "2026-07-27",
+      "time": "20:00",
+      "home": "Guarani",
+      "away": "Inter de Limeira",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 15",
+      "channel": "SportyNet / Canal do Benja",
+      "stadium": ""
+    },
+    {
       "date": "2026-07-28",
       "time": "19:30",
       "home": "Ponte Preta",
@@ -498,7 +508,7 @@
       "away": "Flamengo",
       "competition": "Brasileirão Série A",
       "round": "Rodada 21",
-      "channel": "A definir",
+      "channel": "Amazon Prime Video",
       "stadium": "Beira-Rio, Porto Alegre"
     },
     {
