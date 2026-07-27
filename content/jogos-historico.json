@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-26T13:05:00-03:00",
+  "updatedAt": "2026-07-27T08:35:00-03:00",
   "games": [
     {
       "date": "2026-07-24",
@@ -430,6 +430,16 @@
       "round": "Rodada 20",
       "channel": "ESPN / Disney+",
       "stadium": "Ilha do Retiro, Recife"
+    },
+    {
+      "date": "2026-07-27",
+      "time": "20:00",
+      "home": "Floresta",
+      "away": "Maringá",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 15",
+      "channel": "SportyNet",
+      "stadium": "Estádio Presidente Vargas, Fortaleza"
     },
     {
       "date": "2026-07-28",

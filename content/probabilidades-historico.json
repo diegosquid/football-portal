@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-26T16:16:55.230Z",
+  "updatedAt": "2026-07-27T11:37:09.349Z",
   "predictions": [
     {
       "date": "2026-07-24",
@@ -566,7 +566,13 @@
       },
       "time": "16:00",
       "competition": "Brasileirão Série A",
-      "round": "Rodada 20"
+      "round": "Rodada 20",
+      "actualResult": {
+        "homeGoals": 1,
+        "awayGoals": 1,
+        "outcome": "empate",
+        "recordedAt": "2026-07-27T11:37:09.350Z"
+      }
     },
     {
       "date": "2026-07-26",
@@ -601,7 +607,13 @@
       },
       "time": "16:00",
       "competition": "Brasileirão Série B",
-      "round": "Rodada 20"
+      "round": "Rodada 20",
+      "actualResult": {
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "outcome": "empate",
+        "recordedAt": "2026-07-27T11:37:09.350Z"
+      }
     },
     {
       "date": "2026-07-26",
@@ -636,7 +648,13 @@
       },
       "time": "16:00",
       "competition": "Brasileirão Série A",
-      "round": "Rodada 20"
+      "round": "Rodada 20",
+      "actualResult": {
+        "homeGoals": 0,
+        "awayGoals": 1,
+        "outcome": "fora",
+        "recordedAt": "2026-07-27T11:37:09.350Z"
+      }
     },
     {
       "date": "2026-07-26",
@@ -671,7 +689,13 @@
       },
       "time": "16:00",
       "competition": "Brasileirão Série B",
-      "round": "Rodada 20"
+      "round": "Rodada 20",
+      "actualResult": {
+        "homeGoals": 3,
+        "awayGoals": 4,
+        "outcome": "fora",
+        "recordedAt": "2026-07-27T11:37:09.350Z"
+      }
     },
     {
       "date": "2026-07-26",
@@ -706,7 +730,13 @@
       },
       "time": "18:30",
       "competition": "Brasileirão Série B",
-      "round": "Rodada 20"
+      "round": "Rodada 20",
+      "actualResult": {
+        "homeGoals": 1,
+        "awayGoals": 0,
+        "outcome": "casa",
+        "recordedAt": "2026-07-27T11:37:09.350Z"
+      }
     },
     {
       "date": "2026-07-26",
@@ -741,7 +771,13 @@
       },
       "time": "18:30",
       "competition": "Brasileirão Série A",
-      "round": "Rodada 20"
+      "round": "Rodada 20",
+      "actualResult": {
+        "homeGoals": 1,
+        "awayGoals": 1,
+        "outcome": "empate",
+        "recordedAt": "2026-07-27T11:37:09.350Z"
+      }
     },
     {
       "date": "2026-07-26",
@@ -776,7 +812,13 @@
       },
       "time": "18:30",
       "competition": "Brasileirão Série A",
-      "round": "Rodada 20"
+      "round": "Rodada 20",
+      "actualResult": {
+        "homeGoals": 1,
+        "awayGoals": 1,
+        "outcome": "empate",
+        "recordedAt": "2026-07-27T11:37:09.350Z"
+      }
     },
     {
       "date": "2026-07-26",
@@ -811,7 +853,13 @@
       },
       "time": "18:30",
       "competition": "Brasileirão Série B",
-      "round": "Rodada 20"
+      "round": "Rodada 20",
+      "actualResult": {
+        "homeGoals": 1,
+        "awayGoals": 4,
+        "outcome": "fora",
+        "recordedAt": "2026-07-27T11:37:09.350Z"
+      }
     },
     {
       "date": "2026-07-26",
@@ -846,7 +894,13 @@
       },
       "time": "18:30",
       "competition": "Brasileirão Série A",
-      "round": "Rodada 20"
+      "round": "Rodada 20",
+      "actualResult": {
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "outcome": "empate",
+        "recordedAt": "2026-07-27T11:37:09.350Z"
+      }
     },
     {
       "date": "2026-07-26",
@@ -951,6 +1005,12 @@
           "casa": 6,
           "fora": 7
         }
+      },
+      "actualResult": {
+        "homeGoals": 4,
+        "awayGoals": 0,
+        "outcome": "casa",
+        "recordedAt": "2026-07-27T11:37:09.350Z"
       }
     },
     {
@@ -986,6 +1046,12 @@
           "casa": 5,
           "fora": 6
         }
+      },
+      "actualResult": {
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "outcome": "empate",
+        "recordedAt": "2026-07-27T11:37:09.350Z"
       }
     },
     {
@@ -1021,6 +1087,12 @@
           "casa": 7,
           "fora": 7
         }
+      },
+      "actualResult": {
+        "homeGoals": 1,
+        "awayGoals": 0,
+        "outcome": "casa",
+        "recordedAt": "2026-07-27T11:37:09.350Z"
       }
     },
     {
@@ -1056,6 +1128,12 @@
           "casa": 7,
           "fora": 7
         }
+      },
+      "actualResult": {
+        "homeGoals": 1,
+        "awayGoals": 0,
+        "outcome": "casa",
+        "recordedAt": "2026-07-27T11:37:09.350Z"
       }
     },
     {
@@ -1091,6 +1169,12 @@
           "casa": 7,
           "fora": 7
         }
+      },
+      "actualResult": {
+        "homeGoals": 1,
+        "awayGoals": 2,
+        "outcome": "fora",
+        "recordedAt": "2026-07-27T11:37:09.350Z"
       }
     },
     {
@@ -1136,24 +1220,24 @@
       "lambdaAway": 0.7,
       "golsEsperados": 2.62,
       "resultado": {
-        "casa": 0.6641815896303599,
-        "empate": 0.20845059948258654,
-        "fora": 0.12736781088705343
+        "casa": 0.6640807472763839,
+        "empate": 0.20866758049651102,
+        "fora": 0.1272516722271053
       },
       "gols": {
-        "over25": 0.486990199118987,
-        "under25": 0.513009800881013
+        "over25": 0.48590423081244255,
+        "under25": 0.5140957691875574
       },
       "ambosMarcam": {
-        "sim": 0.42923565940322034,
-        "nao": 0.5707643405967797
+        "sim": 0.4283087276481046,
+        "nao": 0.5716912723518953
       },
       "placarProvavel": "1-0",
       "explicacao": {
-        "forcaAtaqueCasa": 1.09,
-        "forcaDefesaCasa": 1.02,
+        "forcaAtaqueCasa": 1.08,
+        "forcaDefesaCasa": 1.03,
         "forcaAtaqueFora": 0.62,
-        "forcaDefesaFora": 1.19,
+        "forcaDefesaFora": 1.18,
         "jogosConsiderados": {
           "casa": 7,
           "fora": 6
@@ -1168,26 +1252,26 @@
       "home": "CRB",
       "away": "Vila Nova",
       "lambdaHome": 1.53,
-      "lambdaAway": 1.26,
-      "golsEsperados": 2.79,
+      "lambdaAway": 1.25,
+      "golsEsperados": 2.78,
       "resultado": {
-        "casa": 0.4363318172421251,
-        "empate": 0.2506317187347027,
-        "fora": 0.3130364640231719
+        "casa": 0.43841655596504436,
+        "empate": 0.250897504625798,
+        "fora": 0.3106859394091579
       },
       "gols": {
-        "over25": 0.5283291332352706,
-        "under25": 0.4716708667647294
+        "over25": 0.5262122465075374,
+        "under25": 0.4737877534924626
       },
       "ambosMarcam": {
-        "sim": 0.5612892610150282,
-        "nao": 0.4387107389849718
+        "sim": 0.5592907294313946,
+        "nao": 0.4407092705686055
       },
       "placarProvavel": "1-1",
       "explicacao": {
         "forcaAtaqueCasa": 1.25,
-        "forcaDefesaCasa": 1.34,
-        "forcaAtaqueFora": 0.92,
+        "forcaDefesaCasa": 1.32,
+        "forcaAtaqueFora": 0.91,
         "forcaDefesaFora": 0.96,
         "jogosConsiderados": {
           "casa": 9,
@@ -1235,26 +1319,26 @@
       "home": "Sport",
       "away": "Cuiabá",
       "lambdaHome": 1.12,
-      "lambdaAway": 0.89,
+      "lambdaAway": 0.88,
       "golsEsperados": 2,
       "resultado": {
-        "casa": 0.4070050493494787,
-        "empate": 0.3054407067638898,
-        "fora": 0.2875542438866321
+        "casa": 0.40805058323954685,
+        "empate": 0.3057043852050006,
+        "fora": 0.28624503155545317
       },
       "gols": {
-        "over25": 0.32408909944776937,
-        "under25": 0.6759109005522306
+        "over25": 0.32299266311492025,
+        "under25": 0.6770073368850797
       },
       "ambosMarcam": {
-        "sim": 0.39542193295835737,
-        "nao": 0.6045780670416426
+        "sim": 0.3942854833967037,
+        "nao": 0.6057145166032963
       },
       "placarProvavel": "1-0",
       "explicacao": {
         "forcaAtaqueCasa": 1.16,
-        "forcaDefesaCasa": 1.12,
-        "forcaAtaqueFora": 0.78,
+        "forcaDefesaCasa": 1.11,
+        "forcaAtaqueFora": 0.77,
         "forcaDefesaFora": 0.75,
         "jogosConsiderados": {
           "casa": 10,
@@ -1273,30 +1357,65 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
       "lambdaHome": 1.19,
-      "lambdaAway": 1.13,
-      "golsEsperados": 2.32,
+      "lambdaAway": 1.12,
+      "golsEsperados": 2.31,
       "resultado": {
-        "casa": 0.37431526639478135,
-        "empate": 0.2822621465247091,
-        "fora": 0.34342258708051004
+        "casa": 0.375987834969002,
+        "empate": 0.2827462433241348,
+        "fora": 0.34126592170686304
       },
       "gols": {
-        "over25": 0.40851222177155294,
-        "under25": 0.591487778228447
+        "over25": 0.40657574730395385,
+        "under25": 0.5934242526960463
       },
       "ambosMarcam": {
-        "sim": 0.4703854188778101,
-        "nao": 0.52961458112219
+        "sim": 0.46872649267845473,
+        "nao": 0.5312735073215453
       },
       "placarProvavel": "1-1",
       "explicacao": {
         "forcaAtaqueCasa": 0.96,
-        "forcaDefesaCasa": 0.92,
-        "forcaAtaqueFora": 1.2,
+        "forcaDefesaCasa": 0.91,
+        "forcaAtaqueFora": 1.18,
         "forcaDefesaFora": 0.97,
         "jogosConsiderados": {
           "casa": 10,
           "fora": 9
+        }
+      }
+    },
+    {
+      "date": "2026-07-27",
+      "time": "20:00",
+      "home": "Floresta",
+      "away": "Maringá",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 15",
+      "lambdaHome": 1.46,
+      "lambdaAway": 1.64,
+      "golsEsperados": 3.1,
+      "resultado": {
+        "casa": 0.34141467689733934,
+        "empate": 0.23726709934200674,
+        "fora": 0.4213182237606539
+      },
+      "gols": {
+        "over25": 0.5997147130703924,
+        "under25": 0.4002852869296076
+      },
+      "ambosMarcam": {
+        "sim": 0.6194235557227035,
+        "nao": 0.3805764442772966
+      },
+      "placarProvavel": "1-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.01,
+        "forcaDefesaCasa": 1.11,
+        "forcaAtaqueFora": 1.54,
+        "forcaDefesaFora": 1.15,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 7
         }
       }
     },
@@ -1407,23 +1526,23 @@
       "lambdaAway": 0.4,
       "golsEsperados": 2.1,
       "resultado": {
-        "casa": 0.6966027673227824,
-        "empate": 0.22142214036873553,
-        "fora": 0.08197509230848216
+        "casa": 0.6962283626488418,
+        "empate": 0.2214699139585769,
+        "fora": 0.08230172339258122
       },
       "gols": {
-        "over25": 0.3500927396148014,
-        "under25": 0.6499072603851986
+        "over25": 0.35062250237791737,
+        "under25": 0.6493774976220826
       },
       "ambosMarcam": {
-        "sim": 0.2699823451146268,
-        "nao": 0.7300176548853732
+        "sim": 0.2708735844722813,
+        "nao": 0.7291264155277187
       },
       "placarProvavel": "1-0",
       "explicacao": {
         "forcaAtaqueCasa": 1.06,
         "forcaDefesaCasa": 0.4,
-        "forcaAtaqueFora": 0.99,
+        "forcaAtaqueFora": 0.98,
         "forcaDefesaFora": 1.25,
         "jogosConsiderados": {
           "casa": 10,
@@ -1439,26 +1558,26 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
       "lambdaHome": 0.82,
-      "lambdaAway": 1.46,
-      "golsEsperados": 2.27,
+      "lambdaAway": 1.45,
+      "golsEsperados": 2.26,
       "resultado": {
-        "casa": 0.21060635108118764,
-        "empate": 0.2670090750667619,
-        "fora": 0.522384573852051
+        "casa": 0.21231618460912333,
+        "empate": 0.26842860051687595,
+        "fora": 0.5192552148740011
       },
       "gols": {
-        "over25": 0.3971686790660108,
-        "under25": 0.6028313209339892
+        "over25": 0.3940875390987331,
+        "under25": 0.6059124609012668
       },
       "ambosMarcam": {
-        "sim": 0.42830965234942586,
-        "nao": 0.5716903476505741
+        "sim": 0.42680811488021553,
+        "nao": 0.5731918851197845
       },
       "placarProvavel": "0-1",
       "explicacao": {
         "forcaAtaqueCasa": 0.7,
-        "forcaDefesaCasa": 1.45,
-        "forcaAtaqueFora": 0.99,
+        "forcaDefesaCasa": 1.43,
+        "forcaAtaqueFora": 0.98,
         "forcaDefesaFora": 0.91,
         "jogosConsiderados": {
           "casa": 10,
@@ -1477,23 +1596,23 @@
       "lambdaAway": 0.74,
       "golsEsperados": 2.08,
       "resultado": {
-        "casa": 0.5100288031383511,
-        "empate": 0.2832133968679007,
-        "fora": 0.20675779999374796
+        "casa": 0.5108167746280878,
+        "empate": 0.28323085428715666,
+        "fora": 0.20595237108475567
       },
       "gols": {
-        "over25": 0.34492573979781943,
-        "under25": 0.6550742602021805
+        "over25": 0.34425057427004335,
+        "under25": 0.6557494257299565
       },
       "ambosMarcam": {
-        "sim": 0.3860775460958083,
-        "nao": 0.6139224539041916
+        "sim": 0.38514815877077446,
+        "nao": 0.6148518412292254
       },
       "placarProvavel": "1-0",
       "explicacao": {
         "forcaAtaqueCasa": 1.3,
-        "forcaDefesaCasa": 0.92,
-        "forcaAtaqueFora": 0.79,
+        "forcaDefesaCasa": 0.91,
+        "forcaAtaqueFora": 0.78,
         "forcaDefesaFora": 0.8,
         "jogosConsiderados": {
           "casa": 9,
@@ -1509,27 +1628,27 @@
       "competition": "Brasileirão Série A",
       "round": "Rodada 21",
       "lambdaHome": 0.95,
-      "lambdaAway": 1.62,
-      "golsEsperados": 2.57,
+      "lambdaAway": 1.63,
+      "golsEsperados": 2.58,
       "resultado": {
-        "casa": 0.2205217696400394,
-        "empate": 0.24778321026313457,
-        "fora": 0.5316950200968258
+        "casa": 0.22024513939840204,
+        "empate": 0.24718308625502516,
+        "fora": 0.5325717743465727
       },
       "gols": {
-        "over25": 0.4749464502059739,
-        "under25": 0.5250535497940261
+        "over25": 0.4769904002009628,
+        "under25": 0.5230095997990373
       },
       "ambosMarcam": {
-        "sim": 0.49230377497998223,
-        "nao": 0.5076962250200178
+        "sim": 0.49371367098652424,
+        "nao": 0.5062863290134757
       },
       "placarProvavel": "0-1",
       "explicacao": {
-        "forcaAtaqueCasa": 0.85,
-        "forcaDefesaCasa": 0.99,
-        "forcaAtaqueFora": 1.47,
-        "forcaDefesaFora": 0.72,
+        "forcaAtaqueCasa": 0.86,
+        "forcaDefesaCasa": 1,
+        "forcaAtaqueFora": 1.48,
+        "forcaDefesaFora": 0.73,
         "jogosConsiderados": {
           "casa": 10,
           "fora": 10
@@ -1543,28 +1662,28 @@
       "away": "Remo",
       "competition": "Brasileirão Série A",
       "round": "Rodada 21",
-      "lambdaHome": 1.72,
+      "lambdaHome": 1.73,
       "lambdaAway": 1.09,
-      "golsEsperados": 2.81,
+      "golsEsperados": 2.82,
       "resultado": {
-        "casa": 0.5199134384597355,
-        "empate": 0.2387492904076744,
-        "fora": 0.24133727113258957
+        "casa": 0.5215662885659539,
+        "empate": 0.23787351183846836,
+        "fora": 0.2405601995955772
       },
       "gols": {
-        "over25": 0.5322609120278832,
-        "under25": 0.46773908797211683
+        "over25": 0.5352845063579684,
+        "under25": 0.4647154936420316
       },
       "ambosMarcam": {
-        "sim": 0.5447825796781121,
-        "nao": 0.45521742032188794
+        "sim": 0.546752536511581,
+        "nao": 0.45324746348841904
       },
       "placarProvavel": "1-1",
       "explicacao": {
-        "forcaAtaqueCasa": 0.9,
-        "forcaDefesaCasa": 1.05,
-        "forcaAtaqueFora": 0.93,
-        "forcaDefesaFora": 1.24,
+        "forcaAtaqueCasa": 0.91,
+        "forcaDefesaCasa": 1.06,
+        "forcaAtaqueFora": 0.94,
+        "forcaDefesaFora": 1.26,
         "jogosConsiderados": {
           "casa": 10,
           "fora": 10
@@ -1578,28 +1697,28 @@
       "away": "Bahia",
       "competition": "Brasileirão Série A",
       "round": "Rodada 21",
-      "lambdaHome": 1.73,
-      "lambdaAway": 1.24,
-      "golsEsperados": 2.97,
+      "lambdaHome": 1.74,
+      "lambdaAway": 1.25,
+      "golsEsperados": 2.98,
       "resultado": {
-        "casa": 0.4870317186904757,
-        "empate": 0.23677122385607052,
-        "fora": 0.27619705745345374
+        "casa": 0.488481516580558,
+        "empate": 0.23601762392246475,
+        "fora": 0.27550085949697795
       },
       "gols": {
-        "over25": 0.5700752491377077,
-        "under25": 0.42992475086229226
+        "over25": 0.5730183262960561,
+        "under25": 0.4269816737039439
       },
       "ambosMarcam": {
-        "sim": 0.5851194217518142,
-        "nao": 0.4148805782481858
+        "sim": 0.5871558704487337,
+        "nao": 0.4128441295512663
       },
       "placarProvavel": "1-1",
       "explicacao": {
-        "forcaAtaqueCasa": 1.11,
-        "forcaDefesaCasa": 0.99,
+        "forcaAtaqueCasa": 1.13,
+        "forcaDefesaCasa": 1,
         "forcaAtaqueFora": 1.13,
-        "forcaDefesaFora": 1.01,
+        "forcaDefesaFora": 1.02,
         "jogosConsiderados": {
           "casa": 10,
           "fora": 9
@@ -1613,28 +1732,28 @@
       "away": "Palmeiras",
       "competition": "Brasileirão Série A",
       "round": "Rodada 21",
-      "lambdaHome": 1.1,
+      "lambdaHome": 1.11,
       "lambdaAway": 0.83,
       "golsEsperados": 1.93,
       "resultado": {
-        "casa": 0.41745494022503477,
-        "empate": 0.3110703613085056,
-        "fora": 0.2714746984664595
+        "casa": 0.4182238145484147,
+        "empate": 0.3106384707097471,
+        "fora": 0.2711377147418388
       },
       "gols": {
-        "over25": 0.30417176939395535,
-        "under25": 0.6958282306060447
+        "over25": 0.3051821796703387,
+        "under25": 0.6948178203296613
       },
       "ambosMarcam": {
-        "sim": 0.3757435551994637,
-        "nao": 0.6242564448005362
+        "sim": 0.3765155844815874,
+        "nao": 0.6234844155184125
       },
       "placarProvavel": "1-0",
       "explicacao": {
-        "forcaAtaqueCasa": 1.05,
+        "forcaAtaqueCasa": 1.07,
         "forcaDefesaCasa": 0.55,
-        "forcaAtaqueFora": 1.35,
-        "forcaDefesaFora": 0.68,
+        "forcaAtaqueFora": 1.36,
+        "forcaDefesaFora": 0.69,
         "jogosConsiderados": {
           "casa": 9,
           "fora": 10
@@ -1648,28 +1767,28 @@
       "away": "Athletico-PR",
       "competition": "Brasileirão Série A",
       "round": "Rodada 21",
-      "lambdaHome": 1.26,
+      "lambdaHome": 1.27,
       "lambdaAway": 0.85,
       "golsEsperados": 2.11,
       "resultado": {
-        "casa": 0.4607572320174756,
-        "empate": 0.29027205665256073,
-        "fora": 0.24897071132996354
+        "casa": 0.46178497314325945,
+        "empate": 0.2896319342846421,
+        "fora": 0.24858309257209846
       },
       "gols": {
-        "over25": 0.35217659395120415,
-        "under25": 0.6478234060487958
+        "over25": 0.3538593461794443,
+        "under25": 0.6461406538205557
       },
       "ambosMarcam": {
-        "sim": 0.408917494298186,
-        "nao": 0.5910825057018139
+        "sim": 0.4101344209811567,
+        "nao": 0.5898655790188432
       },
       "placarProvavel": "1-0",
       "explicacao": {
-        "forcaAtaqueCasa": 0.85,
-        "forcaDefesaCasa": 0.81,
-        "forcaAtaqueFora": 0.93,
-        "forcaDefesaFora": 0.96,
+        "forcaAtaqueCasa": 0.86,
+        "forcaDefesaCasa": 0.82,
+        "forcaAtaqueFora": 0.94,
+        "forcaDefesaFora": 0.97,
         "jogosConsiderados": {
           "casa": 10,
           "fora": 9
@@ -1683,28 +1802,28 @@
       "away": "Cruzeiro",
       "competition": "Brasileirão Série A",
       "round": "Rodada 21",
-      "lambdaHome": 1.53,
+      "lambdaHome": 1.54,
       "lambdaAway": 1.18,
-      "golsEsperados": 2.71,
+      "golsEsperados": 2.72,
       "resultado": {
-        "casa": 0.45356676320948724,
-        "empate": 0.25294327010396717,
-        "fora": 0.2934899666865456
+        "casa": 0.4546046655192517,
+        "empate": 0.2523319645860443,
+        "fora": 0.2930633698947043
       },
       "gols": {
-        "over25": 0.5094647455329527,
-        "under25": 0.4905352544670473
+        "over25": 0.5118377231038892,
+        "under25": 0.4881622768961108
       },
       "ambosMarcam": {
-        "sim": 0.543244886607726,
-        "nao": 0.45675511339227404
+        "sim": 0.5449695391745968,
+        "nao": 0.45503046082540327
       },
       "placarProvavel": "1-1",
       "explicacao": {
-        "forcaAtaqueCasa": 0.87,
-        "forcaDefesaCasa": 1.06,
+        "forcaAtaqueCasa": 0.88,
+        "forcaDefesaCasa": 1.07,
         "forcaAtaqueFora": 1,
-        "forcaDefesaFora": 1.15,
+        "forcaDefesaFora": 1.16,
         "jogosConsiderados": {
           "casa": 9,
           "fora": 9
@@ -1713,7 +1832,7 @@
     }
   ],
   "metrics": {
-    "evaluated": 7,
+    "evaluated": 21,
     "hitRate": 0.29,
     "brierScore": 0.23,
     "minimumSample": 20
