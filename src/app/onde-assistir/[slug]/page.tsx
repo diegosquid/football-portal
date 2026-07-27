@@ -13,6 +13,7 @@ import { compDo, getCompetition, resolveCompetitionSlug } from "@/lib/competitio
 import { pelaCompetition } from "@/lib/schedule-seo";
 import { ProbabilityPanel } from "@/components/ProbabilityPanel";
 import { ShareWhatsApp } from "@/components/ShareWhatsApp";
+import { PushBanner } from "@/components/PushBanner";
 import { buildMatchShareText } from "@/lib/share";
 import {
   getPredictionFor,
@@ -586,6 +587,9 @@ export default async function OndeAssistirPage({ params }: Props) {
             </div>
           </section>
         )}
+
+        {/* Convite de notificação — inline, sem overlay (seguro para SEO) */}
+        <PushBanner context={match.slug} />
 
         {/* FAQ */}
         <ArticleFAQ items={faq} />
