@@ -78,10 +78,10 @@ export function Header() {
             Palpites
           </Link>
           <Link
-            href="/tabela-do-brasileirao"
+            href="/tabela"
             className="hover-line shrink-0 px-3 py-3 text-[13px] font-semibold uppercase tracking-wide text-cal/80 transition-colors hover:text-cal"
           >
-            Tabela
+            Tabelas
           </Link>
           <Link
             href="/estatisticas"
@@ -168,13 +168,13 @@ export function Header() {
               </span>
             </Link>
             <Link
-              href="/tabela-do-brasileirao"
+              href="/tabela"
               onClick={() => setMenuOpen(false)}
               className="rise flex items-baseline gap-4 border-b border-cal/10 py-4"
             >
               <span className="font-mono text-xs text-lima">•</span>
               <span className="font-display text-3xl font-extrabold uppercase tracking-tight text-lima">
-                Tabela
+                Tabelas
               </span>
             </Link>
             {categories.map((cat, i) => (
