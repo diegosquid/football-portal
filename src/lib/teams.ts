@@ -49,6 +49,8 @@ export const teams: Record<string, Team> = {
   "operario-pr": { slug: "operario-pr", name: "Operário-PR", shortName: "OPE", state: "PR", aliases: ["Operário"] },
   "athletic-mg": { slug: "athletic-mg", name: "Athletic-MG", shortName: "ATH", state: "MG", aliases: ["Athletic"] },
   londrina: { slug: "londrina", name: "Londrina", shortName: "LON", state: "PR" },
+  criciuma: { slug: "criciuma", name: "Criciúma", shortName: "CRI", state: "SC" },
+  "ponte-preta": { slug: "ponte-preta", name: "Ponte Preta", shortName: "PON", state: "SP", aliases: ["AA Ponte Preta"] },
 
   // Seleção
   "selecao-brasileira": { slug: "selecao-brasileira", name: "Seleção Brasileira", shortName: "BRA", state: "BR", aliases: ["Brasil"] },

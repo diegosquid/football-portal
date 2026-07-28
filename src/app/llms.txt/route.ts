@@ -49,6 +49,13 @@ Beira do Campo publica artigos de pré-jogo, pós-jogo, análises táticas, rada
 - [Internacional Hoje](${baseUrl}/jogos-futebol-hoje/internacional): Jogo do Internacional hoje e últimas notícias
 - [Cruzeiro Hoje](${baseUrl}/jogos-futebol-hoje/cruzeiro): Jogo do Cruzeiro hoje e últimas notícias
 
+## Classificação
+
+- [Tabela do Brasileirão Série A](${baseUrl}/tabela-do-brasileirao): Classificação atualizada do Campeonato Brasileiro — pontos, saldo, aproveitamento, forma recente e as chances de título, G4 e rebaixamento calculadas por modelo estatístico próprio
+- [Tabela do Brasileirão Série B](${baseUrl}/tabela-do-brasileirao-serie-b): Classificação atualizada da Série B — com as chances de acesso à Série A e de rebaixamento de cada clube
+- [Tabela do Brasileirão Série C](${baseUrl}/tabela-do-brasileirao-serie-c): Classificação da primeira fase da Série C — chances de vaga no quadrangular do acesso e de queda para a Série D
+- [Todas as tabelas](${baseUrl}/tabela): Índice das classificações de todos os campeonatos cobertos pelo portal
+
 ## Times Cobertos
 
 - [Flamengo](${baseUrl}/time/flamengo): Notícias, jogos e análises do Flamengo

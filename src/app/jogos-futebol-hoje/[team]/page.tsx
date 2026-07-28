@@ -17,6 +17,7 @@ import { UpcomingMatches } from "@/components/UpcomingMatches";
 import { ArticleFAQ } from "@/components/ArticleFAQ";
 import { FAQPageJsonLd } from "@/components/JsonLd";
 import { pelaCompetition, sportsEventJsonLd } from "@/lib/schedule-seo";
+import { hasStandings, standingsPath } from "@/lib/standings";
 import {
   formatDateLongBR,
   getScheduleMeta,
@@ -201,6 +202,23 @@ function CompetitionHojeView({ comp }: { comp: Competition }) {
           </Link>
           .
         </p>
+
+        {hasStandings(comp.slug) && (
+          <nav className="mb-8 flex flex-wrap gap-2 text-sm">
+            <Link
+              href={standingsPath(comp.slug)}
+              className="border border-ink/15 bg-white px-4 py-2 font-medium text-ink transition-colors hover:border-primary hover:text-primary"
+            >
+              Tabela {compDo(comp)}
+            </Link>
+            <Link
+              href="/probabilidades"
+              className="border border-ink/15 bg-white px-4 py-2 font-medium text-ink transition-colors hover:border-primary hover:text-primary"
+            >
+              Palpites de hoje
+            </Link>
+          </nav>
+        )}
 
         <section className="mb-10">
           <GameSchedule

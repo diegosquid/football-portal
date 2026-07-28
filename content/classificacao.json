@@ -1,0 +1,5058 @@
+{
+  "generatedAt": "2026-07-28T20:41:58.919Z",
+  "updatedThrough": "2026-07-28",
+  "season": "2026",
+  "source": "apifootball.com",
+  "disclaimer": "Classificação oficial da competição. As chances de título, G4 e rebaixamento são estimativas de modelo estatístico próprio — não são garantia de resultado.",
+  "tables": {
+    "brasileirao": {
+      "slug": "brasileirao",
+      "competition": "Brasileirão Série A",
+      "shortName": "Brasileirão",
+      "leagueId": 99,
+      "season": "2026",
+      "format": "pontos-corridos",
+      "zones": {
+        "promotion": 4,
+        "secondary": 6,
+        "relegation": 4
+      },
+      "roundsPlayed": 20,
+      "totalRounds": 38,
+      "remainingMatches": 181,
+      "simulation": {
+        "runs": 10000,
+        "fixtures": 181,
+        "model": "poisson-v1"
+      },
+      "rows": [
+        {
+          "position": 1,
+          "team": "Palmeiras",
+          "teamId": "546",
+          "badge": "https://apiv3.apifootball.com/badges/546_palmeiras.jpg",
+          "played": 20,
+          "wins": 13,
+          "draws": 5,
+          "losses": 2,
+          "goalsFor": 34,
+          "goalsAgainst": 16,
+          "goalDiff": 18,
+          "points": 44,
+          "aproveitamento": 73.3,
+          "zone": "libertadores",
+          "home": {
+            "position": 2,
+            "played": 10,
+            "wins": 7,
+            "draws": 2,
+            "losses": 1,
+            "goalsFor": 17,
+            "goalsAgainst": 8,
+            "goalDiff": 9,
+            "points": 23
+          },
+          "away": {
+            "position": 1,
+            "played": 10,
+            "wins": 6,
+            "draws": 3,
+            "losses": 1,
+            "goalsFor": 17,
+            "goalsAgainst": 8,
+            "goalDiff": 9,
+            "points": 21
+          },
+          "form": [
+            {
+              "resultado": "E",
+              "adversario": "Cruzeiro",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-05-17"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Flamengo RJ",
+              "placar": "3-0",
+              "mandante": false,
+              "data": "2026-05-24"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Chapecoense-SC",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-05-31"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Coritiba",
+              "placar": "3-1",
+              "mandante": false,
+              "data": "2026-07-23"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Atletico-MG",
+              "placar": "1-2",
+              "mandante": true,
+              "data": "2026-07-27"
+            }
+          ],
+          "chances": {
+            "titulo": 56.5,
+            "promocao": 99.7,
+            "secundaria": 99.9,
+            "rebaixamento": 0,
+            "pontosProjetados": 76,
+            "posicaoMedia": 1.5
+          }
+        },
+        {
+          "position": 2,
+          "team": "Flamengo RJ",
+          "teamId": "542",
+          "badge": "https://apiv3.apifootball.com/badges/542_flamengo.jpg",
+          "played": 19,
+          "wins": 11,
+          "draws": 5,
+          "losses": 3,
+          "goalsFor": 36,
+          "goalsAgainst": 17,
+          "goalDiff": 19,
+          "points": 38,
+          "aproveitamento": 66.7,
+          "zone": "libertadores",
+          "home": {
+            "position": 5,
+            "played": 9,
+            "wins": 5,
+            "draws": 3,
+            "losses": 1,
+            "goalsFor": 17,
+            "goalsAgainst": 8,
+            "goalDiff": 9,
+            "points": 18
+          },
+          "away": {
+            "position": 2,
+            "played": 10,
+            "wins": 6,
+            "draws": 2,
+            "losses": 2,
+            "goalsFor": 19,
+            "goalsAgainst": 9,
+            "goalDiff": 10,
+            "points": 20
+          },
+          "form": [
+            {
+              "resultado": "E",
+              "adversario": "Athletico-PR",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-05-18"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Palmeiras",
+              "placar": "0-3",
+              "mandante": true,
+              "data": "2026-05-24"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Coritiba",
+              "placar": "3-0",
+              "mandante": true,
+              "data": "2026-05-30"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Chapecoense-SC",
+              "placar": "4-0",
+              "mandante": false,
+              "data": "2026-07-23"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Sao Paulo",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 41.2,
+            "promocao": 98.9,
+            "secundaria": 99.9,
+            "rebaixamento": 0,
+            "pontosProjetados": 74,
+            "posicaoMedia": 1.7
+          }
+        },
+        {
+          "position": 3,
+          "team": "Athletico-PR",
+          "teamId": "551",
+          "badge": null,
+          "played": 20,
+          "wins": 11,
+          "draws": 3,
+          "losses": 6,
+          "goalsFor": 28,
+          "goalsAgainst": 19,
+          "goalDiff": 9,
+          "points": 36,
+          "aproveitamento": 60,
+          "zone": "libertadores",
+          "home": {
+            "position": 1,
+            "played": 11,
+            "wins": 8,
+            "draws": 2,
+            "losses": 1,
+            "goalsFor": 19,
+            "goalsAgainst": 6,
+            "goalDiff": 13,
+            "points": 26
+          },
+          "away": {
+            "position": 11,
+            "played": 9,
+            "wins": 3,
+            "draws": 1,
+            "losses": 5,
+            "goalsFor": 9,
+            "goalsAgainst": 13,
+            "goalDiff": -4,
+            "points": 10
+          },
+          "form": [
+            {
+              "resultado": "E",
+              "adversario": "Flamengo RJ",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-05-18"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Remo",
+              "placar": "2-1",
+              "mandante": false,
+              "data": "2026-05-24"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Mirassol",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-05-30"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Sao Paulo",
+              "placar": "2-1",
+              "mandante": false,
+              "data": "2026-07-23"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Internacional",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-07-25"
+            }
+          ],
+          "chances": {
+            "titulo": 1.6,
+            "promocao": 66.4,
+            "secundaria": 86.7,
+            "rebaixamento": 0,
+            "pontosProjetados": 63,
+            "posicaoMedia": 4.3
+          }
+        },
+        {
+          "position": 4,
+          "team": "Fluminense",
+          "teamId": "1879",
+          "badge": null,
+          "played": 20,
+          "wins": 9,
+          "draws": 6,
+          "losses": 5,
+          "goalsFor": 30,
+          "goalsAgainst": 25,
+          "goalDiff": 5,
+          "points": 33,
+          "aproveitamento": 55,
+          "zone": "libertadores",
+          "home": {
+            "position": 3,
+            "played": 10,
+            "wins": 7,
+            "draws": 2,
+            "losses": 1,
+            "goalsFor": 18,
+            "goalsAgainst": 11,
+            "goalDiff": 7,
+            "points": 23
+          },
+          "away": {
+            "position": 10,
+            "played": 10,
+            "wins": 2,
+            "draws": 4,
+            "losses": 4,
+            "goalsFor": 12,
+            "goalsAgainst": 14,
+            "goalDiff": -2,
+            "points": 10
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Sao Paulo",
+              "placar": "2-1",
+              "mandante": true,
+              "data": "2026-05-17"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Mirassol",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-05-24"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Cruzeiro",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-06-01"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Bragantino",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Gremio",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0.3,
+            "promocao": 37.3,
+            "secundaria": 64.1,
+            "rebaixamento": 0.1,
+            "pontosProjetados": 59,
+            "posicaoMedia": 6
+          }
+        },
+        {
+          "position": 5,
+          "team": "Bragantino",
+          "teamId": "2015",
+          "badge": null,
+          "played": 20,
+          "wins": 9,
+          "draws": 4,
+          "losses": 7,
+          "goalsFor": 26,
+          "goalsAgainst": 20,
+          "goalDiff": 6,
+          "points": 31,
+          "aproveitamento": 51.7,
+          "zone": "pre-libertadores",
+          "home": {
+            "position": 8,
+            "played": 10,
+            "wins": 5,
+            "draws": 2,
+            "losses": 3,
+            "goalsFor": 16,
+            "goalsAgainst": 9,
+            "goalDiff": 7,
+            "points": 17
+          },
+          "away": {
+            "position": 4,
+            "played": 10,
+            "wins": 4,
+            "draws": 2,
+            "losses": 4,
+            "goalsFor": 10,
+            "goalsAgainst": 11,
+            "goalDiff": -1,
+            "points": 14
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Vitoria",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-05-17"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Vasco",
+              "placar": "3-0",
+              "mandante": false,
+              "data": "2026-05-25"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Internacional",
+              "placar": "3-1",
+              "mandante": true,
+              "data": "2026-05-31"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Fluminense",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Coritiba",
+              "placar": "0-0",
+              "mandante": true,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0.2,
+            "promocao": 27.4,
+            "secundaria": 55.2,
+            "rebaixamento": 0.2,
+            "pontosProjetados": 58,
+            "posicaoMedia": 6.6
+          }
+        },
+        {
+          "position": 6,
+          "team": "Bahia",
+          "teamId": "1985",
+          "badge": "https://apiv3.apifootball.com/badges/1985_bahia.jpg",
+          "played": 20,
+          "wins": 8,
+          "draws": 7,
+          "losses": 5,
+          "goalsFor": 29,
+          "goalsAgainst": 25,
+          "goalDiff": 4,
+          "points": 31,
+          "aproveitamento": 51.7,
+          "zone": "sul-americana",
+          "home": {
+            "position": 10,
+            "played": 11,
+            "wins": 4,
+            "draws": 5,
+            "losses": 2,
+            "goalsFor": 17,
+            "goalsAgainst": 11,
+            "goalDiff": 6,
+            "points": 17
+          },
+          "away": {
+            "position": 5,
+            "played": 9,
+            "wins": 4,
+            "draws": 2,
+            "losses": 3,
+            "goalsFor": 12,
+            "goalsAgainst": 14,
+            "goalDiff": -2,
+            "points": 14
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Coritiba",
+              "placar": "2-3",
+              "mandante": false,
+              "data": "2026-05-26"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Botafogo RJ",
+              "placar": "2-1",
+              "mandante": true,
+              "data": "2026-05-30"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Chapecoense-SC",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Atletico-MG",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-07-22"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Corinthians",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0.1,
+            "promocao": 17.1,
+            "secundaria": 39,
+            "rebaixamento": 0.8,
+            "pontosProjetados": 56,
+            "posicaoMedia": 7.9
+          }
+        },
+        {
+          "position": 7,
+          "team": "Botafogo RJ",
+          "teamId": "1875",
+          "badge": "https://apiv3.apifootball.com/badges/1875_botafogo.jpg",
+          "played": 20,
+          "wins": 8,
+          "draws": 5,
+          "losses": 7,
+          "goalsFor": 34,
+          "goalsAgainst": 32,
+          "goalDiff": 2,
+          "points": 29,
+          "aproveitamento": 48.3,
+          "zone": "sul-americana",
+          "home": {
+            "position": 15,
+            "played": 9,
+            "wins": 4,
+            "draws": 3,
+            "losses": 2,
+            "goalsFor": 17,
+            "goalsAgainst": 13,
+            "goalDiff": 4,
+            "points": 15
+          },
+          "away": {
+            "position": 6,
+            "played": 11,
+            "wins": 4,
+            "draws": 2,
+            "losses": 5,
+            "goalsFor": 17,
+            "goalsAgainst": 19,
+            "goalDiff": -2,
+            "points": 14
+          },
+          "form": [
+            {
+              "resultado": "E",
+              "adversario": "Sao Paulo",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-05-23"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Bahia",
+              "placar": "1-2",
+              "mandante": false,
+              "data": "2026-05-30"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Santos",
+              "placar": "2-1",
+              "mandante": true,
+              "data": "2026-07-17"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Vitoria",
+              "placar": "0-0",
+              "mandante": true,
+              "data": "2026-07-24"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Cruzeiro",
+              "placar": "1-0",
+              "mandante": false,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0.1,
+            "promocao": 13.8,
+            "secundaria": 33.4,
+            "rebaixamento": 1.3,
+            "pontosProjetados": 55,
+            "posicaoMedia": 8.4
+          }
+        },
+        {
+          "position": 8,
+          "team": "Atletico-MG",
+          "teamId": "1865",
+          "badge": "https://apiv3.apifootball.com/badges/1865_atletico-mineiro.jpg",
+          "played": 20,
+          "wins": 8,
+          "draws": 4,
+          "losses": 8,
+          "goalsFor": 25,
+          "goalsAgainst": 25,
+          "goalDiff": 0,
+          "points": 28,
+          "aproveitamento": 46.7,
+          "zone": "sul-americana",
+          "home": {
+            "position": 14,
+            "played": 9,
+            "wins": 4,
+            "draws": 4,
+            "losses": 1,
+            "goalsFor": 14,
+            "goalsAgainst": 13,
+            "goalDiff": 1,
+            "points": 16
+          },
+          "away": {
+            "position": 7,
+            "played": 11,
+            "wins": 4,
+            "draws": 0,
+            "losses": 7,
+            "goalsFor": 11,
+            "goalsAgainst": 12,
+            "goalDiff": -1,
+            "points": 12
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Mirassol",
+              "placar": "3-1",
+              "mandante": true,
+              "data": "2026-05-16"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Corinthians",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-05-24"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Vasco",
+              "placar": "1-0",
+              "mandante": false,
+              "data": "2026-05-31"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Bahia",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-07-22"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Palmeiras",
+              "placar": "2-1",
+              "mandante": false,
+              "data": "2026-07-27"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 9.5,
+            "secundaria": 26.3,
+            "rebaixamento": 2.2,
+            "pontosProjetados": 54,
+            "posicaoMedia": 9.2
+          }
+        },
+        {
+          "position": 9,
+          "team": "Corinthians",
+          "teamId": "2017",
+          "badge": "https://apiv3.apifootball.com/badges/2017_corinthians.jpg",
+          "played": 20,
+          "wins": 7,
+          "draws": 7,
+          "losses": 6,
+          "goalsFor": 22,
+          "goalsAgainst": 20,
+          "goalDiff": 2,
+          "points": 28,
+          "aproveitamento": 46.7,
+          "zone": "sul-americana",
+          "home": {
+            "position": 11,
+            "played": 10,
+            "wins": 5,
+            "draws": 2,
+            "losses": 3,
+            "goalsFor": 12,
+            "goalsAgainst": 8,
+            "goalDiff": 4,
+            "points": 17
+          },
+          "away": {
+            "position": 8,
+            "played": 10,
+            "wins": 2,
+            "draws": 5,
+            "losses": 3,
+            "goalsFor": 10,
+            "goalsAgainst": 12,
+            "goalDiff": -2,
+            "points": 11
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Botafogo RJ",
+              "placar": "1-3",
+              "mandante": false,
+              "data": "2026-05-17"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Atletico-MG",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-05-24"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Gremio",
+              "placar": "3-1",
+              "mandante": false,
+              "data": "2026-05-30"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Remo",
+              "placar": "3-0",
+              "mandante": true,
+              "data": "2026-07-24"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Bahia",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0.1,
+            "promocao": 10.9,
+            "secundaria": 29,
+            "rebaixamento": 1.2,
+            "pontosProjetados": 55,
+            "posicaoMedia": 8.7
+          }
+        },
+        {
+          "position": 10,
+          "team": "Coritiba",
+          "teamId": "2019",
+          "badge": "https://apiv3.apifootball.com/badges/2019_coritiba.jpg",
+          "played": 20,
+          "wins": 7,
+          "draws": 6,
+          "losses": 7,
+          "goalsFor": 25,
+          "goalsAgainst": 27,
+          "goalDiff": -2,
+          "points": 27,
+          "aproveitamento": 45,
+          "zone": "sul-americana",
+          "home": {
+            "position": 18,
+            "played": 9,
+            "wins": 3,
+            "draws": 3,
+            "losses": 3,
+            "goalsFor": 11,
+            "goalsAgainst": 11,
+            "goalDiff": 0,
+            "points": 12
+          },
+          "away": {
+            "position": 3,
+            "played": 11,
+            "wins": 4,
+            "draws": 3,
+            "losses": 4,
+            "goalsFor": 14,
+            "goalsAgainst": 16,
+            "goalDiff": -2,
+            "points": 15
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Santos",
+              "placar": "3-0",
+              "mandante": false,
+              "data": "2026-05-17"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Bahia",
+              "placar": "3-2",
+              "mandante": true,
+              "data": "2026-05-26"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Flamengo RJ",
+              "placar": "0-3",
+              "mandante": false,
+              "data": "2026-05-30"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Palmeiras",
+              "placar": "1-3",
+              "mandante": true,
+              "data": "2026-07-23"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Bragantino",
+              "placar": "0-0",
+              "mandante": false,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 4.6,
+            "secundaria": 16.4,
+            "rebaixamento": 4.7,
+            "pontosProjetados": 52,
+            "posicaoMedia": 10.4
+          }
+        },
+        {
+          "position": 11,
+          "team": "Cruzeiro",
+          "teamId": "1745",
+          "badge": "https://apiv3.apifootball.com/badges/1745_cruzeiro.jpg",
+          "played": 20,
+          "wins": 7,
+          "draws": 6,
+          "losses": 7,
+          "goalsFor": 26,
+          "goalsAgainst": 30,
+          "goalDiff": -4,
+          "points": 27,
+          "aproveitamento": 45,
+          "zone": "sul-americana",
+          "home": {
+            "position": 13,
+            "played": 11,
+            "wins": 4,
+            "draws": 4,
+            "losses": 3,
+            "goalsFor": 16,
+            "goalsAgainst": 13,
+            "goalDiff": 3,
+            "points": 16
+          },
+          "away": {
+            "position": 9,
+            "played": 9,
+            "wins": 3,
+            "draws": 2,
+            "losses": 4,
+            "goalsFor": 10,
+            "goalsAgainst": 17,
+            "goalDiff": -7,
+            "points": 11
+          },
+          "form": [
+            {
+              "resultado": "E",
+              "adversario": "Palmeiras",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-05-17"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Chapecoense-SC",
+              "placar": "2-1",
+              "mandante": true,
+              "data": "2026-05-24"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Fluminense",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-06-01"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Internacional",
+              "placar": "2-1",
+              "mandante": false,
+              "data": "2026-07-23"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Botafogo RJ",
+              "placar": "0-1",
+              "mandante": true,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 1.4,
+            "secundaria": 6.6,
+            "rebaixamento": 11,
+            "pontosProjetados": 49,
+            "posicaoMedia": 12.2
+          }
+        },
+        {
+          "position": 12,
+          "team": "Sao Paulo",
+          "teamId": "556",
+          "badge": "https://apiv3.apifootball.com/badges/556_sao-paulo.jpg",
+          "played": 20,
+          "wins": 7,
+          "draws": 5,
+          "losses": 8,
+          "goalsFor": 25,
+          "goalsAgainst": 23,
+          "goalDiff": 2,
+          "points": 26,
+          "aproveitamento": 43.3,
+          "zone": null,
+          "home": {
+            "position": 9,
+            "played": 9,
+            "wins": 5,
+            "draws": 2,
+            "losses": 2,
+            "goalsFor": 15,
+            "goalsAgainst": 8,
+            "goalDiff": 7,
+            "points": 17
+          },
+          "away": {
+            "position": 13,
+            "played": 11,
+            "wins": 2,
+            "draws": 3,
+            "losses": 6,
+            "goalsFor": 10,
+            "goalsAgainst": 15,
+            "goalDiff": -5,
+            "points": 9
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Fluminense",
+              "placar": "1-2",
+              "mandante": false,
+              "data": "2026-05-17"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Botafogo RJ",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-05-23"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Remo",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-06-01"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Athletico-PR",
+              "placar": "1-2",
+              "mandante": true,
+              "data": "2026-07-23"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Flamengo RJ",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 8,
+            "secundaria": 23.8,
+            "rebaixamento": 2.1,
+            "pontosProjetados": 53,
+            "posicaoMedia": 9.3
+          }
+        },
+        {
+          "position": 13,
+          "team": "Vitoria",
+          "teamId": "1748",
+          "badge": "https://apiv3.apifootball.com/badges/1748_vitoria.jpg",
+          "played": 20,
+          "wins": 7,
+          "draws": 5,
+          "losses": 8,
+          "goalsFor": 22,
+          "goalsAgainst": 27,
+          "goalDiff": -5,
+          "points": 26,
+          "aproveitamento": 43.3,
+          "zone": null,
+          "home": {
+            "position": 4,
+            "played": 9,
+            "wins": 7,
+            "draws": 1,
+            "losses": 1,
+            "goalsFor": 15,
+            "goalsAgainst": 3,
+            "goalDiff": 12,
+            "points": 22
+          },
+          "away": {
+            "position": 19,
+            "played": 11,
+            "wins": 0,
+            "draws": 4,
+            "losses": 7,
+            "goalsFor": 7,
+            "goalsAgainst": 24,
+            "goalDiff": -17,
+            "points": 4
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Internacional",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-05-23"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Santos",
+              "placar": "1-3",
+              "mandante": false,
+              "data": "2026-05-31"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Vasco",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-07-17"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Botafogo RJ",
+              "placar": "0-0",
+              "mandante": false,
+              "data": "2026-07-24"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Remo",
+              "placar": "0-2",
+              "mandante": false,
+              "data": "2026-07-27"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 4.3,
+            "secundaria": 15.2,
+            "rebaixamento": 2.4,
+            "pontosProjetados": 52,
+            "posicaoMedia": 10.1
+          }
+        },
+        {
+          "position": 14,
+          "team": "Santos",
+          "teamId": "566",
+          "badge": null,
+          "played": 20,
+          "wins": 5,
+          "draws": 7,
+          "losses": 8,
+          "goalsFor": 29,
+          "goalsAgainst": 33,
+          "goalDiff": -4,
+          "points": 22,
+          "aproveitamento": 36.7,
+          "zone": null,
+          "home": {
+            "position": 7,
+            "played": 11,
+            "wins": 5,
+            "draws": 3,
+            "losses": 3,
+            "goalsFor": 17,
+            "goalsAgainst": 14,
+            "goalDiff": 3,
+            "points": 18
+          },
+          "away": {
+            "position": 16,
+            "played": 9,
+            "wins": 0,
+            "draws": 4,
+            "losses": 5,
+            "goalsFor": 12,
+            "goalsAgainst": 19,
+            "goalDiff": -7,
+            "points": 4
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Coritiba",
+              "placar": "0-3",
+              "mandante": true,
+              "data": "2026-05-17"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Gremio",
+              "placar": "2-3",
+              "mandante": false,
+              "data": "2026-05-24"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Vitoria",
+              "placar": "3-1",
+              "mandante": true,
+              "data": "2026-05-31"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Botafogo RJ",
+              "placar": "1-2",
+              "mandante": false,
+              "data": "2026-07-17"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Chapecoense-SC",
+              "placar": "2-2",
+              "mandante": true,
+              "data": "2026-07-25"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 0.1,
+            "secundaria": 0.8,
+            "rebaixamento": 44,
+            "pontosProjetados": 43,
+            "posicaoMedia": 15.5
+          }
+        },
+        {
+          "position": 15,
+          "team": "Gremio",
+          "teamId": "558",
+          "badge": null,
+          "played": 20,
+          "wins": 5,
+          "draws": 7,
+          "losses": 8,
+          "goalsFor": 22,
+          "goalsAgainst": 26,
+          "goalDiff": -4,
+          "points": 22,
+          "aproveitamento": 36.7,
+          "zone": null,
+          "home": {
+            "position": 6,
+            "played": 10,
+            "wins": 5,
+            "draws": 3,
+            "losses": 2,
+            "goalsFor": 16,
+            "goalsAgainst": 12,
+            "goalDiff": 4,
+            "points": 18
+          },
+          "away": {
+            "position": 18,
+            "played": 10,
+            "wins": 0,
+            "draws": 4,
+            "losses": 6,
+            "goalsFor": 6,
+            "goalsAgainst": 14,
+            "goalDiff": -8,
+            "points": 4
+          },
+          "form": [
+            {
+              "resultado": "E",
+              "adversario": "Bahia",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-05-17"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Santos",
+              "placar": "3-2",
+              "mandante": true,
+              "data": "2026-05-24"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Corinthians",
+              "placar": "1-3",
+              "mandante": true,
+              "data": "2026-05-30"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Mirassol",
+              "placar": "1-2",
+              "mandante": false,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Fluminense",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 0.2,
+            "secundaria": 1.2,
+            "rebaixamento": 34.7,
+            "pontosProjetados": 45,
+            "posicaoMedia": 14.9
+          }
+        },
+        {
+          "position": 16,
+          "team": "Internacional",
+          "teamId": "559",
+          "badge": null,
+          "played": 20,
+          "wins": 5,
+          "draws": 6,
+          "losses": 9,
+          "goalsFor": 22,
+          "goalsAgainst": 26,
+          "goalDiff": -4,
+          "points": 21,
+          "aproveitamento": 35,
+          "zone": null,
+          "home": {
+            "position": 19,
+            "played": 10,
+            "wins": 3,
+            "draws": 2,
+            "losses": 5,
+            "goalsFor": 12,
+            "goalsAgainst": 11,
+            "goalDiff": 1,
+            "points": 11
+          },
+          "away": {
+            "position": 12,
+            "played": 10,
+            "wins": 2,
+            "draws": 4,
+            "losses": 4,
+            "goalsFor": 10,
+            "goalsAgainst": 15,
+            "goalDiff": -5,
+            "points": 10
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Vasco",
+              "placar": "4-1",
+              "mandante": true,
+              "data": "2026-05-16"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Vitoria",
+              "placar": "0-2",
+              "mandante": false,
+              "data": "2026-05-23"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Bragantino",
+              "placar": "1-3",
+              "mandante": false,
+              "data": "2026-05-31"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Cruzeiro",
+              "placar": "1-2",
+              "mandante": true,
+              "data": "2026-07-23"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Athletico-PR",
+              "placar": "0-2",
+              "mandante": false,
+              "data": "2026-07-25"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 0.1,
+            "secundaria": 1,
+            "rebaixamento": 37,
+            "pontosProjetados": 44,
+            "posicaoMedia": 15
+          }
+        },
+        {
+          "position": 17,
+          "team": "Vasco",
+          "teamId": "1877",
+          "badge": null,
+          "played": 20,
+          "wins": 5,
+          "draws": 6,
+          "losses": 9,
+          "goalsFor": 23,
+          "goalsAgainst": 31,
+          "goalDiff": -8,
+          "points": 21,
+          "aproveitamento": 35,
+          "zone": "rebaixamento",
+          "home": {
+            "position": 12,
+            "played": 11,
+            "wins": 5,
+            "draws": 2,
+            "losses": 4,
+            "goalsFor": 13,
+            "goalsAgainst": 14,
+            "goalDiff": -1,
+            "points": 17
+          },
+          "away": {
+            "position": 17,
+            "played": 9,
+            "wins": 0,
+            "draws": 4,
+            "losses": 5,
+            "goalsFor": 10,
+            "goalsAgainst": 17,
+            "goalDiff": -7,
+            "points": 4
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Internacional",
+              "placar": "1-4",
+              "mandante": false,
+              "data": "2026-05-16"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Bragantino",
+              "placar": "0-3",
+              "mandante": true,
+              "data": "2026-05-25"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Atletico-MG",
+              "placar": "0-1",
+              "mandante": true,
+              "data": "2026-05-31"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Vitoria",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-07-17"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Mirassol",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 0.1,
+            "secundaria": 0.3,
+            "rebaixamento": 54.8,
+            "pontosProjetados": 42,
+            "posicaoMedia": 16.2
+          }
+        },
+        {
+          "position": 18,
+          "team": "Remo",
+          "teamId": "1784",
+          "badge": null,
+          "played": 20,
+          "wins": 5,
+          "draws": 6,
+          "losses": 9,
+          "goalsFor": 23,
+          "goalsAgainst": 32,
+          "goalDiff": -9,
+          "points": 21,
+          "aproveitamento": 35,
+          "zone": "rebaixamento",
+          "home": {
+            "position": 17,
+            "played": 10,
+            "wins": 3,
+            "draws": 4,
+            "losses": 3,
+            "goalsFor": 13,
+            "goalsAgainst": 11,
+            "goalDiff": 2,
+            "points": 13
+          },
+          "away": {
+            "position": 14,
+            "played": 10,
+            "wins": 2,
+            "draws": 2,
+            "losses": 6,
+            "goalsFor": 10,
+            "goalsAgainst": 21,
+            "goalDiff": -11,
+            "points": 8
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Chapecoense-SC",
+              "placar": "3-2",
+              "mandante": false,
+              "data": "2026-05-17"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Athletico-PR",
+              "placar": "1-2",
+              "mandante": true,
+              "data": "2026-05-24"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Sao Paulo",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-06-01"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Corinthians",
+              "placar": "0-3",
+              "mandante": false,
+              "data": "2026-07-24"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Vitoria",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-07-27"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 0,
+            "secundaria": 0.2,
+            "rebaixamento": 57.9,
+            "pontosProjetados": 42,
+            "posicaoMedia": 16.4
+          }
+        },
+        {
+          "position": 19,
+          "team": "Mirassol",
+          "teamId": "1804",
+          "badge": null,
+          "played": 19,
+          "wins": 5,
+          "draws": 5,
+          "losses": 9,
+          "goalsFor": 21,
+          "goalsAgainst": 26,
+          "goalDiff": -5,
+          "points": 20,
+          "aproveitamento": 35.1,
+          "zone": "rebaixamento",
+          "home": {
+            "position": 16,
+            "played": 10,
+            "wins": 4,
+            "draws": 3,
+            "losses": 3,
+            "goalsFor": 13,
+            "goalsAgainst": 12,
+            "goalDiff": 1,
+            "points": 15
+          },
+          "away": {
+            "position": 15,
+            "played": 9,
+            "wins": 1,
+            "draws": 2,
+            "losses": 6,
+            "goalsFor": 8,
+            "goalsAgainst": 14,
+            "goalDiff": -6,
+            "points": 5
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Atletico-MG",
+              "placar": "1-3",
+              "mandante": false,
+              "data": "2026-05-16"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Fluminense",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-05-24"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Athletico-PR",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-05-30"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Gremio",
+              "placar": "2-1",
+              "mandante": true,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Vasco",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 0.2,
+            "secundaria": 0.8,
+            "rebaixamento": 45.6,
+            "pontosProjetados": 43,
+            "posicaoMedia": 15.6
+          }
+        },
+        {
+          "position": 20,
+          "team": "Chapecoense-SC",
+          "teamId": "1735",
+          "badge": null,
+          "played": 20,
+          "wins": 1,
+          "draws": 7,
+          "losses": 12,
+          "goalsFor": 19,
+          "goalsAgainst": 41,
+          "goalDiff": -22,
+          "points": 10,
+          "aproveitamento": 16.7,
+          "zone": "rebaixamento",
+          "home": {
+            "position": 20,
+            "played": 10,
+            "wins": 1,
+            "draws": 4,
+            "losses": 5,
+            "goalsFor": 13,
+            "goalsAgainst": 24,
+            "goalDiff": -11,
+            "points": 7
+          },
+          "away": {
+            "position": 20,
+            "played": 10,
+            "wins": 0,
+            "draws": 3,
+            "losses": 7,
+            "goalsFor": 6,
+            "goalsAgainst": 17,
+            "goalDiff": -11,
+            "points": 3
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Cruzeiro",
+              "placar": "1-2",
+              "mandante": false,
+              "data": "2026-05-24"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Palmeiras",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-05-31"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Bahia",
+              "placar": "0-2",
+              "mandante": false,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Flamengo RJ",
+              "placar": "0-4",
+              "mandante": true,
+              "data": "2026-07-23"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Santos",
+              "placar": "2-2",
+              "mandante": false,
+              "data": "2026-07-25"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 0,
+            "secundaria": 0,
+            "rebaixamento": 99.9,
+            "pontosProjetados": 26,
+            "posicaoMedia": 19.9
+          }
+        }
+      ]
+    },
+    "brasileirao-serie-b": {
+      "slug": "brasileirao-serie-b",
+      "competition": "Brasileirão Série B",
+      "shortName": "Série B",
+      "leagueId": 75,
+      "season": "2026",
+      "format": "pontos-corridos",
+      "zones": {
+        "promotion": 4,
+        "secondary": null,
+        "relegation": 4
+      },
+      "roundsPlayed": 20,
+      "totalRounds": 38,
+      "remainingMatches": 183,
+      "simulation": {
+        "runs": 10000,
+        "fixtures": 183,
+        "model": "poisson-v1"
+      },
+      "rows": [
+        {
+          "position": 1,
+          "team": "Criciuma",
+          "teamId": "1802",
+          "badge": "https://apiv3.apifootball.com/badges/1802_criciuma.jpg",
+          "played": 20,
+          "wins": 11,
+          "draws": 7,
+          "losses": 2,
+          "goalsFor": 23,
+          "goalsAgainst": 12,
+          "goalDiff": 11,
+          "points": 40,
+          "aproveitamento": 66.7,
+          "zone": "acesso",
+          "home": {
+            "position": 4,
+            "played": 10,
+            "wins": 6,
+            "draws": 4,
+            "losses": 0,
+            "goalsFor": 12,
+            "goalsAgainst": 4,
+            "goalDiff": 8,
+            "points": 22
+          },
+          "away": {
+            "position": 1,
+            "played": 10,
+            "wins": 5,
+            "draws": 3,
+            "losses": 2,
+            "goalsFor": 11,
+            "goalsAgainst": 8,
+            "goalDiff": 3,
+            "points": 18
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Sport Recife",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-07-04"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Ponte Preta",
+              "placar": "2-1",
+              "mandante": false,
+              "data": "2026-07-09"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Vila Nova FC",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Novorizontino",
+              "placar": "1-0",
+              "mandante": false,
+              "data": "2026-07-22"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Nautico",
+              "placar": "0-0",
+              "mandante": true,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 60.2,
+            "promocao": 94.2,
+            "secundaria": null,
+            "rebaixamento": 0,
+            "pontosProjetados": 70,
+            "posicaoMedia": 1.8
+          }
+        },
+        {
+          "position": 2,
+          "team": "Operario-PR",
+          "teamId": "1742",
+          "badge": "https://apiv3.apifootball.com/badges/1742_operario-pr.jpg",
+          "played": 20,
+          "wins": 10,
+          "draws": 5,
+          "losses": 5,
+          "goalsFor": 28,
+          "goalsAgainst": 25,
+          "goalDiff": 3,
+          "points": 35,
+          "aproveitamento": 58.3,
+          "zone": "acesso",
+          "home": {
+            "position": 5,
+            "played": 10,
+            "wins": 6,
+            "draws": 3,
+            "losses": 1,
+            "goalsFor": 15,
+            "goalsAgainst": 11,
+            "goalDiff": 4,
+            "points": 21
+          },
+          "away": {
+            "position": 5,
+            "played": 10,
+            "wins": 4,
+            "draws": 2,
+            "losses": 4,
+            "goalsFor": 13,
+            "goalsAgainst": 14,
+            "goalDiff": -1,
+            "points": 14
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Athletic Club",
+              "placar": "1-0",
+              "mandante": false,
+              "data": "2026-07-08"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Novorizontino",
+              "placar": "2-1",
+              "mandante": true,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Sport Recife",
+              "placar": "2-2",
+              "mandante": false,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Ponte Preta",
+              "placar": "3-2",
+              "mandante": true,
+              "data": "2026-07-23"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Atletico GO",
+              "placar": "1-3",
+              "mandante": false,
+              "data": "2026-07-28"
+            }
+          ],
+          "chances": {
+            "titulo": 5.7,
+            "promocao": 45.7,
+            "secundaria": null,
+            "rebaixamento": 0.2,
+            "pontosProjetados": 61,
+            "posicaoMedia": 5.4
+          }
+        },
+        {
+          "position": 3,
+          "team": "Vila Nova FC",
+          "teamId": "1783",
+          "badge": "https://apiv3.apifootball.com/badges/1783_vila-nova.jpg",
+          "played": 20,
+          "wins": 10,
+          "draws": 4,
+          "losses": 6,
+          "goalsFor": 27,
+          "goalsAgainst": 24,
+          "goalDiff": 3,
+          "points": 34,
+          "aproveitamento": 56.7,
+          "zone": "acesso",
+          "home": {
+            "position": 2,
+            "played": 9,
+            "wins": 7,
+            "draws": 2,
+            "losses": 0,
+            "goalsFor": 18,
+            "goalsAgainst": 10,
+            "goalDiff": 8,
+            "points": 23
+          },
+          "away": {
+            "position": 12,
+            "played": 11,
+            "wins": 3,
+            "draws": 2,
+            "losses": 6,
+            "goalsFor": 9,
+            "goalsAgainst": 14,
+            "goalDiff": -5,
+            "points": 11
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Sao Bernardo",
+              "placar": "2-1",
+              "mandante": true,
+              "data": "2026-07-07"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Juventude",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-07-11"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Criciuma",
+              "placar": "0-2",
+              "mandante": false,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Fortaleza",
+              "placar": "2-1",
+              "mandante": true,
+              "data": "2026-07-22"
+            },
+            {
+              "resultado": "D",
+              "adversario": "CRB",
+              "placar": "0-2",
+              "mandante": false,
+              "data": "2026-07-28"
+            }
+          ],
+          "chances": {
+            "titulo": 5,
+            "promocao": 43.1,
+            "secundaria": null,
+            "rebaixamento": 0.1,
+            "pontosProjetados": 60,
+            "posicaoMedia": 5.6
+          }
+        },
+        {
+          "position": 4,
+          "team": "Novorizontino",
+          "teamId": "1805",
+          "badge": "https://apiv3.apifootball.com/badges/1805_novorizontino.jpg",
+          "played": 20,
+          "wins": 9,
+          "draws": 6,
+          "losses": 5,
+          "goalsFor": 32,
+          "goalsAgainst": 19,
+          "goalDiff": 13,
+          "points": 33,
+          "aproveitamento": 55,
+          "zone": "acesso",
+          "home": {
+            "position": 7,
+            "played": 9,
+            "wins": 5,
+            "draws": 2,
+            "losses": 2,
+            "goalsFor": 14,
+            "goalsAgainst": 10,
+            "goalDiff": 4,
+            "points": 17
+          },
+          "away": {
+            "position": 2,
+            "played": 11,
+            "wins": 4,
+            "draws": 4,
+            "losses": 3,
+            "goalsFor": 18,
+            "goalsAgainst": 9,
+            "goalDiff": 9,
+            "points": 16
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Atletico GO",
+              "placar": "3-0",
+              "mandante": true,
+              "data": "2026-07-04"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Operario-PR",
+              "placar": "1-2",
+              "mandante": false,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Fortaleza",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Criciuma",
+              "placar": "0-1",
+              "mandante": true,
+              "data": "2026-07-22"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Londrina",
+              "placar": "4-1",
+              "mandante": false,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 12.6,
+            "promocao": 63.2,
+            "secundaria": null,
+            "rebaixamento": 0,
+            "pontosProjetados": 63,
+            "posicaoMedia": 4.2
+          }
+        },
+        {
+          "position": 5,
+          "team": "Juventude",
+          "teamId": "1737",
+          "badge": "https://apiv3.apifootball.com/badges/1737_juventude.jpg",
+          "played": 19,
+          "wins": 9,
+          "draws": 5,
+          "losses": 5,
+          "goalsFor": 21,
+          "goalsAgainst": 12,
+          "goalDiff": 9,
+          "points": 32,
+          "aproveitamento": 56.1,
+          "zone": "acesso",
+          "home": {
+            "position": 1,
+            "played": 10,
+            "wins": 7,
+            "draws": 2,
+            "losses": 1,
+            "goalsFor": 14,
+            "goalsAgainst": 1,
+            "goalDiff": 13,
+            "points": 23
+          },
+          "away": {
+            "position": 15,
+            "played": 9,
+            "wins": 2,
+            "draws": 3,
+            "losses": 4,
+            "goalsFor": 7,
+            "goalsAgainst": 11,
+            "goalDiff": -4,
+            "points": 9
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Ceara",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-06-28"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Nautico",
+              "placar": "0-0",
+              "mandante": false,
+              "data": "2026-07-06"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Vila Nova FC",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-07-11"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Cuiaba",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Botafogo SP",
+              "placar": "2-4",
+              "mandante": false,
+              "data": "2026-07-24"
+            }
+          ],
+          "chances": {
+            "titulo": 10.5,
+            "promocao": 59.8,
+            "secundaria": null,
+            "rebaixamento": 0,
+            "pontosProjetados": 63,
+            "posicaoMedia": 4.4
+          }
+        },
+        {
+          "position": 6,
+          "team": "Fortaleza",
+          "teamId": "2018",
+          "badge": "https://apiv3.apifootball.com/badges/2018_fortaleza.jpg",
+          "played": 19,
+          "wins": 9,
+          "draws": 4,
+          "losses": 6,
+          "goalsFor": 22,
+          "goalsAgainst": 19,
+          "goalDiff": 3,
+          "points": 31,
+          "aproveitamento": 54.4,
+          "zone": "acesso",
+          "home": {
+            "position": 3,
+            "played": 9,
+            "wins": 7,
+            "draws": 1,
+            "losses": 1,
+            "goalsFor": 17,
+            "goalsAgainst": 8,
+            "goalDiff": 9,
+            "points": 22
+          },
+          "away": {
+            "position": 16,
+            "played": 10,
+            "wins": 2,
+            "draws": 3,
+            "losses": 5,
+            "goalsFor": 5,
+            "goalsAgainst": 11,
+            "goalDiff": -6,
+            "points": 9
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Sport Recife",
+              "placar": "2-1",
+              "mandante": true,
+              "data": "2026-06-28"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Ponte Preta",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-07-03"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Atletico GO",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Novorizontino",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Vila Nova FC",
+              "placar": "1-2",
+              "mandante": false,
+              "data": "2026-07-22"
+            }
+          ],
+          "chances": {
+            "titulo": 3,
+            "promocao": 32.4,
+            "secundaria": null,
+            "rebaixamento": 0.2,
+            "pontosProjetados": 59,
+            "posicaoMedia": 6.4
+          }
+        },
+        {
+          "position": 7,
+          "team": "Atletico GO",
+          "teamId": "1929",
+          "badge": "https://apiv3.apifootball.com/badges/1929_atletico-goianiense.jpg",
+          "played": 20,
+          "wins": 8,
+          "draws": 7,
+          "losses": 5,
+          "goalsFor": 23,
+          "goalsAgainst": 20,
+          "goalDiff": 3,
+          "points": 31,
+          "aproveitamento": 51.7,
+          "zone": null,
+          "home": {
+            "position": 6,
+            "played": 11,
+            "wins": 5,
+            "draws": 4,
+            "losses": 2,
+            "goalsFor": 15,
+            "goalsAgainst": 10,
+            "goalDiff": 5,
+            "points": 19
+          },
+          "away": {
+            "position": 9,
+            "played": 9,
+            "wins": 3,
+            "draws": 3,
+            "losses": 3,
+            "goalsFor": 8,
+            "goalsAgainst": 10,
+            "goalDiff": -2,
+            "points": 12
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Novorizontino",
+              "placar": "0-3",
+              "mandante": false,
+              "data": "2026-07-04"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Fortaleza",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Athletic Club",
+              "placar": "0-0",
+              "mandante": true,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Cuiaba",
+              "placar": "1-0",
+              "mandante": false,
+              "data": "2026-07-24"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Operario-PR",
+              "placar": "3-1",
+              "mandante": true,
+              "data": "2026-07-28"
+            }
+          ],
+          "chances": {
+            "titulo": 0.7,
+            "promocao": 12.4,
+            "secundaria": null,
+            "rebaixamento": 1.5,
+            "pontosProjetados": 55,
+            "posicaoMedia": 8.8
+          }
+        },
+        {
+          "position": 8,
+          "team": "CRB",
+          "teamId": "1744",
+          "badge": "https://apiv3.apifootball.com/badges/1744_crb.jpg",
+          "played": 20,
+          "wins": 8,
+          "draws": 5,
+          "losses": 7,
+          "goalsFor": 31,
+          "goalsAgainst": 32,
+          "goalDiff": -1,
+          "points": 29,
+          "aproveitamento": 48.3,
+          "zone": null,
+          "home": {
+            "position": 13,
+            "played": 10,
+            "wins": 4,
+            "draws": 2,
+            "losses": 4,
+            "goalsFor": 18,
+            "goalsAgainst": 14,
+            "goalDiff": 4,
+            "points": 14
+          },
+          "away": {
+            "position": 4,
+            "played": 10,
+            "wins": 4,
+            "draws": 3,
+            "losses": 3,
+            "goalsFor": 13,
+            "goalsAgainst": 18,
+            "goalDiff": -5,
+            "points": 15
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Londrina",
+              "placar": "0-5",
+              "mandante": false,
+              "data": "2026-07-04"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Goias",
+              "placar": "2-2",
+              "mandante": true,
+              "data": "2026-07-13"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Nautico",
+              "placar": "2-1",
+              "mandante": true,
+              "data": "2026-07-17"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Ceara",
+              "placar": "1-0",
+              "mandante": false,
+              "data": "2026-07-23"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Vila Nova FC",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-07-28"
+            }
+          ],
+          "chances": {
+            "titulo": 0.3,
+            "promocao": 6.5,
+            "secundaria": null,
+            "rebaixamento": 4,
+            "pontosProjetados": 53,
+            "posicaoMedia": 10.4
+          }
+        },
+        {
+          "position": 9,
+          "team": "Goias",
+          "teamId": "1938",
+          "badge": null,
+          "played": 20,
+          "wins": 8,
+          "draws": 5,
+          "losses": 7,
+          "goalsFor": 21,
+          "goalsAgainst": 26,
+          "goalDiff": -5,
+          "points": 29,
+          "aproveitamento": 48.3,
+          "zone": null,
+          "home": {
+            "position": 10,
+            "played": 9,
+            "wins": 5,
+            "draws": 1,
+            "losses": 3,
+            "goalsFor": 9,
+            "goalsAgainst": 11,
+            "goalDiff": -2,
+            "points": 16
+          },
+          "away": {
+            "position": 7,
+            "played": 11,
+            "wins": 3,
+            "draws": 4,
+            "losses": 4,
+            "goalsFor": 12,
+            "goalsAgainst": 15,
+            "goalDiff": -3,
+            "points": 13
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Ceara",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-07-05"
+            },
+            {
+              "resultado": "E",
+              "adversario": "CRB",
+              "placar": "2-2",
+              "mandante": false,
+              "data": "2026-07-13"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Ponte Preta",
+              "placar": "2-1",
+              "mandante": false,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Sport Recife",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-07-23"
+            },
+            {
+              "resultado": "D",
+              "adversario": "America MG",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0.2,
+            "promocao": 4.7,
+            "secundaria": null,
+            "rebaixamento": 6.9,
+            "pontosProjetados": 52,
+            "posicaoMedia": 11.3
+          }
+        },
+        {
+          "position": 10,
+          "team": "Sport Recife",
+          "teamId": "1956",
+          "badge": "https://apiv3.apifootball.com/badges/1956_sport-recife.jpg",
+          "played": 20,
+          "wins": 6,
+          "draws": 11,
+          "losses": 3,
+          "goalsFor": 25,
+          "goalsAgainst": 19,
+          "goalDiff": 6,
+          "points": 29,
+          "aproveitamento": 48.3,
+          "zone": null,
+          "home": {
+            "position": 8,
+            "played": 11,
+            "wins": 3,
+            "draws": 7,
+            "losses": 1,
+            "goalsFor": 17,
+            "goalsAgainst": 13,
+            "goalDiff": 4,
+            "points": 16
+          },
+          "away": {
+            "position": 6,
+            "played": 9,
+            "wins": 3,
+            "draws": 4,
+            "losses": 2,
+            "goalsFor": 8,
+            "goalsAgainst": 6,
+            "goalDiff": 2,
+            "points": 13
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Criciuma",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-07-04"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Botafogo SP",
+              "placar": "3-3",
+              "mandante": true,
+              "data": "2026-07-11"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Operario-PR",
+              "placar": "2-2",
+              "mandante": true,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Goias",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-07-23"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Cuiaba",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-07-28"
+            }
+          ],
+          "chances": {
+            "titulo": 0.9,
+            "promocao": 14.9,
+            "secundaria": null,
+            "rebaixamento": 1.6,
+            "pontosProjetados": 56,
+            "posicaoMedia": 8.6
+          }
+        },
+        {
+          "position": 11,
+          "team": "Sao Bernardo",
+          "teamId": "1916",
+          "badge": "https://apiv3.apifootball.com/badges/1916_sao-bernardo-fc.jpg",
+          "played": 20,
+          "wins": 7,
+          "draws": 6,
+          "losses": 7,
+          "goalsFor": 28,
+          "goalsAgainst": 23,
+          "goalDiff": 5,
+          "points": 27,
+          "aproveitamento": 45,
+          "zone": null,
+          "home": {
+            "position": 18,
+            "played": 11,
+            "wins": 2,
+            "draws": 5,
+            "losses": 4,
+            "goalsFor": 13,
+            "goalsAgainst": 13,
+            "goalDiff": 0,
+            "points": 11
+          },
+          "away": {
+            "position": 3,
+            "played": 9,
+            "wins": 5,
+            "draws": 1,
+            "losses": 3,
+            "goalsFor": 15,
+            "goalsAgainst": 10,
+            "goalDiff": 5,
+            "points": 16
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Vila Nova FC",
+              "placar": "1-2",
+              "mandante": false,
+              "data": "2026-07-07"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Cuiaba",
+              "placar": "2-2",
+              "mandante": true,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Avai",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Athletic Club",
+              "placar": "1-2",
+              "mandante": false,
+              "data": "2026-07-24"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Ceara",
+              "placar": "3-4",
+              "mandante": true,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0.5,
+            "promocao": 9.5,
+            "secundaria": null,
+            "rebaixamento": 2.9,
+            "pontosProjetados": 54,
+            "posicaoMedia": 9.7
+          }
+        },
+        {
+          "position": 12,
+          "team": "Athletic Club",
+          "teamId": "1871",
+          "badge": "https://apiv3.apifootball.com/badges/1871_athletic-club-mg.jpg",
+          "played": 19,
+          "wins": 6,
+          "draws": 9,
+          "losses": 4,
+          "goalsFor": 18,
+          "goalsAgainst": 17,
+          "goalDiff": 1,
+          "points": 27,
+          "aproveitamento": 47.4,
+          "zone": null,
+          "home": {
+            "position": 9,
+            "played": 10,
+            "wins": 4,
+            "draws": 4,
+            "losses": 2,
+            "goalsFor": 9,
+            "goalsAgainst": 7,
+            "goalDiff": 2,
+            "points": 16
+          },
+          "away": {
+            "position": 10,
+            "played": 9,
+            "wins": 2,
+            "draws": 5,
+            "losses": 2,
+            "goalsFor": 9,
+            "goalsAgainst": 10,
+            "goalDiff": -1,
+            "points": 11
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Avai",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-06-28"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Operario-PR",
+              "placar": "0-1",
+              "mandante": true,
+              "data": "2026-07-08"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Ceara",
+              "placar": "0-0",
+              "mandante": false,
+              "data": "2026-07-14"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Atletico GO",
+              "placar": "0-0",
+              "mandante": false,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Sao Bernardo",
+              "placar": "2-1",
+              "mandante": true,
+              "data": "2026-07-24"
+            }
+          ],
+          "chances": {
+            "titulo": 0.2,
+            "promocao": 5.7,
+            "secundaria": null,
+            "rebaixamento": 4.8,
+            "pontosProjetados": 53,
+            "posicaoMedia": 10.7
+          }
+        },
+        {
+          "position": 13,
+          "team": "Nautico",
+          "teamId": "1750",
+          "badge": "https://apiv3.apifootball.com/badges/1750_nautico-fc.jpg",
+          "played": 20,
+          "wins": 7,
+          "draws": 4,
+          "losses": 9,
+          "goalsFor": 24,
+          "goalsAgainst": 24,
+          "goalDiff": 0,
+          "points": 25,
+          "aproveitamento": 41.7,
+          "zone": null,
+          "home": {
+            "position": 15,
+            "played": 9,
+            "wins": 4,
+            "draws": 1,
+            "losses": 4,
+            "goalsFor": 8,
+            "goalsAgainst": 7,
+            "goalDiff": 1,
+            "points": 13
+          },
+          "away": {
+            "position": 8,
+            "played": 11,
+            "wins": 3,
+            "draws": 3,
+            "losses": 5,
+            "goalsFor": 16,
+            "goalsAgainst": 17,
+            "goalDiff": -1,
+            "points": 12
+          },
+          "form": [
+            {
+              "resultado": "E",
+              "adversario": "Juventude",
+              "placar": "0-0",
+              "mandante": true,
+              "data": "2026-07-06"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Avai",
+              "placar": "0-2",
+              "mandante": false,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "D",
+              "adversario": "CRB",
+              "placar": "1-2",
+              "mandante": false,
+              "data": "2026-07-17"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Londrina",
+              "placar": "2-1",
+              "mandante": true,
+              "data": "2026-07-23"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Criciuma",
+              "placar": "0-0",
+              "mandante": false,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 2.7,
+            "secundaria": null,
+            "rebaixamento": 9.4,
+            "pontosProjetados": 50,
+            "posicaoMedia": 12
+          }
+        },
+        {
+          "position": 14,
+          "team": "Cuiaba",
+          "teamId": "1738",
+          "badge": "https://apiv3.apifootball.com/badges/1738_cuiaba.jpg",
+          "played": 20,
+          "wins": 5,
+          "draws": 10,
+          "losses": 5,
+          "goalsFor": 15,
+          "goalsAgainst": 15,
+          "goalDiff": 0,
+          "points": 25,
+          "aproveitamento": 41.7,
+          "zone": null,
+          "home": {
+            "position": 14,
+            "played": 10,
+            "wins": 3,
+            "draws": 5,
+            "losses": 2,
+            "goalsFor": 8,
+            "goalsAgainst": 7,
+            "goalDiff": 1,
+            "points": 14
+          },
+          "away": {
+            "position": 11,
+            "played": 10,
+            "wins": 2,
+            "draws": 5,
+            "losses": 3,
+            "goalsFor": 7,
+            "goalsAgainst": 8,
+            "goalDiff": -1,
+            "points": 11
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "America MG",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-07-03"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Sao Bernardo",
+              "placar": "2-2",
+              "mandante": false,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Juventude",
+              "placar": "0-2",
+              "mandante": false,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Atletico GO",
+              "placar": "0-1",
+              "mandante": true,
+              "data": "2026-07-24"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Sport Recife",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-07-28"
+            }
+          ],
+          "chances": {
+            "titulo": 0.1,
+            "promocao": 1.5,
+            "secundaria": null,
+            "rebaixamento": 14.3,
+            "pontosProjetados": 49,
+            "posicaoMedia": 12.9
+          }
+        },
+        {
+          "position": 15,
+          "team": "Botafogo SP",
+          "teamId": "1753",
+          "badge": "https://apiv3.apifootball.com/badges/1753_botafogo-sp.jpg",
+          "played": 19,
+          "wins": 6,
+          "draws": 6,
+          "losses": 7,
+          "goalsFor": 24,
+          "goalsAgainst": 20,
+          "goalDiff": 4,
+          "points": 24,
+          "aproveitamento": 42.1,
+          "zone": null,
+          "home": {
+            "position": 12,
+            "played": 9,
+            "wins": 4,
+            "draws": 2,
+            "losses": 3,
+            "goalsFor": 17,
+            "goalsAgainst": 11,
+            "goalDiff": 6,
+            "points": 14
+          },
+          "away": {
+            "position": 13,
+            "played": 10,
+            "wins": 2,
+            "draws": 4,
+            "losses": 4,
+            "goalsFor": 7,
+            "goalsAgainst": 9,
+            "goalDiff": -2,
+            "points": 10
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "CRB",
+              "placar": "0-1",
+              "mandante": true,
+              "data": "2026-07-01"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Avai",
+              "placar": "3-1",
+              "mandante": true,
+              "data": "2026-07-07"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Sport Recife",
+              "placar": "3-3",
+              "mandante": false,
+              "data": "2026-07-11"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Londrina",
+              "placar": "0-0",
+              "mandante": false,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Juventude",
+              "placar": "4-2",
+              "mandante": true,
+              "data": "2026-07-24"
+            }
+          ],
+          "chances": {
+            "titulo": 0.1,
+            "promocao": 3.4,
+            "secundaria": null,
+            "rebaixamento": 8,
+            "pontosProjetados": 51,
+            "posicaoMedia": 11.6
+          }
+        },
+        {
+          "position": 16,
+          "team": "Ceara",
+          "teamId": "2016",
+          "badge": "https://apiv3.apifootball.com/badges/2016_ceara.jpg",
+          "played": 20,
+          "wins": 5,
+          "draws": 7,
+          "losses": 8,
+          "goalsFor": 20,
+          "goalsAgainst": 25,
+          "goalDiff": -5,
+          "points": 22,
+          "aproveitamento": 36.7,
+          "zone": null,
+          "home": {
+            "position": 17,
+            "played": 10,
+            "wins": 3,
+            "draws": 3,
+            "losses": 4,
+            "goalsFor": 10,
+            "goalsAgainst": 11,
+            "goalDiff": -1,
+            "points": 12
+          },
+          "away": {
+            "position": 14,
+            "played": 10,
+            "wins": 2,
+            "draws": 4,
+            "losses": 4,
+            "goalsFor": 10,
+            "goalsAgainst": 14,
+            "goalDiff": -4,
+            "points": 10
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Goias",
+              "placar": "0-2",
+              "mandante": false,
+              "data": "2026-07-05"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Athletic Club",
+              "placar": "0-0",
+              "mandante": true,
+              "data": "2026-07-14"
+            },
+            {
+              "resultado": "E",
+              "adversario": "America MG",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "D",
+              "adversario": "CRB",
+              "placar": "0-1",
+              "mandante": true,
+              "data": "2026-07-23"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Sao Bernardo",
+              "placar": "4-3",
+              "mandante": false,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 0.1,
+            "secundaria": null,
+            "rebaixamento": 51.2,
+            "pontosProjetados": 44,
+            "posicaoMedia": 15.8
+          }
+        },
+        {
+          "position": 17,
+          "team": "Londrina",
+          "teamId": "1785",
+          "badge": null,
+          "played": 20,
+          "wins": 5,
+          "draws": 5,
+          "losses": 10,
+          "goalsFor": 27,
+          "goalsAgainst": 31,
+          "goalDiff": -4,
+          "points": 20,
+          "aproveitamento": 33.3,
+          "zone": "rebaixamento",
+          "home": {
+            "position": 16,
+            "played": 10,
+            "wins": 3,
+            "draws": 3,
+            "losses": 4,
+            "goalsFor": 15,
+            "goalsAgainst": 14,
+            "goalDiff": 1,
+            "points": 12
+          },
+          "away": {
+            "position": 17,
+            "played": 10,
+            "wins": 2,
+            "draws": 2,
+            "losses": 6,
+            "goalsFor": 12,
+            "goalsAgainst": 17,
+            "goalDiff": -5,
+            "points": 8
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "CRB",
+              "placar": "5-0",
+              "mandante": true,
+              "data": "2026-07-04"
+            },
+            {
+              "resultado": "E",
+              "adversario": "America MG",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-07-14"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Botafogo SP",
+              "placar": "0-0",
+              "mandante": true,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Nautico",
+              "placar": "1-2",
+              "mandante": false,
+              "data": "2026-07-23"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Novorizontino",
+              "placar": "1-4",
+              "mandante": true,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 0.2,
+            "secundaria": null,
+            "rebaixamento": 44.5,
+            "pontosProjetados": 44,
+            "posicaoMedia": 15.4
+          }
+        },
+        {
+          "position": 18,
+          "team": "Avai",
+          "teamId": "1743",
+          "badge": "https://apiv3.apifootball.com/badges/1743_avai.jpg",
+          "played": 19,
+          "wins": 5,
+          "draws": 5,
+          "losses": 9,
+          "goalsFor": 21,
+          "goalsAgainst": 26,
+          "goalDiff": -5,
+          "points": 20,
+          "aproveitamento": 35.1,
+          "zone": "rebaixamento",
+          "home": {
+            "position": 11,
+            "played": 10,
+            "wins": 4,
+            "draws": 3,
+            "losses": 3,
+            "goalsFor": 12,
+            "goalsAgainst": 10,
+            "goalDiff": 2,
+            "points": 15
+          },
+          "away": {
+            "position": 18,
+            "played": 9,
+            "wins": 1,
+            "draws": 2,
+            "losses": 6,
+            "goalsFor": 9,
+            "goalsAgainst": 16,
+            "goalDiff": -7,
+            "points": 5
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Athletic Club",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-06-28"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Botafogo SP",
+              "placar": "1-3",
+              "mandante": false,
+              "data": "2026-07-07"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Nautico",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Sao Bernardo",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "V",
+              "adversario": "America MG",
+              "placar": "2-1",
+              "mandante": true,
+              "data": "2026-07-22"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 0.1,
+            "secundaria": null,
+            "rebaixamento": 50.7,
+            "pontosProjetados": 43,
+            "posicaoMedia": 15.8
+          }
+        },
+        {
+          "position": 19,
+          "team": "America MG",
+          "teamId": "1736",
+          "badge": "https://apiv3.apifootball.com/badges/1736_america-mineiro.jpg",
+          "played": 20,
+          "wins": 2,
+          "draws": 5,
+          "losses": 13,
+          "goalsFor": 14,
+          "goalsAgainst": 31,
+          "goalDiff": -17,
+          "points": 11,
+          "aproveitamento": 18.3,
+          "zone": "rebaixamento",
+          "home": {
+            "position": 19,
+            "played": 10,
+            "wins": 1,
+            "draws": 3,
+            "losses": 6,
+            "goalsFor": 7,
+            "goalsAgainst": 14,
+            "goalDiff": -7,
+            "points": 6
+          },
+          "away": {
+            "position": 19,
+            "played": 10,
+            "wins": 1,
+            "draws": 2,
+            "losses": 7,
+            "goalsFor": 7,
+            "goalsAgainst": 17,
+            "goalDiff": -10,
+            "points": 5
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Cuiaba",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-07-03"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Londrina",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-07-14"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Ceara",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Avai",
+              "placar": "1-2",
+              "mandante": false,
+              "data": "2026-07-22"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Goias",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 0,
+            "secundaria": null,
+            "rebaixamento": 99.7,
+            "pontosProjetados": 28,
+            "posicaoMedia": 19.2
+          }
+        },
+        {
+          "position": 20,
+          "team": "Ponte Preta",
+          "teamId": "1741",
+          "badge": "https://apiv3.apifootball.com/badges/1741_ponte-preta.jpg",
+          "played": 19,
+          "wins": 2,
+          "draws": 2,
+          "losses": 15,
+          "goalsFor": 14,
+          "goalsAgainst": 38,
+          "goalDiff": -24,
+          "points": 8,
+          "aproveitamento": 14,
+          "zone": "rebaixamento",
+          "home": {
+            "position": 20,
+            "played": 10,
+            "wins": 1,
+            "draws": 2,
+            "losses": 7,
+            "goalsFor": 7,
+            "goalsAgainst": 17,
+            "goalDiff": -10,
+            "points": 5
+          },
+          "away": {
+            "position": 20,
+            "played": 9,
+            "wins": 1,
+            "draws": 0,
+            "losses": 8,
+            "goalsFor": 7,
+            "goalsAgainst": 21,
+            "goalDiff": -14,
+            "points": 3
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Atletico GO",
+              "placar": "0-2",
+              "mandante": false,
+              "data": "2026-06-28"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Fortaleza",
+              "placar": "0-2",
+              "mandante": false,
+              "data": "2026-07-03"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Criciuma",
+              "placar": "1-2",
+              "mandante": true,
+              "data": "2026-07-09"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Goias",
+              "placar": "1-2",
+              "mandante": true,
+              "data": "2026-07-18"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Operario-PR",
+              "placar": "2-3",
+              "mandante": false,
+              "data": "2026-07-23"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 0,
+            "secundaria": null,
+            "rebaixamento": 99.9,
+            "pontosProjetados": 24,
+            "posicaoMedia": 19.7
+          }
+        }
+      ]
+    },
+    "brasileirao-serie-c": {
+      "slug": "brasileirao-serie-c",
+      "competition": "Brasileirão Série C",
+      "shortName": "Série C",
+      "leagueId": 79,
+      "season": "2026",
+      "format": "pontos-corridos",
+      "zones": {
+        "promotion": 8,
+        "secondary": null,
+        "relegation": 4
+      },
+      "roundsPlayed": 15,
+      "totalRounds": 19,
+      "remainingMatches": 40,
+      "simulation": {
+        "runs": 10000,
+        "fixtures": 40,
+        "model": "poisson-v1"
+      },
+      "rows": [
+        {
+          "position": 1,
+          "team": "Brusque",
+          "teamId": "1788",
+          "badge": "https://apiv3.apifootball.com/badges/1788_brusque.jpg",
+          "played": 15,
+          "wins": 8,
+          "draws": 3,
+          "losses": 4,
+          "goalsFor": 21,
+          "goalsAgainst": 15,
+          "goalDiff": 6,
+          "points": 27,
+          "aproveitamento": 60,
+          "zone": "acesso",
+          "home": {
+            "position": 1,
+            "played": 8,
+            "wins": 7,
+            "draws": 0,
+            "losses": 1,
+            "goalsFor": 14,
+            "goalsAgainst": 5,
+            "goalDiff": 9,
+            "points": 21
+          },
+          "away": {
+            "position": 15,
+            "played": 7,
+            "wins": 1,
+            "draws": 3,
+            "losses": 3,
+            "goalsFor": 7,
+            "goalsAgainst": 10,
+            "goalDiff": -3,
+            "points": 6
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Floresta EC",
+              "placar": "2-1",
+              "mandante": true,
+              "data": "2026-06-21"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Botafogo PB",
+              "placar": "0-2",
+              "mandante": false,
+              "data": "2026-07-01"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Figueirense",
+              "placar": "3-1",
+              "mandante": true,
+              "data": "2026-07-07"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Itabaiana",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-07-14"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Ituano",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 33.1,
+            "promocao": 99,
+            "secundaria": null,
+            "rebaixamento": 0,
+            "pontosProjetados": 33,
+            "posicaoMedia": 2.7
+          }
+        },
+        {
+          "position": 2,
+          "team": "Guarani",
+          "teamId": "1747",
+          "badge": "https://apiv3.apifootball.com/badges/1747_guarani-sp.jpg",
+          "played": 15,
+          "wins": 7,
+          "draws": 5,
+          "losses": 3,
+          "goalsFor": 28,
+          "goalsAgainst": 15,
+          "goalDiff": 13,
+          "points": 26,
+          "aproveitamento": 57.8,
+          "zone": "acesso",
+          "home": {
+            "position": 2,
+            "played": 8,
+            "wins": 5,
+            "draws": 2,
+            "losses": 1,
+            "goalsFor": 15,
+            "goalsAgainst": 6,
+            "goalDiff": 9,
+            "points": 17
+          },
+          "away": {
+            "position": 6,
+            "played": 7,
+            "wins": 2,
+            "draws": 3,
+            "losses": 2,
+            "goalsFor": 13,
+            "goalsAgainst": 9,
+            "goalDiff": 4,
+            "points": 9
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Confianca",
+              "placar": "0-2",
+              "mandante": false,
+              "data": "2026-06-23"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Figueirense",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-06-28"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Floresta EC",
+              "placar": "0-0",
+              "mandante": true,
+              "data": "2026-07-05"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Paysandu PA",
+              "placar": "2-3",
+              "mandante": false,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Inter de Limeira",
+              "placar": "3-1",
+              "mandante": true,
+              "data": "2026-07-28"
+            }
+          ],
+          "chances": {
+            "titulo": 33.4,
+            "promocao": 98.2,
+            "secundaria": null,
+            "rebaixamento": 0,
+            "pontosProjetados": 33,
+            "posicaoMedia": 2.8
+          }
+        },
+        {
+          "position": 3,
+          "team": "Botafogo PB",
+          "teamId": "1796",
+          "badge": "https://apiv3.apifootball.com/badges/1796_botafogo-pb.jpg",
+          "played": 15,
+          "wins": 8,
+          "draws": 1,
+          "losses": 6,
+          "goalsFor": 21,
+          "goalsAgainst": 16,
+          "goalDiff": 5,
+          "points": 25,
+          "aproveitamento": 55.6,
+          "zone": "acesso",
+          "home": {
+            "position": 3,
+            "played": 7,
+            "wins": 5,
+            "draws": 0,
+            "losses": 2,
+            "goalsFor": 10,
+            "goalsAgainst": 4,
+            "goalDiff": 6,
+            "points": 15
+          },
+          "away": {
+            "position": 5,
+            "played": 8,
+            "wins": 3,
+            "draws": 1,
+            "losses": 4,
+            "goalsFor": 11,
+            "goalsAgainst": 12,
+            "goalDiff": -1,
+            "points": 10
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Volta Redonda",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-06-20"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Brusque",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-07-01"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Anapolis",
+              "placar": "2-0",
+              "mandante": false,
+              "data": "2026-07-06"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Confianca",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-07-13"
+            },
+            {
+              "resultado": "V",
+              "adversario": "SER Caxias",
+              "placar": "2-1",
+              "mandante": false,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 14.6,
+            "promocao": 91.7,
+            "secundaria": null,
+            "rebaixamento": 0,
+            "pontosProjetados": 31,
+            "posicaoMedia": 4.3
+          }
+        },
+        {
+          "position": 4,
+          "team": "Inter de Limeira",
+          "teamId": "2057",
+          "badge": "https://apiv3.apifootball.com/badges/2057_inter-de-limeira.jpg",
+          "played": 15,
+          "wins": 7,
+          "draws": 4,
+          "losses": 4,
+          "goalsFor": 18,
+          "goalsAgainst": 17,
+          "goalDiff": 1,
+          "points": 25,
+          "aproveitamento": 55.6,
+          "zone": "acesso",
+          "home": {
+            "position": 16,
+            "played": 7,
+            "wins": 2,
+            "draws": 3,
+            "losses": 2,
+            "goalsFor": 8,
+            "goalsAgainst": 8,
+            "goalDiff": 0,
+            "points": 9
+          },
+          "away": {
+            "position": 1,
+            "played": 8,
+            "wins": 5,
+            "draws": 1,
+            "losses": 2,
+            "goalsFor": 10,
+            "goalsAgainst": 9,
+            "goalDiff": 1,
+            "points": 16
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Ferroviaria",
+              "placar": "0-2",
+              "mandante": false,
+              "data": "2026-06-21"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Maringa FC",
+              "placar": "2-2",
+              "mandante": true,
+              "data": "2026-06-27"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Maranhao",
+              "placar": "1-0",
+              "mandante": false,
+              "data": "2026-07-04"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Amazonas",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Guarani",
+              "placar": "1-3",
+              "mandante": false,
+              "data": "2026-07-28"
+            }
+          ],
+          "chances": {
+            "titulo": 6.8,
+            "promocao": 86.4,
+            "secundaria": null,
+            "rebaixamento": 0,
+            "pontosProjetados": 31,
+            "posicaoMedia": 5.3
+          }
+        },
+        {
+          "position": 5,
+          "team": "Santa Cruz",
+          "teamId": "1789",
+          "badge": null,
+          "played": 15,
+          "wins": 7,
+          "draws": 3,
+          "losses": 5,
+          "goalsFor": 15,
+          "goalsAgainst": 11,
+          "goalDiff": 4,
+          "points": 24,
+          "aproveitamento": 53.3,
+          "zone": "acesso",
+          "home": {
+            "position": 15,
+            "played": 7,
+            "wins": 3,
+            "draws": 1,
+            "losses": 3,
+            "goalsFor": 5,
+            "goalsAgainst": 4,
+            "goalDiff": 1,
+            "points": 10
+          },
+          "away": {
+            "position": 2,
+            "played": 8,
+            "wins": 4,
+            "draws": 2,
+            "losses": 2,
+            "goalsFor": 10,
+            "goalsAgainst": 7,
+            "goalDiff": 3,
+            "points": 14
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Ypiranga FC",
+              "placar": "0-1",
+              "mandante": true,
+              "data": "2026-06-21"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Paysandu PA",
+              "placar": "3-1",
+              "mandante": false,
+              "data": "2026-06-27"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Ituano",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-07-05"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Barra FC",
+              "placar": "2-1",
+              "mandante": false,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Figueirense",
+              "placar": "0-1",
+              "mandante": true,
+              "data": "2026-07-25"
+            }
+          ],
+          "chances": {
+            "titulo": 5.5,
+            "promocao": 83.7,
+            "secundaria": null,
+            "rebaixamento": 0,
+            "pontosProjetados": 30,
+            "posicaoMedia": 5.6
+          }
+        },
+        {
+          "position": 6,
+          "team": "Paysandu PA",
+          "teamId": "1786",
+          "badge": "https://apiv3.apifootball.com/badges/1786_paysandu.jpg",
+          "played": 15,
+          "wins": 7,
+          "draws": 2,
+          "losses": 6,
+          "goalsFor": 23,
+          "goalsAgainst": 21,
+          "goalDiff": 2,
+          "points": 23,
+          "aproveitamento": 51.1,
+          "zone": "acesso",
+          "home": {
+            "position": 8,
+            "played": 8,
+            "wins": 4,
+            "draws": 2,
+            "losses": 2,
+            "goalsFor": 15,
+            "goalsAgainst": 13,
+            "goalDiff": 2,
+            "points": 14
+          },
+          "away": {
+            "position": 9,
+            "played": 7,
+            "wins": 3,
+            "draws": 0,
+            "losses": 4,
+            "goalsFor": 8,
+            "goalsAgainst": 8,
+            "goalDiff": 0,
+            "points": 9
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Maranhao",
+              "placar": "1-0",
+              "mandante": false,
+              "data": "2026-06-21"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Santa Cruz",
+              "placar": "1-3",
+              "mandante": true,
+              "data": "2026-06-27"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Ypiranga FC",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-07-05"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Guarani",
+              "placar": "3-2",
+              "mandante": true,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Amazonas",
+              "placar": "1-2",
+              "mandante": false,
+              "data": "2026-07-27"
+            }
+          ],
+          "chances": {
+            "titulo": 2.1,
+            "promocao": 67.8,
+            "secundaria": null,
+            "rebaixamento": 0,
+            "pontosProjetados": 29,
+            "posicaoMedia": 7
+          }
+        },
+        {
+          "position": 7,
+          "team": "Maringa FC",
+          "teamId": "1779",
+          "badge": "https://apiv3.apifootball.com/badges/1779_maringa.jpg",
+          "played": 15,
+          "wins": 6,
+          "draws": 5,
+          "losses": 4,
+          "goalsFor": 28,
+          "goalsAgainst": 25,
+          "goalDiff": 3,
+          "points": 23,
+          "aproveitamento": 51.1,
+          "zone": "acesso",
+          "home": {
+            "position": 13,
+            "played": 7,
+            "wins": 3,
+            "draws": 2,
+            "losses": 2,
+            "goalsFor": 14,
+            "goalsAgainst": 13,
+            "goalDiff": 1,
+            "points": 11
+          },
+          "away": {
+            "position": 3,
+            "played": 8,
+            "wins": 3,
+            "draws": 3,
+            "losses": 2,
+            "goalsFor": 14,
+            "goalsAgainst": 12,
+            "goalDiff": 2,
+            "points": 12
+          },
+          "form": [
+            {
+              "resultado": "E",
+              "adversario": "SER Caxias",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-06-21"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Inter de Limeira",
+              "placar": "2-2",
+              "mandante": false,
+              "data": "2026-06-27"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Volta Redonda",
+              "placar": "4-0",
+              "mandante": true,
+              "data": "2026-07-05"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Anapolis",
+              "placar": "1-0",
+              "mandante": false,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Floresta EC",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-07-28"
+            }
+          ],
+          "chances": {
+            "titulo": 2.4,
+            "promocao": 71.7,
+            "secundaria": null,
+            "rebaixamento": 0,
+            "pontosProjetados": 29,
+            "posicaoMedia": 6.7
+          }
+        },
+        {
+          "position": 8,
+          "team": "Ferroviaria",
+          "teamId": "1820",
+          "badge": "https://apiv3.apifootball.com/badges/1820_ferroviaria.jpg",
+          "played": 15,
+          "wins": 6,
+          "draws": 5,
+          "losses": 4,
+          "goalsFor": 15,
+          "goalsAgainst": 12,
+          "goalDiff": 3,
+          "points": 23,
+          "aproveitamento": 51.1,
+          "zone": "acesso",
+          "home": {
+            "position": 9,
+            "played": 8,
+            "wins": 4,
+            "draws": 2,
+            "losses": 2,
+            "goalsFor": 7,
+            "goalsAgainst": 5,
+            "goalDiff": 2,
+            "points": 14
+          },
+          "away": {
+            "position": 7,
+            "played": 7,
+            "wins": 2,
+            "draws": 3,
+            "losses": 2,
+            "goalsFor": 8,
+            "goalsAgainst": 7,
+            "goalDiff": 1,
+            "points": 9
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Inter de Limeira",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-06-21"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Itabaiana",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-06-28"
+            },
+            {
+              "resultado": "D",
+              "adversario": "SER Caxias",
+              "placar": "0-1",
+              "mandante": true,
+              "data": "2026-07-05"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Ituano",
+              "placar": "3-1",
+              "mandante": false,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Maranhao",
+              "placar": "0-0",
+              "mandante": true,
+              "data": "2026-07-25"
+            }
+          ],
+          "chances": {
+            "titulo": 1.8,
+            "promocao": 69.7,
+            "secundaria": null,
+            "rebaixamento": 0,
+            "pontosProjetados": 29,
+            "posicaoMedia": 6.9
+          }
+        },
+        {
+          "position": 9,
+          "team": "Ypiranga FC",
+          "teamId": "1787",
+          "badge": null,
+          "played": 15,
+          "wins": 6,
+          "draws": 3,
+          "losses": 6,
+          "goalsFor": 18,
+          "goalsAgainst": 19,
+          "goalDiff": -1,
+          "points": 21,
+          "aproveitamento": 46.7,
+          "zone": null,
+          "home": {
+            "position": 4,
+            "played": 8,
+            "wins": 4,
+            "draws": 3,
+            "losses": 1,
+            "goalsFor": 11,
+            "goalsAgainst": 7,
+            "goalDiff": 4,
+            "points": 15
+          },
+          "away": {
+            "position": 16,
+            "played": 7,
+            "wins": 2,
+            "draws": 0,
+            "losses": 5,
+            "goalsFor": 7,
+            "goalsAgainst": 12,
+            "goalDiff": -5,
+            "points": 6
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Santa Cruz",
+              "placar": "1-0",
+              "mandante": false,
+              "data": "2026-06-21"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Confianca",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-06-29"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Paysandu PA",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-07-05"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Maranhao",
+              "placar": "1-2",
+              "mandante": false,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Barra FC",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0.1,
+            "promocao": 24.3,
+            "secundaria": null,
+            "rebaixamento": 2.2,
+            "pontosProjetados": 26,
+            "posicaoMedia": 10.9
+          }
+        },
+        {
+          "position": 10,
+          "team": "SER Caxias",
+          "teamId": "1819",
+          "badge": null,
+          "played": 15,
+          "wins": 5,
+          "draws": 6,
+          "losses": 4,
+          "goalsFor": 14,
+          "goalsAgainst": 12,
+          "goalDiff": 2,
+          "points": 21,
+          "aproveitamento": 46.7,
+          "zone": null,
+          "home": {
+            "position": 5,
+            "played": 8,
+            "wins": 4,
+            "draws": 3,
+            "losses": 1,
+            "goalsFor": 10,
+            "goalsAgainst": 6,
+            "goalDiff": 4,
+            "points": 15
+          },
+          "away": {
+            "position": 14,
+            "played": 7,
+            "wins": 1,
+            "draws": 3,
+            "losses": 3,
+            "goalsFor": 4,
+            "goalsAgainst": 6,
+            "goalDiff": -2,
+            "points": 6
+          },
+          "form": [
+            {
+              "resultado": "E",
+              "adversario": "Maringa FC",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-06-21"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Anapolis",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-07-01"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Ferroviaria",
+              "placar": "1-0",
+              "mandante": false,
+              "data": "2026-07-05"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Floresta EC",
+              "placar": "0-0",
+              "mandante": true,
+              "data": "2026-07-11"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Botafogo PB",
+              "placar": "1-2",
+              "mandante": true,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0.1,
+            "promocao": 30.1,
+            "secundaria": null,
+            "rebaixamento": 2.5,
+            "pontosProjetados": 27,
+            "posicaoMedia": 10.3
+          }
+        },
+        {
+          "position": 11,
+          "team": "Floresta EC",
+          "teamId": "1803",
+          "badge": "https://apiv3.apifootball.com/badges/1803_floresta.jpg",
+          "played": 15,
+          "wins": 5,
+          "draws": 6,
+          "losses": 4,
+          "goalsFor": 16,
+          "goalsAgainst": 15,
+          "goalDiff": 1,
+          "points": 21,
+          "aproveitamento": 46.7,
+          "zone": null,
+          "home": {
+            "position": 11,
+            "played": 8,
+            "wins": 3,
+            "draws": 3,
+            "losses": 2,
+            "goalsFor": 10,
+            "goalsAgainst": 9,
+            "goalDiff": 1,
+            "points": 12
+          },
+          "away": {
+            "position": 8,
+            "played": 7,
+            "wins": 2,
+            "draws": 3,
+            "losses": 2,
+            "goalsFor": 6,
+            "goalsAgainst": 6,
+            "goalDiff": 0,
+            "points": 9
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Brusque",
+              "placar": "1-2",
+              "mandante": false,
+              "data": "2026-06-21"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Barra FC",
+              "placar": "2-1",
+              "mandante": true,
+              "data": "2026-06-27"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Guarani",
+              "placar": "0-0",
+              "mandante": false,
+              "data": "2026-07-05"
+            },
+            {
+              "resultado": "E",
+              "adversario": "SER Caxias",
+              "placar": "0-0",
+              "mandante": false,
+              "data": "2026-07-11"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Maringa FC",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-07-28"
+            }
+          ],
+          "chances": {
+            "titulo": 0.1,
+            "promocao": 34,
+            "secundaria": null,
+            "rebaixamento": 2.4,
+            "pontosProjetados": 27,
+            "posicaoMedia": 10
+          }
+        },
+        {
+          "position": 12,
+          "team": "Amazonas",
+          "teamId": "1859",
+          "badge": null,
+          "played": 15,
+          "wins": 6,
+          "draws": 2,
+          "losses": 7,
+          "goalsFor": 15,
+          "goalsAgainst": 20,
+          "goalDiff": -5,
+          "points": 20,
+          "aproveitamento": 44.4,
+          "zone": null,
+          "home": {
+            "position": 10,
+            "played": 8,
+            "wins": 4,
+            "draws": 1,
+            "losses": 3,
+            "goalsFor": 10,
+            "goalsAgainst": 7,
+            "goalDiff": 3,
+            "points": 13
+          },
+          "away": {
+            "position": 13,
+            "played": 7,
+            "wins": 2,
+            "draws": 1,
+            "losses": 4,
+            "goalsFor": 5,
+            "goalsAgainst": 13,
+            "goalDiff": -8,
+            "points": 7
+          },
+          "form": [
+            {
+              "resultado": "E",
+              "adversario": "Barra FC",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-06-21"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Volta Redonda",
+              "placar": "0-3",
+              "mandante": false,
+              "data": "2026-07-01"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Itabaiana",
+              "placar": "0-2",
+              "mandante": true,
+              "data": "2026-07-07"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Inter de Limeira",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Paysandu PA",
+              "placar": "2-1",
+              "mandante": true,
+              "data": "2026-07-27"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 13,
+            "secundaria": null,
+            "rebaixamento": 6.3,
+            "pontosProjetados": 25,
+            "posicaoMedia": 12.1
+          }
+        },
+        {
+          "position": 13,
+          "team": "Figueirense",
+          "teamId": "1751",
+          "badge": "https://apiv3.apifootball.com/badges/1751_figueirense.jpg",
+          "played": 15,
+          "wins": 5,
+          "draws": 5,
+          "losses": 5,
+          "goalsFor": 13,
+          "goalsAgainst": 18,
+          "goalDiff": -5,
+          "points": 20,
+          "aproveitamento": 44.4,
+          "zone": null,
+          "home": {
+            "position": 19,
+            "played": 7,
+            "wins": 2,
+            "draws": 2,
+            "losses": 3,
+            "goalsFor": 6,
+            "goalsAgainst": 10,
+            "goalDiff": -4,
+            "points": 8
+          },
+          "away": {
+            "position": 4,
+            "played": 8,
+            "wins": 3,
+            "draws": 3,
+            "losses": 2,
+            "goalsFor": 7,
+            "goalsAgainst": 8,
+            "goalDiff": -1,
+            "points": 12
+          },
+          "form": [
+            {
+              "resultado": "E",
+              "adversario": "Ituano",
+              "placar": "0-0",
+              "mandante": false,
+              "data": "2026-06-21"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Guarani",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-06-28"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Brusque",
+              "placar": "1-3",
+              "mandante": false,
+              "data": "2026-07-07"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Volta Redonda",
+              "placar": "0-0",
+              "mandante": true,
+              "data": "2026-07-14"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Santa Cruz",
+              "placar": "1-0",
+              "mandante": false,
+              "data": "2026-07-25"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 11,
+            "secundaria": null,
+            "rebaixamento": 10.7,
+            "pontosProjetados": 25,
+            "posicaoMedia": 12.7
+          }
+        },
+        {
+          "position": 14,
+          "team": "Ituano",
+          "teamId": "1790",
+          "badge": "https://apiv3.apifootball.com/badges/1790_ituano.jpg",
+          "played": 15,
+          "wins": 5,
+          "draws": 4,
+          "losses": 6,
+          "goalsFor": 16,
+          "goalsAgainst": 17,
+          "goalDiff": -1,
+          "points": 19,
+          "aproveitamento": 42.2,
+          "zone": null,
+          "home": {
+            "position": 6,
+            "played": 7,
+            "wins": 4,
+            "draws": 2,
+            "losses": 1,
+            "goalsFor": 9,
+            "goalsAgainst": 4,
+            "goalDiff": 5,
+            "points": 14
+          },
+          "away": {
+            "position": 17,
+            "played": 8,
+            "wins": 1,
+            "draws": 2,
+            "losses": 5,
+            "goalsFor": 7,
+            "goalsAgainst": 13,
+            "goalDiff": -6,
+            "points": 5
+          },
+          "form": [
+            {
+              "resultado": "E",
+              "adversario": "Figueirense",
+              "placar": "0-0",
+              "mandante": true,
+              "data": "2026-06-21"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Maranhao",
+              "placar": "0-0",
+              "mandante": true,
+              "data": "2026-06-29"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Santa Cruz",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-07-05"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Ferroviaria",
+              "placar": "1-3",
+              "mandante": true,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Brusque",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 11.1,
+            "secundaria": null,
+            "rebaixamento": 12.8,
+            "pontosProjetados": 24,
+            "posicaoMedia": 12.8
+          }
+        },
+        {
+          "position": 15,
+          "team": "Volta Redonda",
+          "teamId": "1798",
+          "badge": null,
+          "played": 15,
+          "wins": 5,
+          "draws": 3,
+          "losses": 7,
+          "goalsFor": 11,
+          "goalsAgainst": 19,
+          "goalDiff": -8,
+          "points": 18,
+          "aproveitamento": 40,
+          "zone": null,
+          "home": {
+            "position": 7,
+            "played": 8,
+            "wins": 4,
+            "draws": 2,
+            "losses": 2,
+            "goalsFor": 9,
+            "goalsAgainst": 7,
+            "goalDiff": 2,
+            "points": 14
+          },
+          "away": {
+            "position": 19,
+            "played": 7,
+            "wins": 1,
+            "draws": 1,
+            "losses": 5,
+            "goalsFor": 2,
+            "goalsAgainst": 12,
+            "goalDiff": -10,
+            "points": 4
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Botafogo PB",
+              "placar": "0-2",
+              "mandante": false,
+              "data": "2026-06-20"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Amazonas",
+              "placar": "3-0",
+              "mandante": true,
+              "data": "2026-07-01"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Maringa FC",
+              "placar": "0-4",
+              "mandante": false,
+              "data": "2026-07-05"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Figueirense",
+              "placar": "0-0",
+              "mandante": false,
+              "data": "2026-07-14"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Anapolis",
+              "placar": "1-4",
+              "mandante": true,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 2.9,
+            "secundaria": null,
+            "rebaixamento": 30.5,
+            "pontosProjetados": 23,
+            "posicaoMedia": 14.8
+          }
+        },
+        {
+          "position": 16,
+          "team": "Maranhao",
+          "teamId": "2032",
+          "badge": "https://apiv3.apifootball.com/badges/2032_maranhao.jpg",
+          "played": 15,
+          "wins": 4,
+          "draws": 6,
+          "losses": 5,
+          "goalsFor": 11,
+          "goalsAgainst": 14,
+          "goalDiff": -3,
+          "points": 18,
+          "aproveitamento": 40,
+          "zone": null,
+          "home": {
+            "position": 12,
+            "played": 7,
+            "wins": 3,
+            "draws": 2,
+            "losses": 2,
+            "goalsFor": 8,
+            "goalsAgainst": 6,
+            "goalDiff": 2,
+            "points": 11
+          },
+          "away": {
+            "position": 12,
+            "played": 8,
+            "wins": 1,
+            "draws": 4,
+            "losses": 3,
+            "goalsFor": 3,
+            "goalsAgainst": 8,
+            "goalDiff": -5,
+            "points": 7
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Paysandu PA",
+              "placar": "0-1",
+              "mandante": true,
+              "data": "2026-06-21"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Ituano",
+              "placar": "0-0",
+              "mandante": false,
+              "data": "2026-06-29"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Inter de Limeira",
+              "placar": "0-1",
+              "mandante": true,
+              "data": "2026-07-04"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Ypiranga FC",
+              "placar": "2-1",
+              "mandante": true,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Ferroviaria",
+              "placar": "0-0",
+              "mandante": false,
+              "data": "2026-07-25"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 3.8,
+            "secundaria": null,
+            "rebaixamento": 28.4,
+            "pontosProjetados": 23,
+            "posicaoMedia": 14.4
+          }
+        },
+        {
+          "position": 17,
+          "team": "Itabaiana",
+          "teamId": "1815",
+          "badge": "https://apiv3.apifootball.com/badges/1815_itabaiana.jpg",
+          "played": 15,
+          "wins": 4,
+          "draws": 5,
+          "losses": 6,
+          "goalsFor": 13,
+          "goalsAgainst": 18,
+          "goalDiff": -5,
+          "points": 17,
+          "aproveitamento": 37.8,
+          "zone": null,
+          "home": {
+            "position": 18,
+            "played": 7,
+            "wins": 2,
+            "draws": 2,
+            "losses": 3,
+            "goalsFor": 6,
+            "goalsAgainst": 9,
+            "goalDiff": -3,
+            "points": 8
+          },
+          "away": {
+            "position": 10,
+            "played": 8,
+            "wins": 2,
+            "draws": 3,
+            "losses": 3,
+            "goalsFor": 7,
+            "goalsAgainst": 9,
+            "goalDiff": -2,
+            "points": 9
+          },
+          "form": [
+            {
+              "resultado": "D",
+              "adversario": "Anapolis",
+              "placar": "0-2",
+              "mandante": false,
+              "data": "2026-06-20"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Ferroviaria",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-06-28"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Amazonas",
+              "placar": "2-0",
+              "mandante": false,
+              "data": "2026-07-07"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Brusque",
+              "placar": "1-0",
+              "mandante": true,
+              "data": "2026-07-14"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Confianca",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-07-25"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 1.2,
+            "secundaria": null,
+            "rebaixamento": 50,
+            "pontosProjetados": 22,
+            "posicaoMedia": 15.8
+          }
+        },
+        {
+          "position": 18,
+          "team": "Barra FC",
+          "teamId": "23820",
+          "badge": "https://apiv3.apifootball.com/badges/23820_barra.jpg",
+          "played": 15,
+          "wins": 3,
+          "draws": 6,
+          "losses": 6,
+          "goalsFor": 17,
+          "goalsAgainst": 17,
+          "goalDiff": 0,
+          "points": 15,
+          "aproveitamento": 33.3,
+          "zone": null,
+          "home": {
+            "position": 20,
+            "played": 7,
+            "wins": 1,
+            "draws": 4,
+            "losses": 2,
+            "goalsFor": 9,
+            "goalsAgainst": 9,
+            "goalDiff": 0,
+            "points": 7
+          },
+          "away": {
+            "position": 11,
+            "played": 8,
+            "wins": 2,
+            "draws": 2,
+            "losses": 4,
+            "goalsFor": 8,
+            "goalsAgainst": 8,
+            "goalDiff": 0,
+            "points": 8
+          },
+          "form": [
+            {
+              "resultado": "E",
+              "adversario": "Amazonas",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-06-21"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Floresta EC",
+              "placar": "1-2",
+              "mandante": false,
+              "data": "2026-06-27"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Confianca",
+              "placar": "2-1",
+              "mandante": false,
+              "data": "2026-07-05"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Santa Cruz",
+              "placar": "1-2",
+              "mandante": true,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Ypiranga FC",
+              "placar": "0-1",
+              "mandante": false,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 0.5,
+            "secundaria": null,
+            "rebaixamento": 60.3,
+            "pontosProjetados": 21,
+            "posicaoMedia": 16.5
+          }
+        },
+        {
+          "position": 19,
+          "team": "Anapolis",
+          "teamId": "1933",
+          "badge": "https://apiv3.apifootball.com/badges/1933_anapolis.jpg",
+          "played": 15,
+          "wins": 3,
+          "draws": 3,
+          "losses": 9,
+          "goalsFor": 13,
+          "goalsAgainst": 19,
+          "goalDiff": -6,
+          "points": 12,
+          "aproveitamento": 26.7,
+          "zone": "rebaixamento",
+          "home": {
+            "position": 17,
+            "played": 7,
+            "wins": 2,
+            "draws": 2,
+            "losses": 3,
+            "goalsFor": 7,
+            "goalsAgainst": 7,
+            "goalDiff": 0,
+            "points": 8
+          },
+          "away": {
+            "position": 18,
+            "played": 8,
+            "wins": 1,
+            "draws": 1,
+            "losses": 6,
+            "goalsFor": 6,
+            "goalsAgainst": 12,
+            "goalDiff": -6,
+            "points": 4
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Itabaiana",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-06-20"
+            },
+            {
+              "resultado": "E",
+              "adversario": "SER Caxias",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-07-01"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Botafogo PB",
+              "placar": "0-2",
+              "mandante": true,
+              "data": "2026-07-06"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Maringa FC",
+              "placar": "0-1",
+              "mandante": true,
+              "data": "2026-07-12"
+            },
+            {
+              "resultado": "V",
+              "adversario": "Volta Redonda",
+              "placar": "4-1",
+              "mandante": false,
+              "data": "2026-07-26"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 0,
+            "secundaria": null,
+            "rebaixamento": 97.3,
+            "pontosProjetados": 16,
+            "posicaoMedia": 19.2
+          }
+        },
+        {
+          "position": 20,
+          "team": "Confianca",
+          "teamId": "1749",
+          "badge": null,
+          "played": 15,
+          "wins": 3,
+          "draws": 3,
+          "losses": 9,
+          "goalsFor": 9,
+          "goalsAgainst": 15,
+          "goalDiff": -6,
+          "points": 12,
+          "aproveitamento": 26.7,
+          "zone": "rebaixamento",
+          "home": {
+            "position": 14,
+            "played": 8,
+            "wins": 3,
+            "draws": 2,
+            "losses": 3,
+            "goalsFor": 7,
+            "goalsAgainst": 6,
+            "goalDiff": 1,
+            "points": 11
+          },
+          "away": {
+            "position": 20,
+            "played": 7,
+            "wins": 0,
+            "draws": 1,
+            "losses": 6,
+            "goalsFor": 2,
+            "goalsAgainst": 9,
+            "goalDiff": -7,
+            "points": 1
+          },
+          "form": [
+            {
+              "resultado": "V",
+              "adversario": "Guarani",
+              "placar": "2-0",
+              "mandante": true,
+              "data": "2026-06-23"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Ypiranga FC",
+              "placar": "1-1",
+              "mandante": false,
+              "data": "2026-06-29"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Barra FC",
+              "placar": "1-2",
+              "mandante": true,
+              "data": "2026-07-05"
+            },
+            {
+              "resultado": "D",
+              "adversario": "Botafogo PB",
+              "placar": "0-2",
+              "mandante": false,
+              "data": "2026-07-13"
+            },
+            {
+              "resultado": "E",
+              "adversario": "Itabaiana",
+              "placar": "1-1",
+              "mandante": true,
+              "data": "2026-07-25"
+            }
+          ],
+          "chances": {
+            "titulo": 0,
+            "promocao": 0,
+            "secundaria": null,
+            "rebaixamento": 96.7,
+            "pontosProjetados": 17,
+            "posicaoMedia": 19.1
+          }
+        }
+      ]
+    }
+  }
+}

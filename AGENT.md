@@ -132,9 +132,11 @@ Arquivo `content/jogos.json` alimenta as paginas `/jogos-futebol-hoje` e `/onde-
 
 7. **Salvar** com `updatedAt` no timestamp atual BRT (formato `YYYY-MM-DDTHH:MM:00-03:00`).
 
-8. **Atualizar os historicos** — executar novamente `node scripts/archive-matches.js`. Se houver `APIFOOTBALL_KEY`, executar também `node scripts/build-probabilities.js` para gerar os palpites, registrar resultados encerrados e recalcular as metricas publicas.
+8. **Atualizar os historicos** — executar novamente `node scripts/archive-matches.js`. Se houver `APIFOOTBALL_KEY`, executar também:
+   - `node scripts/build-probabilities.js` — gera os palpites, registra resultados encerrados e recalcula as metricas publicas.
+   - `node scripts/build-standings.js` — atualiza as classificacoes (Serie A, B e C) em `content/classificacao.json` (tabela oficial + simulacao de titulo/acesso/rebaixamento). Alimenta `/tabela-do-brasileirao`, `/tabela-do-brasileirao-serie-b`, `/tabela-do-brasileirao-serie-c` e o hub `/tabela`. A temporada sai do ano corrente; use `--season YYYY` para forcar.
 
-9. **Commit**: incluir `content/jogos.json`, `content/jogos-historico.json`, `content/probabilidades.json` e `content/probabilidades-historico.json` quando alterados. Mensagem: `data(jogos): atualiza janela proximos 5 dias`.
+9. **Commit**: incluir `content/jogos.json`, `content/jogos-historico.json`, `content/probabilidades.json`, `content/probabilidades-historico.json` e `content/classificacao.json` quando alterados. Mensagem: `data(jogos): atualiza janela proximos 5 dias`.
 
 **Regras de qualidade:**
 - Nunca sobrescrever campo existente com valor pior (ex: "A definir" sobre canal ja conhecido).

@@ -6,6 +6,8 @@ import { getAllTeams, teamPlaysInGame } from "@/lib/teams";
 import { getAllCompetitions } from "@/lib/competitions";
 import { getAllKnownMatches } from "@/lib/matches";
 import { getProbabilitiesData } from "@/lib/probabilities";
+import { getStandingsData, hasStandings } from "@/lib/standings";
+import { getAllStandingsCopy } from "@/lib/standings-competitions";
 import { siteConfig } from "@/lib/site";
 import { ARTICLES_PER_PAGE } from "@/lib/pagination";
 
@@ -13,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
   const probabilitiesUpdatedAt =
     getProbabilitiesData()?.generatedAt ?? new Date().toISOString();
+  const standingsUpdatedAt =
+    getStandingsData()?.generatedAt ?? new Date().toISOString();
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "hourly", priority: 1.0 },
@@ -20,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/jogos-de-amanha`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.9 },
     { url: `${baseUrl}/jogos-da-semana`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.85 },
     { url: `${baseUrl}/probabilidades`, lastModified: new Date(probabilitiesUpdatedAt), changeFrequency: "hourly", priority: 0.9 },
+    { url: `${baseUrl}/tabela`, lastModified: new Date(standingsUpdatedAt), changeFrequency: "daily", priority: 0.8 },
     { url: `${baseUrl}/metodologia-dos-palpites`, lastModified: new Date(probabilitiesUpdatedAt), changeFrequency: "monthly", priority: 0.65 },
     { url: `${baseUrl}/estatisticas`, lastModified: new Date(probabilitiesUpdatedAt), changeFrequency: "daily", priority: 0.8 },
     { url: `${baseUrl}/time`, lastModified: new Date(), changeFrequency: "daily", priority: 0.8 },
@@ -27,6 +32,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/feed.xml`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.5 },
     { url: `${baseUrl}/atom.xml`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.5 },
   ];
+
+  // Landings de classificação — entram sozinhas quando a competição ganha
+  // tabela publicada (config em src/lib/standings-competitions.ts).
+  const standingsPages: MetadataRoute.Sitemap = getAllStandingsCopy()
+    .filter((copy) => hasStandings(copy.slug))
+    .map((copy) => ({
+      url: `${baseUrl}${copy.path}`,
+      lastModified: new Date(standingsUpdatedAt),
+      changeFrequency: "daily" as const,
+      priority: 0.9,
+    }));
 
   // Feeds por categoria (RSS + Atom)
   const categoryFeedPages: MetadataRoute.Sitemap = getAllCategories().flatMap(
@@ -163,6 +179,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticPages,
+    ...standingsPages,
     ...categoryPages,
     ...categoryFeedPages,
     ...categoryPaginatedPages,

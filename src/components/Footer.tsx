@@ -126,6 +126,30 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/tabela-do-brasileirao"
+                  className="text-sm font-semibold text-lima transition-colors hover:text-cal"
+                >
+                  Tabela do Brasileirão
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/tabela-do-brasileirao-serie-b"
+                  className="text-sm text-cal/70 transition-colors hover:text-lima"
+                >
+                  Tabela da Série B
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/tabela"
+                  className="text-sm text-cal/70 transition-colors hover:text-lima"
+                >
+                  Todas as tabelas
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/metodologia-dos-palpites"
                   className="text-sm text-cal/70 transition-colors hover:text-lima"
                 >

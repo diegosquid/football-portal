@@ -196,6 +196,12 @@ export default function ProbabilidadesPage() {
           >
             Jogos de amanhã
           </Link>
+          <Link
+            href="/tabela-do-brasileirao"
+            className="border border-ink/15 bg-white px-4 py-2 font-medium text-ink transition-colors hover:border-primary hover:text-primary"
+          >
+            Tabela do Brasileirão
+          </Link>
         </nav>
 
         {dateGroups.length > 0 ? (

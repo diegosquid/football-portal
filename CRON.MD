@@ -1224,7 +1224,17 @@ A pagina `/jogos-futebol-hoje` (hoje) e as paginas `/onde-assistir/[slug]` (hoje
 }
 ```
 6. Salvar em `content/jogos.json`.
-7. Commit: `git add content/jogos.json && git commit -m "data(jogos): atualiza janela proximos 5 dias"`.
+7. Rodar os scripts de dados derivados (precisam de `APIFOOTBALL_KEY` no `.env.local`):
+
+```bash
+node scripts/build-probabilities.js && node scripts/build-standings.js
+```
+
+   - `build-probabilities.js` → `content/probabilidades.json` (palpites por jogo)
+   - `build-standings.js` → `content/classificacao.json` (tabelas da Serie A, B e C + chances de titulo/acesso/rebaixamento). Alimenta `/tabela-do-brasileirao`, `/tabela-do-brasileirao-serie-b`, `/tabela-do-brasileirao-serie-c` e o hub `/tabela`. Leva ~5s. Se a API nao responder, o arquivo antigo continua servindo a pagina — nao commitar arquivo vazio.
+   - A temporada e derivada do ano corrente. Na virada do ano, se o calendario nao bater com o ano civil, forcar com `node scripts/build-standings.js --season 2027`.
+
+8. Commit: `git add content/jogos.json content/probabilidades.json content/classificacao.json && git commit -m "data(jogos): atualiza janela proximos 5 dias"`.
 
 **Prioridade de competicoes (cobrir nesta ordem):**
 1. Brasileirao (A, B, C)
