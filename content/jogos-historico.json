@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-28T09:15:00-03:00",
+  "updatedAt": "2026-07-28T12:00:00-03:00",
   "games": [
     {
       "date": "2026-07-24",
@@ -580,6 +580,36 @@
       "round": "Rodada 21",
       "channel": "SporTV / Premiere",
       "stadium": "Estádio Couto Pereira, Curitiba"
+    },
+    {
+      "date": "2026-08-01",
+      "time": "17:30",
+      "home": "Vasco",
+      "away": "Fluminense",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Ida)",
+      "channel": "Globo / SporTV / GeTV / Premiere / Amazon Prime Video",
+      "stadium": "Maracanã, Rio de Janeiro"
+    },
+    {
+      "date": "2026-08-01",
+      "time": "19:30",
+      "home": "Atlético-MG",
+      "away": "Juventude",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Ida)",
+      "channel": "Amazon Prime Video",
+      "stadium": "Arena MRV, Belo Horizonte"
+    },
+    {
+      "date": "2026-08-01",
+      "time": "21:00",
+      "home": "Santos",
+      "away": "Remo",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Ida)",
+      "channel": "SporTV / Premiere",
+      "stadium": "Vila Belmiro, Santos"
     }
   ]
 }

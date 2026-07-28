@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T11:47:01.437Z",
+  "generatedAt": "2026-07-28T16:19:14.919Z",
   "source": "apifootball.com",
   "model": "poisson-v1",
   "disclaimer": "Estimativas estatísticas de modelo próprio. Não são garantia de resultado.",
@@ -11,6 +11,10 @@
     "Brasileirão Série A": {
       "golsCasa": 1.51,
       "golsFora": 1.11
+    },
+    "Copa do Brasil": {
+      "golsCasa": 1.46,
+      "golsFora": 1
     },
     "Brasileirão Feminino A1": {
       "golsCasa": 1.5,
@@ -308,6 +312,729 @@
         "ataque": 0.8,
         "defesa": 1.43,
         "saldo": -0.63
+      }
+    ],
+    "Copa do Brasil": [
+      {
+        "time": "Novorizontino",
+        "jogos": 2,
+        "ataque": 1.31,
+        "defesa": 0.83,
+        "saldo": 0.48
+      },
+      {
+        "time": "Palmeiras",
+        "jogos": 2,
+        "ataque": 1.34,
+        "defesa": 0.89,
+        "saldo": 0.45
+      },
+      {
+        "time": "CRB",
+        "jogos": 5,
+        "ataque": 1.18,
+        "defesa": 0.77,
+        "saldo": 0.42
+      },
+      {
+        "time": "Gremio",
+        "jogos": 2,
+        "ataque": 1.2,
+        "defesa": 0.83,
+        "saldo": 0.36
+      },
+      {
+        "time": "Juventude",
+        "jogos": 4,
+        "ataque": 1.2,
+        "defesa": 0.85,
+        "saldo": 0.35
+      },
+      {
+        "time": "Operario-PR",
+        "jogos": 5,
+        "ataque": 1.02,
+        "defesa": 0.76,
+        "saldo": 0.26
+      },
+      {
+        "time": "Nova Iguacu",
+        "jogos": 2,
+        "ataque": 1.17,
+        "defesa": 0.92,
+        "saldo": 0.25
+      },
+      {
+        "time": "Madureira",
+        "jogos": 3,
+        "ataque": 1.07,
+        "defesa": 0.85,
+        "saldo": 0.23
+      },
+      {
+        "time": "Volta Redonda",
+        "jogos": 1,
+        "ataque": 1.25,
+        "defesa": 1.03,
+        "saldo": 0.22
+      },
+      {
+        "time": "Remo",
+        "jogos": 2,
+        "ataque": 1.2,
+        "defesa": 0.97,
+        "saldo": 0.22
+      },
+      {
+        "time": "Sao Bernardo",
+        "jogos": 2,
+        "ataque": 1.03,
+        "defesa": 0.83,
+        "saldo": 0.2
+      },
+      {
+        "time": "Primavera",
+        "jogos": 2,
+        "ataque": 1.14,
+        "defesa": 0.95,
+        "saldo": 0.19
+      },
+      {
+        "time": "America RN",
+        "jogos": 1,
+        "ataque": 1.09,
+        "defesa": 0.92,
+        "saldo": 0.17
+      },
+      {
+        "time": "Atletico GO",
+        "jogos": 4,
+        "ataque": 0.88,
+        "defesa": 0.71,
+        "saldo": 0.17
+      },
+      {
+        "time": "Amazonas",
+        "jogos": 2,
+        "ataque": 1.08,
+        "defesa": 0.92,
+        "saldo": 0.17
+      },
+      {
+        "time": "Avai",
+        "jogos": 1,
+        "ataque": 1.09,
+        "defesa": 0.92,
+        "saldo": 0.17
+      },
+      {
+        "time": "Athletic Club",
+        "jogos": 4,
+        "ataque": 1.22,
+        "defesa": 1.05,
+        "saldo": 0.17
+      },
+      {
+        "time": "Santos",
+        "jogos": 2,
+        "ataque": 1,
+        "defesa": 0.83,
+        "saldo": 0.17
+      },
+      {
+        "time": "Tuna Luso",
+        "jogos": 1,
+        "ataque": 1.14,
+        "defesa": 1,
+        "saldo": 0.14
+      },
+      {
+        "time": "Corinthians",
+        "jogos": 2,
+        "ataque": 0.97,
+        "defesa": 0.83,
+        "saldo": 0.14
+      },
+      {
+        "time": "Fortaleza",
+        "jogos": 5,
+        "ataque": 1.09,
+        "defesa": 0.96,
+        "saldo": 0.13
+      },
+      {
+        "time": "Goias",
+        "jogos": 4,
+        "ataque": 1.03,
+        "defesa": 0.91,
+        "saldo": 0.12
+      },
+      {
+        "time": "Gama",
+        "jogos": 1,
+        "ataque": 1.03,
+        "defesa": 0.92,
+        "saldo": 0.11
+      },
+      {
+        "time": "Operario MS",
+        "jogos": 1,
+        "ataque": 1.08,
+        "defesa": 0.97,
+        "saldo": 0.11
+      },
+      {
+        "time": "Vasco",
+        "jogos": 2,
+        "ataque": 1.11,
+        "defesa": 1,
+        "saldo": 0.11
+      },
+      {
+        "time": "Cruzeiro",
+        "jogos": 2,
+        "ataque": 1.06,
+        "defesa": 0.95,
+        "saldo": 0.11
+      },
+      {
+        "time": "Internacional",
+        "jogos": 2,
+        "ataque": 1.17,
+        "defesa": 1.06,
+        "saldo": 0.11
+      },
+      {
+        "time": "Uberlandia",
+        "jogos": 2,
+        "ataque": 1.14,
+        "defesa": 1.05,
+        "saldo": 0.09
+      },
+      {
+        "time": "Anapolis",
+        "jogos": 1,
+        "ataque": 1.09,
+        "defesa": 1,
+        "saldo": 0.09
+      },
+      {
+        "time": "Paysandu PA",
+        "jogos": 4,
+        "ataque": 1.22,
+        "defesa": 1.12,
+        "saldo": 0.09
+      },
+      {
+        "time": "Maguary",
+        "jogos": 2,
+        "ataque": 1.14,
+        "defesa": 1.06,
+        "saldo": 0.08
+      },
+      {
+        "time": "Ceara",
+        "jogos": 3,
+        "ataque": 1.03,
+        "defesa": 0.95,
+        "saldo": 0.08
+      },
+      {
+        "time": "Figueirense",
+        "jogos": 3,
+        "ataque": 0.9,
+        "defesa": 0.82,
+        "saldo": 0.08
+      },
+      {
+        "time": "Vitoria",
+        "jogos": 2,
+        "ataque": 1.03,
+        "defesa": 0.95,
+        "saldo": 0.08
+      },
+      {
+        "time": "Maringa FC",
+        "jogos": 3,
+        "ataque": 1.17,
+        "defesa": 1.1,
+        "saldo": 0.07
+      },
+      {
+        "time": "Portuguesa",
+        "jogos": 2,
+        "ataque": 1.2,
+        "defesa": 1.14,
+        "saldo": 0.06
+      },
+      {
+        "time": "Chapecoense-SC",
+        "jogos": 2,
+        "ataque": 0.95,
+        "defesa": 0.89,
+        "saldo": 0.06
+      },
+      {
+        "time": "Mirassol",
+        "jogos": 2,
+        "ataque": 1.03,
+        "defesa": 0.97,
+        "saldo": 0.06
+      },
+      {
+        "time": "Aguia De Maraba",
+        "jogos": 3,
+        "ataque": 0.96,
+        "defesa": 0.92,
+        "saldo": 0.04
+      },
+      {
+        "time": "Santa Catarina",
+        "jogos": 2,
+        "ataque": 0.95,
+        "defesa": 0.93,
+        "saldo": 0.03
+      },
+      {
+        "time": "Atletico-MG",
+        "jogos": 1,
+        "ataque": 1.03,
+        "defesa": 1,
+        "saldo": 0.03
+      },
+      {
+        "time": "Fluminense",
+        "jogos": 2,
+        "ataque": 0.95,
+        "defesa": 0.92,
+        "saldo": 0.03
+      },
+      {
+        "time": "Guarany de Bage",
+        "jogos": 2,
+        "ataque": 0.93,
+        "defesa": 0.91,
+        "saldo": 0.02
+      },
+      {
+        "time": "Ji-Parana",
+        "jogos": 2,
+        "ataque": 0.95,
+        "defesa": 0.95,
+        "saldo": 0
+      },
+      {
+        "time": "Maranhao",
+        "jogos": 2,
+        "ataque": 0.92,
+        "defesa": 0.92,
+        "saldo": 0
+      },
+      {
+        "time": "Ypiranga FC",
+        "jogos": 2,
+        "ataque": 0.95,
+        "defesa": 0.95,
+        "saldo": 0
+      },
+      {
+        "time": "Manauara",
+        "jogos": 2,
+        "ataque": 1,
+        "defesa": 1,
+        "saldo": 0
+      },
+      {
+        "time": "Ponte Preta",
+        "jogos": 2,
+        "ataque": 0.89,
+        "defesa": 0.89,
+        "saldo": 0
+      },
+      {
+        "time": "Athletico-PR",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 0.92,
+        "saldo": 0
+      },
+      {
+        "time": "Joinville",
+        "jogos": 2,
+        "ataque": 0.91,
+        "defesa": 0.93,
+        "saldo": -0.02
+      },
+      {
+        "time": "Londrina",
+        "jogos": 2,
+        "ataque": 0.91,
+        "defesa": 0.93,
+        "saldo": -0.02
+      },
+      {
+        "time": "Serra Branca",
+        "jogos": 1,
+        "ataque": 1,
+        "defesa": 1.03,
+        "saldo": -0.03
+      },
+      {
+        "time": "Primavera AC",
+        "jogos": 2,
+        "ataque": 0.95,
+        "defesa": 0.97,
+        "saldo": -0.03
+      },
+      {
+        "time": "Portuguesa RJ",
+        "jogos": 2,
+        "ataque": 0.97,
+        "defesa": 1,
+        "saldo": -0.03
+      },
+      {
+        "time": "Sao Paulo",
+        "jogos": 2,
+        "ataque": 0.97,
+        "defesa": 1,
+        "saldo": -0.03
+      },
+      {
+        "time": "Laguna RN",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 0.97,
+        "saldo": -0.06
+      },
+      {
+        "time": "Piaui",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 0.97,
+        "saldo": -0.06
+      },
+      {
+        "time": "Independente AP",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 0.97,
+        "saldo": -0.06
+      },
+      {
+        "time": "CSA",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 0.97,
+        "saldo": -0.06
+      },
+      {
+        "time": "ABC",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 0.97,
+        "saldo": -0.06
+      },
+      {
+        "time": "SC Penedense",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 0.97,
+        "saldo": -0.06
+      },
+      {
+        "time": "Azuriz",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 0.97,
+        "saldo": -0.06
+      },
+      {
+        "time": "Maracana",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 0.97,
+        "saldo": -0.06
+      },
+      {
+        "time": "Botafogo RJ",
+        "jogos": 2,
+        "ataque": 0.89,
+        "defesa": 0.95,
+        "saldo": -0.06
+      },
+      {
+        "time": "Bragantino",
+        "jogos": 3,
+        "ataque": 0.97,
+        "defesa": 1.05,
+        "saldo": -0.08
+      },
+      {
+        "time": "Sao Luiz",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1,
+        "saldo": -0.08
+      },
+      {
+        "time": "SER Caxias",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1,
+        "saldo": -0.08
+      },
+      {
+        "time": "Porto Velho",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1,
+        "saldo": -0.08
+      },
+      {
+        "time": "Flamengo RJ",
+        "jogos": 2,
+        "ataque": 0.95,
+        "defesa": 1.03,
+        "saldo": -0.08
+      },
+      {
+        "time": "Betim",
+        "jogos": 2,
+        "ataque": 0.91,
+        "defesa": 1,
+        "saldo": -0.09
+      },
+      {
+        "time": "Cianorte",
+        "jogos": 1,
+        "ataque": 1,
+        "defesa": 1.09,
+        "saldo": -0.09
+      },
+      {
+        "time": "Itabaiana",
+        "jogos": 1,
+        "ataque": 1,
+        "defesa": 1.09,
+        "saldo": -0.09
+      },
+      {
+        "time": "Monte Roraima",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.03,
+        "saldo": -0.11
+      },
+      {
+        "time": "IAPE",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.03,
+        "saldo": -0.11
+      },
+      {
+        "time": "Pantanal",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.03,
+        "saldo": -0.11
+      },
+      {
+        "time": "Retro",
+        "jogos": 1,
+        "ataque": 0.97,
+        "defesa": 1.08,
+        "saldo": -0.11
+      },
+      {
+        "time": "Independencia",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.03,
+        "saldo": -0.11
+      },
+      {
+        "time": "ASA",
+        "jogos": 1,
+        "ataque": 0.97,
+        "defesa": 1.08,
+        "saldo": -0.11
+      },
+      {
+        "time": "Alagoinhas",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.03,
+        "saldo": -0.11
+      },
+      {
+        "time": "Tombense",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.03,
+        "saldo": -0.11
+      },
+      {
+        "time": "Capital",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.03,
+        "saldo": -0.11
+      },
+      {
+        "time": "Ivinhema",
+        "jogos": 2,
+        "ataque": 1,
+        "defesa": 1.14,
+        "saldo": -0.14
+      },
+      {
+        "time": "Boavista",
+        "jogos": 1,
+        "ataque": 1.03,
+        "defesa": 1.17,
+        "saldo": -0.14
+      },
+      {
+        "time": "Tocantinopolis",
+        "jogos": 1,
+        "ataque": 1,
+        "defesa": 1.14,
+        "saldo": -0.14
+      },
+      {
+        "time": "Barra FC",
+        "jogos": 2,
+        "ataque": 0.83,
+        "defesa": 0.97,
+        "saldo": -0.14
+      },
+      {
+        "time": "GAS",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.09,
+        "saldo": -0.17
+      },
+      {
+        "time": "Porto Vitoria",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.09,
+        "saldo": -0.17
+      },
+      {
+        "time": "Fluminense-PI",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.09,
+        "saldo": -0.17
+      },
+      {
+        "time": "Sousa",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.08,
+        "saldo": -0.17
+      },
+      {
+        "time": "Coritiba",
+        "jogos": 2,
+        "ataque": 0.83,
+        "defesa": 1,
+        "saldo": -0.17
+      },
+      {
+        "time": "Sport Recife",
+        "jogos": 1,
+        "ataque": 0.97,
+        "defesa": 1.17,
+        "saldo": -0.19
+      },
+      {
+        "time": "AE Altos",
+        "jogos": 1,
+        "ataque": 1,
+        "defesa": 1.2,
+        "saldo": -0.2
+      },
+      {
+        "time": "Bahia",
+        "jogos": 2,
+        "ataque": 0.97,
+        "defesa": 1.2,
+        "saldo": -0.22
+      },
+      {
+        "time": "Nacional-AM",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.14,
+        "saldo": -0.23
+      },
+      {
+        "time": "Confianca",
+        "jogos": 3,
+        "ataque": 0.87,
+        "defesa": 1.1,
+        "saldo": -0.23
+      },
+      {
+        "time": "Bare",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.17,
+        "saldo": -0.25
+      },
+      {
+        "time": "Araguaina",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.17,
+        "saldo": -0.25
+      },
+      {
+        "time": "Imperatriz",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.17,
+        "saldo": -0.25
+      },
+      {
+        "time": "Mixto",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.17,
+        "saldo": -0.25
+      },
+      {
+        "time": "Guapore",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.2,
+        "saldo": -0.28
+      },
+      {
+        "time": "Porto-BA",
+        "jogos": 2,
+        "ataque": 0.95,
+        "defesa": 1.26,
+        "saldo": -0.31
+      },
+      {
+        "time": "Castanhal",
+        "jogos": 1,
+        "ataque": 0.92,
+        "defesa": 1.25,
+        "saldo": -0.33
+      },
+      {
+        "time": "Jacuipense",
+        "jogos": 3,
+        "ataque": 0.9,
+        "defesa": 1.25,
+        "saldo": -0.35
       }
     ],
     "Brasileirão Feminino A1": [
@@ -1568,6 +2295,111 @@
         "jogosConsiderados": {
           "casa": 9,
           "fora": 9
+        }
+      }
+    },
+    {
+      "date": "2026-08-01",
+      "time": "17:30",
+      "home": "Vasco",
+      "away": "Fluminense",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Ida)",
+      "lambdaHome": 1.29,
+      "lambdaAway": 0.97,
+      "golsEsperados": 2.27,
+      "resultado": {
+        "casa": 0.4387033990191201,
+        "empate": 0.2814814494362232,
+        "fora": 0.27981515154465664
+      },
+      "gols": {
+        "over25": 0.39480073014171563,
+        "under25": 0.6051992698582844
+      },
+      "ambosMarcam": {
+        "sim": 0.4511719587512054,
+        "nao": 0.5488280412487946
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.06,
+        "forcaDefesaCasa": 1.17,
+        "forcaAtaqueFora": 0.83,
+        "forcaDefesaFora": 0.83,
+        "jogosConsiderados": {
+          "casa": 1,
+          "fora": 1
+        }
+      }
+    },
+    {
+      "date": "2026-08-01",
+      "time": "19:30",
+      "home": "Atlético-MG",
+      "away": "Juventude",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Ida)",
+      "lambdaHome": 1.47,
+      "lambdaAway": 0.83,
+      "golsEsperados": 2.3,
+      "resultado": {
+        "casa": 0.5216758041760677,
+        "empate": 0.2653116760620869,
+        "fora": 0.2130125197618459
+      },
+      "gols": {
+        "over25": 0.4048946297375094,
+        "under25": 0.5951053702624907
+      },
+      "ambosMarcam": {
+        "sim": 0.43542595644012044,
+        "nao": 0.5645740435598795
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.06,
+        "forcaDefesaCasa": 1,
+        "forcaAtaqueFora": 0.83,
+        "forcaDefesaFora": 0.95,
+        "jogosConsiderados": {
+          "casa": 1,
+          "fora": 1
+        }
+      }
+    },
+    {
+      "date": "2026-08-01",
+      "time": "21:00",
+      "home": "Santos",
+      "away": "Remo",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Ida)",
+      "lambdaHome": 1.15,
+      "lambdaAway": 1.11,
+      "golsEsperados": 2.27,
+      "resultado": {
+        "casa": 0.36768175739486925,
+        "empate": 0.28616791568956923,
+        "fora": 0.34615032691556114
+      },
+      "gols": {
+        "over25": 0.39480077041901956,
+        "under25": 0.6051992295809805
+      },
+      "ambosMarcam": {
+        "sim": 0.45934169354611926,
+        "nao": 0.5406583064538808
+      },
+      "placarProvavel": "1-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.83,
+        "forcaDefesaCasa": 0.83,
+        "forcaAtaqueFora": 1.33,
+        "forcaDefesaFora": 0.95,
+        "jogosConsiderados": {
+          "casa": 1,
+          "fora": 1
         }
       }
     }

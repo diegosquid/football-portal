@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-28T11:47:01.437Z",
+  "updatedAt": "2026-07-28T16:19:14.919Z",
   "predictions": [
     {
       "date": "2026-07-24",
@@ -1862,6 +1862,111 @@
         "jogosConsiderados": {
           "casa": 9,
           "fora": 9
+        }
+      }
+    },
+    {
+      "date": "2026-08-01",
+      "time": "17:30",
+      "home": "Vasco",
+      "away": "Fluminense",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Ida)",
+      "lambdaHome": 1.29,
+      "lambdaAway": 0.97,
+      "golsEsperados": 2.27,
+      "resultado": {
+        "casa": 0.4387033990191201,
+        "empate": 0.2814814494362232,
+        "fora": 0.27981515154465664
+      },
+      "gols": {
+        "over25": 0.39480073014171563,
+        "under25": 0.6051992698582844
+      },
+      "ambosMarcam": {
+        "sim": 0.4511719587512054,
+        "nao": 0.5488280412487946
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.06,
+        "forcaDefesaCasa": 1.17,
+        "forcaAtaqueFora": 0.83,
+        "forcaDefesaFora": 0.83,
+        "jogosConsiderados": {
+          "casa": 1,
+          "fora": 1
+        }
+      }
+    },
+    {
+      "date": "2026-08-01",
+      "time": "19:30",
+      "home": "Atlético-MG",
+      "away": "Juventude",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Ida)",
+      "lambdaHome": 1.47,
+      "lambdaAway": 0.83,
+      "golsEsperados": 2.3,
+      "resultado": {
+        "casa": 0.5216758041760677,
+        "empate": 0.2653116760620869,
+        "fora": 0.2130125197618459
+      },
+      "gols": {
+        "over25": 0.4048946297375094,
+        "under25": 0.5951053702624907
+      },
+      "ambosMarcam": {
+        "sim": 0.43542595644012044,
+        "nao": 0.5645740435598795
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.06,
+        "forcaDefesaCasa": 1,
+        "forcaAtaqueFora": 0.83,
+        "forcaDefesaFora": 0.95,
+        "jogosConsiderados": {
+          "casa": 1,
+          "fora": 1
+        }
+      }
+    },
+    {
+      "date": "2026-08-01",
+      "time": "21:00",
+      "home": "Santos",
+      "away": "Remo",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Ida)",
+      "lambdaHome": 1.15,
+      "lambdaAway": 1.11,
+      "golsEsperados": 2.27,
+      "resultado": {
+        "casa": 0.36768175739486925,
+        "empate": 0.28616791568956923,
+        "fora": 0.34615032691556114
+      },
+      "gols": {
+        "over25": 0.39480077041901956,
+        "under25": 0.6051992295809805
+      },
+      "ambosMarcam": {
+        "sim": 0.45934169354611926,
+        "nao": 0.5406583064538808
+      },
+      "placarProvavel": "1-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.83,
+        "forcaDefesaCasa": 0.83,
+        "forcaAtaqueFora": 1.33,
+        "forcaDefesaFora": 0.95,
+        "jogosConsiderados": {
+          "casa": 1,
+          "fora": 1
         }
       }
     }
