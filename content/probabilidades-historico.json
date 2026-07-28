@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-27T16:13:57.509Z",
+  "updatedAt": "2026-07-28T11:47:01.437Z",
   "predictions": [
     {
       "date": "2026-07-24",
@@ -1557,28 +1557,28 @@
       "away": "Avaí",
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
-      "lambdaHome": 1.7,
+      "lambdaHome": 1.69,
       "lambdaAway": 0.4,
-      "golsEsperados": 2.1,
+      "golsEsperados": 2.09,
       "resultado": {
-        "casa": 0.6962283626488418,
-        "empate": 0.2214699139585769,
-        "fora": 0.08230172339258122
+        "casa": 0.695089839624066,
+        "empate": 0.22231723394887432,
+        "fora": 0.08259292642705994
       },
       "gols": {
-        "over25": 0.35062250237791737,
-        "under25": 0.6493774976220826
+        "over25": 0.34896170752783745,
+        "under25": 0.6510382924721625
       },
       "ambosMarcam": {
-        "sim": 0.2708735844722813,
-        "nao": 0.7291264155277187
+        "sim": 0.2702841682574688,
+        "nao": 0.7297158317425312
       },
       "placarProvavel": "1-0",
       "explicacao": {
-        "forcaAtaqueCasa": 1.06,
+        "forcaAtaqueCasa": 1.05,
         "forcaDefesaCasa": 0.4,
         "forcaAtaqueFora": 0.98,
-        "forcaDefesaFora": 1.25,
+        "forcaDefesaFora": 1.24,
         "jogosConsiderados": {
           "casa": 10,
           "fora": 9
@@ -1594,23 +1594,23 @@
       "round": "Rodada 20",
       "lambdaHome": 0.82,
       "lambdaAway": 1.45,
-      "golsEsperados": 2.26,
+      "golsEsperados": 2.27,
       "resultado": {
-        "casa": 0.21231618460912333,
-        "empate": 0.26842860051687595,
-        "fora": 0.5192552148740011
+        "casa": 0.21161470670383759,
+        "empate": 0.26804969726121775,
+        "fora": 0.5203355960349446
       },
       "gols": {
-        "over25": 0.3940875390987331,
-        "under25": 0.6059124609012668
+        "over25": 0.39469460521062366,
+        "under25": 0.6053053947893764
       },
       "ambosMarcam": {
-        "sim": 0.42680811488021553,
-        "nao": 0.5731918851197845
+        "sim": 0.42692343897960866,
+        "nao": 0.5730765610203914
       },
       "placarProvavel": "0-1",
       "explicacao": {
-        "forcaAtaqueCasa": 0.7,
+        "forcaAtaqueCasa": 0.69,
         "forcaDefesaCasa": 1.43,
         "forcaAtaqueFora": 0.98,
         "forcaDefesaFora": 0.91,
@@ -1629,25 +1629,25 @@
       "round": "Rodada 20",
       "lambdaHome": 1.34,
       "lambdaAway": 0.74,
-      "golsEsperados": 2.08,
+      "golsEsperados": 2.07,
       "resultado": {
-        "casa": 0.5108167746280878,
-        "empate": 0.28323085428715666,
-        "fora": 0.20595237108475567
+        "casa": 0.5096334190737466,
+        "empate": 0.283695061937655,
+        "fora": 0.2066715189885982
       },
       "gols": {
-        "over25": 0.34425057427004335,
-        "under25": 0.6557494257299565
+        "over25": 0.34350714350133993,
+        "under25": 0.6564928564986601
       },
       "ambosMarcam": {
-        "sim": 0.38514815877077446,
-        "nao": 0.6148518412292254
+        "sim": 0.384929826649689,
+        "nao": 0.615070173350311
       },
       "placarProvavel": "1-0",
       "explicacao": {
         "forcaAtaqueCasa": 1.3,
         "forcaDefesaCasa": 0.91,
-        "forcaAtaqueFora": 0.78,
+        "forcaAtaqueFora": 0.79,
         "forcaDefesaFora": 0.8,
         "jogosConsiderados": {
           "casa": 9,

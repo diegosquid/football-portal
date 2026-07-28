@@ -1,66 +1,6 @@
 {
-  "updatedAt": "2026-07-27T13:13:00-03:00",
+  "updatedAt": "2026-07-28T09:15:00-03:00",
   "games": [
-    {
-      "date": "2026-07-27",
-      "time": "19:00",
-      "home": "Bahia",
-      "away": "Botafogo",
-      "competition": "Brasileirão Feminino A1",
-      "round": "Rodada 13",
-      "channel": "N Sports",
-      "stadium": "Arena Cajueiro, Feira de Santana"
-    },
-    {
-      "date": "2026-07-27",
-      "time": "19:30",
-      "home": "Atlético Goianiense",
-      "away": "Operário PR",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 20",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio Antônio Accioly, Goiânia"
-    },
-    {
-      "date": "2026-07-27",
-      "time": "19:30",
-      "home": "CRB",
-      "away": "Vila Nova",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 20",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio Rei Pelé, Maceió"
-    },
-    {
-      "date": "2026-07-27",
-      "time": "19:30",
-      "home": "Sport",
-      "away": "Cuiabá",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 20",
-      "channel": "ESPN / Disney+",
-      "stadium": "Ilha do Retiro, Recife"
-    },
-    {
-      "date": "2026-07-27",
-      "time": "20:00",
-      "home": "Floresta",
-      "away": "Maringá",
-      "competition": "Brasileirão Série C",
-      "round": "Rodada 15",
-      "channel": "SportyNet",
-      "stadium": "Estádio Presidente Vargas, Fortaleza"
-    },
-    {
-      "date": "2026-07-27",
-      "time": "20:00",
-      "home": "Guarani",
-      "away": "Inter de Limeira",
-      "competition": "Brasileirão Série C",
-      "round": "Rodada 15",
-      "channel": "SportyNet / Canal do Benja",
-      "stadium": ""
-    },
     {
       "date": "2026-07-28",
       "time": "19:30",
@@ -68,7 +8,7 @@
       "away": "Avaí",
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
-      "channel": "A definir",
+      "channel": "ESPN / Disney+ / SportyNet / X Sports",
       "stadium": "Estádio Alfredo Jaconi, Caxias do Sul"
     },
     {
@@ -78,7 +18,7 @@
       "away": "Athletic",
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
-      "channel": "A definir",
+      "channel": "ESPN / Disney+",
       "stadium": "Estádio Moisés Lucarelli, Campinas"
     },
     {
@@ -98,7 +38,7 @@
       "away": "Botafogo-SP",
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
-      "channel": "A definir",
+      "channel": "RedeTV / SportyNet / ESPN / Disney+",
       "stadium": "Arena Castelão, Fortaleza"
     },
     {
@@ -128,7 +68,7 @@
       "away": "Remo",
       "competition": "Brasileirão Série A",
       "round": "Rodada 21",
-      "channel": "A definir",
+      "channel": "Premiere",
       "stadium": "Estádio José Maria de Campos Maia, Mirassol"
     },
     {
@@ -148,7 +88,7 @@
       "away": "Bahia",
       "competition": "Brasileirão Série A",
       "round": "Rodada 21",
-      "channel": "A definir",
+      "channel": "Globo / Premiere",
       "stadium": "Maracanã, Rio de Janeiro"
     },
     {
@@ -158,7 +98,7 @@
       "away": "Palmeiras",
       "competition": "Brasileirão Série A",
       "round": "Rodada 21",
-      "channel": "A definir",
+      "channel": "Globo / GeTV / Premiere",
       "stadium": "Estádio Manoel Barradas, Salvador"
     },
     {
@@ -188,7 +128,7 @@
       "away": "Cruzeiro",
       "competition": "Brasileirão Série A",
       "round": "Rodada 21",
-      "channel": "A definir",
+      "channel": "SporTV / Premiere",
       "stadium": "Estádio Couto Pereira, Curitiba"
     }
   ]

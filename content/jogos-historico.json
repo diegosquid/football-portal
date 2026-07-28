@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-27T13:13:00-03:00",
+  "updatedAt": "2026-07-28T09:15:00-03:00",
   "games": [
     {
       "date": "2026-07-24",
@@ -458,7 +458,7 @@
       "away": "Athletic",
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
-      "channel": "A definir",
+      "channel": "ESPN / Disney+",
       "stadium": "Estádio Moisés Lucarelli, Campinas"
     },
     {
@@ -468,7 +468,7 @@
       "away": "Avaí",
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
-      "channel": "A definir",
+      "channel": "ESPN / Disney+ / SportyNet / X Sports",
       "stadium": "Estádio Alfredo Jaconi, Caxias do Sul"
     },
     {
@@ -488,7 +488,7 @@
       "away": "Botafogo-SP",
       "competition": "Brasileirão Série B",
       "round": "Rodada 20",
-      "channel": "A definir",
+      "channel": "RedeTV / SportyNet / ESPN / Disney+",
       "stadium": "Arena Castelão, Fortaleza"
     },
     {
@@ -518,7 +518,7 @@
       "away": "Remo",
       "competition": "Brasileirão Série A",
       "round": "Rodada 21",
-      "channel": "A definir",
+      "channel": "Premiere",
       "stadium": "Estádio José Maria de Campos Maia, Mirassol"
     },
     {
@@ -528,7 +528,7 @@
       "away": "Bahia",
       "competition": "Brasileirão Série A",
       "round": "Rodada 21",
-      "channel": "A definir",
+      "channel": "Globo / Premiere",
       "stadium": "Maracanã, Rio de Janeiro"
     },
     {
@@ -538,7 +538,7 @@
       "away": "Palmeiras",
       "competition": "Brasileirão Série A",
       "round": "Rodada 21",
-      "channel": "A definir",
+      "channel": "Globo / GeTV / Premiere",
       "stadium": "Estádio Manoel Barradas, Salvador"
     },
     {
@@ -578,7 +578,7 @@
       "away": "Cruzeiro",
       "competition": "Brasileirão Série A",
       "round": "Rodada 21",
-      "channel": "A definir",
+      "channel": "SporTV / Premiere",
       "stadium": "Estádio Couto Pereira, Curitiba"
     }
   ]
