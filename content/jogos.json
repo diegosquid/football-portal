@@ -1,46 +1,6 @@
 {
-  "updatedAt": "2026-07-28T12:00:00-03:00",
+  "updatedAt": "2026-07-29T09:34:00-03:00",
   "games": [
-    {
-      "date": "2026-07-28",
-      "time": "19:30",
-      "home": "Juventude",
-      "away": "Avaí",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 20",
-      "channel": "ESPN / Disney+ / SportyNet / X Sports",
-      "stadium": "Estádio Alfredo Jaconi, Caxias do Sul"
-    },
-    {
-      "date": "2026-07-28",
-      "time": "19:30",
-      "home": "Ponte Preta",
-      "away": "Athletic",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 20",
-      "channel": "ESPN / Disney+",
-      "stadium": "Estádio Moisés Lucarelli, Campinas"
-    },
-    {
-      "date": "2026-07-28",
-      "time": "21:30",
-      "home": "Santos",
-      "away": "Universidad Central",
-      "competition": "Sul-Americana",
-      "round": "Playoffs (Volta)",
-      "channel": "SBT / ESPN / Disney+",
-      "stadium": "Vila Belmiro, Santos"
-    },
-    {
-      "date": "2026-07-28",
-      "time": "21:35",
-      "home": "Fortaleza",
-      "away": "Botafogo-SP",
-      "competition": "Brasileirão Série B",
-      "round": "Rodada 20",
-      "channel": "RedeTV / SportyNet / ESPN / Disney+",
-      "stadium": "Arena Castelão, Fortaleza"
-    },
     {
       "date": "2026-07-29",
       "time": "19:00",
@@ -160,6 +120,46 @@
       "round": "Oitavas de Final (Ida)",
       "channel": "SporTV / Premiere",
       "stadium": "Vila Belmiro, Santos"
+    },
+    {
+      "date": "2026-08-02",
+      "time": "16:00",
+      "home": "Palmeiras",
+      "away": "Fortaleza",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Ida)",
+      "channel": "Globo / SporTV / Premiere / Amazon Prime Video",
+      "stadium": "Allianz Parque, São Paulo"
+    },
+    {
+      "date": "2026-08-02",
+      "time": "18:00",
+      "home": "Mirassol",
+      "away": "Grêmio",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Ida)",
+      "channel": "Amazon Prime Video",
+      "stadium": "Estádio José Maria de Campos Maia, Mirassol"
+    },
+    {
+      "date": "2026-08-02",
+      "time": "18:30",
+      "home": "Chapecoense",
+      "away": "Cruzeiro",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Ida)",
+      "channel": "SporTV / Premiere",
+      "stadium": "Arena Condá, Chapecó"
+    },
+    {
+      "date": "2026-08-02",
+      "time": "19:30",
+      "home": "Internacional",
+      "away": "Corinthians",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Ida)",
+      "channel": "Amazon Prime Video",
+      "stadium": "Beira-Rio, Porto Alegre"
     }
   ]
 }
