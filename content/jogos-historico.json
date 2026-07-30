@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-29T13:12:00-03:00",
+  "updatedAt": "2026-07-30T07:08:00-03:00",
   "games": [
     {
       "date": "2026-07-24",
@@ -582,6 +582,26 @@
       "stadium": "Estádio Couto Pereira, Curitiba"
     },
     {
+      "date": "2026-07-30",
+      "time": "21:30",
+      "home": "O'Higgins",
+      "away": "Boca Juniors",
+      "competition": "Sul-Americana",
+      "round": "Playoffs (Volta)",
+      "channel": "ESPN / Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-07-30",
+      "time": "21:30",
+      "home": "Caracas",
+      "away": "Independiente Santa Fe",
+      "competition": "Sul-Americana",
+      "round": "Playoffs (Volta)",
+      "channel": "Paramount+",
+      "stadium": ""
+    },
+    {
       "date": "2026-08-01",
       "time": "17:30",
       "home": "Vasco",
@@ -650,6 +670,16 @@
       "round": "Oitavas de Final (Ida)",
       "channel": "Amazon Prime Video",
       "stadium": "Beira-Rio, Porto Alegre"
+    },
+    {
+      "date": "2026-08-03",
+      "time": "21:00",
+      "home": "Athletico-PR",
+      "away": "Vitória",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Ida)",
+      "channel": "SporTV / Premiere / GeTV",
+      "stadium": "Ligga Arena, Curitiba"
     }
   ]
 }

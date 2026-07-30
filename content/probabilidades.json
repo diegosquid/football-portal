@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-29T16:12:31.762Z",
+  "generatedAt": "2026-07-30T10:16:37.542Z",
   "source": "apifootball.com",
   "model": "poisson-v1",
   "disclaimer": "Estimativas estatísticas de modelo próprio. Não são garantia de resultado.",
   "leagueAverages": {
     "Brasileirão Série A": {
-      "golsCasa": 1.51,
+      "golsCasa": 1.5,
       "golsFora": 1.11
     },
     "Copa do Brasil": {
@@ -32,18 +32,18 @@
   "teamStrengths": {
     "Brasileirão Série A": [
       {
-        "time": "Flamengo RJ",
-        "jogos": 19,
-        "ataque": 1.32,
-        "defesa": 0.8,
-        "saldo": 0.52
+        "time": "Palmeiras",
+        "jogos": 21,
+        "ataque": 1.29,
+        "defesa": 0.73,
+        "saldo": 0.56
       },
       {
-        "time": "Palmeiras",
+        "time": "Flamengo RJ",
         "jogos": 20,
-        "ataque": 1.22,
-        "defesa": 0.75,
-        "saldo": 0.47
+        "ataque": 1.3,
+        "defesa": 0.8,
+        "saldo": 0.5
       },
       {
         "time": "Athletico-PR",
@@ -61,17 +61,17 @@
       },
       {
         "time": "Fluminense",
-        "jogos": 20,
-        "ataque": 1.09,
-        "defesa": 0.97,
-        "saldo": 0.12
+        "jogos": 21,
+        "ataque": 1.06,
+        "defesa": 0.94,
+        "saldo": 0.11
       },
       {
         "time": "Bahia",
-        "jogos": 20,
-        "ataque": 1.07,
-        "defesa": 0.98,
-        "saldo": 0.1
+        "jogos": 21,
+        "ataque": 1.04,
+        "defesa": 0.94,
+        "saldo": 0.09
       },
       {
         "time": "Sao Paulo",
@@ -99,7 +99,7 @@
         "jogos": 20,
         "ataque": 0.98,
         "defesa": 1,
-        "saldo": -0.03
+        "saldo": -0.02
       },
       {
         "time": "Coritiba",
@@ -109,17 +109,10 @@
         "saldo": -0.03
       },
       {
-        "time": "Vitoria",
-        "jogos": 20,
-        "ataque": 0.89,
-        "defesa": 0.93,
-        "saldo": -0.04
-      },
-      {
         "time": "Internacional",
-        "jogos": 20,
-        "ataque": 0.9,
-        "defesa": 1,
+        "jogos": 21,
+        "ataque": 0.89,
+        "defesa": 0.99,
         "saldo": -0.1
       },
       {
@@ -133,8 +126,15 @@
         "time": "Cruzeiro",
         "jogos": 20,
         "ataque": 0.99,
-        "defesa": 1.1,
+        "defesa": 1.11,
         "saldo": -0.12
+      },
+      {
+        "time": "Mirassol",
+        "jogos": 20,
+        "ataque": 0.9,
+        "defesa": 1.03,
+        "saldo": -0.13
       },
       {
         "time": "Gremio",
@@ -144,15 +144,15 @@
         "saldo": -0.14
       },
       {
-        "time": "Mirassol",
-        "jogos": 19,
-        "ataque": 0.89,
-        "defesa": 1.04,
-        "saldo": -0.15
+        "time": "Vitoria",
+        "jogos": 21,
+        "ataque": 0.85,
+        "defesa": 1.03,
+        "saldo": -0.18
       },
       {
         "time": "Remo",
-        "jogos": 20,
+        "jogos": 21,
         "ataque": 0.92,
         "defesa": 1.13,
         "saldo": -0.21
@@ -1984,146 +1984,6 @@
   },
   "predictions": [
     {
-      "date": "2026-07-29",
-      "time": "19:30",
-      "home": "Internacional",
-      "away": "Flamengo",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 21",
-      "lambdaHome": 0.95,
-      "lambdaAway": 1.63,
-      "golsEsperados": 2.58,
-      "resultado": {
-        "casa": 0.22024513939840204,
-        "empate": 0.24718308625502516,
-        "fora": 0.5325717743465727
-      },
-      "gols": {
-        "over25": 0.4769904002009628,
-        "under25": 0.5230095997990373
-      },
-      "ambosMarcam": {
-        "sim": 0.49371367098652424,
-        "nao": 0.5062863290134757
-      },
-      "placarProvavel": "0-1",
-      "explicacao": {
-        "forcaAtaqueCasa": 0.86,
-        "forcaDefesaCasa": 1,
-        "forcaAtaqueFora": 1.48,
-        "forcaDefesaFora": 0.73,
-        "jogosConsiderados": {
-          "casa": 10,
-          "fora": 10
-        }
-      }
-    },
-    {
-      "date": "2026-07-29",
-      "time": "19:30",
-      "home": "Mirassol",
-      "away": "Remo",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 21",
-      "lambdaHome": 1.73,
-      "lambdaAway": 1.09,
-      "golsEsperados": 2.82,
-      "resultado": {
-        "casa": 0.5215662885659539,
-        "empate": 0.23787351183846836,
-        "fora": 0.2405601995955772
-      },
-      "gols": {
-        "over25": 0.5352845063579684,
-        "under25": 0.4647154936420316
-      },
-      "ambosMarcam": {
-        "sim": 0.546752536511581,
-        "nao": 0.45324746348841904
-      },
-      "placarProvavel": "1-1",
-      "explicacao": {
-        "forcaAtaqueCasa": 0.91,
-        "forcaDefesaCasa": 1.06,
-        "forcaAtaqueFora": 0.94,
-        "forcaDefesaFora": 1.26,
-        "jogosConsiderados": {
-          "casa": 10,
-          "fora": 10
-        }
-      }
-    },
-    {
-      "date": "2026-07-29",
-      "time": "21:30",
-      "home": "Fluminense",
-      "away": "Bahia",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 21",
-      "lambdaHome": 1.74,
-      "lambdaAway": 1.25,
-      "golsEsperados": 2.98,
-      "resultado": {
-        "casa": 0.488481516580558,
-        "empate": 0.23601762392246475,
-        "fora": 0.27550085949697795
-      },
-      "gols": {
-        "over25": 0.5730183262960561,
-        "under25": 0.4269816737039439
-      },
-      "ambosMarcam": {
-        "sim": 0.5871558704487337,
-        "nao": 0.4128441295512663
-      },
-      "placarProvavel": "1-1",
-      "explicacao": {
-        "forcaAtaqueCasa": 1.13,
-        "forcaDefesaCasa": 1,
-        "forcaAtaqueFora": 1.13,
-        "forcaDefesaFora": 1.02,
-        "jogosConsiderados": {
-          "casa": 10,
-          "fora": 9
-        }
-      }
-    },
-    {
-      "date": "2026-07-29",
-      "time": "21:30",
-      "home": "Vitória",
-      "away": "Palmeiras",
-      "competition": "Brasileirão Série A",
-      "round": "Rodada 21",
-      "lambdaHome": 1.11,
-      "lambdaAway": 0.83,
-      "golsEsperados": 1.93,
-      "resultado": {
-        "casa": 0.4182238145484147,
-        "empate": 0.3106384707097471,
-        "fora": 0.2711377147418388
-      },
-      "gols": {
-        "over25": 0.3051821796703387,
-        "under25": 0.6948178203296613
-      },
-      "ambosMarcam": {
-        "sim": 0.3765155844815874,
-        "nao": 0.6234844155184125
-      },
-      "placarProvavel": "1-0",
-      "explicacao": {
-        "forcaAtaqueCasa": 1.07,
-        "forcaDefesaCasa": 0.55,
-        "forcaAtaqueFora": 1.36,
-        "forcaDefesaFora": 0.69,
-        "jogosConsiderados": {
-          "casa": 9,
-          "fora": 10
-        }
-      }
-    },
-    {
       "date": "2026-07-30",
       "time": "19:30",
       "home": "Corinthians",
@@ -2134,24 +1994,24 @@
       "lambdaAway": 0.85,
       "golsEsperados": 2.11,
       "resultado": {
-        "casa": 0.46178497314325945,
-        "empate": 0.2896319342846421,
-        "fora": 0.24858309257209846
+        "casa": 0.4630052292744407,
+        "empate": 0.2892968749725896,
+        "fora": 0.24769789575296958
       },
       "gols": {
-        "over25": 0.3538593461794443,
-        "under25": 0.6461406538205557
+        "over25": 0.35437176810799226,
+        "under25": 0.6456282318920077
       },
       "ambosMarcam": {
-        "sim": 0.4101344209811567,
-        "nao": 0.5898655790188432
+        "sim": 0.41025622093236724,
+        "nao": 0.5897437790676326
       },
       "placarProvavel": "1-0",
       "explicacao": {
-        "forcaAtaqueCasa": 0.86,
-        "forcaDefesaCasa": 0.82,
-        "forcaAtaqueFora": 0.94,
-        "forcaDefesaFora": 0.97,
+        "forcaAtaqueCasa": 0.87,
+        "forcaDefesaCasa": 0.81,
+        "forcaAtaqueFora": 0.93,
+        "forcaDefesaFora": 0.98,
         "jogosConsiderados": {
           "casa": 10,
           "fora": 9
@@ -2169,24 +2029,24 @@
       "lambdaAway": 1.18,
       "golsEsperados": 2.72,
       "resultado": {
-        "casa": 0.4546046655192517,
-        "empate": 0.2523319645860443,
-        "fora": 0.2930633698947043
+        "casa": 0.4562941460246072,
+        "empate": 0.252051984826683,
+        "fora": 0.2916538691487097
       },
       "gols": {
-        "over25": 0.5118377231038892,
-        "under25": 0.4881622768961108
+        "over25": 0.5122904535609522,
+        "under25": 0.4877095464390479
       },
       "ambosMarcam": {
-        "sim": 0.5449695391745968,
-        "nao": 0.45503046082540327
+        "sim": 0.5450111798843504,
+        "nao": 0.45498882011564956
       },
       "placarProvavel": "1-1",
       "explicacao": {
         "forcaAtaqueCasa": 0.88,
-        "forcaDefesaCasa": 1.07,
+        "forcaDefesaCasa": 1.06,
         "forcaAtaqueFora": 1,
-        "forcaDefesaFora": 1.16,
+        "forcaDefesaFora": 1.17,
         "jogosConsiderados": {
           "casa": 9,
           "fora": 9
@@ -2432,6 +2292,41 @@
         "forcaDefesaCasa": 1.17,
         "forcaAtaqueFora": 1,
         "forcaDefesaFora": 0.83,
+        "jogosConsiderados": {
+          "casa": 1,
+          "fora": 1
+        }
+      }
+    },
+    {
+      "date": "2026-08-03",
+      "time": "21:00",
+      "home": "Athletico-PR",
+      "away": "Vitória",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Ida)",
+      "lambdaHome": 1.29,
+      "lambdaAway": 0.83,
+      "golsEsperados": 2.13,
+      "resultado": {
+        "casa": 0.4728567521342595,
+        "empate": 0.2868088922224316,
+        "fora": 0.2403343556433087
+      },
+      "gols": {
+        "over25": 0.3575576046130234,
+        "under25": 0.6424423953869767
+      },
+      "ambosMarcam": {
+        "sim": 0.4102774018618697,
+        "nao": 0.5897225981381303
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.83,
+        "forcaDefesaCasa": 0.83,
+        "forcaAtaqueFora": 1,
+        "forcaDefesaFora": 1.06,
         "jogosConsiderados": {
           "casa": 1,
           "fora": 1
