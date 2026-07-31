@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-31T07:13:00-03:00",
+  "updatedAt": "2026-07-31T13:15:00-03:00",
   "games": [
     {
       "date": "2026-07-24",
@@ -678,7 +678,7 @@
       "away": "Cruzeiro",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Ida)",
-      "channel": "SporTV / Premiere",
+      "channel": "Globo / SporTV / Premiere",
       "stadium": "Arena Condá, Chapecó"
     },
     {
@@ -698,7 +698,7 @@
       "away": "Vitória",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Ida)",
-      "channel": "SporTV / Premiere / GeTV",
+      "channel": "SporTV / Premiere",
       "stadium": "Ligga Arena, Curitiba"
     },
     {
@@ -708,7 +708,7 @@
       "away": "Atlético-MG",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "channel": "Amazon Prime Video",
+      "channel": "SporTV / Premiere",
       "stadium": "Alfredo Jaconi, Caxias do Sul"
     },
     {
