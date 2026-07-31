@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-30T16:12:56.247Z",
+  "updatedAt": "2026-07-31T10:14:16.187Z",
   "predictions": [
     {
       "date": "2026-07-24",
@@ -2139,6 +2139,76 @@
         "forcaDefesaCasa": 0.83,
         "forcaAtaqueFora": 1,
         "forcaDefesaFora": 1.06,
+        "jogosConsiderados": {
+          "casa": 1,
+          "fora": 1
+        }
+      }
+    },
+    {
+      "date": "2026-08-04",
+      "time": "19:30",
+      "home": "Juventude",
+      "away": "Atlético-MG",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Volta)",
+      "lambdaHome": 2.29,
+      "lambdaAway": 0.75,
+      "golsEsperados": 3.04,
+      "resultado": {
+        "casa": 0.7210443524821389,
+        "empate": 0.17287662359618555,
+        "fora": 0.10607902392167554
+      },
+      "gols": {
+        "over25": 0.5854740506166054,
+        "under25": 0.4145259493833946
+      },
+      "ambosMarcam": {
+        "sim": 0.47414575518303054,
+        "nao": 0.5258542448169694
+      },
+      "placarProvavel": "2-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.57,
+        "forcaDefesaCasa": 0.75,
+        "forcaAtaqueFora": 1,
+        "forcaDefesaFora": 1,
+        "jogosConsiderados": {
+          "casa": 3,
+          "fora": 0
+        }
+      }
+    },
+    {
+      "date": "2026-08-04",
+      "time": "21:30",
+      "home": "Remo",
+      "away": "Santos",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Volta)",
+      "lambdaHome": 1.29,
+      "lambdaAway": 1.17,
+      "golsEsperados": 2.46,
+      "resultado": {
+        "casa": 0.39439745351526,
+        "empate": 0.27194709296931147,
+        "fora": 0.33365545351542886
+      },
+      "gols": {
+        "over25": 0.4458797196854499,
+        "under25": 0.5541202803145501
+      },
+      "ambosMarcam": {
+        "sim": 0.4996724361387565,
+        "nao": 0.5003275638612434
+      },
+      "placarProvavel": "1-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.06,
+        "forcaDefesaCasa": 1,
+        "forcaAtaqueFora": 1.17,
+        "forcaDefesaFora": 0.83,
         "jogosConsiderados": {
           "casa": 1,
           "fora": 1

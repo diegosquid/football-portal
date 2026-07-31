@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-30T13:12:00-03:00",
+  "updatedAt": "2026-07-31T07:13:00-03:00",
   "games": [
     {
       "date": "2026-07-24",
@@ -700,6 +700,26 @@
       "round": "Oitavas de Final (Ida)",
       "channel": "SporTV / Premiere / GeTV",
       "stadium": "Ligga Arena, Curitiba"
+    },
+    {
+      "date": "2026-08-04",
+      "time": "19:30",
+      "home": "Juventude",
+      "away": "Atlético-MG",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Volta)",
+      "channel": "Amazon Prime Video",
+      "stadium": "Alfredo Jaconi, Caxias do Sul"
+    },
+    {
+      "date": "2026-08-04",
+      "time": "21:30",
+      "home": "Remo",
+      "away": "Santos",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Volta)",
+      "channel": "SporTV / Premiere",
+      "stadium": "Mangueirão, Belém"
     }
   ]
 }
