@@ -26,8 +26,8 @@ export function standingsRoute(slug: string) {
     );
   }
 
-  function generateMetadata(): Metadata {
-    const table = getStandingsTable(slug);
+  async function generateMetadata(): Promise<Metadata> {
+    const table = await getStandingsTable(slug);
     const season = table?.season ?? String(new Date().getFullYear());
     const round = table ? ` — ${table.roundsPlayed}ª rodada` : "";
     const leader = table?.rows[0];
@@ -54,14 +54,17 @@ export function standingsRoute(slug: string) {
     };
   }
 
-  function Page() {
-    const table = getStandingsTable(slug);
+  async function Page() {
+    const [table, data] = await Promise.all([
+      getStandingsTable(slug),
+      getStandingsData(),
+    ]);
     if (!table) notFound();
     return (
       <StandingsLanding
         table={table}
         copy={copy!}
-        generatedAt={getStandingsData()?.generatedAt}
+        generatedAt={data?.generatedAt}
       />
     );
   }

@@ -50,20 +50,19 @@ export default async function Image({ params }: Props) {
   const comp = getCompetition(slug);
   const team = comp ? undefined : getTeam(slug);
 
-  const todayGames = getTodayMatches().filter((g) =>
+  const [allToday, allUpcoming] = await Promise.all([
+    getTodayMatches(),
+    getUpcomingMatches(),
+  ]);
+  const belongs = (g: Match) =>
     comp
       ? competitionHasGame(comp, g.competition)
       : team
         ? teamPlaysInGame(team.slug, g.home, g.away)
-        : false,
-  );
-  const upcoming = getUpcomingMatches().filter((g) =>
-    comp
-      ? competitionHasGame(comp, g.competition)
-      : team
-        ? teamPlaysInGame(team.slug, g.home, g.away)
-        : false,
-  );
+        : false;
+
+  const todayGames = allToday.filter(belongs);
+  const upcoming = allUpcoming.filter(belongs);
 
   const title = comp
     ? `Jogos ${compDo(comp)} Hoje`

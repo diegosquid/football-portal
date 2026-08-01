@@ -1095,7 +1095,7 @@ A chave fica em `public/fb687149f8edf99c2848836359af6927.txt` (não mexer).
 Apos o push, o agente DEVE postar uma thread no Twitter/X com o formato nativo:
 
 ```bash
-# 1. Aguardar deploy no Vercel (5 minutos)
+# 1. Aguardar deploy na Netlify (5 minutos)
 sleep 300
 
 # 2. Postar thread
@@ -1189,6 +1189,10 @@ SE existe jogo que TERMINOU (hora_atual >= hora_jogo + 2h):
 
 A pagina `/jogos-futebol-hoje` (hoje) e as paginas `/onde-assistir/[slug]` (hoje + 4 dias a frente) leem **`content/jogos.json`**. Cobrimos **janela movel de 5 dias** — o SEO das paginas "onde assistir" depende de elas existirem ANTES da semana do jogo para o Google indexar.
 
+> **Como o dado chega no site (mudou):** o Next le esses JSONs do **R2 em
+> runtime**, nao do bundle do deploy. Publicar = `node scripts/publish-data.js`.
+> Nao existe mais "commitar e esperar o build". Ver passos 8 e 9 abaixo.
+
 **Quando atualizar:**
 - Slot 07:00-08:00 BRT: OBRIGATORIO. Refresh completo da janela.
 - Slot 13:00-14:00 BRT: SE houver jogos tarde/noite ou mudancas anunciadas.
@@ -1234,7 +1238,31 @@ node scripts/build-probabilities.js && node scripts/build-standings.js
    - `build-standings.js` → `content/classificacao.json` (tabelas da Serie A, B e C + chances de titulo/acesso/rebaixamento). Alimenta `/tabela-do-brasileirao`, `/tabela-do-brasileirao-serie-b`, `/tabela-do-brasileirao-serie-c` e o hub `/tabela`. Leva ~5s. Se a API nao responder, o arquivo antigo continua servindo a pagina — nao commitar arquivo vazio.
    - A temporada e derivada do ano corrente. Na virada do ano, se o calendario nao bater com o ano civil, forcar com `node scripts/build-standings.js --season 2027`.
 
-8. Commit: `git add content/jogos.json content/probabilidades.json content/classificacao.json && git commit -m "data(jogos): atualiza janela proximos 5 dias"`.
+8. **Publicar no R2 — este passo E a publicacao. NAO commitar, NAO fazer push.**
+
+```bash
+node scripts/publish-data.js
+```
+
+   O site le esses JSONs do R2 em runtime (`src/lib/content-data.ts`). Subir o
+   arquivo ja coloca o dado no ar: as paginas tem `revalidate = 900` e pegam a
+   versao nova em ate 15 min, **sem build e sem deploy**.
+
+   O script valida o JSON antes de subir — arquivo quebrado nao vai pro ar.
+
+9. Commit **local**, sem push — o arquivo fica versionado como fallback e
+   historico, mas nao dispara build na Netlify:
+
+```bash
+git add content/jogos.json content/probabilidades.json content/classificacao.json
+git commit -m "data(jogos): atualiza janela proximos 5 dias"
+```
+
+   > **NAO rodar `git push` aqui.** Antes, cada atualizacao de dado virava um
+   > build completo (~56/mes) e estourava os 300 min/mes do free tier da
+   > Netlify. O push desses arquivos so acontece de carona no proximo commit de
+   > codigo. Se precisar que o dado entre no ar agora, ele ja entrou: o passo 8
+   > publicou.
 
 **Prioridade de competicoes (cobrir nesta ordem):**
 1. Brasileirao (A, B, C)

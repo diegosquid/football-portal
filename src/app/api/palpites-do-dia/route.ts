@@ -17,7 +17,7 @@ export const revalidate = 900; // 15 min
  * que o conteúdo mostrado esteja sempre fresco.
  */
 export async function GET() {
-  const data = getProbabilitiesData();
+  const data = await getProbabilitiesData();
   const today = getTodayBRT();
   const jogosHoje = (data?.predictions ?? []).filter((p) => p.date === today);
 

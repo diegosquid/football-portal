@@ -12,6 +12,7 @@
     "youtube:upload": "node scripts/upload-youtube-short.js",
     "daily-recap:render": "node scripts/render-daily-recap.js",
     "matches:archive": "node scripts/archive-matches.js",
+    "data:publish": "node scripts/publish-data.js",
     "probabilities:build": "node scripts/build-probabilities.js",
     "standings:build": "node scripts/build-standings.js",
     "indexnow": "node scripts/indexnow.js",

@@ -1,5 +1,4 @@
-import { readFileSync } from "fs";
-import { join } from "path";
+import { loadData } from "./content-data";
 
 export interface Game {
   date: string; // YYYY-MM-DD (BRT)
@@ -22,24 +21,16 @@ export interface Match extends Game {
   startDateIso: string;
 }
 
-function getSchedule(): ScheduleData {
-  const filePath = join(process.cwd(), "content", "jogos.json");
-  const raw = readFileSync(filePath, "utf-8");
-  return JSON.parse(raw) as ScheduleData;
+const EMPTY_SCHEDULE: ScheduleData = { updatedAt: "", games: [] };
+
+async function getSchedule(): Promise<ScheduleData> {
+  return (await loadData<ScheduleData>("jogos.json")) ?? EMPTY_SCHEDULE;
 }
 
-function getScheduleHistory(): ScheduleData {
-  try {
-    const filePath = join(
-      process.cwd(),
-      "content",
-      "jogos-historico.json",
-    );
-    const raw = readFileSync(filePath, "utf-8");
-    return JSON.parse(raw) as ScheduleData;
-  } catch {
-    return { updatedAt: getSchedule().updatedAt, games: [] };
-  }
+async function getScheduleHistory(): Promise<ScheduleData> {
+  return (
+    (await loadData<ScheduleData>("jogos-historico.json")) ?? EMPTY_SCHEDULE
+  );
 }
 
 function slugifyTeam(name: string): string {
@@ -92,9 +83,9 @@ export function getTodayBRT(): string {
  * - Inclui jogos futuros
  * - Exclui jogos de dias passados (lixo residual)
  */
-export function getAllMatches(): Match[] {
+export async function getAllMatches(): Promise<Match[]> {
   const today = getTodayBRT();
-  const schedule = getSchedule();
+  const schedule = await getSchedule();
   return dedupeMatches(
     schedule.games.filter((g) => g.date >= today).map(toMatch),
   );
@@ -104,9 +95,13 @@ export function getAllMatches(): Match[] {
  * Todos os confrontos conhecidos, inclusive os já realizados.
  * Mantém as páginas individuais estáveis depois que o jogo sai da agenda móvel.
  */
-export function getAllKnownMatches(): Match[] {
-  const current = getSchedule().games.map(toMatch);
-  const historical = getScheduleHistory().games.map(toMatch);
+export async function getAllKnownMatches(): Promise<Match[]> {
+  const [schedule, history] = await Promise.all([
+    getSchedule(),
+    getScheduleHistory(),
+  ]);
+  const current = schedule.games.map(toMatch);
+  const historical = history.games.map(toMatch);
   return dedupeMatches([...current, ...historical]).sort((a, b) =>
     a.date === b.date
       ? a.time.localeCompare(b.time)
@@ -115,9 +110,9 @@ export function getAllKnownMatches(): Match[] {
 }
 
 /** Só jogos de HOJE (BRT) — para o TV-guide /jogos-futebol-hoje. */
-export function getTodayMatches(): Match[] {
+export async function getTodayMatches(): Promise<Match[]> {
   const today = getTodayBRT();
-  return getAllMatches().filter((m) => m.date === today);
+  return (await getAllMatches()).filter((m) => m.date === today);
 }
 
 /** Soma dias a uma data YYYY-MM-DD no fuso de Brasília. */
@@ -138,19 +133,19 @@ export function getTomorrowBRT(): string {
 }
 
 /** Jogos de uma data específica (YYYY-MM-DD, BRT). */
-export function getMatchesByDate(date: string): Match[] {
-  return getAllMatches().filter((m) => m.date === date);
+export async function getMatchesByDate(date: string): Promise<Match[]> {
+  return (await getAllMatches()).filter((m) => m.date === date);
 }
 
 /** Só jogos de AMANHÃ (BRT) — para a landing /jogos-de-amanha. */
-export function getTomorrowMatches(): Match[] {
+export async function getTomorrowMatches(): Promise<Match[]> {
   return getMatchesByDate(getTomorrowBRT());
 }
 
 /** Jogos futuros da janela (depois de hoje), ordenados por data e horário. */
-export function getUpcomingMatches(): Match[] {
+export async function getUpcomingMatches(): Promise<Match[]> {
   const today = getTodayBRT();
-  return getAllMatches()
+  return (await getAllMatches())
     .filter((m) => m.date > today)
     .sort((a, b) =>
       a.date === b.date ? a.time.localeCompare(b.time) : a.date.localeCompare(b.date),
@@ -173,12 +168,12 @@ export function formatDateLongBR(dateStr: string): string {
   });
 }
 
-export function getMatchBySlug(slug: string): Match | undefined {
-  return getAllKnownMatches().find((m) => m.slug === slug);
+export async function getMatchBySlug(slug: string): Promise<Match | undefined> {
+  return (await getAllKnownMatches()).find((m) => m.slug === slug);
 }
 
-export function getScheduleMeta(): { updatedAt: string } {
-  return { updatedAt: getSchedule().updatedAt };
+export async function getScheduleMeta(): Promise<{ updatedAt: string }> {
+  return { updatedAt: (await getSchedule()).updatedAt };
 }
 
 /** Dias entre hoje (BRT) e a data do jogo. 0 = hoje, 1 = amanhã, etc. */

@@ -46,9 +46,11 @@ function formatUpdatedAt(timestamp?: string): string | null {
   }).format(new Date(timestamp));
 }
 
-export default function MetodologiaDosPalpitesPage() {
-  const current = getProbabilitiesData();
-  const history = getProbabilityHistory();
+export default async function MetodologiaDosPalpitesPage() {
+  const [current, history] = await Promise.all([
+    getProbabilitiesData(),
+    getProbabilityHistory(),
+  ]);
   const metrics = history?.metrics;
   const hasReliableSample = Boolean(
     metrics && metrics.evaluated >= metrics.minimumSample,

@@ -20,9 +20,9 @@ import {
 
 export const revalidate = 900; // 15 min
 
-export function generateMetadata(): Metadata {
+export async function generateMetadata(): Promise<Metadata> {
   const tomorrow = getTomorrowBRT();
-  const games = getTomorrowMatches();
+  const games = await getTomorrowMatches();
   const dateShort = formatDateShortBR(tomorrow);
   const dateLong = formatDateLongBR(tomorrow);
 
@@ -61,9 +61,11 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function JogosDeAmanhaPage() {
-  const games = getTomorrowMatches();
-  const { updatedAt } = getScheduleMeta();
+export default async function JogosDeAmanhaPage() {
+  const [games, { updatedAt }] = await Promise.all([
+    getTomorrowMatches(),
+    getScheduleMeta(),
+  ]);
   const tomorrow = getTomorrowBRT();
   const faq = buildDayFaq(games, "amanhã", tomorrow);
 

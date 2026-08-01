@@ -7,7 +7,7 @@ import {
   FAQPageJsonLd,
 } from "@/components/JsonLd";
 import { getAllTeams, getTeam, teamPlaysInGame } from "@/lib/teams";
-import { getPredictionFor } from "@/lib/probabilities";
+import { getPredictionResolver } from "@/lib/probabilities";
 import { absoluteUrl, siteConfig, truncateForMeta } from "@/lib/site";
 import {
   daysUntil,
@@ -25,8 +25,8 @@ interface Props {
 }
 
 /** Todos os confrontos conhecidos do time, ordenados por data ascendente. */
-function matchesOfTeam(teamSlug: string): Match[] {
-  return getAllKnownMatches()
+async function matchesOfTeam(teamSlug: string): Promise<Match[]> {
+  return (await getAllKnownMatches())
     .filter((m) => teamPlaysInGame(teamSlug, m.home, m.away))
     .sort((a, b) =>
       a.date === b.date
@@ -44,9 +44,12 @@ function splitByDate(matches: Match[]) {
 }
 
 /** Só gera páginas para times que realmente têm jogos na base. */
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const known = await getAllKnownMatches();
   return getAllTeams()
-    .filter((t) => matchesOfTeam(t.slug).length > 0)
+    .filter((t) =>
+      known.some((m) => teamPlaysInGame(t.slug, m.home, m.away)),
+    )
     .map((t) => ({ time: t.slug }));
 }
 
@@ -68,7 +71,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const team = getTeam(time);
   if (!team) return {};
 
-  const { upcoming } = splitByDate(matchesOfTeam(team.slug));
+  const { upcoming } = splitByDate(await matchesOfTeam(team.slug));
   const next = upcoming[0];
 
   const title = `Próximos Jogos do ${team.name}: Calendário, Datas e Horários`;
@@ -109,7 +112,10 @@ export default async function ProximosJogosPage({ params }: Props) {
   const team = getTeam(time);
   if (!team) notFound();
 
-  const all = matchesOfTeam(team.slug);
+  const [all, predictionFor] = await Promise.all([
+    matchesOfTeam(team.slug),
+    getPredictionResolver(),
+  ]);
   if (all.length === 0) notFound();
 
   const { upcoming, past } = splitByDate(all);
@@ -262,7 +268,7 @@ export default async function ProximosJogosPage({ params }: Props) {
             <div className="border border-ink/15 bg-white">
               {upcoming.map((m, idx) => {
                 const { isHome, opponent } = opponentOf(m, team.name);
-                const pred = getPredictionFor(m.home, m.away, m.date);
+                const pred = predictionFor(m.home, m.away, m.date);
                 const teamChance = pred
                   ? Math.round(
                       (isHome ? pred.resultado.casa : pred.resultado.fora) * 100,
@@ -327,7 +333,7 @@ export default async function ProximosJogosPage({ params }: Props) {
             </h2>
             <div className="border border-ink/15 bg-white/40">
               {recentPast.map((m, idx) => {
-                const pred = getPredictionFor(m.home, m.away, m.date);
+                const pred = predictionFor(m.home, m.away, m.date);
                 const score = pred?.actualResult;
                 return (
                   <Link

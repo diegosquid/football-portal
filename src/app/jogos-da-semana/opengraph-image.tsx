@@ -14,7 +14,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
-  const matches = getAllMatches();
+  const matches = await getAllMatches();
   const shown = matches.slice(0, 3);
   const remaining = matches.length - shown.length;
 

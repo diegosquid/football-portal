@@ -142,14 +142,20 @@ function buildTeamFaq(
   return faq;
 }
 
-function CompetitionHojeView({ comp }: { comp: Competition }) {
-  const todayGames = getTodayMatches().filter((g) =>
+async function CompetitionHojeView({ comp }: { comp: Competition }) {
+  const [allToday, allUpcoming, { updatedAt }, compHasStandings] =
+    await Promise.all([
+      getTodayMatches(),
+      getUpcomingMatches(),
+      getScheduleMeta(),
+      hasStandings(comp.slug),
+    ]);
+  const todayGames = allToday.filter((g) =>
     competitionHasGame(comp, g.competition),
   );
-  const upcoming = getUpcomingMatches().filter((g) =>
+  const upcoming = allUpcoming.filter((g) =>
     competitionHasGame(comp, g.competition),
   );
-  const { updatedAt } = getScheduleMeta();
   const today = getTodayBRT();
 
   const relatedArticles = comp.categorySlug
@@ -203,7 +209,7 @@ function CompetitionHojeView({ comp }: { comp: Competition }) {
           .
         </p>
 
-        {hasStandings(comp.slug) && (
+        {compHasStandings && (
           <nav className="mb-8 flex flex-wrap gap-2 text-sm">
             <Link
               href={standingsPath(comp.slug)}
@@ -313,13 +319,17 @@ export default async function TeamHojePage({ params }: Props) {
   const team = getTeam(slug);
   if (!team) notFound();
 
-  const todayGames = getTodayMatches().filter((g) =>
+  const [allToday, allUpcoming, { updatedAt }] = await Promise.all([
+    getTodayMatches(),
+    getUpcomingMatches(),
+    getScheduleMeta(),
+  ]);
+  const todayGames = allToday.filter((g) =>
     teamPlaysInGame(team.slug, g.home, g.away),
   );
-  const upcomingGames = getUpcomingMatches().filter((g) =>
+  const upcomingGames = allUpcoming.filter((g) =>
     teamPlaysInGame(team.slug, g.home, g.away),
   );
-  const { updatedAt } = getScheduleMeta();
   const today = getTodayBRT();
 
   const teamArticles = articles

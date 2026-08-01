@@ -17,10 +17,10 @@ function dayLabel(date: string, today: string): string {
  * Letreiro com os próximos jogos — rola contínuo sob a navegação.
  * Conteúdo duplicado para o loop do marquee (segunda cópia é decorativa).
  */
-export function MatchTicker() {
+export async function MatchTicker() {
   let matches: Match[];
   try {
-    matches = getAllMatches().slice(0, 14);
+    matches = (await getAllMatches()).slice(0, 14);
   } catch {
     return null;
   }
