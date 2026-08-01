@@ -1,4 +1,4 @@
-import { articles } from "#content";
+import { getPublishedArticles } from "@/lib/articles";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
@@ -16,17 +16,15 @@ interface Props {
   params: Promise<{ slug: string; page: string }>;
 }
 
-function getTeamArticles(slug: string) {
-  return articles
-    .filter((a) => a.teams.includes(slug) && !a.draft)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+async function getTeamArticles(slug: string) {
+  return (await getPublishedArticles()).filter((a) => a.teams.includes(slug));
 }
 
 export async function generateStaticParams() {
   const allParams: { slug: string; page: string }[] = [];
 
   for (const team of getAllTeams()) {
-    const teamArticles = getTeamArticles(team.slug);
+    const teamArticles = await getTeamArticles(team.slug);
     const pageNumbers = getPageNumbers(teamArticles.length);
     for (const p of pageNumbers) {
       allParams.push({ slug: team.slug, page: String(p) });
@@ -43,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!team || isNaN(pageNum)) return {};
 
   const basePath = `/time/${slug}`;
-  const teamArticles = getTeamArticles(slug);
+  const teamArticles = await getTeamArticles(slug);
   const result = paginate(teamArticles, pageNum);
   if (!result) return {};
 
@@ -72,7 +70,7 @@ export default async function TeamPaginatedPage({ params }: Props) {
   const team = getTeam(slug);
   if (!team || isNaN(pageNum)) notFound();
 
-  const teamArticles = getTeamArticles(slug);
+  const teamArticles = await getTeamArticles(slug);
   const result = paginate(teamArticles, pageNum);
   if (!result) notFound();
 

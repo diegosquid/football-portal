@@ -144,15 +144,17 @@ EXECUCAO DO CRON (a cada ~2 horas)
 │   ├── Preencher frontmatter completo
 │   └── Rodar checklist pre-publicacao (CONTENT_GUIDELINE.md Secao 10)
 │
-├── PASSO 7: SALVAR E COMMITAR
+├── PASSO 7: SALVAR E PUBLICAR
 │   ├── Nome do arquivo = slug + .mdx
 │   ├── Salvar em content/articles/[slug].mdx
 │   ├── **VERIFICAÇÃO OBRIGATÓRIA: Confirmar que arquivo foi criado**
 │   ├── **Se arquivo não existir → ABORTAR e reportar erro**
+│   ├── node scripts/publish-articles.js "[slug]"   ← ISTO publica (R2, sem build)
+│   ├── **VERIFICAÇÃO: script terminou com "1 artigo(s) publicado(s)"**
+│   ├── node scripts/indexnow.js "..."              ← só DEPOIS de publicar
 │   ├── git add content/articles/[slug].mdx
 │   ├── git commit -m "content: [tipo] - [titulo resumido]"
-│   ├── git push (se configurado)
-│   └── **VERIFICAÇÃO: Confirmar push no GitHub (git log)**
+│   └── **SEM git push** — ver Secao 9.2
 │
 ├── PASSO 8: POSTAR THREAD NO TWITTER [DESABILITADO TEMPORARIAMENTE]
 │   └── ⚠️ DESABILITADO: Foco na verificação da geração de artigos
@@ -1048,14 +1050,28 @@ content/articles/    ← TODOS os MDX ficam aqui, pasta FLAT (sem subpastas)
 
 ### 9.2 Processo de Publicacao
 
+> **MUDOU: publicar NAO passa mais por build.** O site le os artigos do R2 em
+> runtime (`src/lib/articles.ts`). Quem coloca a materia no ar e o passo 2
+> abaixo — nao o `git push`. Antes eram ~190 builds/mes so de artigo, contra os
+> 300 min/mes do plano da Netlify.
+
 ```bash
 # 1. Salvar arquivo
 # Arquivo: content/articles/[slug].mdx
 
-# 2. Stage
-git add content/articles/[slug].mdx
+# 2. PUBLICAR — este passo E a publicacao. Compila o MDX e sobe pro R2.
+#    Ja dispara a revalidacao: a materia entra no ar em segundos.
+node scripts/publish-articles.js "[slug]"
 
-# 3. Commit com mensagem padronizada
+# 3. Notificar IndexNow (Bing/Yandex crawleiam em ~10 min)
+#    DEPOIS do passo 2, nunca antes: se o buscador vier antes de o artigo estar
+#    no R2, ele pega 404 — e esse 404 fica em cache ate a proxima revalidacao.
+#    Nao bloqueia: se falhar, so loga warning.
+node scripts/indexnow.js "https://beiradocampo.com.br/[slug]" || echo "⚠️ IndexNow falhou — seguir mesmo assim"
+
+# 4. Commit LOCAL, sem push — o MDX fica versionado como fonte e fallback,
+#    mas nao dispara build.
+git add content/articles/[slug].mdx
 git commit -m "content([tipo]): [titulo resumido curto]"
 
 # Exemplos:
@@ -1063,14 +1079,18 @@ git commit -m "content([tipo]): [titulo resumido curto]"
 # git commit -m "content(pre-match): Flamengo x Palmeiras - Brasileirao rodada 5"
 # git commit -m "content(transfer-radar): Radar de transferencias 25/02/2026"
 # git commit -m "content(opinion): Neide Ferreira sobre o VAR no Brasil"
-
-# 4. Push (se configurado)
-git push origin main
-
-# 5. Notificar IndexNow (Bing/Yandex crawleiam em ~10 min)
-#    Não bloqueia: se falhar, só loga warning.
-node scripts/indexnow.js "https://beiradocampo.com.br/[slug]" || echo "⚠️ IndexNow falhou — seguir mesmo assim"
 ```
+
+**NAO rodar `git push` aqui.** O artigo ja esta no ar desde o passo 2. Os commits
+locais sobem de carona no proximo push de codigo, e o `netlify.toml` tem um
+`ignore` que pula o build quando so `content/` mudou.
+
+**Apagar uma materia:** remover o `.mdx` e rodar `node scripts/publish-articles.js`
+(sem argumentos). O script detecta o orfao, apaga o objeto no R2 e republica o
+indice — o indice e a fonte da verdade, entao a pagina sai do ar.
+
+**Republicar tudo** (ex.: mudou algo no `velite.config.ts` que afeta o MDX
+compilado): `node scripts/publish-articles.js --all`.
 
 ### 9.2.1 IndexNow (Bing/Yandex)
 

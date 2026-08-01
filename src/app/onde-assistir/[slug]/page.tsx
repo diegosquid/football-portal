@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
 import Link from "next/link";
-import { articles } from "#content";
+import { getPublishedArticles } from "@/lib/articles";
 import { ArticleCard } from "@/components/ArticleCard";
 import { ArticleFAQ } from "@/components/ArticleFAQ";
 import {
@@ -216,14 +216,8 @@ export default async function OndeAssistirPage({ params }: Props) {
   );
   const relatedArticles =
     teamSlugs.length > 0
-      ? articles
-          .filter(
-            (a) =>
-              !a.draft && a.teams.some((t) => teamSlugs.includes(t)),
-          )
-          .sort(
-            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-          )
+      ? (await getPublishedArticles())
+          .filter((a) => a.teams.some((t) => teamSlugs.includes(t)))
           .slice(0, 6)
       : [];
 

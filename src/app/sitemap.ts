@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { articles } from "#content";
+import { getPublishedArticles } from "@/lib/articles";
 import { getAllCategories } from "@/lib/categories";
 import { getAllAuthors } from "@/lib/authors";
 import { getAllTeams, teamPlaysInGame } from "@/lib/teams";
@@ -11,12 +11,17 @@ import { getAllStandingsCopy } from "@/lib/standings-competitions";
 import { siteConfig } from "@/lib/site";
 import { ARTICLES_PER_PAGE } from "@/lib/pagination";
 
+// Artigo publicado sem build precisa entrar no sitemap sem build também.
+// Sem este revalidate a rota é estática e congela no último deploy.
+export const revalidate = 3600;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = siteConfig.url;
-  const [probabilities, standings, knownMatches] = await Promise.all([
+  const [probabilities, standings, knownMatches, articles] = await Promise.all([
     getProbabilitiesData(),
     getStandingsData(),
     getAllKnownMatches(),
+    getPublishedArticles(),
   ]);
   const probabilitiesUpdatedAt =
     probabilities?.generatedAt ?? new Date().toISOString();
@@ -77,7 +82,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Categorias — páginas 2+
   const categoryPaginatedPages: MetadataRoute.Sitemap = getAllCategories().flatMap((cat) => {
-    const count = articles.filter((a) => a.category === cat.slug && !a.draft).length;
+    const count = articles.filter((a) => a.category === cat.slug).length;
     const totalPages = Math.ceil(count / ARTICLES_PER_PAGE);
     return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => ({
       url: `${baseUrl}/categoria/${cat.slug}/pagina/${i + 2}`,
@@ -97,7 +102,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Autores — páginas 2+
   const authorPaginatedPages: MetadataRoute.Sitemap = getAllAuthors().flatMap((author) => {
-    const count = articles.filter((a) => a.author === author.slug && !a.draft).length;
+    const count = articles.filter((a) => a.author === author.slug).length;
     const totalPages = Math.ceil(count / ARTICLES_PER_PAGE);
     return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => ({
       url: `${baseUrl}/autor/${author.slug}/pagina/${i + 2}`,
@@ -147,7 +152,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Times — páginas 2+
   const teamPaginatedPages: MetadataRoute.Sitemap = getAllTeams().flatMap((team) => {
-    const count = articles.filter((a) => a.teams.includes(team.slug) && !a.draft).length;
+    const count = articles.filter((a) => a.teams.includes(team.slug)).length;
     const totalPages = Math.ceil(count / ARTICLES_PER_PAGE);
     return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => ({
       url: `${baseUrl}/time/${team.slug}/pagina/${i + 2}`,
@@ -159,7 +164,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Artigos
   const articlePages: MetadataRoute.Sitemap = articles
-    .filter((a) => !a.draft)
     .map((article) => ({
       url: `${baseUrl}/${article.slug}`,
       lastModified: new Date(article.updated ?? article.date),

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { articles } from "#content";
+import { getPublishedArticles } from "@/lib/articles";
 import { ArticleCard } from "@/components/ArticleCard";
 import { ArticleFAQ } from "@/components/ArticleFAQ";
 import {
@@ -22,7 +22,7 @@ import {
  * Cada competição traz o próprio texto (src/lib/standings-competitions.ts);
  * a estrutura (tabela, projeção, splits, FAQ) é a mesma pra todas.
  */
-export function StandingsLanding({
+export async function StandingsLanding({
   table,
   copy,
   generatedAt,
@@ -41,9 +41,8 @@ export function StandingsLanding({
   };
   const h1 = copy.h1(table.season);
 
-  const related = articles
-    .filter((article) => article.category === copy.categorySlug && !article.draft)
-    .sort((a, b) => b.date.localeCompare(a.date))
+  const related = (await getPublishedArticles())
+    .filter((article) => article.category === copy.categorySlug)
     .slice(0, 3);
 
   return (

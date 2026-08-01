@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { articles } from "#content";
+import { getPublishedArticles } from "@/lib/articles";
 import { siteConfig } from "@/lib/site";
 import { getAllTeams, getTeam, teamPlaysInGame, type Team } from "@/lib/teams";
 import {
@@ -159,9 +159,8 @@ async function CompetitionHojeView({ comp }: { comp: Competition }) {
   const today = getTodayBRT();
 
   const relatedArticles = comp.categorySlug
-    ? articles
-        .filter((a) => !a.draft && a.category === comp.categorySlug)
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    ? (await getPublishedArticles())
+        .filter((a) => a.category === comp.categorySlug)
         .slice(0, 6)
     : [];
 
@@ -332,9 +331,8 @@ export default async function TeamHojePage({ params }: Props) {
   );
   const today = getTodayBRT();
 
-  const teamArticles = articles
-    .filter((a) => !a.draft && a.teams.includes(team.slug))
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  const teamArticles = (await getPublishedArticles())
+    .filter((a) => a.teams.includes(team.slug))
     .slice(0, 6);
 
   const faq = buildTeamFaq(team, todayGames, upcomingGames);

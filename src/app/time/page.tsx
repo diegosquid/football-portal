@@ -1,4 +1,4 @@
-import { articles } from "#content";
+import { getArticleIndex } from "@/lib/articles";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllTeams } from "@/lib/teams";
@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function TeamsIndexPage() {
+export default async function TeamsIndexPage() {
   const counts = new Map<string, number>();
-  for (const article of articles) {
+  for (const article of await getArticleIndex()) {
     if (article.draft) continue;
     for (const slug of article.teams) {
       counts.set(slug, (counts.get(slug) ?? 0) + 1);

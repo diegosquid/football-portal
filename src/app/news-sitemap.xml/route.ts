@@ -1,18 +1,22 @@
-import { articles } from "#content";
+import { getPublishedArticles } from "@/lib/articles";
 import { siteConfig } from "@/lib/site";
 import { getCategory } from "@/lib/categories";
+
+// Sitemap do Google News: janela de 48h, então precisa ser o mais fresco de
+// todos — é por aqui que a matéria recém-publicada entra no News.
+export const revalidate = 900;
 
 /**
  * Google News Sitemap — lista artigos publicados nas últimas 48h.
  * Spec: https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap
  */
-export function GET() {
+export async function GET() {
   const now = new Date();
   const twoDaysAgo = new Date(now.getTime() - 48 * 60 * 60 * 1000);
 
-  const recentArticles = articles
-    .filter((a) => !a.draft && new Date(a.date) >= twoDaysAgo)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const recentArticles = (await getPublishedArticles()).filter(
+    (a) => new Date(a.date) >= twoDaysAgo,
+  );
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"

@@ -1,4 +1,4 @@
-import { articles } from "#content";
+import { getPublishedArticles } from "@/lib/articles";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -38,9 +38,9 @@ export default async function TeamPage({ params }: Props) {
   const team = getTeam(slug);
   if (!team) notFound();
 
-  const teamArticles = articles
-    .filter((a) => a.teams.includes(slug) && !a.draft)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const teamArticles = (await getPublishedArticles()).filter((a) =>
+    a.teams.includes(slug),
+  );
 
   const result = paginate(teamArticles, 1);
   const basePath = `/time/${slug}`;

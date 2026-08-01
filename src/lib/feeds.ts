@@ -1,8 +1,8 @@
-import { articles } from "#content";
+import { getPublishedArticles, type ArticleSummary } from "./articles";
 import { absoluteUrl, siteConfig } from "./site";
 import { getAuthor } from "./authors";
 
-type Article = (typeof articles)[number];
+type Article = ArticleSummary;
 
 interface FeedOptions {
   /** Título exibido na primeira tag <title> do feed. */
@@ -158,12 +158,11 @@ ${entries}
 }
 
 /** Filtros padrão para alimentar feeds. */
-export function getFeedArticles(
+export async function getFeedArticles(
   filter?: (a: Article) => boolean,
   limit = 30,
-): Article[] {
-  return articles
-    .filter((a) => !a.draft && (!filter || filter(a)))
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+): Promise<Article[]> {
+  return (await getPublishedArticles())
+    .filter((a) => !filter || filter(a))
     .slice(0, limit);
 }
