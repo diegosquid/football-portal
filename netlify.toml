@@ -15,4 +15,10 @@
   # `git diff --quiet` sai 0 quando NÃO há diferença fora dos arquivos de dados,
   # que é exatamente o caso "só dado mudou" → pula. Verificado contra commits
   # reais: um `data(jogos):` do histórico sai 0, um `content(news):` sai 1.
-  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ':(exclude)content/jogos.json' ':(exclude)content/jogos-historico.json' ':(exclude)content/classificacao.json' ':(exclude)content/probabilidades.json' ':(exclude)content/probabilidades-historico.json'"
+  #
+  # O `[ -n "$CACHED_COMMIT_REF" ]` na frente NÃO é penduricalho. Sem ele, num
+  # build sem cache (primeiro deploy, ou depois de "clear cache and deploy") a
+  # variável vem vazia, o comando vira `git diff --quiet HEAD` numa árvore
+  # recém-clonada — logo limpa — e sai 0: a Netlify pularia justamente o build
+  # que precisa acontecer, e o site nunca mais atualizaria. Sem cache, buildar.
+  ignore = '''[ -n "$CACHED_COMMIT_REF" ] && git diff --quiet "$CACHED_COMMIT_REF" "$COMMIT_REF" -- . ':(exclude)content/jogos.json' ':(exclude)content/jogos-historico.json' ':(exclude)content/classificacao.json' ':(exclude)content/probabilidades.json' ':(exclude)content/probabilidades-historico.json' '''
