@@ -1,6 +1,36 @@
 {
-  "updatedAt": "2026-07-31T13:15:00-03:00",
+  "updatedAt": "2026-08-01T07:16:00-03:00",
   "games": [
+    {
+      "date": "2026-08-01",
+      "time": "15:00",
+      "home": "Cruzeiro",
+      "away": "Botafogo",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 14",
+      "channel": "UOL Esporte",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-01",
+      "time": "15:00",
+      "home": "Fluminense",
+      "away": "Red Bull Bragantino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 14",
+      "channel": "UOL Esporte",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-01",
+      "time": "16:00",
+      "home": "Grêmio",
+      "away": "América-MG",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 14",
+      "channel": "UOL Esporte",
+      "stadium": ""
+    },
     {
       "date": "2026-08-01",
       "time": "17:30",
@@ -10,6 +40,16 @@
       "round": "Oitavas de Final (Ida)",
       "channel": "Globo / SporTV / GeTV / Premiere / Amazon Prime Video",
       "stadium": "Maracanã, Rio de Janeiro"
+    },
+    {
+      "date": "2026-08-01",
+      "time": "18:00",
+      "home": "Mixto",
+      "away": "Atlético-MG",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 14",
+      "channel": "UOL Esporte",
+      "stadium": ""
     },
     {
       "date": "2026-08-01",
@@ -32,6 +72,36 @@
       "stadium": "Vila Belmiro, Santos"
     },
     {
+      "date": "2026-08-01",
+      "time": "21:00",
+      "home": "Vitória",
+      "away": "São Paulo",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 14",
+      "channel": "UOL Esporte",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-02",
+      "time": "11:00",
+      "home": "Santos",
+      "away": "Juventude",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 14",
+      "channel": "UOL Esporte",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-02",
+      "time": "11:00",
+      "home": "Palmeiras",
+      "away": "Internacional",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 14",
+      "channel": "UOL Esporte",
+      "stadium": ""
+    },
+    {
       "date": "2026-08-02",
       "time": "16:00",
       "home": "Palmeiras",
@@ -40,6 +110,16 @@
       "round": "Oitavas de Final (Ida)",
       "channel": "Globo / SporTV / Premiere / Amazon Prime Video",
       "stadium": "Allianz Parque, São Paulo"
+    },
+    {
+      "date": "2026-08-02",
+      "time": "18:00",
+      "home": "Ferroviária",
+      "away": "Bahia",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 14",
+      "channel": "UOL Esporte",
+      "stadium": ""
     },
     {
       "date": "2026-08-02",
@@ -73,6 +153,16 @@
     },
     {
       "date": "2026-08-03",
+      "time": "18:30",
+      "home": "Flamengo",
+      "away": "Corinthians",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 14",
+      "channel": "UOL Esporte",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-03",
       "time": "21:00",
       "home": "Athletico-PR",
       "away": "Vitória",
@@ -100,6 +190,46 @@
       "round": "Oitavas de Final (Volta)",
       "channel": "SporTV / Premiere",
       "stadium": "Mangueirão, Belém"
+    },
+    {
+      "date": "2026-08-05",
+      "time": "19:00",
+      "home": "Cruzeiro",
+      "away": "Chapecoense",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Volta)",
+      "channel": "SporTV / Premiere",
+      "stadium": "Mineirão, Belo Horizonte"
+    },
+    {
+      "date": "2026-08-05",
+      "time": "19:30",
+      "home": "Grêmio",
+      "away": "Mirassol",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Volta)",
+      "channel": "Amazon Prime Video",
+      "stadium": "Arena do Grêmio, Porto Alegre"
+    },
+    {
+      "date": "2026-08-05",
+      "time": "21:30",
+      "home": "Fluminense",
+      "away": "Vasco",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Volta)",
+      "channel": "Globo / SporTV / GeTV / Premiere / Amazon Prime Video",
+      "stadium": "Maracanã, Rio de Janeiro"
+    },
+    {
+      "date": "2026-08-05",
+      "time": "21:30",
+      "home": "Fortaleza",
+      "away": "Palmeiras",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Volta)",
+      "channel": "Globo / SporTV / Premiere / Amazon Prime Video",
+      "stadium": "Arena Castelão, Fortaleza"
     }
   ]
 }
