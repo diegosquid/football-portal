@@ -1,4 +1,4 @@
-import { articles } from "#content";
+import { getPublishedArticles } from "@/lib/articles";
 import { notFound, permanentRedirect } from "next/navigation";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -16,17 +16,15 @@ interface Props {
   params: Promise<{ authorSlug: string; page: string }>;
 }
 
-function getAuthorArticles(authorSlug: string) {
-  return articles
-    .filter((a) => a.author === authorSlug && !a.draft)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+async function getAuthorArticles(authorSlug: string) {
+  return (await getPublishedArticles()).filter((a) => a.author === authorSlug);
 }
 
 export async function generateStaticParams() {
   const allParams: { authorSlug: string; page: string }[] = [];
 
   for (const author of getAllAuthors()) {
-    const authorArticles = getAuthorArticles(author.slug);
+    const authorArticles = await getAuthorArticles(author.slug);
     const pageNumbers = getPageNumbers(authorArticles.length);
     for (const p of pageNumbers) {
       allParams.push({ authorSlug: author.slug, page: String(p) });
@@ -43,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!author || isNaN(pageNum)) return {};
 
   const basePath = `/autor/${authorSlug}`;
-  const authorArticles = getAuthorArticles(authorSlug);
+  const authorArticles = await getAuthorArticles(authorSlug);
   const result = paginate(authorArticles, pageNum);
   if (!result) return {};
 
@@ -72,7 +70,7 @@ export default async function AuthorPaginatedPage({ params }: Props) {
   const author = getAuthor(authorSlug);
   if (!author || isNaN(pageNum)) notFound();
 
-  const authorArticles = getAuthorArticles(authorSlug);
+  const authorArticles = await getAuthorArticles(authorSlug);
   const result = paginate(authorArticles, pageNum);
   if (!result) notFound();
 

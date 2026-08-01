@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
 import Link from "next/link";
-import { articles } from "#content";
+import { getPublishedArticles } from "@/lib/articles";
 import { ArticleCard } from "@/components/ArticleCard";
 import { ArticleFAQ } from "@/components/ArticleFAQ";
 import {
@@ -31,7 +31,7 @@ import {
  * Slugs placeholder ("espanha-x-a-definir-2026-07-19") ficam indexados até o
  * confronto real ser definido — resolve pro slug atual do mesmo dia/time.
  */
-function resolvePlaceholderSlug(slug: string): string | undefined {
+async function resolvePlaceholderSlug(slug: string): Promise<string | undefined> {
   const parsed = slug.match(/^(.+)-x-(.+)-(\d{4}-\d{2}-\d{2})$/);
   if (!parsed) return undefined;
   const [, homePart, awayPart, date] = parsed;
@@ -40,7 +40,7 @@ function resolvePlaceholderSlug(slug: string): string | undefined {
   }
   const known = homePart.includes("a-definir") ? awayPart : homePart;
   if (known.includes("a-definir")) return undefined;
-  return getAllKnownMatches().find(
+  return (await getAllKnownMatches()).find(
     (m) =>
       m.date === date &&
       (m.slug.startsWith(`${known}-x-`) || m.slug.includes(`-x-${known}-`)),
@@ -53,8 +53,8 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
-  return getAllKnownMatches().map((m) => ({ slug: m.slug }));
+export async function generateStaticParams() {
+  return (await getAllKnownMatches()).map((m) => ({ slug: m.slug }));
 }
 
 function formatMatchDateBR(dateIso: string): string {
@@ -144,11 +144,15 @@ function buildFaq(match: Match, prediction?: Prediction) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const match = getMatchBySlug(slug);
+  const match = await getMatchBySlug(slug);
   if (!match) return {};
 
   const days = daysUntil(match.date);
-  const prediction = getPredictionFor(match.home, match.away, match.date);
+  const prediction = await getPredictionFor(
+    match.home,
+    match.away,
+    match.date,
+  );
   const isPast = days < 0;
   const dateShort = match.date.split("-").reverse().slice(0, 2).join("/");
   const whenWord = days === 0 ? "hoje" : days === 1 ? "amanhã" : `dia ${dateShort}`;
@@ -197,9 +201,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function OndeAssistirPage({ params }: Props) {
   const { slug } = await params;
-  const match = getMatchBySlug(slug);
+  const match = await getMatchBySlug(slug);
   if (!match) {
-    const resolved = resolvePlaceholderSlug(slug);
+    const resolved = await resolvePlaceholderSlug(slug);
     if (resolved) permanentRedirect(`/onde-assistir/${resolved}`);
     notFound();
   }
@@ -212,14 +216,8 @@ export default async function OndeAssistirPage({ params }: Props) {
   );
   const relatedArticles =
     teamSlugs.length > 0
-      ? articles
-          .filter(
-            (a) =>
-              !a.draft && a.teams.some((t) => teamSlugs.includes(t)),
-          )
-          .sort(
-            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-          )
+      ? (await getPublishedArticles())
+          .filter((a) => a.teams.some((t) => teamSlugs.includes(t)))
           .slice(0, 6)
       : [];
 
@@ -233,7 +231,11 @@ export default async function OndeAssistirPage({ params }: Props) {
     ? getCompetition(competitionSlug)
     : undefined;
 
-  const prediction = getPredictionFor(match.home, match.away, match.date);
+  const prediction = await getPredictionFor(
+    match.home,
+    match.away,
+    match.date,
+  );
   const faq = buildFaq(match, prediction);
 
   // SportsEvent schema (enriched vs. /jogos-futebol-hoje)

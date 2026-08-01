@@ -17,8 +17,12 @@ interface Props {
  * e o hub /jogos-futebol-hoje/{time}, distribuindo autoridade pros hubs.
  * Não renderiza nada se nenhum time do artigo tem jogo na janela da agenda.
  */
-export function TeamNextMatch({ teamSlugs }: Props) {
-  const agenda = [...getTodayMatches(), ...getUpcomingMatches()];
+export async function TeamNextMatch({ teamSlugs }: Props) {
+  const [today, upcoming] = await Promise.all([
+    getTodayMatches(),
+    getUpcomingMatches(),
+  ]);
+  const agenda = [...today, ...upcoming];
 
   const seen = new Set<string>();
   const entries: { teamSlug: string; teamName: string; next: Match }[] = [];

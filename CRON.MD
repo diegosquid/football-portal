@@ -144,15 +144,17 @@ EXECUCAO DO CRON (a cada ~2 horas)
 │   ├── Preencher frontmatter completo
 │   └── Rodar checklist pre-publicacao (CONTENT_GUIDELINE.md Secao 10)
 │
-├── PASSO 7: SALVAR E COMMITAR
+├── PASSO 7: SALVAR E PUBLICAR
 │   ├── Nome do arquivo = slug + .mdx
 │   ├── Salvar em content/articles/[slug].mdx
 │   ├── **VERIFICAÇÃO OBRIGATÓRIA: Confirmar que arquivo foi criado**
 │   ├── **Se arquivo não existir → ABORTAR e reportar erro**
+│   ├── node scripts/publish-articles.js "[slug]"   ← ISTO publica (R2, sem build)
+│   ├── **VERIFICAÇÃO: script terminou com "1 artigo(s) publicado(s)"**
+│   ├── node scripts/indexnow.js "..."              ← só DEPOIS de publicar
 │   ├── git add content/articles/[slug].mdx
 │   ├── git commit -m "content: [tipo] - [titulo resumido]"
-│   ├── git push (se configurado)
-│   └── **VERIFICAÇÃO: Confirmar push no GitHub (git log)**
+│   └── **SEM git push** — ver Secao 9.2
 │
 ├── PASSO 8: POSTAR THREAD NO TWITTER [DESABILITADO TEMPORARIAMENTE]
 │   └── ⚠️ DESABILITADO: Foco na verificação da geração de artigos
@@ -1048,14 +1050,28 @@ content/articles/    ← TODOS os MDX ficam aqui, pasta FLAT (sem subpastas)
 
 ### 9.2 Processo de Publicacao
 
+> **MUDOU: publicar NAO passa mais por build.** O site le os artigos do R2 em
+> runtime (`src/lib/articles.ts`). Quem coloca a materia no ar e o passo 2
+> abaixo — nao o `git push`. Antes eram ~190 builds/mes so de artigo, contra os
+> 300 min/mes do plano da Netlify.
+
 ```bash
 # 1. Salvar arquivo
 # Arquivo: content/articles/[slug].mdx
 
-# 2. Stage
-git add content/articles/[slug].mdx
+# 2. PUBLICAR — este passo E a publicacao. Compila o MDX e sobe pro R2.
+#    Ja dispara a revalidacao: a materia entra no ar em segundos.
+node scripts/publish-articles.js "[slug]"
 
-# 3. Commit com mensagem padronizada
+# 3. Notificar IndexNow (Bing/Yandex crawleiam em ~10 min)
+#    DEPOIS do passo 2, nunca antes: se o buscador vier antes de o artigo estar
+#    no R2, ele pega 404 — e esse 404 fica em cache ate a proxima revalidacao.
+#    Nao bloqueia: se falhar, so loga warning.
+node scripts/indexnow.js "https://beiradocampo.com.br/[slug]" || echo "⚠️ IndexNow falhou — seguir mesmo assim"
+
+# 4. Commit LOCAL, sem push — o MDX fica versionado como fonte e fallback,
+#    mas nao dispara build.
+git add content/articles/[slug].mdx
 git commit -m "content([tipo]): [titulo resumido curto]"
 
 # Exemplos:
@@ -1063,14 +1079,18 @@ git commit -m "content([tipo]): [titulo resumido curto]"
 # git commit -m "content(pre-match): Flamengo x Palmeiras - Brasileirao rodada 5"
 # git commit -m "content(transfer-radar): Radar de transferencias 25/02/2026"
 # git commit -m "content(opinion): Neide Ferreira sobre o VAR no Brasil"
-
-# 4. Push (se configurado)
-git push origin main
-
-# 5. Notificar IndexNow (Bing/Yandex crawleiam em ~10 min)
-#    Não bloqueia: se falhar, só loga warning.
-node scripts/indexnow.js "https://beiradocampo.com.br/[slug]" || echo "⚠️ IndexNow falhou — seguir mesmo assim"
 ```
+
+**NAO rodar `git push` aqui.** O artigo ja esta no ar desde o passo 2. Os commits
+locais sobem de carona no proximo push de codigo, e o `netlify.toml` tem um
+`ignore` que pula o build quando so `content/` mudou.
+
+**Apagar uma materia:** remover o `.mdx` e rodar `node scripts/publish-articles.js`
+(sem argumentos). O script detecta o orfao, apaga o objeto no R2 e republica o
+indice — o indice e a fonte da verdade, entao a pagina sai do ar.
+
+**Republicar tudo** (ex.: mudou algo no `velite.config.ts` que afeta o MDX
+compilado): `node scripts/publish-articles.js --all`.
 
 ### 9.2.1 IndexNow (Bing/Yandex)
 
@@ -1095,7 +1115,7 @@ A chave fica em `public/fb687149f8edf99c2848836359af6927.txt` (não mexer).
 Apos o push, o agente DEVE postar uma thread no Twitter/X com o formato nativo:
 
 ```bash
-# 1. Aguardar deploy no Vercel (5 minutos)
+# 1. Aguardar deploy na Netlify (5 minutos)
 sleep 300
 
 # 2. Postar thread
@@ -1189,6 +1209,10 @@ SE existe jogo que TERMINOU (hora_atual >= hora_jogo + 2h):
 
 A pagina `/jogos-futebol-hoje` (hoje) e as paginas `/onde-assistir/[slug]` (hoje + 4 dias a frente) leem **`content/jogos.json`**. Cobrimos **janela movel de 5 dias** — o SEO das paginas "onde assistir" depende de elas existirem ANTES da semana do jogo para o Google indexar.
 
+> **Como o dado chega no site (mudou):** o Next le esses JSONs do **R2 em
+> runtime**, nao do bundle do deploy. Publicar = `node scripts/publish-data.js`.
+> Nao existe mais "commitar e esperar o build". Ver passos 8 e 9 abaixo.
+
 **Quando atualizar:**
 - Slot 07:00-08:00 BRT: OBRIGATORIO. Refresh completo da janela.
 - Slot 13:00-14:00 BRT: SE houver jogos tarde/noite ou mudancas anunciadas.
@@ -1234,7 +1258,31 @@ node scripts/build-probabilities.js && node scripts/build-standings.js
    - `build-standings.js` → `content/classificacao.json` (tabelas da Serie A, B e C + chances de titulo/acesso/rebaixamento). Alimenta `/tabela-do-brasileirao`, `/tabela-do-brasileirao-serie-b`, `/tabela-do-brasileirao-serie-c` e o hub `/tabela`. Leva ~5s. Se a API nao responder, o arquivo antigo continua servindo a pagina — nao commitar arquivo vazio.
    - A temporada e derivada do ano corrente. Na virada do ano, se o calendario nao bater com o ano civil, forcar com `node scripts/build-standings.js --season 2027`.
 
-8. Commit: `git add content/jogos.json content/probabilidades.json content/classificacao.json && git commit -m "data(jogos): atualiza janela proximos 5 dias"`.
+8. **Publicar no R2 — este passo E a publicacao. NAO commitar, NAO fazer push.**
+
+```bash
+node scripts/publish-data.js
+```
+
+   O site le esses JSONs do R2 em runtime (`src/lib/content-data.ts`). Subir o
+   arquivo ja coloca o dado no ar: as paginas tem `revalidate = 900` e pegam a
+   versao nova em ate 15 min, **sem build e sem deploy**.
+
+   O script valida o JSON antes de subir — arquivo quebrado nao vai pro ar.
+
+9. Commit **local**, sem push — o arquivo fica versionado como fallback e
+   historico, mas nao dispara build na Netlify:
+
+```bash
+git add content/jogos.json content/probabilidades.json content/classificacao.json
+git commit -m "data(jogos): atualiza janela proximos 5 dias"
+```
+
+   > **NAO rodar `git push` aqui.** Antes, cada atualizacao de dado virava um
+   > build completo (~56/mes) e estourava os 300 min/mes do free tier da
+   > Netlify. O push desses arquivos so acontece de carona no proximo commit de
+   > codigo. Se precisar que o dado entre no ar agora, ele ja entrou: o passo 8
+   > publicou.
 
 **Prioridade de competicoes (cobrir nesta ordem):**
 1. Brasileirao (A, B, C)

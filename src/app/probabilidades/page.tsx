@@ -14,7 +14,7 @@ import {
   buildMatchSlug,
   formatDateLongBR,
   formatDateShortBR,
-  getMatchBySlug,
+  getAllKnownMatches,
   getTodayBRT,
   getTomorrowBRT,
 } from "@/lib/matches";
@@ -24,9 +24,9 @@ export const revalidate = 900; // 15 min
 const PAGE_DESCRIPTION =
   "Veja os palpites de hoje com chances de vitória, empate, mais de 2,5 gols, ambos marcam e placar provável, calculados por modelo estatístico próprio.";
 
-export function generateMetadata(): Metadata {
+export async function generateMetadata(): Promise<Metadata> {
   const today = getTodayBRT();
-  const data = getProbabilitiesData();
+  const data = await getProbabilitiesData();
   const title = `Palpites de Hoje (${formatDateShortBR(today)}): Probabilidades dos Jogos`;
   const description =
     data && data.predictions.length > 0
@@ -106,9 +106,14 @@ const FAQ = [
   },
 ];
 
-export default function ProbabilidadesPage() {
-  const data = getProbabilitiesData();
+export default async function ProbabilidadesPage() {
+  const [data, knownMatches] = await Promise.all([
+    getProbabilitiesData(),
+    getAllKnownMatches(),
+  ]);
   const predictions = data?.predictions ?? [];
+  // Slugs com página própria em /onde-assistir — resolvidos uma vez só.
+  const matchSlugs = new Set(knownMatches.map((m) => m.slug));
   const today = getTodayBRT();
   const tomorrow = getTomorrowBRT();
   const updatedAt = formatGeneratedAt(data?.generatedAt);
@@ -126,7 +131,7 @@ export default function ProbabilidadesPage() {
     const slug = buildMatchSlug(p.home, p.away, p.date);
     return {
       name: `${p.home} x ${p.away}`,
-      url: getMatchBySlug(slug)
+      url: matchSlugs.has(slug)
         ? `/onde-assistir/${slug}`
         : `/probabilidades#${slug}`,
     };
@@ -221,7 +226,7 @@ export default function ProbabilidadesPage() {
                 <div className="space-y-6">
                   {preds.map((p) => {
                     const slug = buildMatchSlug(p.home, p.away, p.date);
-                    const hasMatchPage = Boolean(getMatchBySlug(slug));
+                    const hasMatchPage = matchSlugs.has(slug);
                     const heading = `${p.home} x ${p.away}`;
                     return (
                       <article key={slug} id={slug} className="scroll-mt-24">

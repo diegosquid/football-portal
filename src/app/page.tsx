@@ -1,4 +1,4 @@
-import { articles } from "#content";
+import { getPublishedArticles } from "@/lib/articles";
 import { ArticleCard, timeAgo } from "@/components/ArticleCard";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { categories, getCategory } from "@/lib/categories";
@@ -28,10 +28,8 @@ function SectionHeader({ title }: { title: string }) {
   );
 }
 
-export default function HomePage() {
-  const published = articles
-    .filter((a) => !a.draft)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+export default async function HomePage() {
+  const published = await getPublishedArticles();
 
   const featured = published[0];
   const recent = published.slice(1, 6);

@@ -25,9 +25,9 @@ import {
 
 export const revalidate = 900; // 15 min
 
-export function generateMetadata(): Metadata {
+export async function generateMetadata(): Promise<Metadata> {
   const today = getTodayBRT();
-  const games = getTodayMatches();
+  const games = await getTodayMatches();
   const dateShort = formatDateShortBR(today);
   const dateLong = formatDateLongBR(today);
 
@@ -67,10 +67,12 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function JogosFutebolHojePage() {
-  const games = getTodayMatches();
-  const tomorrowGames = getTomorrowMatches();
-  const { updatedAt } = getScheduleMeta();
+export default async function JogosFutebolHojePage() {
+  const [games, tomorrowGames, { updatedAt }] = await Promise.all([
+    getTodayMatches(),
+    getTomorrowMatches(),
+    getScheduleMeta(),
+  ]);
   const today = getTodayBRT();
   const faq = buildDayFaq(games, "hoje", today);
 

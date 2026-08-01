@@ -1,4 +1,4 @@
-import { articles } from "#content";
+import { getPublishedArticles } from "@/lib/articles";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -38,9 +38,9 @@ export default async function AuthorPage({ params }: Props) {
   const author = getAuthor(authorSlug);
   if (!author) notFound();
 
-  const authorArticles = articles
-    .filter((a) => a.author === authorSlug && !a.draft)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const authorArticles = (await getPublishedArticles()).filter(
+    (a) => a.author === authorSlug,
+  );
 
   const result = paginate(authorArticles, 1);
   const basePath = `/autor/${authorSlug}`;

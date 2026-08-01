@@ -1,5 +1,4 @@
-import { readFileSync } from "fs";
-import { join } from "path";
+import { loadData as loadContentData } from "@/lib/content-data";
 
 /** Uma predição por confronto — saída do modelo Poisson (scripts/build-probabilities.js). */
 export interface Prediction {
@@ -66,39 +65,27 @@ export interface ProbabilityHistoryData {
   };
 }
 
-/** Lê content/probabilidades.json. Retorna null se o arquivo ainda não existe. */
-function loadData(): ProbabilitiesData | null {
-  try {
-    const filePath = join(process.cwd(), "content", "probabilidades.json");
-    return JSON.parse(readFileSync(filePath, "utf-8")) as ProbabilitiesData;
-  } catch {
-    return null;
-  }
+/** Carrega probabilidades.json (R2 em runtime, arquivo local como fallback). */
+function loadData(): Promise<ProbabilitiesData | null> {
+  return loadContentData<ProbabilitiesData>("probabilidades.json");
 }
 
-function loadHistory(): ProbabilityHistoryData | null {
-  try {
-    const filePath = join(
-      process.cwd(),
-      "content",
-      "probabilidades-historico.json",
-    );
-    return JSON.parse(readFileSync(filePath, "utf-8")) as ProbabilityHistoryData;
-  } catch {
-    return null;
-  }
+function loadHistory(): Promise<ProbabilityHistoryData | null> {
+  return loadContentData<ProbabilityHistoryData>(
+    "probabilidades-historico.json",
+  );
 }
 
-export function getProbabilitiesData(): ProbabilitiesData | null {
+export function getProbabilitiesData(): Promise<ProbabilitiesData | null> {
   return loadData();
 }
 
-export function getProbabilityHistory(): ProbabilityHistoryData | null {
+export function getProbabilityHistory(): Promise<ProbabilityHistoryData | null> {
   return loadHistory();
 }
 
-export function getAllPredictions(): Prediction[] {
-  return loadData()?.predictions ?? [];
+export async function getAllPredictions(): Promise<Prediction[]> {
+  return (await loadData())?.predictions ?? [];
 }
 
 function normalizeTeam(name: string): string {
@@ -115,15 +102,18 @@ export function predictionKey(home: string, away: string): string {
 }
 
 /** Acha a predição de um confronto pelos nomes dos times (usado na página do jogo). */
-export function getPredictionFor(
+export async function getPredictionFor(
   home: string,
   away: string,
   date?: string,
-): Prediction | undefined {
+): Promise<Prediction | undefined> {
   const h = normalizeTeam(home);
   const a = normalizeTeam(away);
-  const current = getAllPredictions();
-  const historical = loadHistory()?.predictions ?? [];
+  const [current, history] = await Promise.all([
+    getAllPredictions(),
+    loadHistory(),
+  ]);
+  const historical = history?.predictions ?? [];
   return [...current, ...historical].find(
     (p) =>
       normalizeTeam(p.home) === h &&
@@ -133,12 +123,38 @@ export function getPredictionFor(
 }
 
 /**
- * Índice de todas as predições por confronto — lê o arquivo uma vez só.
- * Use em listas (GameSchedule) para evitar N leituras de arquivo.
+ * Resolvedor de predições (atuais + histórico) com o dado carregado uma vez só.
+ * Mesma semântica de `getPredictionFor`, mas para uso dentro de listas —
+ * onde chamar a versão async por item faria N buscas.
  */
-export function getPredictionsIndex(): Map<string, Prediction> {
+export async function getPredictionResolver(): Promise<
+  (home: string, away: string, date?: string) => Prediction | undefined
+> {
+  const [current, history] = await Promise.all([
+    getAllPredictions(),
+    loadHistory(),
+  ]);
+  const all = [...current, ...(history?.predictions ?? [])];
+
+  return (home, away, date) => {
+    const h = normalizeTeam(home);
+    const a = normalizeTeam(away);
+    return all.find(
+      (p) =>
+        normalizeTeam(p.home) === h &&
+        normalizeTeam(p.away) === a &&
+        (!date || p.date === date),
+    );
+  };
+}
+
+/**
+ * Índice de todas as predições por confronto — carrega o dado uma vez só.
+ * Use em listas (GameSchedule) para evitar N buscas.
+ */
+export async function getPredictionsIndex(): Promise<Map<string, Prediction>> {
   const index = new Map<string, Prediction>();
-  for (const p of getAllPredictions()) {
+  for (const p of await getAllPredictions()) {
     index.set(predictionKey(p.home, p.away), p);
   }
   return index;

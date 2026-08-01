@@ -1,4 +1,4 @@
-import { articles } from "#content";
+import { getPublishedArticles } from "@/lib/articles";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -66,9 +66,9 @@ export default async function CategoryPage({ params }: Props) {
   const cat = getCategory(category);
   if (!cat) notFound();
 
-  const categoryArticles = articles
-    .filter((a) => a.category === category && !a.draft)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const categoryArticles = (await getPublishedArticles()).filter(
+    (a) => a.category === category,
+  );
 
   const result = paginate(categoryArticles, 1);
   const basePath = `/categoria/${category}`;

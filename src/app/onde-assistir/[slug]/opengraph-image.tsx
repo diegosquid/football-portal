@@ -19,7 +19,7 @@ interface Props {
 
 export default async function Image({ params }: Props) {
   const { slug } = await params;
-  const match = getMatchBySlug(slug);
+  const match = await getMatchBySlug(slug);
 
   if (!match) {
     return ogResponse(

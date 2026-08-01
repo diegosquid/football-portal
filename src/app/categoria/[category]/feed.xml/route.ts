@@ -27,7 +27,7 @@ export async function GET(_req: Request, { params }: Params) {
     description: cat.longDescription,
     feedUrl,
     pageUrl,
-    articles: getFeedArticles((a) => a.category === category),
+    articles: await getFeedArticles((a) => a.category === category),
   });
 
   return new Response(xml, {

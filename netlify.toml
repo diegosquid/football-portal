@@ -1,0 +1,26 @@
+# Sem `command`/`publish` de propósito: o build da Netlify é auto-detectado
+# (runtime Next.js v5) e configurado no painel. Declarar aqui sobrescreveria
+# aquilo sem necessidade.
+
+[build]
+  # Rede de segurança contra builds desnecessários.
+  #
+  # Conteúdo é servido do R2 em runtime, não do bundle do deploy:
+  #   content/articles/**   → src/lib/articles.ts    + scripts/publish-articles.js
+  #   os 5 JSONs de dados   → src/lib/content-data.ts + scripts/publish-data.js
+  #
+  # Tudo isso continua versionado no repositório, como fallback e histórico, mas
+  # um commit que só mexe nesses caminhos não muda nada no site publicado —
+  # rebuildar seria queimar minuto de build à toa. Eram ~246 dos ~270 commits/mês
+  # (190 de artigo + 56 de dado), contra os 300 min do plano.
+  #
+  # O comando decide pelo código de saída: 0 = pular build, 1 = buildar.
+  # `git diff --quiet` sai 0 quando NÃO há diferença fora dos caminhos excluídos,
+  # que é exatamente o caso "só conteúdo mudou" → pula.
+  #
+  # O `[ -n "$CACHED_COMMIT_REF" ]` na frente NÃO é penduricalho. Sem ele, num
+  # build sem cache (primeiro deploy, ou depois de "clear cache and deploy") a
+  # variável vem vazia, o comando vira `git diff --quiet HEAD` numa árvore
+  # recém-clonada — logo limpa — e sai 0: a Netlify pularia justamente o build
+  # que precisa acontecer, e o site nunca mais atualizaria. Sem cache, buildar.
+  ignore = '''[ -n "$CACHED_COMMIT_REF" ] && git diff --quiet "$CACHED_COMMIT_REF" "$COMMIT_REF" -- . ':(exclude)content/articles' ':(exclude)content/jogos.json' ':(exclude)content/jogos-historico.json' ':(exclude)content/classificacao.json' ':(exclude)content/probabilidades.json' ':(exclude)content/probabilidades-historico.json' ':(exclude)guest-posts' ':(exclude)*.md' '''

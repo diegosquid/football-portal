@@ -1,4 +1,8 @@
-import { articles } from "#content";
+import {
+  getArticle,
+  getPublishedArticles,
+  type ArticleSummary,
+} from "@/lib/articles";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -27,30 +31,42 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-function getArticle(slug: string) {
-  return articles.find((a) => a.slug === slug && !a.draft);
+async function getPublishedArticle(slug: string) {
+  const article = await getArticle(slug);
+  return article && !article.draft ? article : undefined;
 }
 
-function getRelated(current: (typeof articles)[number], limit = 3) {
-  return articles
+async function getRelated(current: ArticleSummary, limit = 3) {
+  return (await getPublishedArticles())
     .filter(
       (a) =>
         a.slug !== current.slug &&
-        !a.draft &&
         (a.category === current.category ||
           a.teams.some((t) => current.teams.includes(t)))
     )
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, limit);
 }
 
+/**
+ * Só os mais recentes entram no build; o resto é gerado sob demanda no primeiro
+ * acesso e fica em cache (`dynamicParams` é true por padrão). Prerenderizar os
+ * 975 é o que fazia o build crescer sem limite — e artigo antigo tem pouco
+ * tráfego, então pagar ~300ms uma vez nele é troca boa.
+ *
+ * Artigo novo publicado pelo R2 também cai aqui: não estava no build, é
+ * renderizado no primeiro acesso.
+ */
+const PRERENDER_RECENTES = 60;
+
 export async function generateStaticParams() {
-  return articles.filter((a) => !a.draft).map((a) => ({ slug: a.slug }));
+  return (await getPublishedArticles())
+    .slice(0, PRERENDER_RECENTES)
+    .map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const article = getArticle(slug);
+  const article = await getPublishedArticle(slug);
   if (!article) return {};
 
   const author = getAuthor(article.author);
@@ -87,12 +103,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
-  const article = getArticle(slug);
+  const article = await getPublishedArticle(slug);
   if (!article) notFound();
 
   const author = getAuthor(article.author);
   const category = getCategory(article.category);
-  const related = getRelated(article);
+  const related = await getRelated(article);
   const faq = article.faq ?? [];
 
   return (

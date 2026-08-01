@@ -1,5 +1,4 @@
-import { readFileSync } from "fs";
-import { join } from "path";
+import { loadData as loadContentData } from "@/lib/content-data";
 import { getTeam, resolveTeamSlug } from "@/lib/teams";
 import { API_NAME_FIXES, API_SHORT_NAMES } from "@/lib/standings-names";
 
@@ -175,17 +174,12 @@ export function zoneMeta(
   return { label, short: "", description: "" };
 }
 
-/** Lê content/classificacao.json. Retorna null se o arquivo ainda não existe. */
-function loadData(): StandingsData | null {
-  try {
-    const filePath = join(process.cwd(), "content", "classificacao.json");
-    return JSON.parse(readFileSync(filePath, "utf-8")) as StandingsData;
-  } catch {
-    return null;
-  }
+/** Carrega classificacao.json (R2 em runtime, arquivo local como fallback). */
+function loadData(): Promise<StandingsData | null> {
+  return loadContentData<StandingsData>("classificacao.json");
 }
 
-export function getStandingsData(): StandingsData | null {
+export function getStandingsData(): Promise<StandingsData | null> {
   return loadData();
 }
 
@@ -208,14 +202,16 @@ function enrichRow(row: StandingRow): EnrichedStandingRow {
 }
 
 /** Tabela de uma competição pelo slug ("brasileirao", "brasileirao-serie-b"). */
-export function getStandingsTable(slug: string): EnrichedStandingsTable | null {
-  const table = loadData()?.tables?.[slug];
+export async function getStandingsTable(
+  slug: string,
+): Promise<EnrichedStandingsTable | null> {
+  const table = (await loadData())?.tables?.[slug];
   if (!table) return null;
   return { ...table, rows: table.rows.map(enrichRow) };
 }
 
-export function getAllStandingsSlugs(): string[] {
-  return Object.keys(loadData()?.tables ?? {});
+export async function getAllStandingsSlugs(): Promise<string[]> {
+  return Object.keys((await loadData())?.tables ?? {});
 }
 
 /** Rota da landing de classificação de uma competição. */
@@ -224,16 +220,16 @@ export function standingsPath(competitionSlug: string): string {
 }
 
 /** A competição tem tabela publicada? */
-export function hasStandings(competitionSlug: string): boolean {
-  return Boolean(loadData()?.tables?.[competitionSlug]);
+export async function hasStandings(competitionSlug: string): Promise<boolean> {
+  return Boolean((await loadData())?.tables?.[competitionSlug]);
 }
 
 /** Linha de um time específico — usada no box de tabela dentro do artigo. */
-export function getTeamStanding(
+export async function getTeamStanding(
   competitionSlug: string,
   teamSlug: string,
-): EnrichedStandingRow | undefined {
-  return getStandingsTable(competitionSlug)?.rows.find(
+): Promise<EnrichedStandingRow | undefined> {
+  return (await getStandingsTable(competitionSlug))?.rows.find(
     (row) => row.teamSlug === teamSlug,
   );
 }

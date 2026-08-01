@@ -58,8 +58,8 @@ function OgRow({
  * Recebe só o slug — título e rótulo saem da copy da competição, então uma
  * competição nova ganha o card certo sem editar texto aqui.
  */
-export function standingsOgImage(slug: string) {
-  const table = getStandingsTable(slug);
+export async function standingsOgImage(slug: string) {
+  const table = await getStandingsTable(slug);
   const copy = getStandingsCopy(slug);
   const title = copy?.ogTitle ?? "Classificação";
   const label = copy?.eyebrow.toUpperCase() ?? "CLASSIFICAÇÃO";

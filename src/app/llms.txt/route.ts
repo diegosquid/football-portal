@@ -1,18 +1,17 @@
-import { articles } from "#content";
+import { getPublishedArticles } from "@/lib/articles";
 import { siteConfig } from "@/lib/site";
+
+export const revalidate = 3600;
 
 /**
  * /llms.txt — arquivo para LLMs (ChatGPT, Claude, Perplexity, etc.)
  * Spec: https://llmstxt.org/
  */
-export function GET() {
+export async function GET() {
   const baseUrl = siteConfig.url;
 
   // 10 artigos mais recentes
-  const recentArticles = articles
-    .filter((a) => !a.draft)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 10);
+  const recentArticles = (await getPublishedArticles()).slice(0, 10);
 
   const recentLinks = recentArticles
     .map((a) => `- [${a.title}](${baseUrl}/${a.slug}): ${a.excerpt.slice(0, 120)}`)

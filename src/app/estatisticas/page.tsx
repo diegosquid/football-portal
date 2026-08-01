@@ -98,8 +98,8 @@ const FAQ = [
   },
 ];
 
-export default function EstatisticasPage() {
-  const data = getProbabilitiesData();
+export default async function EstatisticasPage() {
+  const data = await getProbabilitiesData();
   const strengths = data?.teamStrengths ?? {};
   const competitions = sortCompetitions(Object.keys(strengths));
 

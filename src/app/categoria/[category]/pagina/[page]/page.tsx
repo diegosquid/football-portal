@@ -1,4 +1,4 @@
-import { articles } from "#content";
+import { getPublishedArticles } from "@/lib/articles";
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -17,17 +17,15 @@ interface Props {
   params: Promise<{ category: string; page: string }>;
 }
 
-function getCategoryArticles(category: string) {
-  return articles
-    .filter((a) => a.category === category && !a.draft)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+async function getCategoryArticles(category: string) {
+  return (await getPublishedArticles()).filter((a) => a.category === category);
 }
 
 export async function generateStaticParams() {
   const allParams: { category: string; page: string }[] = [];
 
   for (const cat of getAllCategories()) {
-    const catArticles = getCategoryArticles(cat.slug);
+    const catArticles = await getCategoryArticles(cat.slug);
     const pageNumbers = getPageNumbers(catArticles.length);
     for (const p of pageNumbers) {
       allParams.push({ category: cat.slug, page: String(p) });
@@ -44,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!cat || isNaN(pageNum)) return {};
 
   const basePath = `/categoria/${category}`;
-  const catArticles = getCategoryArticles(category);
+  const catArticles = await getCategoryArticles(category);
   const result = paginate(catArticles, pageNum);
   if (!result) return {};
 
@@ -84,7 +82,7 @@ export default async function CategoryPaginatedPage({ params }: Props) {
   const cat = getCategory(category);
   if (!cat || isNaN(pageNum)) notFound();
 
-  const catArticles = getCategoryArticles(category);
+  const catArticles = await getCategoryArticles(category);
   const result = paginate(catArticles, pageNum);
   if (!result) notFound();
 

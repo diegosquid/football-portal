@@ -9,7 +9,7 @@ export async function GET() {
     description: siteConfig.description,
     feedUrl: `${siteConfig.url}/atom.xml`,
     pageUrl: siteConfig.url,
-    articles: getFeedArticles(),
+    articles: await getFeedArticles(),
   });
 
   return new Response(xml, {

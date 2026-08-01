@@ -18,8 +18,8 @@ import {
 
 export const revalidate = 900; // 15 min
 
-export function generateMetadata(): Metadata {
-  const matches = getAllMatches();
+export async function generateMetadata(): Promise<Metadata> {
+  const matches = await getAllMatches();
 
   const title = "Jogos da Semana: Agenda do Futebol com Datas, Horários e Canais";
   const description =
@@ -97,9 +97,11 @@ function buildWeekFaq(matches: Match[]): { question: string; answer: string }[] 
   return faq;
 }
 
-export default function JogosDaSemanaPage() {
-  const matches = getAllMatches();
-  const { updatedAt } = getScheduleMeta();
+export default async function JogosDaSemanaPage() {
+  const [matches, { updatedAt }] = await Promise.all([
+    getAllMatches(),
+    getScheduleMeta(),
+  ]);
   const today = getTodayBRT();
 
   const byDate = matches.reduce<Record<string, Match[]>>((acc, m) => {

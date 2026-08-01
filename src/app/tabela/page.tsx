@@ -46,13 +46,18 @@ export function generateMetadata(): Metadata {
  * Hub das classificações: uma porta de entrada só, que cresce sozinha conforme
  * novas competições entram em standings-competitions.ts.
  */
-export default function TabelaHubPage() {
-  const updatedAt = formatUpdatedAt(getStandingsData()?.generatedAt);
+export default async function TabelaHubPage() {
+  const updatedAt = formatUpdatedAt((await getStandingsData())?.generatedAt);
 
   // Só entra no hub a competição que já tem tabela publicada no JSON.
-  const tables = getAllStandingsCopy()
-    .map((copy) => ({ copy, table: getStandingsTable(copy.slug) }))
-    .filter((item) => item.table !== null);
+  const tables = (
+    await Promise.all(
+      getAllStandingsCopy().map(async (copy) => ({
+        copy,
+        table: await getStandingsTable(copy.slug),
+      })),
+    )
+  ).filter((item) => item.table !== null);
 
   return (
     <>

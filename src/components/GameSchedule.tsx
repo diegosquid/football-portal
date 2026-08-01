@@ -63,7 +63,7 @@ function formatUpdatedAt(isoStr: string): string {
   });
 }
 
-export function GameSchedule({
+export async function GameSchedule({
   games,
   date,
   updatedAt,
@@ -100,7 +100,7 @@ export function GameSchedule({
     return pa - pb;
   });
 
-  const predIndex = getPredictionsIndex();
+  const predIndex = await getPredictionsIndex();
 
   return (
     <div>

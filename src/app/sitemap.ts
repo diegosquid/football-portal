@@ -1,22 +1,32 @@
 import type { MetadataRoute } from "next";
-import { articles } from "#content";
+import { getPublishedArticles } from "@/lib/articles";
 import { getAllCategories } from "@/lib/categories";
 import { getAllAuthors } from "@/lib/authors";
 import { getAllTeams, teamPlaysInGame } from "@/lib/teams";
 import { getAllCompetitions } from "@/lib/competitions";
 import { getAllKnownMatches } from "@/lib/matches";
 import { getProbabilitiesData } from "@/lib/probabilities";
-import { getStandingsData, hasStandings } from "@/lib/standings";
+import { getStandingsData } from "@/lib/standings";
 import { getAllStandingsCopy } from "@/lib/standings-competitions";
 import { siteConfig } from "@/lib/site";
 import { ARTICLES_PER_PAGE } from "@/lib/pagination";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+// Artigo publicado sem build precisa entrar no sitemap sem build também.
+// Sem este revalidate a rota é estática e congela no último deploy.
+export const revalidate = 3600;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = siteConfig.url;
+  const [probabilities, standings, knownMatches, articles] = await Promise.all([
+    getProbabilitiesData(),
+    getStandingsData(),
+    getAllKnownMatches(),
+    getPublishedArticles(),
+  ]);
   const probabilitiesUpdatedAt =
-    getProbabilitiesData()?.generatedAt ?? new Date().toISOString();
+    probabilities?.generatedAt ?? new Date().toISOString();
   const standingsUpdatedAt =
-    getStandingsData()?.generatedAt ?? new Date().toISOString();
+    standings?.generatedAt ?? new Date().toISOString();
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "hourly", priority: 1.0 },
@@ -36,7 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Landings de classificação — entram sozinhas quando a competição ganha
   // tabela publicada (config em src/lib/standings-competitions.ts).
   const standingsPages: MetadataRoute.Sitemap = getAllStandingsCopy()
-    .filter((copy) => hasStandings(copy.slug))
+    .filter((copy) => Boolean(standings?.tables?.[copy.slug]))
     .map((copy) => ({
       url: `${baseUrl}${copy.path}`,
       lastModified: new Date(standingsUpdatedAt),
@@ -72,7 +82,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Categorias — páginas 2+
   const categoryPaginatedPages: MetadataRoute.Sitemap = getAllCategories().flatMap((cat) => {
-    const count = articles.filter((a) => a.category === cat.slug && !a.draft).length;
+    const count = articles.filter((a) => a.category === cat.slug).length;
     const totalPages = Math.ceil(count / ARTICLES_PER_PAGE);
     return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => ({
       url: `${baseUrl}/categoria/${cat.slug}/pagina/${i + 2}`,
@@ -92,7 +102,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Autores — páginas 2+
   const authorPaginatedPages: MetadataRoute.Sitemap = getAllAuthors().flatMap((author) => {
-    const count = articles.filter((a) => a.author === author.slug && !a.draft).length;
+    const count = articles.filter((a) => a.author === author.slug).length;
     const totalPages = Math.ceil(count / ARTICLES_PER_PAGE);
     return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => ({
       url: `${baseUrl}/autor/${author.slug}/pagina/${i + 2}`,
@@ -111,7 +121,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Calendário por time — /proximos-jogos/[time] (só times com jogos na base)
-  const knownMatches = getAllKnownMatches();
   const proximosJogosPages: MetadataRoute.Sitemap = getAllTeams()
     .filter((team) =>
       knownMatches.some((m) => teamPlaysInGame(team.slug, m.home, m.away)),
@@ -143,7 +152,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Times — páginas 2+
   const teamPaginatedPages: MetadataRoute.Sitemap = getAllTeams().flatMap((team) => {
-    const count = articles.filter((a) => a.teams.includes(team.slug) && !a.draft).length;
+    const count = articles.filter((a) => a.teams.includes(team.slug)).length;
     const totalPages = Math.ceil(count / ARTICLES_PER_PAGE);
     return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => ({
       url: `${baseUrl}/time/${team.slug}/pagina/${i + 2}`,
@@ -155,7 +164,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Artigos
   const articlePages: MetadataRoute.Sitemap = articles
-    .filter((a) => !a.draft)
     .map((article) => ({
       url: `${baseUrl}/${article.slug}`,
       lastModified: new Date(article.updated ?? article.date),
@@ -167,7 +175,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Silencioso se o arquivo estiver ausente no build.
   let matchPages: MetadataRoute.Sitemap = [];
   try {
-    matchPages = getAllKnownMatches().map((m) => ({
+    matchPages = knownMatches.map((m) => ({
       url: `${baseUrl}/onde-assistir/${m.slug}`,
       lastModified: new Date(`${m.date}T${m.time}:00-03:00`),
       changeFrequency: "hourly" as const,
