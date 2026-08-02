@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-01T16:12:19.484Z",
+  "updatedAt": "2026-08-02T10:13:18.469Z",
   "predictions": [
     {
       "date": "2026-07-24",
@@ -1898,6 +1898,12 @@
           "casa": 1,
           "fora": 1
         }
+      },
+      "actualResult": {
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "outcome": "empate",
+        "recordedAt": "2026-08-02T10:13:18.472Z"
       }
     },
     {
@@ -2003,6 +2009,12 @@
           "casa": 7,
           "fora": 7
         }
+      },
+      "actualResult": {
+        "homeGoals": 4,
+        "awayGoals": 0,
+        "outcome": "casa",
+        "recordedAt": "2026-08-02T10:13:18.472Z"
       }
     },
     {
@@ -2038,6 +2050,12 @@
           "casa": 6,
           "fora": 5
         }
+      },
+      "actualResult": {
+        "homeGoals": 2,
+        "awayGoals": 1,
+        "outcome": "casa",
+        "recordedAt": "2026-08-02T10:13:18.472Z"
       }
     },
     {
@@ -2073,6 +2091,12 @@
           "casa": 5,
           "fora": 6
         }
+      },
+      "actualResult": {
+        "homeGoals": 1,
+        "awayGoals": 0,
+        "outcome": "casa",
+        "recordedAt": "2026-08-02T10:13:18.472Z"
       }
     },
     {
@@ -2108,6 +2132,12 @@
           "casa": 6,
           "fora": 7
         }
+      },
+      "actualResult": {
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "outcome": "empate",
+        "recordedAt": "2026-08-02T10:13:18.472Z"
       }
     },
     {
@@ -2152,25 +2182,25 @@
       "away": "Fortaleza",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Ida)",
-      "lambdaHome": 1.07,
-      "lambdaAway": 0.73,
-      "golsEsperados": 1.8,
+      "lambdaHome": 1.05,
+      "lambdaAway": 0.71,
+      "golsEsperados": 1.76,
       "resultado": {
-        "casa": 0.43295417267865555,
-        "empate": 0.321367759873333,
-        "fora": 0.24567806744801163
+        "casa": 0.4294204085837425,
+        "empate": 0.32603018985724086,
+        "fora": 0.24454940155901692
       },
       "gols": {
-        "over25": 0.2702668762559243,
-        "under25": 0.7297331237440756
+        "over25": 0.2595560346083047,
+        "under25": 0.7404439653916952
       },
       "ambosMarcam": {
-        "sim": 0.3408525994461379,
-        "nao": 0.6591474005538621
+        "sim": 0.3314473521225288,
+        "nao": 0.6685526478774712
       },
       "placarProvavel": "1-0",
       "explicacao": {
-        "forcaAtaqueCasa": 1.18,
+        "forcaAtaqueCasa": 1.19,
         "forcaDefesaCasa": 0.83,
         "forcaAtaqueFora": 0.88,
         "forcaDefesaFora": 0.63,
@@ -2187,27 +2217,27 @@
       "away": "Grêmio",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Ida)",
-      "lambdaHome": 1.29,
-      "lambdaAway": 1.33,
-      "golsEsperados": 2.63,
+      "lambdaHome": 1.26,
+      "lambdaAway": 1.31,
+      "golsEsperados": 2.58,
       "resultado": {
-        "casa": 0.35952196262111413,
-        "empate": 0.2622869354706948,
-        "fora": 0.37819110190819105
+        "casa": 0.35497189773627963,
+        "empate": 0.26524352437839166,
+        "fora": 0.379784577885329
       },
       "gols": {
-        "over25": 0.48823804256524833,
-        "under25": 0.5117619574347517
+        "over25": 0.475501966342315,
+        "under25": 0.524498033657685
       },
       "ambosMarcam": {
-        "sim": 0.534362357544356,
-        "nao": 0.46563764245564393
+        "sim": 0.5242209048356677,
+        "nao": 0.47577909516433226
       },
       "placarProvavel": "1-1",
       "explicacao": {
-        "forcaAtaqueCasa": 1.06,
-        "forcaDefesaCasa": 1,
-        "forcaAtaqueFora": 1.33,
+        "forcaAtaqueCasa": 1.07,
+        "forcaDefesaCasa": 1.01,
+        "forcaAtaqueFora": 1.35,
         "forcaDefesaFora": 0.83,
         "jogosConsiderados": {
           "casa": 1,
@@ -2222,28 +2252,28 @@
       "away": "Cruzeiro",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Ida)",
-      "lambdaHome": 1.65,
-      "lambdaAway": 0.97,
-      "golsEsperados": 2.62,
+      "lambdaHome": 1.62,
+      "lambdaAway": 0.95,
+      "golsEsperados": 2.57,
       "resultado": {
-        "casa": 0.5318808090322259,
-        "empate": 0.24541882887911484,
-        "fora": 0.22270036208865987
+        "casa": 0.5299958196848134,
+        "empate": 0.2484140827348379,
+        "fora": 0.22159009758034864
       },
       "gols": {
-        "over25": 0.4864014852333435,
-        "under25": 0.5135985147666565
+        "over25": 0.4735839500087905,
+        "under25": 0.5264160499912095
       },
       "ambosMarcam": {
-        "sim": 0.5019989521014713,
-        "nao": 0.4980010478985288
+        "sim": 0.4917877839999418,
+        "nao": 0.5082122160000583
       },
       "placarProvavel": "1-0",
       "explicacao": {
-        "forcaAtaqueCasa": 1.06,
+        "forcaAtaqueCasa": 1.07,
         "forcaDefesaCasa": 0.83,
-        "forcaAtaqueFora": 1.17,
-        "forcaDefesaFora": 1.06,
+        "forcaAtaqueFora": 1.18,
+        "forcaDefesaFora": 1.07,
         "jogosConsiderados": {
           "casa": 1,
           "fora": 1
@@ -2257,27 +2287,27 @@
       "away": "Corinthians",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Ida)",
-      "lambdaHome": 1.43,
-      "lambdaAway": 1.17,
-      "golsEsperados": 2.6,
+      "lambdaHome": 1.4,
+      "lambdaAway": 1.15,
+      "golsEsperados": 2.55,
       "resultado": {
-        "casa": 0.4314275130931645,
-        "empate": 0.26121476560913587,
-        "fora": 0.3073577212976991
+        "casa": 0.42755249934916134,
+        "empate": 0.2645081644185223,
+        "fora": 0.30793933623231584
       },
       "gols": {
-        "over25": 0.48128524213928897,
-        "under25": 0.518714757860711
+        "over25": 0.46824103688638474,
+        "under25": 0.5317589631136153
       },
       "ambosMarcam": {
-        "sim": 0.5241712132385232,
-        "nao": 0.4758287867614767
+        "sim": 0.5141509602958022,
+        "nao": 0.4858490397041978
       },
       "placarProvavel": "1-1",
       "explicacao": {
-        "forcaAtaqueCasa": 1.18,
-        "forcaDefesaCasa": 1.17,
-        "forcaAtaqueFora": 1,
+        "forcaAtaqueCasa": 1.19,
+        "forcaDefesaCasa": 1.18,
+        "forcaAtaqueFora": 1.01,
         "forcaDefesaFora": 0.83,
         "jogosConsiderados": {
           "casa": 1,
@@ -2296,17 +2326,17 @@
       "lambdaAway": 0.9,
       "golsEsperados": 1.97,
       "resultado": {
-        "casa": 0.3864070195017014,
-        "empate": 0.3103509420451745,
-        "fora": 0.3032420384531236
+        "casa": 0.3863414694996337,
+        "empate": 0.31030708111740096,
+        "fora": 0.3033514493829655
       },
       "gols": {
-        "over25": 0.31414486080357096,
-        "under25": 0.6858551391964292
+        "over25": 0.3142850721649489,
+        "under25": 0.6857149278350512
       },
       "ambosMarcam": {
-        "sim": 0.3893297644818654,
-        "nao": 0.6106702355181346
+        "sim": 0.3894610277951286,
+        "nao": 0.6105389722048715
       },
       "placarProvavel": "1-0",
       "explicacao": {
@@ -2331,23 +2361,23 @@
       "lambdaAway": 0.88,
       "golsEsperados": 2.54,
       "resultado": {
-        "casa": 0.5559375535897553,
-        "empate": 0.24422629268826704,
-        "fora": 0.19983615372197716
+        "casa": 0.5558033494826262,
+        "empate": 0.24426693791077997,
+        "fora": 0.19992971260659376
       },
       "gols": {
-        "over25": 0.4659580680609145,
-        "under25": 0.5340419319390856
+        "over25": 0.46591436776890727,
+        "under25": 0.5340856322310927
       },
       "ambosMarcam": {
-        "sim": 0.47449381116098044,
-        "nao": 0.5255061888390196
+        "sim": 0.47451581996005066,
+        "nao": 0.5254841800399493
       },
       "placarProvavel": "1-0",
       "explicacao": {
         "forcaAtaqueCasa": 1.58,
         "forcaDefesaCasa": 0.72,
-        "forcaAtaqueFora": 1.12,
+        "forcaAtaqueFora": 1.13,
         "forcaDefesaFora": 0.7,
         "jogosConsiderados": {
           "casa": 7,
@@ -2366,23 +2396,23 @@
       "lambdaAway": 1.09,
       "golsEsperados": 2.92,
       "resultado": {
-        "casa": 0.5473876812882447,
-        "empate": 0.2285532136082798,
-        "fora": 0.2240591051034753
+        "casa": 0.5472376294246722,
+        "empate": 0.2286079857495402,
+        "fora": 0.2241543848257872
       },
       "gols": {
-        "over25": 0.5586426226109122,
-        "under25": 0.4413573773890877
+        "over25": 0.558509303104965,
+        "under25": 0.441490696895035
       },
       "ambosMarcam": {
-        "sim": 0.557096219098188,
-        "nao": 0.442903780901812
+        "sim": 0.5570412242075575,
+        "nao": 0.44295877579244247
       },
       "placarProvavel": "1-1",
       "explicacao": {
         "forcaAtaqueCasa": 1.18,
-        "forcaDefesaCasa": 0.7,
-        "forcaAtaqueFora": 1.41,
+        "forcaDefesaCasa": 0.71,
+        "forcaAtaqueFora": 1.42,
         "forcaDefesaFora": 1.03,
         "jogosConsiderados": {
           "casa": 6,
@@ -2397,28 +2427,28 @@
       "away": "Vitória",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Ida)",
-      "lambdaHome": 1.29,
-      "lambdaAway": 0.83,
-      "golsEsperados": 2.13,
+      "lambdaHome": 1.26,
+      "lambdaAway": 0.81,
+      "golsEsperados": 2.07,
       "resultado": {
-        "casa": 0.4728567521342595,
-        "empate": 0.2868088922224316,
-        "fora": 0.2403343556433087
+        "casa": 0.4691998606504696,
+        "empate": 0.2915439437914476,
+        "fora": 0.23925619555808283
       },
       "gols": {
-        "over25": 0.3575576046130234,
-        "under25": 0.6424423953869767
+        "over25": 0.3431295432749136,
+        "under25": 0.6568704567250865
       },
       "ambosMarcam": {
-        "sim": 0.4102774018618697,
-        "nao": 0.5897225981381303
+        "sim": 0.39844129921070826,
+        "nao": 0.6015587007892917
       },
       "placarProvavel": "1-0",
       "explicacao": {
         "forcaAtaqueCasa": 0.83,
         "forcaDefesaCasa": 0.83,
-        "forcaAtaqueFora": 1,
-        "forcaDefesaFora": 1.06,
+        "forcaAtaqueFora": 1.01,
+        "forcaDefesaFora": 1.07,
         "jogosConsiderados": {
           "casa": 1,
           "fora": 1
@@ -2433,26 +2463,26 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 14",
       "lambdaHome": 1.5,
-      "lambdaAway": 1.76,
+      "lambdaAway": 1.77,
       "golsEsperados": 3.27,
       "resultado": {
-        "casa": 0.3295456151875955,
-        "empate": 0.22959237018526515,
-        "fora": 0.44086201462713953
+        "casa": 0.328358073653668,
+        "empate": 0.22926473446921397,
+        "fora": 0.44237719187711827
       },
       "gols": {
-        "over25": 0.6335234272100195,
-        "under25": 0.36647657278998047
+        "over25": 0.634693102697862,
+        "under25": 0.36530689730213795
       },
       "ambosMarcam": {
-        "sim": 0.643937845018304,
-        "nao": 0.356062154981696
+        "sim": 0.6446775592807972,
+        "nao": 0.3553224407192028
       },
       "placarProvavel": "1-1",
       "explicacao": {
-        "forcaAtaqueCasa": 1.14,
-        "forcaDefesaCasa": 1.18,
-        "forcaAtaqueFora": 1.37,
+        "forcaAtaqueCasa": 1.13,
+        "forcaDefesaCasa": 1.19,
+        "forcaAtaqueFora": 1.38,
         "forcaDefesaFora": 0.88,
         "jogosConsiderados": {
           "casa": 7,
@@ -2467,25 +2497,25 @@
       "away": "Atlético-MG",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "lambdaHome": 2.29,
-      "lambdaAway": 0.75,
-      "golsEsperados": 3.04,
+      "lambdaHome": 2.26,
+      "lambdaAway": 0.73,
+      "golsEsperados": 2.99,
       "resultado": {
-        "casa": 0.7210443524821389,
-        "empate": 0.17287662359618555,
-        "fora": 0.10607902392167554
+        "casa": 0.7206929456320401,
+        "empate": 0.1744273492780321,
+        "fora": 0.10487970508992753
       },
       "gols": {
-        "over25": 0.5854740506166054,
-        "under25": 0.4145259493833946
+        "over25": 0.5747540362544743,
+        "under25": 0.4252459637455257
       },
       "ambosMarcam": {
-        "sim": 0.47414575518303054,
-        "nao": 0.5258542448169694
+        "sim": 0.46425140334658554,
+        "nao": 0.5357485966534145
       },
       "placarProvavel": "2-0",
       "explicacao": {
-        "forcaAtaqueCasa": 1.57,
+        "forcaAtaqueCasa": 1.6,
         "forcaDefesaCasa": 0.75,
         "forcaAtaqueFora": 1,
         "forcaDefesaFora": 1,
@@ -2502,27 +2532,27 @@
       "away": "Santos",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "lambdaHome": 1.29,
-      "lambdaAway": 1.17,
-      "golsEsperados": 2.46,
+      "lambdaHome": 1.26,
+      "lambdaAway": 1.15,
+      "golsEsperados": 2.41,
       "resultado": {
-        "casa": 0.39439745351526,
-        "empate": 0.27194709296931147,
-        "fora": 0.33365545351542886
+        "casa": 0.39004790658885524,
+        "empate": 0.2754865706212323,
+        "fora": 0.33446552278991176
       },
       "gols": {
-        "over25": 0.4458797196854499,
-        "under25": 0.5541202803145501
+        "over25": 0.4324663967648266,
+        "under25": 0.5675336032351733
       },
       "ambosMarcam": {
-        "sim": 0.4996724361387565,
-        "nao": 0.5003275638612434
+        "sim": 0.4890922008775195,
+        "nao": 0.5109077991224805
       },
       "placarProvavel": "1-1",
       "explicacao": {
-        "forcaAtaqueCasa": 1.06,
-        "forcaDefesaCasa": 1,
-        "forcaAtaqueFora": 1.17,
+        "forcaAtaqueCasa": 1.07,
+        "forcaDefesaCasa": 1.01,
+        "forcaAtaqueFora": 1.18,
         "forcaDefesaFora": 0.83,
         "jogosConsiderados": {
           "casa": 1,
@@ -2537,21 +2567,21 @@
       "away": "Chapecoense",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "lambdaHome": 1.31,
-      "lambdaAway": 0.69,
-      "golsEsperados": 2.01,
+      "lambdaHome": 1.28,
+      "lambdaAway": 0.67,
+      "golsEsperados": 1.95,
       "resultado": {
-        "casa": 0.5146813728747461,
-        "empate": 0.287832967522786,
-        "fora": 0.197485659602468
+        "casa": 0.5115254901517944,
+        "empate": 0.29284418834056697,
+        "fora": 0.19563032150763862
       },
       "gols": {
-        "over25": 0.32515022576534863,
-        "under25": 0.6748497742346513
+        "over25": 0.31085457979194875,
+        "under25": 0.6891454202080511
       },
       "ambosMarcam": {
-        "sim": 0.3658742121352261,
-        "nao": 0.634125787864774
+        "sim": 0.35370099436318303,
+        "nao": 0.646299005636817
       },
       "placarProvavel": "1-0",
       "explicacao": {
@@ -2572,27 +2602,27 @@
       "away": "Mirassol",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "lambdaHome": 1.47,
-      "lambdaAway": 0.83,
-      "golsEsperados": 2.3,
+      "lambdaHome": 1.44,
+      "lambdaAway": 0.81,
+      "golsEsperados": 2.25,
       "resultado": {
-        "casa": 0.5216758041760677,
-        "empate": 0.2653116760620869,
-        "fora": 0.2130125197618459
+        "casa": 0.5191246698067852,
+        "empate": 0.2692098673300784,
+        "fora": 0.2116654628631366
       },
       "gols": {
-        "over25": 0.4048946297375094,
-        "under25": 0.5951053702624907
+        "over25": 0.3910101364401842,
+        "under25": 0.6089898635598158
       },
       "ambosMarcam": {
-        "sim": 0.43542595644012044,
-        "nao": 0.5645740435598795
+        "sim": 0.42412454772834046,
+        "nao": 0.5758754522716596
       },
       "placarProvavel": "1-0",
       "explicacao": {
-        "forcaAtaqueCasa": 1.06,
+        "forcaAtaqueCasa": 1.07,
         "forcaDefesaCasa": 0.83,
-        "forcaAtaqueFora": 1,
+        "forcaAtaqueFora": 1.01,
         "forcaDefesaFora": 0.95,
         "jogosConsiderados": {
           "casa": 1,
@@ -2607,27 +2637,27 @@
       "away": "Vasco",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "lambdaHome": 1.29,
-      "lambdaAway": 1.17,
-      "golsEsperados": 2.46,
+      "lambdaHome": 1.26,
+      "lambdaAway": 1.15,
+      "golsEsperados": 2.41,
       "resultado": {
-        "casa": 0.39439745351526,
-        "empate": 0.27194709296931147,
-        "fora": 0.33365545351542886
+        "casa": 0.39004790658885524,
+        "empate": 0.2754865706212323,
+        "fora": 0.33446552278991176
       },
       "gols": {
-        "over25": 0.4458797196854499,
-        "under25": 0.5541202803145501
+        "over25": 0.4324663967648266,
+        "under25": 0.5675336032351733
       },
       "ambosMarcam": {
-        "sim": 0.4996724361387565,
-        "nao": 0.5003275638612434
+        "sim": 0.4890922008775195,
+        "nao": 0.5109077991224805
       },
       "placarProvavel": "1-1",
       "explicacao": {
-        "forcaAtaqueCasa": 1.06,
-        "forcaDefesaCasa": 1,
-        "forcaAtaqueFora": 1.17,
+        "forcaAtaqueCasa": 1.07,
+        "forcaDefesaCasa": 1.01,
+        "forcaAtaqueFora": 1.18,
         "forcaDefesaFora": 0.83,
         "jogosConsiderados": {
           "casa": 1,
@@ -2642,39 +2672,109 @@
       "away": "Palmeiras",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "lambdaHome": 1.8,
-      "lambdaAway": 1.93,
-      "golsEsperados": 3.73,
+      "lambdaHome": 1.78,
+      "lambdaAway": 1.92,
+      "golsEsperados": 3.7,
       "resultado": {
-        "casa": 0.3673510791790598,
-        "empate": 0.21469341127045585,
-        "fora": 0.4179555095504849
+        "casa": 0.3632922194664367,
+        "empate": 0.2155406756335731,
+        "fora": 0.4211671048999903
       },
       "gols": {
-        "over25": 0.7196146449071346,
-        "under25": 0.2803853550928654
+        "over25": 0.714511418712886,
+        "under25": 0.285488581287114
       },
       "ambosMarcam": {
-        "sim": 0.7135800434281717,
-        "nao": 0.2864199565718283
+        "sim": 0.7093815222052587,
+        "nao": 0.29061847779474126
       },
       "placarProvavel": "1-1",
       "explicacao": {
-        "forcaAtaqueCasa": 1.3,
-        "forcaDefesaCasa": 1.29,
-        "forcaAtaqueFora": 1.5,
+        "forcaAtaqueCasa": 1.32,
+        "forcaDefesaCasa": 1.3,
+        "forcaAtaqueFora": 1.52,
         "forcaDefesaFora": 0.95,
         "jogosConsiderados": {
           "casa": 2,
           "fora": 1
         }
       }
+    },
+    {
+      "date": "2026-08-06",
+      "time": "20:00",
+      "home": "Corinthians",
+      "away": "Internacional",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Volta)",
+      "lambdaHome": 1.28,
+      "lambdaAway": 0.95,
+      "golsEsperados": 2.23,
+      "resultado": {
+        "casa": 0.4404667952125641,
+        "empate": 0.2836841808287307,
+        "fora": 0.27584902395870503
+      },
+      "gols": {
+        "over25": 0.385774243146458,
+        "under25": 0.6142257568535421
+      },
+      "ambosMarcam": {
+        "sim": 0.44309694413278927,
+        "nao": 0.5569030558672107
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.95,
+        "forcaDefesaCasa": 0.83,
+        "forcaAtaqueFora": 1.18,
+        "forcaDefesaFora": 0.95,
+        "jogosConsiderados": {
+          "casa": 1,
+          "fora": 1
+        }
+      }
+    },
+    {
+      "date": "2026-08-06",
+      "time": "20:00",
+      "home": "Vitória",
+      "away": "Athletico-PR",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Volta)",
+      "lambdaHome": 1.51,
+      "lambdaAway": 0.81,
+      "golsEsperados": 2.32,
+      "resultado": {
+        "casa": 0.5398927008073958,
+        "empate": 0.26015117035144814,
+        "fora": 0.19995612884115604
+      },
+      "gols": {
+        "over25": 0.40956966617947194,
+        "under25": 0.5904303338205281
+      },
+      "ambosMarcam": {
+        "sim": 0.43204048767931186,
+        "nao": 0.5679595123206881
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.07,
+        "forcaDefesaCasa": 0.83,
+        "forcaAtaqueFora": 1,
+        "forcaDefesaFora": 1,
+        "jogosConsiderados": {
+          "casa": 1,
+          "fora": 0
+        }
+      }
     }
   ],
   "metrics": {
-    "evaluated": 21,
-    "hitRate": 0.29,
-    "brierScore": 0.23,
+    "evaluated": 26,
+    "hitRate": 0.35,
+    "brierScore": 0.22,
     "minimumSample": 20
   }
 }

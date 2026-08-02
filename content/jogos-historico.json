@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-01T13:12:00-03:00",
+  "updatedAt": "2026-08-02T07:12:00-03:00",
   "games": [
     {
       "date": "2026-07-24",
@@ -850,6 +850,26 @@
       "round": "Oitavas de Final (Volta)",
       "channel": "Globo / SporTV / Premiere / Amazon Prime Video",
       "stadium": "Arena Castelão, Fortaleza"
+    },
+    {
+      "date": "2026-08-06",
+      "time": "20:00",
+      "home": "Corinthians",
+      "away": "Internacional",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Volta)",
+      "channel": "Amazon Prime Video",
+      "stadium": "Neo Química Arena, São Paulo"
+    },
+    {
+      "date": "2026-08-06",
+      "time": "20:00",
+      "home": "Vitória",
+      "away": "Athletico-PR",
+      "competition": "Copa do Brasil",
+      "round": "Oitavas de Final (Volta)",
+      "channel": "SporTV / Premiere / GeTV",
+      "stadium": "Barradão, Salvador"
     }
   ]
 }
