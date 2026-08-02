@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-02T07:12:00-03:00",
+  "updatedAt": "2026-08-02T13:16:00-03:00",
   "games": [
     {
       "date": "2026-08-02",
@@ -8,7 +8,7 @@
       "away": "Juventude",
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 14",
-      "channel": "UOL Esporte",
+      "channel": "N Sports",
       "stadium": ""
     },
     {
@@ -18,7 +18,7 @@
       "away": "Internacional",
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 14",
-      "channel": "UOL Esporte",
+      "channel": "SporTV",
       "stadium": ""
     },
     {
@@ -33,12 +33,22 @@
     },
     {
       "date": "2026-08-02",
+      "time": "17:00",
+      "home": "Newell's Old Boys",
+      "away": "Boca Juniors",
+      "competition": "Campeonato Argentino",
+      "round": "",
+      "channel": "ESPN",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-02",
       "time": "18:00",
       "home": "Ferroviária",
       "away": "Bahia",
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 14",
-      "channel": "UOL Esporte",
+      "channel": "N Sports",
       "stadium": ""
     },
     {
@@ -58,8 +68,18 @@
       "away": "Cruzeiro",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Ida)",
-      "channel": "Globo / SporTV / Premiere",
+      "channel": "SporTV / Premiere",
       "stadium": "Arena Condá, Chapecó"
+    },
+    {
+      "date": "2026-08-02",
+      "time": "19:00",
+      "home": "River Plate",
+      "away": "Rosario Central",
+      "competition": "Campeonato Argentino",
+      "round": "",
+      "channel": "ESPN",
+      "stadium": ""
     },
     {
       "date": "2026-08-02",
@@ -78,7 +98,7 @@
       "away": "Corinthians",
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 14",
-      "channel": "UOL Esporte",
+      "channel": "GE TV / SporTV",
       "stadium": ""
     },
     {
@@ -88,7 +108,7 @@
       "away": "Vitória",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Ida)",
-      "channel": "SporTV / Premiere",
+      "channel": "GE TV / SporTV / Premiere",
       "stadium": "Ligga Arena, Curitiba"
     },
     {
@@ -98,7 +118,7 @@
       "away": "Atlético-MG",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "channel": "SporTV / Premiere",
+      "channel": "Amazon Prime Video",
       "stadium": "Alfredo Jaconi, Caxias do Sul"
     },
     {
@@ -138,7 +158,7 @@
       "away": "Vasco",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "channel": "Globo / SporTV / GeTV / Premiere / Amazon Prime Video",
+      "channel": "Globo / GE TV / SporTV / Premiere / Amazon Prime Video",
       "stadium": "Maracanã, Rio de Janeiro"
     },
     {
@@ -168,7 +188,7 @@
       "away": "Athletico-PR",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "channel": "SporTV / Premiere / GeTV",
+      "channel": "GE TV / SporTV / Premiere",
       "stadium": "Barradão, Salvador"
     }
   ]
