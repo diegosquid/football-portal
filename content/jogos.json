@@ -1,96 +1,6 @@
 {
-  "updatedAt": "2026-08-02T13:16:00-03:00",
+  "updatedAt": "2026-08-03T07:13:00-03:00",
   "games": [
-    {
-      "date": "2026-08-02",
-      "time": "11:00",
-      "home": "Santos",
-      "away": "Juventude",
-      "competition": "Brasileirão Feminino A1",
-      "round": "Rodada 14",
-      "channel": "N Sports",
-      "stadium": ""
-    },
-    {
-      "date": "2026-08-02",
-      "time": "11:00",
-      "home": "Palmeiras",
-      "away": "Internacional",
-      "competition": "Brasileirão Feminino A1",
-      "round": "Rodada 14",
-      "channel": "SporTV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-08-02",
-      "time": "16:00",
-      "home": "Palmeiras",
-      "away": "Fortaleza",
-      "competition": "Copa do Brasil",
-      "round": "Oitavas de Final (Ida)",
-      "channel": "Globo / SporTV / Premiere / Amazon Prime Video",
-      "stadium": "Allianz Parque, São Paulo"
-    },
-    {
-      "date": "2026-08-02",
-      "time": "17:00",
-      "home": "Newell's Old Boys",
-      "away": "Boca Juniors",
-      "competition": "Campeonato Argentino",
-      "round": "",
-      "channel": "ESPN",
-      "stadium": ""
-    },
-    {
-      "date": "2026-08-02",
-      "time": "18:00",
-      "home": "Ferroviária",
-      "away": "Bahia",
-      "competition": "Brasileirão Feminino A1",
-      "round": "Rodada 14",
-      "channel": "N Sports",
-      "stadium": ""
-    },
-    {
-      "date": "2026-08-02",
-      "time": "18:00",
-      "home": "Mirassol",
-      "away": "Grêmio",
-      "competition": "Copa do Brasil",
-      "round": "Oitavas de Final (Ida)",
-      "channel": "Amazon Prime Video",
-      "stadium": "Estádio José Maria de Campos Maia, Mirassol"
-    },
-    {
-      "date": "2026-08-02",
-      "time": "18:30",
-      "home": "Chapecoense",
-      "away": "Cruzeiro",
-      "competition": "Copa do Brasil",
-      "round": "Oitavas de Final (Ida)",
-      "channel": "SporTV / Premiere",
-      "stadium": "Arena Condá, Chapecó"
-    },
-    {
-      "date": "2026-08-02",
-      "time": "19:00",
-      "home": "River Plate",
-      "away": "Rosario Central",
-      "competition": "Campeonato Argentino",
-      "round": "",
-      "channel": "ESPN",
-      "stadium": ""
-    },
-    {
-      "date": "2026-08-02",
-      "time": "19:30",
-      "home": "Internacional",
-      "away": "Corinthians",
-      "competition": "Copa do Brasil",
-      "round": "Oitavas de Final (Ida)",
-      "channel": "Amazon Prime Video",
-      "stadium": "Beira-Rio, Porto Alegre"
-    },
     {
       "date": "2026-08-03",
       "time": "18:30",
@@ -190,6 +100,26 @@
       "round": "Oitavas de Final (Volta)",
       "channel": "GE TV / SporTV / Premiere",
       "stadium": "Barradão, Salvador"
+    },
+    {
+      "date": "2026-08-07",
+      "time": "19:30",
+      "home": "Operário-PR",
+      "away": "São Bernardo",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 21",
+      "channel": "A definir",
+      "stadium": "Estádio Germano Krüger, Ponta Grossa"
+    },
+    {
+      "date": "2026-08-07",
+      "time": "20:30",
+      "home": "Ceará",
+      "away": "Ponte Preta",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 21",
+      "channel": "A definir",
+      "stadium": ""
     }
   ]
 }

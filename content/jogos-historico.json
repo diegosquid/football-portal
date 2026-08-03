@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-02T13:16:00-03:00",
+  "updatedAt": "2026-08-03T07:13:00-03:00",
   "games": [
     {
       "date": "2026-07-24",
@@ -890,6 +890,26 @@
       "round": "Oitavas de Final (Volta)",
       "channel": "GE TV / SporTV / Premiere",
       "stadium": "Barradão, Salvador"
+    },
+    {
+      "date": "2026-08-07",
+      "time": "19:30",
+      "home": "Operário-PR",
+      "away": "São Bernardo",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 21",
+      "channel": "A definir",
+      "stadium": "Estádio Germano Krüger, Ponta Grossa"
+    },
+    {
+      "date": "2026-08-07",
+      "time": "20:30",
+      "home": "Ceará",
+      "away": "Ponte Preta",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 21",
+      "channel": "A definir",
+      "stadium": ""
     }
   ]
 }
