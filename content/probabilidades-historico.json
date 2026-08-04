@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-04T12:09:16.179Z",
+  "updatedAt": "2026-08-04T16:17:08.949Z",
   "predictions": [
     {
       "date": "2026-07-24",
@@ -3089,6 +3089,146 @@
         "jogosConsiderados": {
           "casa": 9,
           "fora": 10
+        }
+      }
+    },
+    {
+      "date": "2026-08-08",
+      "time": "17:00",
+      "home": "Botafogo-PB",
+      "away": "Santa Cruz",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 16",
+      "lambdaHome": 1.1,
+      "lambdaAway": 0.87,
+      "golsEsperados": 1.97,
+      "resultado": {
+        "casa": 0.4071430477198039,
+        "empate": 0.3082785361619101,
+        "fora": 0.2845784161182864
+      },
+      "gols": {
+        "over25": 0.3154743273658691,
+        "under25": 0.6845256726341309
+      },
+      "ambosMarcam": {
+        "sim": 0.3877304254450222,
+        "nao": 0.6122695745549778
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.07,
+        "forcaDefesaCasa": 0.76,
+        "forcaAtaqueFora": 1.18,
+        "forcaDefesaFora": 0.81,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 8
+        }
+      }
+    },
+    {
+      "date": "2026-08-08",
+      "time": "17:00",
+      "home": "Figueirense",
+      "away": "Ferroviária",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 16",
+      "lambdaHome": 0.9,
+      "lambdaAway": 1.37,
+      "golsEsperados": 2.27,
+      "resultado": {
+        "casa": 0.24737894286532044,
+        "empate": 0.2760114710360322,
+        "fora": 0.4766095860986481
+      },
+      "gols": {
+        "over25": 0.39574977397776,
+        "under25": 0.60425022602224
+      },
+      "ambosMarcam": {
+        "sim": 0.4427357682510157,
+        "nao": 0.5572642317489842
+      },
+      "placarProvavel": "0-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.81,
+        "forcaDefesaCasa": 1.28,
+        "forcaAtaqueFora": 1.11,
+        "forcaDefesaFora": 0.88,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 7
+        }
+      }
+    },
+    {
+      "date": "2026-08-08",
+      "time": "19:30",
+      "home": "Ituano",
+      "away": "Barra FC",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 16",
+      "lambdaHome": 1.11,
+      "lambdaAway": 0.75,
+      "golsEsperados": 1.86,
+      "resultado": {
+        "casa": 0.4392926334273159,
+        "empate": 0.3144514654470752,
+        "fora": 0.24625590112560833
+      },
+      "gols": {
+        "over25": 0.28656220172755786,
+        "under25": 0.7134377982724421
+      },
+      "ambosMarcam": {
+        "sim": 0.35468392216698885,
+        "nao": 0.6453160778330111
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.01,
+        "forcaDefesaCasa": 0.76,
+        "forcaAtaqueFora": 1.02,
+        "forcaDefesaFora": 0.87,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 8
+        }
+      }
+    },
+    {
+      "date": "2026-08-08",
+      "time": "19:30",
+      "home": "Inter de Limeira",
+      "away": "Volta Redonda",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 16",
+      "lambdaHome": 1.44,
+      "lambdaAway": 0.63,
+      "golsEsperados": 2.07,
+      "resultado": {
+        "casa": 0.568129224434814,
+        "empate": 0.26929685329845776,
+        "fora": 0.1625739222667282
+      },
+      "gols": {
+        "over25": 0.34244014803505796,
+        "under25": 0.6575598519649422
+      },
+      "ambosMarcam": {
+        "sim": 0.35673554934738055,
+        "nao": 0.6432644506526194
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.94,
+        "forcaDefesaCasa": 1.11,
+        "forcaAtaqueFora": 0.59,
+        "forcaDefesaFora": 1.21,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 7
         }
       }
     }

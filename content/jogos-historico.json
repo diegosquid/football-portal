@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-04T09:11:00-03:00",
+  "updatedAt": "2026-08-04T13:16:00-03:00",
   "games": [
     {
       "date": "2026-07-24",
@@ -933,6 +933,26 @@
     },
     {
       "date": "2026-08-08",
+      "time": "17:00",
+      "home": "Botafogo-PB",
+      "away": "Santa Cruz",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 16",
+      "channel": "Band / SportyNet / Canal do Benja",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-08",
+      "time": "17:00",
+      "home": "Figueirense",
+      "away": "Ferroviária",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 16",
+      "channel": "Band / SportyNet / Canal do Benja",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-08",
       "time": "18:30",
       "home": "Remo",
       "away": "Atlético-MG",
@@ -949,6 +969,26 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 21",
       "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-08",
+      "time": "19:30",
+      "home": "Ituano",
+      "away": "Barra FC",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 16",
+      "channel": "Band / SportyNet / Canal do Benja",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-08",
+      "time": "19:30",
+      "home": "Inter de Limeira",
+      "away": "Volta Redonda",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 16",
+      "channel": "Band / SportyNet / Canal do Benja",
       "stadium": ""
     },
     {
