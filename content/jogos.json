@@ -1,26 +1,6 @@
 {
-  "updatedAt": "2026-08-03T13:15:00-03:00",
+  "updatedAt": "2026-08-04T09:07:00-03:00",
   "games": [
-    {
-      "date": "2026-08-03",
-      "time": "18:30",
-      "home": "Flamengo",
-      "away": "Corinthians",
-      "competition": "Brasileirão Feminino A1",
-      "round": "Rodada 14",
-      "channel": "GE TV / SporTV",
-      "stadium": ""
-    },
-    {
-      "date": "2026-08-03",
-      "time": "21:00",
-      "home": "Athletico-PR",
-      "away": "Vitória",
-      "competition": "Copa do Brasil",
-      "round": "Oitavas de Final (Ida)",
-      "channel": "GE TV / SporTV / Premiere",
-      "stadium": "Ligga Arena, Curitiba"
-    },
     {
       "date": "2026-08-04",
       "time": "19:30",
@@ -108,7 +88,7 @@
       "away": "São Bernardo",
       "competition": "Brasileirão Série B",
       "round": "Rodada 21",
-      "channel": "A definir",
+      "channel": "Disney+",
       "stadium": "Estádio Germano Krüger, Ponta Grossa"
     },
     {
@@ -118,8 +98,68 @@
       "away": "Ponte Preta",
       "competition": "Brasileirão Série B",
       "round": "Rodada 21",
-      "channel": "A definir",
+      "channel": "Disney+",
       "stadium": "Arena Castelão, Fortaleza"
+    },
+    {
+      "date": "2026-08-08",
+      "time": "16:00",
+      "home": "Grêmio",
+      "away": "São Paulo",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 22",
+      "channel": "Premiere",
+      "stadium": "Arena do Grêmio, Porto Alegre"
+    },
+    {
+      "date": "2026-08-08",
+      "time": "16:00",
+      "home": "Vila Nova",
+      "away": "Sport Recife",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 21",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-08",
+      "time": "18:30",
+      "home": "Remo",
+      "away": "Atlético-MG",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 22",
+      "channel": "Premiere",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-08",
+      "time": "18:30",
+      "home": "Botafogo-SP",
+      "away": "América-MG",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 21",
+      "channel": "Disney+",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-08",
+      "time": "20:30",
+      "home": "Coritiba",
+      "away": "Chapecoense",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 22",
+      "channel": "Premiere",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-08",
+      "time": "21:00",
+      "home": "Botafogo",
+      "away": "Fluminense",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 22",
+      "channel": "SporTV / Premiere",
+      "stadium": "Estádio Nilton Santos, Rio de Janeiro"
     }
   ]
 }

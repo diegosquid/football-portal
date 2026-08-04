@@ -1,16 +1,12 @@
 {
-  "generatedAt": "2026-08-03T16:16:11.358Z",
+  "generatedAt": "2026-08-04T12:09:16.179Z",
   "source": "apifootball.com",
   "model": "poisson-v1",
   "disclaimer": "Estimativas estatísticas de modelo próprio. Não são garantia de resultado.",
   "leagueAverages": {
-    "Brasileirão Feminino A1": {
-      "golsCasa": 1.53,
-      "golsFora": 1.06
-    },
     "Copa do Brasil": {
-      "golsCasa": 1.42,
-      "golsFora": 0.94
+      "golsCasa": 1.43,
+      "golsFora": 0.93
     },
     "Brasileirão Série B": {
       "golsCasa": 1.29,
@@ -19,6 +15,10 @@
     "Brasileirão Série A": {
       "golsCasa": 1.48,
       "golsFora": 1.11
+    },
+    "Brasileirão Feminino A1": {
+      "golsCasa": 1.52,
+      "golsFora": 1.06
     },
     "Brasileirão Série D": {
       "golsCasa": 1.36,
@@ -30,134 +30,6 @@
     }
   },
   "teamStrengths": {
-    "Brasileirão Feminino A1": [
-      {
-        "time": "Corinthians W",
-        "jogos": 13,
-        "ataque": 1.56,
-        "defesa": 0.88,
-        "saldo": 0.68
-      },
-      {
-        "time": "Palmeiras W",
-        "jogos": 14,
-        "ataque": 1.25,
-        "defesa": 0.78,
-        "saldo": 0.48
-      },
-      {
-        "time": "Sao Paulo W",
-        "jogos": 14,
-        "ataque": 1.19,
-        "defesa": 0.74,
-        "saldo": 0.45
-      },
-      {
-        "time": "Cruzeiro W",
-        "jogos": 14,
-        "ataque": 1.26,
-        "defesa": 0.96,
-        "saldo": 0.31
-      },
-      {
-        "time": "Ferroviaria W",
-        "jogos": 14,
-        "ataque": 1.05,
-        "defesa": 0.78,
-        "saldo": 0.27
-      },
-      {
-        "time": "Gremio W",
-        "jogos": 14,
-        "ataque": 1.09,
-        "defesa": 0.86,
-        "saldo": 0.23
-      },
-      {
-        "time": "Bahia W",
-        "jogos": 14,
-        "ataque": 1.2,
-        "defesa": 1.01,
-        "saldo": 0.19
-      },
-      {
-        "time": "Flamengo W",
-        "jogos": 13,
-        "ataque": 1.13,
-        "defesa": 0.98,
-        "saldo": 0.16
-      },
-      {
-        "time": "Internacional W",
-        "jogos": 14,
-        "ataque": 0.93,
-        "defesa": 0.82,
-        "saldo": 0.12
-      },
-      {
-        "time": "Santos W",
-        "jogos": 14,
-        "ataque": 0.95,
-        "defesa": 0.91,
-        "saldo": 0.04
-      },
-      {
-        "time": "Fluminense W",
-        "jogos": 14,
-        "ataque": 0.95,
-        "defesa": 0.95,
-        "saldo": 0
-      },
-      {
-        "time": "Bragantino W",
-        "jogos": 14,
-        "ataque": 1.13,
-        "defesa": 1.14,
-        "saldo": -0.01
-      },
-      {
-        "time": "Atletico-MG W",
-        "jogos": 14,
-        "ataque": 0.89,
-        "defesa": 1.01,
-        "saldo": -0.13
-      },
-      {
-        "time": "Juventude W",
-        "jogos": 14,
-        "ataque": 0.66,
-        "defesa": 0.91,
-        "saldo": -0.25
-      },
-      {
-        "time": "Mixto W",
-        "jogos": 14,
-        "ataque": 0.69,
-        "defesa": 1.13,
-        "saldo": -0.44
-      },
-      {
-        "time": "America Mineiro W",
-        "jogos": 14,
-        "ataque": 0.64,
-        "defesa": 1.24,
-        "saldo": -0.6
-      },
-      {
-        "time": "Botafogo RJ W",
-        "jogos": 14,
-        "ataque": 0.68,
-        "defesa": 1.39,
-        "saldo": -0.71
-      },
-      {
-        "time": "Vitoria W",
-        "jogos": 14,
-        "ataque": 0.74,
-        "defesa": 1.53,
-        "saldo": -0.79
-      }
-    ],
     "Copa do Brasil": [
       {
         "time": "Palmeiras",
@@ -169,7 +41,7 @@
       {
         "time": "Novorizontino",
         "jogos": 2,
-        "ataque": 1.33,
+        "ataque": 1.34,
         "defesa": 0.83,
         "saldo": 0.5
       },
@@ -181,18 +53,18 @@
         "saldo": 0.44
       },
       {
-        "time": "Juventude",
-        "jogos": 5,
-        "ataque": 1.15,
-        "defesa": 0.79,
-        "saldo": 0.37
-      },
-      {
         "time": "Gremio",
         "jogos": 3,
         "ataque": 1.2,
         "defesa": 0.82,
         "saldo": 0.37
+      },
+      {
+        "time": "Juventude",
+        "jogos": 5,
+        "ataque": 1.15,
+        "defesa": 0.79,
+        "saldo": 0.36
       },
       {
         "time": "Operario-PR",
@@ -226,8 +98,15 @@
         "time": "Internacional",
         "jogos": 3,
         "ataque": 1.2,
-        "defesa": 0.98,
+        "defesa": 0.99,
         "saldo": 0.22
+      },
+      {
+        "time": "Primavera",
+        "jogos": 2,
+        "ataque": 1.16,
+        "defesa": 0.96,
+        "saldo": 0.21
       },
       {
         "time": "Sao Bernardo",
@@ -242,13 +121,6 @@
         "ataque": 1.12,
         "defesa": 0.91,
         "saldo": 0.21
-      },
-      {
-        "time": "Primavera",
-        "jogos": 2,
-        "ataque": 1.16,
-        "defesa": 0.96,
-        "saldo": 0.2
       },
       {
         "time": "America RN",
@@ -297,14 +169,7 @@
         "jogos": 1,
         "ataque": 1.15,
         "defesa": 1.01,
-        "saldo": 0.15
-      },
-      {
-        "time": "Goias",
-        "jogos": 4,
-        "ataque": 1.04,
-        "defesa": 0.92,
-        "saldo": 0.13
+        "saldo": 0.14
       },
       {
         "time": "Vasco",
@@ -323,29 +188,43 @@
       {
         "time": "Operario MS",
         "jogos": 1,
-        "ataque": 1.09,
+        "ataque": 1.1,
         "defesa": 0.98,
         "saldo": 0.12
       },
       {
-        "time": "Cruzeiro",
-        "jogos": 3,
-        "ataque": 0.98,
-        "defesa": 0.87,
-        "saldo": 0.11
+        "time": "Goias",
+        "jogos": 4,
+        "ataque": 1.04,
+        "defesa": 0.92,
+        "saldo": 0.12
       },
       {
         "time": "Uberlandia",
         "jogos": 2,
         "ataque": 1.16,
         "defesa": 1.06,
-        "saldo": 0.1
+        "saldo": 0.11
+      },
+      {
+        "time": "Cruzeiro",
+        "jogos": 3,
+        "ataque": 0.99,
+        "defesa": 0.87,
+        "saldo": 0.11
       },
       {
         "time": "Paysandu PA",
         "jogos": 4,
         "ataque": 1.25,
         "defesa": 1.14,
+        "saldo": 0.1
+      },
+      {
+        "time": "Athletico-PR",
+        "jogos": 2,
+        "ataque": 0.96,
+        "defesa": 0.86,
         "saldo": 0.1
       },
       {
@@ -363,10 +242,10 @@
         "saldo": 0.09
       },
       {
-        "time": "Vitoria",
-        "jogos": 2,
-        "ataque": 1.04,
-        "defesa": 0.95,
+        "time": "Figueirense",
+        "jogos": 3,
+        "ataque": 0.91,
+        "defesa": 0.82,
         "saldo": 0.09
       },
       {
@@ -377,13 +256,6 @@
         "saldo": 0.08
       },
       {
-        "time": "Figueirense",
-        "jogos": 3,
-        "ataque": 0.91,
-        "defesa": 0.82,
-        "saldo": 0.08
-      },
-      {
         "time": "Maringa FC",
         "jogos": 3,
         "ataque": 1.19,
@@ -391,17 +263,17 @@
         "saldo": 0.07
       },
       {
-        "time": "Portuguesa",
-        "jogos": 2,
-        "ataque": 1.21,
-        "defesa": 1.16,
-        "saldo": 0.05
-      },
-      {
         "time": "Aguia De Maraba",
         "jogos": 3,
         "ataque": 0.97,
         "defesa": 0.92,
+        "saldo": 0.04
+      },
+      {
+        "time": "Portuguesa",
+        "jogos": 2,
+        "ataque": 1.21,
+        "defesa": 1.16,
         "saldo": 0.04
       },
       {
@@ -429,7 +301,7 @@
         "time": "Mirassol",
         "jogos": 3,
         "ataque": 1.01,
-        "defesa": 0.98,
+        "defesa": 0.99,
         "saldo": 0.03
       },
       {
@@ -496,11 +368,11 @@
         "saldo": 0
       },
       {
-        "time": "Athletico-PR",
-        "jogos": 1,
-        "ataque": 0.92,
-        "defesa": 0.92,
-        "saldo": 0
+        "time": "Vitoria",
+        "jogos": 3,
+        "ataque": 0.97,
+        "defesa": 0.97,
+        "saldo": -0.01
       },
       {
         "time": "Serra Branca",
@@ -610,7 +482,7 @@
       {
         "time": "Bragantino",
         "jogos": 3,
-        "ataque": 0.98,
+        "ataque": 0.99,
         "defesa": 1.06,
         "saldo": -0.08
       },
@@ -688,7 +560,7 @@
         "time": "Retro",
         "jogos": 1,
         "ataque": 0.98,
-        "defesa": 1.09,
+        "defesa": 1.1,
         "saldo": -0.12
       },
       {
@@ -702,7 +574,7 @@
         "time": "ASA",
         "jogos": 1,
         "ataque": 0.98,
-        "defesa": 1.09,
+        "defesa": 1.1,
         "saldo": -0.12
       },
       {
@@ -727,24 +599,17 @@
         "saldo": -0.12
       },
       {
-        "time": "Ivinhema",
-        "jogos": 2,
+        "time": "Tocantinopolis",
+        "jogos": 1,
         "ataque": 1.01,
-        "defesa": 1.16,
-        "saldo": -0.15
+        "defesa": 1.15,
+        "saldo": -0.14
       },
       {
         "time": "Boavista",
         "jogos": 1,
         "ataque": 1.03,
-        "defesa": 1.18,
-        "saldo": -0.15
-      },
-      {
-        "time": "Tocantinopolis",
-        "jogos": 1,
-        "ataque": 1.01,
-        "defesa": 1.15,
+        "defesa": 1.19,
         "saldo": -0.15
       },
       {
@@ -753,6 +618,13 @@
         "ataque": 0.83,
         "defesa": 0.98,
         "saldo": -0.15
+      },
+      {
+        "time": "Ivinhema",
+        "jogos": 2,
+        "ataque": 1.01,
+        "defesa": 1.16,
+        "saldo": -0.16
       },
       {
         "time": "GAS",
@@ -779,7 +651,7 @@
         "time": "Sousa",
         "jogos": 1,
         "ataque": 0.92,
-        "defesa": 1.09,
+        "defesa": 1.1,
         "saldo": -0.18
       },
       {
@@ -800,7 +672,7 @@
         "time": "Sport Recife",
         "jogos": 1,
         "ataque": 0.98,
-        "defesa": 1.18,
+        "defesa": 1.19,
         "saldo": -0.21
       },
       {
@@ -811,13 +683,6 @@
         "saldo": -0.23
       },
       {
-        "time": "Confianca",
-        "jogos": 3,
-        "ataque": 0.87,
-        "defesa": 1.12,
-        "saldo": -0.24
-      },
-      {
         "time": "Bahia",
         "jogos": 2,
         "ataque": 0.98,
@@ -825,31 +690,38 @@
         "saldo": -0.24
       },
       {
+        "time": "Confianca",
+        "jogos": 3,
+        "ataque": 0.87,
+        "defesa": 1.12,
+        "saldo": -0.25
+      },
+      {
         "time": "Bare",
         "jogos": 1,
         "ataque": 0.92,
-        "defesa": 1.18,
+        "defesa": 1.19,
         "saldo": -0.27
       },
       {
         "time": "Araguaina",
         "jogos": 1,
         "ataque": 0.92,
-        "defesa": 1.18,
+        "defesa": 1.19,
         "saldo": -0.27
       },
       {
         "time": "Imperatriz",
         "jogos": 1,
         "ataque": 0.92,
-        "defesa": 1.18,
+        "defesa": 1.19,
         "saldo": -0.27
       },
       {
         "time": "Mixto",
         "jogos": 1,
         "ataque": 0.92,
-        "defesa": 1.18,
+        "defesa": 1.19,
         "saldo": -0.27
       },
       {
@@ -871,7 +743,7 @@
         "jogos": 1,
         "ataque": 0.92,
         "defesa": 1.27,
-        "saldo": -0.35
+        "saldo": -0.36
       },
       {
         "time": "Jacuipense",
@@ -1163,6 +1035,134 @@
         "ataque": 0.81,
         "defesa": 1.44,
         "saldo": -0.63
+      }
+    ],
+    "Brasileirão Feminino A1": [
+      {
+        "time": "Corinthians W",
+        "jogos": 14,
+        "ataque": 1.55,
+        "defesa": 0.84,
+        "saldo": 0.7
+      },
+      {
+        "time": "Palmeiras W",
+        "jogos": 14,
+        "ataque": 1.26,
+        "defesa": 0.78,
+        "saldo": 0.48
+      },
+      {
+        "time": "Sao Paulo W",
+        "jogos": 14,
+        "ataque": 1.19,
+        "defesa": 0.74,
+        "saldo": 0.45
+      },
+      {
+        "time": "Cruzeiro W",
+        "jogos": 14,
+        "ataque": 1.27,
+        "defesa": 0.96,
+        "saldo": 0.31
+      },
+      {
+        "time": "Ferroviaria W",
+        "jogos": 14,
+        "ataque": 1.05,
+        "defesa": 0.78,
+        "saldo": 0.27
+      },
+      {
+        "time": "Gremio W",
+        "jogos": 14,
+        "ataque": 1.09,
+        "defesa": 0.86,
+        "saldo": 0.23
+      },
+      {
+        "time": "Bahia W",
+        "jogos": 14,
+        "ataque": 1.2,
+        "defesa": 1.01,
+        "saldo": 0.19
+      },
+      {
+        "time": "Flamengo W",
+        "jogos": 14,
+        "ataque": 1.09,
+        "defesa": 0.97,
+        "saldo": 0.12
+      },
+      {
+        "time": "Internacional W",
+        "jogos": 14,
+        "ataque": 0.93,
+        "defesa": 0.82,
+        "saldo": 0.12
+      },
+      {
+        "time": "Santos W",
+        "jogos": 14,
+        "ataque": 0.95,
+        "defesa": 0.91,
+        "saldo": 0.04
+      },
+      {
+        "time": "Fluminense W",
+        "jogos": 14,
+        "ataque": 0.95,
+        "defesa": 0.95,
+        "saldo": 0
+      },
+      {
+        "time": "Bragantino W",
+        "jogos": 14,
+        "ataque": 1.13,
+        "defesa": 1.14,
+        "saldo": -0.01
+      },
+      {
+        "time": "Atletico-MG W",
+        "jogos": 14,
+        "ataque": 0.89,
+        "defesa": 1.02,
+        "saldo": -0.13
+      },
+      {
+        "time": "Juventude W",
+        "jogos": 14,
+        "ataque": 0.66,
+        "defesa": 0.91,
+        "saldo": -0.25
+      },
+      {
+        "time": "Mixto W",
+        "jogos": 14,
+        "ataque": 0.7,
+        "defesa": 1.13,
+        "saldo": -0.44
+      },
+      {
+        "time": "America Mineiro W",
+        "jogos": 14,
+        "ataque": 0.64,
+        "defesa": 1.24,
+        "saldo": -0.6
+      },
+      {
+        "time": "Botafogo RJ W",
+        "jogos": 14,
+        "ataque": 0.68,
+        "defesa": 1.39,
+        "saldo": -0.71
+      },
+      {
+        "time": "Vitoria W",
+        "jogos": 14,
+        "ataque": 0.74,
+        "defesa": 1.53,
+        "saldo": -0.8
       }
     ],
     "Brasileirão Série D": [
@@ -1984,97 +1984,27 @@
   },
   "predictions": [
     {
-      "date": "2026-08-03",
-      "time": "18:30",
-      "home": "Flamengo",
-      "away": "Corinthians",
-      "competition": "Brasileirão Feminino A1",
-      "round": "Rodada 14",
-      "lambdaHome": 1.5,
-      "lambdaAway": 1.78,
-      "golsEsperados": 3.28,
-      "resultado": {
-        "casa": 0.3261874915083957,
-        "empate": 0.2287876718785437,
-        "fora": 0.445024836613061
-      },
-      "gols": {
-        "over25": 0.6362000543277586,
-        "under25": 0.36379994567224133
-      },
-      "ambosMarcam": {
-        "sim": 0.6455380882727125,
-        "nao": 0.35446191172728747
-      },
-      "placarProvavel": "1-1",
-      "explicacao": {
-        "forcaAtaqueCasa": 1.13,
-        "forcaDefesaCasa": 1.2,
-        "forcaAtaqueFora": 1.39,
-        "forcaDefesaFora": 0.87,
-        "jogosConsiderados": {
-          "casa": 7,
-          "fora": 6
-        }
-      }
-    },
-    {
-      "date": "2026-08-03",
-      "time": "21:00",
-      "home": "Athletico-PR",
-      "away": "Vitória",
-      "competition": "Copa do Brasil",
-      "round": "Oitavas de Final (Ida)",
-      "lambdaHome": 1.26,
-      "lambdaAway": 0.79,
-      "golsEsperados": 2.06,
-      "resultado": {
-        "casa": 0.47499102402327886,
-        "empate": 0.29195425925308555,
-        "fora": 0.23305471672363537
-      },
-      "gols": {
-        "over25": 0.33835695424721957,
-        "under25": 0.6616430457527804
-      },
-      "ambosMarcam": {
-        "sim": 0.39237958937127226,
-        "nao": 0.6076204106287277
-      },
-      "placarProvavel": "1-0",
-      "explicacao": {
-        "forcaAtaqueCasa": 0.83,
-        "forcaDefesaCasa": 0.83,
-        "forcaAtaqueFora": 1.01,
-        "forcaDefesaFora": 1.07,
-        "jogosConsiderados": {
-          "casa": 1,
-          "fora": 1
-        }
-      }
-    },
-    {
       "date": "2026-08-04",
       "time": "19:30",
       "home": "Juventude",
       "away": "Atlético-MG",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "lambdaHome": 2.26,
+      "lambdaHome": 2.27,
       "lambdaAway": 0.71,
       "golsEsperados": 2.97,
       "resultado": {
-        "casa": 0.7253157412788649,
-        "empate": 0.17308435913102,
-        "fora": 0.10159989959011484
+        "casa": 0.7273152606927518,
+        "empate": 0.17235627568381695,
+        "fora": 0.10032846362343148
       },
       "gols": {
-        "over25": 0.571174685980775,
-        "under25": 0.42882531401922497
+        "over25": 0.57067108874532,
+        "under25": 0.42932891125468
       },
       "ambosMarcam": {
-        "sim": 0.45653952717058277,
-        "nao": 0.5434604728294172
+        "sim": 0.4541653034059078,
+        "nao": 0.5458346965940921
       },
       "placarProvavel": "2-0",
       "explicacao": {
@@ -2095,21 +2025,21 @@
       "away": "Santos",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "lambdaHome": 1.26,
-      "lambdaAway": 1.13,
+      "lambdaHome": 1.27,
+      "lambdaAway": 1.12,
       "golsEsperados": 2.39,
       "resultado": {
-        "casa": 0.3946745953527736,
-        "empate": 0.27634136172096563,
-        "fora": 0.328984042926261
+        "casa": 0.39707103121526127,
+        "empate": 0.2763493105467541,
+        "fora": 0.3265796582379846
       },
       "gols": {
-        "over25": 0.42831344135874816,
-        "under25": 0.5716865586412518
+        "over25": 0.42782045943780067,
+        "under25": 0.5721795405621993
       },
       "ambosMarcam": {
-        "sim": 0.48535048446572404,
-        "nao": 0.514649515534276
+        "sim": 0.48474218600197794,
+        "nao": 0.515257813998022
       },
       "placarProvavel": "1-1",
       "explicacao": {
@@ -2130,21 +2060,21 @@
       "away": "Chapecoense",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "lambdaHome": 1.28,
+      "lambdaHome": 1.29,
       "lambdaAway": 0.65,
-      "golsEsperados": 1.94,
+      "golsEsperados": 1.93,
       "resultado": {
-        "casa": 0.5176424662339938,
-        "empate": 0.2928947574615145,
-        "fora": 0.18946277630449188
+        "casa": 0.5205620557827968,
+        "empate": 0.29240930640762164,
+        "fora": 0.18702863780958134
       },
       "gols": {
-        "over25": 0.30606836998288633,
-        "under25": 0.6939316300171137
+        "over25": 0.30537781163060107,
+        "under25": 0.6946221883693989
       },
       "ambosMarcam": {
-        "sim": 0.34656974782868216,
-        "nao": 0.6534302521713179
+        "sim": 0.34464405459033226,
+        "nao": 0.6553559454096677
       },
       "placarProvavel": "1-0",
       "explicacao": {
@@ -2165,21 +2095,21 @@
       "away": "Mirassol",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "lambdaHome": 1.44,
+      "lambdaHome": 1.45,
       "lambdaAway": 0.79,
       "golsEsperados": 2.23,
       "resultado": {
-        "casa": 0.5249163390871833,
-        "empate": 0.2691138639226883,
-        "fora": 0.20596979699012846
+        "casa": 0.5276362604512247,
+        "empate": 0.2686787803180589,
+        "fora": 0.20368495923071628
       },
       "gols": {
-        "over25": 0.38627267256833575,
-        "under25": 0.6137273274316641
+        "over25": 0.3855689067605628,
+        "under25": 0.6144310932394372
       },
       "ambosMarcam": {
-        "sim": 0.41757868771696854,
-        "nao": 0.5824213122830314
+        "sim": 0.4158273420424743,
+        "nao": 0.5841726579575256
       },
       "placarProvavel": "1-0",
       "explicacao": {
@@ -2200,21 +2130,21 @@
       "away": "Vasco",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "lambdaHome": 1.26,
-      "lambdaAway": 1.13,
+      "lambdaHome": 1.27,
+      "lambdaAway": 1.12,
       "golsEsperados": 2.39,
       "resultado": {
-        "casa": 0.3946745953527736,
-        "empate": 0.27634136172096563,
-        "fora": 0.328984042926261
+        "casa": 0.39707103121526127,
+        "empate": 0.2763493105467541,
+        "fora": 0.3265796582379846
       },
       "gols": {
-        "over25": 0.42831344135874816,
-        "under25": 0.5716865586412518
+        "over25": 0.42782045943780067,
+        "under25": 0.5721795405621993
       },
       "ambosMarcam": {
-        "sim": 0.48535048446572404,
-        "nao": 0.514649515534276
+        "sim": 0.48474218600197794,
+        "nao": 0.515257813998022
       },
       "placarProvavel": "1-1",
       "explicacao": {
@@ -2239,23 +2169,23 @@
       "lambdaAway": 1.92,
       "golsEsperados": 3.7,
       "resultado": {
-        "casa": 0.36456676550839995,
-        "empate": 0.21569564214787637,
-        "fora": 0.41973759234372393
+        "casa": 0.36547959855979123,
+        "empate": 0.2156770202600196,
+        "fora": 0.41884338118018916
       },
       "gols": {
-        "over25": 0.7139459726998868,
-        "under25": 0.28605402730011315
+        "over25": 0.714204537331666,
+        "under25": 0.285795462668334
       },
       "ambosMarcam": {
-        "sim": 0.7090135919914926,
-        "nao": 0.2909864080085074
+        "sim": 0.7092647091673491,
+        "nao": 0.29073529083265093
       },
       "placarProvavel": "1-1",
       "explicacao": {
         "forcaAtaqueCasa": 1.32,
-        "forcaDefesaCasa": 1.32,
-        "forcaAtaqueFora": 1.54,
+        "forcaDefesaCasa": 1.33,
+        "forcaAtaqueFora": 1.55,
         "forcaDefesaFora": 0.95,
         "jogosConsiderados": {
           "casa": 2,
@@ -2270,21 +2200,21 @@
       "away": "Internacional",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "lambdaHome": 1.28,
-      "lambdaAway": 0.93,
+      "lambdaHome": 1.29,
+      "lambdaAway": 0.92,
       "golsEsperados": 2.21,
       "resultado": {
-        "casa": 0.4459277831878018,
-        "empate": 0.28429464448414293,
-        "fora": 0.26977757232805555
+        "casa": 0.4486083498748344,
+        "empate": 0.2841358586787156,
+        "fora": 0.26725579144645045
       },
       "gols": {
-        "over25": 0.38103942114949607,
-        "under25": 0.6189605788505039
+        "over25": 0.38035538483418135,
+        "under25": 0.6196446151658187
       },
       "ambosMarcam": {
-        "sim": 0.43784791258329414,
-        "nao": 0.5621520874167057
+        "sim": 0.4366514519138203,
+        "nao": 0.5633485480861797
       },
       "placarProvavel": "1-0",
       "explicacao": {
@@ -2309,17 +2239,17 @@
       "lambdaAway": 0.78,
       "golsEsperados": 2.3,
       "resultado": {
-        "casa": 0.5468686904444771,
-        "empate": 0.2597842747771528,
-        "fora": 0.19334703477837034
+        "casa": 0.5501463576817023,
+        "empate": 0.2591636294838677,
+        "fora": 0.19069001283443002
       },
       "gols": {
-        "over25": 0.40396080777159826,
-        "under25": 0.5960391922284017
+        "over25": 0.40317296674288516,
+        "under25": 0.5968270332571148
       },
       "ambosMarcam": {
-        "sim": 0.42393609214760725,
-        "nao": 0.5760639078523927
+        "sim": 0.4217247193623704,
+        "nao": 0.5782752806376297
       },
       "placarProvavel": "1-0",
       "explicacao": {
@@ -2400,6 +2330,216 @@
         "jogosConsiderados": {
           "casa": 10,
           "fora": 9
+        }
+      }
+    },
+    {
+      "date": "2026-08-08",
+      "time": "16:00",
+      "home": "Grêmio",
+      "away": "São Paulo",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 22",
+      "lambdaHome": 1.47,
+      "lambdaAway": 1.03,
+      "golsEsperados": 2.5,
+      "resultado": {
+        "casa": 0.47527352797489425,
+        "empate": 0.26179413713482075,
+        "fora": 0.2629323348902847
+      },
+      "gols": {
+        "over25": 0.4561526838762669,
+        "under25": 0.5438473161237332
+      },
+      "ambosMarcam": {
+        "sim": 0.49451899983912956,
+        "nao": 0.5054810001608704
+      },
+      "placarProvavel": "1-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.05,
+        "forcaDefesaCasa": 1.06,
+        "forcaAtaqueFora": 0.88,
+        "forcaDefesaFora": 0.94,
+        "jogosConsiderados": {
+          "casa": 10,
+          "fora": 11
+        }
+      }
+    },
+    {
+      "date": "2026-08-08",
+      "time": "16:00",
+      "home": "Vila Nova",
+      "away": "Sport Recife",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 21",
+      "lambdaHome": 1.2,
+      "lambdaAway": 0.99,
+      "golsEsperados": 2.19,
+      "resultado": {
+        "casa": 0.4091276906873829,
+        "empate": 0.2896232905764038,
+        "fora": 0.30124901873621285
+      },
+      "gols": {
+        "over25": 0.37551032182272553,
+        "under25": 0.6244896781772744
+      },
+      "ambosMarcam": {
+        "sim": 0.4397446647249931,
+        "nao": 0.5602553352750069
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.35,
+        "forcaDefesaCasa": 1.06,
+        "forcaAtaqueFora": 0.92,
+        "forcaDefesaFora": 0.69,
+        "jogosConsiderados": {
+          "casa": 9,
+          "fora": 9
+        }
+      }
+    },
+    {
+      "date": "2026-08-08",
+      "time": "18:30",
+      "home": "Remo",
+      "away": "Atlético-MG",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 22",
+      "lambdaHome": 1.11,
+      "lambdaAway": 1.03,
+      "golsEsperados": 2.14,
+      "resultado": {
+        "casa": 0.3737291535673834,
+        "empate": 0.29561271432186115,
+        "fora": 0.3306581321107551
+      },
+      "gols": {
+        "over25": 0.36186101279526994,
+        "under25": 0.6381389872047301
+      },
+      "ambosMarcam": {
+        "sim": 0.4316123042780771,
+        "nao": 0.5683876957219228
+      },
+      "placarProvavel": "1-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.92,
+        "forcaDefesaCasa": 1,
+        "forcaAtaqueFora": 0.93,
+        "forcaDefesaFora": 0.82,
+        "jogosConsiderados": {
+          "casa": 10,
+          "fora": 11
+        }
+      }
+    },
+    {
+      "date": "2026-08-08",
+      "time": "18:30",
+      "home": "Botafogo-SP",
+      "away": "América-MG",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 21",
+      "lambdaHome": 2.03,
+      "lambdaAway": 0.91,
+      "golsEsperados": 2.94,
+      "resultado": {
+        "casa": 0.633707985220386,
+        "empate": 0.20602708863667774,
+        "fora": 0.16026492614293608
+      },
+      "gols": {
+        "over25": 0.5630896197766899,
+        "under25": 0.43691038022331
+      },
+      "ambosMarcam": {
+        "sim": 0.5188152649294264,
+        "nao": 0.4811847350705735
+      },
+      "placarProvavel": "2-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.3,
+        "forcaDefesaCasa": 1.13,
+        "forcaAtaqueFora": 0.79,
+        "forcaDefesaFora": 1.21,
+        "jogosConsiderados": {
+          "casa": 9,
+          "fora": 10
+        }
+      }
+    },
+    {
+      "date": "2026-08-08",
+      "time": "20:30",
+      "home": "Coritiba",
+      "away": "Chapecoense",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 22",
+      "lambdaHome": 1.35,
+      "lambdaAway": 0.81,
+      "golsEsperados": 2.16,
+      "resultado": {
+        "casa": 0.49366685387133324,
+        "empate": 0.2806704934207408,
+        "fora": 0.22566265270792651
+      },
+      "gols": {
+        "over25": 0.36639868206182385,
+        "under25": 0.6336013179381761
+      },
+      "ambosMarcam": {
+        "sim": 0.41152365600821733,
+        "nao": 0.5884763439917826
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.83,
+        "forcaDefesaCasa": 1.06,
+        "forcaAtaqueFora": 0.69,
+        "forcaDefesaFora": 1.1,
+        "jogosConsiderados": {
+          "casa": 10,
+          "fora": 10
+        }
+      }
+    },
+    {
+      "date": "2026-08-08",
+      "time": "21:00",
+      "home": "Botafogo",
+      "away": "Fluminense",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 22",
+      "lambdaHome": 1.68,
+      "lambdaAway": 1.4,
+      "golsEsperados": 3.08,
+      "resultado": {
+        "casa": 0.44238915385191185,
+        "empate": 0.2370344833177946,
+        "fora": 0.3205763628302935
+      },
+      "gols": {
+        "over25": 0.5937962203982611,
+        "under25": 0.406203779601739
+      },
+      "ambosMarcam": {
+        "sim": 0.6124149760221648,
+        "nao": 0.3875850239778352
+      },
+      "placarProvavel": "1-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.18,
+        "forcaDefesaCasa": 1.2,
+        "forcaAtaqueFora": 1.06,
+        "forcaDefesaFora": 0.96,
+        "jogosConsiderados": {
+          "casa": 9,
+          "fora": 10
         }
       }
     }
