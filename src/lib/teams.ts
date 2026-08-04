@@ -19,9 +19,12 @@ export const teams: Record<string, Team> = {
   vasco: { slug: "vasco", name: "Vasco da Gama", shortName: "VAS", state: "RJ", aliases: ["Vasco"] },
   gremio: { slug: "gremio", name: "Grêmio", shortName: "GRE", state: "RS" },
   internacional: { slug: "internacional", name: "Internacional", shortName: "INT", state: "RS" },
-  "atletico-mg": { slug: "atletico-mg", name: "Atlético-MG", shortName: "CAM", state: "MG" },
+  "atletico-mg": { slug: "atletico-mg", name: "Atlético-MG", shortName: "CAM", state: "MG", aliases: ["Atletico Mineiro", "Atlético Mineiro"] },
   cruzeiro: { slug: "cruzeiro", name: "Cruzeiro", shortName: "CRU", state: "MG" },
-  "athletico-pr": { slug: "athletico-pr", name: "Athletico-PR", shortName: "CAP", state: "PR" },
+  // "Athletico Paranaense" PRECISA estar aqui: sem o alias exato, o casamento
+  // por containment achava "Athletic" dentro dele e mandava o Furacão pro
+  // Athletic-MG — jogador do Athletico aparecia como do time de São João del-Rei.
+  "athletico-pr": { slug: "athletico-pr", name: "Athletico-PR", shortName: "CAP", state: "PR", aliases: ["Athletico Paranaense", "Atletico Paranaense", "Athletico PR"] },
   bahia: { slug: "bahia", name: "Bahia", shortName: "BAH", state: "BA" },
   fortaleza: { slug: "fortaleza", name: "Fortaleza", shortName: "FOR", state: "CE" },
   "red-bull-bragantino": { slug: "red-bull-bragantino", name: "Red Bull Bragantino", shortName: "RBB", state: "SP", aliases: ["Bragantino"] },
@@ -38,7 +41,7 @@ export const teams: Record<string, Team> = {
   chapecoense: { slug: "chapecoense", name: "Chapecoense", shortName: "CHA", state: "SC" },
   remo: { slug: "remo", name: "Remo", shortName: "REM", state: "PA" },
   novorizontino: { slug: "novorizontino", name: "Novorizontino", shortName: "NOV", state: "SP" },
-  "america-mg": { slug: "america-mg", name: "América-MG", shortName: "AME", state: "MG" },
+  "america-mg": { slug: "america-mg", name: "América-MG", shortName: "AME", state: "MG", aliases: ["America Mineiro", "América Mineiro"] },
   nautico: { slug: "nautico", name: "Náutico", shortName: "NAU", state: "PE" },
   avai: { slug: "avai", name: "Avaí", shortName: "AVA", state: "SC" },
   "atletico-go": { slug: "atletico-go", name: "Atlético-GO", shortName: "ACG", state: "GO" },
@@ -47,7 +50,10 @@ export const teams: Record<string, Team> = {
   "botafogo-sp": { slug: "botafogo-sp", name: "Botafogo-SP", shortName: "BSP", state: "SP" },
   "sao-bernardo": { slug: "sao-bernardo", name: "São Bernardo", shortName: "SBE", state: "SP" },
   "operario-pr": { slug: "operario-pr", name: "Operário-PR", shortName: "OPE", state: "PR", aliases: ["Operário"] },
-  "athletic-mg": { slug: "athletic-mg", name: "Athletic-MG", shortName: "ATH", state: "MG", aliases: ["Athletic"] },
+  // Sem o alias solto "Athletic": ele casava por containment com "Athletico
+  // Paranaense". As grafias que a API usa entram inteiras, e o match exato
+  // (1ª passada) resolve antes de qualquer containment.
+  "athletic-mg": { slug: "athletic-mg", name: "Athletic-MG", shortName: "ATH", state: "MG", aliases: ["Athletic Club", "Athletic Club Minas", "Athletic Club-MG"] },
   londrina: { slug: "londrina", name: "Londrina", shortName: "LON", state: "PR" },
   criciuma: { slug: "criciuma", name: "Criciúma", shortName: "CRI", state: "SC" },
   "ponte-preta": { slug: "ponte-preta", name: "Ponte Preta", shortName: "PON", state: "SP", aliases: ["AA Ponte Preta"] },

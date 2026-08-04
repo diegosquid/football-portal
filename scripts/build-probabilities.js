@@ -57,13 +57,24 @@ function todayISO() {
   return new Date().toISOString().slice(0, 10);
 }
 
+/**
+ * Jogo que já aconteceu e serve de amostra pro modelo.
+ *
+ * "After Pen." é mata-mata decidido nos pênaltis: o placar do tempo normal é
+ * gol de verdade e precisa entrar. Filtrar só por "Finished" descartava esses
+ * jogos — na Copa do Brasil e na Libertadores, justamente os decisivos.
+ * "Awarded" (W.O.) fica de fora de propósito: placar de tabela não é futebol
+ * jogado e sujaria a força de ataque/defesa do time.
+ */
+const SAMPLE_STATUSES = new Set(["Finished", "After Pen."]);
+
 async function fetchFinishedResults(leagueId) {
   const url = `${API_BASE}/?action=get_events&APIkey=${API_KEY}&league_id=${leagueId}&from=${SEASON_START}&to=${todayISO()}`;
   const res = await fetch(url);
   const data = await res.json();
   if (!Array.isArray(data)) return []; // {error:...} quando sem jogos no range
   return data
-    .filter((e) => e.match_status === "Finished")
+    .filter((e) => SAMPLE_STATUSES.has(e.match_status))
     .map((e) => ({
       date: e.match_date,
       home: e.match_hometeam_name,
