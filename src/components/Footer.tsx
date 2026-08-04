@@ -57,7 +57,11 @@ export function Footer() {
             <Link href="/">
               <Logo />
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-cal/50">
+            {/* Veio do masthead, que cedeu o espaço pras ferramentas. */}
+            <p className="mt-4 font-serif text-lg italic text-cal/60">
+              O jogo inteiro, contado de onde ele acontece.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-cal/50">
               {siteConfig.description}
             </p>
             <div className="mt-5 flex gap-3">

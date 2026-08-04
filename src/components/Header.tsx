@@ -13,6 +13,26 @@ import {
 } from "@/lib/nav";
 
 /**
+ * Atalho "ao vivo". Aparece no masthead no desktop e na faixa fixa no mobile —
+ * lugares diferentes, mesmo link, por isso vive num componente só.
+ */
+function LiveLink({ current }: { current: "page" | undefined }) {
+  return (
+    <Link
+      href={NAV_LIVE.href}
+      aria-current={current}
+      className="hover-line flex shrink-0 items-center gap-2 px-3 py-3 font-mono text-xs font-bold uppercase tracking-[0.15em] text-lima transition-colors hover:text-cal"
+    >
+      <span className="relative flex h-2 w-2">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lima opacity-60" />
+        <span className="relative inline-flex h-2 w-2 rounded-full bg-lima" />
+      </span>
+      {NAV_LIVE.label}
+    </Link>
+  );
+}
+
+/**
  * Item do menu mobile. A página atual é marcada por sublinhado, não por cor:
  * metade dos itens já é lima o tempo todo, então cor sozinha não distinguiria.
  */
@@ -98,16 +118,32 @@ export function Header() {
         </div>
       </div>
 
-      {/* Masthead */}
+      {/*
+        Masthead. As ferramentas ficam aqui, no espaço que antes era só da
+        tagline (que foi pro rodapé): é o lugar dos utilitários numa capa de
+        jornal, e libera a faixa de baixo pra ser o menu de seções de verdade.
+      */}
       <div className="bg-campo">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:py-5">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-4 sm:py-5">
           <Link href="/" aria-label="Beira do Campo — Início">
             <Logo />
           </Link>
 
-          <p className="hidden font-serif text-lg italic text-cal/50 lg:block">
-            O jogo inteiro, contado de onde ele acontece.
-          </p>
+          <div className="hidden items-center lg:flex">
+            <LiveLink current={current(NAV_LIVE)} />
+            {NAV_TOOLS.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={current(item)}
+                className={`hover-line shrink-0 px-3 py-3 text-[13px] font-semibold uppercase tracking-wide transition-colors hover:text-cal ${
+                  current(item) ? "text-cal" : "text-cal/80"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
 
           {/* Botão do menu mobile */}
           <button
@@ -137,50 +173,27 @@ export function Header() {
         aria-label="Navegação principal"
         className="sticky top-0 z-40 border-y border-lima/20 bg-campo/95 backdrop-blur-sm"
       >
-        <div className="mx-auto max-w-7xl px-1 sm:px-4">
-          {/* Faixa 1 — ferramentas */}
-          <div className="flex items-center">
+        <div className="mx-auto flex max-w-7xl items-center px-1 sm:px-4">
+          {/* Mobile: só o atalho ao vivo — o resto abre no hambúrguer. */}
+          <span className="lg:hidden">
+            <LiveLink current={current(NAV_LIVE)} />
+          </span>
+
+          {NAV_SECTIONS.map((item) => (
             <Link
-              href={NAV_LIVE.href}
-              aria-current={current(NAV_LIVE)}
-              className="hover-line flex shrink-0 items-center gap-2 px-3 py-3 font-mono text-xs font-bold uppercase tracking-[0.15em] text-lima transition-colors hover:text-cal"
+              key={item.href}
+              href={item.href}
+              aria-current={current(item)}
+              // 12px até xl: em 1024 (onde o menu desktop liga) as 9 seções
+              // pedem 1037px e só há 1024. O padding fica em px-3 nas duas
+              // faixas porque a régua do .hover-line é ancorada nele.
+              className={`hover-line hidden shrink-0 px-3 py-3 text-[12px] font-semibold uppercase tracking-wide transition-colors hover:text-cal lg:block xl:text-[13px] ${
+                current(item) ? "text-cal" : "text-cal/80"
+              }`}
             >
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lima opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-lima" />
-              </span>
-              {NAV_LIVE.label}
+              {item.label}
             </Link>
-
-            {NAV_TOOLS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={current(item)}
-                className={`hover-line hidden shrink-0 px-3 py-3 text-[13px] font-semibold uppercase tracking-wide transition-colors hover:text-cal lg:block ${
-                  current(item) ? "text-cal" : "text-cal/80"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Faixa 2 — editorias */}
-          <div className="hidden items-center border-t border-lima/10 lg:flex">
-            {NAV_SECTIONS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={current(item)}
-                className={`hover-line-sm shrink-0 px-3 py-2 text-[12px] font-semibold uppercase tracking-wide transition-colors hover:text-cal ${
-                  current(item) ? "text-cal" : "text-cal/60"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
+          ))}
         </div>
       </nav>
 
