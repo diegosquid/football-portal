@@ -18,12 +18,13 @@
  * o elenco fica de fora até haver uma fonte de nome confiável.
  *
  * Uso:
- *   node scripts/build-venues.js
+ *   node scripts/build-venues.js            # respeita a janela de 24h
+ *   node scripts/build-venues.js --force    # regenera na hora
  *
  * Depois: node scripts/publish-data.js estadios.json
  */
 
-const { writeFileSync } = require("fs");
+const { writeFileSync, readFileSync, existsSync } = require("fs");
 const path = require("path");
 
 require("dotenv").config({ path: path.join(__dirname, "..", ".env.local") });
@@ -135,11 +136,39 @@ async function buildCompetition(comp) {
   };
 }
 
+/** Janela mínima entre duas gerações. Ver o comentário em `main`. */
+const MAX_AGE_HOURS = 24;
+
+/**
+ * Este script entra no mesmo encadeamento do cron que os outros builders, mas
+ * o dado dele é praticamente estático — capacidade de estádio não muda de duas
+ * em duas horas. Em vez de depender do agente lembrar de rodar só às vezes, o
+ * próprio script decide: fora da janela, regenera; dentro, sai na hora sem
+ * gastar chamada de API. Assim o comando do cron pode ser sempre o mesmo.
+ */
+function isFresh() {
+  if (process.argv.includes("--force")) return false;
+  if (!existsSync(OUTPUT_PATH)) return false;
+  try {
+    const { generatedAt } = JSON.parse(readFileSync(OUTPUT_PATH, "utf-8"));
+    const ageHours = (Date.now() - new Date(generatedAt).getTime()) / 3_600_000;
+    if (!Number.isFinite(ageHours) || ageHours >= MAX_AGE_HOURS) return false;
+    console.log(
+      `Estádios: gerado há ${ageHours.toFixed(1)}h (janela de ${MAX_AGE_HOURS}h) — pulando.` +
+        " Use --force para regenerar agora.",
+    );
+    return true;
+  } catch {
+    return false; // arquivo ilegível: melhor regenerar
+  }
+}
+
 async function main() {
   if (!API_KEY) {
     console.error("✗ APIFOOTBALL_KEY ausente no .env.local");
     process.exit(1);
   }
+  if (isFresh()) return;
 
   console.log("Estádios — nome, cidade e capacidade por clube\n");
 

@@ -1252,22 +1252,31 @@ A pagina `/jogos-futebol-hoje` (hoje) e as paginas `/onde-assistir/[slug]` (hoje
 
 ```bash
 node scripts/build-probabilities.js && node scripts/build-standings.js \
-  && node scripts/build-topscorers.js && node scripts/build-brackets.js
+  && node scripts/build-topscorers.js && node scripts/build-brackets.js \
+  && node scripts/build-venues.js
 ```
+
+   Rode a linha inteira, sempre. Todo JSON servido do R2 tem builder aqui — se
+   um deles ficar de fora, a pagina correspondente congela no ultimo valor sem
+   dar nenhum sinal.
 
    - `build-probabilities.js` → `content/probabilidades.json` (palpites por jogo)
    - `build-standings.js` → `content/classificacao.json` (tabelas da Serie A, B e C + chances de titulo/acesso/rebaixamento). Alimenta `/tabela-do-brasileirao`, `/tabela-do-brasileirao-serie-b`, `/tabela-do-brasileirao-serie-c`, o hub `/tabela` e as paginas de `/probabilidades/rebaixamento`, `/probabilidades/titulo` e `/probabilidades/<time>`. Leva ~5s. Se a API nao responder, o arquivo antigo continua servindo a pagina — nao commitar arquivo vazio.
    - A temporada e derivada do ano corrente. Na virada do ano, se o calendario nao bater com o ano civil, forcar com `node scripts/build-standings.js --season 2027`.
    - `build-topscorers.js` → `content/artilharia.json` (artilharia da Serie A, Serie B e Libertadores). Alimenta `/artilharia-do-brasileirao`, `/artilharia-do-brasileirao-serie-b` e `/artilharia-da-libertadores`.
      **A fonte manda mais de uma lista no mesmo retorno e o rotulo nao e confiavel** — o script confere cada uma contra os gols que os times realmente marcaram e descarta a que nao fecha. Competicao reprovada simplesmente nao e publicada; isso e esperado, nao e erro.
-     Os nomes vem invertidos ("Henrique Bruno" = Bruno Henrique) e sao corrigidos por `src/lib/player-names.ts`. Depois de janela de transferencias, rodar `node scripts/build-topscorers.js --unmapped` e acrescentar ao mapa os nomes novos que voce tiver CERTEZA.
+     Os nomes vem invertidos ("Henrique Bruno" = Bruno Henrique) e sao corrigidos por `src/lib/player-names.ts`.
+
+     **Se a saida trouxer um bloco `⚠ ... nome(s) no top 20 podem estar invertidos`, trate como tarefa desta rodada.** Sao nomes de 2+ palavras, fora do mapa, aparecendo onde o leitor ve. Para cada um:
+     - confira qual e a grafia real do jogador (busca web, ou o proprio nome ja ser conhecido);
+     - se a fonte inverteu, acrescente a linha em `src/lib/player-names.ts` no formato `"Como a API grava": "Nome correto",`;
+     - se estiver certo (caso comum em estrangeiro, tipo "Johan Carbonero"), **nao mexa** — o aviso e lista de candidatos, nao de erros, e vai continuar aparecendo. Tudo bem.
+     Na duvida, deixe como esta: nome estranho e menos grave que nome inventado.
+
+     `node scripts/build-topscorers.js --unmapped` lista todos os nomes sem correcao, inclusive os que provavelmente ja estao certos — util so numa revisao geral.
+   - `build-venues.js` → `content/estadios.json` (estadio, cidade, capacidade e tecnico de cada clube da Serie A e B). Alimenta `/estadios-do-brasileirao`. O script tem janela propria de 24h: rodar toda vez e barato porque ele sai na hora se o arquivo ainda estiver fresco. `--force` ignora a janela.
    - `build-brackets.js` → `content/chaveamento.json` (mata-mata da Copa do Brasil, Libertadores e Sul-Americana). Alimenta `/chaveamento-da-copa-do-brasil`, `/chaveamento-da-libertadores` e `/chaveamento-da-sul-americana`. So publica fase em que o rotulo da fonte e a quantidade de confrontos batem — e normal a competicao aparecer com uma fase so no meio da temporada.
 
-   Estadios (`build-venues.js` → `content/estadios.json`) e evergreen: capacidade quase nao muda. Rodar so quando trocar a divisao dos clubes, nao a cada ciclo:
-
-```bash
-node scripts/build-venues.js
-```
 
 8. **Publicar no R2 — este passo E a publicacao. NAO commitar, NAO fazer push.**
 

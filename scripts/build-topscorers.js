@@ -326,12 +326,12 @@ async function buildRanking(comp, { verbose }) {
  * ================================================================== */
 
 /**
- * Nomes de artilheiro que ainda não têm correção em src/lib/player-names.ts.
+ * Chaves já corrigidas em src/lib/player-names.ts.
  *
- * Lê as chaves direto do arquivo .ts em vez de manter uma segunda lista aqui:
- * duplicar o mapa é garantir que as duas cópias divirjam na primeira janela.
+ * Lê direto do arquivo .ts em vez de manter uma segunda lista aqui: duplicar o
+ * mapa é garantir que as duas cópias divirjam na primeira janela.
  */
-function reportUnmapped(rankings) {
+function loadMappedNames() {
   const source = require("fs").readFileSync(
     path.join(__dirname, "..", "src", "lib", "player-names.ts"),
     "utf-8",
@@ -340,12 +340,44 @@ function reportUnmapped(rankings) {
     source.indexOf("PLAYER_NAME_FIXES"),
     source.indexOf("displayPlayerName"),
   );
-  const mapped = new Set(
+  return new Set(
     [...body.matchAll(/^\s*(?:"([^"]+)"|([A-Za-zÀ-ÿ]+))\s*:/gm)].map(
       (m) => m[1] ?? m[2],
     ),
   );
+}
 
+/** Até que posição um nome errado realmente aparece pro leitor. */
+const SUSPECT_UNTIL_POSITION = 20;
+
+/**
+ * Nomes que provavelmente estão invertidos e ainda não foram corrigidos.
+ *
+ * O filtro é o que torna o aviso útil em vez de ruído de duas em duas horas:
+ *   - nome de uma palavra só ("Neymar", "Pedro") não tem como estar invertido;
+ *   - abreviado ("J. Calleri", "K. Viveros") já vem na ordem certa da fonte;
+ *   - fora do top 20 quase ninguém lê.
+ * Sobra exatamente o caso perigoso: "Sobrenome Nome" visível na página.
+ */
+function suspectNames(rankings) {
+  const mapped = loadMappedNames();
+  const suspects = new Map();
+
+  for (const ranking of Object.values(rankings)) {
+    for (const p of ranking.scorers) {
+      if (p.position > SUSPECT_UNTIL_POSITION) continue;
+      if (mapped.has(p.player)) continue;
+      if (/^[A-ZÀ-Þ]\.\s/.test(p.player)) continue;
+      if (p.player.trim().split(/\s+/).length < 2) continue;
+      suspects.set(p.player, `${p.team} — ${ranking.competition}, ${p.position}º`);
+    }
+  }
+  return suspects;
+}
+
+/** Listagem completa, incluindo os nomes que provavelmente já estão certos. */
+function reportUnmapped(rankings) {
+  const mapped = loadMappedNames();
   const missing = new Map();
   for (const ranking of Object.values(rankings)) {
     for (const p of ranking.scorers) {
@@ -402,6 +434,23 @@ async function main() {
   };
   writeFileSync(OUTPUT_PATH, JSON.stringify(out, null, 2) + "\n");
   console.log(`\n✓ content/artilharia.json atualizado.`);
+
+  // Aviso no fluxo normal, não atrás de flag: quem roda isto é o cron, e nome
+  // errado no topo da artilharia é o tipo de erro que ninguém vai caçar de
+  // propósito. Aparecendo aqui, entra no log e no contexto do agente.
+  const suspects = suspectNames(rankings);
+  if (suspects.size > 0) {
+    console.log(
+      `\n⚠ ${suspects.size} nome(s) no top ${SUSPECT_UNTIL_POSITION} podem estar invertidos:`,
+    );
+    for (const [player, where] of [...suspects].sort()) {
+      console.log(`    "${player}"  (${where})`);
+    }
+    console.log(
+      "  A fonte grava nome de brasileiro como \"Sobrenome Nome\".",
+      "\n  Confira e, só com certeza, acrescente em src/lib/player-names.ts.",
+    );
+  }
 
   if (unmapped) reportUnmapped(rankings);
 }
