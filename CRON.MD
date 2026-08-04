@@ -1251,12 +1251,23 @@ A pagina `/jogos-futebol-hoje` (hoje) e as paginas `/onde-assistir/[slug]` (hoje
 7. Rodar os scripts de dados derivados (precisam de `APIFOOTBALL_KEY` no `.env.local`):
 
 ```bash
-node scripts/build-probabilities.js && node scripts/build-standings.js
+node scripts/build-probabilities.js && node scripts/build-standings.js \
+  && node scripts/build-topscorers.js && node scripts/build-brackets.js
 ```
 
    - `build-probabilities.js` → `content/probabilidades.json` (palpites por jogo)
-   - `build-standings.js` → `content/classificacao.json` (tabelas da Serie A, B e C + chances de titulo/acesso/rebaixamento). Alimenta `/tabela-do-brasileirao`, `/tabela-do-brasileirao-serie-b`, `/tabela-do-brasileirao-serie-c` e o hub `/tabela`. Leva ~5s. Se a API nao responder, o arquivo antigo continua servindo a pagina — nao commitar arquivo vazio.
+   - `build-standings.js` → `content/classificacao.json` (tabelas da Serie A, B e C + chances de titulo/acesso/rebaixamento). Alimenta `/tabela-do-brasileirao`, `/tabela-do-brasileirao-serie-b`, `/tabela-do-brasileirao-serie-c`, o hub `/tabela` e as paginas de `/probabilidades/rebaixamento`, `/probabilidades/titulo` e `/probabilidades/<time>`. Leva ~5s. Se a API nao responder, o arquivo antigo continua servindo a pagina — nao commitar arquivo vazio.
    - A temporada e derivada do ano corrente. Na virada do ano, se o calendario nao bater com o ano civil, forcar com `node scripts/build-standings.js --season 2027`.
+   - `build-topscorers.js` → `content/artilharia.json` (artilharia da Serie A, Serie B e Libertadores). Alimenta `/artilharia-do-brasileirao`, `/artilharia-do-brasileirao-serie-b` e `/artilharia-da-libertadores`.
+     **A fonte manda mais de uma lista no mesmo retorno e o rotulo nao e confiavel** — o script confere cada uma contra os gols que os times realmente marcaram e descarta a que nao fecha. Competicao reprovada simplesmente nao e publicada; isso e esperado, nao e erro.
+     Os nomes vem invertidos ("Henrique Bruno" = Bruno Henrique) e sao corrigidos por `src/lib/player-names.ts`. Depois de janela de transferencias, rodar `node scripts/build-topscorers.js --unmapped` e acrescentar ao mapa os nomes novos que voce tiver CERTEZA.
+   - `build-brackets.js` → `content/chaveamento.json` (mata-mata da Copa do Brasil, Libertadores e Sul-Americana). Alimenta `/chaveamento-da-copa-do-brasil`, `/chaveamento-da-libertadores` e `/chaveamento-da-sul-americana`. So publica fase em que o rotulo da fonte e a quantidade de confrontos batem — e normal a competicao aparecer com uma fase so no meio da temporada.
+
+   Estadios (`build-venues.js` → `content/estadios.json`) e evergreen: capacidade quase nao muda. Rodar so quando trocar a divisao dos clubes, nao a cada ciclo:
+
+```bash
+node scripts/build-venues.js
+```
 
 8. **Publicar no R2 — este passo E a publicacao. NAO commitar, NAO fazer push.**
 

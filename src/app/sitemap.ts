@@ -8,6 +8,13 @@ import { getAllKnownMatches } from "@/lib/matches";
 import { getProbabilitiesData } from "@/lib/probabilities";
 import { getStandingsData } from "@/lib/standings";
 import { getAllStandingsCopy } from "@/lib/standings-competitions";
+import { getAllTopScorersSlugs } from "@/lib/topscorers";
+import { getAllTopScorersCopy } from "@/lib/topscorers-competitions";
+import { getAllRaceTeamSlugs } from "@/lib/race";
+import { getPublishableChannels } from "@/lib/channels";
+import { getBracketsData } from "@/lib/brackets";
+import { getAllBracketCopy } from "@/lib/brackets-route";
+import { getVenuesData } from "@/lib/venues";
 import { siteConfig } from "@/lib/site";
 import { ARTICLES_PER_PAGE } from "@/lib/pagination";
 
@@ -17,11 +24,26 @@ export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = siteConfig.url;
-  const [probabilities, standings, knownMatches, articles] = await Promise.all([
+  const [
+    probabilities,
+    standings,
+    knownMatches,
+    articles,
+    topScorersSlugs,
+    raceTeamSlugs,
+    publishableChannels,
+    brackets,
+    venues,
+  ] = await Promise.all([
     getProbabilitiesData(),
     getStandingsData(),
     getAllKnownMatches(),
     getPublishedArticles(),
+    getAllTopScorersSlugs(),
+    getAllRaceTeamSlugs(),
+    getPublishableChannels(),
+    getBracketsData(),
+    getVenuesData(),
   ]);
   const probabilitiesUpdatedAt =
     probabilities?.generatedAt ?? new Date().toISOString();
@@ -38,6 +60,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/metodologia-dos-palpites`, lastModified: new Date(probabilitiesUpdatedAt), changeFrequency: "monthly", priority: 0.65 },
     { url: `${baseUrl}/estatisticas`, lastModified: new Date(probabilitiesUpdatedAt), changeFrequency: "daily", priority: 0.8 },
     { url: `${baseUrl}/time`, lastModified: new Date(), changeFrequency: "daily", priority: 0.8 },
+    { url: `${baseUrl}/selecao-brasileira`, lastModified: new Date(), changeFrequency: "daily", priority: 0.85 },
+    { url: `${baseUrl}/copa-do-mundo-feminina-2027`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
     { url: `${baseUrl}/sobre`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
     { url: `${baseUrl}/feed.xml`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.5 },
     { url: `${baseUrl}/atom.xml`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.5 },
@@ -53,6 +77,68 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "daily" as const,
       priority: 0.9,
     }));
+
+  // Landings de artilharia — entram sozinhas quando a competição passa na
+  // conferência do build-topscorers.js.
+  const topScorersPages: MetadataRoute.Sitemap = getAllTopScorersCopy()
+    .filter((copy) => topScorersSlugs.includes(copy.slug))
+    .map((copy) => ({
+      url: `${baseUrl}${copy.path}`,
+      lastModified: new Date(standingsUpdatedAt),
+      changeFrequency: "daily" as const,
+      priority: 0.9,
+    }));
+
+  // Probabilidades por objetivo + uma página por time simulado.
+  const racePages: MetadataRoute.Sitemap =
+    raceTeamSlugs.length === 0
+      ? []
+      : [
+          ...["rebaixamento", "titulo"].map((objective) => ({
+            url: `${baseUrl}/probabilidades/${objective}`,
+            lastModified: new Date(standingsUpdatedAt),
+            changeFrequency: "daily" as const,
+            priority: 0.9,
+          })),
+          ...raceTeamSlugs.map((slug) => ({
+            url: `${baseUrl}/probabilidades/${slug}`,
+            lastModified: new Date(standingsUpdatedAt),
+            changeFrequency: "daily" as const,
+            priority: 0.75,
+          })),
+        ];
+
+  // Canais de transmissão — só os que têm jogo suficiente na base.
+  const channelPages: MetadataRoute.Sitemap = publishableChannels.map(
+    (channel) => ({
+      url: `${baseUrl}/onde-assistir/${channel.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "daily" as const,
+      priority: 0.8,
+    }),
+  );
+
+  // Chaveamentos — só competição com fase aprovada na conferência estrutural.
+  const bracketPages: MetadataRoute.Sitemap = getAllBracketCopy()
+    .filter((copy) => Boolean(brackets?.competitions?.[copy.slug]))
+    .map((copy) => ({
+      url: `${baseUrl}${copy.path}`,
+      lastModified: new Date(brackets?.generatedAt ?? Date.now()),
+      changeFrequency: "daily" as const,
+      priority: 0.85,
+    }));
+
+  // Estádios — evergreen, só entra quando o dado existe.
+  const venuePages: MetadataRoute.Sitemap = venues?.competitions?.brasileirao
+    ? [
+        {
+          url: `${baseUrl}/estadios-do-brasileirao`,
+          lastModified: new Date(venues.generatedAt),
+          changeFrequency: "monthly" as const,
+          priority: 0.7,
+        },
+      ]
+    : [];
 
   // Feeds por categoria (RSS + Atom)
   const categoryFeedPages: MetadataRoute.Sitemap = getAllCategories().flatMap(
@@ -188,6 +274,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     ...staticPages,
     ...standingsPages,
+    ...topScorersPages,
+    ...racePages,
+    ...channelPages,
+    ...bracketPages,
+    ...venuePages,
     ...categoryPages,
     ...categoryFeedPages,
     ...categoryPaginatedPages,

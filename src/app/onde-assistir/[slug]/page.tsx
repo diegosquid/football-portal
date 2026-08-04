@@ -12,6 +12,14 @@ import { resolveTeamSlug } from "@/lib/teams";
 import { compDo, getCompetition, resolveCompetitionSlug } from "@/lib/competitions";
 import { pelaCompetition } from "@/lib/schedule-seo";
 import { ProbabilityPanel } from "@/components/ProbabilityPanel";
+import { ChannelLanding } from "@/components/ChannelLanding";
+import {
+  channelPath,
+  getChannel,
+  getChannelSchedule,
+  getPublishableChannels,
+  type Channel,
+} from "@/lib/channels";
 import { ShareWhatsApp } from "@/components/ShareWhatsApp";
 import { PushBanner } from "@/components/PushBanner";
 import { buildMatchShareText } from "@/lib/share";
@@ -49,12 +57,34 @@ async function resolvePlaceholderSlug(slug: string): Promise<string | undefined>
 
 export const revalidate = 900; // 15 min — mesmo ritmo de jogos-futebol-hoje
 
+/**
+ * Canal que ganha jogo depois do build precisa de página sem esperar deploy.
+ * Slug fora do generateStaticParams renderiza sob demanda e passa a ser cacheado.
+ */
+export const dynamicParams = true;
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
+/**
+ * Dois tipos de página moram nesta rota: jogo
+ * ("flamengo-x-palmeiras-2026-08-10") e canal ("premiere").
+ *
+ * Ficam juntas de propósito para a URL do canal ser /onde-assistir/premiere, e
+ * não /onde-assistir/canal/premiere — nessa SERP a URL curta é o ativo. Não há
+ * risco de colisão: slug de jogo sempre tem a forma "-x-" + data, e a lista de
+ * canais é curada em src/lib/channels.ts.
+ */
 export async function generateStaticParams() {
-  return (await getAllKnownMatches()).map((m) => ({ slug: m.slug }));
+  const [matches, channelList] = await Promise.all([
+    getAllKnownMatches(),
+    getPublishableChannels(),
+  ]);
+  return [
+    ...matches.map((m) => ({ slug: m.slug })),
+    ...channelList.map((c) => ({ slug: c.slug })),
+  ];
 }
 
 function formatMatchDateBR(dateIso: string): string {
@@ -144,6 +174,10 @@ function buildFaq(match: Match, prediction?: Prediction) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+
+  const channel = getChannel(slug);
+  if (channel) return channelMetadata(channel);
+
   const match = await getMatchBySlug(slug);
   if (!match) return {};
 
@@ -199,8 +233,49 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+/** Metadata da landing de canal — a pergunta da busca vira o title. */
+async function channelMetadata(channel: Channel): Promise<Metadata> {
+  const schedule = await getChannelSchedule(channel.slug);
+  const canonical = channelPath(channel.slug);
+  const title = `Jogos de hoje no ${channel.name}: programação e horários`;
+  const description = truncateForMeta(
+    schedule.today.length > 0
+      ? `${channel.name} transmite hoje: ${schedule.today
+          .map((m) => `${m.home} x ${m.away} (${m.time})`)
+          .join(", ")}. Veja a programação completa e os próximos jogos.`
+      : `Programação de futebol do ${channel.name}: os jogos de hoje, os próximos e como assistir. Atualizado todos os dias.`,
+    165,
+  );
+
+  return {
+    title,
+    description,
+    keywords: channel.keywords,
+    alternates: { canonical: `${siteConfig.url}${canonical}` },
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      url: `${siteConfig.url}${canonical}`,
+      siteName: siteConfig.name,
+      locale: "pt_BR",
+    },
+    twitter: { card: "summary_large_image", title, description },
+  };
+}
+
 export default async function OndeAssistirPage({ params }: Props) {
   const { slug } = await params;
+
+  const channel = getChannel(slug);
+  if (channel) {
+    const schedule = await getChannelSchedule(slug);
+    // Canal sem jogo nenhum na base não vira página: melhor 404 do que uma
+    // landing vazia disputando "jogos de hoje no <canal>".
+    if (schedule.total === 0) notFound();
+    return <ChannelLanding channel={channel} schedule={schedule} />;
+  }
+
   const match = await getMatchBySlug(slug);
   if (!match) {
     const resolved = await resolvePlaceholderSlug(slug);

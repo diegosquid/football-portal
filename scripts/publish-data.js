@@ -26,13 +26,22 @@ const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 
 require("dotenv").config({ path: path.join(__dirname, "..", ".env.local") });
 
-/** Arquivos servidos em runtime. Espelha o que src/lib/content-data.ts busca. */
+/**
+ * Arquivos servidos em runtime. Espelha o que src/lib/content-data.ts busca.
+ *
+ * Toda página que lê um destes tem `revalidate`, então subir o arquivo aqui já
+ * publica — sem commit, sem push, sem build. Dado novo que NÃO entrar nesta
+ * lista fica congelado no último deploy.
+ */
 const DATA_FILES = [
   "jogos.json",
   "jogos-historico.json",
   "classificacao.json",
   "probabilidades.json",
   "probabilidades-historico.json",
+  "artilharia.json",
+  "estadios.json",
+  "chaveamento.json",
 ];
 
 const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;

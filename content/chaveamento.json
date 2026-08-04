@@ -1,0 +1,1470 @@
+{
+  "generatedAt": "2026-08-04T22:37:07.259Z",
+  "source": "apifootball.com",
+  "disclaimer": "Confrontos reconstruídos a partir do calendário oficial. Placar agregado considera tempo normal e prorrogação; pênaltis são mostrados à parte.",
+  "competitions": {
+    "copa-do-brasil": {
+      "slug": "copa-do-brasil",
+      "competition": "Copa do Brasil",
+      "shortName": "Copa do Brasil",
+      "leagueId": 349,
+      "season": "2026",
+      "rounds": [
+        {
+          "name": "Fase de 16 avos",
+          "order": 60,
+          "sourceStage": "1/16-finals",
+          "ties": [
+            {
+              "teams": [
+                "Chapecoense-SC",
+                "Botafogo RJ"
+              ],
+              "legs": [
+                {
+                  "date": "2026-04-21",
+                  "home": "Botafogo RJ",
+                  "away": "Chapecoense-SC",
+                  "score": {
+                    "home": 1,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": "Estadio Olimpico Nilton Santos",
+                  "finished": true
+                },
+                {
+                  "date": "2026-05-14",
+                  "home": "Chapecoense-SC",
+                  "away": "Botafogo RJ",
+                  "score": {
+                    "home": 2,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                }
+              ],
+              "aggregate": {
+                "Chapecoense-SC": 2,
+                "Botafogo RJ": 1
+              },
+              "penalties": null,
+              "decided": true,
+              "winner": "Chapecoense-SC"
+            },
+            {
+              "teams": [
+                "Juventude",
+                "Sao Paulo"
+              ],
+              "legs": [
+                {
+                  "date": "2026-04-22",
+                  "home": "Sao Paulo",
+                  "away": "Juventude",
+                  "score": {
+                    "home": 1,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": "Estadio Do MorumBIS",
+                  "finished": true
+                },
+                {
+                  "date": "2026-05-14",
+                  "home": "Juventude",
+                  "away": "Sao Paulo",
+                  "score": {
+                    "home": 3,
+                    "away": 1
+                  },
+                  "penalties": null,
+                  "stadium": "Estadio Alfredo Jaconi",
+                  "finished": true
+                }
+              ],
+              "aggregate": {
+                "Juventude": 3,
+                "Sao Paulo": 2
+              },
+              "penalties": null,
+              "decided": true,
+              "winner": "Juventude"
+            },
+            {
+              "teams": [
+                "Confianca",
+                "Gremio"
+              ],
+              "legs": [
+                {
+                  "date": "2026-04-22",
+                  "home": "Gremio",
+                  "away": "Confianca",
+                  "score": {
+                    "home": 2,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                },
+                {
+                  "date": "2026-05-15",
+                  "home": "Confianca",
+                  "away": "Gremio",
+                  "score": {
+                    "home": 0,
+                    "away": 3
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                }
+              ],
+              "aggregate": {
+                "Confianca": 0,
+                "Gremio": 5
+              },
+              "penalties": null,
+              "decided": true,
+              "winner": "Gremio"
+            },
+            {
+              "teams": [
+                "Vasco",
+                "Paysandu PA"
+              ],
+              "legs": [
+                {
+                  "date": "2026-04-22",
+                  "home": "Paysandu PA",
+                  "away": "Vasco",
+                  "score": {
+                    "home": 0,
+                    "away": 2
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                },
+                {
+                  "date": "2026-05-14",
+                  "home": "Vasco",
+                  "away": "Paysandu PA",
+                  "score": {
+                    "home": 2,
+                    "away": 2
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                }
+              ],
+              "aggregate": {
+                "Vasco": 4,
+                "Paysandu PA": 2
+              },
+              "penalties": null,
+              "decided": true,
+              "winner": "Vasco"
+            },
+            {
+              "teams": [
+                "Corinthians",
+                "Barra FC"
+              ],
+              "legs": [
+                {
+                  "date": "2026-04-22",
+                  "home": "Barra FC",
+                  "away": "Corinthians",
+                  "score": {
+                    "home": 0,
+                    "away": 1
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                },
+                {
+                  "date": "2026-05-15",
+                  "home": "Corinthians",
+                  "away": "Barra FC",
+                  "score": {
+                    "home": 1,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": "Neo Quimica Arena",
+                  "finished": true
+                }
+              ],
+              "aggregate": {
+                "Corinthians": 2,
+                "Barra FC": 0
+              },
+              "penalties": null,
+              "decided": true,
+              "winner": "Corinthians"
+            },
+            {
+              "teams": [
+                "Cruzeiro",
+                "Goias"
+              ],
+              "legs": [
+                {
+                  "date": "2026-04-23",
+                  "home": "Goias",
+                  "away": "Cruzeiro",
+                  "score": {
+                    "home": 2,
+                    "away": 2
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                },
+                {
+                  "date": "2026-05-13",
+                  "home": "Cruzeiro",
+                  "away": "Goias",
+                  "score": {
+                    "home": 1,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                }
+              ],
+              "aggregate": {
+                "Cruzeiro": 3,
+                "Goias": 2
+              },
+              "penalties": null,
+              "decided": true,
+              "winner": "Cruzeiro"
+            },
+            {
+              "teams": [
+                "Remo",
+                "Bahia"
+              ],
+              "legs": [
+                {
+                  "date": "2026-04-23",
+                  "home": "Bahia",
+                  "away": "Remo",
+                  "score": {
+                    "home": 1,
+                    "away": 3
+                  },
+                  "penalties": null,
+                  "stadium": "Arena Fonte Nova",
+                  "finished": true
+                },
+                {
+                  "date": "2026-05-14",
+                  "home": "Remo",
+                  "away": "Bahia",
+                  "score": {
+                    "home": 2,
+                    "away": 1
+                  },
+                  "penalties": null,
+                  "stadium": "Estadio Evandro Almeida",
+                  "finished": true
+                }
+              ],
+              "aggregate": {
+                "Remo": 5,
+                "Bahia": 2
+              },
+              "penalties": null,
+              "decided": true,
+              "winner": "Remo"
+            },
+            {
+              "teams": [
+                "Coritiba",
+                "Santos"
+              ],
+              "legs": [
+                {
+                  "date": "2026-04-23",
+                  "home": "Santos",
+                  "away": "Coritiba",
+                  "score": {
+                    "home": 0,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": "Estadio Urbano Caldeira",
+                  "finished": true
+                },
+                {
+                  "date": "2026-05-14",
+                  "home": "Coritiba",
+                  "away": "Santos",
+                  "score": {
+                    "home": 0,
+                    "away": 2
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                }
+              ],
+              "aggregate": {
+                "Coritiba": 0,
+                "Santos": 2
+              },
+              "penalties": null,
+              "decided": true,
+              "winner": "Santos"
+            },
+            {
+              "teams": [
+                "CRB",
+                "Fortaleza"
+              ],
+              "legs": [
+                {
+                  "date": "2026-04-23",
+                  "home": "Fortaleza",
+                  "away": "CRB",
+                  "score": {
+                    "home": 2,
+                    "away": 1
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                },
+                {
+                  "date": "2026-05-15",
+                  "home": "CRB",
+                  "away": "Fortaleza",
+                  "score": {
+                    "home": 0,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                }
+              ],
+              "aggregate": {
+                "CRB": 1,
+                "Fortaleza": 2
+              },
+              "penalties": null,
+              "decided": true,
+              "winner": "Fortaleza"
+            },
+            {
+              "teams": [
+                "Internacional",
+                "Athletic Club"
+              ],
+              "legs": [
+                {
+                  "date": "2026-04-23",
+                  "home": "Athletic Club",
+                  "away": "Internacional",
+                  "score": {
+                    "home": 1,
+                    "away": 2
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                },
+                {
+                  "date": "2026-05-13",
+                  "home": "Internacional",
+                  "away": "Athletic Club",
+                  "score": {
+                    "home": 3,
+                    "away": 2
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                }
+              ],
+              "aggregate": {
+                "Internacional": 5,
+                "Athletic Club": 3
+              },
+              "penalties": null,
+              "decided": true,
+              "winner": "Internacional"
+            },
+            {
+              "teams": [
+                "Vitoria",
+                "Flamengo RJ"
+              ],
+              "legs": [
+                {
+                  "date": "2026-04-23",
+                  "home": "Flamengo RJ",
+                  "away": "Vitoria",
+                  "score": {
+                    "home": 2,
+                    "away": 1
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                },
+                {
+                  "date": "2026-05-15",
+                  "home": "Vitoria",
+                  "away": "Flamengo RJ",
+                  "score": {
+                    "home": 2,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                }
+              ],
+              "aggregate": {
+                "Vitoria": 3,
+                "Flamengo RJ": 2
+              },
+              "penalties": null,
+              "decided": true,
+              "winner": "Vitoria"
+            },
+            {
+              "teams": [
+                "Mirassol",
+                "Bragantino"
+              ],
+              "legs": [
+                {
+                  "date": "2026-04-23",
+                  "home": "Bragantino",
+                  "away": "Mirassol",
+                  "score": {
+                    "home": 1,
+                    "away": 1
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                },
+                {
+                  "date": "2026-05-14",
+                  "home": "Mirassol",
+                  "away": "Bragantino",
+                  "score": {
+                    "home": 2,
+                    "away": 1
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                }
+              ],
+              "aggregate": {
+                "Mirassol": 3,
+                "Bragantino": 2
+              },
+              "penalties": null,
+              "decided": true,
+              "winner": "Mirassol"
+            },
+            {
+              "teams": [
+                "Ceara",
+                "Atletico-MG"
+              ],
+              "legs": [
+                {
+                  "date": "2026-04-24",
+                  "home": "Atletico-MG",
+                  "away": "Ceara",
+                  "score": {
+                    "home": 2,
+                    "away": 1
+                  },
+                  "penalties": null,
+                  "stadium": "MRV Arena",
+                  "finished": true
+                },
+                {
+                  "date": "2026-05-14",
+                  "home": "Ceara",
+                  "away": "Atletico-MG",
+                  "score": {
+                    "home": 2,
+                    "away": 1
+                  },
+                  "penalties": {
+                    "home": 2,
+                    "away": 4
+                  },
+                  "stadium": null,
+                  "finished": true
+                }
+              ],
+              "aggregate": {
+                "Ceara": 3,
+                "Atletico-MG": 3
+              },
+              "penalties": {
+                "Ceara": 2,
+                "Atletico-MG": 4
+              },
+              "decided": true,
+              "winner": "Atletico-MG"
+            },
+            {
+              "teams": [
+                "Jacuipense",
+                "Palmeiras"
+              ],
+              "legs": [
+                {
+                  "date": "2026-04-24",
+                  "home": "Palmeiras",
+                  "away": "Jacuipense",
+                  "score": {
+                    "home": 3,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": "Allianz Parque",
+                  "finished": true
+                },
+                {
+                  "date": "2026-05-14",
+                  "home": "Jacuipense",
+                  "away": "Palmeiras",
+                  "score": {
+                    "home": 1,
+                    "away": 4
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                }
+              ],
+              "aggregate": {
+                "Jacuipense": 1,
+                "Palmeiras": 7
+              },
+              "penalties": null,
+              "decided": true,
+              "winner": "Palmeiras"
+            },
+            {
+              "teams": [
+                "Fluminense",
+                "Operario-PR"
+              ],
+              "legs": [
+                {
+                  "date": "2026-04-24",
+                  "home": "Operario-PR",
+                  "away": "Fluminense",
+                  "score": {
+                    "home": 0,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                },
+                {
+                  "date": "2026-05-13",
+                  "home": "Fluminense",
+                  "away": "Operario-PR",
+                  "score": {
+                    "home": 2,
+                    "away": 1
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                }
+              ],
+              "aggregate": {
+                "Fluminense": 2,
+                "Operario-PR": 1
+              },
+              "penalties": null,
+              "decided": true,
+              "winner": "Fluminense"
+            },
+            {
+              "teams": [
+                "Atletico GO",
+                "Athletico-PR"
+              ],
+              "legs": [
+                {
+                  "date": "2026-04-24",
+                  "home": "Athletico-PR",
+                  "away": "Atletico GO",
+                  "score": {
+                    "home": 0,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": "Arena da Baixada",
+                  "finished": true
+                },
+                {
+                  "date": "2026-05-15",
+                  "home": "Atletico GO",
+                  "away": "Athletico-PR",
+                  "score": {
+                    "home": 0,
+                    "away": 0
+                  },
+                  "penalties": {
+                    "home": 1,
+                    "away": 4
+                  },
+                  "stadium": null,
+                  "finished": true
+                }
+              ],
+              "aggregate": {
+                "Atletico GO": 0,
+                "Athletico-PR": 0
+              },
+              "penalties": {
+                "Atletico GO": 1,
+                "Athletico-PR": 4
+              },
+              "decided": true,
+              "winner": "Athletico-PR"
+            }
+          ],
+          "decided": 16
+        },
+        {
+          "name": "Oitavas de final",
+          "order": 70,
+          "sourceStage": "1/8-finals",
+          "ties": [
+            {
+              "teams": [
+                "Fluminense",
+                "Vasco"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-01",
+                  "home": "Vasco",
+                  "away": "Fluminense",
+                  "score": {
+                    "home": 0,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                },
+                {
+                  "date": "2026-08-06",
+                  "home": "Fluminense",
+                  "away": "Vasco",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                }
+              ],
+              "aggregate": {
+                "Fluminense": 0,
+                "Vasco": 0
+              },
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Juventude",
+                "Atletico-MG"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-02",
+                  "home": "Atletico-MG",
+                  "away": "Juventude",
+                  "score": {
+                    "home": 0,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": "MRV Arena",
+                  "finished": true
+                },
+                {
+                  "date": "2026-08-05",
+                  "home": "Juventude",
+                  "away": "Atletico-MG",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                }
+              ],
+              "aggregate": {
+                "Juventude": 0,
+                "Atletico-MG": 0
+              },
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Remo",
+                "Santos"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-02",
+                  "home": "Santos",
+                  "away": "Remo",
+                  "score": {
+                    "home": 0,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": "Vila Belmiro",
+                  "finished": true
+                },
+                {
+                  "date": "2026-08-05",
+                  "home": "Remo",
+                  "away": "Santos",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                }
+              ],
+              "aggregate": {
+                "Remo": 0,
+                "Santos": 0
+              },
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Fortaleza",
+                "Palmeiras"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-02",
+                  "home": "Palmeiras",
+                  "away": "Fortaleza",
+                  "score": {
+                    "home": 3,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": "Nubank Parque",
+                  "finished": true
+                },
+                {
+                  "date": "2026-08-06",
+                  "home": "Fortaleza",
+                  "away": "Palmeiras",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                }
+              ],
+              "aggregate": {
+                "Fortaleza": 0,
+                "Palmeiras": 3
+              },
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Gremio",
+                "Mirassol"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-02",
+                  "home": "Mirassol",
+                  "away": "Gremio",
+                  "score": {
+                    "home": 1,
+                    "away": 1
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                },
+                {
+                  "date": "2026-08-06",
+                  "home": "Gremio",
+                  "away": "Mirassol",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                }
+              ],
+              "aggregate": {
+                "Gremio": 1,
+                "Mirassol": 1
+              },
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Cruzeiro",
+                "Chapecoense-SC"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-02",
+                  "home": "Chapecoense-SC",
+                  "away": "Cruzeiro",
+                  "score": {
+                    "home": 0,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                },
+                {
+                  "date": "2026-08-06",
+                  "home": "Cruzeiro",
+                  "away": "Chapecoense-SC",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                }
+              ],
+              "aggregate": {
+                "Cruzeiro": 0,
+                "Chapecoense-SC": 0
+              },
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Corinthians",
+                "Internacional"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-03",
+                  "home": "Internacional",
+                  "away": "Corinthians",
+                  "score": {
+                    "home": 2,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                },
+                {
+                  "date": "2026-08-07",
+                  "home": "Corinthians",
+                  "away": "Internacional",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Neo Quimica Arena",
+                  "finished": false
+                }
+              ],
+              "aggregate": {
+                "Corinthians": 0,
+                "Internacional": 2
+              },
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Vitoria",
+                "Athletico-PR"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-04",
+                  "home": "Athletico-PR",
+                  "away": "Vitoria",
+                  "score": {
+                    "home": 2,
+                    "away": 0
+                  },
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": true
+                },
+                {
+                  "date": "2026-08-07",
+                  "home": "Vitoria",
+                  "away": "Athletico-PR",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Barradao",
+                  "finished": false
+                }
+              ],
+              "aggregate": {
+                "Vitoria": 0,
+                "Athletico-PR": 2
+              },
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            }
+          ],
+          "decided": 0
+        }
+      ]
+    },
+    "libertadores": {
+      "slug": "libertadores",
+      "competition": "Libertadores",
+      "shortName": "Libertadores",
+      "leagueId": 18,
+      "season": "2026",
+      "rounds": [
+        {
+          "name": "Oitavas de final",
+          "order": 70,
+          "sourceStage": "1/8-finals",
+          "ties": [
+            {
+              "teams": [
+                "Ind. Rivadavia",
+                "Fluminense"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-12",
+                  "home": "Fluminense",
+                  "away": "Ind. Rivadavia",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                },
+                {
+                  "date": "2026-08-19",
+                  "home": "Ind. Rivadavia",
+                  "away": "Fluminense",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Estadio Malvinas Argentinas",
+                  "finished": false
+                }
+              ],
+              "aggregate": null,
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Ind. del Valle",
+                "Deportes Tolima"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-12",
+                  "home": "Deportes Tolima",
+                  "away": "Ind. del Valle",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Estadio Manuel Murillo Toro",
+                  "finished": false
+                },
+                {
+                  "date": "2026-08-19",
+                  "home": "Ind. del Valle",
+                  "away": "Deportes Tolima",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Estadio Banco Guayaquil",
+                  "finished": false
+                }
+              ],
+              "aggregate": null,
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "U. Catolica",
+                "Estudiantes L.P."
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-12",
+                  "home": "Estudiantes L.P.",
+                  "away": "U. Catolica",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Estadio Jorge Luis Hirschi",
+                  "finished": false
+                },
+                {
+                  "date": "2026-08-19",
+                  "home": "U. Catolica",
+                  "away": "Estudiantes L.P.",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Claro Arena",
+                  "finished": false
+                }
+              ],
+              "aggregate": null,
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Cerro Porteno",
+                "Palmeiras"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-13",
+                  "home": "Palmeiras",
+                  "away": "Cerro Porteno",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Nubank Parque",
+                  "finished": false
+                },
+                {
+                  "date": "2026-08-20",
+                  "home": "Cerro Porteno",
+                  "away": "Palmeiras",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Estadio General Pablo Rojas",
+                  "finished": false
+                }
+              ],
+              "aggregate": null,
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Coquimbo",
+                "Platense"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-13",
+                  "home": "Platense",
+                  "away": "Coquimbo",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                },
+                {
+                  "date": "2026-08-20",
+                  "home": "Coquimbo",
+                  "away": "Platense",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                }
+              ],
+              "aggregate": null,
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Flamengo RJ",
+                "Cruzeiro"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-13",
+                  "home": "Cruzeiro",
+                  "away": "Flamengo RJ",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                },
+                {
+                  "date": "2026-08-20",
+                  "home": "Flamengo RJ",
+                  "away": "Cruzeiro",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                }
+              ],
+              "aggregate": null,
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "LDU Quito",
+                "Mirassol"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-14",
+                  "home": "Mirassol",
+                  "away": "LDU Quito",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                },
+                {
+                  "date": "2026-08-21",
+                  "home": "LDU Quito",
+                  "away": "Mirassol",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Estadio Rodrigo Paz Delgado",
+                  "finished": false
+                }
+              ],
+              "aggregate": null,
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Corinthians",
+                "Rosario Central"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-14",
+                  "home": "Rosario Central",
+                  "away": "Corinthians",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Estadio Gigante de Arroyito",
+                  "finished": false
+                },
+                {
+                  "date": "2026-08-21",
+                  "home": "Corinthians",
+                  "away": "Rosario Central",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Neo Quimica Arena",
+                  "finished": false
+                }
+              ],
+              "aggregate": null,
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            }
+          ],
+          "decided": 0
+        }
+      ]
+    },
+    "sul-americana": {
+      "slug": "sul-americana",
+      "competition": "Sul-Americana",
+      "shortName": "Sul-Americana",
+      "leagueId": 385,
+      "season": "2026",
+      "rounds": [
+        {
+          "name": "Oitavas de final",
+          "order": 70,
+          "sourceStage": "1/8-finals",
+          "ties": [
+            {
+              "teams": [
+                "Recoleta",
+                "Boca Juniors"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-12",
+                  "home": "Boca Juniors",
+                  "away": "Recoleta",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Estadio Alberto J. Armando",
+                  "finished": false
+                },
+                {
+                  "date": "2026-08-19",
+                  "home": "Recoleta",
+                  "away": "Boca Juniors",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                }
+              ],
+              "aggregate": null,
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Sao Paulo",
+                "Bolivar"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-12",
+                  "home": "Bolivar",
+                  "away": "Sao Paulo",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Estadio Hernando Siles",
+                  "finished": false
+                },
+                {
+                  "date": "2026-08-19",
+                  "home": "Sao Paulo",
+                  "away": "Bolivar",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                }
+              ],
+              "aggregate": null,
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Montevideo City",
+                "Tigre"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-13",
+                  "home": "Tigre",
+                  "away": "Montevideo City",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                },
+                {
+                  "date": "2026-08-20",
+                  "home": "Montevideo City",
+                  "away": "Tigre",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Estadio Centenario",
+                  "finished": false
+                }
+              ],
+              "aggregate": null,
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Atletico-MG",
+                "Bragantino"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-13",
+                  "home": "Bragantino",
+                  "away": "Atletico-MG",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                },
+                {
+                  "date": "2026-08-20",
+                  "home": "Atletico-MG",
+                  "away": "Bragantino",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "MRV Arena",
+                  "finished": false
+                }
+              ],
+              "aggregate": null,
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "River Plate",
+                "Santa Fe"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-13",
+                  "home": "Santa Fe",
+                  "away": "River Plate",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                },
+                {
+                  "date": "2026-08-20",
+                  "home": "River Plate",
+                  "away": "Santa Fe",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Estadio Monumental",
+                  "finished": false
+                }
+              ],
+              "aggregate": null,
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Macara",
+                "Santos"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-14",
+                  "home": "Santos",
+                  "away": "Macara",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                },
+                {
+                  "date": "2026-08-21",
+                  "home": "Macara",
+                  "away": "Santos",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Estadio Bellavista",
+                  "finished": false
+                }
+              ],
+              "aggregate": null,
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Olimpia Asuncion",
+                "Vasco"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-14",
+                  "home": "Vasco",
+                  "away": "Olimpia Asuncion",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": null,
+                  "finished": false
+                },
+                {
+                  "date": "2026-08-21",
+                  "home": "Olimpia Asuncion",
+                  "away": "Vasco",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Estadio Osvaldo Dominguez Dibb",
+                  "finished": false
+                }
+              ],
+              "aggregate": null,
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            },
+            {
+              "teams": [
+                "Botafogo RJ",
+                "Cienciano"
+              ],
+              "legs": [
+                {
+                  "date": "2026-08-14",
+                  "home": "Cienciano",
+                  "away": "Botafogo RJ",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Estadio Inca Garcilaso de la Vega",
+                  "finished": false
+                },
+                {
+                  "date": "2026-08-21",
+                  "home": "Botafogo RJ",
+                  "away": "Cienciano",
+                  "score": null,
+                  "penalties": null,
+                  "stadium": "Estadio Olimpico Nilton Santos",
+                  "finished": false
+                }
+              ],
+              "aggregate": null,
+              "penalties": null,
+              "decided": false,
+              "winner": null
+            }
+          ],
+          "decided": 0
+        }
+      ]
+    }
+  }
+}

@@ -98,9 +98,12 @@ export const standingsCompetitions: Record<string, StandingsCompetitionCopy> = {
     description: (season) =>
       `Tabela do Brasileirão Série A ${season} com classificação completa, aproveitamento, forma recente e probabilidades de título, G4 e rebaixamento.`,
     links: [
+      { href: "/artilharia-do-brasileirao", label: "Artilharia" },
+      { href: "/probabilidades/rebaixamento", label: "Chances de rebaixamento" },
+      { href: "/probabilidades/titulo", label: "Chances de título" },
       { href: "/tabela-do-brasileirao-serie-b", label: "Tabela da Série B" },
       { href: "/jogos-futebol-hoje/brasileirao", label: "Jogos do Brasileirão" },
-      { href: "/probabilidades", label: "Palpites de hoje" },
+      { href: "/estadios-do-brasileirao", label: "Estádios" },
       { href: "/categoria/brasileirao", label: "Notícias do Brasileirão" },
     ],
     faq: {
@@ -148,6 +151,8 @@ export const standingsCompetitions: Record<string, StandingsCompetitionCopy> = {
     description: (season) =>
       `Tabela do Brasileirão Série B ${season} com classificação completa, aproveitamento, forma recente e probabilidades de acesso e rebaixamento.`,
     links: [
+      { href: "/artilharia-do-brasileirao-serie-b", label: "Artilharia" },
+      { href: "/probabilidades/rebaixamento", label: "Chances de rebaixamento" },
       { href: "/tabela-do-brasileirao", label: "Tabela da Série A" },
       {
         href: "/jogos-futebol-hoje/brasileirao-serie-b",
@@ -194,6 +199,7 @@ export const standingsCompetitions: Record<string, StandingsCompetitionCopy> = {
     description: (season) =>
       `Tabela do Brasileirão Série C ${season} com classificação completa da primeira fase, aproveitamento, forma recente e probabilidades de classificação e rebaixamento.`,
     links: [
+      { href: "/probabilidades/rebaixamento", label: "Chances de rebaixamento" },
       { href: "/tabela-do-brasileirao", label: "Tabela da Série A" },
       { href: "/tabela-do-brasileirao-serie-b", label: "Tabela da Série B" },
       { href: "/probabilidades", label: "Palpites de hoje" },

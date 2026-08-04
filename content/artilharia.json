@@ -1,0 +1,1556 @@
+{
+  "generatedAt": "2026-08-04T22:32:51.823Z",
+  "updatedThrough": "2026-08-04",
+  "source": "apifootball.com",
+  "disclaimer": "Artilharia conferida contra os gols marcados por cada time na competição. Gols de jogadores fora da lista de destaque da fonte podem não aparecer.",
+  "rankings": {
+    "brasileirao": {
+      "slug": "brasileirao",
+      "competition": "Brasileirão Série A",
+      "shortName": "Brasileirão",
+      "leagueId": 99,
+      "season": "2026",
+      "updatedThrough": "2026-08-04",
+      "stage": {
+        "key": "21477",
+        "label": "- 2nd Stage",
+        "teamsChecked": 17
+      },
+      "totalGoals": 244,
+      "scorers": [
+        {
+          "position": 1,
+          "player": "K. Viveros",
+          "playerId": "1521094163",
+          "team": "Athletico Paranaense",
+          "teamId": "551",
+          "goals": 12,
+          "assists": null,
+          "penaltyGoals": 2
+        },
+        {
+          "position": 1,
+          "player": "Pedro",
+          "playerId": "39962086",
+          "team": "Flamengo",
+          "teamId": "542",
+          "goals": 12,
+          "assists": 4,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 3,
+          "player": "Kennedy John",
+          "playerId": "2056937239",
+          "team": "Fluminense",
+          "teamId": "1879",
+          "goals": 9,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 3,
+          "player": "Vinicius Carlos",
+          "playerId": "85026834",
+          "team": "Gremio",
+          "teamId": "558",
+          "goals": 9,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 5,
+          "player": "Lopes Breno",
+          "playerId": "3742333350",
+          "team": "Coritiba",
+          "teamId": "2019",
+          "goals": 8,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 6,
+          "player": "Barbosa Gabriel",
+          "playerId": "3775326368",
+          "team": "Santos",
+          "teamId": "566",
+          "goals": 7,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 6,
+          "player": "Danillo",
+          "playerId": "3761788482",
+          "team": "Botafogo",
+          "teamId": "1875",
+          "goals": 7,
+          "assists": 2,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 8,
+          "player": "Cabral Arthur",
+          "playerId": "3511082206",
+          "team": "Botafogo",
+          "teamId": "1875",
+          "goals": 6,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 8,
+          "player": "J. Calleri",
+          "playerId": "3263788507",
+          "team": "Sao Paulo",
+          "teamId": "556",
+          "goals": 6,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 8,
+          "player": "Jose Lopez",
+          "playerId": "1048202909",
+          "team": "Palmeiras",
+          "teamId": "546",
+          "goals": 6,
+          "assists": 3,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 8,
+          "player": "Juba Luciano",
+          "playerId": "3388016807",
+          "team": "Bahia",
+          "teamId": "1985",
+          "goals": 6,
+          "assists": null,
+          "penaltyGoals": 2
+        },
+        {
+          "position": 8,
+          "player": "Luciano",
+          "playerId": "2004188105",
+          "team": "Sao Paulo",
+          "teamId": "556",
+          "goals": 6,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 8,
+          "player": "Neymar",
+          "playerId": "322456720",
+          "team": "Santos",
+          "teamId": "566",
+          "goals": 6,
+          "assists": null,
+          "penaltyGoals": 2
+        },
+        {
+          "position": 14,
+          "player": "Isidro Pitta",
+          "playerId": "392816270",
+          "team": "Bragantino",
+          "teamId": "2015",
+          "goals": 5,
+          "assists": 2,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 14,
+          "player": "J. Lavega",
+          "playerId": "2303437738",
+          "team": "Coritiba",
+          "teamId": "2019",
+          "goals": 5,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 14,
+          "player": "Jaja",
+          "playerId": "913744325",
+          "team": "Remo",
+          "teamId": "1784",
+          "goals": 5,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 14,
+          "player": "Johan Carbonero",
+          "playerId": "2157454280",
+          "team": "Internacional",
+          "teamId": "559",
+          "goals": 5,
+          "assists": 3,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 14,
+          "player": "Lino Samuel",
+          "playerId": "4284980392",
+          "team": "Flamengo",
+          "teamId": "542",
+          "goals": 5,
+          "assists": 7,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 14,
+          "player": "Manga Alef",
+          "playerId": "1297654262",
+          "team": "Remo",
+          "teamId": "1784",
+          "goals": 5,
+          "assists": 3,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 14,
+          "player": "Pereira Matheus",
+          "playerId": "1874618518",
+          "team": "Cruzeiro",
+          "teamId": "1745",
+          "goals": 5,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 14,
+          "player": "Renê",
+          "playerId": "3228598789",
+          "team": "Vitoria",
+          "teamId": "1748",
+          "goals": 5,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 14,
+          "player": "S. Mendoza",
+          "playerId": "3649497511",
+          "team": "Athletico Paranaense",
+          "teamId": "551",
+          "goals": 5,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 23,
+          "player": "A. Canobbio",
+          "playerId": "2043461715",
+          "team": "Fluminense",
+          "teamId": "1879",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 23,
+          "player": "Alexandro Bernabei",
+          "playerId": "3452995374",
+          "team": "Internacional",
+          "teamId": "559",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 23,
+          "player": "Allan",
+          "playerId": "2253529655",
+          "team": "Palmeiras",
+          "teamId": "546",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 23,
+          "player": "Alvaro Barreal",
+          "playerId": "523788019",
+          "team": "Santos",
+          "teamId": "566",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 23,
+          "player": "Carlos Gomez",
+          "playerId": "1146286133",
+          "team": "Vasco da Gama",
+          "teamId": "1877",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 23,
+          "player": "Christian",
+          "playerId": "575694022",
+          "team": "Cruzeiro",
+          "teamId": "1745",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 23,
+          "player": "Ferreira",
+          "playerId": "291430416",
+          "team": "Sao Paulo",
+          "teamId": "556",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 23,
+          "player": "Hugo Victor",
+          "playerId": "3006150972",
+          "team": "Atletico Mineiro",
+          "teamId": "1865",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 23,
+          "player": "J. Arias",
+          "playerId": "4168416428",
+          "team": "Palmeiras",
+          "teamId": "546",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 23,
+          "player": "Jorge Kaio",
+          "playerId": "963015647",
+          "team": "Cruzeiro",
+          "teamId": "1745",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 3
+        },
+        {
+          "position": 23,
+          "player": "Kayzer Renato",
+          "playerId": "2577558466",
+          "team": "Vitoria",
+          "teamId": "1748",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 23,
+          "player": "Mauricio",
+          "playerId": "3267078024",
+          "team": "Palmeiras",
+          "teamId": "546",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 23,
+          "player": "Ramon Sosa",
+          "playerId": "3352560625",
+          "team": "Palmeiras",
+          "teamId": "546",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 23,
+          "player": "Rocha Pedro",
+          "playerId": "2360902023",
+          "team": "Coritiba",
+          "teamId": "2019",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 23,
+          "player": "Teixeira dos Santos Matheus",
+          "playerId": "54034406",
+          "team": "Botafogo",
+          "teamId": "1875",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 38,
+          "player": "Benjamin Rollheiser",
+          "playerId": "3406157922",
+          "team": "Santos",
+          "teamId": "566",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 2
+        },
+        {
+          "position": 38,
+          "player": "Capixaba Juninho",
+          "playerId": "2228093184",
+          "team": "Bragantino",
+          "teamId": "2015",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 38,
+          "player": "Castillo Rodrigo",
+          "playerId": "3030746652",
+          "team": "Fluminense",
+          "teamId": "1879",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 38,
+          "player": "Duarte David",
+          "playerId": "1474727191",
+          "team": "Bahia",
+          "teamId": "1985",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 38,
+          "player": "Formiga Igor",
+          "playerId": "136845969",
+          "team": "Mirassol",
+          "teamId": "1804",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 38,
+          "player": "Julimar",
+          "playerId": "252120787",
+          "team": "Athletico Paranaense",
+          "teamId": "551",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 38,
+          "player": "Leozinho",
+          "playerId": "3602348129",
+          "team": "Athletico Paranaense",
+          "teamId": "551",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 38,
+          "player": "Luciano Acosta",
+          "playerId": "2247385947",
+          "team": "Fluminense",
+          "teamId": "1879",
+          "goals": 3,
+          "assists": 4,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 38,
+          "player": "Mendes Thiago",
+          "playerId": "4244573389",
+          "team": "Vasco da Gama",
+          "teamId": "1877",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 38,
+          "player": "Patrick Alan",
+          "playerId": "510307236",
+          "team": "Internacional",
+          "teamId": "559",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 38,
+          "player": "Roque Vitor",
+          "playerId": "2857588461",
+          "team": "Palmeiras",
+          "teamId": "546",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 38,
+          "player": "Taliari Gabriel",
+          "playerId": "2877084339",
+          "team": "Remo",
+          "teamId": "1784",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 38,
+          "player": "W. Clar",
+          "playerId": "2145009639",
+          "team": "Chapecoense",
+          "teamId": "1735",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 2
+        }
+      ]
+    },
+    "brasileirao-serie-b": {
+      "slug": "brasileirao-serie-b",
+      "competition": "Brasileirão Série B",
+      "shortName": "Série B",
+      "leagueId": 75,
+      "season": "2026",
+      "updatedThrough": "2026-08-04",
+      "stage": {
+        "key": "21477",
+        "label": "- 2nd Stage",
+        "teamsChecked": 18
+      },
+      "totalGoals": 186,
+      "scorers": [
+        {
+          "position": 1,
+          "player": "Mikael",
+          "playerId": "3013757968",
+          "team": "CRB",
+          "teamId": "1744",
+          "goals": 10,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 1,
+          "player": "Santos Bruno",
+          "playerId": "1230588134",
+          "team": "Londrina",
+          "teamId": "1785",
+          "goals": 10,
+          "assists": 2,
+          "penaltyGoals": 3
+        },
+        {
+          "position": 3,
+          "player": "Boschilia",
+          "playerId": "810546543",
+          "team": "Operario PR",
+          "teamId": "1742",
+          "goals": 9,
+          "assists": null,
+          "penaltyGoals": 4
+        },
+        {
+          "position": 4,
+          "player": "Barletta Chrystian",
+          "playerId": "3425882920",
+          "team": "Sport Recife",
+          "teamId": "1956",
+          "goals": 8,
+          "assists": 3,
+          "penaltyGoals": 6
+        },
+        {
+          "position": 5,
+          "player": "Coutinho Gustavo",
+          "playerId": "3446819254",
+          "team": "Atletico GO",
+          "teamId": "1929",
+          "goals": 7,
+          "assists": null,
+          "penaltyGoals": 4
+        },
+        {
+          "position": 5,
+          "player": "Perotti",
+          "playerId": "2970843249",
+          "team": "Sport Recife",
+          "teamId": "1956",
+          "goals": 7,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 5,
+          "player": "Robson",
+          "playerId": "1597770378",
+          "team": "Novorizontino",
+          "teamId": "1805",
+          "goals": 7,
+          "assists": 3,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 8,
+          "player": "Dodô",
+          "playerId": "1476512818",
+          "team": "Nautico",
+          "teamId": "1750",
+          "goals": 5,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 8,
+          "player": "Kadu",
+          "playerId": "3933265705",
+          "team": "Goias",
+          "teamId": "1938",
+          "goals": 5,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 8,
+          "player": "Tavares Ronaldo",
+          "playerId": "3462531026",
+          "team": "Athletic Club Minas",
+          "teamId": "1871",
+          "goals": 5,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 8,
+          "player": "Vinícius",
+          "playerId": "2105408147",
+          "team": "Nautico",
+          "teamId": "1750",
+          "goals": 5,
+          "assists": 2,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 12,
+          "player": "Hygor",
+          "playerId": "3541160445",
+          "team": "Botafogo SP",
+          "teamId": "1753",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 12,
+          "player": "Janderson",
+          "playerId": "2298497342",
+          "team": "Vila Nova",
+          "teamId": "1783",
+          "goals": 4,
+          "assists": 3,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 12,
+          "player": "Pablo",
+          "playerId": "197267711",
+          "team": "Operario PR",
+          "teamId": "1742",
+          "goals": 4,
+          "assists": 2,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 12,
+          "player": "Raí",
+          "playerId": "2303348209",
+          "team": "Juventude",
+          "teamId": "1737",
+          "goals": 4,
+          "assists": 3,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 12,
+          "player": "Ramon Anselmo",
+          "playerId": "1939003238",
+          "team": "Goias",
+          "teamId": "1938",
+          "goals": 4,
+          "assists": 2,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 12,
+          "player": "Ryan",
+          "playerId": "3162360201",
+          "team": "Vila Nova",
+          "teamId": "1783",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 12,
+          "player": "Safira Alisson",
+          "playerId": "3651765884",
+          "team": "Juventude",
+          "teamId": "1737",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 19,
+          "player": "Bautista Juan",
+          "playerId": "4281378394",
+          "team": "Fortaleza",
+          "teamId": "2018",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 19,
+          "player": "Belmonte Dadá",
+          "playerId": "3021275928",
+          "team": "CRB",
+          "teamId": "1744",
+          "goals": 3,
+          "assists": 4,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 19,
+          "player": "Carlao",
+          "playerId": "1985837373",
+          "team": "Novorizontino",
+          "teamId": "1805",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 19,
+          "player": "Castro Pedro",
+          "playerId": "308636550",
+          "team": "CRB",
+          "teamId": "1744",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 19,
+          "player": "Diniz Dall Antonia Vinicius",
+          "playerId": "3466619718",
+          "team": "Operario PR",
+          "teamId": "1742",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 19,
+          "player": "Jaco Leo",
+          "playerId": "781977774",
+          "team": "Atletico GO",
+          "teamId": "1929",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 19,
+          "player": "Juninho",
+          "playerId": "3918937842",
+          "team": "Novorizontino",
+          "teamId": "1805",
+          "goals": 3,
+          "assists": 3,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 19,
+          "player": "Luccas Ian",
+          "playerId": "4020872996",
+          "team": "Athletic Club Minas",
+          "teamId": "1871",
+          "goals": 3,
+          "assists": 2,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 19,
+          "player": "Mailton",
+          "playerId": "107878030",
+          "team": "Fortaleza",
+          "teamId": "2018",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 2
+        },
+        {
+          "position": 19,
+          "player": "Mateus Fellipe",
+          "playerId": "3292237392",
+          "team": "Criciuma",
+          "teamId": "1802",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 19,
+          "player": "Paulo Marcos",
+          "playerId": "481394492",
+          "team": "Juventude",
+          "teamId": "1737",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 19,
+          "player": "Penha Daniel",
+          "playerId": "1045112199",
+          "team": "Avai",
+          "teamId": "1743",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 19,
+          "player": "R. Otero",
+          "playerId": "3388512845",
+          "team": "Criciuma",
+          "teamId": "1802",
+          "goals": 3,
+          "assists": 2,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 19,
+          "player": "Silva Rafa",
+          "playerId": "3035399863",
+          "team": "Vila Nova",
+          "teamId": "1783",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 19,
+          "player": "Thayllon",
+          "playerId": "4114349668",
+          "team": "Avai",
+          "teamId": "1743",
+          "goals": 3,
+          "assists": 3,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 19,
+          "player": "Walace",
+          "playerId": "2970680502",
+          "team": "Avai",
+          "teamId": "1743",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 35,
+          "player": "Brey Patrick",
+          "playerId": "1429299544",
+          "team": "Botafogo SP",
+          "teamId": "1753",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 35,
+          "player": "Élvis",
+          "playerId": "1450997167",
+          "team": "Ponte Preta",
+          "teamId": "1741",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 35,
+          "player": "Gabriel João",
+          "playerId": "3511871917",
+          "team": "Ceara",
+          "teamId": "2016",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 35,
+          "player": "Gabriel Marquinhos",
+          "playerId": "3561461593",
+          "team": "Vila Nova",
+          "teamId": "1783",
+          "goals": 2,
+          "assists": 4,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 35,
+          "player": "Gava Rafael",
+          "playerId": "2878247063",
+          "team": "Botafogo SP",
+          "teamId": "1753",
+          "goals": 2,
+          "assists": 4,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 35,
+          "player": "Lucas Jean",
+          "playerId": "2005891019",
+          "team": "Avai",
+          "teamId": "1743",
+          "goals": 2,
+          "assists": 2,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 35,
+          "player": "Luís André",
+          "playerId": "882390981",
+          "team": "Vila Nova",
+          "teamId": "1783",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 35,
+          "player": "Luiz André",
+          "playerId": "1843614884",
+          "team": "Londrina",
+          "teamId": "1785",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 35,
+          "player": "Mastriani Gonzalo",
+          "playerId": "913973546",
+          "team": "America Mineiro",
+          "teamId": "1736",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 35,
+          "player": "Melk",
+          "playerId": "832705055",
+          "team": "Ceara",
+          "teamId": "2016",
+          "goals": 2,
+          "assists": 2,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 35,
+          "player": "Nicolas",
+          "playerId": "3211286514",
+          "team": "Criciuma",
+          "teamId": "1802",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 35,
+          "player": "Oyama Luís",
+          "playerId": "2318494058",
+          "team": "Novorizontino",
+          "teamId": "1805",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 35,
+          "player": "Pará",
+          "playerId": "2946010695",
+          "team": "Sao Bernardo FC",
+          "teamId": "1916",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 35,
+          "player": "Pereira Hildeberto",
+          "playerId": "2884827741",
+          "team": "Operario PR",
+          "teamId": "1742",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 35,
+          "player": "Pottker William",
+          "playerId": "3399814448",
+          "team": "Ponte Preta",
+          "teamId": "1741",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 35,
+          "player": "Samuel Vitor",
+          "playerId": "3386568989",
+          "team": "Fortaleza",
+          "teamId": "2018",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        }
+      ]
+    },
+    "libertadores": {
+      "slug": "libertadores",
+      "competition": "Libertadores",
+      "shortName": "Libertadores",
+      "leagueId": 18,
+      "season": "2026",
+      "updatedThrough": "2026-08-04",
+      "stage": {
+        "key": "21477",
+        "label": "- 2nd Stage",
+        "teamsChecked": 23
+      },
+      "totalGoals": 128,
+      "scorers": [
+        {
+          "position": 1,
+          "player": "Adrián Alex",
+          "playerId": "2897164139",
+          "team": "Independiente Rivadavia",
+          "teamId": "947",
+          "goals": 8,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 2,
+          "player": "Gabriel Carlos",
+          "playerId": "1668975015",
+          "team": "Independiente del Valle",
+          "teamId": "543",
+          "goals": 6,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 3,
+          "player": "F. Fydriszewski",
+          "playerId": "3438002484",
+          "team": "Medellin",
+          "teamId": "573",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 3,
+          "player": "Henrique Bruno",
+          "playerId": "3720084204",
+          "team": "Flamengo",
+          "teamId": "542",
+          "goals": 4,
+          "assists": 2,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 3,
+          "player": "L. Melgarejo",
+          "playerId": "3633316615",
+          "team": "Libertad",
+          "teamId": "571",
+          "goals": 4,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 6,
+          "player": "Asael Tiago",
+          "playerId": "1514894654",
+          "team": "Estudiantes",
+          "teamId": "989",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 6,
+          "player": "F. Barrandeguy",
+          "playerId": "1914012973",
+          "team": "Juventud de Las Piedras",
+          "teamId": "7982",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 6,
+          "player": "F. Zampedri",
+          "playerId": "1409551952",
+          "team": "Univ. Catolica",
+          "teamId": "560",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 6,
+          "player": "Henrique Gustavo",
+          "playerId": "1915838590",
+          "team": "Corinthians",
+          "teamId": "2017",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 6,
+          "player": "J. Arias",
+          "playerId": "4168416428",
+          "team": "Palmeiras",
+          "teamId": "546",
+          "goals": 3,
+          "assists": 1,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 6,
+          "player": "J. Cuesta",
+          "playerId": "1809555389",
+          "team": "UCV",
+          "teamId": "8011",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 6,
+          "player": "Luis Muriel",
+          "playerId": "740446579",
+          "team": "Junior",
+          "teamId": "544",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 6,
+          "player": "M. Gómez",
+          "playerId": "3310026677",
+          "team": "Nacional Montevideo",
+          "teamId": "562",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 6,
+          "player": "Pablo Vegetti",
+          "playerId": "2972145002",
+          "team": "Cerro Cora",
+          "teamId": "5715",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 6,
+          "player": "Villa Sebastián",
+          "playerId": "232003526",
+          "team": "Independiente Rivadavia",
+          "teamId": "947",
+          "goals": 3,
+          "assists": 3,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 6,
+          "player": "Y. Yotún",
+          "playerId": "2337091066",
+          "team": "Sporting Cristal",
+          "teamId": "5748",
+          "goals": 3,
+          "assists": 1,
+          "penaltyGoals": 2
+        },
+        {
+          "position": 6,
+          "player": "Zapiola Franco",
+          "playerId": "4220347977",
+          "team": "Platense",
+          "teamId": "996",
+          "goals": 3,
+          "assists": null,
+          "penaltyGoals": 2
+        },
+        {
+          "position": 18,
+          "player": "Á. Valera",
+          "playerId": "749070957",
+          "team": "Universitario",
+          "teamId": "5744",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "Aaron Milton",
+          "playerId": "1774486592",
+          "team": "Barcelona Guayaquil",
+          "teamId": "545",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "Agustín Francisco",
+          "playerId": "1121742428",
+          "team": "O&apos;Higgins",
+          "teamId": "2215",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "Arrascaeta de",
+          "playerId": "1252371777",
+          "team": "Flamengo",
+          "teamId": "542",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "C. Zavala",
+          "playerId": "1531445949",
+          "team": "Coquimbo Unido",
+          "teamId": "8891",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "Deyverson",
+          "playerId": "1521934290",
+          "team": "LDU de Quito",
+          "teamId": "555",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "E. Castillo",
+          "playerId": "2828415216",
+          "team": "Carabobo",
+          "teamId": "8025",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "E. Tortolero",
+          "playerId": "1401095278",
+          "team": "Carabobo",
+          "teamId": "8025",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "E. Triverio",
+          "playerId": "986175292",
+          "team": "Always Ready",
+          "teamId": "1645",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "F. Londoño",
+          "playerId": "424951138",
+          "team": "Deportivo La Guaira",
+          "teamId": "8027",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "Fabián Ángel",
+          "playerId": "1652674065",
+          "team": "Rosario Central",
+          "teamId": "992",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 18,
+          "player": "G. Vadalá",
+          "playerId": "418705719",
+          "team": "Coquimbo Unido",
+          "teamId": "8891",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "H. Palacios",
+          "playerId": "2179277800",
+          "team": "Medellin",
+          "teamId": "573",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "H. Rodallega",
+          "playerId": "3706135224",
+          "team": "Santa Fe",
+          "teamId": "2269",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "H. Villalba",
+          "playerId": "2130642384",
+          "team": "Barcelona Guayaquil",
+          "teamId": "545",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "J. Chancellor",
+          "playerId": "1918890413",
+          "team": "Universidad Catolica Quito",
+          "teamId": "579",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "J. Fajardo",
+          "playerId": "3618800181",
+          "team": "Universidad Catolica Quito",
+          "teamId": "579",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "J. Sornoza",
+          "playerId": "3430534202",
+          "team": "Independiente del Valle",
+          "teamId": "543",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 18,
+          "player": "Jose Lopez",
+          "playerId": "1048202909",
+          "team": "Palmeiras",
+          "teamId": "546",
+          "goals": 2,
+          "assists": 4,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 18,
+          "player": "Jose Willian",
+          "playerId": "2431703569",
+          "team": "Bahia",
+          "teamId": "1985",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "Kennedy John",
+          "playerId": "2056937239",
+          "team": "Fluminense",
+          "teamId": "1879",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "L. Colitto",
+          "playerId": "2448483899",
+          "team": "Cusco",
+          "teamId": "5751",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "M. Arezo",
+          "playerId": "2387588984",
+          "team": "Penarol",
+          "teamId": "552",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "M. Fernández",
+          "playerId": "2383034688",
+          "team": "Coquimbo Unido",
+          "teamId": "8891",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "N. Johansen",
+          "playerId": "4124697552",
+          "team": "Coquimbo Unido",
+          "teamId": "8891",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "Nahuel Enzo",
+          "playerId": "1124371740",
+          "team": "Rosario Central",
+          "teamId": "992",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "Paqueta Lucas",
+          "playerId": "2727857005",
+          "team": "Flamengo",
+          "teamId": "542",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 18,
+          "player": "Pedro",
+          "playerId": "39962086",
+          "team": "Flamengo",
+          "teamId": "542",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "Pereira Matheus",
+          "playerId": "1874618518",
+          "team": "Cruzeiro",
+          "teamId": "1745",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 1
+        },
+        {
+          "position": 18,
+          "player": "R. Matheus",
+          "playerId": "4158688734",
+          "team": "Bolivar",
+          "teamId": "548",
+          "goals": 2,
+          "assists": 1,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "Ramon Sosa",
+          "playerId": "3352560625",
+          "team": "Palmeiras",
+          "teamId": "546",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "S. Coates",
+          "playerId": "2758481880",
+          "team": "Nacional Montevideo",
+          "teamId": "562",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        },
+        {
+          "position": 18,
+          "player": "Y. Quiñónez",
+          "playerId": "4113524966",
+          "team": "LDU de Quito",
+          "teamId": "555",
+          "goals": 2,
+          "assists": null,
+          "penaltyGoals": 0
+        }
+      ]
+    }
+  }
+}

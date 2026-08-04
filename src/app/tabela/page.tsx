@@ -12,12 +12,17 @@ import {
   getStandingsData,
   getStandingsTable,
 } from "@/lib/standings";
+import { getAllTopScorersCopy } from "@/lib/topscorers-competitions";
+import { getTopScorers, goalsLabel } from "@/lib/topscorers";
+import { getAllBracketCopy } from "@/lib/brackets-route";
+import { currentRound, getBracket } from "@/lib/brackets";
+import { getAllRaceTeamSlugs } from "@/lib/race";
 
 export const revalidate = 900; // 15 min
 
-const TITLE = "Tabelas de Classificação: Brasileirão, Série B e mais";
+const TITLE = "Tabelas, artilharia e chaveamentos: Brasileirão, Série B e mais";
 const DESCRIPTION =
-  "Todas as tabelas de classificação do Beira do Campo em um lugar: pontos, saldo, aproveitamento e as chances de título, acesso e rebaixamento de cada competição.";
+  "Todos os dados do Beira do Campo em um lugar: tabelas de classificação, artilharia de cada competição, chaveamentos de mata-mata e as chances de título e rebaixamento time a time.";
 
 export function generateMetadata(): Metadata {
   return {
@@ -29,6 +34,8 @@ export function generateMetadata(): Metadata {
       "classificação campeonatos",
       "tabela do brasileirão",
       "tabela da série b",
+      "artilharia do brasileirão",
+      "chaveamento copa do brasil",
     ],
     alternates: { canonical: `${siteConfig.url}/tabela` },
     openGraph: {
@@ -49,15 +56,38 @@ export function generateMetadata(): Metadata {
 export default async function TabelaHubPage() {
   const updatedAt = formatUpdatedAt((await getStandingsData())?.generatedAt);
 
-  // Só entra no hub a competição que já tem tabela publicada no JSON.
-  const tables = (
-    await Promise.all(
+  // Cada bloco só aparece quando o dado existe — o hub cresce sozinho conforme
+  // os builders publicam competição nova, sem editar esta página.
+  const [tables, scorers, brackets, raceTeams] = await Promise.all([
+    Promise.all(
       getAllStandingsCopy().map(async (copy) => ({
         copy,
         table: await getStandingsTable(copy.slug),
       })),
-    )
-  ).filter((item) => item.table !== null);
+    ).then((items) => items.filter((item) => item.table !== null)),
+
+    Promise.all(
+      getAllTopScorersCopy().map(async (copy) => ({
+        copy,
+        ranking: await getTopScorers(copy.slug),
+      })),
+    ).then((items) =>
+      items.filter((item) => (item.ranking?.scorers.length ?? 0) > 0),
+    ),
+
+    Promise.all(
+      getAllBracketCopy().map(async (copy) => ({
+        copy,
+        competition: await getBracket(copy.slug),
+      })),
+    ).then((items) =>
+      items.filter((item) => (item.competition?.rounds.length ?? 0) > 0),
+    ),
+
+    getAllRaceTeamSlugs(),
+  ]);
+
+  const hasRace = raceTeams.length > 0;
 
   return (
     <>
@@ -131,25 +161,121 @@ export default async function TabelaHubPage() {
           </p>
         )}
 
-        <nav className="mt-10 flex flex-wrap gap-2 text-sm">
-          <Link
-            href="/jogos-futebol-hoje"
-            className="border border-ink/15 bg-white px-4 py-2 font-medium text-ink transition-colors hover:border-primary hover:text-primary"
-          >
-            Jogos de hoje
-          </Link>
-          <Link
-            href="/probabilidades"
-            className="border border-ink/15 bg-white px-4 py-2 font-medium text-ink transition-colors hover:border-primary hover:text-primary"
-          >
-            Palpites de hoje
-          </Link>
-          <Link
-            href="/estatisticas"
-            className="border border-ink/15 bg-white px-4 py-2 font-medium text-ink transition-colors hover:border-primary hover:text-primary"
-          >
-            Estatísticas
-          </Link>
+        {scorers.length > 0 && (
+          <section className="mt-14">
+            <h2 className="font-display text-2xl font-extrabold tracking-tight text-ink">
+              Artilharia
+            </h2>
+            <p className="mb-4 mt-1 text-sm text-gray-600">
+              Quem mais fez gol em cada competição, atualizado a cada rodada.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {scorers.map(({ copy, ranking }) => {
+                const top = ranking!.scorers[0];
+                return (
+                  <Link
+                    key={copy.slug}
+                    href={copy.path}
+                    className="group block border border-ink/15 bg-white p-4 transition-colors hover:border-primary"
+                  >
+                    <p className="font-display text-lg font-extrabold tracking-tight text-ink transition-colors group-hover:text-primary">
+                      {copy.h1(ranking!.season)}
+                    </p>
+                    <p className="mt-1 text-sm text-gray-600">
+                      {top.displayName} ({top.teamName}) ·{" "}
+                      <strong className="text-ink">{goalsLabel(top.goals)}</strong>
+                    </p>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
+        {hasRace && (
+          <section className="mt-14">
+            <h2 className="font-display text-2xl font-extrabold tracking-tight text-ink">
+              Probabilidades
+            </h2>
+            <p className="mb-4 mt-1 text-sm text-gray-600">
+              10 mil simulações do restante de cada campeonato, por objetivo.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                {
+                  href: "/probabilidades/titulo",
+                  title: "Chances de título",
+                  hint: "Quem pode ser campeão, time a time",
+                },
+                {
+                  href: "/probabilidades/rebaixamento",
+                  title: "Chances de rebaixamento",
+                  hint: "Quem corre risco de cair, time a time",
+                },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group block border border-ink/15 bg-white p-4 transition-colors hover:border-primary"
+                >
+                  <p className="font-display text-lg font-extrabold tracking-tight text-ink transition-colors group-hover:text-primary">
+                    {item.title}
+                  </p>
+                  <p className="mt-1 text-sm text-gray-600">{item.hint}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {brackets.length > 0 && (
+          <section className="mt-14">
+            <h2 className="font-display text-2xl font-extrabold tracking-tight text-ink">
+              Chaveamentos
+            </h2>
+            <p className="mb-4 mt-1 text-sm text-gray-600">
+              Os confrontos de mata-mata, com agregado e quem avançou.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {brackets.map(({ copy, competition }) => {
+                const now = currentRound(competition!);
+                return (
+                  <Link
+                    key={copy.slug}
+                    href={copy.path}
+                    className="group block border border-ink/15 bg-white p-4 transition-colors hover:border-primary"
+                  >
+                    <p className="font-display text-lg font-extrabold tracking-tight text-ink transition-colors group-hover:text-primary">
+                      {copy.h1(competition!.season)}
+                    </p>
+                    {now && (
+                      <p className="mt-1 text-sm text-gray-600">
+                        {now.name} · {now.decided} de {now.ties.length}{" "}
+                        confrontos definidos
+                      </p>
+                    )}
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
+        <nav className="mt-14 flex flex-wrap gap-2 text-sm">
+          {[
+            { href: "/jogos-futebol-hoje", label: "Jogos de hoje" },
+            { href: "/probabilidades", label: "Palpites de hoje" },
+            { href: "/estatisticas", label: "Estatísticas" },
+            { href: "/estadios-do-brasileirao", label: "Estádios do Brasileirão" },
+          ].map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="border border-ink/15 bg-white px-4 py-2 font-medium text-ink transition-colors hover:border-primary hover:text-primary"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
       </div>
     </>
