@@ -7,7 +7,11 @@
   #
   # Conteúdo é servido do R2 em runtime, não do bundle do deploy:
   #   content/articles/**   → src/lib/articles.ts    + scripts/publish-articles.js
-  #   os 5 JSONs de dados   → src/lib/content-data.ts + scripts/publish-data.js
+  #   os 8 JSONs de dados   → src/lib/content-data.ts + scripts/publish-data.js
+  #
+  # A lista de exclusão precisa acompanhar DATA_FILES em scripts/publish-data.js:
+  # JSON servido do R2 que fique de fora daqui volta a disparar build a cada
+  # atualização, que é exatamente o que esta rede de segurança evita.
   #
   # Tudo isso continua versionado no repositório, como fallback e histórico, mas
   # um commit que só mexe nesses caminhos não muda nada no site publicado —
@@ -23,4 +27,4 @@
   # variável vem vazia, o comando vira `git diff --quiet HEAD` numa árvore
   # recém-clonada — logo limpa — e sai 0: a Netlify pularia justamente o build
   # que precisa acontecer, e o site nunca mais atualizaria. Sem cache, buildar.
-  ignore = '''[ -n "$CACHED_COMMIT_REF" ] && git diff --quiet "$CACHED_COMMIT_REF" "$COMMIT_REF" -- . ':(exclude)content/articles' ':(exclude)content/jogos.json' ':(exclude)content/jogos-historico.json' ':(exclude)content/classificacao.json' ':(exclude)content/probabilidades.json' ':(exclude)content/probabilidades-historico.json' ':(exclude)guest-posts' ':(exclude)*.md' '''
+  ignore = '''[ -n "$CACHED_COMMIT_REF" ] && git diff --quiet "$CACHED_COMMIT_REF" "$COMMIT_REF" -- . ':(exclude)content/articles' ':(exclude)content/jogos.json' ':(exclude)content/jogos-historico.json' ':(exclude)content/classificacao.json' ':(exclude)content/probabilidades.json' ':(exclude)content/probabilidades-historico.json' ':(exclude)content/artilharia.json' ':(exclude)content/chaveamento.json' ':(exclude)content/estadios.json' ':(exclude)guest-posts' ':(exclude)*.md' '''
