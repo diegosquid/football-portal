@@ -1,14 +1,79 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { categories } from "@/lib/categories";
 import { Logo } from "@/components/Logo";
+import {
+  isNavItemActive,
+  NAV_LIVE,
+  NAV_SECTIONS,
+  NAV_TOOLS,
+  type NavItem,
+} from "@/lib/nav";
 
-const NAV_CATEGORIES = categories.slice(0, 5);
+/**
+ * Item do menu mobile. A página atual é marcada por sublinhado, não por cor:
+ * metade dos itens já é lima o tempo todo, então cor sozinha não distinguiria.
+ */
+function MobileNavLink({
+  item,
+  marker,
+  tone,
+  active,
+  animation,
+  onNavigate,
+}: {
+  item: NavItem;
+  marker: string;
+  tone: "lima" | "cal";
+  active: boolean;
+  animation: string;
+  onNavigate: () => void;
+}) {
+  return (
+    <Link
+      href={item.href}
+      onClick={onNavigate}
+      aria-current={active ? "page" : undefined}
+      className={`${animation} flex items-baseline gap-4 border-b border-cal/10 py-4`}
+    >
+      {/* O marcador continua sendo o número: trocar por um símbolo no item
+          ativo abria um buraco na sequência (05, ■, 07). Quem marca a página
+          atual é o sublinhado; aqui só a cor muda. */}
+      <span
+        className={`font-mono text-xs ${
+          active || tone === "lima" ? "text-lima" : "text-cal/40"
+        }`}
+      >
+        {marker}
+      </span>
+      <span
+        className={`font-display text-3xl font-extrabold uppercase tracking-tight transition-colors ${
+          tone === "lima" ? "text-lima" : "text-cal hover:text-lima"
+        } ${
+          active
+            ? "underline decoration-lima decoration-2 underline-offset-[6px]"
+            : ""
+        }`}
+      >
+        {item.label}
+      </span>
+    </Link>
+  );
+}
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname() ?? "/";
+
+  /**
+   * `aria-current` faz as duas coisas de uma vez: anuncia a página atual pro
+   * leitor de tela e é o seletor que fixa a régua do `.hover-line`
+   * (globals.css). Assim o destaque visual não tem como divergir do estado real.
+   */
+  const current = (item: NavItem) =>
+    isNavItemActive(item, pathname) ? ("page" as const) : undefined;
 
   return (
     <>
@@ -57,61 +122,65 @@ export function Header() {
         </div>
       </div>
 
-      {/* Navegação fixa */}
-      <nav className="sticky top-0 z-40 border-y border-lima/20 bg-campo/95 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-7xl items-center overflow-x-auto px-1 sm:px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <Link
-            href="/jogos-futebol-hoje"
-            className="flex shrink-0 items-center gap-2 px-3 py-3 font-mono text-xs font-bold uppercase tracking-[0.15em] text-lima transition-colors hover:text-cal"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lima opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-lima" />
-            </span>
-            Jogos de hoje
-          </Link>
+      {/*
+        Navegação fixa em duas faixas: ferramentas em cima, editorias embaixo.
+        Antes era uma linha só com 12 itens rolando na horizontal sem barra de
+        rolagem visível — "Opinião" simplesmente não existia pra quem não
+        arrastasse, e Seleção e Internacional nem entravam.
 
-          <Link
-            href="/probabilidades"
-            className="hover-line shrink-0 px-3 py-3 text-[13px] font-semibold uppercase tracking-wide text-cal/80 transition-colors hover:text-cal"
-          >
-            Palpites
-          </Link>
-          <Link
-            href="/tabela"
-            className="hover-line shrink-0 px-3 py-3 text-[13px] font-semibold uppercase tracking-wide text-cal/80 transition-colors hover:text-cal"
-          >
-            Tabelas
-          </Link>
-          <Link
-            href="/estatisticas"
-            className="hover-line shrink-0 px-3 py-3 text-[13px] font-semibold uppercase tracking-wide text-cal/80 transition-colors hover:text-cal"
-          >
-            Estatísticas
-          </Link>
-
-          {NAV_CATEGORIES.map((cat) => (
+        No mobile fica só o atalho ao vivo: o resto seria repetição do menu
+        cheio, que já abre no hambúrguer. Os links das duas faixas continuam no
+        HTML (escondidos por CSS, não removidos), porque são o único caminho
+        rastreável até as categorias.
+      */}
+      <nav
+        aria-label="Navegação principal"
+        className="sticky top-0 z-40 border-y border-lima/20 bg-campo/95 backdrop-blur-sm"
+      >
+        <div className="mx-auto max-w-7xl px-1 sm:px-4">
+          {/* Faixa 1 — ferramentas */}
+          <div className="flex items-center">
             <Link
-              key={cat.slug}
-              href={`/categoria/${cat.slug}`}
-              className="hover-line shrink-0 px-3 py-3 text-[13px] font-semibold uppercase tracking-wide text-cal/80 transition-colors hover:text-cal"
+              href={NAV_LIVE.href}
+              aria-current={current(NAV_LIVE)}
+              className="hover-line flex shrink-0 items-center gap-2 px-3 py-3 font-mono text-xs font-bold uppercase tracking-[0.15em] text-lima transition-colors hover:text-cal"
             >
-              {cat.label}
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lima opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-lima" />
+              </span>
+              {NAV_LIVE.label}
             </Link>
-          ))}
 
-          <Link
-            href="/time"
-            className="hover-line shrink-0 px-3 py-3 text-[13px] font-semibold uppercase tracking-wide text-cal/80 transition-colors hover:text-cal"
-          >
-            Times
-          </Link>
-          <Link
-            href="/categoria/opiniao"
-            className="hover-line shrink-0 px-3 py-3 text-[13px] font-semibold uppercase tracking-wide text-cal/80 transition-colors hover:text-cal"
-          >
-            Opinião
-          </Link>
+            {NAV_TOOLS.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={current(item)}
+                className={`hover-line hidden shrink-0 px-3 py-3 text-[13px] font-semibold uppercase tracking-wide transition-colors hover:text-cal lg:block ${
+                  current(item) ? "text-cal" : "text-cal/80"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Faixa 2 — editorias */}
+          <div className="hidden items-center border-t border-lima/10 lg:flex">
+            {NAV_SECTIONS.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={current(item)}
+                className={`hover-line-sm shrink-0 px-3 py-2 text-[12px] font-semibold uppercase tracking-wide transition-colors hover:text-cal ${
+                  current(item) ? "text-cal" : "text-cal/60"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </nav>
 
@@ -147,65 +216,36 @@ export function Header() {
           </div>
 
           <nav className="mt-10 flex flex-col">
-            <Link
-              href="/jogos-futebol-hoje"
-              onClick={() => setMenuOpen(false)}
-              className="rise flex items-baseline gap-4 border-b border-cal/10 py-4"
-            >
-              <span className="font-mono text-xs text-lima">00</span>
-              <span className="font-display text-3xl font-extrabold uppercase tracking-tight text-lima">
-                Jogos de hoje
-              </span>
-            </Link>
-            <Link
-              href="/probabilidades"
-              onClick={() => setMenuOpen(false)}
-              className="rise flex items-baseline gap-4 border-b border-cal/10 py-4"
-            >
-              <span className="font-mono text-xs text-lima">•</span>
-              <span className="font-display text-3xl font-extrabold uppercase tracking-tight text-lima">
-                Palpites
-              </span>
-            </Link>
-            <Link
-              href="/tabela"
-              onClick={() => setMenuOpen(false)}
-              className="rise flex items-baseline gap-4 border-b border-cal/10 py-4"
-            >
-              <span className="font-mono text-xs text-lima">•</span>
-              <span className="font-display text-3xl font-extrabold uppercase tracking-tight text-lima">
-                Tabelas
-              </span>
-            </Link>
-            {categories.map((cat, i) => (
-              <Link
-                key={cat.slug}
-                href={`/categoria/${cat.slug}`}
-                onClick={() => setMenuOpen(false)}
-                className={`flex items-baseline gap-4 border-b border-cal/10 py-4 ${
-                  i < 4 ? `rise-${i + 1}` : "rise-4"
-                }`}
-              >
-                <span className="font-mono text-xs text-cal/40">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="font-display text-3xl font-extrabold uppercase tracking-tight text-cal transition-colors hover:text-lima">
-                  {cat.label}
-                </span>
-              </Link>
+            <MobileNavLink
+              item={NAV_LIVE}
+              marker="00"
+              tone="lima"
+              active={Boolean(current(NAV_LIVE))}
+              animation="rise"
+              onNavigate={() => setMenuOpen(false)}
+            />
+            {NAV_TOOLS.map((item) => (
+              <MobileNavLink
+                key={item.href}
+                item={item}
+                marker="•"
+                tone="lima"
+                active={Boolean(current(item))}
+                animation="rise"
+                onNavigate={() => setMenuOpen(false)}
+              />
             ))}
-            <Link
-              href="/time"
-              onClick={() => setMenuOpen(false)}
-              className="rise-4 flex items-baseline gap-4 border-b border-cal/10 py-4"
-            >
-              <span className="font-mono text-xs text-cal/40">
-                {String(categories.length + 1).padStart(2, "0")}
-              </span>
-              <span className="font-display text-3xl font-extrabold uppercase tracking-tight text-cal transition-colors hover:text-lima">
-                Times
-              </span>
-            </Link>
+            {NAV_SECTIONS.map((item, i) => (
+              <MobileNavLink
+                key={item.href}
+                item={item}
+                marker={String(i + 1).padStart(2, "0")}
+                tone="cal"
+                active={Boolean(current(item))}
+                animation={i < 4 ? `rise-${i + 1}` : "rise-4"}
+                onNavigate={() => setMenuOpen(false)}
+              />
+            ))}
           </nav>
 
           <div className="mt-auto flex items-center justify-between pt-10">

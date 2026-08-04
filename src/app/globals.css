@@ -207,6 +207,34 @@ a:hover > .title-underline {
   transform: scaleX(1);
 }
 
+/* Página atual: a mesma régua do hover, mas fixa — o leitor vê em que hub está. */
+.hover-line[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+/* Variante da faixa de editorias, que tem padding vertical menor (py-2). */
+.hover-line-sm {
+  position: relative;
+}
+
+.hover-line-sm::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.25rem;
+  height: 2px;
+  background: var(--color-lima);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-line-sm:hover::after,
+.hover-line-sm[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
 /* ---------- Corpo do artigo ---------- */
 .prose-article {
   @apply prose prose-lg max-w-none;
