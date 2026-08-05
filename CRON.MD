@@ -1248,6 +1248,34 @@ A pagina `/jogos-futebol-hoje` (hoje) e as paginas `/onde-assistir/[slug]` (hoje
 }
 ```
 6. Salvar em `content/jogos.json`.
+
+6.1. **Completar a agenda com o resto do calendario:**
+
+```bash
+node scripts/import-fixtures.js
+```
+
+   Sua curadoria cobre os jogos de maior interesse, com emissora pesquisada.
+   Este script acrescenta o que faltou dos proximos 14 dias (Serie C, Serie D,
+   Feminino, Libertadores, Sul-Americana), com `channel: "A definir"` e
+   `source: "api"`. **Nunca toca no que voce escreveu** — so acrescenta o que
+   nao esta la.
+
+   Por que importa: as paginas `/onde-assistir/<jogo>` sao 67% dos cliques
+   organicos do site (Search Console, mai-ago/2026). Cada jogo que falta e uma
+   pagina que nao existe. A cobertura era de ~1/4 do calendario.
+
+   O script MEDE o fuso comparando seus jogos com os mesmos jogos na API (a
+   fonte entrega em horario europeu e o parametro `timezone=` dela nao
+   funciona). Se as amostras discordarem, ele aborta sem escrever — horario
+   errado numa pagina de "que horas e o jogo" e pior que a pagina nao existir.
+   Se abortar, siga sem ele; nao tente contornar.
+
+   Se voce mudar a regra de nome ou de rotulo, `--reset` refaz o import do
+   zero descartando o que ele proprio acrescentou antes.
+
+   Emissora que voce descobrir depois: basta editar o jogo no `jogos.json` — o
+   import nao sobrescreve jogo que ja existe.
 7. Rodar os scripts de dados derivados (precisam de `APIFOOTBALL_KEY` no `.env.local`):
 
 ```bash

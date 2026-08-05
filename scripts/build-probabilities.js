@@ -95,6 +95,11 @@ const STRIP = new Set([
   "mg", "pa", "pb", "pr", "pe", "pi", "rj", "rn", "rs", "ro", "rr", "sc",
   "sp", "se", "to",
   "w", "fc", "ec", "cf", "club", "clube", "futebol", "esporte", "esportivo",
+  // "feminino" entra junto com "w": o jogos.json escreve "Palmeiras Feminino"
+  // (convenção da imprensa brasileira, e slug distinto do time masculino) e a
+  // apifootball escreve "Palmeiras W". Sem os dois na lista, nenhum jogo do
+  // Brasileirão Feminino casa com o modelo e a página perde o palpite.
+  "feminino", "fem", "women",
 ]);
 
 function normFull(s) {

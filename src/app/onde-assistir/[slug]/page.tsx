@@ -12,6 +12,9 @@ import { resolveTeamSlug } from "@/lib/teams";
 import { compDo, getCompetition, resolveCompetitionSlug } from "@/lib/competitions";
 import { pelaCompetition } from "@/lib/schedule-seo";
 import { ProbabilityPanel } from "@/components/ProbabilityPanel";
+import { getTeamRaces } from "@/lib/race";
+import { hasStandings, standingsPath } from "@/lib/standings";
+import { hasTopScorers, topScorersPath } from "@/lib/topscorers";
 import { ChannelLanding } from "@/components/ChannelLanding";
 import {
   channelPath,
@@ -314,6 +317,50 @@ export default async function OndeAssistirPage({ params }: Props) {
   );
   const faq = buildFaq(match, prediction);
 
+  // Destinos desta pagina, do que mais converte pro que menos.
+  const standingsSlug = competitionSlug ?? "";
+  const [raceHome, raceAway, showStandings, showScorers] = await Promise.all([
+    homeSlug ? getTeamRaces(homeSlug) : Promise.resolve([]),
+    awaySlug ? getTeamRaces(awaySlug) : Promise.resolve([]),
+    standingsSlug ? hasStandings(standingsSlug) : Promise.resolve(false),
+    standingsSlug ? hasTopScorers(standingsSlug) : Promise.resolve(false),
+  ]);
+
+  const teamLinks: { href: string; label: string }[] = [
+    ...(raceHome.length > 0 && homeSlug
+      ? [{ href: `/probabilidades/${homeSlug}`, label: `Chances do ${match.home}` }]
+      : []),
+    ...(raceAway.length > 0 && awaySlug
+      ? [{ href: `/probabilidades/${awaySlug}`, label: `Chances do ${match.away}` }]
+      : []),
+    ...(showStandings
+      ? [
+          {
+            href: standingsPath(standingsSlug),
+            label: `Tabela ${competitionHub ? compDo(competitionHub) : ""}`.trim(),
+          },
+        ]
+      : []),
+    ...(showScorers
+      ? [
+          {
+            href: topScorersPath(standingsSlug),
+            label: `Artilharia ${competitionHub ? compDo(competitionHub) : ""}`.trim(),
+          },
+        ]
+      : []),
+    ...(competitionHub
+      ? [
+          {
+            href: `/jogos-futebol-hoje/${competitionHub.slug}`,
+            label: `Jogos ${compDo(competitionHub)} hoje`,
+          },
+        ]
+      : []),
+    ...(homeSlug ? [{ href: `/time/${homeSlug}`, label: `Notícias do ${match.home}` }] : []),
+    ...(awaySlug ? [{ href: `/time/${awaySlug}`, label: `Notícias do ${match.away}` }] : []),
+  ];
+
   // SportsEvent schema (enriched vs. /jogos-futebol-hoje)
   const channelForSchema = hasChannel ? match.channel : "A definir";
   const homeTeamSchema = { "@type": "SportsTeam", name: match.home };
@@ -599,53 +646,32 @@ export default async function OndeAssistirPage({ params }: Props) {
           />
         </section>
 
-        {/* Team hubs */}
+        {/*
+          Para onde esta pagina empurra o leitor.
+
+          A ordem segue o Search Console (mai-ago/2026), nao a intuicao: estas
+          paginas de jogo sao 67% dos cliques organicos do site, entao sao elas
+          que distribuem autoridade. Antes, os primeiros links iam para
+          /time/<slug>, que fez 225 impressoes e ZERO cliques em 92 dias.
+          /probabilidades converte a 9,3% — o melhor CTR do site — e quase nao
+          recebe impressao. Inverter a ordem e a mudanca mais barata que existe
+          aqui.
+        */}
         {(homeSlug || awaySlug || competitionHub) && (
           <section className="mb-10">
             <h2 className="mb-3 text-lg font-bold text-secondary">
-              Mais sobre os times
+              Continue por aqui
             </h2>
             <div className="flex flex-wrap gap-3 text-sm">
-              {homeSlug && (
+              {teamLinks.map((link) => (
                 <Link
-                  href={`/time/${homeSlug}`}
+                  key={link.href}
+                  href={link.href}
                   className="rounded-full border border-gray-200 bg-white px-4 py-2 font-medium text-secondary transition-colors hover:border-primary hover:text-primary"
                 >
-                  Página do {match.home}
+                  {link.label}
                 </Link>
-              )}
-              {awaySlug && (
-                <Link
-                  href={`/time/${awaySlug}`}
-                  className="rounded-full border border-gray-200 bg-white px-4 py-2 font-medium text-secondary transition-colors hover:border-primary hover:text-primary"
-                >
-                  Página do {match.away}
-                </Link>
-              )}
-              {homeSlug && (
-                <Link
-                  href={`/jogos-futebol-hoje/${homeSlug}`}
-                  className="rounded-full border border-gray-200 bg-white px-4 py-2 font-medium text-secondary transition-colors hover:border-primary hover:text-primary"
-                >
-                  {match.home} hoje
-                </Link>
-              )}
-              {awaySlug && (
-                <Link
-                  href={`/jogos-futebol-hoje/${awaySlug}`}
-                  className="rounded-full border border-gray-200 bg-white px-4 py-2 font-medium text-secondary transition-colors hover:border-primary hover:text-primary"
-                >
-                  {match.away} hoje
-                </Link>
-              )}
-              {competitionHub && (
-                <Link
-                  href={`/jogos-futebol-hoje/${competitionHub.slug}`}
-                  className="rounded-full border border-gray-200 bg-white px-4 py-2 font-medium text-secondary transition-colors hover:border-primary hover:text-primary"
-                >
-                  Jogos {compDo(competitionHub)} hoje
-                </Link>
-              )}
+              ))}
             </div>
           </section>
         )}

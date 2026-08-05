@@ -4,7 +4,7 @@ import { getAllCategories } from "@/lib/categories";
 import { getAllAuthors } from "@/lib/authors";
 import { getAllTeams, teamPlaysInGame } from "@/lib/teams";
 import { getAllCompetitions } from "@/lib/competitions";
-import { getAllKnownMatches } from "@/lib/matches";
+import { getAllKnownMatches, getScheduleMeta } from "@/lib/matches";
 import { getProbabilitiesData } from "@/lib/probabilities";
 import { getStandingsData } from "@/lib/standings";
 import { getAllStandingsCopy } from "@/lib/standings-competitions";
@@ -50,21 +50,56 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const standingsUpdatedAt =
     standings?.generatedAt ?? new Date().toISOString();
 
+  /**
+   * `lastModified` precisa apontar pra quando o CONTEÚDO mudou, não pra quando
+   * o sitemap foi gerado.
+   *
+   * Como este arquivo tem `revalidate = 3600`, um `new Date()` fazia toda URL
+   * do site — inclusive `/sobre`, que não muda há meses — se declarar recém-
+   * atualizada de hora em hora. Sitemap que grita "tudo novo" o tempo todo
+   * ensina o buscador a ignorar o campo, e aí ele deixa de ajudar justamente
+   * nas páginas que mudam de verdade.
+   *
+   * Cada bloco abaixo usa a data da sua própria fonte: agenda, dado ou artigo.
+   */
+  const scheduleUpdatedAt = (await getScheduleMeta()).updatedAt;
+  const scheduleDate = scheduleUpdatedAt
+    ? new Date(scheduleUpdatedAt)
+    : new Date(probabilitiesUpdatedAt);
+
+  const newestOf = (list: { date: string; updated?: string }[]): Date => {
+    let best = 0;
+    for (const a of list) {
+      const t = new Date(a.updated ?? a.date).getTime();
+      if (Number.isFinite(t) && t > best) best = t;
+    }
+    return best > 0 ? new Date(best) : scheduleDate;
+  };
+
+  const newestArticle = newestOf(articles);
+
+  /**
+   * Páginas de texto fixo. A data sai daqui, na mão, e só muda quando alguém
+   * mexe no conteúdo — é o único jeito honesto, já que não há fonte de dado
+   * por trás delas.
+   */
+  const STATIC_CONTENT_UPDATED = new Date("2026-08-05T00:00:00-03:00");
+
   const staticPages: MetadataRoute.Sitemap = [
-    { url: baseUrl, lastModified: new Date(), changeFrequency: "hourly", priority: 1.0 },
-    { url: `${baseUrl}/jogos-futebol-hoje`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.9 },
-    { url: `${baseUrl}/jogos-de-amanha`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.9 },
-    { url: `${baseUrl}/jogos-da-semana`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.85 },
+    { url: baseUrl, lastModified: newestArticle, changeFrequency: "hourly", priority: 1.0 },
+    { url: `${baseUrl}/jogos-futebol-hoje`, lastModified: scheduleDate, changeFrequency: "hourly", priority: 0.9 },
+    { url: `${baseUrl}/jogos-de-amanha`, lastModified: scheduleDate, changeFrequency: "hourly", priority: 0.9 },
+    { url: `${baseUrl}/jogos-da-semana`, lastModified: scheduleDate, changeFrequency: "hourly", priority: 0.85 },
     { url: `${baseUrl}/probabilidades`, lastModified: new Date(probabilitiesUpdatedAt), changeFrequency: "hourly", priority: 0.9 },
     { url: `${baseUrl}/tabela`, lastModified: new Date(standingsUpdatedAt), changeFrequency: "daily", priority: 0.8 },
     { url: `${baseUrl}/metodologia-dos-palpites`, lastModified: new Date(probabilitiesUpdatedAt), changeFrequency: "monthly", priority: 0.65 },
     { url: `${baseUrl}/estatisticas`, lastModified: new Date(probabilitiesUpdatedAt), changeFrequency: "daily", priority: 0.8 },
-    { url: `${baseUrl}/time`, lastModified: new Date(), changeFrequency: "daily", priority: 0.8 },
-    { url: `${baseUrl}/selecao-brasileira`, lastModified: new Date(), changeFrequency: "daily", priority: 0.85 },
-    { url: `${baseUrl}/copa-do-mundo-feminina-2027`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
-    { url: `${baseUrl}/sobre`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
-    { url: `${baseUrl}/feed.xml`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.5 },
-    { url: `${baseUrl}/atom.xml`, lastModified: new Date(), changeFrequency: "hourly", priority: 0.5 },
+    { url: `${baseUrl}/time`, lastModified: newestArticle, changeFrequency: "daily", priority: 0.8 },
+    { url: `${baseUrl}/selecao-brasileira`, lastModified: newestArticle, changeFrequency: "daily", priority: 0.85 },
+    { url: `${baseUrl}/copa-do-mundo-feminina-2027`, lastModified: STATIC_CONTENT_UPDATED, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/sobre`, lastModified: STATIC_CONTENT_UPDATED, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${baseUrl}/feed.xml`, lastModified: newestArticle, changeFrequency: "hourly", priority: 0.5 },
+    { url: `${baseUrl}/atom.xml`, lastModified: newestArticle, changeFrequency: "hourly", priority: 0.5 },
   ];
 
   // Landings de classificação — entram sozinhas quando a competição ganha
@@ -112,7 +147,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const channelPages: MetadataRoute.Sitemap = publishableChannels.map(
     (channel) => ({
       url: `${baseUrl}/onde-assistir/${channel.slug}`,
-      lastModified: new Date(),
+      lastModified: scheduleDate,
       changeFrequency: "daily" as const,
       priority: 0.8,
     }),
@@ -145,13 +180,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     (cat) => [
       {
         url: `${baseUrl}/categoria/${cat.slug}/feed.xml`,
-        lastModified: new Date(),
+        lastModified: newestOf(articles.filter((a) => a.category === cat.slug)),
         changeFrequency: "hourly" as const,
         priority: 0.4,
       },
       {
         url: `${baseUrl}/categoria/${cat.slug}/atom.xml`,
-        lastModified: new Date(),
+        lastModified: newestOf(articles.filter((a) => a.category === cat.slug)),
         changeFrequency: "hourly" as const,
         priority: 0.4,
       },
@@ -161,7 +196,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Categorias — página 1
   const categoryPages: MetadataRoute.Sitemap = getAllCategories().map((cat) => ({
     url: `${baseUrl}/categoria/${cat.slug}`,
-    lastModified: new Date(),
+    lastModified: newestOf(articles.filter((a) => a.category === cat.slug)),
     changeFrequency: "daily" as const,
     priority: 0.8,
   }));
@@ -172,7 +207,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const totalPages = Math.ceil(count / ARTICLES_PER_PAGE);
     return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => ({
       url: `${baseUrl}/categoria/${cat.slug}/pagina/${i + 2}`,
-      lastModified: new Date(),
+      lastModified: newestOf(articles.filter((a) => a.category === cat.slug)),
       changeFrequency: "daily" as const,
       priority: 0.7,
     }));
@@ -181,7 +216,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Autores — página 1
   const authorPages: MetadataRoute.Sitemap = getAllAuthors().map((author) => ({
     url: `${baseUrl}/autor/${author.slug}`,
-    lastModified: new Date(),
+    lastModified: newestOf(articles.filter((a) => a.author === author.slug)),
     changeFrequency: "weekly" as const,
     priority: 0.6,
   }));
@@ -192,7 +227,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const totalPages = Math.ceil(count / ARTICLES_PER_PAGE);
     return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => ({
       url: `${baseUrl}/autor/${author.slug}/pagina/${i + 2}`,
-      lastModified: new Date(),
+      lastModified: newestOf(articles.filter((a) => a.author === author.slug)),
       changeFrequency: "weekly" as const,
       priority: 0.5,
     }));
@@ -201,7 +236,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Times "hoje" — /jogos-futebol-hoje/[team]
   const teamHojePages: MetadataRoute.Sitemap = getAllTeams().map((team) => ({
     url: `${baseUrl}/jogos-futebol-hoje/${team.slug}`,
-    lastModified: new Date(),
+    lastModified: scheduleDate,
     changeFrequency: "hourly" as const,
     priority: 0.85,
   }));
@@ -213,7 +248,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     )
     .map((team) => ({
       url: `${baseUrl}/proximos-jogos/${team.slug}`,
-      lastModified: new Date(),
+      lastModified: scheduleDate,
       changeFrequency: "daily" as const,
       priority: 0.8,
     }));
@@ -222,7 +257,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const competitionHojePages: MetadataRoute.Sitemap = getAllCompetitions().map(
     (comp) => ({
       url: `${baseUrl}/jogos-futebol-hoje/${comp.slug}`,
-      lastModified: new Date(),
+      lastModified: scheduleDate,
       changeFrequency: "hourly" as const,
       priority: 0.85,
     }),
@@ -231,7 +266,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Times — página 1
   const teamPages: MetadataRoute.Sitemap = getAllTeams().map((team) => ({
     url: `${baseUrl}/time/${team.slug}`,
-    lastModified: new Date(),
+    lastModified: newestOf(articles.filter((a) => a.teams.includes(team.slug))),
     changeFrequency: "daily" as const,
     priority: 0.7,
   }));
@@ -242,7 +277,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const totalPages = Math.ceil(count / ARTICLES_PER_PAGE);
     return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => ({
       url: `${baseUrl}/time/${team.slug}/pagina/${i + 2}`,
-      lastModified: new Date(),
+      lastModified: newestOf(articles.filter((a) => a.teams.includes(team.slug))),
       changeFrequency: "daily" as const,
       priority: 0.6,
     }));

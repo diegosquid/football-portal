@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-05T16:16:20.133Z",
+  "updatedAt": "2026-08-05T16:24:06.277Z",
   "predictions": [
     {
       "date": "2026-07-24",
@@ -2924,6 +2924,41 @@
       }
     },
     {
+      "date": "2026-08-07",
+      "time": "21:30",
+      "home": "Botafogo Feminino",
+      "away": "Fluminense Feminino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "lambdaHome": 0.98,
+      "lambdaAway": 1.64,
+      "golsEsperados": 2.62,
+      "resultado": {
+        "casa": 0.2250834362312351,
+        "empate": 0.24583805793159477,
+        "fora": 0.5290785058371701
+      },
+      "gols": {
+        "over25": 0.48714712592832504,
+        "under25": 0.512852874071675
+      },
+      "ambosMarcam": {
+        "sim": 0.5036824576871701,
+        "nao": 0.4963175423128298
+      },
+      "placarProvavel": "0-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.75,
+        "forcaDefesaCasa": 1.48,
+        "forcaAtaqueFora": 1.04,
+        "forcaDefesaFora": 0.86,
+        "jogosConsiderados": {
+          "casa": 6,
+          "fora": 7
+        }
+      }
+    },
+    {
       "date": "2026-08-08",
       "time": "16:00",
       "home": "Grêmio",
@@ -3480,6 +3515,76 @@
         "jogosConsiderados": {
           "casa": 8,
           "fora": 8
+        }
+      }
+    },
+    {
+      "date": "2026-08-08",
+      "time": "15:00",
+      "home": "Atlético-MG Feminino",
+      "away": "Bahia Feminino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "lambdaHome": 1.23,
+      "lambdaAway": 1.59,
+      "golsEsperados": 2.81,
+      "resultado": {
+        "casa": 0.29563948625782116,
+        "empate": 0.24761561243748634,
+        "fora": 0.45674490130469225
+      },
+      "gols": {
+        "over25": 0.5335566027611534,
+        "under25": 0.4664433972388467
+      },
+      "ambosMarcam": {
+        "sim": 0.5620991391466356,
+        "nao": 0.4379008608533645
+      },
+      "placarProvavel": "1-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.81,
+        "forcaDefesaCasa": 1.14,
+        "forcaAtaqueFora": 1.31,
+        "forcaDefesaFora": 0.99,
+        "jogosConsiderados": {
+          "casa": 6,
+          "fora": 6
+        }
+      }
+    },
+    {
+      "date": "2026-08-08",
+      "time": "16:00",
+      "home": "Ferroviária Feminino",
+      "away": "Palmeiras Feminino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "lambdaHome": 1.4,
+      "lambdaAway": 0.67,
+      "golsEsperados": 2.07,
+      "resultado": {
+        "casa": 0.5449398333194185,
+        "empate": 0.2758619431428273,
+        "fora": 0.17919822353775386
+      },
+      "gols": {
+        "over25": 0.3414946681206547,
+        "under25": 0.6585053318793453
+      },
+      "ambosMarcam": {
+        "sim": 0.36768310081808914,
+        "nao": 0.6323168991819109
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.13,
+        "forcaDefesaCasa": 0.65,
+        "forcaAtaqueFora": 0.97,
+        "forcaDefesaFora": 0.81,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 6
         }
       }
     },
@@ -4149,6 +4254,181 @@
       }
     },
     {
+      "date": "2026-08-09",
+      "time": "11:00",
+      "home": "Grêmio Feminino",
+      "away": "Cruzeiro Feminino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "lambdaHome": 1.15,
+      "lambdaAway": 1.07,
+      "golsEsperados": 2.22,
+      "resultado": {
+        "casa": 0.37680932697973696,
+        "empate": 0.28930480781663387,
+        "fora": 0.33388586520362945
+      },
+      "gols": {
+        "over25": 0.3829558944772527,
+        "under25": 0.6170441055227472
+      },
+      "ambosMarcam": {
+        "sim": 0.44914457367071203,
+        "nao": 0.550855426329288
+      },
+      "placarProvavel": "1-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.93,
+        "forcaDefesaCasa": 0.88,
+        "forcaAtaqueFora": 1.14,
+        "forcaDefesaFora": 0.81,
+        "jogosConsiderados": {
+          "casa": 6,
+          "fora": 6
+        }
+      }
+    },
+    {
+      "date": "2026-08-09",
+      "time": "15:00",
+      "home": "Vitória Feminino",
+      "away": "Internacional Feminino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "lambdaHome": 0.99,
+      "lambdaAway": 1.87,
+      "golsEsperados": 2.86,
+      "resultado": {
+        "casa": 0.19658079210451457,
+        "empate": 0.22387518954307273,
+        "fora": 0.5795440183524128
+      },
+      "gols": {
+        "over25": 0.5441651854587178,
+        "under25": 0.45583481454128216
+      },
+      "ambosMarcam": {
+        "sim": 0.5312115176549872,
+        "nao": 0.4687884823450128
+      },
+      "placarProvavel": "0-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.87,
+        "forcaDefesaCasa": 1.57,
+        "forcaAtaqueFora": 1.12,
+        "forcaDefesaFora": 0.75,
+        "jogosConsiderados": {
+          "casa": 6,
+          "fora": 7
+        }
+      }
+    },
+    {
+      "date": "2026-08-09",
+      "time": "15:00",
+      "home": "Juventude Feminino",
+      "away": "Mixto Feminino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "lambdaHome": 1.27,
+      "lambdaAway": 0.76,
+      "golsEsperados": 2.03,
+      "resultado": {
+        "casa": 0.48615478749341196,
+        "empate": 0.2918928696873602,
+        "fora": 0.2219523428192284
+      },
+      "gols": {
+        "over25": 0.33164731597501307,
+        "under25": 0.668352684024987
+      },
+      "ambosMarcam": {
+        "sim": 0.3826300208987559,
+        "nao": 0.6173699791012441
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.57,
+        "forcaDefesaCasa": 0.88,
+        "forcaAtaqueFora": 0.81,
+        "forcaDefesaFora": 1.46,
+        "jogosConsiderados": {
+          "casa": 6,
+          "fora": 7
+        }
+      }
+    },
+    {
+      "date": "2026-08-09",
+      "time": "16:00",
+      "home": "Corinthians Feminino",
+      "away": "Santos Feminino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "lambdaHome": 2.25,
+      "lambdaAway": 0.84,
+      "golsEsperados": 3.09,
+      "resultado": {
+        "casa": 0.6945392546653687,
+        "empate": 0.1812041094465262,
+        "fora": 0.12425663588810545
+      },
+      "gols": {
+        "over25": 0.5967106117831988,
+        "under25": 0.4032893882168012
+      },
+      "ambosMarcam": {
+        "sim": 0.507218722950541,
+        "nao": 0.492781277049459
+      },
+      "placarProvavel": "2-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.74,
+        "forcaDefesaCasa": 0.89,
+        "forcaAtaqueFora": 0.89,
+        "forcaDefesaFora": 0.86,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 7
+        }
+      }
+    },
+    {
+      "date": "2026-08-09",
+      "time": "18:00",
+      "home": "São Paulo Feminino",
+      "away": "Red Bull Bragantino Feminino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "lambdaHome": 2.11,
+      "lambdaAway": 0.95,
+      "golsEsperados": 3.06,
+      "resultado": {
+        "casa": 0.6404844105014859,
+        "empate": 0.19975843774411547,
+        "fora": 0.15975715175439864
+      },
+      "gols": {
+        "over25": 0.5905140420054434,
+        "under25": 0.40948595799455656
+      },
+      "ambosMarcam": {
+        "sim": 0.5391205011626203,
+        "nao": 0.4608794988373796
+      },
+      "placarProvavel": "2-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.19,
+        "forcaDefesaCasa": 0.73,
+        "forcaAtaqueFora": 1.22,
+        "forcaDefesaFora": 1.17,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 6
+        }
+      }
+    },
+    {
       "date": "2026-08-10",
       "time": "19:30",
       "home": "Goiás",
@@ -4258,6 +4538,41 @@
       "time": "21:00",
       "home": "América-MG",
       "away": "Flamengo",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "lambdaHome": 0.54,
+      "lambdaAway": 1.17,
+      "golsEsperados": 1.71,
+      "resultado": {
+        "casa": 0.17067720593768484,
+        "empate": 0.31479398038453377,
+        "fora": 0.5145288136777816
+      },
+      "gols": {
+        "over25": 0.24485655617133112,
+        "under25": 0.7551434438286689
+      },
+      "ambosMarcam": {
+        "sim": 0.2873002553474949,
+        "nao": 0.712699744652505
+      },
+      "placarProvavel": "0-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.47,
+        "forcaDefesaCasa": 0.97,
+        "forcaAtaqueFora": 1.14,
+        "forcaDefesaFora": 0.75,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 6
+        }
+      }
+    },
+    {
+      "date": "2026-08-10",
+      "time": "21:00",
+      "home": "América-MG Feminino",
+      "away": "Flamengo Feminino",
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 15",
       "lambdaHome": 0.54,
@@ -4433,6 +4748,41 @@
       "time": "21:00",
       "home": "Atlético-MG",
       "away": "Grêmio",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "lambdaHome": 1.04,
+      "lambdaAway": 1.52,
+      "golsEsperados": 2.56,
+      "resultado": {
+        "casa": 0.25952018829371676,
+        "empate": 0.2575377385290284,
+        "fora": 0.4829420731772542
+      },
+      "gols": {
+        "over25": 0.4702345539154832,
+        "under25": 0.5297654460845168
+      },
+      "ambosMarcam": {
+        "sim": 0.5042523954480089,
+        "nao": 0.49574760455199113
+      },
+      "placarProvavel": "1-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.81,
+        "forcaDefesaCasa": 1.14,
+        "forcaAtaqueFora": 1.25,
+        "forcaDefesaFora": 0.84,
+        "jogosConsiderados": {
+          "casa": 6,
+          "fora": 8
+        }
+      }
+    },
+    {
+      "date": "2026-08-14",
+      "time": "21:00",
+      "home": "Atlético-MG Feminino",
+      "away": "Grêmio Feminino",
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 16",
       "lambdaHome": 1.04,
@@ -5094,6 +5444,181 @@
       }
     },
     {
+      "date": "2026-08-15",
+      "time": "15:00",
+      "home": "Fluminense Feminino",
+      "away": "América-MG Feminino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "lambdaHome": 1.97,
+      "lambdaAway": 0.9,
+      "golsEsperados": 2.87,
+      "resultado": {
+        "casa": 0.6238448045682515,
+        "empate": 0.21167930503423055,
+        "fora": 0.1644758903975179
+      },
+      "gols": {
+        "over25": 0.5460311000339754,
+        "under25": 0.45396889996602463
+      },
+      "ambosMarcam": {
+        "sim": 0.5095627444346084,
+        "nao": 0.49043725556539164
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.86,
+        "forcaDefesaCasa": 1.04,
+        "forcaAtaqueFora": 0.81,
+        "forcaDefesaFora": 1.52,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 7
+        }
+      }
+    },
+    {
+      "date": "2026-08-15",
+      "time": "17:00",
+      "home": "Red Bull Bragantino Feminino",
+      "away": "Vitória Feminino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "lambdaHome": 2.38,
+      "lambdaAway": 0.71,
+      "golsEsperados": 3.08,
+      "resultado": {
+        "casa": 0.7451944950442746,
+        "empate": 0.1619504718790029,
+        "fora": 0.09285503307672299
+      },
+      "gols": {
+        "over25": 0.5955631009555655,
+        "under25": 0.4044368990444345
+      },
+      "ambosMarcam": {
+        "sim": 0.46061161982127996,
+        "nao": 0.53938838017872
+      },
+      "placarProvavel": "2-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.04,
+        "forcaDefesaCasa": 1.11,
+        "forcaAtaqueFora": 0.6,
+        "forcaDefesaFora": 1.5,
+        "jogosConsiderados": {
+          "casa": 8,
+          "fora": 8
+        }
+      }
+    },
+    {
+      "date": "2026-08-15",
+      "time": "17:30",
+      "home": "Bahia Feminino",
+      "away": "Corinthians Feminino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "lambdaHome": 1.33,
+      "lambdaAway": 1.49,
+      "golsEsperados": 2.82,
+      "resultado": {
+        "casa": 0.3376988036196081,
+        "empate": 0.25056605207754584,
+        "fora": 0.4117351443028453
+      },
+      "gols": {
+        "over25": 0.5364621108722418,
+        "under25": 0.4635378891277581
+      },
+      "ambosMarcam": {
+        "sim": 0.570584398621384,
+        "nao": 0.429415601378616
+      },
+      "placarProvavel": "1-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.1,
+        "forcaDefesaCasa": 1.04,
+        "forcaAtaqueFora": 1.36,
+        "forcaDefesaFora": 0.8,
+        "jogosConsiderados": {
+          "casa": 8,
+          "fora": 7
+        }
+      }
+    },
+    {
+      "date": "2026-08-15",
+      "time": "18:00",
+      "home": "Mixto Feminino",
+      "away": "Cruzeiro Feminino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "lambdaHome": 0.72,
+      "lambdaAway": 0.98,
+      "golsEsperados": 1.7,
+      "resultado": {
+        "casa": 0.25902592043523986,
+        "empate": 0.3365483592162465,
+        "fora": 0.40442572034851365
+      },
+      "gols": {
+        "over25": 0.24191793237457757,
+        "under25": 0.7580820676254224
+      },
+      "ambosMarcam": {
+        "sim": 0.31976599177816534,
+        "nao": 0.6802340082218346
+      },
+      "placarProvavel": "0-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.58,
+        "forcaDefesaCasa": 0.81,
+        "forcaAtaqueFora": 1.14,
+        "forcaDefesaFora": 0.81,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 6
+        }
+      }
+    },
+    {
+      "date": "2026-08-15",
+      "time": "19:00",
+      "home": "Internacional Feminino",
+      "away": "Ferroviária Feminino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "lambdaHome": 1.03,
+      "lambdaAway": 0.91,
+      "golsEsperados": 1.94,
+      "resultado": {
+        "casa": 0.37544616614315196,
+        "empate": 0.31326938136148313,
+        "fora": 0.3112844524953651
+      },
+      "gols": {
+        "over25": 0.30753843614128895,
+        "under25": 0.692461563858711
+      },
+      "ambosMarcam": {
+        "sim": 0.38454025592618085,
+        "nao": 0.6154597440738191
+      },
+      "placarProvavel": "1-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.75,
+        "forcaDefesaCasa": 0.89,
+        "forcaAtaqueFora": 0.97,
+        "forcaDefesaFora": 0.91,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 7
+        }
+      }
+    },
+    {
       "date": "2026-08-16",
       "time": "11:00",
       "home": "Operário-PR",
@@ -5720,6 +6245,111 @@
         "jogosConsiderados": {
           "casa": 11,
           "fora": 10
+        }
+      }
+    },
+    {
+      "date": "2026-08-16",
+      "time": "11:00",
+      "home": "Santos Feminino",
+      "away": "Flamengo Feminino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "lambdaHome": 1.17,
+      "lambdaAway": 1.17,
+      "golsEsperados": 2.34,
+      "resultado": {
+        "casa": 0.35935600891431324,
+        "empate": 0.28104831677936737,
+        "fora": 0.3595956743063188
+      },
+      "gols": {
+        "over25": 0.4136276759010427,
+        "under25": 0.5863723240989573
+      },
+      "ambosMarcam": {
+        "sim": 0.4748532526146769,
+        "nao": 0.5251467473853231
+      },
+      "placarProvavel": "1-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.02,
+        "forcaDefesaCasa": 0.97,
+        "forcaAtaqueFora": 1.14,
+        "forcaDefesaFora": 0.75,
+        "jogosConsiderados": {
+          "casa": 7,
+          "fora": 6
+        }
+      }
+    },
+    {
+      "date": "2026-08-16",
+      "time": "11:00",
+      "home": "Botafogo Feminino",
+      "away": "São Paulo Feminino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "lambdaHome": 0.85,
+      "lambdaAway": 1.89,
+      "golsEsperados": 2.74,
+      "resultado": {
+        "casa": 0.1639673024103221,
+        "empate": 0.21836129564817439,
+        "fora": 0.6176714019415037
+      },
+      "gols": {
+        "over25": 0.5169105573055288,
+        "under25": 0.4830894426944711
+      },
+      "ambosMarcam": {
+        "sim": 0.4873831049109913,
+        "nao": 0.5126168950890087
+      },
+      "placarProvavel": "0-1",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.75,
+        "forcaDefesaCasa": 1.48,
+        "forcaAtaqueFora": 1.2,
+        "forcaDefesaFora": 0.75,
+        "jogosConsiderados": {
+          "casa": 6,
+          "fora": 7
+        }
+      }
+    },
+    {
+      "date": "2026-08-16",
+      "time": "18:00",
+      "home": "Palmeiras Feminino",
+      "away": "Juventude Feminino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "lambdaHome": 2.22,
+      "lambdaAway": 0.59,
+      "golsEsperados": 2.81,
+      "resultado": {
+        "casa": 0.7464953850914453,
+        "empate": 0.16937275271905367,
+        "fora": 0.08413186218950094
+      },
+      "gols": {
+        "over25": 0.5329196944622336,
+        "under25": 0.4670803055377663
+      },
+      "ambosMarcam": {
+        "sim": 0.39828122667453897,
+        "nao": 0.6017187733254611
+      },
+      "placarProvavel": "2-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 1.55,
+        "forcaDefesaCasa": 0.75,
+        "forcaAtaqueFora": 0.75,
+        "forcaDefesaFora": 0.94,
+        "jogosConsiderados": {
+          "casa": 8,
+          "fora": 8
         }
       }
     },
