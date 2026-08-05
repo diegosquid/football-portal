@@ -13,6 +13,20 @@
   # JSON servido do R2 que fique de fora daqui volta a disparar build a cada
   # atualização, que é exatamente o que esta rede de segurança evita.
   #
+  # `scripts/` também está fora: são as ferramentas do cron (builders de dado,
+  # render de vídeo, publicação no R2), executadas na máquina local, nunca no
+  # deploy. O build é `velite build && next build`, nada ali lê a pasta, e
+  # nenhum arquivo de src/ importa dela. Verificado empiricamente: com
+  # `scripts/` removida, o build completa e gera as páginas normalmente.
+  #
+  # ATENÇÃO: se algum dia o build passar a depender de um script (um prebuild,
+  # um gerador de rota), tire a exclusão — senão a Netlify vai pular justamente
+  # o build que precisava acontecer, sem avisar.
+  #
+  # O `icase` em `*.md` não é preciosismo: pathspec do git é case-sensitive, e
+  # `*.md` sozinho NÃO casava com `CRON.MD`. Toda edição do manual do cron vinha
+  # disparando um build sem mudar nada no site.
+  #
   # Tudo isso continua versionado no repositório, como fallback e histórico, mas
   # um commit que só mexe nesses caminhos não muda nada no site publicado —
   # rebuildar seria queimar minuto de build à toa. Eram ~246 dos ~270 commits/mês
@@ -27,4 +41,4 @@
   # variável vem vazia, o comando vira `git diff --quiet HEAD` numa árvore
   # recém-clonada — logo limpa — e sai 0: a Netlify pularia justamente o build
   # que precisa acontecer, e o site nunca mais atualizaria. Sem cache, buildar.
-  ignore = '''[ -n "$CACHED_COMMIT_REF" ] && git diff --quiet "$CACHED_COMMIT_REF" "$COMMIT_REF" -- . ':(exclude)content/articles' ':(exclude)content/jogos.json' ':(exclude)content/jogos-historico.json' ':(exclude)content/classificacao.json' ':(exclude)content/probabilidades.json' ':(exclude)content/probabilidades-historico.json' ':(exclude)content/artilharia.json' ':(exclude)content/chaveamento.json' ':(exclude)content/estadios.json' ':(exclude)guest-posts' ':(exclude)*.md' '''
+  ignore = '''[ -n "$CACHED_COMMIT_REF" ] && git diff --quiet "$CACHED_COMMIT_REF" "$COMMIT_REF" -- . ':(exclude)content/articles' ':(exclude)content/jogos.json' ':(exclude)content/jogos-historico.json' ':(exclude)content/classificacao.json' ':(exclude)content/probabilidades.json' ':(exclude)content/probabilidades-historico.json' ':(exclude)content/artilharia.json' ':(exclude)content/chaveamento.json' ':(exclude)content/estadios.json' ':(exclude)scripts' ':(exclude)guest-posts' ':(exclude,icase)*.md' '''
