@@ -51,7 +51,8 @@ export const NAV_TOOLS: NavItem[] = [
       "/tabela-do-brasileirao",
       "/tabela-do-brasileirao-serie-b",
       "/tabela-do-brasileirao-serie-c",
-      "/chaveamento-da-copa-do-brasil",
+      // /chaveamento-da-copa-do-brasil NÃO entra aqui: pertence ao item
+      // "Copa do Brasil". Dois itens acesos na mesma rota é pior que nenhum.
       "/chaveamento-da-libertadores",
       "/chaveamento-da-sul-americana",
       "/estadios-do-brasileirao",
@@ -99,6 +100,16 @@ function categoryItem(slug: string, label: string): NavItem {
  */
 export const NAV_SECTIONS: NavItem[] = [
   ...categories.map((cat) => categoryItem(cat.slug, cat.label)),
+  // Copa do Brasil não é categoria — os artigos dela são arquivados em
+  // `brasileirao` —, mas é o segundo maior assunto do site em busca e ficava
+  // fora do menu por um detalhe de arquitetura interna que o leitor não vê.
+  {
+    href: "/copa-do-brasil",
+    label: "Copa do Brasil",
+    also: ["/chaveamento-da-copa-do-brasil"],
+    // Sem `under` de /jogos-futebol-hoje/copa-do-brasil: aquela rota é a
+    // agenda do dia filtrada, e pertence ao item "Jogos de hoje".
+  },
   { href: "/time", label: "Times", under: ["/time/"] },
 ];
 

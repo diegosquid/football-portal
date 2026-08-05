@@ -96,6 +96,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/estatisticas`, lastModified: new Date(probabilitiesUpdatedAt), changeFrequency: "daily", priority: 0.8 },
     { url: `${baseUrl}/time`, lastModified: newestArticle, changeFrequency: "daily", priority: 0.8 },
     { url: `${baseUrl}/selecao-brasileira`, lastModified: newestArticle, changeFrequency: "daily", priority: 0.85 },
+    { url: `${baseUrl}/copa-do-brasil`, lastModified: scheduleDate, changeFrequency: "daily", priority: 0.9 },
     { url: `${baseUrl}/copa-do-mundo-feminina-2027`, lastModified: STATIC_CONTENT_UPDATED, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/sobre`, lastModified: STATIC_CONTENT_UPDATED, changeFrequency: "yearly", priority: 0.5 },
     { url: `${baseUrl}/feed.xml`, lastModified: newestArticle, changeFrequency: "hourly", priority: 0.5 },
