@@ -160,7 +160,22 @@ function toBRT(dateStr, timeStr, offsetHours) {
  * caso o import inteiro e abortado, porque horario errado numa pagina de
  * "que horas e o jogo" e pior que a pagina nao existir.
  */
-function calibrateOffset(curated, apiEvents) {
+function calibrateOffset(schedule, apiEvents) {
+  /**
+   * Só jogo escrito por humano serve de régua.
+   *
+   * Calibrar contra a propria saida e circular, e nao e teorico: o import
+   * anterior gravou "Atletico-MG Feminino x Gremio Feminino", que o casamento
+   * por prefixo confundiu com o "Atletico-MG x Gremio" masculino em outra
+   * data — deslocamento de 21,5h, e o script abortava toda vez que rodava sem
+   * `--reset`. A regua tem que vir de fora.
+   */
+  const curated = schedule.filter((g) => g.source !== "api");
+  if (curated.length === 0) {
+    console.log("  ✗ nenhum jogo curado no arquivo pra servir de régua.");
+    return null;
+  }
+
   const samples = [];
   for (const g of curated) {
     const hit = apiEvents.find(
@@ -306,7 +321,9 @@ async function main() {
   }
   console.log(`API: ${all.length} jogo(s) nos proximos ${HORIZON_DAYS} dias.`);
 
-  const offset = calibrateOffset(curated, all);
+  // Passa a lista COMPLETA: quem separa curado de importado é a própria
+  // calibração, e ela precisa fazer isso mesmo quando não há `--reset`.
+  const offset = calibrateOffset(all_existing, all);
   if (offset === null) {
     console.error("\n✗ Import abortado — jogos.json nao foi tocado.");
     process.exit(1);

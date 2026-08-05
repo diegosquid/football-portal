@@ -97,7 +97,26 @@ function normalize(s: string): string {
  *    pra evitar falsos positivos tipo "Sporting Cristal" → Sport.
  * Retorna undefined se não casar — útil pra times internacionais sem cadastro.
  */
+/**
+ * O nome é de um time de competição feminina?
+ *
+ * Existe porque o casamento por containment abaixo é cego a isso: "Botafogo
+ * Feminino" contém "Botafogo", então o Botafogo feminino era resolvido como o
+ * masculino e os jogos do Brasileirão Feminino apareciam em
+ * `/proximos-jogos/botafogo` como "próximo jogo do Botafogo".
+ *
+ * O portal não tem página de time feminino, então o certo é não resolver: o
+ * jogo continua existindo em `/onde-assistir/<slug>`, só não é atribuído a um
+ * clube que não é o dele. Cobre as duas grafias — a do portal ("Feminino") e a
+ * da apifootball ("W").
+ */
+export function isWomensTeamName(displayName: string): boolean {
+  return /\s(feminino|fem|women|w)\.?$/i.test(displayName.trim());
+}
+
 export function resolveTeamSlug(displayName: string): string | undefined {
+  if (isWomensTeamName(displayName)) return undefined;
+
   const target = normalize(displayName);
   if (!target) return undefined;
 
@@ -114,13 +133,34 @@ export function resolveTeamSlug(displayName: string): string | undefined {
     .flatMap(({ team, names }) => names.map((n) => ({ team, n })))
     .sort((a, b) => b.n.length - a.n.length);
 
+  const targetUf = ufSuffix(displayName);
   for (const { team, n } of byLongest) {
-    if (n.length >= 6 && (target.includes(n) || n.includes(target))) {
-      return team.slug;
-    }
+    if (n.length < 6) continue;
+    if (!(target.includes(n) || n.includes(target))) continue;
+    // Sufixo de estado divergente = outro clube. "Botafogo-PB" contém
+    // "Botafogo" e vinha resolvendo como o carioca, levando jogo da Série D
+    // pra página do Botafogo do Rio. Já "Flamengo RJ" (como a API escreve)
+    // tem o mesmo UF do cadastro e continua casando.
+    if (targetUf && targetUf !== team.state.toUpperCase()) continue;
+    return team.slug;
   }
   return undefined;
 }
+
+/** "Botafogo-PB" -> "PB". Sem sufixo reconhecível, undefined. */
+function ufSuffix(displayName: string): string | undefined {
+  const m = displayName
+    .trim()
+    .toUpperCase()
+    .match(/[\s-]([A-Z]{2})\.?$/);
+  return m && UFS.has(m[1]) ? m[1] : undefined;
+}
+
+const UFS = new Set([
+  "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS",
+  "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC",
+  "SP", "SE", "TO",
+]);
 
 /** Um jogo (home x away) envolve o time deste slug? */
 export function teamPlaysInGame(teamSlug: string, home: string, away: string): boolean {

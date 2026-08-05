@@ -145,11 +145,14 @@ export default async function CategoryPage({ params }: Props) {
             "O risco de queda de cada time, atualizado conforme a tabela e o calendário.",
         },
         {
-          href: "/copa-do-brasil",
+          // Aponta pro chaveamento, que existe. Um hub /copa-do-brasil ainda
+          // não foi criado, e link pra 404 num bloco de navegação é pior que
+          // link pra página parcial.
+          href: "/chaveamento-da-copa-do-brasil",
           eyebrow: "Mata-mata",
-          title: "Copa do Brasil",
+          title: "Chaveamento da Copa do Brasil",
           description:
-            "Chaveamento, próximos jogos, regulamento e cobertura do torneio nacional.",
+            "Os confrontos do mata-mata com placar agregado, pênaltis e quem avançou em cada chave.",
         },
       ]
     : [];
