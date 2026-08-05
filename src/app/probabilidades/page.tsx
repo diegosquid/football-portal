@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { ProbabilityPanel } from "@/components/ProbabilityPanel";
+import { VupiAdBanner } from "@/components/VupiAdBanner";
 import { PushOptIn } from "@/components/PushOptIn";
 import { ArticleFAQ } from "@/components/ArticleFAQ";
 import {
@@ -209,45 +210,60 @@ export default async function ProbabilidadesPage() {
           </Link>
         </nav>
 
+        <div className="mb-10">
+          <VupiAdBanner placement="palpites_topo" priority />
+        </div>
+
         {dateGroups.length > 0 ? (
           <div className="space-y-12">
-            {dateGroups.map(([date, preds]) => (
-              <section key={date}>
-                <div className="mb-5 flex items-center gap-3 border-b-2 border-ink pb-2">
-                  <h2 className="font-display text-2xl font-extrabold capitalize tracking-tight text-ink">
-                    {dayLabel(date, today, tomorrow)}
-                  </h2>
-                  <span className="font-mono text-xs text-gray-500">
-                    {formatDateShort(date)} · {preds.length} jogo
-                    {preds.length > 1 ? "s" : ""}
-                  </span>
-                </div>
+            {dateGroups.map(([date, preds], groupIndex) => (
+              <div key={date}>
+                <section>
+                  <div className="mb-5 flex items-center gap-3 border-b-2 border-ink pb-2">
+                    <h2 className="font-display text-2xl font-extrabold capitalize tracking-tight text-ink">
+                      {dayLabel(date, today, tomorrow)}
+                    </h2>
+                    <span className="font-mono text-xs text-gray-500">
+                      {formatDateShort(date)} · {preds.length} jogo
+                      {preds.length > 1 ? "s" : ""}
+                    </span>
+                  </div>
 
-                <div className="space-y-6">
-                  {preds.map((p) => {
-                    const slug = buildMatchSlug(p.home, p.away, p.date);
-                    const hasMatchPage = matchSlugs.has(slug);
-                    const heading = `${p.home} x ${p.away}`;
-                    return (
-                      <article key={slug} id={slug} className="scroll-mt-24">
-                        <h3 className="mb-2 font-display text-xl font-extrabold tracking-tight text-ink">
-                          {hasMatchPage ? (
-                            <Link
-                              href={`/onde-assistir/${slug}`}
-                              className="transition-colors hover:text-primary"
-                            >
-                              {heading}
-                            </Link>
-                          ) : (
-                            heading
-                          )}
-                        </h3>
-                        <ProbabilityPanel prediction={p} />
-                      </article>
-                    );
-                  })}
-                </div>
-              </section>
+                  <div className="space-y-6">
+                    {preds.map((p) => {
+                      const slug = buildMatchSlug(p.home, p.away, p.date);
+                      const hasMatchPage = matchSlugs.has(slug);
+                      const heading = `${p.home} x ${p.away}`;
+                      return (
+                        <article key={slug} id={slug} className="scroll-mt-24">
+                          <h3 className="mb-2 font-display text-xl font-extrabold tracking-tight text-ink">
+                            {hasMatchPage ? (
+                              <Link
+                                href={`/onde-assistir/${slug}`}
+                                className="transition-colors hover:text-primary"
+                              >
+                                {heading}
+                              </Link>
+                            ) : (
+                              heading
+                            )}
+                          </h3>
+                          <ProbabilityPanel prediction={p} />
+                        </article>
+                      );
+                    })}
+                  </div>
+                </section>
+
+                {groupIndex === 0 && dateGroups.length > 1 && (
+                  <div className="mt-12">
+                    <VupiAdBanner
+                      placement="palpites_entre_jogos"
+                      compact
+                    />
+                  </div>
+                )}
+              </div>
             ))}
           </div>
         ) : (

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArticleFAQ } from "@/components/ArticleFAQ";
 import { BreadcrumbJsonLd, FAQPageJsonLd } from "@/components/JsonLd";
+import { VupiAdBanner } from "@/components/VupiAdBanner";
 import { getAllRaceTeamSlugs, getTeamRaces, type TeamRace } from "@/lib/race";
 import { formatChance, formatUpdatedAt, getStandingsData } from "@/lib/standings";
 import { getStandingsCopy } from "@/lib/standings-competitions";
@@ -223,6 +224,10 @@ export default async function TeamChancesPage({ params }: Props) {
             <strong className="text-ink">{formatChance(c.secundaria)}</strong>.
           </p>
         )}
+
+        <div className="mt-10">
+          <VupiAdBanner placement="probabilidades_time" compact />
+        </div>
 
         {races.length > 1 && (
           <section className="mt-12">

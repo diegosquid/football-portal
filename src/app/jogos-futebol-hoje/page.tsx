@@ -7,6 +7,7 @@ import { ArticleFAQ } from "@/components/ArticleFAQ";
 import { FAQPageJsonLd } from "@/components/JsonLd";
 import { ShareWhatsApp } from "@/components/ShareWhatsApp";
 import { PushBanner } from "@/components/PushBanner";
+import { VupiAdBanner } from "@/components/VupiAdBanner";
 import { buildShareText } from "@/lib/share";
 import { getAllCompetitions } from "@/lib/competitions";
 import {
@@ -158,6 +159,10 @@ export default async function JogosFutebolHojePage() {
 
         {/* Convite de notificação — versão enxuta por ficar acima da lista */}
         <PushBanner context="jogos-hoje" compact />
+
+        <div className="mb-10 mt-6">
+          <VupiAdBanner placement="jogos_hoje_topo" priority />
+        </div>
 
         <GameSchedule games={games} date={today} updatedAt={updatedAt} />
 

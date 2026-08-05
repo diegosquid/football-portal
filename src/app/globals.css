@@ -129,13 +129,115 @@ body {
   animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both;
 }
 
+/* ---------- Banner publicitário Vupi ---------- */
+.vupi-ad-image {
+  animation: vupi-ad-breathe 9s ease-in-out infinite alternate;
+  transition: filter 0.4s ease;
+}
+
+.group:hover .vupi-ad-image {
+  filter: saturate(1.18) brightness(1.06);
+}
+
+.vupi-ad-spotlight {
+  position: absolute;
+  z-index: 10;
+  width: 55%;
+  aspect-ratio: 1;
+  left: 18%;
+  top: -55%;
+  border-radius: 9999px;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: screen;
+  background: radial-gradient(
+    circle,
+    rgba(190, 125, 255, 0.5) 0%,
+    rgba(108, 41, 214, 0.18) 42%,
+    transparent 70%
+  );
+  animation: vupi-ad-spotlight 7s ease-in-out infinite alternate;
+}
+
+.vupi-ad-sheen {
+  position: absolute;
+  z-index: 10;
+  inset-block: -30%;
+  left: -35%;
+  width: 24%;
+  pointer-events: none;
+  opacity: 0;
+  transform: skewX(-18deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.22),
+    transparent
+  );
+  filter: blur(8px);
+  animation: vupi-ad-sheen 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.vupi-ad-cta {
+  animation: vupi-ad-cta 3s ease-in-out infinite;
+}
+
+@keyframes vupi-ad-breathe {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.035);
+  }
+}
+
+@keyframes vupi-ad-spotlight {
+  from {
+    transform: translate3d(-10%, 0, 0) scale(0.9);
+  }
+  to {
+    transform: translate3d(75%, 18%, 0) scale(1.25);
+  }
+}
+
+@keyframes vupi-ad-sheen {
+  0%,
+  58% {
+    opacity: 0;
+    transform: translateX(0) skewX(-18deg);
+  }
+  68% {
+    opacity: 0.65;
+  }
+  88%,
+  100% {
+    opacity: 0;
+    transform: translateX(650%) skewX(-18deg);
+  }
+}
+
+@keyframes vupi-ad-cta {
+  0%,
+  72%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(216, 180, 254, 0);
+  }
+  82% {
+    box-shadow: 0 0 0 5px rgba(216, 180, 254, 0.24);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .rise,
   .rise-1,
   .rise-2,
   .rise-3,
   .rise-4,
-  .ticker-track {
+  .ticker-track,
+  .vupi-ad-image,
+  .vupi-ad-spotlight,
+  .vupi-ad-sheen,
+  .vupi-ad-cta {
     animation: none;
   }
 }

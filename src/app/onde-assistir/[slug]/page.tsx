@@ -22,6 +22,7 @@ import {
 } from "@/lib/channels";
 import { ShareWhatsApp } from "@/components/ShareWhatsApp";
 import { PushBanner } from "@/components/PushBanner";
+import { VupiAdBanner } from "@/components/VupiAdBanner";
 import { buildMatchShareText } from "@/lib/share";
 import {
   getPredictionFor,
@@ -554,8 +555,12 @@ export default async function OndeAssistirPage({ params }: Props) {
           </section>
         )}
 
-        {/* Convite de notificação — logo após o palpite, onde o contexto
-            "receba isso todo dia" é mais forte. Inline, sem overlay. */}
+        <div className="mb-10">
+          <VupiAdBanner placement="onde_assistir_jogo" compact />
+        </div>
+
+        {/* Convite de notificação — ainda no contexto do palpite, depois da
+            publicidade claramente identificada. Inline, sem overlay. */}
         <PushBanner context={match.slug} />
 
         {/* Compartilhar o jogo — intenção alta: "que horas é e onde passa" */}
