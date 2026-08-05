@@ -62,94 +62,96 @@ export function VupiAdBanner({
         <span>Parceria comercial</span>
       </div>
 
-      <a
-        href={VUPI_URL}
-        target="_blank"
-        rel="sponsored nofollow noopener noreferrer"
-        aria-label="Publicidade: conheça as apostas esportivas da Vupi (abre em uma nova aba)"
-        data-advertiser="vupi"
-        data-ad-placement={placement}
-        onClick={() =>
-          trackClick({
-            event: "afiliado",
-            label: `vupi:${placement}`,
-            url: VUPI_URL,
-            gaEvent: "select_promotion",
-            gaParams: {
-              promotion_name: "Vupi — palpites",
-              creative_slot: placement,
-            },
-          })
-        }
-        className={`group relative block overflow-hidden rounded-xl bg-[#09051f] shadow-sm ring-1 ring-black/10 transition duration-300 hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-white ${
-          compact
-            ? "aspect-[10/11] sm:aspect-[4/1]"
-            : "aspect-[10/11] sm:aspect-[5/2]"
-        }`}
-      >
-        <picture>
-          <source
-            media="(max-width: 639px)"
-            srcSet="/ads/vupi/palpites-mobile.webp"
+      <div className="group overflow-hidden rounded-xl bg-[#0b0e14] shadow-sm ring-1 ring-black/10 transition duration-300 hover:-translate-y-0.5 hover:shadow-xl focus-within:ring-2 focus-within:ring-white/80">
+        <a
+          href={VUPI_URL}
+          target="_blank"
+          rel="sponsored nofollow noopener noreferrer"
+          aria-label="Publicidade: conheça as apostas esportivas da Vupi (abre em uma nova aba)"
+          data-advertiser="vupi"
+          data-ad-placement={placement}
+          onClick={() =>
+            trackClick({
+              event: "afiliado",
+              label: `vupi:${placement}`,
+              url: VUPI_URL,
+              gaEvent: "select_promotion",
+              gaParams: {
+                promotion_name: "Vupi — palpites",
+                creative_slot: placement,
+              },
+            })
+          }
+          className={`relative block overflow-hidden bg-[#09051f] focus-visible:z-30 focus-visible:outline-white ${
+            compact
+              ? "aspect-[10/9] sm:aspect-[4/1]"
+              : "aspect-[10/9] sm:aspect-[5/2]"
+          }`}
+        >
+          <picture>
+            <source
+              media="(max-width: 639px)"
+              srcSet="/ads/vupi/palpites-mobile.webp"
+            />
+            {/* A tag img dentro de picture evita baixar as duas artes responsivas. */}
+            <img
+              src="/ads/vupi/palpites-horizontal.webp"
+              alt=""
+              width={1983}
+              height={793}
+              loading={priority ? "eager" : "lazy"}
+              fetchPriority={priority ? "high" : "auto"}
+              className="vupi-ad-image absolute inset-x-0 top-0 h-auto w-full object-cover sm:inset-0 sm:h-full"
+            />
+          </picture>
+
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 sm:hidden"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(7, 4, 24, 0.98) 0%, rgba(7, 4, 24, 0.92) 45%, rgba(7, 4, 24, 0) 58%)",
+            }}
           />
-          {/* A tag img dentro de picture evita baixar as duas artes responsivas. */}
-          <img
-            src="/ads/vupi/palpites-horizontal.webp"
-            alt=""
-            width={1983}
-            height={793}
-            loading={priority ? "eager" : "lazy"}
-            fetchPriority={priority ? "high" : "auto"}
-            className="vupi-ad-image absolute inset-x-0 top-0 h-auto w-full object-cover sm:inset-0 sm:h-full"
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 hidden sm:block"
+            style={{
+              background:
+                "linear-gradient(to left, rgba(7, 4, 24, 0.96) 0%, rgba(7, 4, 24, 0.9) 52%, rgba(7, 4, 24, 0) 72%)",
+            }}
           />
-        </picture>
 
-        <span
-          aria-hidden="true"
-          className="absolute inset-0 sm:hidden"
-          style={{
-            background:
-              "linear-gradient(to top, rgba(7, 4, 24, 0.98) 0%, rgba(7, 4, 24, 0.92) 45%, rgba(7, 4, 24, 0) 58%)",
-          }}
-        />
-        <span
-          aria-hidden="true"
-          className="absolute inset-0 hidden sm:block"
-          style={{
-            background:
-              "linear-gradient(to left, rgba(7, 4, 24, 0.96) 0%, rgba(7, 4, 24, 0.9) 52%, rgba(7, 4, 24, 0) 72%)",
-          }}
-        />
+          <span aria-hidden="true" className="vupi-ad-spotlight" />
+          <span aria-hidden="true" className="vupi-ad-sheen" />
 
-        <span aria-hidden="true" className="vupi-ad-spotlight" />
-        <span aria-hidden="true" className="vupi-ad-sheen" />
-
-        <span className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-start p-5 text-white sm:inset-y-0 sm:left-auto sm:right-0 sm:w-[57%] sm:justify-center sm:p-7 lg:p-9">
-          <span className="font-display text-2xl font-extrabold leading-none tracking-tight sm:text-3xl lg:text-4xl">
-            {copy.headline}
+          <span className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-start p-5 text-white sm:inset-y-0 sm:left-auto sm:right-0 sm:w-[57%] sm:justify-center sm:p-7 lg:p-9">
+            <span className="font-display text-2xl font-extrabold leading-none tracking-tight sm:text-3xl lg:text-4xl">
+              {copy.headline}
+            </span>
+            <span className="mt-2 max-w-md text-sm leading-snug text-white/80 sm:text-base">
+              {copy.description}
+            </span>
+            <span className="vupi-ad-cta mt-4 inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-extrabold text-[#35106b] transition group-hover:bg-[#efe7ff]">
+              {copy.cta} <span aria-hidden="true">↗</span>
+            </span>
           </span>
-          <span className="mt-2 max-w-md text-sm leading-snug text-white/80 sm:text-base">
-            {copy.description}
-          </span>
-          <span className="vupi-ad-cta mt-4 inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-extrabold text-[#35106b] transition group-hover:bg-[#efe7ff]">
-            {copy.cta} <span aria-hidden="true">↗</span>
-          </span>
-        </span>
-      </a>
+        </a>
 
-      <div
-        role="note"
-        aria-label="Aviso de jogo responsável"
-        className="mt-2 overflow-hidden rounded-lg bg-[#0b0e14]"
-      >
-        <Image
-          src="/ads/vupi/selo-jogo-responsavel.png"
-          alt="18+. Ministério da Fazenda adverte: Aposta não é investimento. Jogue com responsabilidade. Autorização SPA/MF nº 320/2025."
-          width={2146}
-          height={216}
-          sizes="(max-width: 896px) 100vw, 896px"
-          className="h-auto w-full"
-        />
+        <div
+          role="note"
+          aria-label="Aviso de jogo responsável"
+          className="flex items-center justify-center border-t border-white/10 bg-[#0b0e14] py-2 sm:h-20 sm:px-6 sm:py-0"
+        >
+          <Image
+            src="/ads/vupi/selo-jogo-responsavel.png"
+            alt="18+. Ministério da Fazenda adverte: Aposta não é investimento. Jogue com responsabilidade. Autorização SPA/MF nº 320/2025."
+            width={2146}
+            height={216}
+            sizes="(max-width: 896px) 100vw, 896px"
+            className="h-auto w-[92%] sm:h-14 sm:w-auto sm:max-w-[90%]"
+          />
+        </div>
       </div>
     </aside>
   );
