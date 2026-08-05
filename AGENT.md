@@ -38,6 +38,8 @@ Execute na ordem. Se qualquer passo falhar, va para "Secao 12 — Erros".
 11. **Gerar imagem** — seguir Secao 9
 12. **Validar frontmatter SEO** — `node scripts/validate-frontmatter.js <slug>`. Se exit != 0 → CORRIGIR e validar de novo. NUNCA commitar com exit 1.
 13. **Salvar, commitar e push** — seguir Secao 10
+14. **PUBLICAR NO R2** — `node scripts/publish-articles.js "<slug>"`. SEM ISSO O ARTIGO NAO VAI AO AR (Secao 10.2)
+15. **Avisar o IndexNow** — SO depois do R2 (Secao 10.3)
 
 ---
 
@@ -573,11 +575,52 @@ Exemplos de commit:
 - `content(pre-match): Palmeiras x Sao Paulo - Paulistao semifinal`
 - `content(opinion): Neide sobre a crise do Flamengo`
 
-### 10.2 Twitter (DESABILITADO)
+**Se o push falhar com "Permission denied / correct access rights":** o ssh-agent
+esta usando a chave de trabalho. Repetir com a chave certa:
+
+```bash
+SSH_AUTH_SOCK="" git -c core.sshCommand="ssh -o IdentitiesOnly=yes -i ~/.ssh/id_diego" push origin main
+```
+
+Se der timeout na porta 22, acrescentar `-o Hostname=ssh.github.com -o Port=443` ao `sshCommand`.
+
+### 10.2 Publicar no R2 (OBRIGATORIO — sem isso o artigo NAO vai ao ar)
+
+Desde 01/08/2026 o site **nao le mais os artigos do bundle do Velite** em producao:
+`src/lib/articles.ts` busca do R2 em runtime. **Commit + push NAO colocam a materia no ar.**
+
+```bash
+node scripts/publish-articles.js "<slug>"
+```
+
+O script roda o Velite local, sobe o MDX ja compilado + o `index.json` para o R2 e
+chama `/api/revalidate`. Sem build, sem deploy.
+
+Conferir a saida — precisa aparecer as tres linhas:
+```
+  ✓ <slug>
+  ✓ index.json (N artigos, ... KB)
+  ✓ revalidacao disparada (1 slug(s))
+```
+
+Se falhar: NAO seguir para o IndexNow. Corrigir e rodar de novo. O `index.json` e a
+fonte da verdade — slug que nao esta nele retorna 404 no site.
+
+### 10.3 Avisar o IndexNow (SO depois do R2)
+
+```bash
+node scripts/indexnow.js https://beiradocampo.com.br/<slug>
+```
+
+**A ORDEM IMPORTA:** publicar no R2 ANTES do IndexNow. Se o buscador chegar antes da
+materia existir, o 404 fica em cache ate a proxima revalidacao. Se o IndexNow falhar,
+so registrar no log — nao repetir o commit.
+
+### 10.4 Twitter (DESABILITADO)
 
 Twitter esta desabilitado temporariamente. NAO executar scripts de postagem.
 
-### 10.3 Log
+### 10.5 Log
 
 Apos publicar, registrar em `logs/cron-YYYY-MM-DD-HHMM.log`:
 
@@ -588,7 +631,9 @@ AUTOR: [autor]
 CATEGORIA: [categoria]
 PALAVRAS: [wordcount]
 FONTES: [numero]
-IMAGEM: [gemini|unsplash|fallback]
+IMAGEM: [noticia|wikipedia|gemini|unsplash|fallback]
+R2: OK | ERRO
+INDEXNOW: OK | ERRO
 TEMPO: [tempo de execucao]
 STATUS: OK | ERRO: [descricao]
 ```
