@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-02T11:14:56.394Z",
-  "updatedThrough": "2026-08-02",
+  "generatedAt": "2026-08-05T12:24:24.514Z",
+  "updatedThrough": "2026-08-05",
   "season": "2026",
   "source": "apifootball.com",
   "disclaimer": "Classificação oficial da competição. As chances de título, G4 e rebaixamento são estimativas de modelo estatístico próprio — não são garantia de resultado.",
@@ -1607,7 +1607,7 @@
           "position": 20,
           "team": "Chapecoense-SC",
           "teamId": "1735",
-          "badge": null,
+          "badge": "https://apiv3.apifootball.com/badges/1735_chapecoense.jpg",
           "played": 20,
           "wins": 1,
           "draws": 7,
