@@ -99,6 +99,16 @@ if [ $CLAUDE_EXIT -ne 0 ]; then
   log "ERRO: Claude saiu com código $CLAUDE_EXIT"
 fi
 
+# Rede de segurança: garante que nenhum artigo ficou fora do R2 (o site lê do R2
+# em runtime — commit sem publish = artigo invisível). Idempotente: publica só o
+# que mudou desde o último publish; se o agente já publicou, diz "0 a publicar".
+log "--- publish-articles (rede de seguranca R2) ---"
+if node "$PROJECT_DIR/scripts/publish-articles.js" >> "$LOG_FILE" 2>&1; then
+  log "publish-articles OK"
+else
+  log "ERRO: publish-articles falhou — pode haver artigo commitado fora do ar"
+fi
+
 # Limpa ssh-agent pra nao acumular processos
 [ -n "${SSH_AGENT_PID:-}" ] && kill "$SSH_AGENT_PID" 2>/dev/null || true
 

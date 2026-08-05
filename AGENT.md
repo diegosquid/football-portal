@@ -37,8 +37,8 @@ Execute na ordem. Se qualquer passo falhar, va para "Secao 12 — Erros".
 10. **Gerar artigo MDX** — seguir Secoes 6, 7 e 8
 11. **Gerar imagem** — seguir Secao 9
 12. **Validar frontmatter SEO** — `node scripts/validate-frontmatter.js <slug>`. Se exit != 0 → CORRIGIR e validar de novo. NUNCA commitar com exit 1.
-13. **Salvar, commitar e push** — seguir Secao 10
-14. **PUBLICAR NO R2** — `node scripts/publish-articles.js "<slug>"`. SEM ISSO O ARTIGO NAO VAI AO AR (Secao 10.2)
+13. **Salvar e commitar LOCALMENTE** — seguir Secao 10. **PROIBIDO `git push`** (dispara build na Netlify — push e manual, so o Diego faz)
+14. **PUBLICAR NO R2** — `node scripts/publish-articles.js "<slug>"`. E ISSO que coloca o artigo no ar (Secao 10.2)
 15. **Avisar o IndexNow** — SO depois do R2 (Secao 10.3)
 
 ---
@@ -138,7 +138,9 @@ Arquivo `content/jogos.json` alimenta as paginas `/jogos-futebol-hoje` e `/onde-
    - `node scripts/build-probabilities.js` — gera os palpites, registra resultados encerrados e recalcula as metricas publicas.
    - `node scripts/build-standings.js` — atualiza as classificacoes (Serie A, B e C) em `content/classificacao.json` (tabela oficial + simulacao de titulo/acesso/rebaixamento). Alimenta `/tabela-do-brasileirao`, `/tabela-do-brasileirao-serie-b`, `/tabela-do-brasileirao-serie-c` e o hub `/tabela`. A temporada sai do ano corrente; use `--season YYYY` para forcar.
 
-9. **Commit**: incluir `content/jogos.json`, `content/jogos-historico.json`, `content/probabilidades.json`, `content/probabilidades-historico.json` e `content/classificacao.json` quando alterados. Mensagem: `data(jogos): atualiza janela proximos 5 dias`.
+9. **Publicar no R2**: `node scripts/publish-data.js` — o site le esses JSONs do R2 em runtime (`src/lib/content-data.ts`); sem isso a atualizacao NAO vai ao ar.
+
+10. **Commit LOCAL (sem push)**: incluir `content/jogos.json`, `content/jogos-historico.json`, `content/probabilidades.json`, `content/probabilidades-historico.json` e `content/classificacao.json` quando alterados. Mensagem: `data(jogos): atualiza janela proximos 5 dias`. **NAO fazer `git push`.**
 
 **Regras de qualidade:**
 - Nunca sobrescrever campo existente com valor pior (ex: "A definir" sobre canal ja conhecido).
@@ -547,7 +549,7 @@ https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&h=450&fit=cro
 
 ## 10. PUBLICACAO
 
-### 10.1 Salvar e Commitar
+### 10.1 Salvar e Commitar (LOCAL — sem push)
 
 ```bash
 # 1. Salvar em content/articles/[slug].mdx
@@ -559,15 +561,9 @@ ls content/articles/[slug].mdx
 node scripts/validate-frontmatter.js [slug]
 # Se exit 1 → ler os erros, editar o MDX, rodar de novo ate exit 0
 
-# 4. Stage e commit (SO depois do validate OK)
+# 4. Stage e commit LOCAL (SO depois do validate OK)
 git add content/articles/[slug].mdx
 git commit -m "content([tipo]): [titulo resumido]"
-
-# 5. Push
-git push origin main
-
-# 6. Verificar push
-git log --oneline -1
 ```
 
 Exemplos de commit:
@@ -575,14 +571,10 @@ Exemplos de commit:
 - `content(pre-match): Palmeiras x Sao Paulo - Paulistao semifinal`
 - `content(opinion): Neide sobre a crise do Flamengo`
 
-**Se o push falhar com "Permission denied / correct access rights":** o ssh-agent
-esta usando a chave de trabalho. Repetir com a chave certa:
-
-```bash
-SSH_AUTH_SOCK="" git -c core.sshCommand="ssh -o IdentitiesOnly=yes -i ~/.ssh/id_diego" push origin main
-```
-
-Se der timeout na porta 22, acrescentar `-o Hostname=ssh.github.com -o Port=443` ao `sshCommand`.
+**PROIBIDO `git push`.** Cada push dispara build na Netlify e o plano gratuito e
+limitado. O commit fica LOCAL como historico/backup — o Diego faz push manual em
+lote quando quiser (um build carrega tudo). Quem coloca o artigo no ar e o R2
+(Secao 10.2), nao o git.
 
 ### 10.2 Publicar no R2 (OBRIGATORIO — sem isso o artigo NAO vai ao ar)
 
@@ -614,7 +606,7 @@ node scripts/indexnow.js https://beiradocampo.com.br/<slug>
 
 **A ORDEM IMPORTA:** publicar no R2 ANTES do IndexNow. Se o buscador chegar antes da
 materia existir, o 404 fica em cache ate a proxima revalidacao. Se o IndexNow falhar,
-so registrar no log — nao repetir o commit.
+so registrar no log — seguir em frente.
 
 ### 10.4 Twitter (DESABILITADO)
 
@@ -732,7 +724,8 @@ As 3 fontes devem concordar no mesmo placar. Fontes validas (usar fontes DIFEREN
 | Imagem falhou (2x) | Usar fallback Unsplash (Secao 9.4) |
 | Jogo adiado/cancelado | NAO publicar pre-jogo. Publicar noticia sobre adiamento |
 | Dia sem jogos | Focar em: transferencias, evergreen, stat-analysis, opiniao. Volume: 5-6 artigos |
-| git push rejeitado | `git pull --rebase origin main && git push origin main` |
+| publish-articles.js falhou | Tentar 1x mais. Se falhar de novo → registrar ERRO no log (artigo fora do ar ate resolver) |
+| Vontade de fazer git push | NAO fazer. Push e manual e em lote, so o Diego faz |
 
 ---
 
