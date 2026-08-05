@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-05T09:28:00-03:00",
+  "updatedAt": "2026-08-05T13:16:00-03:00",
   "games": [
     {
       "date": "2026-08-05",
@@ -82,6 +82,26 @@
       "stadium": "Arena Castelão, Fortaleza"
     },
     {
+      "date": "2026-08-07",
+      "time": "21:30",
+      "home": "Botafogo",
+      "away": "Fluminense",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "channel": "A definir",
+      "stadium": "Estadio Olimpico Nilton Santos"
+    },
+    {
+      "date": "2026-08-08",
+      "time": "15:00",
+      "home": "Atlético-MG",
+      "away": "Bahia W",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
       "date": "2026-08-08",
       "time": "16:00",
       "home": "Grêmio",
@@ -100,6 +120,26 @@
       "round": "Rodada 21",
       "channel": "Disney+",
       "stadium": ""
+    },
+    {
+      "date": "2026-08-08",
+      "time": "16:00",
+      "home": "Nacional-AM",
+      "away": "ABC",
+      "competition": "Brasileirão Série D",
+      "round": "Quartas de Final",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-08",
+      "time": "16:00",
+      "home": "Ferroviária",
+      "away": "Palmeiras",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "channel": "A definir",
+      "stadium": "Arena Fonte Luminosa"
     },
     {
       "date": "2026-08-08",
@@ -123,6 +163,26 @@
     },
     {
       "date": "2026-08-08",
+      "time": "17:00",
+      "home": "EC Sao Jose",
+      "away": "Vasco da Gama",
+      "competition": "Brasileirão Série D",
+      "round": "Quartas de Final",
+      "channel": "A definir",
+      "stadium": "Francisco Novelletto Neto"
+    },
+    {
+      "date": "2026-08-08",
+      "time": "17:00",
+      "home": "Uberlandia",
+      "away": "CSA",
+      "competition": "Brasileirão Série D",
+      "round": "Quartas de Final",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-08",
       "time": "18:30",
       "home": "Botafogo-SP",
       "away": "América-MG",
@@ -140,6 +200,16 @@
       "round": "Rodada 22",
       "channel": "Premiere",
       "stadium": "Mangueirão, Belém"
+    },
+    {
+      "date": "2026-08-08",
+      "time": "18:30",
+      "home": "Goiatuba",
+      "away": "ASA",
+      "competition": "Brasileirão Série D",
+      "round": "Quartas de Final",
+      "channel": "A definir",
+      "stadium": ""
     },
     {
       "date": "2026-08-08",
@@ -203,6 +273,36 @@
     },
     {
       "date": "2026-08-09",
+      "time": "11:00",
+      "home": "Grêmio",
+      "away": "Cruzeiro",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "channel": "A definir",
+      "stadium": "Francisco Novelletto Neto"
+    },
+    {
+      "date": "2026-08-09",
+      "time": "15:00",
+      "home": "Vitória",
+      "away": "Internacional",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "channel": "A definir",
+      "stadium": "Barradao"
+    },
+    {
+      "date": "2026-08-09",
+      "time": "15:00",
+      "home": "Juventude",
+      "away": "Mixto W",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "channel": "A definir",
+      "stadium": "Homero Soldatelli"
+    },
+    {
+      "date": "2026-08-09",
       "time": "16:00",
       "home": "Bahia",
       "away": "Vasco",
@@ -263,6 +363,16 @@
     },
     {
       "date": "2026-08-09",
+      "time": "16:00",
+      "home": "Corinthians",
+      "away": "Santos",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "channel": "A definir",
+      "stadium": "Neo Quimica Arena"
+    },
+    {
+      "date": "2026-08-09",
       "time": "18:00",
       "home": "Cuiabá",
       "away": "Fortaleza",
@@ -270,6 +380,16 @@
       "round": "Rodada 21",
       "channel": "Disney+",
       "stadium": ""
+    },
+    {
+      "date": "2026-08-09",
+      "time": "18:00",
+      "home": "São Paulo",
+      "away": "Red Bull Bragantino",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "channel": "A definir",
+      "stadium": "Estadio do Caninde"
     },
     {
       "date": "2026-08-09",
@@ -320,6 +440,726 @@
       "round": "Rodada 22",
       "channel": "SporTV / Premiere",
       "stadium": "Maracanã, Rio de Janeiro"
+    },
+    {
+      "date": "2026-08-10",
+      "time": "19:30",
+      "home": "Goiás",
+      "away": "Londrina",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 21",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-10",
+      "time": "20:00",
+      "home": "Paysandu",
+      "away": "Confiança",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 16",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-10",
+      "time": "20:00",
+      "home": "Anápolis",
+      "away": "Guarani",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 16",
+      "channel": "A definir",
+      "stadium": "Estadio Jonas Duarte"
+    },
+    {
+      "date": "2026-08-10",
+      "time": "21:00",
+      "home": "América-MG",
+      "away": "Flamengo",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 15",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-11",
+      "time": "19:00",
+      "home": "Fluminense",
+      "away": "Ind. Rivadavia",
+      "competition": "Libertadores",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-11",
+      "time": "19:00",
+      "home": "Boca Juniors",
+      "away": "Recoleta",
+      "competition": "Sul-Americana",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": "Estadio Alberto J. Armando"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "19:30",
+      "home": "Avaí",
+      "away": "CRB",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 21",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-11",
+      "time": "21:30",
+      "home": "Deportes Tolima",
+      "away": "Ind. del Valle",
+      "competition": "Libertadores",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": "Estadio Manuel Murillo Toro"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "21:30",
+      "home": "Estudiantes L.P.",
+      "away": "U. Catolica",
+      "competition": "Libertadores",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": "Estadio Jorge Luis Hirschi"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "21:30",
+      "home": "Bolivar",
+      "away": "São Paulo",
+      "competition": "Sul-Americana",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": "Estadio Hernando Siles"
+    },
+    {
+      "date": "2026-08-12",
+      "time": "19:00",
+      "home": "Palmeiras",
+      "away": "Cerro Porteno",
+      "competition": "Libertadores",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": "Nubank Parque"
+    },
+    {
+      "date": "2026-08-12",
+      "time": "19:00",
+      "home": "Platense",
+      "away": "Coquimbo",
+      "competition": "Libertadores",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-12",
+      "time": "19:00",
+      "home": "Tigre",
+      "away": "Montevideo City",
+      "competition": "Sul-Americana",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-12",
+      "time": "19:00",
+      "home": "Red Bull Bragantino",
+      "away": "Atlético-MG",
+      "competition": "Sul-Americana",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-12",
+      "time": "21:30",
+      "home": "Cruzeiro",
+      "away": "Flamengo",
+      "competition": "Libertadores",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-12",
+      "time": "21:30",
+      "home": "Santa Fe",
+      "away": "River Plate",
+      "competition": "Sul-Americana",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-13",
+      "time": "19:00",
+      "home": "Mirassol",
+      "away": "LDU Quito",
+      "competition": "Libertadores",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-13",
+      "time": "19:00",
+      "home": "Santos",
+      "away": "Macara",
+      "competition": "Sul-Americana",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-13",
+      "time": "19:00",
+      "home": "Vasco da Gama",
+      "away": "Olimpia Asuncion",
+      "competition": "Sul-Americana",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-13",
+      "time": "21:30",
+      "home": "Rosario Central",
+      "away": "Corinthians",
+      "competition": "Libertadores",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": "Estadio Gigante de Arroyito"
+    },
+    {
+      "date": "2026-08-13",
+      "time": "21:30",
+      "home": "Cienciano",
+      "away": "Botafogo",
+      "competition": "Sul-Americana",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": "Estadio Inca Garcilaso de la Vega"
+    },
+    {
+      "date": "2026-08-14",
+      "time": "19:30",
+      "home": "São Bernardo",
+      "away": "Botafogo-SP",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 22",
+      "channel": "A definir",
+      "stadium": "Estadio Primeiro de Maio"
+    },
+    {
+      "date": "2026-08-14",
+      "time": "19:30",
+      "home": "Ponte Preta",
+      "away": "Náutico",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 22",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-14",
+      "time": "20:30",
+      "home": "Sport Recife",
+      "away": "Londrina",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 22",
+      "channel": "A definir",
+      "stadium": "Estadio Adelmar da Costa Carvalho"
+    },
+    {
+      "date": "2026-08-14",
+      "time": "21:00",
+      "home": "Atlético-MG",
+      "away": "Grêmio",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "channel": "A definir",
+      "stadium": "Estadio Municipal Castor Cifuentes"
+    },
+    {
+      "date": "2026-08-15",
+      "time": "15:00",
+      "home": "Fluminense",
+      "away": "América-MG",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "channel": "A definir",
+      "stadium": "Estadio Luso Brasileiro"
+    },
+    {
+      "date": "2026-08-15",
+      "time": "16:00",
+      "home": "Atlético-GO",
+      "away": "Vila Nova",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 22",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-15",
+      "time": "16:00",
+      "home": "Criciúma",
+      "away": "Goiás",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 22",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-15",
+      "time": "16:30",
+      "home": "Atlético-MG",
+      "away": "Grêmio",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 23",
+      "channel": "A definir",
+      "stadium": "MRV Arena"
+    },
+    {
+      "date": "2026-08-15",
+      "time": "16:30",
+      "home": "Fluminense",
+      "away": "Palmeiras",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 23",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-15",
+      "time": "17:00",
+      "home": "Volta Redonda",
+      "away": "Ituano",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 17",
+      "channel": "A definir",
+      "stadium": "Raulino de Oliveira"
+    },
+    {
+      "date": "2026-08-15",
+      "time": "17:00",
+      "home": "Amazonas",
+      "away": "Botafogo",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 17",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-15",
+      "time": "17:00",
+      "home": "CSA",
+      "away": "Uberlandia",
+      "competition": "Brasileirão Série D",
+      "round": "Quartas de Final",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-15",
+      "time": "17:00",
+      "home": "Red Bull Bragantino",
+      "away": "Vitória",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-15",
+      "time": "17:30",
+      "home": "Bahia W",
+      "away": "Corinthians",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "channel": "A definir",
+      "stadium": "Estadio Alberto Oliveira"
+    },
+    {
+      "date": "2026-08-15",
+      "time": "18:00",
+      "home": "Mixto W",
+      "away": "Cruzeiro",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-15",
+      "time": "18:30",
+      "home": "Juventude",
+      "away": "Fortaleza",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 22",
+      "channel": "A definir",
+      "stadium": "Estadio Alfredo Jaconi"
+    },
+    {
+      "date": "2026-08-15",
+      "time": "18:30",
+      "home": "Ceará",
+      "away": "Cuiabá",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 22",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-15",
+      "time": "18:30",
+      "home": "Athletico-PR",
+      "away": "Red Bull Bragantino",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 23",
+      "channel": "A definir",
+      "stadium": "Arena da Baixada"
+    },
+    {
+      "date": "2026-08-15",
+      "time": "19:00",
+      "home": "Internacional",
+      "away": "Ferroviária",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "channel": "A definir",
+      "stadium": "SESC Protasio Alves"
+    },
+    {
+      "date": "2026-08-15",
+      "time": "19:30",
+      "home": "Brusque",
+      "away": "Inter de Limeira",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 17",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-15",
+      "time": "19:30",
+      "home": "Santa Cruz",
+      "away": "Maranhão",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 17",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-15",
+      "time": "21:00",
+      "home": "São Paulo",
+      "away": "Coritiba",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 23",
+      "channel": "A definir",
+      "stadium": "Estadio Do MorumBIS"
+    },
+    {
+      "date": "2026-08-16",
+      "time": "11:00",
+      "home": "Operário-PR",
+      "away": "Avaí",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 22",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-16",
+      "time": "11:00",
+      "home": "Chapecoense",
+      "away": "Bahia",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 23",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-16",
+      "time": "11:00",
+      "home": "Santos",
+      "away": "Flamengo",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "channel": "A definir",
+      "stadium": "Estadio Urbano Caldeira"
+    },
+    {
+      "date": "2026-08-16",
+      "time": "11:00",
+      "home": "Botafogo",
+      "away": "São Paulo",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "channel": "A definir",
+      "stadium": "Estadio Olimpico Nilton Santos"
+    },
+    {
+      "date": "2026-08-16",
+      "time": "16:00",
+      "home": "Floresta",
+      "away": "Anápolis",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 17",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-16",
+      "time": "16:00",
+      "home": "Caxias",
+      "away": "Figueirense",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 17",
+      "channel": "A definir",
+      "stadium": "Estadio Francisco Stedile"
+    },
+    {
+      "date": "2026-08-16",
+      "time": "16:00",
+      "home": "Vasco da Gama",
+      "away": "EC Sao Jose",
+      "competition": "Brasileirão Série D",
+      "round": "Quartas de Final",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-16",
+      "time": "16:00",
+      "home": "Vasco da Gama",
+      "away": "Santos",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 23",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-16",
+      "time": "17:00",
+      "home": "ABC",
+      "away": "Nacional-AM",
+      "competition": "Brasileirão Série D",
+      "round": "Quartas de Final",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-16",
+      "time": "17:00",
+      "home": "ASA",
+      "away": "Goiatuba",
+      "competition": "Brasileirão Série D",
+      "round": "Quartas de Final",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-16",
+      "time": "18:00",
+      "home": "Palmeiras",
+      "away": "Juventude",
+      "competition": "Brasileirão Feminino A1",
+      "round": "Rodada 16",
+      "channel": "A definir",
+      "stadium": "Nubank Parque"
+    },
+    {
+      "date": "2026-08-16",
+      "time": "18:30",
+      "home": "CRB",
+      "away": "Novorizontino",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 22",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-16",
+      "time": "18:30",
+      "home": "América-MG",
+      "away": "Athletic-MG",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 22",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-16",
+      "time": "18:30",
+      "home": "Barra",
+      "away": "Itabaiana",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 17",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-16",
+      "time": "18:30",
+      "home": "Confiança",
+      "away": "Maringá",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 17",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-16",
+      "time": "18:30",
+      "home": "Mirassol",
+      "away": "Flamengo",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 23",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-16",
+      "time": "18:30",
+      "home": "Vitória",
+      "away": "Botafogo",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 23",
+      "channel": "A definir",
+      "stadium": "Barradao"
+    },
+    {
+      "date": "2026-08-16",
+      "time": "19:30",
+      "home": "Corinthians",
+      "away": "Cruzeiro",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 23",
+      "channel": "A definir",
+      "stadium": "Neo Quimica Arena"
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:00",
+      "home": "Ferroviária",
+      "away": "Paysandu",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 17",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:00",
+      "home": "Guarani",
+      "away": "Ypiranga",
+      "competition": "Brasileirão Série C",
+      "round": "Rodada 17",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:00",
+      "home": "Internacional",
+      "away": "Remo",
+      "competition": "Brasileirão Série A",
+      "round": "Rodada 23",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-18",
+      "time": "19:00",
+      "home": "Ind. Rivadavia",
+      "away": "Fluminense",
+      "competition": "Libertadores",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": "Estadio Malvinas Argentinas"
+    },
+    {
+      "date": "2026-08-18",
+      "time": "19:00",
+      "home": "Recoleta",
+      "away": "Boca Juniors",
+      "competition": "Sul-Americana",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-18",
+      "time": "19:30",
+      "home": "Londrina",
+      "away": "Atlético-GO",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 23",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-18",
+      "time": "21:30",
+      "home": "Ind. del Valle",
+      "away": "Deportes Tolima",
+      "competition": "Libertadores",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": "Estadio Banco Guayaquil"
+    },
+    {
+      "date": "2026-08-18",
+      "time": "21:30",
+      "home": "U. Catolica",
+      "away": "Estudiantes L.P.",
+      "competition": "Libertadores",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": "Claro Arena"
+    },
+    {
+      "date": "2026-08-18",
+      "time": "21:30",
+      "home": "Náutico",
+      "away": "Ceará",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 23",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-18",
+      "time": "21:30",
+      "home": "São Paulo",
+      "away": "Bolivar",
+      "competition": "Sul-Americana",
+      "round": "Oitavas de Final",
+      "channel": "A definir",
+      "stadium": ""
+    },
+    {
+      "date": "2026-08-18",
+      "time": "21:35",
+      "home": "Goiás",
+      "away": "Juventude",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 23",
+      "channel": "A definir",
+      "stadium": ""
     }
   ]
 }
