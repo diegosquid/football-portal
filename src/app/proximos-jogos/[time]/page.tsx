@@ -74,7 +74,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { upcoming } = splitByDate(await matchesOfTeam(team.slug));
   const next = upcoming[0];
 
-  const title = `Próximos Jogos do ${team.name}: Calendário, Datas e Horários`;
+  const title = `Próximo jogo do ${team.name}: data, horário e onde assistir`;
   const description = next
     ? truncateForMeta(
         `Quando joga o ${team.name}? Próximo jogo é ${next.home} x ${next.away}, ${formatDateLongBR(next.date)} às ${next.time} (Brasília). Veja o calendário completo com datas, horários e onde assistir.`,
@@ -88,6 +88,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     keywords: [
+      `próximo jogo do ${team.name}`,
       `próximos jogos do ${team.name}`,
       `calendário do ${team.name}`,
       `quando joga o ${team.name}`,
@@ -182,7 +183,7 @@ export default async function ProximosJogosPage({ params }: Props) {
           { name: "Início", url: "/" },
           { name: "Times", url: "/time" },
           {
-            name: `Próximos jogos do ${team.name}`,
+            name: `Próximo jogo do ${team.name}`,
             url: `/proximos-jogos/${team.slug}`,
           },
         ]}
@@ -193,11 +194,12 @@ export default async function ProximosJogosPage({ params }: Props) {
           Calendário
         </p>
         <h1 className="mt-3 font-display text-4xl font-extrabold leading-none tracking-tight text-ink sm:text-5xl">
-          Próximos jogos do {team.name}
+          Próximo jogo do {team.name}
         </h1>
         <p className="mt-4 max-w-2xl leading-relaxed text-gray-600">
-          Agenda completa do {team.name} com datas, horários de Brasília,
-          competição e onde assistir cada partida. Atualizado diariamente.
+          Veja quando o {team.name} joga, o horário, a competição e onde
+          assistir. A agenda completa aparece logo abaixo e é atualizada
+          diariamente.
         </p>
 
         <nav className="mb-10 mt-5 flex flex-wrap gap-2 text-sm">

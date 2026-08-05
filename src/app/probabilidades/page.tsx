@@ -5,6 +5,7 @@ import { ProbabilityPanel } from "@/components/ProbabilityPanel";
 import { VupiAdBanner } from "@/components/VupiAdBanner";
 import { PushOptIn } from "@/components/PushOptIn";
 import { ArticleFAQ } from "@/components/ArticleFAQ";
+import { SeoHubLinks, type SeoHubLink } from "@/components/SeoHubLinks";
 import {
   BreadcrumbJsonLd,
   CollectionPageJsonLd,
@@ -19,6 +20,8 @@ import {
   getTodayBRT,
   getTomorrowBRT,
 } from "@/lib/matches";
+import { getAllRaceTeamSlugs } from "@/lib/race";
+import { getTeam } from "@/lib/teams";
 
 export const revalidate = 900; // 15 min
 
@@ -108,9 +111,10 @@ const FAQ = [
 ];
 
 export default async function ProbabilidadesPage() {
-  const [data, knownMatches] = await Promise.all([
+  const [data, knownMatches, raceTeamSlugs] = await Promise.all([
     getProbabilitiesData(),
     getAllKnownMatches(),
+    getAllRaceTeamSlugs(),
   ]);
   const predictions = data?.predictions ?? [];
   // Slugs com página própria em /onde-assistir — resolvidos uma vez só.
@@ -139,6 +143,55 @@ export default async function ProbabilidadesPage() {
   });
 
   const collectionTitle = `Palpites de Hoje (${formatDateShortBR(today)}): Probabilidades dos Jogos`;
+  const priorityTeamSlugs = [
+    "bahia",
+    "vitoria",
+    "flamengo",
+    "palmeiras",
+    "corinthians",
+    "sao-paulo",
+  ];
+  const orderedTeamSlugs = [
+    ...priorityTeamSlugs.filter((slug) => raceTeamSlugs.includes(slug)),
+    ...raceTeamSlugs.filter((slug) => !priorityTeamSlugs.includes(slug)),
+  ];
+  const probabilityLinks: SeoHubLink[] = [
+    {
+      href: "/probabilidades/titulo",
+      eyebrow: "Brasileirão",
+      title: "Chances de título",
+      description:
+        "Veja quem pode ser campeão após 10 mil simulações dos jogos restantes.",
+    },
+    {
+      href: "/probabilidades/rebaixamento",
+      eyebrow: "Brasileirão",
+      title: "Chances de rebaixamento",
+      description:
+        "Confira o risco de queda de cada time e quem está mais ameaçado pelo Z4.",
+    },
+    {
+      href: "/metodologia-dos-palpites",
+      eyebrow: "Transparência",
+      title: "Como calculamos os palpites",
+      description:
+        "Entenda o modelo de Poisson, as limitações e o acompanhamento de desempenho.",
+    },
+    ...orderedTeamSlugs.slice(0, 6).flatMap<SeoHubLink>((slug) => {
+      const team = getTeam(slug);
+      return team
+        ? [
+            {
+              href: `/probabilidades/${slug}`,
+              eyebrow: "Por time",
+              title: `Chances do ${team.name}`,
+              description:
+                "Título, classificação e risco de rebaixamento reunidos em uma página.",
+            },
+          ]
+        : [];
+    }),
+  ];
 
   return (
     <>
@@ -209,6 +262,12 @@ export default async function ProbabilidadesPage() {
             Tabela do Brasileirão
           </Link>
         </nav>
+
+        <SeoHubLinks
+          title="Explore as probabilidades"
+          description="Palpites de partidas, disputas da temporada e chances de cada clube, todos calculados a partir de dados atualizados."
+          links={probabilityLinks}
+        />
 
         <div className="mb-10">
           <VupiAdBanner placement="palpites_topo" priority />
