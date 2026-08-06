@@ -22,7 +22,8 @@
     "indexnow:all": "node scripts/indexnow.js --all",
     "indexnow:strategic": "node scripts/indexnow.js --strategic",
     "articles:publish": "node scripts/publish-articles.js",
-    "banner:publish": "node scripts/publish-game-banner.js"
+    "banner:publish": "node scripts/publish-game-banner.js",
+    "image:publish-authorial": "bash scripts/publish-authorial-image.sh"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.998.0",

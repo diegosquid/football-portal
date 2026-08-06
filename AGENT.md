@@ -487,9 +487,30 @@ Se o artigo foca em um jogador, técnico ou dirigente específico:
 - Se encontrar: usar a URL retornada no `image` e legenda `"NOME — Foto: Reprodução / Wikipedia"`
 - Se NAO encontrar (exit code 1): seguir para o Passo 3
 
-**PASSO 3 — Imagem AI (Gemini)**
+**PASSO 3 — Imagem autoral via Codex ImageGen (PREFERENCIAL)**
 
-Quando os passos anteriores falharem ou nao se aplicarem:
+Quando os passos anteriores falharem ou nao se aplicarem, gerar uma imagem autoral
+com a ferramenta `image_gen` do Codex. A imagem deve ser fotojornalistico-editorial,
+sem texto, logos, escudos, patrocinadores ou marcas. Se usar uma foto como referencia,
+nao repetir pose, cenario ou elementos graficos da fonte.
+
+Depois de a ferramenta retornar o arquivo local, subir a imagem para o R2:
+
+```bash
+./scripts/publish-authorial-image.sh "SLUG-DO-ARTIGO" "CAMINHO-DA-IMAGEM-GERADA" \
+  --caption "Ilustracao gerada por IA — contexto editorial do artigo em 80 a 150 caracteres"
+```
+
+- Usar a URL retornada no campo `image` do frontmatter
+- Usar a legenda retornada no campo `imageCaption`
+- Para trocar uma imagem que ja foi publicada, incluir `--version v2` (ou outra versao)
+  e atualizar o campo `image` com a nova URL; o R2 usa cache imutavel
+- O upload gera WebP comprimido quando `cwebp` estiver disponivel; PNG e o fallback
+- Se ImageGen estiver indisponivel ou falhar, seguir para o Passo 4
+
+**PASSO 4 — Imagem AI (Gemini, fallback)**
+
+Quando ImageGen nao estiver disponivel ou falhar:
 
 ```bash
 ./scripts/generate-image.sh "SLUG-DO-ARTIGO" "PROMPT EM INGLES"

@@ -3,7 +3,7 @@
 # upload-image.sh — Faz upload de uma imagem local para o Cloudflare R2
 #
 # Uso:
-#   ./scripts/upload-image.sh "SLUG-DO-ARTIGO" "/caminho/para/imagem.jpg"
+#   ./scripts/upload-image.sh "SLUG-DO-ARTIGO" "/caminho/para/imagem.jpg" [--format png|webp]
 #
 # Exemplo:
 #   ./scripts/upload-image.sh "filipe-luis-100-jogos" "/tmp/imagem.jpg"
@@ -27,7 +27,7 @@ fi
 
 # Validar argumentos
 if [ $# -lt 2 ]; then
-  echo "Uso: $0 <slug> <caminho-da-imagem>"
+  echo "Uso: $0 <slug> <caminho-da-imagem> [--format png|webp]"
   echo ""
   echo "Exemplo:"
   echo "  $0 \"filipe-luis-100-jogos\" \"/tmp/imagem.jpg\""
@@ -36,6 +36,27 @@ fi
 
 SLUG="$1"
 IMAGE_PATH="$2"
+shift 2
+OUTPUT_FORMAT="png"
+
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --format)
+      [ "$#" -ge 2 ] || { echo "❌ --format precisa de png ou webp"; exit 1; }
+      OUTPUT_FORMAT="$2"
+      shift 2
+      ;;
+    *)
+      echo "❌ Argumento desconhecido: $1"
+      exit 1
+      ;;
+  esac
+done
+
+case "$OUTPUT_FORMAT" in
+  png|webp) ;;
+  *) echo "❌ Formato inválido: use png ou webp"; exit 1 ;;
+esac
 
 # Validar variaveis de ambiente
 : "${R2_ACCESS_KEY_ID:?R2_ACCESS_KEY_ID nao configurada}"
@@ -52,7 +73,7 @@ fi
 
 # Config
 R2_ENDPOINT="https://${CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com"
-R2_KEY="articles/${SLUG}.png"
+R2_KEY="articles/${SLUG}.${OUTPUT_FORMAT}"
 TMP_DIR=$(mktemp -d)
 
 cleanup() { rm -rf "$TMP_DIR"; }
@@ -61,21 +82,29 @@ trap cleanup EXIT
 echo "📤 Fazendo upload da imagem para: $SLUG"
 echo "📁 Arquivo: $IMAGE_PATH"
 
-# Converter para PNG se necessario e redimensionar
+# Converter para o formato solicitado e redimensionar quando suportado.
 FILE_EXT="${IMAGE_PATH##*.}"
-if [ "$FILE_EXT" = "jpg" ] || [ "$FILE_EXT" = "jpeg" ]; then
+UPLOAD_PATH="$TMP_DIR/image.${OUTPUT_FORMAT}"
+if [ "$OUTPUT_FORMAT" = "webp" ]; then
+  if ! command -v cwebp >/dev/null 2>&1; then
+    echo "❌ cwebp não está disponível para converter a imagem em WebP"
+    exit 1
+  fi
+  echo "🗜️  Convertendo para WebP (qualidade 82)..."
+  cwebp -quiet -m 6 -q 82 -resize 1200 0 "$IMAGE_PATH" -o "$UPLOAD_PATH"
+elif [ "$FILE_EXT" = "jpg" ] || [ "$FILE_EXT" = "jpeg" ]; then
   echo "🔄 Convertendo JPG para PNG..."
-  convert "$IMAGE_PATH" -resize 1200x675^ -gravity center -extent 1200x675 "$TMP_DIR/image.png" 2>/dev/null || cp "$IMAGE_PATH" "$TMP_DIR/image.png"
+  convert "$IMAGE_PATH" -resize 1200x675^ -gravity center -extent 1200x675 "$UPLOAD_PATH" 2>/dev/null || cp "$IMAGE_PATH" "$UPLOAD_PATH"
 else
-  cp "$IMAGE_PATH" "$TMP_DIR/image.png"
+  cp "$IMAGE_PATH" "$UPLOAD_PATH"
 fi
 
-IMAGE_SIZE=$(wc -c < "$TMP_DIR/image.png" | tr -d ' ')
+IMAGE_SIZE=$(wc -c < "$UPLOAD_PATH" | tr -d ' ')
 echo "📊 Tamanho: $(( IMAGE_SIZE / 1024 ))KB"
 
 # AWS Signature V4 signing
-CONTENT_TYPE="image/png"
-CONTENT_SHA256=$(openssl dgst -sha256 -hex "$TMP_DIR/image.png" | awk '{print $NF}')
+CONTENT_TYPE="image/${OUTPUT_FORMAT}"
+CONTENT_SHA256=$(openssl dgst -sha256 -hex "$UPLOAD_PATH" | awk '{print $NF}')
 DATE_STAMP=$(date -u +%Y%m%d)
 DATETIME=$(date -u +%Y%m%dT%H%M%SZ)
 REGION="auto"
@@ -115,7 +144,7 @@ HTTP_STATUS=$(curl -s -o "$TMP_DIR/upload_response.txt" -w "%{http_code}" -X PUT
   -H "x-amz-date: ${DATETIME}" \
   -H "Authorization: ${AUTH_HEADER}" \
   -H "Cache-Control: public, max-age=31536000, immutable" \
-  --data-binary "@$TMP_DIR/image.png")
+  --data-binary "@$UPLOAD_PATH")
 
 if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
   PUBLIC_URL="${R2_PUBLIC_URL}/${R2_KEY}"
