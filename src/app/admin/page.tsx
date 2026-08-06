@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { AdminDashboard } from "@/components/AdminDashboard";
+import { getAllMatches } from "@/lib/matches";
+
+// O seletor de jogos do painel acompanha o JSON publicado no R2 em runtime.
+export const dynamic = "force-dynamic";
 
 // Painel interno: nunca deve ser indexado.
 export const metadata: Metadata = {
@@ -7,7 +11,12 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false, nocache: true },
 };
 
-export default function AdminPage() {
+export default async function AdminPage() {
+  const matches = (await getAllMatches()).map((match) => ({
+    slug: match.slug,
+    label: `${match.home} x ${match.away} · ${match.date} ${match.time}`,
+  }));
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
       <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-gray-500">
@@ -17,11 +26,11 @@ export default function AdminPage() {
         Painel
       </h1>
       <p className="mt-3 max-w-2xl text-sm text-gray-600">
-        Inscritos em push e newsletter, envios e cliques rastreados. Os dados
-        vêm do D1 pelo Worker — o token não sai deste navegador.
+        Inscritos, cliques e campanhas por jogo. Os dados vêm do D1 pelo Worker;
+        o token fica salvo apenas neste navegador e só é enviado à API interna.
       </p>
 
-      <AdminDashboard />
+      <AdminDashboard matches={matches} />
     </div>
   );
 }

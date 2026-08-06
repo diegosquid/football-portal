@@ -29,7 +29,7 @@ function corsHeaders(origin) {
   return {
     "Access-Control-Allow-Origin": allowed,
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Headers": "Authorization, Content-Type",
     "Access-Control-Max-Age": "86400",
     Vary: "Origin",
   };
@@ -241,14 +241,21 @@ async function handleTrack(request, env, origin) {
  * Admin — protegido por token (wrangler secret ADMIN_TOKEN)
  * ------------------------------------------------------------------ */
 
-function isAuthorized(request, env) {
+async function isAuthorized(request, env) {
   const header = request.headers.get("Authorization") ?? "";
   const token = header.replace(/^Bearer\s+/i, "").trim();
-  return Boolean(env.ADMIN_TOKEN) && token === env.ADMIN_TOKEN;
+  if (!env.ADMIN_TOKEN || !token) return false;
+
+  const encoder = new TextEncoder();
+  const [providedHash, expectedHash] = await Promise.all([
+    crypto.subtle.digest("SHA-256", encoder.encode(token)),
+    crypto.subtle.digest("SHA-256", encoder.encode(env.ADMIN_TOKEN)),
+  ]);
+  return crypto.subtle.timingSafeEqual(providedHash, expectedHash);
 }
 
 async function handleAdminStats(request, env, origin) {
-  if (!isAuthorized(request, env)) {
+  if (!(await isAuthorized(request, env))) {
     return json({ error: "não autorizado" }, 401, origin);
   }
 
@@ -299,7 +306,7 @@ async function handleAdminStats(request, env, origin) {
 
 /** Lista os últimos cliques — útil pra depurar atribuição de afiliado. */
 async function handleAdminClicks(request, env, origin) {
-  if (!isAuthorized(request, env)) {
+  if (!(await isAuthorized(request, env))) {
     return json({ error: "não autorizado" }, 401, origin);
   }
   const { results } = await env.DB.prepare(
@@ -307,6 +314,338 @@ async function handleAdminClicks(request, env, origin) {
      FROM click_events ORDER BY id DESC LIMIT 100`,
   ).all();
   return json({ clicks: results ?? [] }, 200, origin);
+}
+
+/* ------------------------------------------------------------------ *
+ * Banners dinâmicos por jogo
+ * ------------------------------------------------------------------ */
+
+const BANNER_ASSET_PREFIX = "game-banners/";
+const BANNER_ASSET_ROUTE = "/game-banners/assets/";
+const MAX_BANNER_BYTES = 5 * 1024 * 1024;
+const MAX_BANNER_REQUEST_BYTES = MAX_BANNER_BYTES * 2 + 512 * 1024;
+const BANNER_IMAGE_TYPES = new Map([
+  ["image/avif", "avif"],
+  ["image/jpeg", "jpg"],
+  ["image/png", "png"],
+  ["image/webp", "webp"],
+]);
+
+function isMatchSlug(value) {
+  return (
+    typeof value === "string" &&
+    value.length <= 180 &&
+    /^[a-z0-9][a-z0-9-]*-x-[a-z0-9][a-z0-9-]*-\d{4}-\d{2}-\d{2}$/.test(
+      value,
+    )
+  );
+}
+
+function requiredFormText(form, key, maxLength) {
+  const value = form.get(key);
+  if (typeof value !== "string") return "";
+  return value.trim().slice(0, maxLength);
+}
+
+function optionalEpoch(value) {
+  if (!value) return null;
+  const milliseconds = Date.parse(value);
+  if (!Number.isFinite(milliseconds)) return undefined;
+  return Math.floor(milliseconds / 1000);
+}
+
+function validateBannerFile(value) {
+  if (!(value instanceof File) || value.size === 0) return null;
+  const extension = BANNER_IMAGE_TYPES.get(value.type);
+  if (!extension) {
+    return { error: "Use uma imagem AVIF, JPEG, PNG ou WebP." };
+  }
+  if (value.size > MAX_BANNER_BYTES) {
+    return { error: "Cada imagem pode ter no máximo 5 MB." };
+  }
+  return { file: value, extension };
+}
+
+function bannerAssetUrl(request, key) {
+  return `${new URL(request.url).origin}${BANNER_ASSET_ROUTE}${key}`;
+}
+
+function serializeGameBanner(row, request) {
+  return {
+    matchSlug: row.match_slug,
+    campaignName: row.campaign_name,
+    advertiser: row.advertiser,
+    targetUrl: row.target_url,
+    altText: row.alt_text,
+    desktopImageUrl: bannerAssetUrl(request, row.desktop_key),
+    mobileImageUrl: row.mobile_key
+      ? bannerAssetUrl(request, row.mobile_key)
+      : null,
+    startsAt:
+      row.starts_at === null
+        ? null
+        : new Date(Number(row.starts_at) * 1000).toISOString(),
+    endsAt:
+      row.ends_at === null
+        ? null
+        : new Date(Number(row.ends_at) * 1000).toISOString(),
+    enabled: Boolean(row.enabled),
+    activeNow: Boolean(row.active_now ?? row.enabled),
+    updatedAt: row.updated_at,
+  };
+}
+
+async function uploadBannerFile(env, matchSlug, validatedFile, kind) {
+  const key = `${BANNER_ASSET_PREFIX}${matchSlug}/${kind}-${crypto.randomUUID()}.${validatedFile.extension}`;
+  await env.ASSETS.put(key, validatedFile.file, {
+    httpMetadata: {
+      contentType: validatedFile.file.type,
+      cacheControl: "public, max-age=31536000, immutable",
+    },
+    customMetadata: {
+      matchSlug,
+      uploadedAt: new Date().toISOString(),
+    },
+  });
+  return key;
+}
+
+async function handlePublicGameBanner(request, env, origin, matchSlug) {
+  if (!isMatchSlug(matchSlug)) {
+    return json({ error: "slug inválido" }, 400, origin);
+  }
+
+  const row = await env.DB.prepare(
+    `SELECT match_slug, campaign_name, advertiser, target_url, alt_text,
+            desktop_key, mobile_key, starts_at, ends_at, enabled, updated_at
+     FROM game_banners
+     WHERE match_slug = ?
+       AND enabled = 1
+       AND (starts_at IS NULL OR starts_at <= unixepoch())
+       AND (ends_at IS NULL OR ends_at > unixepoch())
+     LIMIT 1`,
+  )
+    .bind(matchSlug)
+    .first();
+
+  if (!row) {
+    const response = json({ error: "nenhum banner ativo" }, 404, origin);
+    response.headers.set("Cache-Control", "no-store");
+    return response;
+  }
+
+  const response = json(serializeGameBanner(row, request), 200, origin);
+  response.headers.set("Cache-Control", "no-store");
+  return response;
+}
+
+async function handleBannerAsset(request, env, origin) {
+  let key;
+  try {
+    key = decodeURIComponent(
+      new URL(request.url).pathname.slice(BANNER_ASSET_ROUTE.length),
+    );
+  } catch {
+    return json({ error: "asset inválido" }, 400, origin);
+  }
+
+  if (
+    !key.startsWith(BANNER_ASSET_PREFIX) ||
+    key.includes("..") ||
+    !/^game-banners\/[a-z0-9-]+\/(?:desktop|mobile)-[a-f0-9-]+\.(?:avif|jpg|png|webp)$/.test(
+      key,
+    )
+  ) {
+    return json({ error: "asset inválido" }, 400, origin);
+  }
+
+  const object = await env.ASSETS.get(key);
+  if (!object) return json({ error: "asset não encontrado" }, 404, origin);
+
+  const headers = new Headers(corsHeaders(origin));
+  object.writeHttpMetadata(headers);
+  headers.set("ETag", object.httpEtag);
+  headers.set("Cache-Control", "public, max-age=31536000, immutable");
+  headers.set("X-Content-Type-Options", "nosniff");
+  return new Response(object.body, { headers });
+}
+
+async function handleAdminGameBanners(request, env, origin) {
+  if (!(await isAuthorized(request, env))) {
+    return json({ error: "não autorizado" }, 401, origin);
+  }
+
+  const { results } = await env.DB.prepare(
+    `SELECT match_slug, campaign_name, advertiser, target_url, alt_text,
+            desktop_key, mobile_key, starts_at, ends_at, enabled, updated_at,
+            CASE WHEN enabled = 1
+                   AND (starts_at IS NULL OR starts_at <= unixepoch())
+                   AND (ends_at IS NULL OR ends_at > unixepoch())
+                 THEN 1 ELSE 0 END AS active_now
+     FROM game_banners
+     ORDER BY updated_at DESC
+     LIMIT 100`,
+  ).all();
+
+  return json(
+    { banners: (results ?? []).map((row) => serializeGameBanner(row, request)) },
+    200,
+    origin,
+  );
+}
+
+async function handleAdminGameBannerUpsert(request, env, origin) {
+  if (!(await isAuthorized(request, env))) {
+    return json({ error: "não autorizado" }, 401, origin);
+  }
+
+  const contentLength = Number(request.headers.get("Content-Length") || 0);
+  if (contentLength > MAX_BANNER_REQUEST_BYTES) {
+    return json({ error: "O upload completo pode ter no máximo 10,5 MB." }, 413, origin);
+  }
+
+  const form = await request.formData().catch(() => null);
+  if (!form) return json({ error: "formulário inválido" }, 400, origin);
+
+  const matchSlug = requiredFormText(form, "matchSlug", 180);
+  const campaignName = requiredFormText(form, "campaignName", 100);
+  const advertiser = requiredFormText(form, "advertiser", 80);
+  const targetUrl = requiredFormText(form, "targetUrl", 500);
+  const altText = requiredFormText(form, "altText", 240);
+  const startsAt = optionalEpoch(requiredFormText(form, "startsAt", 40));
+  const endsAt = optionalEpoch(requiredFormText(form, "endsAt", 40));
+  const enabled = requiredFormText(form, "enabled", 10) !== "false" ? 1 : 0;
+  const complianceConfirmed =
+    requiredFormText(form, "complianceConfirmed", 10) === "true";
+
+  if (!isMatchSlug(matchSlug)) {
+    return json({ error: "Informe um slug válido de página de jogo." }, 400, origin);
+  }
+  if (!campaignName || !advertiser || !targetUrl || !altText) {
+    return json({ error: "Preencha campanha, anunciante, link e texto alternativo." }, 400, origin);
+  }
+  if (!complianceConfirmed) {
+    return json(
+      { error: "Confirme a revisão de publicidade responsável." },
+      400,
+      origin,
+    );
+  }
+
+  let parsedTarget;
+  try {
+    parsedTarget = new URL(targetUrl);
+  } catch {
+    return json({ error: "O link de destino é inválido." }, 400, origin);
+  }
+  if (parsedTarget.protocol !== "https:") {
+    return json({ error: "O link de destino precisa usar HTTPS." }, 400, origin);
+  }
+  if (startsAt === undefined || endsAt === undefined) {
+    return json({ error: "Data de início ou fim inválida." }, 400, origin);
+  }
+  if (startsAt !== null && endsAt !== null && endsAt <= startsAt) {
+    return json({ error: "O fim precisa ser posterior ao início." }, 400, origin);
+  }
+
+  const desktopFile = validateBannerFile(form.get("desktopImage"));
+  const mobileFile = validateBannerFile(form.get("mobileImage"));
+  if (desktopFile?.error) return json({ error: desktopFile.error }, 400, origin);
+  if (mobileFile?.error) return json({ error: mobileFile.error }, 400, origin);
+
+  const current = await env.DB.prepare(
+    `SELECT desktop_key, mobile_key FROM game_banners WHERE match_slug = ?`,
+  )
+    .bind(matchSlug)
+    .first();
+
+  if (!current && !desktopFile?.file) {
+    return json({ error: "A arte desktop é obrigatória no primeiro cadastro." }, 400, origin);
+  }
+
+  const desktopKey = desktopFile?.file
+    ? await uploadBannerFile(env, matchSlug, desktopFile, "desktop")
+    : current.desktop_key;
+  const mobileKey = mobileFile?.file
+    ? await uploadBannerFile(env, matchSlug, mobileFile, "mobile")
+    : (current?.mobile_key ?? null);
+
+  await env.DB.prepare(
+    `INSERT INTO game_banners (
+       match_slug, campaign_name, advertiser, target_url, alt_text,
+       desktop_key, mobile_key, starts_at, ends_at, enabled
+     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+     ON CONFLICT(match_slug) DO UPDATE SET
+       campaign_name = excluded.campaign_name,
+       advertiser = excluded.advertiser,
+       target_url = excluded.target_url,
+       alt_text = excluded.alt_text,
+       desktop_key = excluded.desktop_key,
+       mobile_key = excluded.mobile_key,
+       starts_at = excluded.starts_at,
+       ends_at = excluded.ends_at,
+       enabled = excluded.enabled,
+       updated_at = datetime('now')`,
+  )
+    .bind(
+      matchSlug,
+      campaignName,
+      advertiser,
+      parsedTarget.toString(),
+      altText,
+      desktopKey,
+      mobileKey,
+      startsAt,
+      endsAt,
+      enabled,
+    )
+    .run();
+
+  const saved = await env.DB.prepare(
+    `SELECT match_slug, campaign_name, advertiser, target_url, alt_text,
+            desktop_key, mobile_key, starts_at, ends_at, enabled, updated_at,
+            CASE WHEN enabled = 1
+                   AND (starts_at IS NULL OR starts_at <= unixepoch())
+                   AND (ends_at IS NULL OR ends_at > unixepoch())
+                 THEN 1 ELSE 0 END AS active_now
+     FROM game_banners WHERE match_slug = ?`,
+  )
+    .bind(matchSlug)
+    .first();
+
+  return json({ banner: serializeGameBanner(saved, request) }, 200, origin);
+}
+
+async function handleAdminGameBannerToggle(
+  request,
+  env,
+  origin,
+  matchSlug,
+) {
+  if (!(await isAuthorized(request, env))) {
+    return json({ error: "não autorizado" }, 401, origin);
+  }
+  if (!isMatchSlug(matchSlug)) {
+    return json({ error: "slug inválido" }, 400, origin);
+  }
+
+  const body = await request.json().catch(() => null);
+  if (typeof body?.enabled !== "boolean") {
+    return json({ error: "enabled precisa ser booleano" }, 400, origin);
+  }
+
+  const result = await env.DB.prepare(
+    `UPDATE game_banners
+     SET enabled = ?, updated_at = datetime('now')
+     WHERE match_slug = ?`,
+  )
+    .bind(body.enabled ? 1 : 0, matchSlug)
+    .run();
+
+  if (!result.meta.changes) {
+    return json({ error: "banner não encontrado" }, 404, origin);
+  }
+  return json({ ok: true, enabled: body.enabled }, 200, origin);
 }
 
 /* ------------------------------------------------------------------ *
@@ -426,15 +765,66 @@ export default {
       if (url.pathname === "/track" && request.method === "POST") {
         return handleTrack(request, env, origin);
       }
+      if (
+        url.pathname.startsWith(BANNER_ASSET_ROUTE) &&
+        request.method === "GET"
+      ) {
+        return handleBannerAsset(request, env, origin);
+      }
+      if (
+        url.pathname.startsWith("/game-banners/") &&
+        request.method === "GET"
+      ) {
+        const matchSlug = decodeURIComponent(
+          url.pathname.slice("/game-banners/".length),
+        );
+        return handlePublicGameBanner(request, env, origin, matchSlug);
+      }
       if (url.pathname === "/admin/stats" && request.method === "GET") {
         return handleAdminStats(request, env, origin);
       }
       if (url.pathname === "/admin/clicks" && request.method === "GET") {
         return handleAdminClicks(request, env, origin);
       }
+      if (
+        url.pathname === "/admin/game-banners" &&
+        request.method === "GET"
+      ) {
+        return handleAdminGameBanners(request, env, origin);
+      }
+      if (
+        url.pathname === "/admin/game-banners" &&
+        request.method === "POST"
+      ) {
+        return handleAdminGameBannerUpsert(request, env, origin);
+      }
+      if (
+        url.pathname.startsWith("/admin/game-banners/") &&
+        url.pathname.endsWith("/toggle") &&
+        request.method === "POST"
+      ) {
+        const matchSlug = decodeURIComponent(
+          url.pathname.slice(
+            "/admin/game-banners/".length,
+            -"/toggle".length,
+          ),
+        );
+        return handleAdminGameBannerToggle(
+          request,
+          env,
+          origin,
+          matchSlug,
+        );
+      }
       return json({ error: "not found" }, 404, origin);
     } catch (e) {
-      console.error(e);
+      console.error(
+        JSON.stringify({
+          message: "request failed",
+          error: e instanceof Error ? e.message : String(e),
+          path: url.pathname,
+        }),
+      );
       return json({ error: "erro interno" }, 500, origin);
     }
   },

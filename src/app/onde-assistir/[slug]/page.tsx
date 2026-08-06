@@ -25,7 +25,7 @@ import {
 } from "@/lib/channels";
 import { ShareWhatsApp } from "@/components/ShareWhatsApp";
 import { PushBanner } from "@/components/PushBanner";
-import { VupiAdBanner } from "@/components/VupiAdBanner";
+import { MatchPromoBanner } from "@/components/MatchPromoBanner";
 import { buildMatchShareText } from "@/lib/share";
 import {
   getPredictionFor,
@@ -603,7 +603,7 @@ export default async function OndeAssistirPage({ params }: Props) {
         )}
 
         <div className="mb-10">
-          <VupiAdBanner placement="onde_assistir_jogo" compact />
+          <MatchPromoBanner matchSlug={match.slug} />
         </div>
 
         {/* Convite de notificação — ainda no contexto do palpite, depois da

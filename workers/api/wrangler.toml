@@ -1,6 +1,7 @@
 name = "beiradocampo-api"
 main = "src/index.js"
-compatibility_date = "2026-07-01"
+compatibility_date = "2026-08-06"
+compatibility_flags = ["nodejs_compat"]
 
 # Notificação diária dos palpites — 13:05 UTC = 10:05 BRT.
 # Roda depois da routine que atualiza jogos.json e probabilidades.json (07h BRT).
@@ -22,6 +23,11 @@ VAPID_PUBLIC_KEY = "BMDACyLZJmm2lfceuNmEERAfCvcia7yPoiykaL5378-2BSHh-JwYCfsgVDSu
 binding = "DB"
 database_name = "beiradocampo"
 database_id = "5c71f70f-9b12-467b-abb5-bc4fb3e100c3"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "ASSETS"
+bucket_name = "beiradocampo"
 
 [observability]
 enabled = true
