@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-05T16:24:06.277Z",
+  "updatedAt": "2026-08-06T16:10:12.056Z",
   "predictions": [
     {
       "date": "2026-07-24",
@@ -2755,21 +2755,21 @@
       "away": "Internacional",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "lambdaHome": 1.27,
-      "lambdaAway": 1.08,
-      "golsEsperados": 2.36,
+      "lambdaHome": 1.28,
+      "lambdaAway": 1.09,
+      "golsEsperados": 2.37,
       "resultado": {
-        "casa": 0.4069473291110774,
-        "empate": 0.27799997197225457,
-        "fora": 0.3150526989166679
+        "casa": 0.40841856986060426,
+        "empate": 0.27732977910261586,
+        "fora": 0.31425165103678
       },
       "gols": {
-        "over25": 0.4191231435628295,
-        "under25": 0.5808768564371705
+        "over25": 0.42134956928153144,
+        "under25": 0.5786504307184686
       },
       "ambosMarcam": {
-        "sim": 0.4765805301783201,
-        "nao": 0.5234194698216799
+        "sim": 0.47824864284085333,
+        "nao": 0.5217513571591467
       },
       "placarProvavel": "1-1",
       "explicacao": {
@@ -2790,21 +2790,21 @@
       "away": "Athletico-PR",
       "competition": "Copa do Brasil",
       "round": "Oitavas de Final (Volta)",
-      "lambdaHome": 1.25,
+      "lambdaHome": 1.26,
       "lambdaAway": 0.95,
-      "golsEsperados": 2.2,
+      "golsEsperados": 2.21,
       "resultado": {
-        "casa": 0.4336081925936323,
-        "empate": 0.2868827041140425,
-        "fora": 0.2795091032923257
+        "casa": 0.4351533800662712,
+        "empate": 0.2860727181014337,
+        "fora": 0.2787739018322951
       },
       "gols": {
-        "over25": 0.3769466064759507,
-        "under25": 0.6230533935240494
+        "over25": 0.3792540346768108,
+        "under25": 0.6207459653231893
       },
       "ambosMarcam": {
-        "sim": 0.4368959071794048,
-        "nao": 0.5631040928205953
+        "sim": 0.43857628491112016,
+        "nao": 0.5614237150888799
       },
       "placarProvavel": "1-0",
       "explicacao": {
@@ -3585,6 +3585,41 @@
         "jogosConsiderados": {
           "casa": 7,
           "fora": 6
+        }
+      }
+    },
+    {
+      "date": "2026-08-08",
+      "time": "17:00",
+      "home": "EC Sao Jose",
+      "away": "Gama",
+      "competition": "Brasileirão Série D",
+      "round": "Quartas de Final",
+      "lambdaHome": 0.77,
+      "lambdaAway": 0.98,
+      "golsEsperados": 1.75,
+      "resultado": {
+        "casa": 0.2752575068397796,
+        "empate": 0.3315695389789199,
+        "fora": 0.39317295418130044
+      },
+      "gols": {
+        "over25": 0.25636532717108057,
+        "under25": 0.7436346728289195
+      },
+      "ambosMarcam": {
+        "sim": 0.33558613674670484,
+        "nao": 0.6644138632532951
+      },
+      "placarProvavel": "0-0",
+      "explicacao": {
+        "forcaAtaqueCasa": 0.78,
+        "forcaDefesaCasa": 0.86,
+        "forcaAtaqueFora": 1.18,
+        "forcaDefesaFora": 0.72,
+        "jogosConsiderados": {
+          "casa": 8,
+          "fora": 8
         }
       }
     },

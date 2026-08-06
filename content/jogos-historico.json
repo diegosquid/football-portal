@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-05T13:16:00-03:00",
+  "updatedAt": "2026-08-06T13:09:00-03:00",
   "games": [
     {
       "date": "2026-07-24",
@@ -873,6 +873,16 @@
     },
     {
       "date": "2026-08-06",
+      "time": "19:00",
+      "home": "Unión",
+      "away": "Lanús",
+      "competition": "Campeonato Argentino",
+      "round": "Rodada 2",
+      "channel": "A definir",
+      "stadium": "Estádio 15 de Abril"
+    },
+    {
+      "date": "2026-08-06",
       "time": "20:00",
       "home": "Corinthians",
       "away": "Internacional",
@@ -892,6 +902,66 @@
       "stadium": "Barradão, Salvador"
     },
     {
+      "date": "2026-08-06",
+      "time": "20:30",
+      "home": "New York City FC",
+      "away": "Santos Laguna",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Red Bull Arena"
+    },
+    {
+      "date": "2026-08-06",
+      "time": "21:00",
+      "home": "Cruz Azul",
+      "away": "Philadelphia Union",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Subaru Park"
+    },
+    {
+      "date": "2026-08-06",
+      "time": "21:30",
+      "home": "Chicago Fire",
+      "away": "Necaxa",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "SeatGeek Stadium"
+    },
+    {
+      "date": "2026-08-06",
+      "time": "22:00",
+      "home": "Austin FC",
+      "away": "Tijuana",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Q2 Stadium"
+    },
+    {
+      "date": "2026-08-06",
+      "time": "23:00",
+      "home": "Club América",
+      "away": "San Diego FC",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Estadio Banorte"
+    },
+    {
+      "date": "2026-08-06",
+      "time": "23:30",
+      "home": "Portland Timbers",
+      "away": "Puebla",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Providence Park"
+    },
+    {
       "date": "2026-08-07",
       "time": "19:30",
       "home": "Operário-PR",
@@ -900,6 +970,16 @@
       "round": "Rodada 21",
       "channel": "Disney+",
       "stadium": "Estádio Germano Krüger, Ponta Grossa"
+    },
+    {
+      "date": "2026-08-07",
+      "time": "19:30",
+      "home": "Rosario Central",
+      "away": "Aldosivi",
+      "competition": "Campeonato Argentino",
+      "round": "Rodada 4",
+      "channel": "A definir",
+      "stadium": "Gigante de Arroyito"
     },
     {
       "date": "2026-08-07",
@@ -913,13 +993,94 @@
     },
     {
       "date": "2026-08-07",
+      "time": "20:30",
+      "home": "Charlotte FC",
+      "away": "Atlas",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Bank of America Stadium"
+    },
+    {
+      "date": "2026-08-07",
+      "time": "20:30",
+      "home": "Columbus Crew",
+      "away": "Pachuca",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "ScottsMiracle-Gro Field"
+    },
+    {
+      "date": "2026-08-07",
+      "time": "21:00",
+      "home": "FC Cincinnati",
+      "away": "Pumas UNAM",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "TQL Stadium"
+    },
+    {
+      "date": "2026-08-07",
       "time": "21:30",
       "home": "Botafogo Feminino",
       "away": "Fluminense Feminino",
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 15",
       "channel": "A definir",
-      "stadium": "Estadio Olimpico Nilton Santos"
+      "stadium": "Estadio Olimpico Nilton Santos",
+      "source": "api"
+    },
+    {
+      "date": "2026-08-07",
+      "time": "21:45",
+      "home": "Independiente Rivadavia",
+      "away": "Estudiantes de Río Cuarto",
+      "competition": "Campeonato Argentino",
+      "round": "Rodada 4",
+      "channel": "A definir",
+      "stadium": "Estádio Bautista Gargantini"
+    },
+    {
+      "date": "2026-08-07",
+      "time": "22:00",
+      "home": "Tigres",
+      "away": "Minnesota United",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Allianz Field"
+    },
+    {
+      "date": "2026-08-07",
+      "time": "23:30",
+      "home": "Vancouver Whitecaps",
+      "away": "Juárez",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "BC Place"
+    },
+    {
+      "date": "2026-08-08",
+      "time": "14:45",
+      "home": "Atlético Tucumán",
+      "away": "Sarmiento",
+      "competition": "Campeonato Argentino",
+      "round": "Rodada 4",
+      "channel": "A definir",
+      "stadium": "Estádio Monumental José Fierro"
+    },
+    {
+      "date": "2026-08-08",
+      "time": "14:45",
+      "home": "Deportivo Riestra",
+      "away": "Estudiantes",
+      "competition": "Campeonato Argentino",
+      "round": "Rodada 4",
+      "channel": "A definir",
+      "stadium": "Estádio Guillermo Laza"
     },
     {
       "date": "2026-08-08",
@@ -929,7 +1090,8 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 15",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "Arena Gregorão",
+      "source": "api"
     },
     {
       "date": "2026-08-08",
@@ -949,7 +1111,7 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 21",
       "channel": "Disney+",
-      "stadium": ""
+      "stadium": "Estádio Onésio Brasileiro Alvarenga, Goiânia"
     },
     {
       "date": "2026-08-08",
@@ -959,7 +1121,8 @@
       "competition": "Brasileirão Série D",
       "round": "Quartas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-08",
@@ -969,7 +1132,8 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 15",
       "channel": "A definir",
-      "stadium": "Arena Fonte Luminosa"
+      "stadium": "Arena Fonte Luminosa",
+      "source": "api"
     },
     {
       "date": "2026-08-08",
@@ -979,7 +1143,7 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 16",
       "channel": "Band / SportyNet / Canal do Benja",
-      "stadium": ""
+      "stadium": "Estádio Almeidão, João Pessoa"
     },
     {
       "date": "2026-08-08",
@@ -989,7 +1153,7 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 16",
       "channel": "Band / SportyNet / Canal do Benja",
-      "stadium": ""
+      "stadium": "Estádio Orlando Scarpelli, Florianópolis"
     },
     {
       "date": "2026-08-08",
@@ -999,7 +1163,8 @@
       "competition": "Brasileirão Série D",
       "round": "Quartas de Final",
       "channel": "A definir",
-      "stadium": "Francisco Novelletto Neto"
+      "stadium": "Francisco Novelletto Neto",
+      "source": "api"
     },
     {
       "date": "2026-08-08",
@@ -1009,7 +1174,29 @@
       "competition": "Brasileirão Série D",
       "round": "Quartas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
+    },
+    {
+      "date": "2026-08-08",
+      "time": "17:00",
+      "home": "EC Sao Jose",
+      "away": "Gama",
+      "competition": "Brasileirão Série D",
+      "round": "Quartas de Final",
+      "channel": "A definir",
+      "stadium": "Estádio Francisco Novelletto Neto, Porto Alegre",
+      "source": "api"
+    },
+    {
+      "date": "2026-08-08",
+      "time": "17:00",
+      "home": "Tigre",
+      "away": "River Plate",
+      "competition": "Campeonato Argentino",
+      "round": "Rodada 4",
+      "channel": "A definir",
+      "stadium": "Estádio José Dellagiovanna"
     },
     {
       "date": "2026-08-08",
@@ -1029,7 +1216,7 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 21",
       "channel": "Disney+",
-      "stadium": ""
+      "stadium": "Estádio Santa Cruz, Ribeirão Preto"
     },
     {
       "date": "2026-08-08",
@@ -1039,7 +1226,18 @@
       "competition": "Brasileirão Série D",
       "round": "Quartas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
+    },
+    {
+      "date": "2026-08-08",
+      "time": "19:15",
+      "home": "Boca Juniors",
+      "away": "Vélez Sarsfield",
+      "competition": "Campeonato Argentino",
+      "round": "Rodada 4",
+      "channel": "A definir",
+      "stadium": "Estádio Tomás Adolfo Ducó"
     },
     {
       "date": "2026-08-08",
@@ -1049,7 +1247,7 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 16",
       "channel": "Band / SportyNet / Canal do Benja",
-      "stadium": ""
+      "stadium": "Estádio Novelli Júnior, Itu"
     },
     {
       "date": "2026-08-08",
@@ -1059,7 +1257,17 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 16",
       "channel": "Band / SportyNet / Canal do Benja",
-      "stadium": ""
+      "stadium": "Estádio Major Levy Sobrinho, Limeira"
+    },
+    {
+      "date": "2026-08-08",
+      "time": "19:30",
+      "home": "Orlando City",
+      "away": "León",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Inter&Co Stadium"
     },
     {
       "date": "2026-08-08",
@@ -1080,6 +1288,66 @@
       "round": "Rodada 22",
       "channel": "SporTV / Premiere",
       "stadium": "Estádio Nilton Santos, Rio de Janeiro"
+    },
+    {
+      "date": "2026-08-08",
+      "time": "21:00",
+      "home": "Inter Miami",
+      "away": "Monterrey",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Nu Stadium"
+    },
+    {
+      "date": "2026-08-08",
+      "time": "21:30",
+      "home": "Independiente",
+      "away": "Platense",
+      "competition": "Campeonato Argentino",
+      "round": "Rodada 4",
+      "channel": "A definir",
+      "stadium": "Estádio Libertadores de América"
+    },
+    {
+      "date": "2026-08-08",
+      "time": "21:30",
+      "home": "Instituto",
+      "away": "Gimnasia de Mendoza",
+      "competition": "Campeonato Argentino",
+      "round": "Rodada 4",
+      "channel": "A definir",
+      "stadium": "Estádio Monumental Presidente Perón"
+    },
+    {
+      "date": "2026-08-08",
+      "time": "22:00",
+      "home": "Chivas Guadalajara",
+      "away": "FC Dallas",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "PayPal Park"
+    },
+    {
+      "date": "2026-08-08",
+      "time": "23:00",
+      "home": "Real Salt Lake",
+      "away": "Atlante",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "America First Field"
+    },
+    {
+      "date": "2026-08-09",
+      "time": "00:10",
+      "home": "Toluca",
+      "away": "Los Angeles FC",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "BMO Stadium"
     },
     {
       "date": "2026-08-09",
@@ -1109,7 +1377,7 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 21",
       "channel": "ESPN / Disney+",
-      "stadium": "Estádio Joaquim Portugal, São João del Rei"
+      "stadium": "Arena Sicredi, São João del-Rei"
     },
     {
       "date": "2026-08-09",
@@ -1119,7 +1387,8 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 15",
       "channel": "A definir",
-      "stadium": "Francisco Novelletto Neto"
+      "stadium": "Francisco Novelletto Neto",
+      "source": "api"
     },
     {
       "date": "2026-08-09",
@@ -1129,7 +1398,8 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 15",
       "channel": "A definir",
-      "stadium": "Barradao"
+      "stadium": "Estádio Manoel Barradas, Salvador",
+      "source": "api"
     },
     {
       "date": "2026-08-09",
@@ -1139,7 +1409,18 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 15",
       "channel": "A definir",
-      "stadium": "Homero Soldatelli"
+      "stadium": "Homero Soldatelli",
+      "source": "api"
+    },
+    {
+      "date": "2026-08-09",
+      "time": "15:00",
+      "home": "San Lorenzo",
+      "away": "Huracán",
+      "competition": "Campeonato Argentino",
+      "round": "Rodada 4",
+      "channel": "A definir",
+      "stadium": "Estádio Pedro Bidegain"
     },
     {
       "date": "2026-08-09",
@@ -1169,7 +1450,7 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 21",
       "channel": "Disney+",
-      "stadium": ""
+      "stadium": "Estádio Dr. Jorge Ismael de Biasi, Novo Horizonte"
     },
     {
       "date": "2026-08-09",
@@ -1199,7 +1480,7 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 16",
       "channel": "Band / SportyNet / Canal do Benja",
-      "stadium": ""
+      "stadium": "Estádio Colosso da Lagoa, Erechim"
     },
     {
       "date": "2026-08-09",
@@ -1209,7 +1490,38 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 15",
       "channel": "A definir",
-      "stadium": "Neo Quimica Arena"
+      "stadium": "Canindé, São Paulo",
+      "source": "api"
+    },
+    {
+      "date": "2026-08-09",
+      "time": "16:30",
+      "home": "Seattle Sounders",
+      "away": "Querétaro",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Lumen Field"
+    },
+    {
+      "date": "2026-08-09",
+      "time": "17:45",
+      "home": "Defensa y Justicia",
+      "away": "Newell's Old Boys",
+      "competition": "Campeonato Argentino",
+      "round": "Rodada 4",
+      "channel": "A definir",
+      "stadium": "Estádio Norberto Tomaghello"
+    },
+    {
+      "date": "2026-08-09",
+      "time": "17:45",
+      "home": "Gimnasia La Plata",
+      "away": "Barracas Central",
+      "competition": "Campeonato Argentino",
+      "round": "Rodada 4",
+      "channel": "A definir",
+      "stadium": "Estádio Juan Carmelo Zerillo"
     },
     {
       "date": "2026-08-09",
@@ -1219,7 +1531,7 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 21",
       "channel": "Disney+",
-      "stadium": ""
+      "stadium": "Arena Pantanal, Cuiabá"
     },
     {
       "date": "2026-08-09",
@@ -1229,7 +1541,8 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 15",
       "channel": "A definir",
-      "stadium": "Estadio do Caninde"
+      "stadium": "Estádio Gabriel Marques Silva",
+      "source": "api"
     },
     {
       "date": "2026-08-09",
@@ -1259,7 +1572,7 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 16",
       "channel": "Band / SportyNet / Canal do Benja",
-      "stadium": ""
+      "stadium": "Estádio Etelvino Mendonça, Itabaiana"
     },
     {
       "date": "2026-08-09",
@@ -1269,7 +1582,7 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 16",
       "channel": "Band / SportyNet / Canal do Benja",
-      "stadium": ""
+      "stadium": "Estádio Castelão, São Luís"
     },
     {
       "date": "2026-08-09",
@@ -1282,6 +1595,96 @@
       "stadium": "Maracanã, Rio de Janeiro"
     },
     {
+      "date": "2026-08-09",
+      "time": "20:15",
+      "home": "Argentinos Juniors",
+      "away": "Racing Club",
+      "competition": "Campeonato Argentino",
+      "round": "Rodada 4",
+      "channel": "A definir",
+      "stadium": "Estádio Diego Armando Maradona"
+    },
+    {
+      "date": "2026-08-09",
+      "time": "20:30",
+      "home": "Cruz Azul",
+      "away": "New York City FC",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Red Bull Arena"
+    },
+    {
+      "date": "2026-08-09",
+      "time": "20:30",
+      "home": "Philadelphia Union",
+      "away": "Necaxa",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Subaru Park"
+    },
+    {
+      "date": "2026-08-09",
+      "time": "21:00",
+      "home": "Chicago Fire",
+      "away": "Santos Laguna",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "SeatGeek Stadium"
+    },
+    {
+      "date": "2026-08-09",
+      "time": "21:00",
+      "home": "Nashville SC",
+      "away": "Atlético de San Luis",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "GEODIS Park"
+    },
+    {
+      "date": "2026-08-09",
+      "time": "22:00",
+      "home": "Austin FC",
+      "away": "Puebla",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Q2 Stadium"
+    },
+    {
+      "date": "2026-08-09",
+      "time": "23:00",
+      "home": "San Diego FC",
+      "away": "Tijuana",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Snapdragon Stadium"
+    },
+    {
+      "date": "2026-08-09",
+      "time": "23:15",
+      "home": "Club América",
+      "away": "Portland Timbers",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Providence Park"
+    },
+    {
+      "date": "2026-08-10",
+      "time": "19:00",
+      "home": "Banfield",
+      "away": "Belgrano",
+      "competition": "Campeonato Argentino",
+      "round": "Rodada 4",
+      "channel": "A definir",
+      "stadium": "Estádio Florencio Solá"
+    },
+    {
       "date": "2026-08-10",
       "time": "19:30",
       "home": "Goiás",
@@ -1289,7 +1692,8 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 21",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "Estádio Hailé Pinheiro, Goiânia",
+      "source": "api"
     },
     {
       "date": "2026-08-10",
@@ -1299,7 +1703,8 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 16",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "Estádio da Curuzu, Belém",
+      "source": "api"
     },
     {
       "date": "2026-08-10",
@@ -1309,7 +1714,8 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 16",
       "channel": "A definir",
-      "stadium": "Estadio Jonas Duarte"
+      "stadium": "Estadio Jonas Duarte",
+      "source": "api"
     },
     {
       "date": "2026-08-10",
@@ -1319,7 +1725,18 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 15",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "Arena URBSAN",
+      "source": "api"
+    },
+    {
+      "date": "2026-08-10",
+      "time": "21:15",
+      "home": "Unión",
+      "away": "Central Córdoba",
+      "competition": "Campeonato Argentino",
+      "round": "Rodada 4",
+      "channel": "A definir",
+      "stadium": "Estádio 15 de Abril"
     },
     {
       "date": "2026-08-11",
@@ -1329,7 +1746,8 @@
       "competition": "Libertadores",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-11",
@@ -1339,7 +1757,8 @@
       "competition": "Sul-Americana",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": "Estadio Alberto J. Armando"
+      "stadium": "Estadio Alberto J. Armando",
+      "source": "api"
     },
     {
       "date": "2026-08-11",
@@ -1349,7 +1768,8 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 21",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-11",
@@ -1359,7 +1779,8 @@
       "competition": "Libertadores",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": "Estadio Manuel Murillo Toro"
+      "stadium": "Estadio Manuel Murillo Toro",
+      "source": "api"
     },
     {
       "date": "2026-08-11",
@@ -1369,7 +1790,8 @@
       "competition": "Libertadores",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": "Estadio Jorge Luis Hirschi"
+      "stadium": "Estadio Jorge Luis Hirschi",
+      "source": "api"
     },
     {
       "date": "2026-08-11",
@@ -1379,7 +1801,8 @@
       "competition": "Sul-Americana",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": "Estadio Hernando Siles"
+      "stadium": "Estadio Hernando Siles",
+      "source": "api"
     },
     {
       "date": "2026-08-12",
@@ -1389,7 +1812,8 @@
       "competition": "Libertadores",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": "Nubank Parque"
+      "stadium": "Nubank Parque",
+      "source": "api"
     },
     {
       "date": "2026-08-12",
@@ -1399,7 +1823,8 @@
       "competition": "Libertadores",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-12",
@@ -1409,7 +1834,8 @@
       "competition": "Sul-Americana",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-12",
@@ -1419,7 +1845,8 @@
       "competition": "Sul-Americana",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-12",
@@ -1429,7 +1856,8 @@
       "competition": "Libertadores",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-12",
@@ -1439,7 +1867,8 @@
       "competition": "Sul-Americana",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-13",
@@ -1449,7 +1878,8 @@
       "competition": "Libertadores",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-13",
@@ -1459,7 +1889,8 @@
       "competition": "Sul-Americana",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-13",
@@ -1469,7 +1900,8 @@
       "competition": "Sul-Americana",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-13",
@@ -1479,7 +1911,8 @@
       "competition": "Libertadores",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": "Estadio Gigante de Arroyito"
+      "stadium": "Estadio Gigante de Arroyito",
+      "source": "api"
     },
     {
       "date": "2026-08-13",
@@ -1489,7 +1922,8 @@
       "competition": "Sul-Americana",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": "Estadio Inca Garcilaso de la Vega"
+      "stadium": "Estadio Inca Garcilaso de la Vega",
+      "source": "api"
     },
     {
       "date": "2026-08-14",
@@ -1499,7 +1933,8 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 22",
       "channel": "A definir",
-      "stadium": "Estadio Primeiro de Maio"
+      "stadium": "Estadio Primeiro de Maio",
+      "source": "api"
     },
     {
       "date": "2026-08-14",
@@ -1509,7 +1944,8 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 22",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-14",
@@ -1519,7 +1955,8 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 22",
       "channel": "A definir",
-      "stadium": "Estadio Adelmar da Costa Carvalho"
+      "stadium": "Estadio Adelmar da Costa Carvalho",
+      "source": "api"
     },
     {
       "date": "2026-08-14",
@@ -1529,7 +1966,8 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 16",
       "channel": "A definir",
-      "stadium": "Estadio Municipal Castor Cifuentes"
+      "stadium": "Estadio Municipal Castor Cifuentes",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1539,7 +1977,8 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 16",
       "channel": "A definir",
-      "stadium": "Estadio Luso Brasileiro"
+      "stadium": "Estadio Luso Brasileiro",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1549,7 +1988,8 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 22",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1559,7 +1999,8 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 22",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1569,7 +2010,8 @@
       "competition": "Brasileirão Série A",
       "round": "Rodada 23",
       "channel": "A definir",
-      "stadium": "MRV Arena"
+      "stadium": "MRV Arena",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1579,7 +2021,8 @@
       "competition": "Brasileirão Série A",
       "round": "Rodada 23",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1589,7 +2032,8 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 17",
       "channel": "A definir",
-      "stadium": "Raulino de Oliveira"
+      "stadium": "Raulino de Oliveira",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1599,7 +2043,8 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 17",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1609,7 +2054,8 @@
       "competition": "Brasileirão Série D",
       "round": "Quartas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1619,7 +2065,8 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 16",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1629,7 +2076,8 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 16",
       "channel": "A definir",
-      "stadium": "Estadio Alberto Oliveira"
+      "stadium": "Estadio Alberto Oliveira",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1639,7 +2087,8 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 16",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1649,7 +2098,8 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 22",
       "channel": "A definir",
-      "stadium": "Estadio Alfredo Jaconi"
+      "stadium": "Estadio Alfredo Jaconi",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1659,7 +2109,8 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 22",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1669,7 +2120,8 @@
       "competition": "Brasileirão Série A",
       "round": "Rodada 23",
       "channel": "A definir",
-      "stadium": "Arena da Baixada"
+      "stadium": "Arena da Baixada",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1679,7 +2131,8 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 16",
       "channel": "A definir",
-      "stadium": "SESC Protasio Alves"
+      "stadium": "SESC Protasio Alves",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1689,7 +2142,8 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 17",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1699,7 +2153,8 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 17",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-15",
@@ -1709,7 +2164,8 @@
       "competition": "Brasileirão Série A",
       "round": "Rodada 23",
       "channel": "A definir",
-      "stadium": "Estadio Do MorumBIS"
+      "stadium": "Estadio Do MorumBIS",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1719,7 +2175,8 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 22",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1729,7 +2186,8 @@
       "competition": "Brasileirão Série A",
       "round": "Rodada 23",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1739,7 +2197,8 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 16",
       "channel": "A definir",
-      "stadium": "Estadio Urbano Caldeira"
+      "stadium": "Estadio Urbano Caldeira",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1749,7 +2208,8 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 16",
       "channel": "A definir",
-      "stadium": "Estadio Olimpico Nilton Santos"
+      "stadium": "Estadio Olimpico Nilton Santos",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1759,7 +2219,8 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 17",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1769,7 +2230,8 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 17",
       "channel": "A definir",
-      "stadium": "Estadio Francisco Stedile"
+      "stadium": "Estadio Francisco Stedile",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1779,7 +2241,8 @@
       "competition": "Brasileirão Série D",
       "round": "Quartas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1789,7 +2252,8 @@
       "competition": "Brasileirão Série A",
       "round": "Rodada 23",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1799,7 +2263,8 @@
       "competition": "Brasileirão Série D",
       "round": "Quartas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1809,7 +2274,8 @@
       "competition": "Brasileirão Série D",
       "round": "Quartas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1819,7 +2285,8 @@
       "competition": "Brasileirão Feminino A1",
       "round": "Rodada 16",
       "channel": "A definir",
-      "stadium": "Nubank Parque"
+      "stadium": "Nubank Parque",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1829,7 +2296,8 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 22",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1839,7 +2307,8 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 22",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1849,7 +2318,8 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 17",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1859,7 +2329,8 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 17",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1869,7 +2340,8 @@
       "competition": "Brasileirão Série A",
       "round": "Rodada 23",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1879,7 +2351,8 @@
       "competition": "Brasileirão Série A",
       "round": "Rodada 23",
       "channel": "A definir",
-      "stadium": "Barradao"
+      "stadium": "Barradao",
+      "source": "api"
     },
     {
       "date": "2026-08-16",
@@ -1889,7 +2362,8 @@
       "competition": "Brasileirão Série A",
       "round": "Rodada 23",
       "channel": "A definir",
-      "stadium": "Neo Quimica Arena"
+      "stadium": "Neo Quimica Arena",
+      "source": "api"
     },
     {
       "date": "2026-08-17",
@@ -1899,7 +2373,8 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 17",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-17",
@@ -1909,7 +2384,8 @@
       "competition": "Brasileirão Série C",
       "round": "Rodada 17",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-17",
@@ -1919,7 +2395,8 @@
       "competition": "Brasileirão Série A",
       "round": "Rodada 23",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-18",
@@ -1929,7 +2406,8 @@
       "competition": "Libertadores",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": "Estadio Malvinas Argentinas"
+      "stadium": "Estadio Malvinas Argentinas",
+      "source": "api"
     },
     {
       "date": "2026-08-18",
@@ -1939,7 +2417,8 @@
       "competition": "Sul-Americana",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-18",
@@ -1949,7 +2428,8 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 23",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-18",
@@ -1959,7 +2439,8 @@
       "competition": "Libertadores",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": "Estadio Banco Guayaquil"
+      "stadium": "Estadio Banco Guayaquil",
+      "source": "api"
     },
     {
       "date": "2026-08-18",
@@ -1969,7 +2450,8 @@
       "competition": "Libertadores",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": "Claro Arena"
+      "stadium": "Claro Arena",
+      "source": "api"
     },
     {
       "date": "2026-08-18",
@@ -1979,7 +2461,8 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 23",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-18",
@@ -1989,7 +2472,8 @@
       "competition": "Sul-Americana",
       "round": "Oitavas de Final",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     },
     {
       "date": "2026-08-18",
@@ -1999,7 +2483,8 @@
       "competition": "Brasileirão Série B",
       "round": "Rodada 23",
       "channel": "A definir",
-      "stadium": ""
+      "stadium": "",
+      "source": "api"
     }
   ]
 }
