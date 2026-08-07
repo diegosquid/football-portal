@@ -455,6 +455,155 @@ Campo de futebol horizontal com posicoes dos jogadores. **Usar em:** pre-match, 
 - Pode usar 2 widgets por artigo (um por time em pre-jogo)
 - Cores comuns: Flamengo `#FF0000`, Palmeiras `#006633`, Corinthians `#000000`, Sao Paulo `#FF0000`, Vasco `#000000`, Fluminense `#9B111E`, Botafogo `#000000`, Santos `#000000`, Gremio `#0081C8`, Internacional `#E30613`, Cruzeiro `#003DA5`, Atletico-MG `#000000`
 
+### 8.1 Kit Editorial MDX
+
+Usar componentes para substituir tabelas repetitivas e tornar dados verificaveis
+mais faceis de ler. Limite recomendado: **1 a 3 componentes editoriais por artigo**.
+Nao preencher props com estimativas, placeholders ou informacao sem fonte.
+
+#### EditorialExplainer (regras, tecnologia e processos)
+
+Nao e uma prancheta tatica. Usar quando o texto explica um processo editorial
+especifico. Variantes disponiveis:
+
+```jsx
+<EditorialExplainer variant="saot-decision-path" />
+<EditorialExplainer variant="saot-equal-criteria" />
+```
+
+#### MatchSnapshot (ficha do jogo)
+
+Preferir no lugar da tabela Markdown de ficha tecnica em pre-jogo:
+
+```jsx
+<MatchSnapshot
+  home="Flamengo"
+  away="Palmeiras"
+  competition="Brasileirao Serie A"
+  stage="Rodada 22"
+  date="Domingo, 9 de agosto"
+  kickoff="19h30 (Brasilia)"
+  venue="Maracana, Rio de Janeiro"
+  broadcast={["Globo", "Premiere"]}
+  aggregate="1 x 0"
+  status="Confirmado"
+  note="Portoes abrem as 16h30."
+/>
+```
+
+Campos opcionais: `title`, `home`, `away`, `stage`, `date`, `kickoff`, `venue`,
+`broadcast`, `aggregate`, `status`, `note`. `competition` e obrigatorio.
+
+#### ScenarioBoard (contas de classificacao)
+
+Usar em mata-mata, ultima rodada, risco de rebaixamento ou disputa de vaga:
+
+```jsx
+<ScenarioBoard
+  title="O que cada time precisa"
+  context="Jogo de volta · agregado 1 x 0"
+  items={[
+    { label: "Flamengo", outcome: "Classifica com empate", tone: "positive" },
+    { label: "Palmeiras", outcome: "Precisa vencer por dois gols", tone: "warning", detail: "Vitoria por um gol leva aos penaltis." },
+  ]}
+  note="Nao ha gol qualificado."
+/>
+```
+
+Tons: `positive`, `neutral`, `warning`, `danger`.
+
+#### StatBoard (numeros e comparacoes)
+
+Usar em analises, pos-jogo e balancos. `bar` aceita valor de 0 a 100:
+
+```jsx
+<StatBoard
+  title="O jogo em tres numeros"
+  variant="comparison"
+  items={[
+    { label: "Posse", value: "58%", bar: 58 },
+    { label: "Finalizacoes", value: "17", detail: "Seis no alvo", highlight: true },
+    { label: "xG", value: "1,84", trend: "up" },
+  ]}
+  source="SofaScore"
+/>
+```
+
+Variantes: `default`, `comparison`, `money`. Tendencias: `up`, `down`, `neutral`.
+Para valores financeiros, usar `variant="money"` e incluir unidade no `value`.
+
+#### FormGuide (forma recente)
+
+Usar somente com resultados conferidos. Ordem padrao: antigo para recente.
+
+```jsx
+<FormGuide
+  teams={[
+    {
+      name: "Flamengo",
+      results: [
+        { result: "win", opponent: "Vasco", score: "2 x 0", venue: "home" },
+        { result: "draw", opponent: "Bahia", score: "1 x 1", venue: "away" },
+        { result: "loss", opponent: "Inter", score: "0 x 1", venue: "away" },
+      ],
+      summary: "Sete pontos nos ultimos cinco jogos.",
+    },
+  ]}
+/>
+```
+
+Resultados: `win`, `draw`, `loss`. Local: `home`, `away`, `neutral`.
+
+#### TransferTracker (radar de mercado)
+
+Usar para duas ou mais negociacoes, diferenciando fato, negociacao e rumor:
+
+```jsx
+<TransferTracker
+  updatedAt="7 de agosto, 12h"
+  items={[
+    {
+      player: "Jogador A",
+      from: "Clube A",
+      to: "Clube B",
+      status: "negotiating",
+      fee: "R$ 25 milhoes",
+      contract: "Ate dezembro de 2029",
+      deadline: "11 de setembro",
+      detail: "Clubes discutem a forma de pagamento.",
+    },
+  ]}
+/>
+```
+
+Status: `confirmed`, `likely`, `negotiating`, `rumor`, `off`.
+
+#### MatchTimeline (lances decisivos)
+
+Usar em pos-jogo apenas depois do protocolo de verificacao da Secao 11.1:
+
+```jsx
+<MatchTimeline
+  home="Flamengo"
+  away="Palmeiras"
+  finalScore="2 x 1"
+  events={[
+    { minute: "18'", type: "goal", team: "Flamengo", description: "Pedro abre o placar", score: "1 x 0" },
+    { minute: "52'", type: "var", description: "Gol anulado por impedimento" },
+    { minute: "90+4'", type: "goal", team: "Flamengo", description: "Gol da vitoria", score: "2 x 1" },
+  ]}
+/>
+```
+
+Tipos: `goal`, `card`, `substitution`, `var`, `chance`, `note`.
+
+**Regras gerais do kit:**
+- Manter tabelas Markdown quando houver mais de 8 linhas ou comparacao tabular densa.
+- `TacticalExplainer` e exclusivo para desenhos de campo e comportamento tatico.
+- `EditorialExplainer` e exclusivo para regras, tecnologia, formato e processos.
+- Nao duplicar no paragrafo imediatamente seguinte todos os dados exibidos no componente.
+- Componentes nao substituem verificacao de fatos nem citacao da fonte no texto/frontmatter.
+
 ---
 
 ## 9. IMAGEM
