@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { trackClick } from "@/lib/track";
 import { VupiAdBanner } from "@/components/VupiAdBanner";
@@ -97,7 +98,20 @@ export function MatchPromoBanner({ matchSlug }: { matchSlug: string }) {
         </a>
 
         {/vupi/i.test(banner.advertiser) ? (
-          <ResponsibleGamblingNotice showVupiAuthorization />
+          <div
+            role="note"
+            aria-label="Aviso de jogo responsável"
+            className="flex items-center justify-center border-t border-white/10 bg-[#0b0e14] py-2 sm:h-20 sm:px-6 sm:py-0"
+          >
+            <Image
+              src="/ads/vupi/selo-jogo-responsavel.png"
+              alt="18+. Ministério da Fazenda adverte: Aposta não é investimento. Jogue com responsabilidade. Autorização SPA/MF nº 320/2025."
+              width={2146}
+              height={216}
+              sizes="(max-width: 896px) 100vw, 896px"
+              className="h-auto w-[92%] sm:h-14 sm:w-auto sm:max-w-[90%]"
+            />
+          </div>
         ) : (
           <ResponsibleGamblingNotice />
         )}
