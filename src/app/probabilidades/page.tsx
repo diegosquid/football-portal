@@ -3,6 +3,7 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { ProbabilityPanel } from "@/components/ProbabilityPanel";
 import { VupiAdBanner } from "@/components/VupiAdBanner";
+import { MatchPromoBanner } from "@/components/MatchPromoBanner";
 import { PushOptIn } from "@/components/PushOptIn";
 import { ArticleFAQ } from "@/components/ArticleFAQ";
 import { SeoHubLinks, type SeoHubLink } from "@/components/SeoHubLinks";
@@ -329,6 +330,15 @@ export default async function ProbabilidadesPage() {
                             )}
                           </h3>
                           <ProbabilityPanel prediction={p} />
+                          {date === today && (
+                            <div className="mt-4">
+                              <MatchPromoBanner
+                                matchSlug={slug}
+                                fallback={false}
+                                variant="probability-boost"
+                              />
+                            </div>
+                          )}
                         </article>
                       );
                     })}

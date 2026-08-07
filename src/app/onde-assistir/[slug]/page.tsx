@@ -24,7 +24,6 @@ import {
   type Channel,
 } from "@/lib/channels";
 import { ShareWhatsApp } from "@/components/ShareWhatsApp";
-import { PushBanner } from "@/components/PushBanner";
 import { MatchPromoBanner } from "@/components/MatchPromoBanner";
 import { buildMatchShareText } from "@/lib/share";
 import {
@@ -605,10 +604,6 @@ export default async function OndeAssistirPage({ params }: Props) {
         <div className="mb-10">
           <MatchPromoBanner matchSlug={match.slug} />
         </div>
-
-        {/* Convite de notificação — ainda no contexto do palpite, depois da
-            publicidade claramente identificada. Inline, sem overlay. */}
-        <PushBanner context={match.slug} />
 
         {/* Compartilhar o jogo — intenção alta: "que horas é e onde passa" */}
         <section className="mb-10 border-2 border-ink bg-lima/20 p-5 sm:p-6">

@@ -8,6 +8,7 @@ Conteúdo original produzido para publicação em sites externos (guest posts), 
 |---|------|---------|-------------|--------|--------------|---------|
 | 01 | Onde assistir o Flamengo em 2026 | `01-flamengo-onde-assistir.html` | _a definir_ | rascunho | — | branded + parcial + naked URL |
 | 02 | Corinthians em 2026: temporada e transmissão | `02-corinthians-temporada-2026.html` | _a definir_ | rascunho | — | parcial + parcial + genérico |
+| 03 | Onze canais em quatro dias (fragmentação) | `03-onze-canais-quatro-dias.html` | _a definir_ | rascunho | — | branded + naked URL + branded |
 
 ## Detalhe dos links por post
 
@@ -33,38 +34,58 @@ Conteúdo original produzido para publicação em sites externos (guest posts), 
 
 **Externos:** nenhum
 
+### 03 — Fragmentação das transmissões (~1.070 palavras)
+
+Ângulo: usa a semana real de 27–30/jul/2026 (19 jogos, 11 canais, 7 jogos sem canal definido) como caso concreto para argumentar que agenda diária deixou de ser conveniência. Todos os 3 links apontam para o **cluster de agenda**, que até aqui não havia recebido nenhum backlink.
+
+**Internos (3):**
+| # | Anchor | Tipo | URL destino |
+|---|--------|------|-------------|
+| 1 | "no Beira do Campo" | branded | /jogos-futebol-hoje |
+| 2 | "beiradocampo.com.br/jogos-de-amanha" | naked URL | /jogos-de-amanha |
+| 3 | "o mapa semanal do Beira do Campo" | branded | /jogos-da-semana |
+
+**Externos (3, autoridade):** CBF · Conmebol (Sul-Americana) · Amazon Prime Video
+
+**Dados usados (todos de `content/jogos.json`, atualizado 27/07/2026):** distribuição por dia, playoffs de volta da Sul-Americana com 4 brasileiros em casa em 3 plataformas, Internacional x Flamengo no Prime Video, Corinthians x Athletico-PR em Record/CazéTV/Premiere. Contexto de tabela vem do artigo da rodada 20 (pelotão de 6 clubes em 3 pontos) — sem afirmar posição pós-rodada 20, que não estava apurada.
+
 ## Distribuição global de anchors (rastreamento)
 
 Atualize a cada novo guest post para evitar padrão detectável:
 
-| Tipo | Meta % | Atual (2 posts) |
-|------|--------|-----------------|
-| Branded | 40-50% | 1/6 = 17% |
-| Naked URL | 15-20% | 1/6 = 17% |
-| Genérico | 15-20% | 1/6 = 17% |
-| Parcial / long-tail | 10-15% | 3/6 = 50% |
-| Exact match | ≤5% | 0/6 = 0% |
+| Tipo | Meta % | Atual (3 posts) | Antes (2 posts) |
+|------|--------|-----------------|-----------------|
+| Branded | 40-50% | 3/9 = 33% | 17% |
+| Naked URL | 15-20% | 2/9 = 22% | 17% |
+| Genérico | 15-20% | 1/9 = 11% | 17% |
+| Parcial / long-tail | 10-15% | 3/9 = 33% | 50% |
+| Exact match | ≤5% | 0/9 = 0% | 0% |
 
-> Observação: parcial está acima do alvo. Próximos posts devem priorizar **branded** ("Beira do Campo", "no portal Beira do Campo") e **naked URL** para reequilibrar.
+> Observação: o post 03 corrigiu boa parte do desequilíbrio — parcial caiu de 50% para 33% e branded subiu para 33%. Ainda falta branded para chegar na faixa de 40-50%; o post 04 deve usar **2 branded + 1 genérico** (genérico é o tipo mais atrasado agora).
 
 ## Distribuição por página-alvo
 
 | Tier | Página | Links recebidos |
 |------|--------|-----------------|
-| Tier 2 (money) | /jogos-futebol-hoje/flamengo | 1 |
-| Tier 2 (money) | /jogos-futebol-hoje/corinthians | 1 |
+| Tier 1 (home) | / | 2 |
+| Tier 2 (money — agenda) | /jogos-futebol-hoje | 1 |
+| Tier 2 (money — agenda) | /jogos-de-amanha | 1 |
+| Tier 2 (money — agenda) | /jogos-da-semana | 1 |
+| Tier 2 (money — time) | /jogos-futebol-hoje/flamengo | 1 |
+| Tier 2 (money — time) | /jogos-futebol-hoje/corinthians | 1 |
 | Tier 2 (categoria) | /categoria/libertadores | 1 |
 | Tier 2 (categoria) | /categoria/brasileirao | 1 |
-| Tier 1 (home) | / | 2 |
 
 ## Próximos posts sugeridos
 
 | # | Tema | Página-alvo principal | Tipo de anchor a priorizar |
 |---|------|-----------------------|----------------------------|
-| 03 | Palmeiras 2026 — campanha e transmissão | /jogos-futebol-hoje/palmeiras | **branded** |
-| 04 | São Paulo 2026 — agenda e momentos | /jogos-futebol-hoje/sao-paulo | **naked URL** |
-| 05 | Brasileirão 2026 — guia da temporada | /categoria/brasileirao | **branded** |
-| 06 | Como funciona a Libertadores 2026 | /categoria/libertadores | **genérico** |
+| 04 | Palmeiras 2026 — campanha e transmissão | /jogos-futebol-hoje/palmeiras | **branded** + genérico |
+| 05 | São Paulo 2026 — agenda e momentos | /jogos-futebol-hoje/sao-paulo | **genérico** |
+| 06 | Brasileirão 2026 — guia da temporada | /categoria/brasileirao | **branded** |
+| 07 | Como funciona a Libertadores 2026 | /categoria/libertadores | **genérico** |
+
+> Sobre o cluster de agenda: com 3 links em 3 URLs diferentes (hoje / amanhã / semana), o cluster já está ativado. Nos próximos posts, priorizar landings de **time** e de **competição**, que têm volume de busca próprio e ainda estão com 1 link cada.
 
 ## Regras adotadas (lembrete)
 

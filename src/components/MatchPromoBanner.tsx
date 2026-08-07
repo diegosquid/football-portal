@@ -18,13 +18,25 @@ interface GameBanner {
   mobileImageUrl: string | null;
 }
 
+type MatchPromoVariant = "default" | "probability-boost";
+
 /**
  * Consulta a campanha no navegador para não ficar presa ao ISR da página.
  * Assim, ativar/trocar uma arte no painel aparece já na próxima visita, sem
  * build ou deploy. Na ausência de campanha, mantém a publicidade padrão.
  */
-export function MatchPromoBanner({ matchSlug }: { matchSlug: string }) {
-  const [banner, setBanner] = useState<GameBanner | null>(null);
+export function MatchPromoBanner({
+  matchSlug,
+  fallback = true,
+  variant = "default",
+}: {
+  matchSlug: string;
+  fallback?: boolean;
+  variant?: MatchPromoVariant;
+}) {
+  const [banner, setBanner] = useState<GameBanner | null | undefined>(
+    API ? undefined : null,
+  );
 
   useEffect(() => {
     if (!API) return;
@@ -48,18 +60,46 @@ export function MatchPromoBanner({ matchSlug }: { matchSlug: string }) {
   }, [matchSlug]);
 
   if (!banner) {
-    return <VupiAdBanner placement="onde_assistir_jogo" compact />;
+    return fallback ? (
+      <VupiAdBanner placement="onde_assistir_jogo" compact />
+    ) : null;
   }
+
+  const isBoost = variant === "probability-boost";
 
   return (
     <aside aria-label={`Publicidade de ${banner.advertiser}`} className="not-prose">
       <div className="mb-2 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500">
         <span>Publicidade</span>
         <span aria-hidden="true" className="h-px flex-1 bg-ink/10" />
-        <span>{banner.advertiser}</span>
+        <span>
+          {isBoost ? `Oferta da ${banner.advertiser} · 18+` : banner.advertiser}
+        </span>
       </div>
 
-      <div className="overflow-hidden rounded-xl bg-[#0b0e14] shadow-sm ring-1 ring-black/10 transition duration-300 hover:-translate-y-0.5 hover:shadow-xl focus-within:ring-2 focus-within:ring-white/80">
+      {isBoost && (
+        <div className="border-x-2 border-t-2 border-lima bg-campo-deep px-4 py-3 text-cal sm:flex sm:items-center sm:justify-between sm:gap-5 sm:px-5">
+          <div className="flex items-center gap-3">
+            <span className="shrink-0 bg-lima px-2 py-1 font-mono text-[10px] font-black uppercase tracking-[0.16em] text-ink">
+              Boost de odds
+            </span>
+            <strong className="font-display text-base sm:text-lg">
+              Campanha ativa para este jogo
+            </strong>
+          </div>
+          <p className="mt-2 text-xs leading-relaxed text-cal/65 sm:mt-0 sm:max-w-xs sm:text-right">
+            Oferta da operadora, independente do modelo estatístico acima.
+          </p>
+        </div>
+      )}
+
+      <div
+        className={`overflow-hidden bg-[#0b0e14] shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-xl focus-within:ring-2 focus-within:ring-white/80 ${
+          isBoost
+            ? "rounded-b-xl ring-2 ring-lima"
+            : "rounded-xl ring-1 ring-black/10"
+        }`}
+      >
         <a
           href={banner.targetUrl}
           target="_blank"
