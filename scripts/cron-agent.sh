@@ -31,6 +31,7 @@ export CLAUDECODE=""
 LOG_DIR="$PROJECT_DIR/logs"
 TIMESTAMP=$(TZ="America/Sao_Paulo" date +%Y-%m-%d-%H%M)
 LOG_FILE="$LOG_DIR/cron-$TIMESTAMP.log"
+CRON_STATUS=0
 
 mkdir -p "$LOG_DIR"
 
@@ -69,6 +70,18 @@ else
   log "WARN: git pull falhou (continuando mesmo assim)"
 fi
 
+# Rede de segurança dos dados dinâmicos. O agente que atualiza jogos deve
+# publicar no R2, mas o site não pode depender de uma instrução em linguagem
+# natural para receber JSON novo. --if-newer impede sobrescrever um objeto
+# remoto que seja mais recente que o checkout local.
+log "--- publish-data (rede de seguranca R2) ---"
+if node "$PROJECT_DIR/scripts/publish-data.js" --if-newer >> "$LOG_FILE" 2>&1; then
+  log "publish-data OK (arquivos atuais ou publicados e verificados)"
+else
+  log "ERRO: publish-data falhou — dados dinamicos podem estar desatualizados"
+  CRON_STATUS=1
+fi
+
 # Checagem de espaçamento — SKIP se último artigo foi há menos de 45 min
 ULTIMO_MDX=$(ls -t "$PROJECT_DIR/content/articles/"*.mdx 2>/dev/null | head -1)
 if [ -n "$ULTIMO_MDX" ]; then
@@ -81,7 +94,7 @@ if [ -n "$ULTIMO_MDX" ]; then
     # Limpa ssh-agent antes de sair
     [ -n "${SSH_AGENT_PID:-}" ] && kill "$SSH_AGENT_PID" 2>/dev/null || true
     log "=== CRON END ==="
-    exit 0
+    exit "$CRON_STATUS"
   fi
   log "Ultimo artigo: $ULTIMO_NOME (ha ${DIFF_MIN} min) — OK, prosseguindo"
 fi
@@ -107,9 +120,11 @@ if node "$PROJECT_DIR/scripts/publish-articles.js" >> "$LOG_FILE" 2>&1; then
   log "publish-articles OK"
 else
   log "ERRO: publish-articles falhou — pode haver artigo commitado fora do ar"
+  CRON_STATUS=1
 fi
 
 # Limpa ssh-agent pra nao acumular processos
 [ -n "${SSH_AGENT_PID:-}" ] && kill "$SSH_AGENT_PID" 2>/dev/null || true
 
 log "=== CRON END ==="
+exit "$CRON_STATUS"
