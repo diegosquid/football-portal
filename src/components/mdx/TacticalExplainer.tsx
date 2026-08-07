@@ -475,7 +475,7 @@ function VulnerableSpaces() {
         <Ball point={[320, 173]} />
 
         <g fontFamily="var(--font-spline-mono), ui-monospace" textAnchor="middle">
-          <text x="320" y="127" fill={COLORS.chalk} fontSize="13" fontWeight="700">
+          <text x="320" y="100" fill={COLORS.chalk} fontSize="13" fontWeight="700">
             ESPAÇO À FRENTE DA LINHA
           </text>
           <text x="112" y="316" fill={COLORS.chalk} fontSize="11" fontWeight="700">
