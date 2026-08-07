@@ -1,96 +1,6 @@
 {
-  "updatedAt": "2026-08-06T13:09:00-03:00",
+  "updatedAt": "2026-08-07T08:36:00-03:00",
   "games": [
-    {
-      "date": "2026-08-06",
-      "time": "19:00",
-      "home": "Unión",
-      "away": "Lanús",
-      "competition": "Campeonato Argentino",
-      "round": "Rodada 2",
-      "channel": "A definir",
-      "stadium": "Estádio 15 de Abril"
-    },
-    {
-      "date": "2026-08-06",
-      "time": "20:00",
-      "home": "Corinthians",
-      "away": "Internacional",
-      "competition": "Copa do Brasil",
-      "round": "Oitavas de Final (Volta)",
-      "channel": "Amazon Prime Video",
-      "stadium": "Neo Química Arena, São Paulo"
-    },
-    {
-      "date": "2026-08-06",
-      "time": "20:00",
-      "home": "Vitória",
-      "away": "Athletico-PR",
-      "competition": "Copa do Brasil",
-      "round": "Oitavas de Final (Volta)",
-      "channel": "GE TV / SporTV / Premiere",
-      "stadium": "Barradão, Salvador"
-    },
-    {
-      "date": "2026-08-06",
-      "time": "20:30",
-      "home": "New York City FC",
-      "away": "Santos Laguna",
-      "competition": "Leagues Cup",
-      "round": "Fase 1",
-      "channel": "Apple TV",
-      "stadium": "Red Bull Arena"
-    },
-    {
-      "date": "2026-08-06",
-      "time": "21:00",
-      "home": "Cruz Azul",
-      "away": "Philadelphia Union",
-      "competition": "Leagues Cup",
-      "round": "Fase 1",
-      "channel": "Apple TV",
-      "stadium": "Subaru Park"
-    },
-    {
-      "date": "2026-08-06",
-      "time": "21:30",
-      "home": "Chicago Fire",
-      "away": "Necaxa",
-      "competition": "Leagues Cup",
-      "round": "Fase 1",
-      "channel": "Apple TV",
-      "stadium": "SeatGeek Stadium"
-    },
-    {
-      "date": "2026-08-06",
-      "time": "22:00",
-      "home": "Austin FC",
-      "away": "Tijuana",
-      "competition": "Leagues Cup",
-      "round": "Fase 1",
-      "channel": "Apple TV",
-      "stadium": "Q2 Stadium"
-    },
-    {
-      "date": "2026-08-06",
-      "time": "23:00",
-      "home": "Club América",
-      "away": "San Diego FC",
-      "competition": "Leagues Cup",
-      "round": "Fase 1",
-      "channel": "Apple TV",
-      "stadium": "Estadio Banorte"
-    },
-    {
-      "date": "2026-08-06",
-      "time": "23:30",
-      "home": "Portland Timbers",
-      "away": "Puebla",
-      "competition": "Leagues Cup",
-      "round": "Fase 1",
-      "channel": "Apple TV",
-      "stadium": "Providence Park"
-    },
     {
       "date": "2026-08-07",
       "time": "19:30",
@@ -846,6 +756,206 @@
       "round": "Rodada 4",
       "channel": "A definir",
       "stadium": "Estádio 15 de Abril"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "12:00",
+      "home": "Kairat Almaty",
+      "away": "Levski Sofia",
+      "competition": "Champions League",
+      "round": "3ª Fase Preliminar (Volta)",
+      "channel": "A definir",
+      "stadium": "Turkestan-Arena, Turkestan"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "13:00",
+      "home": "Bodø/Glimt",
+      "away": "Union Saint-Gilloise",
+      "competition": "Champions League",
+      "round": "3ª Fase Preliminar (Volta)",
+      "channel": "A definir",
+      "stadium": "Aspmyra, Bodø"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "13:00",
+      "home": "Sabah",
+      "away": "AGF Aarhus",
+      "competition": "Champions League",
+      "round": "3ª Fase Preliminar (Volta)",
+      "channel": "A definir",
+      "stadium": "Alinja Stadium, Baku"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "14:00",
+      "home": "Kauno Žalgiris",
+      "away": "Dínamo Zagreb",
+      "competition": "Champions League",
+      "round": "3ª Fase Preliminar (Volta)",
+      "channel": "A definir",
+      "stadium": "Dariaus ir Girėno Stadionas, Kaunas"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "14:30",
+      "home": "NEC Nijmegen",
+      "away": "Olympiacos",
+      "competition": "Champions League",
+      "round": "3ª Fase Preliminar (Volta)",
+      "channel": "A definir",
+      "stadium": "Goffertstadion, Nijmegen"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "15:00",
+      "home": "Estrela Vermelha",
+      "away": "Hapoel Be'er Sheva",
+      "competition": "Champions League",
+      "round": "3ª Fase Preliminar (Volta)",
+      "channel": "A definir",
+      "stadium": "Stadion Rajko Mitić, Belgrado"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "15:15",
+      "home": "Celje",
+      "away": "Ararat-Armenia",
+      "competition": "Champions League",
+      "round": "3ª Fase Preliminar (Volta)",
+      "channel": "A definir",
+      "stadium": "Stadion Celje, Celje"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "15:15",
+      "home": "Slovan Bratislava",
+      "away": "Mjällby",
+      "competition": "Champions League",
+      "round": "3ª Fase Preliminar (Volta)",
+      "channel": "A definir",
+      "stadium": "Národný futbalový štadión, Bratislava"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "15:30",
+      "home": "Sturm Graz",
+      "away": "Fenerbahçe",
+      "competition": "Champions League",
+      "round": "3ª Fase Preliminar (Volta)",
+      "channel": "A definir",
+      "stadium": "Stadion Graz Liebenau, Graz"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "16:00",
+      "home": "Lyon",
+      "away": "Sparta Praga",
+      "competition": "Champions League",
+      "round": "3ª Fase Preliminar (Volta)",
+      "channel": "A definir",
+      "stadium": "OL Stadium, Décines"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "19:00",
+      "home": "Fluminense",
+      "away": "Independiente Rivadavia",
+      "competition": "Libertadores",
+      "round": "Oitavas de Final (Ida)",
+      "channel": "ESPN / Disney+",
+      "stadium": "Maracanã, Rio de Janeiro"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "19:30",
+      "home": "Avaí",
+      "away": "CRB",
+      "competition": "Brasileirão Série B",
+      "round": "Rodada 21",
+      "channel": "ESPN / Disney+ / SportyNet / X Sports",
+      "stadium": "Ressacada, Florianópolis"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "20:30",
+      "home": "Charlotte FC",
+      "away": "Pachuca",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Bank of America Stadium"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "20:30",
+      "home": "Columbus Crew",
+      "away": "Pumas UNAM",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "ScottsMiracle-Gro Field"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "21:00",
+      "home": "FC Cincinnati",
+      "away": "Atlas",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "TQL Stadium"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "21:30",
+      "home": "Deportes Tolima",
+      "away": "Independiente del Valle",
+      "competition": "Libertadores",
+      "round": "Oitavas de Final (Ida)",
+      "channel": "Paramount+",
+      "stadium": "Estádio Manuel Murillo Toro, Ibagué"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "21:30",
+      "home": "Estudiantes",
+      "away": "Universidad Católica",
+      "competition": "Libertadores",
+      "round": "Oitavas de Final (Ida)",
+      "channel": "ESPN / Disney+",
+      "stadium": "Estádio UNO Jorge Luis Hirschi, La Plata"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "21:30",
+      "home": "Minnesota United",
+      "away": "Atlante",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Allianz Field"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "22:30",
+      "home": "Real Salt Lake",
+      "away": "Juárez",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "America First Field"
+    },
+    {
+      "date": "2026-08-11",
+      "time": "23:00",
+      "home": "Tigres",
+      "away": "Vancouver Whitecaps",
+      "competition": "Leagues Cup",
+      "round": "Fase 1",
+      "channel": "Apple TV",
+      "stadium": "Estádio Universitario, Monterrey"
     }
   ]
 }
