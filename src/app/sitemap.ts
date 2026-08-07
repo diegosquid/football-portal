@@ -99,6 +99,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/copa-do-brasil`, lastModified: scheduleDate, changeFrequency: "daily", priority: 0.9 },
     { url: `${baseUrl}/copa-do-mundo-feminina-2027`, lastModified: STATIC_CONTENT_UPDATED, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/sobre`, lastModified: STATIC_CONTENT_UPDATED, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${baseUrl}/jogo-responsavel`, lastModified: new Date("2026-08-07T00:00:00-03:00"), changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/feed.xml`, lastModified: newestArticle, changeFrequency: "hourly", priority: 0.5 },
     { url: `${baseUrl}/atom.xml`, lastModified: newestArticle, changeFrequency: "hourly", priority: 0.5 },
   ];

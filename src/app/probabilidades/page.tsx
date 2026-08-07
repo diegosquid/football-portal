@@ -26,12 +26,12 @@ import { getTeam } from "@/lib/teams";
 export const revalidate = 900; // 15 min
 
 const PAGE_DESCRIPTION =
-  "Veja os palpites de hoje com chances de vitória, empate, mais de 2,5 gols, ambos marcam e placar provável, calculados por modelo estatístico próprio.";
+  "Veja as probabilidades dos jogos de hoje para vitória, empate, gols e ambos marcam, calculadas por modelo estatístico próprio. Estimativas não garantem resultados.";
 
 export async function generateMetadata(): Promise<Metadata> {
   const today = getTodayBRT();
   const data = await getProbabilitiesData();
-  const title = `Palpites de Hoje (${formatDateShortBR(today)}): Probabilidades dos Jogos`;
+  const title = `Probabilidades dos Jogos de Hoje (${formatDateShortBR(today)}) | Palpites Estatísticos`;
   const description =
     data && data.predictions.length > 0
       ? `${PAGE_DESCRIPTION} ${data.predictions.length} jogos analisados.`
@@ -53,7 +53,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/og-probabilidades.jpg",
           width: 1200,
           height: 630,
-          alt: "Palpites de hoje — probabilidades, gols e placar",
+          alt: "Probabilidades dos jogos de hoje — resultado, gols e placar",
         },
       ],
     },
@@ -87,16 +87,25 @@ function formatGeneratedAt(timestamp?: string): string | null {
   }).format(new Date(timestamp));
 }
 
+function dataIsFresh(timestamp?: string): boolean {
+  if (!timestamp) return false;
+  const generatedAt = Date.parse(timestamp);
+  if (!Number.isFinite(generatedAt)) return false;
+
+  const age = Date.now() - generatedAt;
+  return age >= 0 && age <= 36 * 60 * 60 * 1000;
+}
+
 const FAQ = [
   {
-    question: "Como o Beira do Campo calcula os palpites e probabilidades?",
+    question: "Como o Beira do Campo calcula as probabilidades?",
     answer:
       "Usamos um modelo estatístico próprio (distribuição de Poisson) que mede a força de ataque e defesa de cada time, separando desempenho como mandante e visitante, para estimar a chance de vitória, empate, mais de 2.5 gols e ambos marcam.",
   },
   {
-    question: "Os palpites são confiáveis?",
+    question: "As probabilidades garantem o resultado?",
     answer:
-      "São estimativas estatísticas baseadas nos resultados reais de cada time, não garantia de resultado. Futebol é imprevisível — use as probabilidades como referência, não como certeza.",
+      "Não. São estimativas estatísticas baseadas nos resultados recentes de cada time. Futebol é imprevisível — use as probabilidades como referência, nunca como certeza.",
   },
   {
     question: "Com que frequência as probabilidades são atualizadas?",
@@ -104,9 +113,9 @@ const FAQ = [
       "As probabilidades são recalculadas com os resultados mais recentes de cada rodada, refletindo a forma atual dos times.",
   },
   {
-    question: "Os palpites do Beira do Campo são gratuitos?",
+    question: "As probabilidades do Beira do Campo são gratuitas?",
     answer:
-      "Sim. Todas as probabilidades e palpites do Beira do Campo são gratuitos e servem apenas como informação.",
+      "Sim. Todas as probabilidades do Beira do Campo são gratuitas e têm finalidade exclusivamente informativa.",
   },
 ];
 
@@ -122,17 +131,23 @@ export default async function ProbabilidadesPage() {
   const today = getTodayBRT();
   const tomorrow = getTomorrowBRT();
   const updatedAt = formatGeneratedAt(data?.generatedAt);
+  const freshData = dataIsFresh(data?.generatedAt);
 
-  // Agrupa por data (Hoje, Amanhã, próximos) para escaneabilidade e SEO.
+  // Agrupa por data e separa partidas atuais das já encerradas.
   const byDate = new Map<string, Prediction[]>();
   for (const p of predictions) {
     byDate.set(p.date, [...(byDate.get(p.date) ?? []), p]);
   }
-  const dateGroups = [...byDate.entries()].sort((a, b) =>
-    a[0].localeCompare(b[0]),
-  );
+  const currentDateGroups = [...byDate.entries()]
+    .filter(([date]) => date >= today)
+    .sort((a, b) => a[0].localeCompare(b[0]));
+  const pastDateGroups = [...byDate.entries()]
+    .filter(([date]) => date < today)
+    .sort((a, b) => b[0].localeCompare(a[0]));
+  const currentPredictions = currentDateGroups.flatMap(([, items]) => items);
+  const showAdvertising = freshData && currentPredictions.length > 0;
 
-  const collectionItems = predictions.map((p) => {
+  const collectionItems = currentPredictions.map((p) => {
     const slug = buildMatchSlug(p.home, p.away, p.date);
     return {
       name: `${p.home} x ${p.away}`,
@@ -142,7 +157,7 @@ export default async function ProbabilidadesPage() {
     };
   });
 
-  const collectionTitle = `Palpites de Hoje (${formatDateShortBR(today)}): Probabilidades dos Jogos`;
+  const collectionTitle = `Probabilidades dos Jogos de Hoje (${formatDateShortBR(today)})`;
   const priorityTeamSlugs = [
     "bahia",
     "vitoria",
@@ -214,32 +229,42 @@ export default async function ProbabilidadesPage() {
           Modelo estatístico
         </p>
         <h1 className="mt-3 font-display text-4xl font-extrabold leading-none tracking-tight text-ink sm:text-6xl">
-          Palpites de Hoje e dos Próximos Jogos
+          Probabilidades dos Jogos de Hoje
         </h1>
         <p className="mt-4 max-w-2xl leading-relaxed text-gray-600">
-          Quem tem mais chance de vencer cada jogo, com o palpite do nosso
-          modelo estatístico próprio. Calculamos a força de ataque e defesa de
-          cada time para estimar resultado, gols e ambos marcam — não é palpite
-          de achismo, é dado.
+          Estimativas de vitória, empate, gols e ambos marcam calculadas pelo
+          nosso modelo estatístico a partir do desempenho recente dos times.
+          Probabilidades ajudam a comparar cenários, mas não garantem resultados.
         </p>
-        <p className="mt-3 text-sm text-gray-500">
-          {updatedAt && (
-            <>
-              Atualizado em <time dateTime={data?.generatedAt}>{updatedAt}</time>
-              {" · "}
-            </>
-          )}
-          Modelo Poisson v1 · Fonte dos resultados: API-Football ·{" "}
-          <Link
-            href="/metodologia-dos-palpites"
-            className="font-medium text-primary hover:underline"
-          >
-            metodologia e desempenho
-          </Link>
-        </p>
-
-        <div className="mt-6">
-          <PushOptIn />
+        <div
+          className={`mt-5 border-l-4 px-4 py-3 text-sm ${
+            freshData
+              ? "border-primary bg-primary/5 text-gray-600"
+              : "border-amber-600 bg-amber-50 text-amber-950"
+          }`}
+        >
+          <p className="font-bold text-ink">
+            {freshData ? "Dados atualizados" : "Atualização dos dados pendente"}
+          </p>
+          <p className="mt-1">
+            {updatedAt ? (
+              <>
+                Último cálculo em{" "}
+                <time dateTime={data?.generatedAt}>{updatedAt}</time>.{" "}
+              </>
+            ) : (
+              <>Horário do último cálculo indisponível. </>
+            )}
+            {!freshData &&
+              "A publicidade fica suspensa até a próxima atualização do modelo. "}
+            Modelo Poisson v1 · Fonte: API-Football ·{" "}
+            <Link
+              href="/metodologia-dos-palpites"
+              className="font-semibold text-primary hover:underline"
+            >
+              metodologia e desempenho
+            </Link>
+          </p>
         </div>
 
         <nav className="mb-10 mt-5 flex flex-wrap gap-2 text-sm">
@@ -263,19 +288,15 @@ export default async function ProbabilidadesPage() {
           </Link>
         </nav>
 
-        <SeoHubLinks
-          title="Explore as probabilidades"
-          description="Palpites de partidas, disputas da temporada e chances de cada clube, todos calculados a partir de dados atualizados."
-          links={probabilityLinks}
-        />
+        {showAdvertising && (
+          <div className="mb-10">
+            <VupiAdBanner placement="palpites_topo" priority />
+          </div>
+        )}
 
-        <div className="mb-10">
-          <VupiAdBanner placement="palpites_topo" priority />
-        </div>
-
-        {dateGroups.length > 0 ? (
+        {currentDateGroups.length > 0 ? (
           <div className="space-y-12">
-            {dateGroups.map(([date, preds], groupIndex) => (
+            {currentDateGroups.map(([date, preds], groupIndex) => (
               <div key={date}>
                 <section>
                   <div className="mb-5 flex items-center gap-3 border-b-2 border-ink pb-2">
@@ -314,27 +335,96 @@ export default async function ProbabilidadesPage() {
                   </div>
                 </section>
 
-                {groupIndex === 0 && dateGroups.length > 1 && (
+                {showAdvertising &&
+                  groupIndex === 0 &&
+                  currentDateGroups.length > 1 && (
                   <div className="mt-12">
-                    <VupiAdBanner
-                      placement="palpites_entre_jogos"
-                      compact
-                    />
+                    <VupiAdBanner placement="palpites_entre_jogos" compact />
                   </div>
-                )}
+                  )}
               </div>
             ))}
           </div>
         ) : (
-          <p className="border border-ink/15 bg-white p-6 text-gray-600">
-            Nenhum palpite disponível no momento. Volte em breve.
-          </p>
+          <div className="border border-amber-600/30 bg-amber-50 p-6 text-amber-950">
+            <p className="font-bold">Nenhuma probabilidade atual disponível.</p>
+            <p className="mt-1 text-sm">
+              O modelo está aguardando a próxima atualização de jogos. Volte em
+              breve.
+            </p>
+          </div>
         )}
+
+        {pastDateGroups.length > 0 && (
+          <details className="group mt-12 border border-ink/15 bg-white">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-display text-lg font-extrabold text-ink marker:content-none">
+              Resultados e probabilidades anteriores
+              <span
+                aria-hidden="true"
+                className="text-primary transition group-open:rotate-180"
+              >
+                ↓
+              </span>
+            </summary>
+            <div className="space-y-10 border-t border-ink/10 px-5 py-6">
+              {pastDateGroups.map(([date, preds]) => (
+                <section key={date}>
+                  <div className="mb-5 flex items-center gap-3 border-b border-ink/15 pb-2">
+                    <h2 className="font-display text-xl font-extrabold capitalize tracking-tight text-ink">
+                      {formatDateLongBR(date)}
+                    </h2>
+                    <span className="font-mono text-xs text-gray-500">
+                      {formatDateShort(date)} · {preds.length} jogo
+                      {preds.length > 1 ? "s" : ""}
+                    </span>
+                  </div>
+
+                  <div className="space-y-6">
+                    {preds.map((p) => {
+                      const slug = buildMatchSlug(p.home, p.away, p.date);
+                      const hasMatchPage = matchSlugs.has(slug);
+                      const heading = `${p.home} x ${p.away}`;
+                      return (
+                        <article key={slug} id={slug} className="scroll-mt-24">
+                          <h3 className="mb-2 font-display text-lg font-extrabold tracking-tight text-ink">
+                            {hasMatchPage ? (
+                              <Link
+                                href={`/onde-assistir/${slug}`}
+                                className="transition-colors hover:text-primary"
+                              >
+                                {heading}
+                              </Link>
+                            ) : (
+                              heading
+                            )}
+                          </h3>
+                          <ProbabilityPanel prediction={p} />
+                        </article>
+                      );
+                    })}
+                  </div>
+                </section>
+              ))}
+            </div>
+          </details>
+        )}
+
+        <div className="mt-10">
+          <PushOptIn />
+        </div>
+
+        <div className="mt-12">
+          <SeoHubLinks
+            title="Explore as probabilidades"
+            description="Partidas, disputas da temporada e chances de cada clube, calculadas pelo nosso modelo estatístico."
+            links={probabilityLinks}
+          />
+        </div>
 
         {/* Como calculamos — E-E-A-T + disclaimer (compliance) */}
         <section className="mt-14 rounded-lg bg-surface p-6">
           <h2 className="mb-3 text-lg font-bold text-secondary">
-            Como calculamos os palpites
+            Como calculamos as probabilidades
           </h2>
           <div className="space-y-3 text-sm leading-relaxed text-gray-600">
             <p>
@@ -352,10 +442,10 @@ export default async function ProbabilidadesPage() {
               liga para não exagerar com amostra pequena.
             </p>
             <p className="text-xs text-gray-500">
-              Os palpites são <strong>estimativas estatísticas</strong> e não
-              garantem resultado — futebol é imprevisível por natureza. Conteúdo
-              informativo. Apostas são para maiores de 18 anos; aposte com
-              responsabilidade.
+              As probabilidades são <strong>estimativas estatísticas</strong> e
+              não garantem resultado — futebol é imprevisível por natureza.
+              Conteúdo informativo. Apostas são para maiores de 18 anos; jogue
+              com responsabilidade.
             </p>
             <p>
               <Link
@@ -372,7 +462,7 @@ export default async function ProbabilidadesPage() {
         {/* FAQ visível: responde dúvidas reais; o schema apenas descreve o conteúdo. */}
         <section className="mt-10">
           <h2 className="mb-4 font-display text-2xl font-extrabold tracking-tight text-ink">
-            Perguntas frequentes sobre os palpites
+            Perguntas frequentes sobre as probabilidades
           </h2>
           <ArticleFAQ items={FAQ} />
         </section>

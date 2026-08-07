@@ -56,14 +56,8 @@ export function PushOptIn() {
     );
   }
 
-  if (status === "denied") {
-    return (
-      <p className="text-xs text-gray-500">
-        Notificações bloqueadas no navegador. Libere nas configurações do site
-        para receber os palpites.
-      </p>
-    );
-  }
+  // Não transforme uma permissão já negada em ruído para quem veio pela mídia.
+  if (status === "denied") return null;
 
   return (
     <div>
@@ -73,7 +67,7 @@ export function PushOptIn() {
         disabled={status === "loading"}
         className="inline-flex items-center gap-2 rounded-md border-2 border-ink bg-lima px-5 py-3 text-sm font-bold text-ink transition-all hover:-translate-y-0.5 disabled:opacity-60"
       >
-        {status === "loading" ? "Ativando…" : "Receber os palpites todo dia"}
+        {status === "loading" ? "Ativando…" : "Receber novas probabilidades"}
       </button>
       {status === "error" && (
         <p className="mt-2 text-xs text-red-600">

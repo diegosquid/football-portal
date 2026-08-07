@@ -85,6 +85,7 @@ ${recentLinks}
 ## Optional
 
 - [Sobre Nós](${baseUrl}/sobre): Informações sobre o portal e a equipe
+- [Jogo Responsável](${baseUrl}/jogo-responsavel): Autoexclusão e canais de apoio para maiores de 18 anos
 - [Política de Privacidade](${baseUrl}/politica-de-privacidade): Política de privacidade
 - [Termos de Uso](${baseUrl}/termos-de-uso): Termos de uso do portal
 `;

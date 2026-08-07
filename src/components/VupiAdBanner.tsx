@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { trackClick } from "@/lib/track";
+import { ResponsibleGamblingNotice } from "@/components/ResponsibleGamblingNotice";
 
 const VUPI_URL = "https://go.aff.estrelabetpartners.com/q4ghwn8l";
 
@@ -17,29 +18,30 @@ const COPY_BY_PLACEMENT: Record<
   { headline: string; description: string; cta: string }
 > = {
   palpites_topo: {
-    headline: "Palpite na mão. Agora é jogo.",
-    description: "Compare sua leitura com as apostas esportivas da Vupi.",
-    cta: "Ver jogos na Vupi",
+    headline: "Apostas esportivas na Vupi",
+    description:
+      "Consulte jogos e mercados disponíveis na plataforma autorizada.",
+    cta: "Conhecer a Vupi",
   },
   palpites_entre_jogos: {
-    headline: "Bateu o palpite?",
-    description: "Confira os jogos e mercados esportivos disponíveis na Vupi.",
-    cta: "Ir para a Vupi",
+    headline: "Jogos e mercados esportivos",
+    description: "Veja as opções disponíveis na Vupi para maiores de 18 anos.",
+    cta: "Ver mercados",
   },
   probabilidades_time: {
-    headline: "Os números estão na mesa.",
-    description: "E aí, qual é o seu palpite? Confira na Vupi.",
-    cta: "Ver na Vupi",
+    headline: "Mercados esportivos na Vupi",
+    description: "Consulte as modalidades disponíveis na plataforma autorizada.",
+    cta: "Conhecer a Vupi",
   },
   jogos_hoje_topo: {
-    headline: "Hoje tem jogo. E tem palpite.",
-    description: "Escolha a partida e confira as apostas esportivas na Vupi.",
-    cta: "Ver jogos de hoje",
+    headline: "Apostas esportivas na Vupi",
+    description: "Consulte os jogos e mercados disponíveis para maiores de 18 anos.",
+    cta: "Ver mercados",
   },
   onde_assistir_jogo: {
-    headline: "Leu o jogo. Fez seu palpite?",
-    description: "Agora confira as apostas esportivas disponíveis na Vupi.",
-    cta: "Conferir na Vupi",
+    headline: "Mercados esportivos na Vupi",
+    description: "Consulte as opções disponíveis na plataforma autorizada.",
+    cta: "Conhecer a Vupi",
   },
 };
 
@@ -53,13 +55,45 @@ export function VupiAdBanner({
   compact?: boolean;
 }) {
   const copy = COPY_BY_PLACEMENT[placement];
+  const bannerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const element = bannerRef.current;
+    if (!element || typeof IntersectionObserver === "undefined") return;
+
+    let tracked = false;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (tracked || !entry?.isIntersecting) return;
+        tracked = true;
+        trackClick({
+          event: "afiliado_impressao",
+          label: `vupi:${placement}`,
+          gaEvent: "view_promotion",
+          gaParams: {
+            promotion_name: "Vupi — publicidade",
+            creative_slot: placement,
+          },
+        });
+        observer.disconnect();
+      },
+      { threshold: 0.5 },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [placement]);
 
   return (
-    <aside aria-label="Publicidade da Vupi" className="not-prose">
+    <aside
+      ref={bannerRef}
+      aria-label="Publicidade da Vupi"
+      className="not-prose"
+    >
       <div className="mb-2 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500">
         <span>Publicidade</span>
         <span aria-hidden="true" className="h-px flex-1 bg-ink/10" />
-        <span>Parceria comercial</span>
+        <span>Link de afiliado · 18+</span>
       </div>
 
       <div className="group overflow-hidden rounded-xl bg-[#0b0e14] shadow-sm ring-1 ring-black/10 transition duration-300 hover:-translate-y-0.5 hover:shadow-xl focus-within:ring-2 focus-within:ring-white/80">
@@ -77,7 +111,7 @@ export function VupiAdBanner({
               url: VUPI_URL,
               gaEvent: "select_promotion",
               gaParams: {
-                promotion_name: "Vupi — palpites",
+                promotion_name: "Vupi — publicidade",
                 creative_slot: placement,
               },
             })
@@ -138,20 +172,7 @@ export function VupiAdBanner({
           </span>
         </a>
 
-        <div
-          role="note"
-          aria-label="Aviso de jogo responsável"
-          className="flex items-center justify-center border-t border-white/10 bg-[#0b0e14] py-2 sm:h-20 sm:px-6 sm:py-0"
-        >
-          <Image
-            src="/ads/vupi/selo-jogo-responsavel.png"
-            alt="18+. Ministério da Fazenda adverte: Aposta não é investimento. Jogue com responsabilidade. Autorização SPA/MF nº 320/2025."
-            width={2146}
-            height={216}
-            sizes="(max-width: 896px) 100vw, 896px"
-            className="h-auto w-[92%] sm:h-14 sm:w-auto sm:max-w-[90%]"
-          />
-        </div>
+        <ResponsibleGamblingNotice showVupiAuthorization />
       </div>
     </aside>
   );

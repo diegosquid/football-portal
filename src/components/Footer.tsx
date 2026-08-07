@@ -231,6 +231,14 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link
+                  href="/jogo-responsavel"
+                  className="text-sm font-semibold text-lima transition-colors hover:text-cal"
+                >
+                  Jogo Responsável 18+
+                </Link>
+              </li>
+              <li>
                 <a
                   href="/feed.xml"
                   className="text-sm text-cal/70 transition-colors hover:text-lima"

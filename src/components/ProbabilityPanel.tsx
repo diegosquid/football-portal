@@ -15,6 +15,9 @@ export function ProbabilityPanel({
   const casa = pct(resultado.casa);
   const empate = pct(resultado.empate);
   const fora = pct(resultado.fora);
+  const homeSample = prediction.explicacao.jogosConsiderados.casa;
+  const awaySample = prediction.explicacao.jogosConsiderados.fora;
+  const smallSample = Math.min(homeSample, awaySample) < 3;
 
   return (
     <div className="border border-ink/15 bg-white p-4 sm:p-5">
@@ -63,10 +66,14 @@ export function ProbabilityPanel({
 
       {showExplanation && (
         <p className="mt-3 text-xs leading-relaxed text-gray-500">
-          Baseado na força de ataque e defesa dos times em{" "}
-          {prediction.explicacao.jogosConsiderados.casa} jogos em casa do
-          mandante e {prediction.explicacao.jogosConsiderados.fora} jogos fora
-          do visitante.
+          Baseado na força de ataque e defesa calculada a partir de {homeSample}{" "}
+          {homeSample === 1 ? "jogo" : "jogos"} do mandante em casa e{" "}
+          {awaySample} {awaySample === 1 ? "jogo" : "jogos"} do visitante fora.
+          {smallSample && (
+            <strong className="ml-1 text-amber-700">
+              Amostra pequena; interprete com cautela.
+            </strong>
+          )}
         </p>
       )}
     </div>
